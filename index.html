@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atmart — Mache Teknoloji ak Done | Apprenez l'analyse de données, gratuitement</title>
+  <meta name="description" content="Atmart (Mache Teknoloji ak Done) : tutoriels gratuits en français — Excel, Power BI, Python, IA et esprit critique — avec des données d'Haïti, de la Caraïbe et de l'Afrique. Podcast Lojik360, datasets et formations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css?v=2" />
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Atmart" class="logo-img" />at<span>mart</span><small>mache teknoloji ak done gratis</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Accueil</a></li>
+      <li><a href="tutoriels.html">Tutoriels</a></li>
+      <li><a href="podcast.html">Podcast</a></li>
+      <li><a href="datasets.html">Datasets</a></li>
+      <li><a href="formations.html">Formations</a></li>
+      <li><a href="outils.html">Outils</a></li>
+      <li><a href="tutoriels.html" class="btn btn-primary">Commencer</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO : promesse + recherche (le format qui marche : une phrase, un champ, zéro distraction) -->
+<section class="hero">
+  <div class="container">
+    <p class="kreyol">Aprann analize done. Gratis. Nan lang ou.</p>
+    <h1 data-i18n-html="hero_title">Apprenez l'<em>analyse de données</em>,<br />avec les données de chez nous.</h1>
+    <p class="lead" data-i18n="hero_lead">
+      Tutoriels gratuits en français : Excel, Power BI, Python, IA et esprit critique —
+      avec de vrais datasets d'Haïti, de la Caraïbe et de l'Afrique francophone.
+    </p>
+    <form class="search-form" action="tutoriels.html" method="get">
+      <input type="text" name="q" data-i18n-ph="search_ph" placeholder="Chercher un tutoriel (ex. Excel, Power BI, IA…)" aria-label="Recherche" />
+      <button type="submit" data-i18n="search_btn">Chercher</button>
+    </form>
+    <div class="stats-strip">
+      <div><strong>100 %</strong> gratuit</div>
+      <div><strong>FR + Kreyòl</strong> nos langues</div>
+      <div><strong>Done lokal</strong> Ayiti • Karayib • Afrik</div>
+      <div><strong>🎙 Lojik360</strong> le podcast</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTIONS MATIÈRES : une couleur par sujet, un exemple concret, un bouton « Eseye li » -->
+<section style="padding-top:1.5rem">
+  <div class="container">
+
+    <div class="subject subject--critique">
+      <div>
+        <h2>🧠 Esprit critique</h2>
+        <p class="tagline">La compétence de base : se défendre contre les faux chiffres.</p>
+        <p>Apprenez à vérifier une statistique, repérer une manipulation et poser les 5 questions Lojik360 avant de partager quoi que ce soit.</p>
+        <div class="cta-row">
+          <a href="tutoriels.html?q=critique" class="btn btn-primary">Commencer le tutoriel</a>
+          <a href="podcast.html" class="btn btn-outline">🎙 Épisode lié</a>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="ex-head">QUIZ — Vrai ou faux ?</div>
+        <div class="ex-body">
+          <p style="color:var(--ink)">« 80 % de l'argent envoyé par la diaspora est gaspillé. »<br />
+          <em style="color:var(--ink-dim)">— message WhatsApp transféré 1 000 fois</em></p>
+          <p style="margin-top:0.7rem;color:var(--teal)">→ Premye kesyon : <strong>ki sous la ?</strong> Pas de source = on ne partage pas.</p>
+        </div>
+        <div class="ex-foot"><a href="tutoriels.html?q=statistique" class="btn btn-outline">Eseye li →</a></div>
+      </div>
+    </div>
+
+    <div class="subject subject--excel">
+      <div>
+        <h2>📊 Excel</h2>
+        <p class="tagline">Le point de départ de tout analyste.</p>
+        <p>Formules, tableaux croisés dynamiques et graphiques — en analysant les vrais transferts de la diaspora (données Banque mondiale incluses).</p>
+        <div class="cta-row">
+          <a href="tutoriels.html?q=excel" class="btn btn-primary">Commencer le tutoriel</a>
+          <a href="datasets.html" class="btn btn-outline">Dataset d'exercice (gratuit)</a>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="ex-head">transferts_diaspora.xlsx</div>
+        <div class="ex-body">
+          <table>
+            <tr><th>annee</th><th>pays</th><th>millions USD</th></tr>
+            <tr><td>2022</td><td>Haïti</td><td>3 797,8</td></tr>
+            <tr><td>2023</td><td>Haïti</td><td>3 753,3</td></tr>
+            <tr><td>2024</td><td>Haïti</td><td>4 111,0</td></tr>
+          </table>
+          <pre style="margin-top:0.7rem"><span class="kw">=MOYENNE</span>(C2:C4)  <span class="com">→ 3 887,4</span></pre>
+        </div>
+        <div class="ex-foot"><a href="tutoriels.html?q=excel" class="btn btn-outline">Eseye li →</a></div>
+      </div>
+    </div>
+
+    <div class="subject subject--powerbi">
+      <div>
+        <h2>📈 Power BI</h2>
+        <p class="tagline">Transformez des chiffres en décisions.</p>
+        <p>Construisez des tableaux de bord interactifs sur l'économie haïtienne et africaine — la compétence la plus demandée chez les analystes débutants.</p>
+        <div class="cta-row">
+          <a href="tutoriels.html?q=power" class="btn btn-primary">Commencer le tutoriel</a>
+          <a href="formations.html" class="btn btn-outline">Parcours complet</a>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="ex-head">Transferts reçus en % du PIB (2024)</div>
+        <div class="ex-body">
+          <div class="mini-chart">
+            <div class="bar-row"><span>Haïti</span><div><div class="bar teal" style="width:100%"></div></div><span>16,3 %</span></div>
+            <div class="bar-row"><span>Jamaïque</span><div><div class="bar" style="width:99%"></div></div><span>16,2 %</span></div>
+            <div class="bar-row"><span>Rép. dom.</span><div><div class="bar dim" style="width:56%"></div></div><span>9,1 %</span></div>
+            <div class="bar-row"><span>Mali</span><div><div class="bar dim" style="width:24%"></div></div><span>4,0 %</span></div>
+            <div class="bar-row"><span>Côte d'Ivoire</span><div><div class="bar dim" style="width:12%"></div></div><span>2,0 %</span></div>
+          </div>
+        </div>
+        <div class="ex-foot"><a href="tutoriels.html?q=power" class="btn btn-outline">Eseye li →</a></div>
+      </div>
+    </div>
+
+    <div class="subject subject--python">
+      <div>
+        <h2>🐍 Python</h2>
+        <p class="tagline">Le langage des données — plus simple que vous ne pensez.</p>
+        <p>Vos premières analyses avec pandas, sur de vrais fichiers CSV. Quatre lignes de code suffisent pour commencer.</p>
+        <div class="cta-row">
+          <a href="tutoriels.html?q=python" class="btn btn-primary">Commencer le tutoriel</a>
+          <a href="datasets.html" class="btn btn-outline">Dataset d'exercice (gratuit)</a>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="ex-head">analyse.py</div>
+        <div class="ex-body">
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+df = pd.read_csv(<span class="str">"transferts_diaspora.csv"</span>)
+haiti = df[df.code_iso3 == <span class="str">"HTI"</span>]
+<span class="kw">print</span>(haiti.part_pib_pct.max())  <span class="com"># 22.45 (record 2020)</span></pre>
+        </div>
+        <div class="ex-foot"><a href="tutoriels.html?q=python" class="btn btn-outline">Eseye li →</a></div>
+      </div>
+    </div>
+
+    <div class="subject subject--ia">
+      <div>
+        <h2>🤖 Intelligence artificielle <span class="badge-new">NOUVO</span></h2>
+        <p class="tagline">L'IA comme outil de travail, sans mythe ni panique.</p>
+        <p>Apprenez à faire analyser vos données par l'IA, à vérifier ses réponses, et à utiliser ces compétences pour travailler en freelance international.</p>
+        <div class="cta-row">
+          <a href="tutoriels.html?q=ia" class="btn btn-primary">Commencer le tutoriel</a>
+          <a href="formations.html" class="btn btn-outline">Parcours Analyste Augmenté</a>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="ex-head">Conversation avec l'IA</div>
+        <div class="ex-body">
+          <p style="color:var(--ink)">👤 « Voici un CSV des transferts de la diaspora. Quelle est l'année record pour Haïti en % du PIB ? »</p>
+          <p style="margin-top:0.7rem;color:#b197fc">🤖 « 2020 : 22,4 % du PIB — pendant le COVID, la diaspora a envoyé plus, pas moins. »</p>
+          <p style="margin-top:0.7rem;color:var(--ink-dim)">→ Leçon n°1 : toujours vérifier la réponse dans le fichier.</p>
+        </div>
+        <div class="ex-foot"><a href="tutoriels.html?q=ia" class="btn btn-outline">Eseye li →</a></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PARCOURS GUIDÉS (format « learning paths » : du tutoriel au métier) -->
+<section style="padding-top:1rem">
+  <div class="container">
+    <div class="section-head">
+      <h2>Des tutoriels au métier : les parcours guidés</h2>
+      <p class="kreyol">Chwazi yon chimen, n ap mache avè w.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <span class="tag">Gratuit</span>
+        <h3>🧠 Citoyen Critique</h3>
+        <p>7 leçons par e-mail pour raisonner avec méthode et vérifier l'information.</p>
+        <a href="formations.html" class="btn btn-outline">Commencer</a>
+      </div>
+      <div class="card">
+        <span class="tag amber">Le plus populaire</span>
+        <h3>📊 Analyste Débutant</h3>
+        <p>Excel + Power BI en 6 semaines, 3 projets sur données locales, certificat.</p>
+        <a href="formations.html" class="btn btn-outline">Voir le parcours</a>
+      </div>
+      <div class="card">
+        <span class="tag red">Pro</span>
+        <h3>🤖 Analyste Augmenté <span class="badge-new">NOUVO</span></h3>
+        <p>Python + IA + module freelance international. Portfolio GitHub inclus.</p>
+        <a href="formations.html" class="btn btn-outline">Voir le parcours</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PODCAST (secondaire) -->
+<section style="padding-top:0.5rem">
+  <div class="container">
+    <div class="banner">
+      <h2>🎙 Lojik360 — le podcast d'Atmart</h2>
+      <p>Chaque semaine : un problème réel, des données réelles, une explication claire — en créole, avec résumé en français. Chaque épisode a son tutoriel et son dataset.</p>
+      <a href="podcast.html" class="btn btn-primary">Écouter les épisodes</a>
+    </div>
+  </div>
+</section>
+
+<!-- DATASETS (teaser discret — la boutique vit sur sa propre page) -->
+<section style="padding-top:0.5rem">
+  <div class="container">
+    <div class="section-head">
+      <h2>🗂 Et pour pratiquer : la boutique Datasets</h2>
+      <p>Des jeux de données introuvables ailleurs — économie, géographie, social, finance — sur Haïti, la Caraïbe et l'Afrique. Certains sont gratuits, pour toujours.</p>
+    </div>
+    <div style="text-align:center">
+      <a href="datasets.html" class="btn btn-primary">Explorer la boutique</a>
+      <a href="datasets.html" class="btn btn-outline" style="margin-left:0.6rem">Télécharger le dataset gratuit</a>
+    </div>
+  </div>
+</section>
+
+<!-- OUTILS (teaser) -->
+<section style="padding-top:0.5rem">
+  <div class="container">
+    <div class="banner">
+      <h2 data-i18n="teaser_tools_h2">🧰 Les outils du métier, expliqués simplement</h2>
+      <p data-i18n="teaser_tools_p">Power BI, Python, R, MySQL, GitHub… où les télécharger officiellement, comment les installer, et par quoi commencer.</p>
+      <a href="outils.html" class="btn btn-primary" data-i18n="teaser_tools_btn">Découvrir les outils</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section style="padding-top:0.5rem">
+  <div class="container">
+    <div class="banner" id="newsletter">
+      <h2>📬 Rete konekte</h2>
+      <p>Recevez chaque semaine le nouvel épisode, un tutoriel et un dataset gratuit. Zéro spam.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Votre adresse e-mail" required />
+        <button type="submit" class="btn btn-primary">S'abonner</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem">Mache Teknoloji ak Done — l'esprit critique et les données, expliqués en français et en créole haïtien, pour Haïti, la Caraïbe et l'Afrique francophone.</p>
+      </div>
+      <div>
+        <h4>Contenu</h4>
+        <ul>
+          <li><a href="tutoriels.html">Tutoriels</a></li>
+          <li><a href="podcast.html">Podcast Lojik360</a></li>
+          <li><a href="datasets.html">Datasets</a></li>
+          <li><a href="formations.html">Formations</a></li>
+          <li><a href="outils.html">Outils &amp; sources de données</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Suivez-nous</h4>
+        <ul>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Spotify</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:contact@atmartllc.com">contact@atmartllc.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Atmart LLC — Mache Teknoloji ak Done. Lojik360 est une marque d'Atmart LLC.</div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/i18n.js"></script>
+</body>
+</html>

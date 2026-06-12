@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outils &amp; sources de données — Atmart</title>
+  <meta name="description" content="Les outils du data analyst avec liens officiels, étapes d'installation et première pratique : Power BI, Tableau, Python, R, Java, EViews, SAS, Stata, MySQL, GitHub — et les meilleures sources de données gratuites." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css?v=2" />
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Atmart" class="logo-img" />at<span>mart</span><small>mache teknoloji ak done gratis</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="tutoriels.html">Tutoriels</a></li>
+      <li><a href="podcast.html">Podcast</a></li>
+      <li><a href="datasets.html">Datasets</a></li>
+      <li><a href="formations.html">Formations</a></li>
+      <li><a href="outils.html" class="active">Outils</a></li>
+      <li><a href="tutoriels.html" class="btn btn-primary">Commencer</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding:3.5rem 0 2rem">
+  <div class="container">
+    <p class="kreyol">Zouti yo gratis oswa ofisyèl — pa gen vèsyon pirate isit la.</p>
+    <h1 data-i18n="tools_h1">Outils &amp; sources de données</h1>
+    <p class="lead" data-i18n="tools_lead">Chaque outil avec son lien officiel, ses étapes d'installation et une première pratique guidée — plus les meilleures sources de données gratuites du monde.</p>
+    <form class="search-form">
+      <input type="text" class="page-search" data-target="#tools-grid" data-i18n-ph="tools_search_ph" placeholder="Chercher un outil (ex. Python, Tableau, MySQL…)" aria-label="Recherche d'outil" />
+      <button type="submit" data-i18n="search_btn">Chercher</button>
+    </form>
+    <p style="color:var(--ink-dim);font-size:0.82rem;margin-top:0.8rem">Tous les liens pointent vers les sites officiels. Certains pourront devenir des liens partenaires (affiliés) — cela ne change jamais le prix pour vous, et nous ne recommandons que ce que nous utilisons.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="container">
+    <div class="filters" data-target="#tools-grid">
+      <button class="filter-btn active" data-filter="all">Tout</button>
+      <button class="filter-btn" data-filter="bi">📊 BI &amp; visualisation</button>
+      <button class="filter-btn" data-filter="prog">💻 Programmation</button>
+      <button class="filter-btn" data-filter="stats">📐 Statistiques</button>
+      <button class="filter-btn" data-filter="bdd">🗄 Bases de données</button>
+      <button class="filter-btn" data-filter="dev">🛠 Dev &amp; collaboration</button>
+    </div>
+
+    <div class="grid grid-3" id="tools-grid">
+
+      <div class="card" data-cat="bi">
+        <span class="tag">Gratuit</span>
+        <h3>Power BI Desktop</h3>
+        <p>L'outil de tableaux de bord le plus demandé sur le marché de l'emploi — et celui que nous utilisons dans nos tutoriels.</p>
+        <details class="solution"><summary data-i18n="tools_install">Installation &amp; première pratique</summary>
+          <ol>
+            <li>Windows uniquement. Installez via le <strong>Microsoft Store</strong> (recherchez « Power BI Desktop ») — mises à jour automatiques.</li>
+            <li>Ouvrez → « Obtenir les données » → Texte/CSV.</li>
+            <li><strong>Première pratique :</strong> chargez notre <a href="data/transferts_diaspora_2000_2025.csv" download>dataset gratuit des transferts</a> et créez un histogramme <code>pays × part_pib_pct</code>.</li>
+          </ol>
+        </details>
+        <a href="https://www.microsoft.com/store/productId/9NTXR16HNW1T" class="btn btn-primary" target="_blank" rel="noopener">Site officiel</a>
+        <a href="tutoriels.html?q=power" class="btn btn-outline">Tutoriel Atmart</a>
+      </div>
+
+      <div class="card" data-cat="bi">
+        <span class="tag">Gratuit</span>
+        <h3>Tableau Public</h3>
+        <p>L'alternative à Power BI, gratuite dans sa version Public — vos visualisations sont publiées en ligne (parfait pour un portfolio).</p>
+        <details class="solution"><summary data-i18n="tools_install">Installation &amp; première pratique</summary>
+          <ol>
+            <li>Créez un compte gratuit sur public.tableau.com → téléchargez Tableau Public (Windows/Mac).</li>
+            <li>Connectez un fichier texte (CSV).</li>
+            <li><strong>Première pratique :</strong> refaites la courbe « Haïti, % du PIB 2000–2024 » du tutoriel Excel — et publiez-la : c'est votre première pièce de portfolio.</li>
+          </ol>
+        </details>
+        <a href="https://public.tableau.com/" class="btn btn-primary" target="_blank" rel="noopener">Site officiel</a>
+      </div>
+
+      <div class="card" data-cat="prog">
+        <span class="tag">Gratuit</span>
+        <h3>Python</h3>
+        <p>Le langage n°1 de la donnée et de l'IA. Avec pandas, 4 lignes suffisent pour analyser un CSV.</p>
+        <details class="solution"><summary data-i18n="tools_install">Installation &amp; première pratique</summary>
+          <ol>
+            <li>Téléchargez sur python.org → ⚠ cochez <strong>« Add Python to PATH »</strong> à l'installation.</li>
+            <li>Installez pandas : ouvrez un terminal → <code>pip install pandas matplotlib</code>.</li>
+            <li><strong>Petite connexion ?</strong> Utilisez <strong>Google Colab</strong> (colab.google) : Python dans le navigateur, zéro installation.</li>
+            <li><strong>Première pratique :</strong> <code>import pandas as pd; df = pd.read_csv("transferts_diaspora_2000_2025.csv"); print(df.head())</code></li>
+          </ol>
+        </details>
+        <a href="https://www.python.org/downloads/" class="btn btn-primary" target="_blank" rel="noopener">Site officiel</a>
+        <a href="https://colab.google/" class="btn btn-outline" target="_blank" rel="noopener">Colab (sans installation)</a>
+      </div>
+
+      <div class="card" data-cat="prog stats">
+        <span class="tag">Gratuit</span>
+        <h3>R + RStudio</h3>
+        <p>La référence des statisticiens et des chercheurs — très utilisé pour les enquêtes (LAPOP, recensements) et l'économétrie.</p>
+        <details class="solution"><summary data-i18n="tools_install">Installation &amp; première pratique</summary>
+          <ol>
+            <li>Installez R depuis cran.r-project.org, puis RStudio Desktop depuis posit.co (dans cet ordre).</li>
+            <li><strong>Première pratique :</strong> <code>donnees &lt;- read.csv("transferts_diaspora_2000_2025.csv"); summary(donnees)</code></li>
+            <li>Puis : <code>hist(donnees$part_pib_pct)</code> — votre premier histogramme en une ligne.</li>
+          </ol>
+        </details>
+        <a href="https://cran.r-project.org/" class="btn btn-primary" target="_blank" rel="noopener">R (CRAN)</a>
+        <a href="https://posit.co/download/rstudio-desktop/" class="btn btn-outline" target="_blank" rel="noopener">RStudio</a>
+      </div>
+
+      <div class="card" data-cat="prog dev">
+        <span class="tag">Gratuit</span>
+        <h3>Java (JDK)</h3>
+        <p>Le langage des grandes applications d'entreprise et d'Android — une base solide pour l'ingénierie logicielle.</p>
+        <details class="solution"><summary data-i18n="tools_install">Installation &amp; première pratique</summary>
+          <ol>
+            <li>Téléchargez le JDK LTS gratuit chez Adoptium (Eclipse Temurin) — adoptium.net.</li>
+            <li>Vérifiez : terminal → <code>java -version</code>.</li>
+            <li><strong>Première pratique :</strong> créez <code>Bonjou.java</code> avec <code>System.out.println("Bonjou Ayiti!");</code> → <code>javac Bonjou.java</code> → <code>java Bonjou</code>.</li>
+          </ol>
+        </details>
+        <a href="https://adoptium.net/" class="btn btn-primary" target="_blank" rel="noopener">Adoptium (officiel)</a>
+      </div>
+
+      <div class="card" data-cat="stats">
+        <span class="tag amber">Payant / étudiant</span>
+        <h3>EViews</h3>
+        <p>Le logiciel d'économétrie des banques centrales et ministères — séries temporelles, prévisions macro.</p>
+        <details class="solution"><summary data-i18n="tools_install">Installation &amp; première pratique</summary>
+          <ol>
+            <li>Licence payante — version <strong>EViews Student Lite gratuite</strong> sur eviews.com (inscription e-mail).</li>
+            <li><strong>Première pratique :</strong> importez la série des transferts d'Haïti et tracez-la (Quick → Graph) ; testez une moyenne mobile.</li>
+            <li>Alternative 100 % gratuite pour l'économétrie : <strong>gretl</strong> (gretl.sourceforge.net).</li>
+          </ol>
+        </details>
+        <a href="https://www.eviews.com/" class="btn btn-primary" target="_blank" rel="noopener">Site officiel</a>
+      </div>
+
+      <div class="card" data-cat="stats">
+        <span class="tag">Gratuit (cloud)</span>
+        <h3>SAS OnDemand</h3>
+        <p>SAS est exigé dans les banques, assurances et la pharma. La version académique cloud est gratuite — rien à installer.</p>
+        <details class="solution"><summary data-i18n="tools_install">Installation &amp; première pratique</summary>
+          <ol>
+            <li>Créez un compte gratuit sur <strong>SAS OnDemand for Academics</strong> (welcome.oda.sas.com).</li>
+            <li>Tout se passe dans le navigateur (SAS Studio).</li>
+            <li><strong>Première pratique :</strong> importez le CSV des transferts → <code>proc means data=work.import; var part_pib_pct; run;</code></li>
+          </ol>
+        </details>
+        <a href="https://welcome.oda.sas.com/" class="btn btn-primary" target="_blank" rel="noopener">SAS OnDemand</a>
+      </div>
+
+      <div class="card" data-cat="stats">
+        <span class="tag amber">Payant</span>
+        <h3>Stata</h3>
+        <p>Le standard des économistes du développement, des ONG et des enquêtes ménages (Banque mondiale, USAID).</p>
+        <details class="solution"><summary data-i18n="tools_install">Installation &amp; première pratique</summary>
+          <ol>
+            <li>Licence payante sur stata.com (tarifs étudiants réduits ; souvent fournie par les universités et ONG).</li>
+            <li><strong>Première pratique :</strong> <code>import delimited transferts_diaspora_2000_2025.csv</code> → <code>summarize part_pib_pct if code_iso3=="HTI"</code>.</li>
+            <li>Pas de licence ? R fait tout ce que Stata fait — commencez par R.</li>
+          </ol>
+        </details>
+        <a href="https://www.stata.com/" class="btn btn-primary" target="_blank" rel="noopener">Site officiel</a>
+      </div>
+
+      <div class="card" data-cat="bdd">
+        <span class="tag">Gratuit</span>
+        <h3>MySQL + Workbench</h3>
+        <p>La base de données la plus utilisée du web. Le SQL est la 2e compétence la plus demandée chez les analystes, juste après Excel.</p>
+        <details class="solution"><summary data-i18n="tools_install">Installation &amp; première pratique</summary>
+          <ol>
+            <li>Téléchargez <strong>MySQL Community Server</strong> + <strong>MySQL Workbench</strong> sur dev.mysql.com/downloads.</li>
+            <li>À l'installation, notez bien votre mot de passe root.</li>
+            <li><strong>Première pratique :</strong> importez le CSV des transferts (Table Data Import Wizard) puis : <code>SELECT pays, MAX(part_pib_pct) FROM transferts GROUP BY pays;</code></li>
+          </ol>
+        </details>
+        <a href="https://dev.mysql.com/downloads/" class="btn btn-primary" target="_blank" rel="noopener">Site officiel</a>
+      </div>
+
+      <div class="card" data-cat="dev">
+        <span class="tag">Gratuit</span>
+        <h3>GitHub + Git</h3>
+        <p>Votre CV technique vivant : chaque projet publié sur GitHub est une preuve de compétence pour les recruteurs et clients freelance.</p>
+        <details class="solution"><summary data-i18n="tools_install">Installation &amp; première pratique</summary>
+          <ol>
+            <li>Créez un compte gratuit sur github.com.</li>
+            <li>Installez Git : git-scm.com (Windows/Mac/Linux).</li>
+            <li><strong>Première pratique :</strong> créez un repo « mon-premier-projet-data », ajoutez votre analyse Excel du tutoriel Atmart et un README qui explique vos conclusions.</li>
+          </ol>
+        </details>
+        <a href="https://github.com/" class="btn btn-primary" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://git-scm.com/" class="btn btn-outline" target="_blank" rel="noopener">Git</a>
+      </div>
+
+      <div class="card" data-cat="dev prog">
+        <span class="tag">Gratuit</span>
+        <h3>VS Code</h3>
+        <p>L'éditeur de code universel — Python, R, SQL, web — avec des milliers d'extensions gratuites.</p>
+        <details class="solution"><summary data-i18n="tools_install">Installation &amp; première pratique</summary>
+          <ol>
+            <li>Téléchargez sur code.visualstudio.com.</li>
+            <li>Installez les extensions <strong>Python</strong> et <strong>Jupyter</strong> (onglet Extensions).</li>
+            <li><strong>Première pratique :</strong> ouvrez votre script <code>analyse.py</code> du tutoriel Python et exécutez-le avec ▶.</li>
+          </ol>
+        </details>
+        <a href="https://code.visualstudio.com/" class="btn btn-primary" target="_blank" rel="noopener">Site officiel</a>
+      </div>
+
+      <div class="card" data-cat="bi prog">
+        <span class="tag">Gratuit (cloud)</span>
+        <h3>Google Colab</h3>
+        <p>Python + IA dans le navigateur, zéro installation — la meilleure option si votre ordinateur est modeste ou votre connexion limitée.</p>
+        <details class="solution"><summary data-i18n="tools_install">Installation &amp; première pratique</summary>
+          <ol>
+            <li>Allez sur colab.google avec un compte Google — c'est tout.</li>
+            <li><strong>Première pratique :</strong> Nouveau notebook → glissez le CSV des transferts dans les fichiers → <code>pd.read_csv(...)</code> → graphique en 3 lignes.</li>
+            <li>Bonus : GPU gratuit pour vos premiers modèles d'IA.</li>
+          </ol>
+        </details>
+        <a href="https://colab.google/" class="btn btn-primary" target="_blank" rel="noopener">Site officiel</a>
+      </div>
+
+    </div>
+
+    <div class="section-head" style="margin-top:3.5rem">
+      <h2 data-i18n="tools_sources_h2">Sources de données gratuites</h2>
+      <p>Les bibliothèques de données que nous utilisons pour nos tutoriels, datasets et épisodes — toutes gratuites, toutes fiables. <em>Toujou site sous ou!</em></p>
+    </div>
+
+    <div class="grid grid-3" id="sources-grid">
+      <div class="card">
+        <span class="tag">Macro-économie</span>
+        <h3>World Bank Data</h3>
+        <p>PIB, transferts, éducation, santé pour 200+ pays — l'API derrière notre dataset des transferts de la diaspora.</p>
+        <a href="https://data.worldbank.org/" class="btn btn-outline" target="_blank" rel="noopener">data.worldbank.org</a>
+      </div>
+      <div class="card">
+        <span class="tag">Macro-économie</span>
+        <h3>IMF Data</h3>
+        <p>Inflation, taux de change, finances publiques — le complément naturel de la Banque mondiale.</p>
+        <a href="https://data.imf.org/" class="btn btn-outline" target="_blank" rel="noopener">data.imf.org</a>
+      </div>
+      <div class="card">
+        <span class="tag amber">Communauté</span>
+        <h3>Kaggle</h3>
+        <p>Des centaines de milliers de datasets + compétitions de data science + notebooks gratuits pour apprendre des meilleurs.</p>
+        <a href="https://www.kaggle.com/datasets" class="btn btn-outline" target="_blank" rel="noopener">kaggle.com/datasets</a>
+      </div>
+      <div class="card">
+        <span class="tag amber">Moteur de recherche</span>
+        <h3>Google Dataset Search</h3>
+        <p>Le Google des datasets : cherchez « Haiti remittances » ou « Sénégal agriculture » et trouvez les sources publiées partout dans le monde.</p>
+        <a href="https://datasetsearch.research.google.com/" class="btn btn-outline" target="_blank" rel="noopener">datasetsearch.research.google.com</a>
+      </div>
+      <div class="card">
+        <span class="tag">Visualisations</span>
+        <h3>Our World in Data</h3>
+        <p>Données mondiales (santé, énergie, pauvreté) avec graphiques téléchargeables et CSV ouverts — parfait pour s'inspirer.</p>
+        <a href="https://ourworldindata.org/" class="btn btn-outline" target="_blank" rel="noopener">ourworldindata.org</a>
+      </div>
+      <div class="card">
+        <span class="tag">International</span>
+        <h3>UN Data</h3>
+        <p>Le portail statistique des Nations unies : population, commerce, environnement, indicateurs ODD.</p>
+        <a href="https://data.un.org/" class="btn btn-outline" target="_blank" rel="noopener">data.un.org</a>
+      </div>
+      <div class="card">
+        <span class="tag red">Humanitaire</span>
+        <h3>HDX — Humanitarian Data Exchange</h3>
+        <p>Les données humanitaires d'OCHA, très riches sur Haïti : limites administratives, population, crises — la source de notre Pack Géo.</p>
+        <a href="https://data.humdata.org/" class="btn btn-outline" target="_blank" rel="noopener">data.humdata.org</a>
+      </div>
+      <div class="card">
+        <span class="tag red">Enquêtes</span>
+        <h3>LAPOP — AmericasBarometer</h3>
+        <p>Les grandes enquêtes d'opinion des Amériques (dont Haïti) : démocratie, sécurité, confiance dans les institutions.</p>
+        <a href="https://www.vanderbilt.edu/lapop/" class="btn btn-outline" target="_blank" rel="noopener">vanderbilt.edu/lapop</a>
+      </div>
+      <div class="card">
+        <span class="tag red">Haïti — SIG</span>
+        <h3>HaitiData.org</h3>
+        <p>Cartes et couches SIG sur Haïti (CNIGS) : routes, rivières, bâtiments, risques — pour vos analyses géographiques.</p>
+        <a href="https://haitidata.org/" class="btn btn-outline" target="_blank" rel="noopener">haitidata.org</a>
+      </div>
+    </div>
+
+    <div class="banner" style="margin-top:3rem">
+      <h2>Par où commencer ?</h2>
+      <p>Notre conseil : <strong>Excel d'abord</strong> (déjà sur votre machine), puis <strong>Power BI</strong>, puis <strong>Python sur Colab</strong>. Suivez les tutoriels dans l'ordre — chaque outil utilise les mêmes données, donc vous progressez sans repartir de zéro.</p>
+      <a href="tutoriels.html" class="btn btn-primary">Suivre les tutoriels</a>
+      <a href="formations.html" class="btn btn-outline" style="margin-left:0.6rem">Parcours guidé complet</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">© 2026 Atmart LLC — Mache Teknoloji ak Done. Lojik360 est une marque d'Atmart LLC.</div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/i18n.js"></script>
+</body>
+</html>

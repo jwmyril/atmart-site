@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datasets — Atmart</title>
+  <meta name="description" content="Datasets économiques, géographiques, sociaux et financiers sur Haïti, la Caraïbe et l'Afrique francophone — nettoyés, documentés, prêts à l'analyse." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css?v=2" />
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Atmart" class="logo-img" />at<span>mart</span><small>mache teknoloji ak done gratis</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="tutoriels.html">Tutoriels</a></li>
+      <li><a href="podcast.html">Podcast</a></li>
+      <li><a href="datasets.html" class="active">Datasets</a></li>
+      <li><a href="formations.html">Formations</a></li>
+      <li><a href="outils.html">Outils</a></li>
+      <li><a href="podcast.html" class="btn btn-primary">🎙 Écouter</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding:3.5rem 0 2.5rem">
+  <div class="container">
+    <p class="kreyol">Done pwòp, dokimante, pare pou analiz.</p>
+    <h1>La boutique <em>Datasets</em></h1>
+    <p class="lead">
+      Des jeux de données introuvables ailleurs : Haïti, Caraïbe francophone et Afrique,
+      collectés, nettoyés et documentés (dictionnaire de variables + sources). Formats CSV, Excel et Power BI (.pbix).
+    </p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="container">
+    <div class="filters" data-target="#data-grid">
+      <button class="filter-btn active" data-filter="all">Tout</button>
+      <button class="filter-btn" data-filter="economie">💰 Économie</button>
+      <button class="filter-btn" data-filter="geo">🗺 Géographie</button>
+      <button class="filter-btn" data-filter="social">👥 Social</button>
+      <button class="filter-btn" data-filter="finance">📈 Finance</button>
+      <button class="filter-btn" data-filter="gratuit">🎁 Gratuits</button>
+    </div>
+
+    <div class="grid grid-3" id="data-grid">
+      <div class="card" data-cat="economie gratuit">
+        <span class="tag">Gratuit</span>
+        <h3>Transferts de la diaspora (2000–2025) — Haïti + 7 pays</h3>
+        <p>Transferts reçus en USD et en % du PIB : Haïti, Rép. dominicaine, Jamaïque, Sénégal, Côte d'Ivoire, Mali, Cameroun, Togo. Données réelles, documentées. Source : Banque mondiale.</p>
+        <p class="price">0 $ <small>CSV • 208 lignes</small></p>
+        <p class="meta">💰 Économie • 26 ans • Utilisé dans l'épisode #01 • <a href="data/LISEZMOI_transferts_diaspora.md">documentation</a></p>
+        <a href="data/transferts_diaspora_2000_2025.csv" download class="btn btn-primary">Télécharger gratuitement</a>
+      </div>
+      <div class="card" data-cat="economie">
+        <span class="tag amber">Premium</span>
+        <h3>Indicateurs économiques Haïti — pack complet</h3>
+        <p>PIB, inflation, taux de change gourde/USD (mensuel), importations/exportations, 2000–2025. Nettoyé et harmonisé.</p>
+        <p class="price">19 $ <small>CSV + Excel + PBIX</small></p>
+        <p class="meta">💰 Économie • 25 ans • Dictionnaire de variables inclus</p>
+        <a href="#" class="btn btn-primary">Acheter</a>
+      </div>
+      <div class="card" data-cat="geo">
+        <span class="tag amber">Premium</span>
+        <h3>Pack Géo Haïti — toutes les coordonnées GPS <span class="badge-new">NOUVO</span></h3>
+        <p><strong>570 sections communales</strong> + <strong>140 villes chefs-lieux</strong> + <strong>10 945 lieux habités</strong>, avec noms en français ET en kreyòl, p-codes officiels OCHA, superficies et coordonnées WGS84. GeoJSON des départements, communes et sections inclus pour vos cartes Power BI/QGIS.</p>
+        <p class="price">29 $ <small>3 CSV + 3 GeoJSON + documentation</small></p>
+        <p class="meta">🗺 Géographie • Sources : OCHA/CNIGS + GeoNames • <a href="data/ECHANTILLON_haiti_sections_gps.csv" download>échantillon gratuit (10 lignes)</a></p>
+        <a href="#" class="btn btn-primary">Acheter</a>
+      </div>
+      <div class="card" data-cat="social gratuit">
+        <span class="tag">Gratuit</span>
+        <h3>Éducation en Haïti : indicateurs clés</h3>
+        <p>Taux de scolarisation, alphabétisation et dépenses par département. Idéal pour s'exercer aux tableaux de bord.</p>
+        <p class="price">0 $ <small>CSV</small></p>
+        <p class="meta">👥 Social • Utilisé dans les tutoriels Excel</p>
+        <a href="#" class="btn btn-primary">Télécharger gratuitement</a>
+      </div>
+      <div class="card" data-cat="social">
+        <span class="tag amber">Premium</span>
+        <h3>Démographie Caraïbe francophone</h3>
+        <p>Haïti, Guadeloupe, Martinique, Guyane : pyramides des âges, migration, urbanisation, 1990–2025.</p>
+        <p class="price">29 $ <small>CSV + Excel + PBIX</small></p>
+        <p class="meta">👥 Social • 4 territoires • 35 ans</p>
+        <a href="#" class="btn btn-primary">Acheter</a>
+      </div>
+      <div class="card" data-cat="finance">
+        <span class="tag amber">Premium</span>
+        <h3>Inclusion financière &amp; mobile money — Afrique francophone</h3>
+        <p>Taux de bancarisation, adoption du mobile money et microfinance dans 12 pays, 2015–2025.</p>
+        <p class="price">34 $ <small>CSV + Excel</small></p>
+        <p class="meta">📈 Finance • 12 pays • Sources : GSMA, Banque mondiale</p>
+        <a href="#" class="btn btn-primary">Acheter</a>
+      </div>
+      <div class="card" data-cat="economie finance">
+        <span class="tag red">Pack Pro</span>
+        <h3>Pack Analyste Caraïbe — tout inclus</h3>
+        <p>Tous les datasets premium actuels et futurs pendant 1 an + mises à jour trimestrielles + accès prioritaire.</p>
+        <p class="price">79 $/an <small>tous formats</small></p>
+        <p class="meta">⭐ Meilleure valeur pour étudiants et chercheurs</p>
+        <a href="#" class="btn btn-primary">S'abonner</a>
+      </div>
+      <div class="card" data-cat="geo gratuit">
+        <span class="tag">Gratuit</span>
+        <h3>Villes principales — Haïti, Caraïbe, Afrique de l'Ouest</h3>
+        <p>120 villes avec population et coordonnées GPS. Parfait pour votre première carte de données.</p>
+        <p class="price">0 $ <small>CSV</small></p>
+        <p class="meta">🗺 Géographie • Utilisé dans le tutoriel Power BI</p>
+        <a href="#" class="btn btn-primary">Télécharger gratuitement</a>
+      </div>
+      <div class="card" data-cat="economie">
+        <span class="tag amber">Premium</span>
+        <h3>Prix des produits de base — marchés haïtiens</h3>
+        <p>Riz, haricots, huile, carburant : relevés de prix par marché et par mois, 2018–2025. Sources : CNSA, FEWS NET.</p>
+        <p class="price">19 $ <small>CSV + Excel</small></p>
+        <p class="meta">💰 Économie • Séries mensuelles • 7 ans</p>
+        <a href="#" class="btn btn-primary">Acheter</a>
+      </div>
+    </div>
+
+    <div class="banner" style="margin-top:3rem">
+      <h2>Comment ça marche ?</h2>
+      <p>Paiement sécurisé par carte ou PayPal via Gumroad/Payhip — téléchargement immédiat. Chaque dataset inclut sa documentation (sources, dictionnaire de variables, licence d'utilisation). Étudiants : écrivez-nous pour une réduction.</p>
+      <a href="mailto:contact@atmartllc.com" class="btn btn-outline">Demander un dataset sur mesure</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">© 2026 Atmart LLC — Mache Teknoloji ak Done. Lojik360 est une marque d'Atmart LLC.</div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/i18n.js"></script>
+</body>
+</html>

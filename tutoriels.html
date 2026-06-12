@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutoriels gratuits — Atmart</title>
+  <meta name="description" content="Tutoriels gratuits en français : esprit critique, Excel, Power BI, Python, statistiques et intelligence artificielle." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css?v=2" />
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Atmart" class="logo-img" />at<span>mart</span><small>mache teknoloji ak done gratis</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="tutoriels.html" class="active">Tutoriels</a></li>
+      <li><a href="podcast.html">Podcast</a></li>
+      <li><a href="datasets.html">Datasets</a></li>
+      <li><a href="formations.html">Formations</a></li>
+      <li><a href="outils.html">Outils</a></li>
+      <li><a href="podcast.html" class="btn btn-primary">🎙 Écouter</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding:3.5rem 0 2.5rem">
+  <div class="container">
+    <p class="kreyol">Aprann gratis. Pratike. Vanse.</p>
+    <h1>Tutoriels <em>gratuits</em></h1>
+    <p class="lead">Des guides pas-à-pas, du niveau débutant au niveau avancé. Chaque tutoriel correspond à un épisode du podcast et utilise un dataset que vous pouvez télécharger.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="container">
+    <div class="filters" data-target="#tuto-grid">
+      <button class="filter-btn active" data-filter="all">Tout</button>
+      <button class="filter-btn" data-filter="critique">🧠 Esprit critique</button>
+      <button class="filter-btn" data-filter="donnees">📊 Données</button>
+      <button class="filter-btn" data-filter="ia">🤖 IA</button>
+      <button class="filter-btn" data-filter="science">🔬 Science</button>
+    </div>
+
+    <div class="grid grid-3" id="tuto-grid">
+      <div class="card" data-cat="critique">
+        <span class="tag">Débutant</span>
+        <h3>Détecter une fausse statistique en 5 questions</h3>
+        <p>La méthode simple pour vérifier un chiffre qui circule sur WhatsApp ou Facebook avant de le partager.</p>
+        <p class="meta">🧠 Esprit critique • 15 min • Épisode lié : #01</p>
+        <a href="#" class="btn btn-outline">Lire le tutoriel</a>
+      </div>
+      <div class="card" data-cat="donnees">
+        <span class="tag">Débutant</span>
+        <h3>Excel : votre première analyse de données <span class="badge-new">DISPONIBLE</span></h3>
+        <p>Import CSV, formules, tableau croisé dynamique et graphique — avec les vraies données des transferts de la diaspora (Banque mondiale).</p>
+        <p class="meta">📊 Données • 30–40 min • Dataset gratuit inclus • Épisode lié : #01</p>
+        <a href="tutoriels/excel-premiere-analyse.html" class="btn btn-primary">Lire le tutoriel</a>
+      </div>
+      <div class="card" data-cat="donnees">
+        <span class="tag amber">Intermédiaire</span>
+        <h3>Power BI : construire votre premier tableau de bord</h3>
+        <p>De l'import des données à un dashboard interactif sur l'économie haïtienne, étape par étape.</p>
+        <p class="meta">📊 Données • 45 min • Dataset gratuit inclus</p>
+        <a href="#" class="btn btn-outline">Lire le tutoriel</a>
+      </div>
+      <div class="card" data-cat="ia">
+        <span class="tag">Débutant</span>
+        <h3>L'IA expliquée sans mythe : ce qu'elle fait vraiment</h3>
+        <p>Comprendre les modèles de langage, leurs forces et leurs limites — pour les utiliser intelligemment.</p>
+        <p class="meta">🤖 IA • 20 min • Épisode lié : #03</p>
+        <a href="#" class="btn btn-outline">Lire le tutoriel</a>
+      </div>
+      <div class="card" data-cat="ia donnees">
+        <span class="tag amber">Intermédiaire</span>
+        <h3>Analyser des données avec l'IA : guide pratique</h3>
+        <p>Utiliser ChatGPT/Claude pour nettoyer, explorer et interpréter un dataset — avec les pièges à éviter.</p>
+        <p class="meta">🤖 IA + 📊 Données • 35 min</p>
+        <a href="#" class="btn btn-outline">Lire le tutoriel</a>
+      </div>
+      <div class="card" data-cat="science">
+        <span class="tag">Débutant</span>
+        <h3>La méthode scientifique appliquée au quotidien</h3>
+        <p>Hypothèse, test, preuve : comment penser comme un scientifique face à une affirmation douteuse.</p>
+        <p class="meta">🔬 Science • 18 min • Épisode lié : #02</p>
+        <a href="#" class="btn btn-outline">Lire le tutoriel</a>
+      </div>
+      <div class="card" data-cat="donnees">
+        <span class="tag red">Avancé</span>
+        <h3>Python pour l'analyse : premiers pas avec pandas</h3>
+        <p>Installer Python, charger un CSV et produire vos premières statistiques sur des données réelles.</p>
+        <p class="meta">📊 Données • 60 min • Dataset gratuit inclus</p>
+        <a href="#" class="btn btn-outline">Lire le tutoriel</a>
+      </div>
+      <div class="card" data-cat="science">
+        <span class="tag amber">Intermédiaire</span>
+        <h3>Énergie solaire : les vrais chiffres pour nos pays</h3>
+        <p>Coûts, rendement, durée de vie : une analyse d'ingénieur pour décider avec des données.</p>
+        <p class="meta">🔬 Science • 25 min • Épisode lié : #04</p>
+        <a href="#" class="btn btn-outline">Lire le tutoriel</a>
+      </div>
+      <div class="card" data-cat="critique ia">
+        <span class="tag">Débutant</span>
+        <h3>Deepfakes et images IA : comment vérifier</h3>
+        <p>Les outils gratuits et réflexes pour authentifier une image ou une vidéo avant d'y croire.</p>
+        <p class="meta">🧠 Esprit critique + 🤖 IA • 15 min</p>
+        <a href="#" class="btn btn-outline">Lire le tutoriel</a>
+      </div>
+    </div>
+
+    <div class="banner" style="margin-top:3rem">
+      <h2>Allez plus loin avec un parcours guidé</h2>
+      <p>Les tutoriels sont gratuits pour toujours. Pour un accompagnement structuré avec projets et certificat, découvrez nos formations.</p>
+      <a href="formations.html" class="btn btn-primary">Voir les formations</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">© 2026 Atmart LLC — Mache Teknoloji ak Done. Lojik360 est une marque d'Atmart LLC.</div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/i18n.js"></script>
+</body>
+</html>
