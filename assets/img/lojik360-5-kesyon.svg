@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 520" font-family="Inter, Arial, sans-serif">
+  <rect width="820" height="520" fill="#0a1a2f"/>
+  <text x="410" y="52" text-anchor="middle" fill="#2ec4b6" font-size="30" font-weight="700" font-family="'Space Grotesk', Arial, sans-serif">5 kesyon Lojik360</text>
+  <text x="410" y="80" text-anchor="middle" fill="#9fb3c8" font-size="15">Avan w kwè oswa pataje yon chif — 30 segond</text>
+
+  <!-- rows -->
+  <g>
+    <rect x="70" y="110" width="680" height="62" rx="12" fill="#12243d" stroke="#243b55"/>
+    <circle cx="110" cy="141" r="20" fill="#2ec4b6"/>
+    <text x="110" y="148" text-anchor="middle" fill="#0a1a2f" font-size="20" font-weight="700">1</text>
+    <text x="150" y="138" fill="#e8eef5" font-size="19" font-weight="600">Ki sous la ?</text>
+    <text x="150" y="160" fill="#9fb3c8" font-size="13">Quelle est la source ? / What is the source?</text>
+  </g>
+  <g>
+    <rect x="70" y="184" width="680" height="62" rx="12" fill="#12243d" stroke="#243b55"/>
+    <circle cx="110" cy="215" r="20" fill="#f4a261"/>
+    <text x="110" y="222" text-anchor="middle" fill="#0a1a2f" font-size="20" font-weight="700">2</text>
+    <text x="150" y="212" fill="#e8eef5" font-size="19" font-weight="600">Divize pa kisa ?</text>
+    <text x="150" y="234" fill="#9fb3c8" font-size="13">Divisé par quoi ? / Divided by what?</text>
+  </g>
+  <g>
+    <rect x="70" y="258" width="680" height="62" rx="12" fill="#12243d" stroke="#243b55"/>
+    <circle cx="110" cy="289" r="20" fill="#2ec4b6"/>
+    <text x="110" y="296" text-anchor="middle" fill="#0a1a2f" font-size="20" font-weight="700">3</text>
+    <text x="150" y="286" fill="#e8eef5" font-size="19" font-weight="600">Poukisa peryòd sa a ?</text>
+    <text x="150" y="308" fill="#9fb3c8" font-size="13">Pourquoi cette période ? / Why this period?</text>
+  </g>
+  <g>
+    <rect x="70" y="332" width="680" height="62" rx="12" fill="#12243d" stroke="#243b55"/>
+    <circle cx="110" cy="363" r="20" fill="#f4a261"/>
+    <text x="110" y="370" text-anchor="middle" fill="#0a1a2f" font-size="20" font-weight="700">4</text>
+    <text x="150" y="360" fill="#e8eef5" font-size="19" font-weight="600">An dola oswa an pousantaj ?</text>
+    <text x="150" y="382" fill="#9fb3c8" font-size="13">En dollars ou en % ? / Dollars or percent?</text>
+  </g>
+  <g>
+    <rect x="70" y="406" width="680" height="62" rx="12" fill="#12243d" stroke="#243b55"/>
+    <circle cx="110" cy="437" r="20" fill="#e63946"/>
+    <text x="110" y="444" text-anchor="middle" fill="#ffffff" font-size="20" font-weight="700">5</text>
+    <text x="150" y="434" fill="#e8eef5" font-size="19" font-weight="600">Kòz oswa korelasyon ?</text>
+    <text x="150" y="456" fill="#9fb3c8" font-size="13">Cause ou corrélation ? / Cause or correlation?</text>
+  </g>
+
+  <text x="750" y="500" text-anchor="end" fill="#9fb3c8" font-size="13" font-weight="600">atmart.ltd</text>
+</svg>

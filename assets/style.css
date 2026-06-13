@@ -382,6 +382,40 @@ details.solution p, details.solution li { font-size: 0.92rem; }
 
 .tuto-toc-toggle { display: none; }
 
+/* Sélecteur de langue PAR PAGE (versions complètes séparées) */
+.lang-page-switch {
+  display: flex; gap: 0.3rem; justify-content: center; margin-top: 0.9rem;
+}
+.lang-page-switch a {
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.04em;
+  padding: 0.28rem 0.7rem; border-radius: 999px; border: 1px solid var(--border);
+  color: var(--ink-dim); background: var(--navy);
+}
+.lang-page-switch a:hover { color: var(--ink); border-color: var(--teal); }
+.lang-page-switch a.active { background: var(--teal); color: var(--navy); border-color: var(--teal); }
+
+/* Figures (images) dans les tutoriels */
+figure.tuto-fig { margin: 1.4rem 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--card); }
+figure.tuto-fig img, figure.tuto-fig svg { display: block; width: 100%; height: auto; }
+figure.tuto-fig figcaption { padding: 0.7rem 1rem; font-size: 0.85rem; color: var(--ink-dim); border-top: 1px solid var(--border); }
+.fig-placeholder {
+  border: 2px dashed var(--border); border-radius: 12px; background: var(--card);
+  padding: 2rem 1.4rem; text-align: center; color: var(--ink-dim); font-size: 0.88rem; margin: 1.4rem 0;
+}
+.fig-placeholder::before { content: "🖼️"; display: block; font-size: 1.8rem; margin-bottom: 0.5rem; }
+
+/* Bloc vidéo (voix réelle de l'auteur + sous-titres HT/EN) */
+.video-block { margin: 1.6rem 0; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--card); }
+.video-block video { display: block; width: 100%; background: #000; }
+.video-poster {
+  position: relative; aspect-ratio: 16/9; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 0.6rem; text-align: center;
+  background: linear-gradient(135deg, var(--navy-2), var(--navy)); color: var(--ink-dim); padding: 1.5rem;
+}
+.video-poster .play { width: 64px; height: 64px; border-radius: 50%; background: var(--teal); color: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; }
+.video-block .v-meta { padding: 0.7rem 1rem; font-size: 0.82rem; color: var(--ink-dim); border-top: 1px solid var(--border); display: flex; gap: 1rem; flex-wrap: wrap; }
+.video-block .v-meta a { color: var(--teal); }
+
 /* ===== Responsive ===== */
 @media (max-width: 860px) {
   .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
