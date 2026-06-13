@@ -36,6 +36,12 @@ Tu es le développeur du site **atmart.ltd** (Atmart LLC). Ce fichier est ta sou
 
 Chaque semaine : 1 tutoriel + 1 épisode de podcast + 1 dataset, tous liés entre eux (l'épisode explique → le tutoriel enseigne → le dataset fait pratiquer → la formation convertit).
 
+## Format des tutoriels (OBLIGATOIRE)
+
+Tout nouveau tutoriel utilise le **lecteur à sidebar** (format manuel type TutorialsPoint). Template de référence : `tutoriels/pensee-critique.html`. Structure : `.tuto-shell` > `.tuto-sidebar` (carte d'en-tête + `.tuto-toc` avec groupes `.toc-group` et liens d'ancrage vers chaque `<section id>`) + `.tuto-main` (chaque chapitre = `<section id="...">`). Le scrollspy et le toggle mobile sont déjà dans `assets/script.js`. Ne jamais publier de lien « Lire le tutoriel » vers une page vide : sur `tutoriels.html`, un tutoriel pas encore écrit reste une carte `.soon` non cliquable (`.soon-btn`), jamais un `href="#"`.
+
+**Curriculum soft skills à construire (dans l'ordre) :** 1.Pensée critique ✅ · 2.Résolution créative de problèmes · 3.Communication efficace · 4.Rédaction professionnelle · 5.Planification de carrière · 6.Réussir ses entretiens · 7.Compétences entrepreneuriales · 8.Productivité personnelle · 9.Confiance en soi · 10.Négociation.
+
 ## Design
 
 Thème sombre. Couleurs : navy #0a1a2f, teal #2ec4b6, ambre #f4a261, rouge #e63946. Polices : Space Grotesk (titres) + Inter (texte). Le logo (cercle soleil + livre, rouge/bleu/or) est `assets/logo.svg`.
