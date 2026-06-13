@@ -52,6 +52,31 @@ document.querySelectorAll("input.page-search").forEach((input) => {
   });
 });
 
+// Tutorial reader: scrollspy (highlight current chapter in the sidebar) + mobile toggle
+const toc = document.querySelector(".tuto-toc");
+if (toc) {
+  const links = [...toc.querySelectorAll("a[href^='#']")];
+  const sections = links
+    .map((a) => document.querySelector(a.getAttribute("href")))
+    .filter(Boolean);
+  const spy = () => {
+    const y = window.scrollY + 130;
+    let current = sections[0];
+    for (const s of sections) { if (s.offsetTop <= y) current = s; }
+    if (!current) return;
+    links.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + current.id));
+  };
+  window.addEventListener("scroll", spy, { passive: true });
+  spy();
+
+  // Smooth-scroll + close mobile panel on click
+  const toggle = document.querySelector(".tuto-toc-toggle");
+  links.forEach((a) => a.addEventListener("click", () => {
+    if (window.innerWidth <= 860) toc.classList.remove("open");
+  }));
+  if (toggle) toggle.addEventListener("click", () => toc.classList.toggle("open"));
+}
+
 // Newsletter form (placeholder — replace with your provider, e.g. Substack/Mailchimp embed)
 const form = document.querySelector(".newsletter-form");
 if (form) {

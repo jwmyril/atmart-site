@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tutoriels gratuits — Atmart</title>
-  <meta name="description" content="Tutoriels gratuits en français : esprit critique, Excel, Power BI, Python, statistiques et intelligence artificielle." />
+  <meta name="description" content="Tutoriels gratuits en français : pensée critique, compétences professionnelles (soft skills), Excel, Power BI, Python et intelligence artificielle — avec des exemples d'Haïti, de la Caraïbe et de l'Afrique." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css?v=2" />
+  <link rel="stylesheet" href="assets/style.css?v=3" />
 </head>
 <body>
 
@@ -31,7 +31,11 @@
   <div class="container">
     <p class="kreyol">Aprann gratis. Pratike. Vanse.</p>
     <h1>Tutoriels <em>gratuits</em></h1>
-    <p class="lead">Des guides pas-à-pas, du niveau débutant au niveau avancé. Chaque tutoriel correspond à un épisode du podcast et utilise un dataset que vous pouvez télécharger.</p>
+    <p class="lead">Des cours pas-à-pas, organisés en sections et sous-sections comme un vrai manuel. Deux familles : les <strong>compétences professionnelles</strong> (soft skills) et les <strong>compétences techniques</strong> (données, outils, IA).</p>
+    <form class="search-form" style="margin-top:1.5rem">
+      <input type="text" class="page-search" data-target="#tuto-grid" placeholder="Chercher un tutoriel (ex. pensée critique, Excel, entretien…)" aria-label="Recherche" />
+      <button type="submit">Chercher</button>
+    </form>
   </div>
 </section>
 
@@ -39,76 +43,148 @@
   <div class="container">
     <div class="filters" data-target="#tuto-grid">
       <button class="filter-btn active" data-filter="all">Tout</button>
-      <button class="filter-btn" data-filter="critique">🧠 Esprit critique</button>
-      <button class="filter-btn" data-filter="donnees">📊 Données</button>
+      <button class="filter-btn" data-filter="soft">🤝 Compétences pro</button>
+      <button class="filter-btn" data-filter="donnees">📊 Données &amp; outils</button>
       <button class="filter-btn" data-filter="ia">🤖 IA</button>
-      <button class="filter-btn" data-filter="science">🔬 Science</button>
+      <button class="filter-btn" data-filter="dispo">✅ Disponibles</button>
+    </div>
+
+    <!-- ===== Track 1 : Compétences professionnelles (10 soft skills) ===== -->
+    <div class="section-head" style="text-align:left;margin:1.5rem 0 1rem">
+      <h2>🤝 Konpetans pwofesyonèl — Compétences professionnelles</h2>
+      <p>Les 10 compétences humaines qui font avancer une carrière dans les données, la tech et l'entrepreneuriat.</p>
     </div>
 
     <div class="grid grid-3" id="tuto-grid">
-      <div class="card" data-cat="critique">
-        <span class="tag">Débutant</span>
-        <h3>Détecter une fausse statistique en 5 questions</h3>
-        <p>La méthode simple pour vérifier un chiffre qui circule sur WhatsApp ou Facebook avant de le partager.</p>
-        <p class="meta">🧠 Esprit critique • 15 min • Épisode lié : #01</p>
-        <a href="#" class="btn btn-outline">Lire le tutoriel</a>
+
+      <div class="card" data-cat="soft dispo">
+        <span class="tag">Disponible <span class="badge-new" style="margin:0">DISPO</span></span>
+        <h3>🧠 Pensée critique</h3>
+        <p>Reconnaître les biais, évaluer une source, repérer les manipulations de chiffres, raisonner juste — même face à l'IA.</p>
+        <p class="meta">10 sections • ~40 min • Épisode lié : #01</p>
+        <a href="tutoriels/pensee-critique.html" class="btn btn-primary">Lire le tutoriel</a>
       </div>
-      <div class="card" data-cat="donnees">
-        <span class="tag">Débutant</span>
-        <h3>Excel : votre première analyse de données <span class="badge-new">DISPONIBLE</span></h3>
-        <p>Import CSV, formules, tableau croisé dynamique et graphique — avec les vraies données des transferts de la diaspora (Banque mondiale).</p>
-        <p class="meta">📊 Données • 30–40 min • Dataset gratuit inclus • Épisode lié : #01</p>
+
+      <div class="card soon" data-cat="soft">
+        <span class="tag amber">Bientôt</span>
+        <h3>💡 Résolution créative de problèmes</h3>
+        <p>Une méthode en 5 étapes pour décortiquer un problème et trouver des solutions, du quotidien au business.</p>
+        <p class="meta">Konpetans pwofesyonèl • en préparation</p>
+        <span class="btn btn-outline soon-btn">Bientôt disponible</span>
+      </div>
+
+      <div class="card soon" data-cat="soft">
+        <span class="tag amber">Bientôt</span>
+        <h3>💬 Communication efficace</h3>
+        <p>Se faire comprendre clairement à l'oral et à l'écrit, écouter activement, présenter une idée avec impact.</p>
+        <p class="meta">Konpetans pwofesyonèl • en préparation</p>
+        <span class="btn btn-outline soon-btn">Bientôt disponible</span>
+      </div>
+
+      <div class="card soon" data-cat="soft">
+        <span class="tag amber">Bientôt</span>
+        <h3>✍️ Rédaction professionnelle</h3>
+        <p>E-mails, rapports, propositions : écrire de façon claire et crédible — y compris raconter une histoire avec des données.</p>
+        <p class="meta">Konpetans pwofesyonèl • en préparation</p>
+        <span class="btn btn-outline soon-btn">Bientôt disponible</span>
+      </div>
+
+      <div class="card soon" data-cat="soft">
+        <span class="tag amber">Bientôt</span>
+        <h3>🎯 Planification de carrière</h3>
+        <p>Définir un objectif professionnel, identifier les compétences à acquérir et bâtir un plan réaliste, étape par étape.</p>
+        <p class="meta">Konpetans pwofesyonèl • en préparation</p>
+        <span class="btn btn-outline soon-btn">Bientôt disponible</span>
+      </div>
+
+      <div class="card soon" data-cat="soft">
+        <span class="tag amber">Bientôt</span>
+        <h3>🤝 Réussir ses entretiens d'embauche</h3>
+        <p>Préparer, répondre aux questions difficiles, négocier — y compris pour les emplois tech et le freelance international.</p>
+        <p class="meta">Konpetans pwofesyonèl • en préparation</p>
+        <span class="btn btn-outline soon-btn">Bientôt disponible</span>
+      </div>
+
+      <div class="card soon" data-cat="soft">
+        <span class="tag amber">Bientôt</span>
+        <h3>🚀 Compétences entrepreneuriales</h3>
+        <p>De l'idée au premier client : valider un besoin, fixer un prix, vendre un service de données ou de conseil.</p>
+        <p class="meta">Konpetans pwofesyonèl • en préparation</p>
+        <span class="btn btn-outline soon-btn">Bientôt disponible</span>
+      </div>
+
+      <div class="card soon" data-cat="soft">
+        <span class="tag amber">Bientôt</span>
+        <h3>⏱️ Productivité personnelle</h3>
+        <p>Gérer son temps et son attention, éviter la procrastination, travailler en autonomie (essentiel pour le freelance).</p>
+        <p class="meta">Konpetans pwofesyonèl • en préparation</p>
+        <span class="btn btn-outline soon-btn">Bientôt disponible</span>
+      </div>
+
+      <div class="card soon" data-cat="soft">
+        <span class="tag amber">Bientôt</span>
+        <h3>💪 Confiance en soi</h3>
+        <p>Construire une assurance fondée sur la compétence, gérer le doute et le syndrome de l'imposteur.</p>
+        <p class="meta">Konpetans pwofesyonèl • en préparation</p>
+        <span class="btn btn-outline soon-btn">Bientôt disponible</span>
+      </div>
+
+      <div class="card soon" data-cat="soft">
+        <span class="tag amber">Bientôt</span>
+        <h3>⚖️ Négociation</h3>
+        <p>Obtenir un meilleur tarif, un meilleur contrat ou un meilleur accord — sans conflit, avec méthode.</p>
+        <p class="meta">Konpetans pwofesyonèl • en préparation</p>
+        <span class="btn btn-outline soon-btn">Bientôt disponible</span>
+      </div>
+
+      <!-- ===== Track 2 : Compétences techniques (données, outils, IA) ===== -->
+      <div class="card" data-cat="donnees dispo" style="grid-column:1/-1;background:transparent;border:none;box-shadow:none;padding:1rem 0 0">
+        <div class="section-head" style="text-align:left;margin:1rem 0 0">
+          <h2 style="font-size:1.5rem">📊 Done &amp; teknik — Compétences techniques</h2>
+          <p>Analyser des données avec de vrais jeux de données d'Haïti, de la Caraïbe et de l'Afrique.</p>
+        </div>
+      </div>
+
+      <div class="card" data-cat="donnees dispo">
+        <span class="tag">Disponible <span class="badge-new" style="margin:0">DISPO</span></span>
+        <h3>📊 Excel : votre première analyse</h3>
+        <p>Import CSV, formules, tableau croisé dynamique et graphique — avec les vraies données des transferts de la diaspora.</p>
+        <p class="meta">9 sections • 30–40 min • Dataset gratuit • Épisode : #01</p>
         <a href="tutoriels/excel-premiere-analyse.html" class="btn btn-primary">Lire le tutoriel</a>
       </div>
-      <div class="card" data-cat="donnees">
-        <span class="tag amber">Intermédiaire</span>
-        <h3>Power BI : construire votre premier tableau de bord</h3>
+
+      <div class="card soon" data-cat="donnees">
+        <span class="tag amber">Bientôt</span>
+        <h3>📈 Power BI : premier tableau de bord</h3>
         <p>De l'import des données à un dashboard interactif sur l'économie haïtienne, étape par étape.</p>
-        <p class="meta">📊 Données • 45 min • Dataset gratuit inclus</p>
-        <a href="#" class="btn btn-outline">Lire le tutoriel</a>
+        <p class="meta">Done &amp; teknik • en préparation</p>
+        <span class="btn btn-outline soon-btn">Bientôt disponible</span>
       </div>
-      <div class="card" data-cat="ia">
-        <span class="tag">Débutant</span>
-        <h3>L'IA expliquée sans mythe : ce qu'elle fait vraiment</h3>
-        <p>Comprendre les modèles de langage, leurs forces et leurs limites — pour les utiliser intelligemment.</p>
-        <p class="meta">🤖 IA • 20 min • Épisode lié : #03</p>
-        <a href="#" class="btn btn-outline">Lire le tutoriel</a>
-      </div>
-      <div class="card" data-cat="ia donnees">
-        <span class="tag amber">Intermédiaire</span>
-        <h3>Analyser des données avec l'IA : guide pratique</h3>
-        <p>Utiliser ChatGPT/Claude pour nettoyer, explorer et interpréter un dataset — avec les pièges à éviter.</p>
-        <p class="meta">🤖 IA + 📊 Données • 35 min</p>
-        <a href="#" class="btn btn-outline">Lire le tutoriel</a>
-      </div>
-      <div class="card" data-cat="science">
-        <span class="tag">Débutant</span>
-        <h3>La méthode scientifique appliquée au quotidien</h3>
-        <p>Hypothèse, test, preuve : comment penser comme un scientifique face à une affirmation douteuse.</p>
-        <p class="meta">🔬 Science • 18 min • Épisode lié : #02</p>
-        <a href="#" class="btn btn-outline">Lire le tutoriel</a>
-      </div>
-      <div class="card" data-cat="donnees">
-        <span class="tag red">Avancé</span>
-        <h3>Python pour l'analyse : premiers pas avec pandas</h3>
+
+      <div class="card soon" data-cat="donnees">
+        <span class="tag amber">Bientôt</span>
+        <h3>🐍 Python : premiers pas avec pandas</h3>
         <p>Installer Python, charger un CSV et produire vos premières statistiques sur des données réelles.</p>
-        <p class="meta">📊 Données • 60 min • Dataset gratuit inclus</p>
-        <a href="#" class="btn btn-outline">Lire le tutoriel</a>
+        <p class="meta">Done &amp; teknik • en préparation</p>
+        <span class="btn btn-outline soon-btn">Bientôt disponible</span>
       </div>
-      <div class="card" data-cat="science">
-        <span class="tag amber">Intermédiaire</span>
-        <h3>Énergie solaire : les vrais chiffres pour nos pays</h3>
-        <p>Coûts, rendement, durée de vie : une analyse d'ingénieur pour décider avec des données.</p>
-        <p class="meta">🔬 Science • 25 min • Épisode lié : #04</p>
-        <a href="#" class="btn btn-outline">Lire le tutoriel</a>
+
+      <div class="card soon" data-cat="ia">
+        <span class="tag amber">Bientôt</span>
+        <h3>🤖 L'IA expliquée sans mythe</h3>
+        <p>Comprendre les modèles de langage, leurs forces et leurs limites — pour les utiliser intelligemment.</p>
+        <p class="meta">IA • en préparation • Épisode : #03</p>
+        <span class="btn btn-outline soon-btn">Bientôt disponible</span>
       </div>
-      <div class="card" data-cat="critique ia">
-        <span class="tag">Débutant</span>
-        <h3>Deepfakes et images IA : comment vérifier</h3>
-        <p>Les outils gratuits et réflexes pour authentifier une image ou une vidéo avant d'y croire.</p>
-        <p class="meta">🧠 Esprit critique + 🤖 IA • 15 min</p>
-        <a href="#" class="btn btn-outline">Lire le tutoriel</a>
+
+      <div class="card soon" data-cat="ia donnees">
+        <span class="tag amber">Bientôt</span>
+        <h3>🤖 Analyser des données avec l'IA</h3>
+        <p>Utiliser ChatGPT/Claude pour nettoyer, explorer et interpréter un dataset — avec les pièges à éviter.</p>
+        <p class="meta">IA + Données • en préparation</p>
+        <span class="btn btn-outline soon-btn">Bientôt disponible</span>
       </div>
+
     </div>
 
     <div class="banner" style="margin-top:3rem">
