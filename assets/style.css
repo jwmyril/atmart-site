@@ -416,6 +416,15 @@ figure.tuto-fig figcaption { padding: 0.7rem 1rem; font-size: 0.85rem; color: va
 .video-block .v-meta { padding: 0.7rem 1rem; font-size: 0.82rem; color: var(--ink-dim); border-top: 1px solid var(--border); display: flex; gap: 1rem; flex-wrap: wrap; }
 .video-block .v-meta a { color: var(--teal); }
 
+/* Section Discussion (commentaires participants) */
+.tuto-discussion { scroll-margin-top: 1.5rem; }
+.tuto-discussion .disc-intro { color: var(--ink-dim); font-size: 0.95rem; margin-bottom: 1.2rem; line-height: 1.7; }
+.discussion-embed { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem; }
+.disc-pending { text-align: center; color: var(--ink-dim); font-size: 0.9rem; padding: 1.6rem 1rem; }
+.disc-pending .ico { font-size: 1.7rem; display: block; margin-bottom: 0.5rem; }
+.disc-rules { font-size: 0.82rem; color: var(--ink-dim); margin-top: 0.9rem; }
+.disc-rules strong { color: var(--teal); }
+
 /* ===== Responsive ===== */
 @media (max-width: 860px) {
   .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }

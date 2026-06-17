@@ -40,6 +40,10 @@ Chaque semaine : 1 tutoriel + 1 épisode de podcast + 1 dataset, tous liés entr
 
 Tout nouveau tutoriel utilise le **lecteur à sidebar** (format manuel type TutorialsPoint). Template de référence : `tutoriels/pensee-critique.html`. Structure : `.tuto-shell` > `.tuto-sidebar` (carte d'en-tête + `.tuto-toc` avec groupes `.toc-group` et liens d'ancrage vers chaque `<section id>`) + `.tuto-main` (chaque chapitre = `<section id="...">`). Le scrollspy et le toggle mobile sont déjà dans `assets/script.js`. Ne jamais publier de lien « Lire le tutoriel » vers une page vide : sur `tutoriels.html`, un tutoriel pas encore écrit reste une carte `.soon` non cliquable (`.soon-btn`), jamais un `href="#"`.
 
+**Section Discussion OBLIGATOIRE :** chaque tutoriel se termine par `<section id="discussion" class="tuto-discussion">` (avec une entrée TOC « 💬 Discussion » sous un groupe « Communauté ») : intro `.disc-intro`, conteneur `.discussion-embed` et règle `.disc-rules`. Moteur de commentaires = **Cusdis** (sans connexion pour les participants). **App ID Atmart-Lojik360 (actif) : `c377bb19-7995-43b4-915c-8ca53f04e387`.** Embed Cusdis dans `.discussion-embed` avec un `data-page-id` UNIQUE par page/langue (ex. `pensee-critique-fr`, `pensee-critique-ht`, `pensee-critique-en`, `excel-premiere-analyse`). Modération depuis le dashboard Cusdis (approbation requise par défaut).
+
+**Multilingue (Kreyòl-first à venir) :** versions de page séparées `…ht.html` / `…en.html` avec sélecteur `.lang-page-switch` (HT · FR · EN) dans la carte d'en-tête de la sidebar. Les pages de tutoriel NE chargent PAS `i18n.js` (pour ne pas mélanger les langues) ; nav statique dans la langue de la page. Médias : `figure.tuto-fig` (images), `.video-block` (voix réelle de l'auteur + sous-titres `.vtt` HT+EN dans `assets/captions/`).
+
 **Curriculum soft skills à construire (dans l'ordre) :** 1.Pensée critique ✅ · 2.Résolution créative de problèmes · 3.Communication efficace · 4.Rédaction professionnelle · 5.Planification de carrière · 6.Réussir ses entretiens · 7.Compétences entrepreneuriales · 8.Productivité personnelle · 9.Confiance en soi · 10.Négociation.
 
 ## Design
