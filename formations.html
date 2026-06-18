@@ -7,31 +7,31 @@
   <meta name="description" content="Après les 3 niveaux de tutoriels gratuits, choisissez une spécialisation payante : Analyste de données, Data Scientist, Data Engineer, Business Intelligence, Entrepreneur & Leader." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css?v=6" />
+  <link rel="stylesheet" href="assets/style.css?v=8" />
 </head>
 <body>
 
 <header>
   <nav class="nav">
-    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Atmart" class="logo-img" />at<span>mart</span><small>marché de la tech et des données</small></a>
+    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
     <button class="nav-toggle" aria-label="Menu">☰</button>
     <ul class="nav-links">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="tutoriels.html">Tutoriels</a></li>
-      <li><a href="podcast.html">Podcast</a></li>
-      <li><a href="datasets.html">Datasets</a></li>
-      <li><a href="formations.html" class="active">Formations</a></li>
-      <li><a href="outils.html">Outils</a></li>
-      <li><a href="podcast.html" class="btn btn-primary">🎙 Écouter</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="tutoriels.html" data-i18n="nav.tutorials">Tutoriels</a></li>
+      <li><a href="podcast.html" data-i18n="nav.podcast">Podcast</a></li>
+      <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
+      <li><a href="formations.html" class="active" data-i18n="nav.courses">Formations</a></li>
+      <li><a href="outils.html" data-i18n="nav.tools">Outils</a></li>
+      <li><a href="podcast.html" class="btn btn-primary" data-i18n="nav.listen">🎙 Écouter</a></li>
     </ul>
   </nav>
 </header>
 
 <section class="hero" style="padding:3.5rem 0 2.5rem">
   <div class="container">
-    <p class="kreyol">Une fois formé, choisissez un métier.</p>
-    <h1>Les <em>spécialisations</em> Atmart</h1>
-    <p class="lead">
+    <p class="kreyol" data-i18n="for.kicker">Une fois formé, choisissez un métier.</p>
+    <h1 data-i18n-html="for.title">Les <em>spécialisations</em> Atmart</h1>
+    <p class="lead" data-i18n-html="for.lead">
       Les <strong>3 niveaux de tutoriels sont gratuits</strong> (Penser, Communiquer, Diriger). Une fois le socle acquis,
       choisissez une <strong>spécialisation payante</strong> — avec projets réels, accompagnement et certificat —
       pour devenir un professionnel recherché des données.
@@ -42,123 +42,122 @@
 <section style="padding-top:0">
   <div class="container">
 
-    <!-- Le chemin -->
     <div class="banner">
-      <h2>🟢🟡🔴 D'abord les 3 niveaux gratuits</h2>
-      <p>Tout le monde commence par les tutoriels gratuits : <strong>Penser mieux → Communiquer mieux → Diriger mieux</strong>. Vous y construisez les compétences de base et découvrez quel métier vous attire.</p>
-      <a href="tutoriels.html" class="btn btn-primary">Commencer les tutoriels gratuits</a>
+      <h2 data-i18n="for.path_title">🟢🟡🔴 D'abord les 3 niveaux gratuits</h2>
+      <p data-i18n-html="for.path_desc">Tout le monde commence par les tutoriels gratuits : <strong>Penser mieux → Communiquer mieux → Diriger mieux</strong>. Vous y construisez les compétences de base et découvrez quel métier vous attire.</p>
+      <a href="tutoriels.html" class="btn btn-primary" data-i18n="for.path_btn">Commencer les tutoriels gratuits</a>
     </div>
 
     <div class="section-head" style="text-align:left;margin:2.2rem 0 1rem">
-      <h2>🌟 Choisissez votre spécialisation</h2>
-      <p>Six parcours payants vers un métier précis. La préinscription est ouverte — vous serez prévenu·e au lancement, avec un tarif de lancement réservé aux premiers inscrits.</p>
+      <h2 data-i18n="for.choose_title">🌟 Choisissez votre spécialisation</h2>
+      <p data-i18n="for.choose_sub">Six parcours payants vers un métier précis. La préinscription est ouverte — vous serez prévenu·e au lancement, avec un tarif de lancement réservé aux premiers inscrits.</p>
     </div>
 
     <div class="grid grid-3">
       <div class="track-card">
-        <span class="paid">🔒 Formation payante</span>
-        <h3>1. Résolution de problèmes &amp; pensée critique</h3>
-        <p style="color:var(--ink-dim);font-size:0.88rem">Devenez la personne qui raisonne avec méthode et décide juste.</p>
+        <span class="paid" data-i18n="for.paid">🔒 Formation payante</span>
+        <h3 data-i18n="for.t1_title">1. Résolution de problèmes &amp; pensée critique</h3>
+        <p style="color:var(--ink-dim);font-size:0.88rem" data-i18n="for.t1_tag">Devenez la personne qui raisonne avec méthode et décide juste.</p>
         <ul>
-          <li>Pensée critique &amp; Design Thinking</li>
-          <li>Prise de décision</li>
-          <li>IA &amp; Prompt Engineering</li>
-          <li>Projet final + certificat</li>
+          <li data-i18n="for.t1_li1">Pensée critique &amp; Design Thinking</li>
+          <li data-i18n="for.t1_li2">Prise de décision</li>
+          <li data-i18n="for.t1_li3">IA &amp; Prompt Engineering</li>
+          <li data-i18n="for.li_project">Projet final + certificat</li>
         </ul>
-        <a href="mailto:sales@atmart.ltd?subject=Pr%C3%A9inscription%20-%20R%C3%A9solution%20de%20probl%C3%A8mes" class="btn btn-primary">Préinscription</a>
+        <a href="mailto:sales@atmart.ltd?subject=Pr%C3%A9inscription%20-%20R%C3%A9solution%20de%20probl%C3%A8mes" class="btn btn-primary" data-i18n="for.preinscription">Préinscription</a>
       </div>
 
       <div class="track-card" style="border-top-color:var(--teal)">
-        <span class="paid">🔒 Formation payante • populaire</span>
-        <h3>2. Analyste de données</h3>
-        <p style="color:var(--ink-dim);font-size:0.88rem">Le métier le plus demandé — en entreprise comme en freelance.</p>
+        <span class="paid" data-i18n="for.paid_pop">🔒 Formation payante • populaire</span>
+        <h3 data-i18n="for.t2_title">2. Analyste de données</h3>
+        <p style="color:var(--ink-dim);font-size:0.88rem" data-i18n="for.t2_tag">Le métier le plus demandé — en entreprise comme en freelance.</p>
         <ul>
           <li>Excel • SQL • MySQL</li>
-          <li>Statistiques</li>
+          <li data-i18n="for.li_stats">Statistiques</li>
           <li>Tableau • Power BI</li>
-          <li>Projets sur données locales + certificat</li>
+          <li data-i18n="for.t2_li4">Projets sur données locales + certificat</li>
         </ul>
-        <a href="mailto:sales@atmart.ltd?subject=Pr%C3%A9inscription%20-%20Analyste%20de%20donn%C3%A9es" class="btn btn-primary">Préinscription</a>
+        <a href="mailto:sales@atmart.ltd?subject=Pr%C3%A9inscription%20-%20Analyste%20de%20donn%C3%A9es" class="btn btn-primary" data-i18n="for.preinscription">Préinscription</a>
       </div>
 
       <div class="track-card">
-        <span class="paid">🔒 Formation payante</span>
-        <h3>3. Data Scientist</h3>
-        <p style="color:var(--ink-dim);font-size:0.88rem">Prédire, modéliser et automatiser avec le code.</p>
+        <span class="paid" data-i18n="for.paid">🔒 Formation payante</span>
+        <h3 data-i18n="for.t3_title">3. Data Scientist</h3>
+        <p style="color:var(--ink-dim);font-size:0.88rem" data-i18n="for.t3_tag">Prédire, modéliser et automatiser avec le code.</p>
         <ul>
           <li>Python</li>
-          <li>Statistiques avancées</li>
+          <li data-i18n="for.t3_li2">Statistiques avancées</li>
           <li>Machine Learning &amp; IA</li>
-          <li>Data Mining + certificat</li>
+          <li data-i18n="for.t3_li4">Data Mining + certificat</li>
         </ul>
-        <a href="mailto:sales@atmart.ltd?subject=Pr%C3%A9inscription%20-%20Data%20Scientist" class="btn btn-primary">Préinscription</a>
+        <a href="mailto:sales@atmart.ltd?subject=Pr%C3%A9inscription%20-%20Data%20Scientist" class="btn btn-primary" data-i18n="for.preinscription">Préinscription</a>
       </div>
 
       <div class="track-card">
-        <span class="paid">🔒 Formation payante</span>
-        <h3>4. Data Engineer</h3>
-        <p style="color:var(--ink-dim);font-size:0.88rem">Construisez les systèmes qui font tourner la donnée.</p>
+        <span class="paid" data-i18n="for.paid">🔒 Formation payante</span>
+        <h3 data-i18n="for.t4_title">4. Data Engineer</h3>
+        <p style="color:var(--ink-dim);font-size:0.88rem" data-i18n="for.t4_tag">Construisez les systèmes qui font tourner la donnée.</p>
         <ul>
           <li>SQL • MySQL</li>
           <li>Cloud Computing • Azure</li>
           <li>Data Warehouse</li>
-          <li>Big Data + certificat</li>
+          <li data-i18n="for.t4_li4">Big Data + certificat</li>
         </ul>
-        <a href="mailto:sales@atmart.ltd?subject=Pr%C3%A9inscription%20-%20Data%20Engineer" class="btn btn-primary">Préinscription</a>
+        <a href="mailto:sales@atmart.ltd?subject=Pr%C3%A9inscription%20-%20Data%20Engineer" class="btn btn-primary" data-i18n="for.preinscription">Préinscription</a>
       </div>
 
       <div class="track-card">
-        <span class="paid">🔒 Formation payante</span>
-        <h3>5. Business Intelligence</h3>
-        <p style="color:var(--ink-dim);font-size:0.88rem">Transformez les données en décisions pour les dirigeants.</p>
+        <span class="paid" data-i18n="for.paid">🔒 Formation payante</span>
+        <h3 data-i18n="for.t5_title">5. Business Intelligence</h3>
+        <p style="color:var(--ink-dim);font-size:0.88rem" data-i18n="for.t5_tag">Transformez les données en décisions pour les dirigeants.</p>
         <ul>
           <li>Power BI • Tableau</li>
           <li>SQL</li>
-          <li>Visualisation de données</li>
-          <li>Conception de KPI + certificat</li>
+          <li data-i18n="for.t5_li3">Visualisation de données</li>
+          <li data-i18n="for.t5_li4">Conception de KPI + certificat</li>
         </ul>
-        <a href="mailto:sales@atmart.ltd?subject=Pr%C3%A9inscription%20-%20Business%20Intelligence" class="btn btn-primary">Préinscription</a>
+        <a href="mailto:sales@atmart.ltd?subject=Pr%C3%A9inscription%20-%20Business%20Intelligence" class="btn btn-primary" data-i18n="for.preinscription">Préinscription</a>
       </div>
 
       <div class="track-card">
-        <span class="paid">🔒 Formation payante</span>
-        <h3>6. Entrepreneur &amp; Leader</h3>
-        <p style="color:var(--ink-dim);font-size:0.88rem">Lancez votre activité et dirigez avec les données.</p>
+        <span class="paid" data-i18n="for.paid">🔒 Formation payante</span>
+        <h3 data-i18n="for.t6_title">6. Entrepreneur &amp; Leader</h3>
+        <p style="color:var(--ink-dim);font-size:0.88rem" data-i18n="for.t6_tag">Lancez votre activité et dirigez avec les données.</p>
         <ul>
-          <li>Entrepreneuriat • Leadership</li>
-          <li>Négociation • Communication</li>
-          <li>Sens des affaires</li>
-          <li>Productivité avec l'IA + certificat</li>
+          <li data-i18n="for.t6_li1">Entrepreneuriat • Leadership</li>
+          <li data-i18n="for.t6_li2">Négociation • Communication</li>
+          <li data-i18n="for.t6_li3">Sens des affaires</li>
+          <li data-i18n="for.t6_li4">Productivité avec l'IA + certificat</li>
         </ul>
-        <a href="mailto:sales@atmart.ltd?subject=Pr%C3%A9inscription%20-%20Entrepreneur%20et%20Leader" class="btn btn-primary">Préinscription</a>
+        <a href="mailto:sales@atmart.ltd?subject=Pr%C3%A9inscription%20-%20Entrepreneur%20et%20Leader" class="btn btn-primary" data-i18n="for.preinscription">Préinscription</a>
       </div>
     </div>
 
     <div class="banner" style="margin-top:3rem">
-      <h2>Pourquoi se former avec Atmart ?</h2>
-      <p>
+      <h2 data-i18n="for.why_title">Pourquoi se former avec Atmart ?</h2>
+      <p data-i18n-html="for.why_desc">
         La demande de compétences en IA et données explose (+245&nbsp;% en Afrique en 2025 ; 230 millions d'emplois
         exigeront des compétences numériques en Afrique subsaharienne d'ici 2030). Mais presque toute la formation
         est en anglais et utilise des exemples étrangers. Atmart forme <strong>dans nos langues</strong>, avec
         <strong>nos données</strong>, à <strong>des prix accessibles</strong> — et les tutoriels restent gratuits pour tous.
       </p>
-      <a href="podcast.html" class="btn btn-outline">Commencer par le podcast gratuit</a>
+      <a href="podcast.html" class="btn btn-outline" data-i18n="for.why_btn">Commencer par le podcast gratuit</a>
     </div>
 
     <div class="section-head" style="margin-top:2rem">
-      <h2>Formations pour organisations</h2>
-      <p>ONG, institutions, entreprises : ateliers sur mesure en présentiel ou à distance — alphabétisation aux données, Power BI, prise de décision avec l'IA. <a href="mailto:sales@atmart.ltd?subject=Devis%20formation%20organisation">Demandez un devis</a>.</p>
+      <h2 data-i18n="for.org_title">Formations pour organisations</h2>
+      <p data-i18n-html="for.org_desc">ONG, institutions, entreprises : ateliers sur mesure en présentiel ou à distance — alphabétisation aux données, Power BI, prise de décision avec l'IA. <a href="mailto:sales@atmart.ltd?subject=Devis%20formation%20organisation">Demandez un devis</a>.</p>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <div class="footer-bottom">© 2026 Atmart LLC — Marché de la technologie et des données. Lojik360 est une marque d'Atmart LLC.</div>
+    <div class="footer-bottom" data-i18n="foot.bottom">© 2026 Atmart LLC — Marché de la technologie et des données. Lojik360 est une marque d'Atmart LLC.</div>
   </div>
 </footer>
 
 <script src="assets/script.js"></script>
-
+<script src="assets/i18n.js?v=8"></script>
 </body>
 </html>

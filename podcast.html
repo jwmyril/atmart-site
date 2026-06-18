@@ -4,42 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Podcast Lojik360 — Atmart</title>
-  <meta name="description" content="Le podcast Lojik360 : esprit critique, données et IA expliqués en créole haïtien et en français. Nouvel épisode chaque semaine." />
+  <meta name="description" content="Le podcast Lojik360 : esprit critique, données et IA. Audio en français et en créole haïtien, sous-titres en anglais et en espagnol. Nouvel épisode chaque semaine." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css?v=2" />
+  <link rel="stylesheet" href="assets/style.css?v=8" />
 </head>
 <body>
 
 <header>
   <nav class="nav">
-    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Atmart" class="logo-img" />at<span>mart</span><small>marché de la tech et des données</small></a>
+    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
     <button class="nav-toggle" aria-label="Menu">☰</button>
     <ul class="nav-links">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="tutoriels.html">Tutoriels</a></li>
-      <li><a href="podcast.html" class="active">Podcast</a></li>
-      <li><a href="datasets.html">Datasets</a></li>
-      <li><a href="formations.html">Formations</a></li>
-      <li><a href="outils.html">Outils</a></li>
-      <li><a href="#episodes" class="btn btn-primary">🎙 Écouter</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="tutoriels.html" data-i18n="nav.tutorials">Tutoriels</a></li>
+      <li><a href="podcast.html" class="active" data-i18n="nav.podcast">Podcast</a></li>
+      <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
+      <li><a href="formations.html" data-i18n="nav.courses">Formations</a></li>
+      <li><a href="outils.html" data-i18n="nav.tools">Outils</a></li>
+      <li><a href="#episodes" class="btn btn-primary" data-i18n="nav.listen">🎙 Écouter</a></li>
     </ul>
   </nav>
 </header>
 
 <section class="hero" style="padding:3.5rem 0 2.5rem">
   <div class="container">
-    <p class="kreyol">Un sujet réel. Des données réelles. Une explication claire.</p>
-    <h1>Le podcast <em>Lojik360</em></h1>
-    <p class="lead">
-      Chaque semaine, nous prenons un sujet qui touche Haïti, la Caraïbe ou l'Afrique francophone
-      et nous l'expliquons avec des données et de la logique — en créole, avec un résumé en français.
+    <p class="kreyol" data-i18n="pc.kicker">Un sujet réel. Des données réelles. Une explication claire.</p>
+    <h1 data-i18n-html="pc.title">Le podcast <em>Lojik360</em></h1>
+    <p class="lead" data-i18n="pc.lead">
+      Chaque semaine, nous prenons un sujet qui touche Haïti, la Caraïbe ou l'Afrique francophone et nous l'expliquons
+      avec des données et de la logique. Audio en français et en créole haïtien, sous-titres en anglais et en espagnol.
     </p>
     <div class="platforms">
       <a href="#">▶ YouTube</a>
       <a href="#">🎧 Spotify</a>
       <a href="#">🍎 Apple Podcasts</a>
-      <a href="#">📱 TikTok (extraits)</a>
+      <a href="#" data-i18n="pc.tiktok">📱 TikTok (extraits)</a>
       <a href="#">📘 Facebook</a>
     </div>
   </div>
@@ -48,78 +48,78 @@
 <section id="episodes" style="padding-top:1rem">
   <div class="container">
     <div class="section-head">
-      <h2>Épisodes</h2>
-      <p>Saison 1 — « Penser avec les données » (exemples de lancement ; remplacez par vos vrais épisodes)</p>
+      <h2 data-i18n="pc.eps_title">Épisodes</h2>
+      <p data-i18n="pc.eps_sub">Saison 1 — « Penser avec les données » (exemples de lancement ; remplacez par vos vrais épisodes)</p>
     </div>
 
     <div class="episode">
-      <div class="ep-num"><small>ÉPISODE</small>04</div>
+      <div class="ep-num"><small data-i18n="pc.ep_label">ÉPISODE</small>04</div>
       <div>
-        <h3>L'énergie solaire en chiffres : est-ce rentable ?</h3>
-        <p>Analyse d'ingénieur : combien coûte vraiment un système solaire, en Haïti et à Dakar, et au bout de combien d'années il devient rentable.</p>
+        <h3 data-i18n="pc.e4_title">L'énergie solaire en chiffres : est-ce rentable ?</h3>
+        <p data-i18n="pc.e4_desc">Analyse d'ingénieur : combien coûte vraiment un système solaire, en Haïti et à Dakar, et au bout de combien d'années il devient rentable.</p>
         <div class="ep-links">
-          <a href="#">▶ Regarder</a>
-          <a href="#">🎧 Écouter</a>
-          <a href="tutoriels.html">📚 Tutoriel lié</a>
-          <a href="datasets.html">🗂 Dataset utilisé</a>
+          <a href="#" data-i18n="pc.watch">▶ Regarder</a>
+          <a href="#" data-i18n="pc.listen2">🎧 Écouter</a>
+          <a href="tutoriels.html" data-i18n="pc.tuto_link">📚 Tutoriel lié</a>
+          <a href="datasets.html" data-i18n="pc.data_link">🗂 Dataset utilisé</a>
         </div>
       </div>
     </div>
 
     <div class="episode">
-      <div class="ep-num"><small>ÉPISODE</small>03</div>
+      <div class="ep-num"><small data-i18n="pc.ep_label">ÉPISODE</small>03</div>
       <div>
-        <h3>L'IA et nos emplois, sans panique</h3>
-        <p>Ce que les données disent vraiment sur l'IA et l'emploi dans nos économies — et les compétences qui montent (245&nbsp;% de demande en plus en Afrique en 2025).</p>
+        <h3 data-i18n="pc.e3_title">L'IA et nos emplois, sans panique</h3>
+        <p data-i18n="pc.e3_desc">Ce que les données disent vraiment sur l'IA et l'emploi dans nos économies — et les compétences qui montent (245&nbsp;% de demande en plus en Afrique en 2025).</p>
         <div class="ep-links">
-          <a href="#">▶ Regarder</a>
-          <a href="#">🎧 Écouter</a>
-          <a href="tutoriels.html">📚 Tutoriel lié</a>
+          <a href="#" data-i18n="pc.watch">▶ Regarder</a>
+          <a href="#" data-i18n="pc.listen2">🎧 Écouter</a>
+          <a href="tutoriels.html" data-i18n="pc.tuto_link">📚 Tutoriel lié</a>
         </div>
       </div>
     </div>
 
     <div class="episode">
-      <div class="ep-num"><small>ÉPISODE</small>02</div>
+      <div class="ep-num"><small data-i18n="pc.ep_label">ÉPISODE</small>02</div>
       <div>
-        <h3>Penser comme un scientifique</h3>
-        <p>La méthode scientifique appliquée aux décisions de tous les jours : santé, argent, information.</p>
+        <h3 data-i18n="pc.e2_title">Penser comme un scientifique</h3>
+        <p data-i18n="pc.e2_desc">La méthode scientifique appliquée aux décisions de tous les jours : santé, argent, information.</p>
         <div class="ep-links">
-          <a href="#">▶ Regarder</a>
-          <a href="#">🎧 Écouter</a>
-          <a href="tutoriels.html">📚 Tutoriel lié</a>
+          <a href="#" data-i18n="pc.watch">▶ Regarder</a>
+          <a href="#" data-i18n="pc.listen2">🎧 Écouter</a>
+          <a href="tutoriels.html" data-i18n="pc.tuto_link">📚 Tutoriel lié</a>
         </div>
       </div>
     </div>
 
     <div class="episode">
-      <div class="ep-num"><small>ÉPISODE</small>01</div>
+      <div class="ep-num"><small data-i18n="pc.ep_label">ÉPISODE</small>01</div>
       <div>
-        <h3>Comment on vous trompe avec les statistiques</h3>
-        <p>Les 5 manipulations statistiques les plus courantes dans les médias et sur les réseaux — et comment les repérer en quelques secondes.</p>
+        <h3 data-i18n="pc.e1_title">Comment on vous trompe avec les statistiques</h3>
+        <p data-i18n="pc.e1_desc">Les 5 manipulations statistiques les plus courantes dans les médias et sur les réseaux — et comment les repérer en quelques secondes.</p>
         <div class="ep-links">
-          <a href="#">▶ Regarder</a>
-          <a href="#">🎧 Écouter</a>
-          <a href="tutoriels.html">📚 Tutoriel lié</a>
+          <a href="#" data-i18n="pc.watch">▶ Regarder</a>
+          <a href="#" data-i18n="pc.listen2">🎧 Écouter</a>
+          <a href="tutoriels/pensee-critique.html" data-i18n="pc.tuto_link">📚 Tutoriel lié</a>
         </div>
       </div>
     </div>
 
     <div class="banner">
-      <h2>Chaque épisode = un écosystème complet</h2>
-      <p>🎙 L'épisode explique le sujet → 📚 le tutoriel vous apprend à le faire vous-même → 🗂 le dataset vous permet de pratiquer → 🎓 la formation vous emmène au niveau professionnel.</p>
-      <a href="formations.html" class="btn btn-primary">Découvrir les formations</a>
+      <h2 data-i18n="pc.eco_title">Chaque épisode = un écosystème complet</h2>
+      <p data-i18n-html="pc.eco_desc">🎙 L'épisode explique le sujet → 📚 le tutoriel vous apprend à le faire vous-même → 🗂 le dataset vous permet de pratiquer → 🎓 la formation vous emmène au niveau professionnel.</p>
+      <a href="formations.html" class="btn btn-primary" data-i18n="pc.eco_btn">Découvrir les formations</a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <div class="footer-bottom">© 2026 Atmart LLC — Marché de la technologie et des données. Lojik360 est une marque d'Atmart LLC.</div>
+    <div class="footer-bottom" data-i18n="foot.bottom">© 2026 Atmart LLC — Marché de la technologie et des données. Lojik360 est une marque d'Atmart LLC.</div>
   </div>
 </footer>
 
 <script src="assets/script.js"></script>
-
+<script src="assets/i18n.js?v=8"></script>
 </body>
 </html>
