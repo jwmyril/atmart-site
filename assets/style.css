@@ -438,6 +438,30 @@ figure.tuto-fig figcaption { padding: 0.7rem 1rem; font-size: 0.85rem; color: va
 .video-block .v-meta { padding: 0.7rem 1rem; font-size: 0.82rem; color: var(--ink-dim); border-top: 1px solid var(--border); display: flex; gap: 1rem; flex-wrap: wrap; }
 .video-block .v-meta a { color: var(--teal); }
 
+/* ===== Quiz par module (réussir à 80%) + sondage d'auto-évaluation ===== */
+.quiz { background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--amber); border-radius: 12px; padding: 1.2rem 1.4rem; margin: 1.4rem 0; }
+.quiz h3 { font-size: 1.1rem; margin: 0 0 0.9rem; color: var(--ink); }
+.quiz .q { padding: 0.8rem 0; border-top: 1px solid var(--border); }
+.quiz .q:first-of-type { border-top: none; padding-top: 0; }
+.quiz .q > p { font-weight: 600; color: var(--ink); margin: 0 0 0.5rem; }
+.quiz .q label { display: block; padding: 0.4rem 0.6rem; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.4rem; color: var(--ink-dim); cursor: pointer; font-size: 0.93rem; }
+.quiz .q label:hover { border-color: var(--teal); color: var(--ink); }
+.quiz .q input { margin-right: 0.5rem; }
+.quiz .q.q-right { background: rgba(47,213,115,0.06); border-left: 3px solid #2fd573; padding-left: 0.6rem; }
+.quiz .q.q-wrong { background: rgba(230,57,70,0.06); border-left: 3px solid var(--red); padding-left: 0.6rem; }
+.quiz-result { margin-top: 0.8rem; font-size: 0.95rem; }
+.quiz-pass { color: #2fd573; font-weight: 700; }
+.quiz-fail { color: var(--amber); font-weight: 600; }
+.quiz-warn { color: var(--red); }
+.quiz .quiz-retry { margin-left: 0.5rem; }
+
+.poll-row { padding: 0.7rem 0; border-top: 1px solid var(--border); }
+.poll-row .poll-q { font-weight: 600; color: var(--ink); margin: 0 0 0.4rem; }
+.poll-row label { display: inline-block; padding: 0.35rem 0.7rem; border: 1px solid var(--border); border-radius: 999px; margin: 0 0.4rem 0.4rem 0; color: var(--ink-dim); cursor: pointer; font-size: 0.88rem; }
+.poll-row label:hover { border-color: var(--teal); }
+.poll-result { margin-top: 0.9rem; color: var(--ink-dim); }
+.poll-result ul { padding-left: 1.2rem; }
+
 /* Section Discussion (commentaires participants) */
 .tuto-discussion { scroll-margin-top: 1.5rem; }
 .tuto-discussion .disc-intro { color: var(--ink-dim); font-size: 0.95rem; margin-bottom: 1.2rem; line-height: 1.7; }
