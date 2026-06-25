@@ -535,3 +535,26 @@ figure.tuto-fig figcaption { padding: 0.7rem 1rem; font-size: 0.85rem; color: va
   .episode { flex-direction: column; }
   .footer-grid { grid-template-columns: 1fr; }
 }
+
+/* ===== Live-chat assistant widget ===== */
+.atmart-chat-btn{position:fixed;right:20px;bottom:20px;z-index:1000;width:58px;height:58px;border-radius:50%;border:none;background:var(--teal);color:var(--navy);font-size:1.5rem;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.35);transition:transform .15s,background .15s;display:flex;align-items:center;justify-content:center}
+.atmart-chat-btn:hover{background:var(--amber);transform:translateY(-2px)}
+.atmart-chat-btn.is-open{background:var(--amber)}
+.atmart-chat-panel{position:fixed;right:20px;bottom:88px;z-index:1000;width:360px;max-width:calc(100vw - 32px);height:520px;max-height:calc(100vh - 120px);display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 14px 40px rgba(0,0,0,.5);overflow:hidden}
+.acp-head{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.8rem 1rem;background:var(--navy-2);border-bottom:1px solid var(--border)}
+.acp-head strong{display:block;color:var(--ink);font-family:var(--font-head);font-size:1rem}
+.acp-head span{display:block;color:var(--ink-dim);font-size:.78rem}
+.acp-close{background:none;border:none;color:var(--ink-dim);font-size:1.5rem;line-height:1;cursor:pointer}
+.acp-close:hover{color:var(--ink)}
+.acp-log{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.6rem}
+.acp-msg{max-width:85%;padding:.6rem .8rem;border-radius:14px;font-size:.92rem;line-height:1.45;word-wrap:break-word}
+.acp-bot{align-self:flex-start;background:var(--navy-2);color:var(--ink);border-bottom-left-radius:4px}
+.acp-user{align-self:flex-end;background:var(--teal);color:var(--navy);border-bottom-right-radius:4px}
+.acp-typing{opacity:.6;font-size:1.2rem;letter-spacing:.15em}
+.acp-form{display:flex;gap:.5rem;padding:.7rem;border-top:1px solid var(--border)}
+.acp-input{flex:1;background:var(--navy);border:1px solid var(--border);border-radius:10px;color:var(--ink);padding:.55rem .7rem;font-size:.92rem;font-family:inherit}
+.acp-input:focus{outline:none;border-color:var(--teal)}
+.acp-send{background:var(--teal);color:var(--navy);border:none;border-radius:10px;padding:0 1rem;font-weight:600;cursor:pointer}
+.acp-send:hover{background:var(--amber)}
+.acp-disc{padding:.4rem 1rem .7rem;color:var(--ink-dim);font-size:.7rem;text-align:center}
+@media (max-width:480px){.atmart-chat-panel{right:8px;bottom:80px;width:calc(100vw - 16px)}}
