@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Atmart — Marché de la technologie et des données | Penser, communiquer, diriger & créer</title>
-  <meta name="description" content="Atmart développe votre esprit critique, votre communication, votre capacité à diriger et créer, et votre maîtrise des données et de l'IA — gratuitement. Site disponible en français, créole haïtien, anglais et espagnol. Podcast Lojik360, tutoriels, datasets et formations." />
+  <title>Atmart — Marché de la technologie, des données et de l'IA</title>
+  <meta name="description" content="Atmart vend des solutions utiles : le Lojik360 Studio (app pour facilitateurs), des datasets rares et documentés, des SaaS et des guides professionnels. L'éducation gratuite vit sur Lojik360." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css?v=8" />
+  <link rel="stylesheet" href="assets/style.css?v=11" />
 </head>
 <body>
 
@@ -17,13 +17,11 @@
     <button class="nav-toggle" aria-label="Menu">☰</button>
     <ul class="nav-links">
       <li><a href="index.html" class="active" data-i18n="nav.home">Accueil</a></li>
-      <li><a href="tutoriels.html" data-i18n="nav.tutorials">Tutoriels</a></li>
-      <li><a href="podcast.html" data-i18n="nav.podcast">Podcast</a></li>
+      <li><a href="#studio" data-i18n="atm.nav_studio">Lojik360 Studio</a></li>
       <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
-      <li><a href="formations.html" data-i18n="nav.courses">Formations</a></li>
-      <li><a href="outils.html" data-i18n="nav.tools">Outils</a></li>
-      <li><a href="enfants.html" data-i18n="nav.kids">Enfants</a></li>
-      <li><a href="tutoriels.html" class="btn btn-primary" data-i18n="nav.start">Commencer</a></li>
+      <li><a href="#saas" data-i18n="atm.nav_saas">SaaS</a></li>
+      <li><a href="#guides" data-i18n="atm.nav_guides">Guides</a></li>
+      <li><a href="https://lojik360.atmart.ltd" data-i18n="atm.nav_learn">Apprendre (Lojik360)</a></li>
     </ul>
   </nav>
 </header>
@@ -31,69 +29,35 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <p class="kreyol" data-i18n="hero.kicker">Mieux penser. Mieux communiquer. Mieux diriger & créer.</p>
-    <h1 data-i18n-html="hero.title">Développez les compétences qui <em>changent une vie</em>.</h1>
-    <p class="lead" data-i18n-html="hero.lead">
-      Atmart forme votre <strong>esprit critique</strong>, votre <strong>communication</strong>,
-      votre capacité à <strong>diriger et créer</strong> et votre maîtrise des <strong>données et de l'IA</strong> —
-      gratuitement.
-    </p>
-    <form class="search-form" action="tutoriels.html" method="get">
-      <input type="text" name="q" data-i18n-ph="hero.search_ph" placeholder="Chercher un tutoriel (ex. pensée critique, Excel, IA…)" aria-label="Recherche" />
-      <button type="submit" data-i18n="hero.search_btn">Chercher</button>
-    </form>
+    <p class="kreyol" data-i18n="atm.kicker">Des solutions utiles, pas du bruit.</p>
+    <h1 data-i18n-html="atm.title">Le marché de la <em>technologie, des données et de l'IA</em>.</h1>
+    <p class="lead" data-i18n="atm.lead">Atmart conçoit et vend des solutions concrètes : une application pour les facilitateurs, des données rares et documentées, des logiciels et des guides professionnels. L'éducation gratuite, elle, vit sur Lojik360.</p>
+    <div style="margin-top:1rem">
+      <a href="#studio" class="btn btn-primary" data-i18n="atm.cta1">Découvrir le Studio</a>
+      <a href="datasets.html" class="btn btn-outline" style="margin-left:0.6rem" data-i18n="atm.cta2">Explorer les datasets</a>
+    </div>
     <div class="stats-strip">
-      <div data-i18n-html="hero.stat1"><strong>100 %</strong> gratuit</div>
-      <div data-i18n-html="hero.stat2"><strong>3 niveaux</strong> Penser · Communiquer · Diriger & créer</div>
-      <div data-i18n-html="hero.stat3"><strong>Données locales</strong> et vérifiées</div>
-      <div data-i18n-html="hero.stat4"><strong>🎙 Lojik360</strong> le podcast</div>
+      <div data-i18n-html="atm.stat1"><strong>🎛 Studio</strong> pour facilitateurs</div>
+      <div data-i18n-html="atm.stat2"><strong>🗂 Datasets</strong> rares & documentés</div>
+      <div data-i18n-html="atm.stat3"><strong>🧰 SaaS</strong> métiers</div>
+      <div data-i18n-html="atm.stat4"><strong>🎓 Gratuit</strong> sur Lojik360</div>
     </div>
   </div>
 </section>
 
-<!-- LE PARCOURS EN 3 NIVEAUX -->
-<section style="padding-top:1.5rem">
-  <div class="container">
-    <div class="section-head">
-      <h2 data-i18n="jrn.title">Un parcours clair, du débutant au métier</h2>
-      <p data-i18n-html="jrn.sub">Trois niveaux de tutoriels <strong>100 % gratuits</strong>. Ensuite, une spécialisation pour devenir un professionnel recherché.</p>
-    </div>
-    <p class="journey-motto" style="margin-bottom:1.5rem" data-i18n-html="jrn.motto">🟢 <b>Penser mieux</b> → 🟡 <b>Communiquer mieux</b> → 🔴 <b>Diriger & créer</b></p>
-    <div class="grid grid-3">
-      <div class="card">
-        <span class="tag" data-i18n="jrn.lvl1_tag">🟢 Niveau 1 — Gratuit</span>
-        <h3 data-i18n="jrn.lvl1_title">Penser mieux</h3>
-        <p data-i18n="jrn.lvl1_desc">Pensée critique, résolution de problèmes, prise de décision, Excel, données et fondations de l'IA.</p>
-        <a href="tutoriels.html" class="btn btn-outline" data-i18n="jrn.see">Voir le niveau</a>
-      </div>
-      <div class="card">
-        <span class="tag amber" data-i18n="jrn.lvl2_tag">🟡 Niveau 2 — Gratuit</span>
-        <h3 data-i18n="jrn.lvl2_title">Communiquer mieux</h3>
-        <p data-i18n="jrn.lvl2_desc">Communication, prise de parole, rédaction professionnelle et mise en récit des données.</p>
-        <a href="tutoriels.html" class="btn btn-outline" data-i18n="jrn.see">Voir le niveau</a>
-      </div>
-      <div class="card">
-        <span class="tag red" data-i18n="jrn.lvl3_tag">🔴 Niveau 3 — Gratuit</span>
-        <h3 data-i18n="jrn.lvl3_title">Diriger & créer</h3>
-        <p data-i18n="jrn.lvl3_desc">Diriger et créer — donner vie à vos idées dans l'art, la musique, le code, l'agriculture, les métiers manuels et l'entreprise : gestion de projet, automatisation et décisions avec les données.</p>
-        <a href="tutoriels.html" class="btn btn-outline" data-i18n="jrn.see">Voir le niveau</a>
-      </div>
-    </div>
-    <div class="banner" style="margin-top:1.5rem">
-      <h2 data-i18n="jrn.spec_title">🌟 Puis : choisissez une spécialisation</h2>
-      <p data-i18n-html="jrn.spec_desc">Les 3 niveaux sont <strong>gratuits</strong>. Ensuite, une <strong>formation payante</strong> vous mène à un métier : Analyste de données, Data Scientist, Data Engineer, Business Intelligence, Entrepreneur, Leader &amp; Créateur.</p>
-      <a href="formations.html" class="btn btn-primary" data-i18n="jrn.spec_btn">Voir les spécialisations</a>
-    </div>
-  </div>
-</section>
-
-<!-- PODCAST -->
-<section style="padding-top:0.5rem">
+<!-- LOJIK360 STUDIO -->
+<section id="studio" style="padding-top:1.5rem">
   <div class="container">
     <div class="banner">
-      <h2 data-i18n="pod.title">🎙 Lojik360 — le podcast d'Atmart</h2>
-      <p data-i18n="pod.desc">Chaque semaine : un sujet réel, une explication claire, pour penser et décider mieux. Chaque épisode a son tutoriel et son dataset.</p>
-      <a href="podcast.html" class="btn btn-primary" data-i18n="pod.btn">Écouter les épisodes</a>
+      <span class="tag amber" data-i18n="atm.studio_tag">🎛 Produit phare — bientôt</span>
+      <h2 data-i18n="atm.studio_title">Lojik360 Studio — votre séance de formation, générée en minutes</h2>
+      <p data-i18n="atm.studio_desc">Une application pour les facilitateurs, enseignants et ONG : décrivez votre groupe (« 25 jeunes, 90 minutes, kreyòl, milieu rural ») et ressortez avec la séance complète — plan d'animation, exercices, quiz et fiches à imprimer. Personnalisé à chaque groupe, propulsé par l'IA, par abonnement.</p>
+      <ul style="margin:0.6rem 0 1rem">
+        <li data-i18n="atm.studio_b1">Plans de séance adaptés au public, au temps et à la langue (kreyòl, français, anglais, espagnol)</li>
+        <li data-i18n="atm.studio_b2">Exercices, quiz et fiches imprimables générés pour chaque groupe</li>
+        <li data-i18n="atm.studio_b3">Demain : comptes école & ONG, suivi des résultats, rapports</li>
+      </ul>
+      <a href="mailto:sales@atmart.ltd?subject=Lojik360%20Studio%20-%20liste%20d'attente" class="btn btn-primary" data-i18n="atm.studio_btn">Rejoindre la liste d'attente</a>
     </div>
   </div>
 </section>
@@ -102,23 +66,70 @@
 <section style="padding-top:0.5rem">
   <div class="container">
     <div class="section-head">
-      <h2 data-i18n="data.title">🗂 Et pour pratiquer : la boutique Datasets</h2>
-      <p data-i18n="data.desc">Des jeux de données introuvables ailleurs — économie, géographie, social, finance. Certains sont gratuits, pour toujours.</p>
+      <h2 data-i18n="atm.data_title">🗂 Datasets — des données introuvables ailleurs</h2>
+      <p data-i18n="atm.data_desc">Économie, géographie, social, finance — nettoyés, documentés, prêts à l'analyse. Certains gratuits, pour toujours.</p>
     </div>
     <div style="text-align:center">
-      <a href="datasets.html" class="btn btn-primary" data-i18n="data.btn1">Explorer la boutique</a>
-      <a href="datasets.html" class="btn btn-outline" style="margin-left:0.6rem" data-i18n="data.btn2">Télécharger le dataset gratuit</a>
+      <a href="datasets.html" class="btn btn-primary" data-i18n="atm.data_btn">Explorer la boutique</a>
     </div>
   </div>
 </section>
 
-<!-- OUTILS -->
+<!-- SAAS -->
+<section id="saas" style="padding-top:0.5rem">
+  <div class="container">
+    <div class="section-head">
+      <h2 data-i18n="atm.saas_title">🧰 SaaS — des logiciels métiers</h2>
+      <p data-i18n="atm.saas_desc">Des applications qui règlent un problème précis, construites avec le terrain.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <span class="tag" data-i18n="atm.saas1_tag">📐 Pilote en cours</span>
+        <h3>Arpentaj</h3>
+        <p data-i18n="atm.saas1_desc">L'application des arpenteurs : dossiers de terrain, mesures, rapports et suivi client — pensée pour Haïti et la Caraïbe. Trois cabinets pilotes.</p>
+        <a href="mailto:sales@atmart.ltd?subject=Arpentaj%20-%20rejoindre%20le%20pilote" class="btn btn-outline" data-i18n="atm.saas1_btn">Rejoindre le pilote</a>
+      </div>
+      <div class="card">
+        <span class="tag amber" data-i18n="atm.saas2_tag">💡 Votre problème, notre prochain produit</span>
+        <h3 data-i18n="atm.saas2_title">Proposez un besoin</h3>
+        <p data-i18n="atm.saas2_desc">Un processus lent, des données éparpillées, un métier sans outil ? Décrivez-le-nous — nous construisons les solutions dont le marché a réellement besoin.</p>
+        <a href="mailto:sales@atmart.ltd?subject=Proposition%20de%20besoin%20SaaS" class="btn btn-outline" data-i18n="atm.saas2_btn">Écrire à Atmart</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDES -->
+<section id="guides" style="padding-top:0.5rem">
+  <div class="container">
+    <div class="section-head">
+      <h2 data-i18n="atm.guides_title">📘 Guides professionnels</h2>
+      <p data-i18n="atm.guides_desc">Des manuels prêts à l'emploi pour former et animer — le complément payant des tutoriels gratuits.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <span class="tag" data-i18n="atm.guide1_tag">🧠 Formateur / Train-the-Trainer</span>
+        <h3 data-i18n="atm.guide1_title">Guide du facilitateur — Pensée critique</h3>
+        <p data-i18n="atm.guide1_desc">Le manuel complet pour enseigner la pensée critique : plans de séance 90 min et 6 sessions, activités, scripts de discussion, quiz corrigés, grille d'évaluation, certificat. Licence organisation — 49 $.</p>
+        <a href="mailto:sales@atmart.ltd?subject=Commande%20-%20Guide%20Facilitateur%20Pens%C3%A9e%20critique" class="btn btn-primary" data-i18n="atm.guide1_btn">Commander (49 $)</a>
+      </div>
+      <div class="card">
+        <span class="tag amber" data-i18n="atm.guide2_tag">🌱 Bientôt</span>
+        <h3 data-i18n="atm.guide2_title">Management & carrière à l'ère de l'IA — édition facilitateur</h3>
+        <p data-i18n="atm.guide2_desc">La version atelier du guide : 15 thèmes, exercices de groupe et matrice SWOT animée. Lisez la version gratuite sur Lojik360 en attendant.</p>
+        <a href="https://lojik360.atmart.ltd/tutoriels/management-ia.html" class="btn btn-outline" data-i18n="atm.guide2_btn">Lire la version gratuite</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENTONNOIR / LOJIK360 -->
 <section style="padding-top:0.5rem">
   <div class="container">
     <div class="banner">
-      <h2 data-i18n="tools.title">🧰 Les outils du métier, expliqués simplement</h2>
-      <p data-i18n="tools.desc">Power BI, Python, R, MySQL, GitHub… où les télécharger officiellement, comment les installer, et par quoi commencer.</p>
-      <a href="outils.html" class="btn btn-primary" data-i18n="tools.btn">Découvrir les outils</a>
+      <h2 data-i18n="atm.learn_title">🎓 Commencez gratuitement sur Lojik360</h2>
+      <p data-i18n="atm.learn_desc">Tutoriels, podcast et Lojikkid — l'éducation gratuite d'Atmart vit sur Lojik360. Apprenez d'abord ; quand vous voudrez former les autres, le Guide puis le Studio vous attendent ici.</p>
+      <a href="https://lojik360.atmart.ltd" class="btn btn-primary" data-i18n="atm.learn_btn">Visiter Lojik360</a>
     </div>
   </div>
 </section>
@@ -128,7 +139,7 @@
   <div class="container">
     <div class="banner" id="newsletter">
       <h2 data-i18n="nl.title">📬 Restez connecté</h2>
-      <p data-i18n="nl.desc">Recevez chaque semaine le nouvel épisode, un tutoriel et un dataset gratuit. Zéro spam.</p>
+      <p data-i18n="atm.nl_desc">Soyez prévenu du lancement du Studio, des nouveaux datasets et des nouveaux produits. Zéro spam.</p>
       <form class="newsletter-form">
         <input type="email" data-i18n-ph="nl.email_ph" placeholder="Votre adresse e-mail" required />
         <button type="submit" class="btn btn-primary" data-i18n="nl.btn">S'abonner</button>
@@ -142,25 +153,24 @@
     <div class="footer-grid">
       <div>
         <a href="index.html" class="logo">At<span>mart</span></a>
-        <p style="margin-top:0.7rem" data-i18n="foot.tagline">Marché de la technologie et des données — penser, communiquer, diriger et créer.</p>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
       </div>
       <div>
-        <h4 data-i18n="foot.h_content">Contenu</h4>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
         <ul>
-          <li><a href="tutoriels.html" data-i18n="nav.tutorials">Tutoriels</a></li>
-          <li><a href="podcast.html" data-i18n="foot.podcast">Podcast Lojik360</a></li>
+          <li><a href="#studio" data-i18n="atm.nav_studio">Lojik360 Studio</a></li>
           <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
-          <li><a href="formations.html" data-i18n="nav.courses">Formations</a></li>
+          <li><a href="#saas" data-i18n="atm.nav_saas">SaaS</a></li>
+          <li><a href="#guides" data-i18n="atm.nav_guides">Guides</a></li>
           <li><a href="outils.html" data-i18n="foot.tools">Outils &amp; sources de données</a></li>
         </ul>
       </div>
       <div>
-        <h4 data-i18n="foot.h_follow">Suivez-nous</h4>
+        <h4 data-i18n="atm.foot_learn">Apprendre</h4>
         <ul>
-          <li><a href="#">YouTube</a></li>
-          <li><a href="#">TikTok</a></li>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Spotify</a></li>
+          <li><a href="https://lojik360.atmart.ltd" data-i18n="atm.foot_l360">Lojik360 — tutoriels gratuits</a></li>
+          <li><a href="https://lojik360.atmart.ltd/lojikkid.html">Lojikkid</a></li>
+          <li><a href="podcast.html" data-i18n="foot.podcast">Podcast Lojik360</a></li>
         </ul>
       </div>
       <div>
