@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lojik360 Studio — votre séance de formation, générée en minutes | Atmart</title>
+  <meta name="description" content="Lojik360 Studio : décrivez votre groupe et recevez une séance de formation complète — plan d'animation minuté, exercices, quiz et fiche participant — en kreyòl, français, anglais ou espagnol." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css?v=11" />
+  <style>
+    /* ---- Studio app (page-scoped) ---- */
+    .studio-app{display:grid;grid-template-columns:minmax(300px,380px) 1fr;gap:1.4rem;align-items:start}
+    @media (max-width:900px){.studio-app{grid-template-columns:1fr}}
+    .studio-form{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:1.3rem}
+    .studio-form label{display:block;font-weight:600;font-size:0.86rem;margin:0.85rem 0 0.3rem}
+    .studio-form label:first-of-type{margin-top:0}
+    .studio-form select,.studio-form input,.studio-form textarea{width:100%;background:#0e2240;color:#eaf2fb;border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:0.55rem 0.7rem;font:inherit;font-size:0.92rem}
+    .studio-form textarea{min-height:70px;resize:vertical}
+    .studio-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:0.7rem}
+    .studio-lic{margin-top:1rem;padding-top:0.9rem;border-top:1px dashed rgba(255,255,255,0.15)}
+    .studio-lic small{display:block;color:#9db2c7;margin-top:0.35rem;line-height:1.4}
+    .studio-actions{margin-top:1.1rem;display:flex;gap:0.6rem;flex-wrap:wrap}
+    .studio-result{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:1.5rem;min-height:420px}
+    .studio-placeholder{color:#9db2c7;text-align:center;padding:3.5rem 1rem}
+    .studio-placeholder .big{font-size:2.2rem;margin-bottom:0.6rem}
+    .studio-status{color:#f4a261;font-size:0.9rem;margin-top:0.7rem;min-height:1.2em}
+    .studio-toolbar{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;padding-bottom:0.9rem;border-bottom:1px solid rgba(255,255,255,0.1)}
+    .studio-toolbar button{background:#0e2240;color:#eaf2fb;border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:0.4rem 0.8rem;font:inherit;font-size:0.85rem;cursor:pointer}
+    .studio-toolbar button:hover{border-color:#2ec4b6}
+    #session-output h2{font-family:"Space Grotesk",sans-serif;font-size:1.5rem;margin:0 0 0.8rem;color:#fff}
+    #session-output h3{font-family:"Space Grotesk",sans-serif;font-size:1.08rem;margin:1.4rem 0 0.5rem;color:#2ec4b6}
+    #session-output h4{font-size:0.98rem;margin:1rem 0 0.4rem;color:#f4a261}
+    #session-output p,#session-output li{font-size:0.94rem;line-height:1.65;color:#d7e3f0}
+    #session-output ul{padding-left:1.2rem;margin:0.4rem 0 0.8rem}
+    #session-output li{margin-bottom:0.35rem}
+    .studio-spin{display:inline-block;width:1em;height:1em;border:2px solid rgba(255,255,255,0.3);border-top-color:#2ec4b6;border-radius:50%;animation:stspin 0.8s linear infinite;vertical-align:-0.15em;margin-right:0.4em}
+    @keyframes stspin{to{transform:rotate(360deg)}}
+    /* ---- print: only the generated session ---- */
+    @media print{
+      body *{visibility:hidden}
+      #session-output,#session-output *{visibility:visible}
+      #session-output{position:absolute;inset:0;padding:1cm;background:#fff}
+      #session-output h2,#session-output h3,#session-output h4,#session-output p,#session-output li{color:#000!important}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="studio.html" class="active" data-i18n="atm.nav_studio">Lojik360 Studio</a></li>
+      <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
+      <li><a href="index.html#saas" data-i18n="atm.nav_saas">SaaS</a></li>
+      <li><a href="index.html#guides" data-i18n="atm.nav_guides">Guides</a></li>
+      <li><a href="https://lojik360.atmart.ltd" data-i18n="atm.nav_learn">Apprendre (Lojik360)</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="padding-bottom:1rem">
+  <div class="container">
+    <p class="kreyol">Dekri gwoup ou a — Studio a prepare seyans lan pou ou.</p>
+    <h1 data-i18n-html="studio.title">Lojik360 <em>Studio</em></h1>
+    <p class="lead" data-i18n="studio.lead">Décrivez votre groupe et recevez une séance de formation complète : plan d'animation minuté, exercices, quiz avec corrigé et fiche participant à imprimer — en kreyòl, français, anglais ou espagnol.</p>
+    <p style="color:#9db2c7;font-size:0.9rem" data-i18n="studio.beta_note">Version bêta — module « Pensée critique ». 1 séance d'essai gratuite par jour ; illimité avec une licence.</p>
+  </div>
+</section>
+
+<!-- APP -->
+<section style="padding-top:0.5rem">
+  <div class="container">
+    <div class="studio-app">
+
+      <!-- ===== formulaire ===== -->
+      <form class="studio-form" id="studio-form">
+        <label for="st-module" data-i18n="studio.f_module">Curriculum</label>
+        <select id="st-module">
+          <option value="pensee-critique" data-i18n="studio.f_module_ct">Pensée critique (6 modules)</option>
+        </select>
+
+        <label for="st-focus" data-i18n="studio.f_focus">Contenu de la séance</label>
+        <select id="st-focus">
+          <option value="Discovery session: module 1 only" data-i18n="studio.f_focus_1">Séance découverte — module 1 (Pause avant de croire)</option>
+          <option value="Module 2: spot the trick in an argument" data-i18n="studio.f_focus_2">Module 2 — Repérer le piège dans un argument</option>
+          <option value="Module 3: check before you trust (S.A.V.D.)" data-i18n="studio.f_focus_3">Module 3 — Vérifier avant de faire confiance</option>
+          <option value="Module 4: bias and how to beat it" data-i18n="studio.f_focus_4">Module 4 — Les biais et comment les déjouer</option>
+          <option value="Module 5: turn problems into clear decisions" data-i18n="studio.f_focus_5">Module 5 — Des problèmes aux décisions claires</option>
+          <option value="Module 6: make it a daily habit" data-i18n="studio.f_focus_6">Module 6 — En faire une habitude</option>
+          <option value="Overview of all 6 modules in one session" data-i18n="studio.f_focus_all">Parcours complet — les 6 modules en une séance</option>
+        </select>
+
+        <div class="row2">
+          <div>
+            <label for="st-audience" data-i18n="studio.f_audience">Public</label>
+            <select id="st-audience">
+              <option value="jeunes" data-i18n="studio.f_aud_j">Jeunes (13–18 ans)</option>
+              <option value="enfants" data-i18n="studio.f_aud_e">Enfants (8–12 ans)</option>
+              <option value="universitaires" data-i18n="studio.f_aud_u">Universitaires</option>
+              <option value="adultes" data-i18n="studio.f_aud_a">Adultes / professionnels</option>
+            </select>
+          </div>
+          <div>
+            <label for="st-size" data-i18n="studio.f_size">Participants</label>
+            <input type="number" id="st-size" value="25" min="2" max="200" />
+          </div>
+        </div>
+
+        <div class="row2">
+          <div>
+            <label for="st-duration" data-i18n="studio.f_duration">Durée</label>
+            <select id="st-duration">
+              <option value="45">45 min</option>
+              <option value="60">60 min</option>
+              <option value="90" selected>90 min</option>
+              <option value="120">120 min</option>
+              <option value="180">180 min</option>
+            </select>
+          </div>
+          <div>
+            <label for="st-lang" data-i18n="studio.f_lang">Langue de la séance</label>
+            <select id="st-lang">
+              <option value="ht">Kreyòl</option>
+              <option value="fr" selected>Français</option>
+              <option value="en">English</option>
+              <option value="es">Español</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="st-context" data-i18n="studio.f_context">Contexte</label>
+        <select id="st-context">
+          <option value="Rural community room, limited materials (no projector, no internet in the room)" data-i18n="studio.f_ctx_rural">Salle communautaire rurale, matériel limité</option>
+          <option value="Urban classroom with whiteboard" data-i18n="studio.f_ctx_urban">Salle de classe urbaine (tableau disponible)</option>
+          <option value="Online session (video call)" data-i18n="studio.f_ctx_online">Séance en ligne (visioconférence)</option>
+          <option value="Church or community organization hall" data-i18n="studio.f_ctx_hall">Salle d'église ou d'organisation communautaire</option>
+        </select>
+
+        <label for="st-notes" data-i18n="studio.f_notes">Notes pour adapter la séance (optionnel)</label>
+        <textarea id="st-notes" maxlength="500" placeholder="Ex. : groupe déjà formé au module 1 ; beaucoup de commerçantes ; prévoir une pause…" data-i18n-ph="studio.f_notes_ph"></textarea>
+
+        <div class="studio-lic">
+          <label for="st-license" data-i18n="studio.f_lic">Clé de licence (optionnel)</label>
+          <input type="text" id="st-license" placeholder="LOJIK-XXXX-XXXX" autocomplete="off" />
+          <small data-i18n="studio.f_lic_help">Sans clé : 1 séance d'essai par jour. Pour une licence, écrivez à sales@atmart.ltd — bientôt en achat direct.</small>
+        </div>
+
+        <div class="studio-actions">
+          <button type="submit" class="btn btn-primary" id="st-generate" data-i18n="studio.b_generate">⚡ Générer ma séance</button>
+          <button type="button" class="btn btn-outline" id="st-example" data-i18n="studio.b_example">Voir un exemple</button>
+        </div>
+        <p class="studio-status" id="st-status" aria-live="polite"></p>
+      </form>
+
+      <!-- ===== résultat ===== -->
+      <div class="studio-result">
+        <div class="studio-toolbar" id="st-toolbar" style="display:none">
+          <button id="st-print" data-i18n="studio.b_print">🖨 Imprimer / PDF</button>
+          <button id="st-copy" data-i18n="studio.b_copy">📋 Copier</button>
+          <button id="st-download" data-i18n="studio.b_download">⬇ Télécharger (.md)</button>
+        </div>
+        <div id="session-placeholder" class="studio-placeholder">
+          <div class="big">🎛</div>
+          <p data-i18n="studio.placeholder">Votre séance apparaîtra ici. Remplissez le formulaire et cliquez « Générer ma séance » — ou regardez d'abord un exemple.</p>
+        </div>
+        <article id="session-output"></article>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMMENT ÇA MARCHE -->
+<section style="padding-top:2rem">
+  <div class="container">
+    <div class="banner">
+      <h2 data-i18n="studio.how_title">Comment ça marche</h2>
+      <ul style="margin:0.6rem 0 0.4rem">
+        <li data-i18n="studio.how_1">1 — Décrivez votre groupe : public, taille, durée, langue, contexte.</li>
+        <li data-i18n="studio.how_2">2 — Le Studio adapte le curriculum Lojik360 à VOTRE groupe : plan minuté, exercices, quiz corrigé, fiche à imprimer.</li>
+        <li data-i18n="studio.how_3">3 — Relisez, ajustez, imprimez : c'est vous le facilitateur — le Studio prépare, vous animez.</li>
+      </ul>
+      <p style="color:#9db2c7;font-size:0.9rem" data-i18n="studio.how_note">Le contenu pédagogique vient du curriculum Lojik360 (le même que le tutoriel gratuit et le Guide du facilitateur). Le Studio ne remplace pas votre jugement : vérifiez toujours la séance avant de l'animer.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
+        <ul>
+          <li><a href="studio.html" data-i18n="atm.nav_studio">Lojik360 Studio</a></li>
+          <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
+          <li><a href="index.html#saas" data-i18n="atm.nav_saas">SaaS</a></li>
+          <li><a href="index.html#guides" data-i18n="atm.nav_guides">Guides</a></li>
+          <li><a href="outils.html" data-i18n="foot.tools">Outils &amp; sources de données</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_learn">Apprendre</h4>
+        <ul>
+          <li><a href="https://lojik360.atmart.ltd" data-i18n="atm.foot_l360">Lojik360 — tutoriels gratuits</a></li>
+          <li><a href="https://lojik360.atmart.ltd/lojikkid.html">Lojikkid</a></li>
+          <li><a href="podcast.html" data-i18n="foot.podcast">Podcast Lojik360</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-note">© Atmart LLC — <span data-i18n="foot.rights">Tous droits réservés.</span></p>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/i18n.js"></script>
+<!-- TODO déploiement : remplacer data-endpoint par l'URL du worker déployé, ex. https://atmart-chat.<compte>.workers.dev -->
+<script src="assets/studio.js" data-endpoint=""></script>
+</body>
+</html>
