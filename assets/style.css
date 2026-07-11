@@ -558,3 +558,5 @@ figure.tuto-fig figcaption { padding: 0.7rem 1rem; font-size: 0.85rem; color: va
 .acp-send:hover{background:var(--amber)}
 .acp-disc{padding:.4rem 1rem .7rem;color:var(--ink-dim);font-size:.7rem;text-align:center}
 @media (max-width:480px){.atmart-chat-panel{right:8px;bottom:80px;width:calc(100vw - 16px)}}
+/* Chat: sur mobile, panneau plus court pour ne pas couvrir la lecture */
+@media (max-width:480px){.atmart-chat-panel{height:min(440px,62vh)}}
