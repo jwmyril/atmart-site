@@ -119,10 +119,56 @@
   var licInput = document.getElementById("st-license");
   var lastMarkdown = "";
 
+  // ---- per-module session-focus options (value = English prompt, label = FR UI) ----
+  var FOCI = {
+    "pensee-critique": [
+      ["Discovery session: module 1 only", "Séance découverte — module 1 (Pause avant de croire)"],
+      ["Module 2: spot the trick in an argument", "Module 2 — Repérer le piège dans un argument"],
+      ["Module 3: check before you trust (S.A.V.D.)", "Module 3 — Vérifier avant de faire confiance"],
+      ["Module 4: bias and how to beat it", "Module 4 — Les biais et comment les déjouer"],
+      ["Module 5: turn problems into clear decisions", "Module 5 — Des problèmes aux décisions claires"],
+      ["Module 6: make it a daily habit", "Module 6 — En faire une habitude"],
+      ["Overview of all 6 modules in one session", "Parcours complet — les 6 modules en une séance"],
+    ],
+    "management-ia": [
+      ["Discovery: personal SWOT + chapters 1-2 (self-diagnosis, AI exposure)", "Découverte — SWOT personnel + diagnostic & exposition à l'IA (ch. 1–2)"],
+      ["Chapters 3-5: practical AI/data literacy, learning system, deciding under uncertainty", "Culture IA pratique & décision (ch. 3–5)"],
+      ["Chapters 6-8: deeply human capabilities, career, financial autonomy", "Capacités humaines & carrière (ch. 6–8)"],
+      ["Chapters 9-12: leading in a human-AI environment, team, ethics, strategy", "Diriger avec l'IA — équipe, éthique, stratégie (ch. 9–12)"],
+      ["Chapters 13-15: attention, life balance, 90-day resilience plan", "Attention, équilibre & plan 90 jours (ch. 13–15)"],
+      ["Overview of the full curriculum in one session", "Parcours complet en une séance"],
+    ],
+    "excel-premiere-analyse": [
+      ["Steps 1-2: understand the file, import the CSV correctly", "Découverte — comprendre le fichier & importer le CSV (ét. 1–2)"],
+      ["Steps 3-4: sort, filter, first formulas (AVERAGE, MAX, COUNTIFS)", "Explorer & premières formules (ét. 3–4)"],
+      ["Steps 5-6: pivot table and chart", "Tableau croisé dynamique & graphique (ét. 5–6)"],
+      ["Steps 7-8: missing data + hands-on exercises", "Données manquantes & exercices (ét. 7–8)"],
+      ["Overview of all 9 steps in one hands-on session", "Parcours complet — les 9 étapes en une séance"],
+    ],
+    "lojikkid-panse": [
+      ["The full mini-module: Léa's story + the 3 magic questions + mini quiz", "Séance unique — l'histoire de Léa + les 3 questions magiques"],
+    ],
+  };
+
   // ---- doctype & custom-module field visibility ----
   var docSel = document.getElementById("st-doctype");
   var moduleSel = document.getElementById("st-module");
+  var focusSel = document.getElementById("st-focus");
+  function rebuildFocus() {
+    var list = FOCI[moduleSel.value];
+    if (!list) return;
+    focusSel.innerHTML = "";
+    for (var i = 0; i < list.length; i++) {
+      var o = document.createElement("option");
+      o.value = list[i][0];
+      o.textContent = list[i][1];
+      focusSel.appendChild(o);
+    }
+    // Lojikkid: pre-select the enfants audience
+    if (moduleSel.value === "lojikkid-panse") document.getElementById("st-audience").value = "enfants";
+  }
   function refreshGroups() {
+    rebuildFocus();
     var dt = docSel.value;
     var custom = moduleSel.value === "custom";
     document.getElementById("grp-custom").style.display = custom ? "" : "none";
