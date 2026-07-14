@@ -138,16 +138,6 @@
       ["Chapters 13-15: attention, life balance, 90-day resilience plan", "Attention, équilibre & plan 90 jours (ch. 13–15)"],
       ["Overview of the full curriculum in one session", "Parcours complet en une séance"],
     ],
-    "excel-premiere-analyse": [
-      ["Steps 1-2: understand the file, import the CSV correctly", "Découverte — comprendre le fichier & importer le CSV (ét. 1–2)"],
-      ["Steps 3-4: sort, filter, first formulas (AVERAGE, MAX, COUNTIFS)", "Explorer & premières formules (ét. 3–4)"],
-      ["Steps 5-6: pivot table and chart", "Tableau croisé dynamique & graphique (ét. 5–6)"],
-      ["Steps 7-8: missing data + hands-on exercises", "Données manquantes & exercices (ét. 7–8)"],
-      ["Overview of all 9 steps in one hands-on session", "Parcours complet — les 9 étapes en une séance"],
-    ],
-    "lojikkid-panse": [
-      ["The full mini-module: Léa's story + the 3 magic questions + mini quiz", "Séance unique — l'histoire de Léa + les 3 questions magiques"],
-    ],
   };
 
   // ---- doctype & custom-module field visibility ----
@@ -164,8 +154,6 @@
       o.textContent = list[i][1];
       focusSel.appendChild(o);
     }
-    // Lojikkid: pre-select the enfants audience
-    if (moduleSel.value === "lojikkid-panse") document.getElementById("st-audience").value = "enfants";
   }
   function refreshGroups() {
     rebuildFocus();
