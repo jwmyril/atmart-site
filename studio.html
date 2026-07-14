@@ -35,6 +35,12 @@
     #session-output ul{padding-left:1.2rem;margin:0.4rem 0 0.8rem}
     #session-output li{margin-bottom:0.35rem}
     .studio-spin{display:inline-block;width:1em;height:1em;border:2px solid rgba(255,255,255,0.3);border-top-color:#2ec4b6;border-radius:50%;animation:stspin 0.8s linear infinite;vertical-align:-0.15em;margin-right:0.4em}
+    .studio-chart{margin:0 0 1.2rem;padding:1rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px}
+    .presence-block{margin-top:1.6rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.1)}
+    .presence-block h3{font-family:"Space Grotesk",sans-serif;color:#2ec4b6;font-size:1.08rem}
+    .presence-table{width:100%;border-collapse:collapse;margin-top:0.5rem}
+    .presence-table th,.presence-table td{border:1px solid rgba(255,255,255,0.25);padding:0.42rem 0.5rem;font-size:0.9rem;text-align:left;color:#d7e3f0}
+    @media print{.presence-table th,.presence-table td{border-color:#000!important;color:#000!important}.presence-block{page-break-before:always}}
     @keyframes stspin{to{transform:rotate(360deg)}}
     /* ---- print: only the generated session ---- */
     @media print{
@@ -67,8 +73,8 @@
   <div class="container">
     <p class="kreyol">Dekri gwoup ou a — Studio a prepare seyans lan pou ou.</p>
     <h1 data-i18n-html="studio.title">Lojik360 <em>Studio</em></h1>
-    <p class="lead" data-i18n="studio.lead">Décrivez votre groupe et recevez une séance de formation complète : plan d'animation minuté, exercices, quiz avec corrigé et fiche participant à imprimer — en kreyòl, français, anglais ou espagnol.</p>
-    <p style="color:#9db2c7;font-size:0.9rem" data-i18n="studio.beta_note">Version bêta — module « Pensée critique ». 1 séance d'essai gratuite par jour ; illimité avec une licence.</p>
+    <p class="lead" data-i18n="studio.lead">Du projet à la preuve : l'avant-projet de formation (objectifs, cibles, indicateurs), les séances complètes avec pré/post-test, et le rapport de résultats prêt pour le bailleur — en kreyòl, français, anglais ou espagnol.</p>
+    <p style="color:#9db2c7;font-size:0.9rem" data-i18n="studio.beta_note">Version bêta — catalogue Lojik360 (Pensée critique) ou VOTRE propre module (licence). 1 document d'essai gratuit par jour ; illimité avec une licence.</p>
   </div>
 </section>
 
@@ -79,11 +85,27 @@
 
       <!-- ===== formulaire ===== -->
       <form class="studio-form" id="studio-form">
+        <label for="st-doctype">Document à produire</label>
+        <select id="st-doctype">
+          <option value="seance" selected>🎓 Séance de formation (plan + exercices + pré/post-test)</option>
+          <option value="avantprojet">📐 Avant-projet de formation (objectifs, cibles, indicateurs)</option>
+          <option value="rapport">📊 Rapport de formation (résultats avant/après, leçons, actions)</option>
+        </select>
+
         <label for="st-module" data-i18n="studio.f_module">Curriculum</label>
         <select id="st-module">
           <option value="pensee-critique" data-i18n="studio.f_module_ct">Pensée critique (6 modules)</option>
+          <option value="custom">🔑 Module de MON organisation (licence)</option>
         </select>
 
+        <div id="grp-custom" style="display:none">
+          <label for="st-custom-name">Nom de votre module</label>
+          <input type="text" id="st-custom-name" maxlength="120" placeholder="Ex. : Santé communautaire — Module 3 : Nutrition" />
+          <label for="st-custom-content">Contenu source du module (collez votre curriculum)</label>
+          <textarea id="st-custom-content" maxlength="9000" style="min-height:120px" placeholder="Collez ici le contenu de votre module : objectifs, concepts clés, messages essentiels… (200 caractères minimum). Le Studio le transforme en séance structurée — votre contenu reste le vôtre."></textarea>
+        </div>
+
+        <div id="grp-focus">
         <label for="st-focus" data-i18n="studio.f_focus">Contenu de la séance</label>
         <select id="st-focus">
           <option value="Discovery session: module 1 only" data-i18n="studio.f_focus_1">Séance découverte — module 1 (Pause avant de croire)</option>
@@ -94,6 +116,45 @@
           <option value="Module 6: make it a daily habit" data-i18n="studio.f_focus_6">Module 6 — En faire une habitude</option>
           <option value="Overview of all 6 modules in one session" data-i18n="studio.f_focus_all">Parcours complet — les 6 modules en une séance</option>
         </select>
+        </div>
+
+        <div id="grp-ap" style="display:none">
+          <div class="row2">
+            <div>
+              <label for="st-sessions">Nombre de séances</label>
+              <input type="number" id="st-sessions" value="6" min="1" max="60" />
+            </div>
+            <div>
+              <label for="st-period">Période</label>
+              <input type="text" id="st-period" maxlength="120" placeholder="Ex. : septembre–décembre 2026" />
+            </div>
+          </div>
+        </div>
+
+        <div id="grp-rapport" style="display:none">
+          <div class="row2">
+            <div><label for="st-r-sp">Séances prévues</label><input type="number" id="st-r-sp" min="0" max="1000" /></div>
+            <div><label for="st-r-sh">Séances tenues</label><input type="number" id="st-r-sh" min="0" max="1000" /></div>
+          </div>
+          <div class="row2">
+            <div><label for="st-r-pp">Participants prévus</label><input type="number" id="st-r-pp" min="0" max="100000" /></div>
+            <div><label for="st-r-pr">Participants atteints</label><input type="number" id="st-r-pr" min="0" max="100000" /></div>
+          </div>
+          <div class="row2">
+            <div><label for="st-r-w">Dont femmes (optionnel)</label><input type="number" id="st-r-w" min="0" max="100000" /></div>
+            <div><label for="st-r-pres">Taux de présence moyen (%)</label><input type="number" id="st-r-pres" min="0" max="100" /></div>
+          </div>
+          <div class="row2">
+            <div><label for="st-r-pre">Moyenne PRÉ-test (%)</label><input type="number" id="st-r-pre" min="0" max="100" /></div>
+            <div><label for="st-r-post">Moyenne POST-test (%)</label><input type="number" id="st-r-post" min="0" max="100" /></div>
+          </div>
+          <label for="st-r-obs">Observations et changements constatés</label>
+          <textarea id="st-r-obs" maxlength="1200" placeholder="Ex. : les participantes posent plus de questions avant de partager une info ; deux groupes ont créé un comité de vérification…"></textarea>
+          <label for="st-r-story">Matière pour l'histoire à succès (un participant, avant/après, une citation)</label>
+          <textarea id="st-r-story" maxlength="1200" placeholder="Ex. : M.J., 17 ans, Croix-des-Bouquets : avant la formation elle partageait tout sur WhatsApp ; aujourd'hui elle anime… Sa phrase : « … »"></textarea>
+          <label for="st-r-chal">Défis rencontrés</label>
+          <textarea id="st-r-chal" maxlength="1000" placeholder="Ex. : 2 séances reportées (pluie) ; électricité instable ; 8 abandons…"></textarea>
+        </div>
 
         <div class="row2">
           <div>
