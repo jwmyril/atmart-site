@@ -136,7 +136,7 @@
     sizeBox.style.display = dt === "rapport" ? "none" : "";
     var sizeLabel = sizeBox.querySelector("label");
     if (sizeLabel) sizeLabel.textContent = dt === "avantprojet" ? "Bénéficiaires (total)" : "Participants";
-    var g = { seance: "⚡ Générer ma séance", avantprojet: "📐 Générer l'avant-projet", rapport: "📊 Générer le rapport" };
+    var g = { seance: "⚡ Générer ma séance", avantprojet: "📐 Générer l'avant-projet", rapport: "📊 Générer le rapport", slides: "🎞 Générer les slides" };
     genBtn.textContent = g[dt] || g.seance;
   }
   docSel.addEventListener("change", refreshGroups);
@@ -196,9 +196,20 @@
     localStorage.setItem("atmart_studio_lic", licInput.value.trim());
   });
 
-  function showSession(md, extraTop, extraBottom) {
+  function renderSlides(md) {
+    // split into slides on "## " boundaries; "# " title becomes the cover slide
+    var parts = md.split(/\r?\n(?=## )/);
+    var html = "";
+    for (var i = 0; i < parts.length; i++) {
+      html += '<div class="slide">' + renderMd(parts[i]) +
+        '<span class="slide-num">' + (i + 1) + " / " + parts.length + "</span></div>";
+    }
+    return html;
+  }
+  function showSession(md, extraTop, extraBottom, asSlides) {
     lastMarkdown = md;
-    out.innerHTML = (extraTop || "") + renderMd(md) + (extraBottom || "");
+    out.innerHTML = asSlides ? renderSlides(md)
+      : (extraTop || "") + renderMd(md) + (extraBottom || "");
     placeholder.style.display = "none";
     toolbar.style.display = "flex";
     out.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -260,7 +271,7 @@
         if (res.ok && res.body && res.body.session) {
           var top = dt === "rapport" ? chartSvg(pre, post, pres) : "";
           var bottom = dt === "seance" ? presenceSheet(payload.language, payload.size) : "";
-          showSession(res.body.session, top, bottom);
+          showSession(res.body.session, top, bottom, dt === "slides");
           status.textContent = t("done");
         } else {
           var code = res.body && res.body.error;

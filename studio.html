@@ -36,6 +36,17 @@
     #session-output li{margin-bottom:0.35rem}
     .studio-spin{display:inline-block;width:1em;height:1em;border:2px solid rgba(255,255,255,0.3);border-top-color:#2ec4b6;border-radius:50%;animation:stspin 0.8s linear infinite;vertical-align:-0.15em;margin-right:0.4em}
     .studio-chart{margin:0 0 1.2rem;padding:1rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px}
+    .slide{background:#0e2240;border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:1.6rem 1.8rem;margin-bottom:1rem;position:relative;min-height:150px}
+    .slide h3{margin-top:0!important;font-size:1.35rem!important}
+    .slide li{font-size:1.05rem!important;line-height:1.7!important}
+    .slide .slide-num{position:absolute;bottom:0.5rem;right:0.9rem;color:#9db2c7;font-size:0.75rem}
+    .slide p:last-of-type{border-top:1px dashed rgba(255,255,255,0.18);padding-top:0.55rem;margin-top:0.7rem;font-size:0.85rem!important;color:#9db2c7!important}
+    @media print{
+      .slide{page-break-after:always;border:1px solid #999;min-height:16cm;background:#fff}
+      .slide h3{color:#0a1a2f!important;font-size:26pt!important}
+      .slide li{color:#000!important;font-size:16pt!important}
+      .slide p:last-of-type{color:#555!important;font-size:9pt!important}
+    }
     .presence-block{margin-top:1.6rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.1)}
     .presence-block h3{font-family:"Space Grotesk",sans-serif;color:#2ec4b6;font-size:1.08rem}
     .presence-table{width:100%;border-collapse:collapse;margin-top:0.5rem}
@@ -89,6 +100,7 @@
         <select id="st-doctype">
           <option value="seance" selected>🎓 Séance de formation (plan + exercices + pré/post-test)</option>
           <option value="avantprojet">📐 Avant-projet de formation (objectifs, cibles, indicateurs)</option>
+          <option value="slides">🎞 Slides de présentation (à projeter ou imprimer)</option>
           <option value="rapport">📊 Rapport de formation (résultats avant/après, leçons, actions)</option>
         </select>
 
