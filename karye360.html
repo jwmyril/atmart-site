@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karyè360 — votre coach de carrière à l'ère de l'IA | Atmart</title>
+  <meta name="description" content="Karyè360 : le coach de carrière par abonnement de la Suite 360 — il vous accompagne dans votre nouveau poste, votre recherche d'emploi et votre progression, en kreyòl, français, anglais ou espagnol. Dossier anonyme par code, effaçable à tout moment." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css?v=11" />
+  <style>
+    /* ---- Karyè360 app (page-scoped) ---- */
+    .ky-app{max-width:820px;margin:0 auto}
+    .ky-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:1.4rem}
+    .ky-card label{display:block;font-weight:600;font-size:0.88rem;margin:0.9rem 0 0.3rem}
+    .ky-card label:first-of-type{margin-top:0}
+    .ky-card label small{display:block;font-weight:400;color:#9db2c7;margin-top:0.15rem;line-height:1.4}
+    .ky-card input,.ky-card select,.ky-card textarea{width:100%;background:#0e2240;color:#eaf2fb;border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:0.55rem 0.7rem;font:inherit;font-size:0.93rem}
+    .ky-status{color:#f4a261;font-size:0.9rem;margin-top:0.7rem;min-height:1.2em}
+    .ky-chat{display:none}
+    .ky-msgs{min-height:320px;max-height:60vh;overflow-y:auto;padding:0.4rem 0.2rem;display:flex;flex-direction:column;gap:0.7rem}
+    .ky-m{max-width:85%;padding:0.7rem 0.95rem;border-radius:14px;font-size:0.94rem;line-height:1.6;white-space:pre-wrap;word-wrap:break-word}
+    .ky-m.user{align-self:flex-end;background:#12406b;color:#eaf2fb;border-bottom-right-radius:4px}
+    .ky-m.coach{align-self:flex-start;background:rgba(46,196,182,0.12);border:1px solid rgba(46,196,182,0.35);color:#d7e3f0;border-bottom-left-radius:4px}
+    .ky-m.coach strong{color:#fff}
+    .ky-inputrow{display:flex;gap:0.6rem;margin-top:0.9rem}
+    .ky-inputrow textarea{flex:1;min-height:52px;max-height:140px;resize:vertical}
+    .ky-inputrow button{white-space:nowrap}
+    .ky-tools{display:flex;gap:0.8rem;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-top:0.8rem;padding-top:0.8rem;border-top:1px dashed rgba(255,255,255,0.15);font-size:0.8rem;color:#9db2c7}
+    .ky-tools a,.ky-tools button{background:none;border:none;color:#9db2c7;font:inherit;cursor:pointer;text-decoration:underline;padding:0}
+    .ky-tools a:hover,.ky-tools button:hover{color:#e63946}
+    .ky-spin{display:inline-block;width:1em;height:1em;border:2px solid rgba(255,255,255,0.3);border-top-color:#2ec4b6;border-radius:50%;animation:kyspin 0.8s linear infinite;vertical-align:-0.15em;margin-right:0.4em}
+    @keyframes kyspin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="karye360.html" class="active">Karyè360</a></li>
+      <li><a href="studio.html">Fòmasyon360</a></li>
+      <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
+      <li><a href="https://lojik360.atmart.ltd" data-i18n="atm.nav_learn">Apprendre (Lojik360)</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="padding-bottom:1rem">
+  <div class="container">
+    <p class="kreyol" id="ky-kicker">Yon kout men chak semèn — pou karyè ou grandi nan epòk IA a.</p>
+    <h1>Karyè<em>360</em></h1>
+    <p class="lead" id="ky-lead">Votre coach de carrière à l'ère de l'IA : il vous accompagne dans votre nouveau poste, votre recherche d'emploi et votre progression — et il se souvient de votre parcours, semaine après semaine.</p>
+    <p style="color:#9db2c7;font-size:0.9rem" id="ky-note">Dossier 100 % anonyme : votre code est votre compte. Aucun nom, aucun e-mail. Vous pouvez effacer votre dossier à tout moment.</p>
+  </div>
+</section>
+
+<!-- APP -->
+<section style="padding-top:0.5rem">
+  <div class="container">
+    <div class="ky-app">
+
+      <!-- ===== écran 1 : code + profil ===== -->
+      <form class="ky-card" id="ky-start">
+        <label for="ky-code" id="L-code">🔑 Votre code Karyè360<small>Le code reçu à l'achat (KOACH-XXXX-XXXX). Pas encore de code ? <a href="index.html#karye360" style="color:#2ec4b6">Voir les plans</a></small></label>
+        <input type="text" id="ky-code" maxlength="24" autocomplete="off" placeholder="KOACH-XXXX-XXXX" />
+        <label for="ky-role" id="L-role">1. Votre métier / travail actuel</label>
+        <input type="text" id="ky-role" maxlength="140" placeholder="Ex. : aide-soignante, chauffeur, comptable…" />
+        <label for="ky-sit" id="L-sit">2. Votre situation aujourd'hui</label>
+        <select id="ky-sit">
+          <option value="new_job">🚀 Je commence un nouveau poste</option>
+          <option value="looking">🔎 Je cherche mon prochain emploi</option>
+          <option value="growing" selected>📈 Je veux grandir dans mon poste actuel</option>
+        </select>
+        <label for="ky-goal" id="L-goal">3. Votre objectif sur 1 à 3 ans <small>Une phrase suffit — le coach vous aidera à le préciser.</small></label>
+        <input type="text" id="ky-goal" maxlength="250" placeholder="Ex. : devenir superviseur d'équipe" />
+        <div style="margin-top:1.1rem"><button type="submit" class="btn btn-primary" id="ky-go">Commencer avec mon coach</button></div>
+        <p class="ky-status" id="ky-status1"></p>
+      </form>
+
+      <!-- ===== écran 2 : chat ===== -->
+      <div class="ky-card ky-chat" id="ky-chatbox">
+        <div class="ky-msgs" id="ky-msgs"></div>
+        <div class="ky-inputrow">
+          <textarea id="ky-input" maxlength="4000" placeholder="Écrivez à votre coach…"></textarea>
+          <button class="btn btn-primary" id="ky-send" type="button">Envoyer</button>
+        </div>
+        <p class="ky-status" id="ky-status2"></p>
+        <div class="ky-tools">
+          <span id="ky-privacy">🔒 Dossier anonyme lié à votre code — effaçable à tout moment.</span>
+          <button type="button" id="ky-erase">Effacer mon dossier</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
+        <ul>
+          <li><a href="karye360.html">Karyè360</a></li>
+          <li><a href="studio.html">Fòmasyon360</a></li>
+          <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_learn">Apprendre</h4>
+        <ul>
+          <li><a href="https://lojik360.atmart.ltd" data-i18n="atm.foot_l360">Lojik360 — tutoriels gratuits</a></li>
+          <li><a href="podcast.html" data-i18n="foot.podcast">Podcast Lojik360</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-note">© Atmart LLC — <span data-i18n="foot.rights">Tous droits réservés.</span></p>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/i18n.js"></script>
+<script>
+(function () {
+  "use strict";
+  var ENDPOINT = "https://atmart-chat.atmartllc.workers.dev/koach";
+
+  // ---------- 4 langues (suit le sélecteur 🌐 du site : html[lang]) ----------
+  var L = {
+    fr: {
+      kicker: "Un coup de main chaque semaine — pour faire grandir votre carrière à l'ère de l'IA.",
+      lead: "Votre coach de carrière à l'ère de l'IA : il vous accompagne dans votre nouveau poste, votre recherche d'emploi et votre progression — et il se souvient de votre parcours, semaine après semaine.",
+      note: "Dossier 100 % anonyme : votre code est votre compte. Aucun nom, aucun e-mail. Vous pouvez effacer votre dossier à tout moment.",
+      code: "🔑 Votre code Karyè360", codeS: "Le code reçu à l'achat (KOACH-XXXX-XXXX). Pas encore de code ? <a href='index.html#karye360' style='color:#2ec4b6'>Voir les plans</a>",
+      role: "1. Votre métier / travail actuel", roleP: "Ex. : aide-soignante, chauffeur, comptable…",
+      sit: "2. Votre situation aujourd'hui",
+      sit1: "🚀 Je commence un nouveau poste", sit2: "🔎 Je cherche mon prochain emploi", sit3: "📈 Je veux grandir dans mon poste actuel",
+      goal: "3. Votre objectif sur 1 à 3 ans", goalS: "Une phrase suffit — le coach vous aidera à le préciser.", goalP: "Ex. : devenir superviseur d'équipe",
+      go: "Commencer avec mon coach", send: "Envoyer", inputP: "Écrivez à votre coach…",
+      privacy: "🔒 Dossier anonyme lié à votre code — effaçable à tout moment.", erase: "Effacer mon dossier",
+      eraseAsk: "Effacer tout votre dossier (profil + conversations) ? Votre abonnement reste actif, mais le coach ne se souviendra plus de rien.",
+      erased: "Dossier effacé. Remplissez le profil pour recommencer.",
+      hello: "Bonjou ! 👋 Je suis votre coach Karyè360. J'ai bien noté votre profil — dites-moi : comment s'est passée votre semaine au travail ?",
+      helloBack: "Content de vous revoir 👋 On reprend où on s'était arrêtés — racontez-moi votre semaine.",
+      thinking: "Votre coach réfléchit…", needRole: "Indiquez au moins votre code et votre métier.",
+      invalid: "Code invalide. Vérifiez-le, ou voyez les plans sur la page d'accueil.",
+      expired: "Abonnement expiré. Renouvelez-le pour continuer avec votre coach — sales@atmart.ltd.",
+      limit: "Vous avez beaucoup travaillé aujourd'hui 💪 Le coach revient demain (30 messages/jour).",
+      err: "Petit souci technique. Réessayez dans un instant."
+    },
+    ht: {
+      kicker: "Yon kout men chak semèn — pou karyè ou grandi nan epòk IA a.",
+      lead: "Coach karyè ou nan epòk IA a : li akonpaye w nan nouvo djòb ou, nan rechèch travay ou ak nan pwogrè ou — epi li sonje pakou ou, semèn apre semèn.",
+      note: "Dosye 100 % anonim : kòd ou se kont ou. Okenn non, okenn imèl. Ou ka efase dosye ou nenpòt lè.",
+      code: "🔑 Kòd Karyè360 ou", codeS: "Kòd ou resevwa lè ou achte a (KOACH-XXXX-XXXX). Ou poko gen kòd ? <a href='index.html#karye360' style='color:#2ec4b6'>Gade plan yo</a>",
+      role: "1. Metye ou / travay ou kounye a", roleP: "Egz. : èd-swayan, chofè, kontab…",
+      sit: "2. Sitiyasyon ou jodi a",
+      sit1: "🚀 M ap kòmanse yon nouvo djòb", sit2: "🔎 M ap chèche pwochen djòb mwen", sit3: "📈 Mwen vle grandi nan djòb mwen genyen an",
+      goal: "3. Objektif ou sou 1 a 3 an", goalS: "Yon fraz sifi — coach la ap ede w presize l.", goalP: "Egz. : vin sipèvizè ekip",
+      go: "Kòmanse ak coach mwen", send: "Voye", inputP: "Ekri coach ou a…",
+      privacy: "🔒 Dosye anonim ki mare ak kòd ou — ou ka efase l nenpòt lè.", erase: "Efase dosye m",
+      eraseAsk: "Efase tout dosye ou (pwofil + konvèsasyon) ? Abònman ou rete aktif, men coach la p ap sonje anyen ankò.",
+      erased: "Dosye a efase. Ranpli pwofil la pou rekòmanse.",
+      hello: "Bonjou ! 👋 Mwen se coach Karyè360 ou. Mwen byen note pwofil ou — di m : kijan semèn travay ou pase ?",
+      helloBack: "Kontan wè w ankò 👋 N ap repran kote nou te rete a — rakonte m semèn ou.",
+      thinking: "Coach ou a ap reflechi…", needRole: "Mete omwen kòd ou ak metye ou.",
+      invalid: "Kòd la pa bon. Verifye l, oswa gade plan yo sou paj akèy la.",
+      expired: "Abònman an fini. Renouvle l pou kontinye ak coach ou — sales@atmart.ltd.",
+      limit: "Ou travay anpil jodi a 💪 Coach la ap tounen demen (30 mesaj pa jou).",
+      err: "Yon ti pwoblèm teknik. Eseye ankò talè."
+    },
+    en: {
+      kicker: "A helping hand every week — to grow your career in the AI era.",
+      lead: "Your career coach for the AI era: it supports you in your new job, your job search and your growth — and it remembers your journey, week after week.",
+      note: "100% anonymous file: your code is your account. No name, no email. You can erase your file anytime.",
+      code: "🔑 Your Karyè360 code", codeS: "The code you received at purchase (KOACH-XXXX-XXXX). No code yet? <a href='index.html#karye360' style='color:#2ec4b6'>See the plans</a>",
+      role: "1. Your current job / work", roleP: "E.g.: nursing assistant, driver, accountant…",
+      sit: "2. Your situation today",
+      sit1: "🚀 I'm starting a new job", sit2: "🔎 I'm looking for my next job", sit3: "📈 I want to grow in my current job",
+      goal: "3. Your 1-3 year goal", goalS: "One sentence is enough — the coach will help you sharpen it.", goalP: "E.g.: become a team supervisor",
+      go: "Start with my coach", send: "Send", inputP: "Write to your coach…",
+      privacy: "🔒 Anonymous file tied to your code — erasable anytime.", erase: "Erase my file",
+      eraseAsk: "Erase your whole file (profile + conversations)? Your subscription stays active, but the coach will remember nothing.",
+      erased: "File erased. Fill the profile to start again.",
+      hello: "Hello! 👋 I'm your Karyè360 coach. I've noted your profile — tell me: how did your week at work go?",
+      helloBack: "Good to see you again 👋 Let's pick up where we left off — tell me about your week.",
+      thinking: "Your coach is thinking…", needRole: "Enter at least your code and your job.",
+      invalid: "Invalid code. Check it, or see the plans on the home page.",
+      expired: "Subscription expired. Renew it to continue with your coach — sales@atmart.ltd.",
+      limit: "You worked hard today 💪 The coach is back tomorrow (30 messages/day).",
+      err: "Small technical issue. Try again in a moment."
+    },
+    es: {
+      kicker: "Una mano cada semana — para hacer crecer tu carrera en la era de la IA.",
+      lead: "Tu coach de carrera en la era de la IA: te acompaña en tu nuevo puesto, tu búsqueda de empleo y tu progreso — y recuerda tu trayectoria, semana tras semana.",
+      note: "Expediente 100 % anónimo: tu código es tu cuenta. Sin nombre, sin correo. Puedes borrar tu expediente cuando quieras.",
+      code: "🔑 Tu código Karyè360", codeS: "El código recibido al comprar (KOACH-XXXX-XXXX). ¿Sin código aún? <a href='index.html#karye360' style='color:#2ec4b6'>Ver los planes</a>",
+      role: "1. Tu oficio / trabajo actual", roleP: "Ej.: auxiliar de enfermería, conductor, contador…",
+      sit: "2. Tu situación hoy",
+      sit1: "🚀 Empiezo un nuevo puesto", sit2: "🔎 Busco mi próximo empleo", sit3: "📈 Quiero crecer en mi puesto actual",
+      goal: "3. Tu objetivo a 1-3 años", goalS: "Una frase basta — el coach te ayudará a precisarla.", goalP: "Ej.: llegar a supervisor de equipo",
+      go: "Empezar con mi coach", send: "Enviar", inputP: "Escríbele a tu coach…",
+      privacy: "🔒 Expediente anónimo ligado a tu código — borrable cuando quieras.", erase: "Borrar mi expediente",
+      eraseAsk: "¿Borrar todo tu expediente (perfil + conversaciones)? Tu suscripción sigue activa, pero el coach no recordará nada.",
+      erased: "Expediente borrado. Completa el perfil para empezar de nuevo.",
+      hello: "¡Hola! 👋 Soy tu coach Karyè360. Tomé nota de tu perfil — cuéntame: ¿cómo fue tu semana de trabajo?",
+      helloBack: "Qué bueno verte de nuevo 👋 Retomamos donde quedamos — cuéntame tu semana.",
+      thinking: "Tu coach está pensando…", needRole: "Escribe al menos tu código y tu oficio.",
+      invalid: "Código inválido. Verifícalo, o mira los planes en la página de inicio.",
+      expired: "Suscripción vencida. Renuévala para seguir con tu coach — sales@atmart.ltd.",
+      limit: "Hoy trabajaste mucho 💪 El coach vuelve mañana (30 mensajes/día).",
+      err: "Pequeño problema técnico. Inténtalo de nuevo en un momento."
+    }
+  };
+
+  function siteLang() {
+    var l = document.documentElement.lang || localStorage.getItem("atmart_lang") || "fr";
+    return L[l] ? l : "fr";
+  }
+  var appliedLang = "";
+  function T() { return L[siteLang()]; }
+  function setTxt(id, txt) { var el = document.getElementById(id); if (el) el.textContent = txt; }
+  function setLabel(id, main, sub) {
+    var el = document.getElementById(id);
+    if (el) el.innerHTML = main + (sub ? "<small>" + sub + "</small>" : "");
+  }
+  function applyLang() {
+    var lang = siteLang();
+    if (lang === appliedLang) return;
+    appliedLang = lang;
+    var t = L[lang];
+    setTxt("ky-kicker", t.kicker); setTxt("ky-lead", t.lead); setTxt("ky-note", t.note);
+    setLabel("L-code", t.code, t.codeS);
+    setLabel("L-role", t.role);
+    setLabel("L-sit", t.sit);
+    setLabel("L-goal", t.goal, t.goalS);
+    var sit = document.getElementById("ky-sit");
+    sit.options[0].text = t.sit1; sit.options[1].text = t.sit2; sit.options[2].text = t.sit3;
+    document.getElementById("ky-role").placeholder = t.roleP;
+    document.getElementById("ky-goal").placeholder = t.goalP;
+    document.getElementById("ky-input").placeholder = t.inputP;
+    setTxt("ky-go", t.go); setTxt("ky-send", t.send);
+    setTxt("ky-privacy", t.privacy); setTxt("ky-erase", t.erase);
+  }
+  applyLang();
+  new MutationObserver(applyLang).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+
+  // ---------- état ----------
+  var codeEl = document.getElementById("ky-code");
+  var msgs = document.getElementById("ky-msgs");
+  var input = document.getElementById("ky-input");
+  var st1 = document.getElementById("ky-status1");
+  var st2 = document.getElementById("ky-status2");
+  var busy = false;
+  codeEl.value = localStorage.getItem("karye360_code") || "";
+
+  function addMsg(role, text) {
+    var d = document.createElement("div");
+    d.className = "ky-m " + (role === "user" ? "user" : "coach");
+    d.textContent = text;
+    msgs.appendChild(d);
+    msgs.scrollTop = msgs.scrollHeight;
+    return d;
+  }
+  function errMsg(code) {
+    var t = T();
+    return code === "koach_invalid" ? t.invalid
+      : code === "koach_expired" ? t.expired
+      : code === "rate_limited" ? t.limit
+      : t.err;
+  }
+  function post(body) {
+    body.language = siteLang();
+    body.code = codeEl.value.trim().toUpperCase();
+    return fetch(ENDPOINT, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body)
+    }).then(function (r) { return r.json().then(function (b) { return { ok: r.ok, body: b }; }); });
+  }
+
+  // ---------- écran 1 : démarrage ----------
+  document.getElementById("ky-start").addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (busy) return;
+    var t = T();
+    var role = document.getElementById("ky-role").value.trim();
+    if (!codeEl.value.trim() || !role) { st1.textContent = t.needRole; return; }
+    busy = true;
+    st1.innerHTML = '<span class="ky-spin"></span>' + t.thinking;
+    post({
+      action: "start",
+      profile: { role: role, situation: document.getElementById("ky-sit").value, goal: document.getElementById("ky-goal").value.trim() }
+    }).then(function (res) {
+      busy = false;
+      if (!res.ok) { st1.textContent = errMsg(res.body && res.body.error); return; }
+      st1.textContent = "";
+      localStorage.setItem("karye360_code", codeEl.value.trim().toUpperCase());
+      document.getElementById("ky-start").style.display = "none";
+      document.getElementById("ky-chatbox").style.display = "block";
+      addMsg("coach", res.body.resume ? t.helloBack : t.hello);
+      input.focus();
+    }).catch(function () { busy = false; st1.textContent = t.err; });
+  });
+
+  // ---------- chat ----------
+  function send() {
+    if (busy) return;
+    var text = input.value.trim();
+    if (!text) return;
+    var t = T();
+    busy = true;
+    addMsg("user", text);
+    input.value = "";
+    st2.innerHTML = '<span class="ky-spin"></span>' + t.thinking;
+    post({ message: text }).then(function (res) {
+      busy = false;
+      st2.textContent = "";
+      if (!res.ok) { st2.textContent = errMsg(res.body && res.body.error); return; }
+      addMsg("coach", res.body.reply);
+    }).catch(function () { busy = false; st2.textContent = t.err; });
+  }
+  document.getElementById("ky-send").addEventListener("click", send);
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); }
+  });
+
+  // ---------- efase dosye m ----------
+  document.getElementById("ky-erase").addEventListener("click", function () {
+    var t = T();
+    if (!window.confirm(t.eraseAsk)) return;
+    post({ action: "delete" }).then(function (res) {
+      if (res.ok) {
+        msgs.innerHTML = "";
+        document.getElementById("ky-chatbox").style.display = "none";
+        document.getElementById("ky-start").style.display = "block";
+        st1.textContent = t.erased;
+      } else { st2.textContent = errMsg(res.body && res.body.error); }
+    }).catch(function () { st2.textContent = t.err; });
+  });
+})();
+</script>
+</body>
+</html>
