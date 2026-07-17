@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="assets/style.css?v=11" />
   <style>
     /* ---- plans (famille 360) ---- */
+    .hero-split{display:flex;gap:2.5rem;align-items:center;justify-content:space-between}
+    .hero-badge{width:250px;max-width:32vw;height:auto;flex-shrink:0}
+    @media (max-width:820px){.hero-badge{display:none}}
     .plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;align-items:stretch;margin-top:1rem}
     .plan{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:1.4rem;display:flex;flex-direction:column;position:relative}
     .plan.hot{border-color:#2ec4b6;background:linear-gradient(160deg,rgba(46,196,182,0.12),rgba(255,255,255,0.03))}
@@ -47,12 +50,17 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container">
+    <div class="hero-split">
+    <div>
     <p class="kreyol" data-i18n="atm.kicker">Des solutions utiles, pas du bruit.</p>
-    <h1 data-i18n-html="atm.title">Le marché de la <em>technologie, des données et de l'IA</em>.</h1>
+    <h1 data-i18n-html="atm.title">Le marché de l'<em>art, de la technologie, des données et de l'IA</em>.</h1>
     <p class="lead" data-i18n="atm.lead">Atmart conçoit et vend des solutions concrètes : la préparation d'entretien Entèvyou360, l'outil de formation Fòmasyon360, des données rares et documentées et des logiciels. L'éducation gratuite, elle, vit sur Lojik360.</p>
     <div style="margin-top:1rem">
       <a href="#entevyou360" class="btn btn-primary">🧭 Entèvyou360 — préparez votre entretien</a>
       <a href="datasets.html" class="btn btn-outline" style="margin-left:0.6rem" data-i18n="atm.cta2">Explorer les datasets</a>
+    </div>
+    </div>
+    <img src="assets/brand/atmart-badge.svg" alt="Atmart — Art • Technologie • Données • IA" class="hero-badge" />
     </div>
     <div class="stats-strip">
       <div><strong>🧭 Entèvyou360</strong> préparation d’entretien</div>

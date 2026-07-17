@@ -61,17 +61,19 @@
   </g>
 
   <!-- Mot-symbole : UNE seule couleur (blanc) -->
-  <text x="200" y="316" text-anchor="middle" fill="#FFFFFF"
+  <text x="200" y="310" text-anchor="middle" fill="#FFFFFF"
         font-family="Montserrat, 'Space Grotesk', Arial, sans-serif" font-weight="700"
-        font-size="42" letter-spacing="10">ATMART</text>
+        font-size="40" letter-spacing="9">ATMART</text>
 
   <!-- Séparateur -->
-  <line x1="132" y1="332" x2="192" y2="332" stroke="#FFC42E" stroke-width="1.6"/>
-  <line x1="208" y1="332" x2="268" y2="332" stroke="#FFC42E" stroke-width="1.6"/>
-  <circle cx="200" cy="332" r="3" fill="#FFC42E"/>
+  <line x1="146" y1="326" x2="192" y2="326" stroke="#FFC42E" stroke-width="1.6"/>
+  <line x1="208" y1="326" x2="254" y2="326" stroke="#FFC42E" stroke-width="1.6"/>
+  <circle cx="200" cy="326" r="3" fill="#FFC42E"/>
 
-  <!-- Devise : français correct (IA), aérée -->
-  <text x="200" y="354" text-anchor="middle" fill="#FFC42E"
-        font-family="Montserrat, 'Space Grotesk', Arial, sans-serif" font-weight="600"
-        font-size="11.6" letter-spacing="1.9">ART • TECHNOLOGIE • DONNÉES • IA</text>
+  <!-- Devise en arc, épouse l'anneau -->
+  <defs><path id="atm-arc" d="M 70 300 A 150 150 0 0 0 330 300" fill="none"/></defs>
+  <text fill="#FFC42E" font-family="Montserrat, 'Space Grotesk', Arial, sans-serif"
+        font-weight="600" font-size="12" letter-spacing="1.8">
+    <textPath href="#atm-arc" startOffset="50%" text-anchor="middle">ART • TECHNOLOGIE • DONNÉES • IA</textPath>
+  </text>
 </svg>
