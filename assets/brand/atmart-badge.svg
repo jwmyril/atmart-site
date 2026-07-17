@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Atmart — Technologie, Données, IA">
+  <!-- Badge Atmart nettoyé : or unique #FFC42E, noir #0B0B0D, blanc.
+       Corrections : IA (pas AI), ATMART unifié en blanc, pinceau décalé (jambe du A libre),
+       vague de points allégée, aucun halo (imprimable). L'art vit chez LojiKid. -->
+  <circle cx="200" cy="200" r="196" fill="#0B0B0D"/>
+  <circle cx="200" cy="200" r="188" fill="none" stroke="#FFC42E" stroke-width="5"/>
+
+  <!-- Coup de pinceau (signature de la maison) — à gauche, derrière le A -->
+  <path d="M96 208 C74 160 84 104 130 66 C138 60 148 58 152 62 C118 96 104 146 116 200 C112 208 102 212 96 208 Z" fill="#FFC42E" opacity="0.5"/>
+  <path d="M110 200 C94 158 102 112 136 76 C112 110 104 156 116 196 Z" fill="#FFC42E" opacity="0.8"/>
+  <circle cx="92" cy="120" r="4" fill="#FFC42E" opacity="0.7"/>
+  <circle cx="104" cy="94" r="3" fill="#FFC42E" opacity="0.5"/>
+  <circle cx="86" cy="150" r="3" fill="#FFC42E" opacity="0.5"/>
+
+  <!-- Le A -->
+  <path fill-rule="evenodd" fill="#FFC42E" d="M204 56 L262 218 L234.5 218 L222 183 L186 183 L173.5 218 L146 218 Z M204 98 L216.5 158 L191.5 158 Z"/>
+
+  <!-- Circuit (la technologie) — à droite, épaissi -->
+  <g stroke="#FFC42E" stroke-width="3.5" fill="none" stroke-linecap="round">
+    <path d="M256 100 L286 100 L300 86 L318 86"/>
+    <path d="M262 128 L294 128 L308 114 L326 114"/>
+    <path d="M268 156 L298 156 L312 142 L330 142"/>
+    <path d="M270 184 L300 184 L314 170 L330 170"/>
+  </g>
+  <g fill="#0B0B0D" stroke="#FFC42E" stroke-width="3">
+    <circle cx="322" cy="86" r="5"/>
+    <circle cx="330" cy="114" r="5"/>
+    <circle cx="334" cy="142" r="5"/>
+    <circle cx="334" cy="170" r="5"/>
+  </g>
+
+  <!-- Barres de données -->
+  <g fill="#FFC42E">
+    <rect x="158" y="226" width="7" height="26" rx="3"/>
+    <rect x="172" y="212" width="7" height="40" rx="3"/>
+    <rect x="186" y="232" width="7" height="20" rx="3" fill="#FFFFFF"/>
+    <rect x="200" y="204" width="7" height="48" rx="3"/>
+    <rect x="214" y="222" width="7" height="30" rx="3" fill="#FFFFFF"/>
+    <rect x="228" y="214" width="7" height="38" rx="3"/>
+    <rect x="242" y="230" width="7" height="22" rx="3"/>
+  </g>
+
+  <!-- Vague de points (les données) — densité réduite -->
+  <g fill="#FFC42E">
+    <circle cx="86" cy="252" r="2.6" opacity="0.9"/>
+    <circle cx="102" cy="258" r="2.2" opacity="0.7"/>
+    <circle cx="118" cy="262" r="2.6" opacity="0.9"/>
+    <circle cx="134" cy="264" r="2.2" opacity="0.6"/>
+    <circle cx="150" cy="262" r="2.6" opacity="0.8"/>
+    <circle cx="262" cy="262" r="2.6" opacity="0.8"/>
+    <circle cx="278" cy="264" r="2.2" opacity="0.6"/>
+    <circle cx="294" cy="262" r="2.6" opacity="0.9"/>
+    <circle cx="310" cy="258" r="2.2" opacity="0.7"/>
+    <circle cx="326" cy="252" r="2.6" opacity="0.9"/>
+    <circle cx="94" cy="268" r="1.8" opacity="0.5"/>
+    <circle cx="126" cy="274" r="1.8" opacity="0.5"/>
+    <circle cx="158" cy="274" r="1.8" opacity="0.5"/>
+    <circle cx="254" cy="274" r="1.8" opacity="0.5"/>
+    <circle cx="286" cy="274" r="1.8" opacity="0.5"/>
+    <circle cx="318" cy="268" r="1.8" opacity="0.5"/>
+  </g>
+
+  <!-- Mot-symbole : UNE seule couleur (blanc) -->
+  <text x="200" y="316" text-anchor="middle" fill="#FFFFFF"
+        font-family="Montserrat, 'Space Grotesk', Arial, sans-serif" font-weight="700"
+        font-size="42" letter-spacing="10">ATMART</text>
+
+  <!-- Séparateur -->
+  <line x1="118" y1="332" x2="192" y2="332" stroke="#FFC42E" stroke-width="1.6"/>
+  <line x1="208" y1="332" x2="282" y2="332" stroke="#FFC42E" stroke-width="1.6"/>
+  <circle cx="200" cy="332" r="3" fill="#FFC42E"/>
+
+  <!-- Devise : français correct (IA), aérée -->
+  <text x="200" y="356" text-anchor="middle" fill="#FFC42E"
+        font-family="Montserrat, 'Space Grotesk', Arial, sans-serif" font-weight="600"
+        font-size="14.5" letter-spacing="3.2">TECHNOLOGIE • DONNÉES • IA</text>
+</svg>

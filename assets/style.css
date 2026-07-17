@@ -50,7 +50,7 @@ header {
 }
 .logo-img { width: 42px; height: 42px; flex-shrink: 0; margin-right: 0.6rem; }
 .logo small { margin-left: 0.6rem; }
-.logo span { color: var(--teal); }
+.logo span { color: #FFC42E; }
 .logo small { display: block; font-size: 0.62rem; letter-spacing: 0.18em; color: var(--ink-dim); text-transform: uppercase; }
 .nav-links { display: flex; gap: 1.4rem; align-items: center; list-style: none; }
 .nav-links a { color: var(--ink-dim); font-size: 0.95rem; font-weight: 500; }
