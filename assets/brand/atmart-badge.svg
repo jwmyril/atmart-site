@@ -6,11 +6,11 @@
   <circle cx="200" cy="200" r="188" fill="none" stroke="#FFC42E" stroke-width="5"/>
 
   <!-- Coup de pinceau (signature de la maison) — à gauche, derrière le A -->
-  <path d="M96 208 C74 160 84 104 130 66 C138 60 148 58 152 62 C118 96 104 146 116 200 C112 208 102 212 96 208 Z" fill="#FFC42E" opacity="0.5"/>
-  <path d="M110 200 C94 158 102 112 136 76 C112 110 104 156 116 196 Z" fill="#FFC42E" opacity="0.8"/>
+  <path d="M96 208 C74 160 84 104 130 66 C138 60 148 58 152 62 C118 96 104 146 116 200 C112 208 102 212 96 208 Z" fill="#DFA31D"/>
+  <path d="M110 200 C94 158 102 112 136 76 C112 110 104 156 116 196 Z" fill="#FFDA6B"/>
   <circle cx="92" cy="120" r="4" fill="#FFC42E" opacity="0.7"/>
-  <circle cx="104" cy="94" r="3" fill="#FFC42E" opacity="0.5"/>
-  <circle cx="86" cy="150" r="3" fill="#FFC42E" opacity="0.5"/>
+  <circle cx="104" cy="94" r="3" fill="#DFA31D"/>
+  <circle cx="86" cy="150" r="3" fill="#DFA31D"/>
 
   <!-- Le A -->
   <path fill-rule="evenodd" fill="#FFC42E" d="M204 56 L262 218 L234.5 218 L222 183 L186 183 L173.5 218 L146 218 Z M204 98 L216.5 158 L191.5 158 Z"/>
@@ -66,12 +66,12 @@
         font-size="42" letter-spacing="10">ATMART</text>
 
   <!-- Séparateur -->
-  <line x1="118" y1="332" x2="192" y2="332" stroke="#FFC42E" stroke-width="1.6"/>
-  <line x1="208" y1="332" x2="282" y2="332" stroke="#FFC42E" stroke-width="1.6"/>
+  <line x1="132" y1="332" x2="192" y2="332" stroke="#FFC42E" stroke-width="1.6"/>
+  <line x1="208" y1="332" x2="268" y2="332" stroke="#FFC42E" stroke-width="1.6"/>
   <circle cx="200" cy="332" r="3" fill="#FFC42E"/>
 
   <!-- Devise : français correct (IA), aérée -->
-  <text x="200" y="356" text-anchor="middle" fill="#FFC42E"
+  <text x="200" y="354" text-anchor="middle" fill="#FFC42E"
         font-family="Montserrat, 'Space Grotesk', Arial, sans-serif" font-weight="600"
-        font-size="14.5" letter-spacing="3.2">TECHNOLOGIE • DONNÉES • IA</text>
+        font-size="12.6" letter-spacing="2.3">TECHNOLOGIE • DONNÉES • IA</text>
 </svg>

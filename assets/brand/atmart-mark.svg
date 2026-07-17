@@ -3,8 +3,8 @@
   <circle cx="60" cy="60" r="58" fill="#0B0B0D"/>
   <circle cx="60" cy="60" r="55" fill="none" stroke="#FFC42E" stroke-width="3"/>
   <!-- Coup de pinceau (l'art — signature partagée de la maison), décalé à gauche : il ne mange plus la jambe du A -->
-  <path d="M30 92 C20 70 24 44 44 26 C48 23 53 22 55 24 C40 40 33 62 39 88 C37 92 32 94 30 92 Z" fill="#FFC42E" opacity="0.55"/>
-  <path d="M36 88 C28 68 32 46 48 30 C36 46 32 66 37 86 Z" fill="#FFC42E" opacity="0.8"/>
+  <path d="M30 92 C20 70 24 44 44 26 C48 23 53 22 55 24 C40 40 33 62 39 88 C37 92 32 94 30 92 Z" fill="#DFA31D"/>
+  <path d="M36 88 C28 68 32 46 48 30 C36 46 32 66 37 86 Z" fill="#FFDA6B"/>
   <!-- Le A -->
   <path fill-rule="evenodd" fill="#FFC42E" d="M66 22 L94 100 L80.5 100 L74.5 83 L57.5 83 L51.5 100 L38 100 Z M66 42 L72 71 L60 71 Z"/>
 </svg>
