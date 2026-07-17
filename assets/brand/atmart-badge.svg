@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Atmart — Technologie, Données, IA">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Atmart — Art, Technologie, Données, IA">
   <!-- Badge Atmart nettoyé : or unique #FFC42E, noir #0B0B0D, blanc.
-       Corrections : IA (pas AI), ATMART unifié en blanc, pinceau décalé (jambe du A libre),
-       vague de points allégée, aucun halo (imprimable). L'art vit chez LojiKid. -->
+       Devise avec ART (décision juillet 2026). Corrections : IA (pas AI), ATMART unifié en blanc, pinceau décalé (jambe du A libre),
+       vague de points allégée, aucun halo (imprimable). -->
   <circle cx="200" cy="200" r="196" fill="#0B0B0D"/>
   <circle cx="200" cy="200" r="188" fill="none" stroke="#FFC42E" stroke-width="5"/>
 
@@ -73,5 +73,5 @@
   <!-- Devise : français correct (IA), aérée -->
   <text x="200" y="354" text-anchor="middle" fill="#FFC42E"
         font-family="Montserrat, 'Space Grotesk', Arial, sans-serif" font-weight="600"
-        font-size="12.6" letter-spacing="2.3">TECHNOLOGIE • DONNÉES • IA</text>
+        font-size="11.6" letter-spacing="1.9">ART • TECHNOLOGIE • DONNÉES • IA</text>
 </svg>
