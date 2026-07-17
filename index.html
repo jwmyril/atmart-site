@@ -4,10 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Atmart — Marché de la technologie, des données et de l'IA</title>
-  <meta name="description" content="Atmart vend des solutions utiles : le Lojik360 Studio (app pour facilitateurs), des datasets rares et documentés et des SaaS. L'éducation gratuite vit sur Lojik360." />
+  <meta name="description" content="Atmart vend des solutions utiles : Entèvyou360 (préparation d'entretien) et Fòmasyon360 (formations complètes), des datasets rares et documentés et des SaaS. L'éducation gratuite vit sur Lojik360." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/style.css?v=11" />
+  <style>
+    /* ---- plans (famille 360) ---- */
+    .plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;align-items:stretch;margin-top:1rem}
+    .plan{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:1.4rem;display:flex;flex-direction:column;position:relative}
+    .plan.hot{border-color:#2ec4b6;background:linear-gradient(160deg,rgba(46,196,182,0.12),rgba(255,255,255,0.03))}
+    .plan .ribbon{position:absolute;top:-0.8rem;left:50%;transform:translateX(-50%);background:#2ec4b6;color:#06251f;font-weight:700;font-size:0.72rem;padding:0.25rem 0.8rem;border-radius:999px;white-space:nowrap}
+    .plan h4{font-family:"Space Grotesk",sans-serif;font-size:1.15rem;margin:0 0 0.4rem}
+    .plan .price{font-family:"Space Grotesk",sans-serif;font-size:2rem;color:#fff;margin:0.2rem 0}
+    .plan .price small{font-size:0.85rem;color:#9db2c7;font-weight:400}
+    .plan .strike{color:#9db2c7;text-decoration:line-through;font-size:1.05rem;margin-right:0.4rem}
+    .plan ul{list-style:none;padding:0;margin:0.8rem 0 1.2rem;flex:1}
+    .plan li{padding:0.28rem 0 0.28rem 1.5rem;position:relative;font-size:0.9rem;color:#d7e3f0}
+    .plan li::before{content:"✓";position:absolute;left:0;color:#2ec4b6;font-weight:700}
+    .plan .btn{width:100%;text-align:center}
+    .fam-tag{color:#f4a261;font-weight:600;letter-spacing:0.08em;font-size:0.78rem;text-transform:uppercase}
+  </style>
 </head>
 <body>
 
@@ -17,7 +33,8 @@
     <button class="nav-toggle" aria-label="Menu">☰</button>
     <ul class="nav-links">
       <li><a href="index.html" class="active" data-i18n="nav.home">Accueil</a></li>
-      <li><a href="studio.html" data-i18n="atm.nav_studio">Lojik360 Studio</a></li>
+      <li><a href="#entevyou360">Entèvyou360</a></li>
+          <li><a href="studio.html">Fòmasyon360</a></li>
       <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
       <li><a href="#saas" data-i18n="atm.nav_saas">SaaS</a></li>
       <li><a href="https://lojik360.atmart.ltd" data-i18n="atm.nav_learn">Apprendre (Lojik360)</a></li>
@@ -30,13 +47,13 @@
   <div class="container">
     <p class="kreyol" data-i18n="atm.kicker">Des solutions utiles, pas du bruit.</p>
     <h1 data-i18n-html="atm.title">Le marché de la <em>technologie, des données et de l'IA</em>.</h1>
-    <p class="lead" data-i18n="atm.lead">Atmart conçoit et vend des solutions concrètes : une application pour les facilitateurs, des données rares et documentées et des logiciels. L'éducation gratuite, elle, vit sur Lojik360.</p>
+    <p class="lead" data-i18n="atm.lead">Atmart conçoit et vend des solutions concrètes : la préparation d'entretien Entèvyou360, l'outil de formation Fòmasyon360, des données rares et documentées et des logiciels. L'éducation gratuite, elle, vit sur Lojik360.</p>
     <div style="margin-top:1rem">
-      <a href="#studio" class="btn btn-primary" data-i18n="atm.cta1">Découvrir le Studio</a>
+      <a href="#entevyou360" class="btn btn-primary">🧭 Entèvyou360 — préparez votre entretien</a>
       <a href="datasets.html" class="btn btn-outline" style="margin-left:0.6rem" data-i18n="atm.cta2">Explorer les datasets</a>
     </div>
     <div class="stats-strip">
-      <div data-i18n-html="atm.stat1"><strong>🎛 Studio</strong> pour facilitateurs</div>
+      <div><strong>🧭 Entèvyou360</strong> préparation d’entretien</div>
       <div data-i18n-html="atm.stat2"><strong>🗂 Datasets</strong> rares & documentés</div>
       <div data-i18n-html="atm.stat3"><strong>🧰 SaaS</strong> métiers</div>
       <div data-i18n-html="atm.stat4"><strong>🎓 Gratuit</strong> sur Lojik360</div>
@@ -44,20 +61,88 @@
   </div>
 </section>
 
-<!-- LOJIK360 STUDIO -->
-<section id="studio" style="padding-top:1.5rem">
+<!-- ENTEVYOU360 -->
+<section id="entevyou360" style="padding-top:1.5rem">
   <div class="container">
-    <div class="banner">
-      <span class="tag amber" data-i18n="atm.studio_tag">🎛 Produit phare — bêta ouverte</span>
-      <h2 data-i18n="atm.studio_title">Lojik360 Studio — votre séance de formation, générée en minutes</h2>
-      <p data-i18n="atm.studio_desc">Une application pour les facilitateurs, enseignants et ONG : décrivez votre groupe (« 25 jeunes, 90 minutes, kreyòl, milieu rural ») et ressortez avec la séance complète — plan d'animation, exercices, quiz et fiches à imprimer. Personnalisé à chaque groupe, propulsé par l'IA, par abonnement.</p>
-      <ul style="margin:0.6rem 0 1rem">
-        <li data-i18n="atm.studio_b1">Plans de séance adaptés au public, au temps et à la langue (kreyòl, français, anglais, espagnol)</li>
-        <li data-i18n="atm.studio_b2">Exercices, quiz et fiches imprimables générés pour chaque groupe</li>
-        <li data-i18n="atm.studio_b3">Demain : comptes école & ONG, suivi des résultats, rapports</li>
-      </ul>
-      <a href="studio.html" class="btn btn-primary" data-i18n="atm.studio_btn">Essayer le Studio (bêta)</a>
-      <a href="mailto:sales@atmart.ltd?subject=Lojik360%20Studio%20-%20licence%20ecole%20ou%20ONG" class="btn btn-outline" style="margin-left:0.6rem" data-i18n="atm.studio_btn2">Licence école / ONG — nous écrire</a>
+    <p class="fam-tag">Suite 360 — pa Atmart</p>
+    <h2 style="margin-top:0.3rem">🧭 Entèvyou360 — arrivez préparé, reparti embauché</h2>
+    <p style="color:#9db2c7;max-width:760px">Ou gen yon entèvyou ? Vin pare. Le diagnostic gratuit vous révèle vos forces et vos 3 axes ; la version Pro vous prépare aux questions qu'on va VOUS poser — avec des réponses ancrées dans VOS preuves. En kreyòl, français, English, español. Propulsé par la méthode SWOT360.</p>
+    <div class="plan-grid" style="max-width:760px">
+      <div class="plan">
+        <h4>Entèvyou360</h4>
+        <p class="price">Gratis</p>
+        <ul>
+          <li>6 questions, 2 minutes</li>
+          <li>Votre SWOT personnel face à l'IA</li>
+          <li>Vos 3 axes : Delege · Sipèvize · Ranfòse</li>
+          <li>Votre premier pas (7 jours)</li>
+          <li>Carte à partager sur WhatsApp</li>
+          <li>4 langues · 5 par jour</li>
+        </ul>
+        <a href="https://lojik360.atmart.ltd/swot360.html" class="btn btn-outline">Kòmanse gratis</a>
+      </div>
+      <div class="plan hot">
+        <span class="ribbon">⭐ PRI LANSMAN −40%</span>
+        <h4>Entèvyou360 Pro</h4>
+        <p class="price"><span class="strike">49 $</span>29 $ <small>paiement unique</small></p>
+        <ul>
+          <li>Tout Entèvyou360 gratis</li>
+          <li>Rapport PDF complet et personnalisé</li>
+          <li><strong>Les questions qu'on va VOUS poser</strong> — avec des réponses bâties sur VOS preuves</li>
+          <li>Deck « Prezante tèt ou » à présenter</li>
+          <li>Plan 90 jours daté</li>
+          <li>4 langues</li>
+        </ul>
+        <a href="mailto:sales@atmart.ltd?subject=Ent%C3%A8vyou360%20Pro%20(29%24)" class="btn btn-primary">Pran Pro a — 29 $</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOMASYON360 -->
+<section id="fomasyon360" style="padding-top:1.5rem">
+  <div class="container">
+    <p class="fam-tag">Suite 360 — pa Atmart</p>
+    <h2 style="margin-top:0.3rem">🎓 Fòmasyon360 — du projet de formation à la preuve</h2>
+    <p style="color:#9db2c7;max-width:980px">L'outil des facilitateurs, écoles et ONG : avant-projet (objectifs, cibles, indicateurs), séances complètes avec pré/post-test et fiche de présence, slides à projeter, et rapport prêt pour le bailleur — sur le catalogue Lojik360 ou sur VOTRE curriculum.</p>
+    <div class="plan-grid">
+      <div class="plan">
+        <h4>Demo</h4>
+        <p class="price">Gratis</p>
+        <ul>
+          <li>1 document par jour</li>
+          <li>Les 4 types de documents</li>
+          <li>Catalogue Lojik360</li>
+          <li>4 langues</li>
+        </ul>
+        <a href="studio.html" class="btn btn-outline">Eseye gratis</a>
+      </div>
+      <div class="plan hot">
+        <span class="ribbon">POPILÈ</span>
+        <h4>Fasilitatè</h4>
+        <p class="price">15 $ <small>/ mois</small></p>
+        <ul>
+          <li>Documents illimités (20/jour)</li>
+          <li>Séances + slides + pré/post-tests</li>
+          <li>Fiche de présence imprimable</li>
+          <li>Avant-projets et rapports</li>
+          <li>4 langues</li>
+        </ul>
+        <a href="mailto:sales@atmart.ltd?subject=F%C3%B2masyon360%20Fasilitat%C3%A8" class="btn btn-primary">Pran lisans mwen</a>
+      </div>
+      <div class="plan">
+        <span class="ribbon" style="background:#f4a261">BEST VALUE</span>
+        <h4>ONG &amp; École</h4>
+        <p class="price">Sou devi</p>
+        <ul>
+          <li>Tout Fasilitatè</li>
+          <li><strong>VOTRE curriculum</strong> (module personnalisé)</li>
+          <li>Annexe éthique &amp; données dans les rapports</li>
+          <li>Plusieurs facilitateurs</li>
+          <li>Accompagnement</li>
+        </ul>
+        <a href="mailto:sales@atmart.ltd?subject=F%C3%B2masyon360%20ONG-Ecole" class="btn btn-outline">Pale ak nou</a>
+      </div>
     </div>
   </div>
 </section>
@@ -137,7 +222,8 @@
       <div>
         <h4 data-i18n="atm.foot_products">Produits</h4>
         <ul>
-          <li><a href="studio.html" data-i18n="atm.nav_studio">Lojik360 Studio</a></li>
+          <li><a href="#entevyou360">Entèvyou360</a></li>
+          <li><a href="studio.html">Fòmasyon360</a></li>
           <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
           <li><a href="#saas" data-i18n="atm.nav_saas">SaaS</a></li>
               <li><a href="outils.html" data-i18n="foot.tools">Outils &amp; sources de données</a></li>

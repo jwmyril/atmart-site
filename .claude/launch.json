@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "atmart-site",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8360", "--directory", "C:/Users/USUARIO/Power_BI_Claude/Atmart_website"],
+      "port": 8360
+    }
+  ]
+}
