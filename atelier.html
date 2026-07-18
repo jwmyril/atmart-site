@@ -13,7 +13,9 @@
     /* ---- Atelier (page-scoped) ---- */
     .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.3rem;margin-top:1.4rem}
     .gal figure{margin:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-    .gal a.imgwrap{display:block;aspect-ratio:4/3;overflow:hidden;background:#0b1a30}
+    .gal .imgwrap{display:block;aspect-ratio:4/3;overflow:hidden;background:#0b1a30;cursor:zoom-in}
+    .gal video{width:100%;height:100%;object-fit:cover;cursor:default}
+    .gal img,.gal video{user-select:none;-webkit-user-drag:none}
     .gal img{width:100%;height:100%;object-fit:cover;transition:transform 0.35s}
     .gal figure:hover img{transform:scale(1.04)}
     .gal figcaption{padding:0.85rem 1rem 1rem;display:flex;flex-direction:column;gap:0.3rem;flex:1}
@@ -110,6 +112,10 @@
   </div>
 </footer>
 
+<div id="at-lb" style="display:none;position:fixed;inset:0;background:rgba(3,9,18,0.95);z-index:999;align-items:center;justify-content:center;cursor:zoom-out">
+  <img id="at-lb-img" alt="" draggable="false" style="max-width:93vw;max-height:93vh;border-radius:8px;user-select:none" />
+</div>
+
 <script src="assets/script.js"></script>
 <script src="assets/i18n.js"></script>
 <script>
@@ -117,18 +123,21 @@
   "use strict";
   // Galerie — titres = noms propres des œuvres (français · kreyòl), identiques dans toutes les langues.
   var WORKS = [
-    { f: "oeuvre-01.jpg",  fr: "Roue de vie",        ht: "Wonn lavi",       tech: "Acrylique" },
-    { f: "oeuvre-02.jpg",  fr: "Louange",            ht: "Lwanj",           tech: "Acrylique — encadrée" },
-    { f: "oeuvre-03.jpg",  fr: "Horizon caraïbe",    ht: "Orizon karayib",  tech: "Triptyque — acrylique" },
-    { f: "oeuvre-04.jpg",  fr: "Fête nocturne",      ht: "Fèt lannwit",     tech: "Polyptyque — 7 panneaux" },
-    { f: "oeuvre-05.jpg",  fr: "Soleil semé",        ht: "Solèy simen",     tech: "Triptyque — acrylique" },
-    { f: "oeuvre-06.jpg",  fr: "Chemin de campagne", ht: "Wout andeyò",     tech: "Acrylique" },
+    { f: "oeuvre-01.jpg",  fr: "Roue de Vie",        ht: "Wonn lavi",       tech: "Huile sur toile · 80 × 60 cm · 1998" },
+    { f: "oeuvre-02.jpg",  fr: "Louange",            ht: "Lwanj",           tech: "Acrylique · 40 × 60 cm · 2022" },
+    { f: "oeuvre-03.jpg",  fr: "Ligne Bleue",        ht: "Liy Ble",         tech: "Triptyque vertical · acrylique · 60 × 120 cm · 2024" },
+    { f: "oeuvre-04.jpg",  fr: "Fête nocturne",      ht: "Fèt lannwit",     tech: "Acrylique · panneaux multiples · 120 × 90 cm · 2021" },
+    { f: "oeuvre-05.jpg",  fr: "Soleil semé",        ht: "Solèy simen",     tech: "Triptyque · acrylique & feuilles d'or · 120 × 50 cm · 2024" },
+    { f: "oeuvre-06.jpg",  fr: "Chemin de campagne", ht: "Wout andeyò",     tech: "Huile sur toile · 60 × 50 cm · 2024" },
     { f: "oeuvre-07.jpg",  fr: "Double face",        ht: "De fas",          tech: "Portrait — acrylique" },
     { f: "oeuvre-08.jpg",  fr: "Souffle",            ht: "Souf",            tech: "Diptyque — noir & blanc" },
     { f: "oeuvre-09.png",  fr: "Père et Fils",       ht: "Papa ak Pitit",   tech: "Acrylique — encadrée" },
-    { f: "oeuvre-10.jpg",  fr: "Gratitude",          ht: "Rekonesans",      tech: "Acrylique" },
-    { f: "oeuvre-11.png",  fr: "Le fidèle",          ht: "Fidèl la",        tech: "Acrylique" },
-    { f: "oeuvre-12.jpg",  fr: "Soleil en damier",   ht: "Solèy an damye",  tech: "Acrylique" }
+    { f: "oeuvre-10.jpg",  fr: "Gratitude",          ht: "Rekonesans",      tech: "Acrylique sur toile · 80 × 100 cm · 2024" },
+    { f: "oeuvre-11.jpg",  fr: "Le fidèle",          ht: "Fidèl la",        tech: "Huile sur toile · 80 × 80 cm · 2024" },
+    { f: "oeuvre-12.jpg",  fr: "Soleil en damier",   ht: "Solèy an damye",  tech: "Acrylique · 80 × 80 cm · 2024" }
+  ];
+  var VIDEOS = [
+    { f: "inspirasyon.mp4", fr: "Inspiration", ht: "Enspirasyon", tech: "Œuvre vidéo — édition numérique" }
   ];
   var PRICE = {
     fr: { p: "Prix sur demande", a: "Demander le prix →" },
@@ -150,18 +159,49 @@
     gal.innerHTML = WORKS.map(function (w) {
       var subject = encodeURIComponent("Atelier ATM — « " + w.fr + " / " + w.ht + " »");
       return '<figure>' +
-        '<a class="imgwrap" href="assets/atelier/' + w.f + '" target="_blank" rel="noopener">' +
-        '<img src="assets/atelier/' + w.f + '" alt="' + w.fr + ' — ' + w.ht + '" loading="lazy" /></a>' +
+        '<span class="imgwrap" data-full="assets/atelier/' + w.f + '">' +
+        '<img src="assets/atelier/' + w.f + '" alt="' + w.fr + ' — ' + w.ht + '" loading="lazy" draggable="false" /></span>' +
         '<figcaption>' +
         '<span class="t-fr">' + w.fr + '</span>' +
         '<span class="t-ht">' + w.ht + '</span>' +
         '<span class="tech">' + w.tech + ' · ' + P.p + '</span>' +
         '<span class="buy"><a href="mailto:sales@atmart.ltd?subject=' + subject + '">' + P.a + '</a></span>' +
         '</figcaption></figure>';
+    }).join("") + VIDEOS.map(function (v) {
+      var subject = encodeURIComponent("Atelier ATM — video « " + v.fr + " / " + v.ht + " »");
+      return '<figure>' +
+        '<span class="imgwrap">' +
+        '<video src="assets/atelier/' + v.f + '" controls controlsList="nodownload noremoteplayback" ' +
+        'disablepictureinpicture preload="metadata" playsinline></video></span>' +
+        '<figcaption>' +
+        '<span class="t-fr">🎬 ' + v.fr + '</span>' +
+        '<span class="t-ht">' + v.ht + '</span>' +
+        '<span class="tech">' + v.tech + ' · ' + P.p + '</span>' +
+        '<span class="buy"><a href="mailto:sales@atmart.ltd?subject=' + subject + '">' + P.a + '</a></span>' +
+        '</figcaption></figure>';
     }).join("");
   }
   render();
   new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+
+  // ---- visionneuse (pas de lien direct vers le fichier) ----
+  var lb = document.getElementById("at-lb");
+  var lbi = document.getElementById("at-lb-img");
+  gal.addEventListener("click", function (e) {
+    var w = e.target.closest(".imgwrap");
+    if (!w || !w.dataset.full) return;
+    lbi.src = w.dataset.full;
+    lb.style.display = "flex";
+  });
+  lb.addEventListener("click", function () { lb.style.display = "none"; lbi.removeAttribute("src"); });
+
+  // ---- dissuasion copie : clic droit et glisser-deposer bloques sur la galerie ----
+  document.addEventListener("contextmenu", function (e) {
+    if (e.target.closest(".gal") || e.target.closest("#at-lb")) e.preventDefault();
+  });
+  document.addEventListener("dragstart", function (e) {
+    if (e.target.closest(".gal") || e.target.closest("#at-lb")) e.preventDefault();
+  });
 })();
 </script>
 </body>
