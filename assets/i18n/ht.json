@@ -308,5 +308,17 @@
   "k36.e_l4": "Ideyal pou 90 premye jou nouvo anplwaye yo (retansyon)",
   "k36.e_l5": "Acha inik posib : Pak 90 jou — 129 $ (5 manm, 3 mwa)",
   "k36.e_l6": "+8 $ pou chak manm anplis · pase 10 : sou devi",
-  "k36.e_cta": "Ekipe ekip mwen"
+  "k36.e_cta": "Ekipe ekip mwen",
+  "nav.atelier": "🎨 Atelye",
+  "at2.kicker": "Koulè, mouvman, limyè — atizay ki fè lespri respire.",
+  "at2.bio": "ATM — Andrelita T. Myril — se atis pent ak atis plastik, diplome ENARTS, Lekòl Nasyonal Atizay Ayiti a, sa ki gen plis repitasyon nan peyi a. Demach li : mete zouti atizay yo nan men tout moun — pou kreyativite chak moun grandi, pou lespri jwenn ti vwayaj li bezwen an, epi pou ekilib moun nan, kò ak lespri, jwenn fòs li. Tablo li yo — koulè klè, mouvman, figi ak abstraksyon — se fenèt ki louvri sou limyè Ayiti ak Karayib la.",
+  "at2.mark": "Non Atmart la pote mak li : ATM + art.",
+  "at2.note": "Tout zèv yo se orijinal ki siyen. Foto yo fèt nan atelye a — koulè reyèl yo yon ti jan pi klere. Dimansyon ak ane sou demann.",
+  "at2.gal_title": "🖼 Zèv yo",
+  "at2.com_title": "🖌 Kòmand pèsonalize",
+  "at2.com_desc": "Pòtrè, peyizaj, zèv pou kay ou, biwo ou oswa aktivite ou — pale nou de pwojè ou, ATM ap mete l an koulè.",
+  "at2.com_cta": "Ekri Atelye a",
+  "at2.home_title": "🎨 Atelier ATM — atizay orijinal",
+  "at2.home_desc": "Zèv orijinal Andrelita T. Myril (ATM), atis pent diplome ENARTS — koulè Ayiti ak Karayib la, pou kay ou oswa biwo ou. Pri sou demann.",
+  "at2.home_cta": "Vizite Atelye a"
 }

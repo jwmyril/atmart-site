@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/brand/atmart-mark.svg" />
+  <title>Atelier ATM — Andrelita T. Myril, artiste peintre | Atmart</title>
+  <meta name="description" content="L'Atelier d'Atmart : les œuvres d'ATM (Andrelita T. Myril), artiste peintre et plasticienne diplômée de l'ENARTS (Haïti). Originaux signés, commandes personnalisées. Prix sur demande." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css?v=11" />
+  <style>
+    /* ---- Atelier (page-scoped) ---- */
+    .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.3rem;margin-top:1.4rem}
+    .gal figure{margin:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+    .gal a.imgwrap{display:block;aspect-ratio:4/3;overflow:hidden;background:#0b1a30}
+    .gal img{width:100%;height:100%;object-fit:cover;transition:transform 0.35s}
+    .gal figure:hover img{transform:scale(1.04)}
+    .gal figcaption{padding:0.85rem 1rem 1rem;display:flex;flex-direction:column;gap:0.3rem;flex:1}
+    .gal .t-fr{font-family:"Space Grotesk",sans-serif;font-weight:700;color:#fff;font-size:1.02rem}
+    .gal .t-ht{color:#2ec4b6;font-size:0.85rem}
+    .gal .tech{color:#9db2c7;font-size:0.78rem}
+    .gal .buy{margin-top:auto;padding-top:0.5rem}
+    .gal .buy a{color:#f4a261;font-size:0.85rem;text-decoration:none;border-bottom:1px dashed rgba(244,162,97,0.5)}
+    .gal .buy a:hover{color:#fff}
+    .at-bio{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-left:4px solid #f4a261;border-radius:14px;padding:1.3rem 1.5rem;max-width:900px}
+    .at-mark{color:#f4a261;font-weight:600}
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="atelier.html" class="active" data-i18n="nav.atelier">🎨 Atelier</a></li>
+      <li><a href="karye360.html">Karyè360</a></li>
+      <li><a href="studio.html">Fòmasyon360</a></li>
+      <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
+      <li><a href="https://lojik360.atmart.ltd" data-i18n="atm.nav_learn">Apprendre (Lojik360)</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="padding-bottom:1rem">
+  <div class="container">
+    <p class="kreyol" data-i18n="at2.kicker">Koulè, mouvman, limyè — atizay ki fè lespri respire.</p>
+    <h1>Atelier <em>ATM</em></h1>
+    <div class="at-bio">
+      <p style="margin:0 0 0.7rem" data-i18n="at2.bio">ATM — Andrelita T. Myril — est artiste peintre et plasticienne, diplômée de l'ENARTS, l'École Nationale des Arts d'Haïti, la plus renommée du pays. Sa démarche : mettre les outils de l'art entre toutes les mains — pour faire grandir la créativité de chacun, offrir à l'esprit l'évasion dont il a besoin et nourrir l'équilibre humain et mental. Ses toiles — couleurs franches, rythmes en mouvement, figures et abstractions — sont des fenêtres ouvertes sur la lumière d'Haïti et de la Caraïbe.</p>
+      <p style="margin:0" class="at-mark" data-i18n="at2.mark">Atmart porte son empreinte jusque dans son nom : ATM + art.</p>
+    </div>
+    <p style="color:#9db2c7;font-size:0.88rem;margin-top:1rem" data-i18n="at2.note">Toutes les œuvres sont des originaux signés. Photos prises à l'atelier — les couleurs réelles sont légèrement plus vives. Dimensions et année sur demande.</p>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section style="padding-top:0.5rem">
+  <div class="container">
+    <h2 data-i18n="at2.gal_title">🖼 Les œuvres</h2>
+    <div class="gal" id="at-gal"></div>
+  </div>
+</section>
+
+<!-- COMMANDES -->
+<section>
+  <div class="container">
+    <div class="cta-band" style="background:rgba(244,162,97,0.08);border:1px solid rgba(244,162,97,0.35);border-radius:14px;padding:1.6rem;text-align:center">
+      <h2 style="margin-top:0" data-i18n="at2.com_title">🖌 Commandes personnalisées</h2>
+      <p style="color:#d7e3f0;max-width:640px;margin:0.5rem auto 1rem" data-i18n="at2.com_desc">Portraits, paysages, œuvres pour votre maison, votre bureau ou votre événement — parlez-nous de votre projet et ATM le mettra en couleurs.</p>
+      <a href="mailto:sales@atmart.ltd?subject=Atelier%20ATM%20-%20commande%20personnalis%C3%A9e" class="btn btn-primary" data-i18n="at2.com_cta">Écrire à l'Atelier</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
+        <ul>
+          <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+          <li><a href="karye360.html">Karyè360</a></li>
+          <li><a href="studio.html">Fòmasyon360</a></li>
+          <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_learn">Apprendre</h4>
+        <ul>
+          <li><a href="https://lojik360.atmart.ltd" data-i18n="atm.foot_l360">Lojik360 — tutoriels gratuits</a></li>
+          <li><a href="podcast.html" data-i18n="foot.podcast">Podcast Lojik360</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-note">© Atmart LLC — <span data-i18n="foot.rights">Tous droits réservés.</span></p>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/i18n.js"></script>
+<script>
+(function () {
+  "use strict";
+  // Galerie — titres = noms propres des œuvres (français · kreyòl), identiques dans toutes les langues.
+  var WORKS = [
+    { f: "oeuvre-01.jpg",  fr: "Roue de vie",        ht: "Wonn lavi",       tech: "Acrylique" },
+    { f: "oeuvre-02.jpg",  fr: "Louange",            ht: "Lwanj",           tech: "Acrylique — encadrée" },
+    { f: "oeuvre-03.jpg",  fr: "Horizon caraïbe",    ht: "Orizon karayib",  tech: "Triptyque — acrylique" },
+    { f: "oeuvre-04.jpg",  fr: "Fête nocturne",      ht: "Fèt lannwit",     tech: "Polyptyque — 7 panneaux" },
+    { f: "oeuvre-05.jpg",  fr: "Soleil semé",        ht: "Solèy simen",     tech: "Triptyque — acrylique" },
+    { f: "oeuvre-06.jpg",  fr: "Chemin de campagne", ht: "Wout andeyò",     tech: "Acrylique" },
+    { f: "oeuvre-07.jpg",  fr: "Éclosion",           ht: "Papiyon yo",      tech: "Portrait — acrylique" },
+    { f: "oeuvre-08.jpg",  fr: "Souffle",            ht: "Souf",            tech: "Diptyque — noir & blanc" },
+    { f: "oeuvre-09.png",  fr: "Main dans la main",  ht: "Men nan men",     tech: "Acrylique — encadrée" },
+    { f: "oeuvre-10.jpg",  fr: "Gratitude",          ht: "Rekonesans",      tech: "Acrylique" },
+    { f: "oeuvre-11.png",  fr: "Le fidèle",          ht: "Fidèl la",        tech: "Acrylique" },
+    { f: "oeuvre-12.jpg",  fr: "Soleil en damier",   ht: "Solèy an damye",  tech: "Acrylique" }
+  ];
+  var PRICE = {
+    fr: { p: "Prix sur demande", a: "Demander le prix →" },
+    ht: { p: "Pri sou demann",   a: "Mande pri a →" },
+    en: { p: "Price on request", a: "Ask the price →" },
+    es: { p: "Precio a pedido",  a: "Pregunta el precio →" }
+  };
+  function lang() {
+    var l = document.documentElement.lang || localStorage.getItem("atmart_lang") || "fr";
+    return PRICE[l] ? l : "fr";
+  }
+  var gal = document.getElementById("at-gal");
+  var applied = "";
+  function render() {
+    var l = lang();
+    if (l === applied) return;
+    applied = l;
+    var P = PRICE[l];
+    gal.innerHTML = WORKS.map(function (w) {
+      var subject = encodeURIComponent("Atelier ATM — « " + w.fr + " / " + w.ht + " »");
+      return '<figure>' +
+        '<a class="imgwrap" href="assets/atelier/' + w.f + '" target="_blank" rel="noopener">' +
+        '<img src="assets/atelier/' + w.f + '" alt="' + w.fr + ' — ' + w.ht + '" loading="lazy" /></a>' +
+        '<figcaption>' +
+        '<span class="t-fr">' + w.fr + '</span>' +
+        '<span class="t-ht">' + w.ht + '</span>' +
+        '<span class="tech">' + w.tech + ' · ' + P.p + '</span>' +
+        '<span class="buy"><a href="mailto:sales@atmart.ltd?subject=' + subject + '">' + P.a + '</a></span>' +
+        '</figcaption></figure>';
+    }).join("");
+  }
+  render();
+  new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+})();
+</script>
+</body>
+</html>
