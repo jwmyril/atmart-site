@@ -1,7 +1,7 @@
 // Atmart PWA — cache statique (les appels IA passent toujours par le reseau)
-const CACHE = "atmart-v1";
+const CACHE = "atmart-v2";
 const CORE = ["/", "/index.html", "/chofe360.html", "/karye360.html", "/studio.html", "/atelier.html",
-  "/assets/style.css?v=11", "/assets/script.js", "/assets/i18n.js",
+  "/assets/style.css?v=12", "/assets/script.js", "/assets/i18n.js",
   "/assets/i18n/ht.json", "/assets/i18n/en.json", "/assets/i18n/es.json",
   "/assets/logo.svg", "/assets/brand/atmart-mark.svg"];
 self.addEventListener("install", (e) => {
