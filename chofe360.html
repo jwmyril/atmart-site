@@ -113,7 +113,7 @@
           <label for="cf-phone" id="L-phone">Votre téléphone (WhatsApp)</label>
           <input type="text" id="cf-phone" maxlength="30" />
         </div>
-        <div style="margin-top:1.1rem"><button type="submit" class="btn btn-primary" id="cf-go">Ouvrir mon coach</button></div>
+        <div style="margin-top:1.1rem;display:flex;gap:0.6rem;flex-wrap:wrap"><button type="submit" class="btn btn-primary" id="cf-go">Ouvrir mon coach</button><button type="button" class="btn btn-outline" id="cf-try">📝 Essayer 5 questions gratuites</button></div>
         <p class="cf-status" id="cf-st1"></p>
       </form>
 
@@ -128,6 +128,7 @@
           <button class="btn btn-primary" id="cf-session-btn">🚗 Séance avec sponsor</button>
           <button class="btn btn-outline" id="cf-coach-btn">💬 Parler au coach</button>
           <button class="btn btn-outline" id="cf-guide-btn">🖨 Guide du sponsor</button>
+          <button class="btn btn-outline" id="cf-quiz-btn">📝 Test écrit (Pèmi)</button>
           <button class="btn btn-outline" id="cf-result-btn">🏁 Résultat du test</button>
         </div>
         <p class="cf-badge-note" id="cf-erase-zone"><span id="cf-privacy">🔒 Dossier anonyme lié à votre code.</span> <button type="button" id="cf-erase" style="background:none;border:none;color:#9db2c7;text-decoration:underline;cursor:pointer;font:inherit">Effacer mon dossier</button></p>
@@ -175,6 +176,18 @@
           <span class="cf-small" id="cf-out-r-state"></span></div>
         <p class="cf-status" id="cf-st5"></p>
         <p id="cf-bridge" class="cf-hide" style="background:rgba(46,196,182,0.1);border:1px solid rgba(46,196,182,0.4);border-radius:10px;padding:0.8rem 1rem;font-size:0.9rem;line-height:1.6">🎉 <span id="cf-bridge-txt">Félicitations ! Prochaine étape : vos 90 premiers jours au volant d'un emploi.</span> <a href="karye360.html" style="color:#2ec4b6;font-weight:600">Karyè360 →</a></p>
+      </div>
+
+      <!-- ecran quiz Pemi -->
+      <div class="cf-card cf-hide" id="cf-quiz">
+        <p class="cf-prog"><span class="cf-phase" id="qz-badge">PÈMI</span> <span id="qz-prog"></span></p>
+        <p class="cf-cmd" id="qz-q" style="font-size:1.15rem"></p>
+        <div class="cf-chips" id="qz-opts" style="flex-direction:column;align-items:stretch"></div>
+        <div class="cf-fb" id="qz-fb"></div>
+        <div class="cf-actions">
+          <button class="btn btn-primary cf-hide" id="qz-next">Suivant ⏭</button>
+        </div>
+        <p class="cf-status" id="qz-st"></p>
       </div>
 
       <!-- guide sponsor imprimable -->
@@ -314,7 +327,7 @@
         fin:"Séance terminée — envoi au coach…",invalid:"Code invalide. Vérifiez-le, ou écrivez-nous.",
         expired:"Accès expiré. Renouvelez pour continuer — sales@atmart.ltd.",limit:"Limite du jour atteinte — le coach revient demain.",
         err:"Petit souci technique. Réessayez.",hello:"Bonjou ! 👋 Je suis votre coach Wout. Dites-moi où vous en êtes, ou lancez une séance avec votre accompagnateur.",
-        think:"Le coach réfléchit…",saved:"Enregistré ✔",needCode:"Entrez votre code."},
+        think:"Le coach réfléchit…",saved:"Enregistré ✔",needCode:"Entrez votre code.",qzTitle:"Test écrit (Pèmi) — 20 questions, 15 pour réussir",qzRight:"✅ Correct ! ",qzWrong:"❌ Incorrect. ",qzScore:"Votre score : ",qzPass:"RÉUSSI 🎉 — vous êtes prêt pour le vrai test écrit.",qzFail:"Pas encore — révisez et recommencez demain.",qzFree:"Essai gratuit terminé (5 questions/jour). Le code Chofè360 débloque les 20 questions + le coach.",qzNext:"Suivant ⏭"},
     ht:{kicker:"Lekòl la montre w kondwi. Nou menm, nou fè w PASE tès la — nan lang ou.",
         lead:"Coach preparasyon pou tès kondwi Class D Massachusetts la : vrè kòmand egzaminatè a an angle, pèlen yo anvan w demare, sou wout la ak sou chemen retou a — epi moun k ap akonpaye w la gide etap pa etap.",
         note:"Dosye anonim ak kòd. Nou pa afilye ak RMV — preparasyon endepandan, okenn garanti. Telefòn nan rete nan men akonpayatè a, machin nan kanpe.",
@@ -328,7 +341,7 @@
         fin:"Seyans fini — n ap voye bay coach la…",invalid:"Kòd la pa bon. Verifye l, oswa ekri nou.",
         expired:"Aksè a fini. Renouvle pou kontinye — sales@atmart.ltd.",limit:"Limit jou a rive — coach la ap tounen demen.",
         err:"Yon ti pwoblèm teknik. Eseye ankò.",hello:"Bonjou ! 👋 Mwen se coach Wout ou. Di m kote ou ye, oswa kòmanse yon seyans ak akonpayatè ou.",
-        think:"Coach la ap reflechi…",saved:"Anrejistre ✔",needCode:"Mete kòd ou."},
+        think:"Coach la ap reflechi…",saved:"Anrejistre ✔",needCode:"Mete kòd ou.",qzTitle:"Tès ekri (Pèmi) — 20 kesyon, 15 pou pase",qzRight:"✅ Kòrèk ! ",qzWrong:"❌ Pa sa. ",qzScore:"Nòt ou : ",qzPass:"OU PASE 🎉 — ou pare pou vrè tès ekri a.",qzFail:"Poko — revize epi rekòmanse demen.",qzFree:"Esè gratis la fini (5 kesyon pa jou). Kòd Chofè360 a debloke tout 20 kesyon yo + coach la.",qzNext:"Pwochen ⏭"},
     en:{kicker:"Driving school teaches you to drive. We get you to PASS the test — in your language.",
         lead:"The Massachusetts Class D road-test prep coach: the examiner's real English commands, the traps before you drive, on the road and on the way back — with your sponsor guided step by step.",
         note:"Anonymous file by code. Not affiliated with the RMV — independent preparation, no guarantee. The phone stays in the sponsor's hands, vehicle stopped.",
@@ -342,7 +355,7 @@
         fin:"Session finished — sending to the coach…",invalid:"Invalid code. Check it, or write to us.",
         expired:"Access expired. Renew to continue — sales@atmart.ltd.",limit:"Daily limit reached — the coach returns tomorrow.",
         err:"Small technical issue. Try again.",hello:"Hello! 👋 I'm your Wout coach. Tell me where you are, or start a session with your sponsor.",
-        think:"The coach is thinking…",saved:"Saved ✔",needCode:"Enter your code."},
+        think:"The coach is thinking…",saved:"Saved ✔",needCode:"Enter your code.",qzTitle:"Written test (Pèmi) — 20 questions, 15 to pass",qzRight:"✅ Correct! ",qzWrong:"❌ Not quite. ",qzScore:"Your score: ",qzPass:"PASSED 🎉 — you are ready for the real written test.",qzFail:"Not yet — review and try again tomorrow.",qzFree:"Free trial done (5 questions/day). The Chofè360 code unlocks all 20 + the coach.",qzNext:"Next ⏭"},
     es:{kicker:"La escuela te enseña a conducir. Nosotros te hacemos PASAR el examen — en tu idioma.",
         lead:"El coach de preparación para el examen de manejo Class D de Massachusetts: las órdenes reales del examinador en inglés, las trampas antes de arrancar, en la ruta y al regreso — con tu acompañante guiado paso a paso.",
         note:"Expediente anónimo por código. No afiliado al RMV — preparación independiente, sin garantía. El teléfono queda en manos del acompañante, vehículo detenido.",
@@ -356,7 +369,7 @@
         fin:"Sesión terminada — enviando al coach…",invalid:"Código inválido. Verifícalo o escríbenos.",
         expired:"Acceso vencido. Renueva para continuar — sales@atmart.ltd.",limit:"Límite diario alcanzado — el coach vuelve mañana.",
         err:"Pequeño problema técnico. Inténtalo de nuevo.",hello:"¡Hola! 👋 Soy tu coach Wout. Dime dónde estás, o inicia una sesión con tu acompañante.",
-        think:"El coach está pensando…",saved:"Guardado ✔",needCode:"Escribe tu código."}
+        think:"El coach está pensando…",saved:"Guardado ✔",needCode:"Escribe tu código.",qzTitle:"Examen escrito (Pèmi) — 20 preguntas, 15 para aprobar",qzRight:"✅ ¡Correcto! ",qzWrong:"❌ No es así. ",qzScore:"Tu puntaje: ",qzPass:"APROBADO 🎉 — listo para el examen escrito real.",qzFail:"Aún no — repasa e inténtalo mañana.",qzFree:"Prueba gratis terminada (5 preguntas/día). El código Chofè360 desbloquea las 20 + el coach.",qzNext:"Siguiente ⏭"}
   };
 
   function lang(){var l=document.documentElement.lang||localStorage.getItem("atmart_lang")||"fr";return L[l]?l:"fr";}
@@ -391,7 +404,7 @@
       .then(function(r){return r.json().then(function(b){return {ok:r.ok,body:b};});});
   }
   function emsg(c){var t=T();return c==="wout_invalid"?t.invalid:c==="wout_expired"?t.expired:c==="rate_limited"?t.limit:t.err;}
-  function show(id){["cf-dash","cf-session","cf-chat","cf-outcome","cf-guide"].forEach(function(x){
+  function show(id){["cf-dash","cf-session","cf-chat","cf-outcome","cf-guide","cf-quiz"].forEach(function(x){
     document.getElementById(x).classList.toggle("cf-hide",x!==id&&x!=="cf-dash");});
     if(id!=="cf-dash")document.getElementById(id).classList.remove("cf-hide");}
   function setReadiness(p){document.getElementById("cf-pct").textContent=p+"%";
@@ -516,6 +529,77 @@
   };
   document.getElementById("cf-guide-btn").addEventListener("click",function(){
     document.getElementById("g-body").innerHTML=GUIDE[lang()];show("cf-guide");});
+
+  // ---------- quiz Pemi ----------
+  var QZ=null,qzIdx=0,qzScore=0,qzOrder=[],qzFreeMode=false;
+  function qzFreeLeft(){var k="pemi_free_"+new Date().toISOString().slice(0,10);
+    return Math.max(0,5-parseInt(localStorage.getItem(k)||"0",10));}
+  function qzUseFree(){var k="pemi_free_"+new Date().toISOString().slice(0,10);
+    localStorage.setItem(k,String(parseInt(localStorage.getItem(k)||"0",10)+1));}
+  function qzHasCode(){return !!localStorage.getItem("chofe360_code");}
+  function startQuiz(free){
+    qzFreeMode=free;
+    fetch("assets/pemi-questions.json").then(function(r){return r.json();}).then(function(data){
+      QZ=data.questions.slice();
+      qzOrder=QZ.map(function(_,i){return i;});
+      for(var i=qzOrder.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=qzOrder[i];qzOrder[i]=qzOrder[j];qzOrder[j]=tmp;}
+      if(free)qzOrder=qzOrder.slice(0,Math.min(5,qzFreeLeft()||0));
+      qzIdx=0;qzScore=0;
+      document.getElementById("cf-start").classList.add("cf-hide");
+      document.getElementById("cf-dash").classList.toggle("cf-hide",free);
+      show("cf-quiz");
+      if(free)document.getElementById("cf-dash").classList.add("cf-hide");
+      qzRender();
+    });
+  }
+  function qzRender(){
+    var t=T(),l=lang();
+    if(qzIdx>=qzOrder.length){qzFinish();return;}
+    var q=QZ[qzOrder[qzIdx]];
+    document.getElementById("qz-prog").textContent=(qzIdx+1)+" / "+qzOrder.length+" · "+t.qzTitle;
+    document.getElementById("qz-q").textContent=q.q[l]||q.q.fr;
+    var letters=["A","B","C","D"];
+    // melanger les options en gardant la bonne reponse tracee
+    var order=[0,1,2,3];
+    for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tm=order[i];order[i]=order[j];order[j]=tm;}
+    document.getElementById("qz-opts").innerHTML=order.map(function(oi,k){
+      var o=q.opts[oi];
+      return '<button type="button" class="cf-chip" style="text-align:left" data-oi="'+oi+'"><strong>'+letters[k]+'.</strong> '+(o[l]||o.fr)+'</button>';
+    }).join("");
+    var fb=document.getElementById("qz-fb");fb.style.display="none";fb.textContent="";
+    document.getElementById("qz-next").classList.add("cf-hide");
+  }
+  document.getElementById("qz-opts").addEventListener("click",function(e){
+    var b=e.target.closest(".cf-chip");if(!b||document.getElementById("qz-next").classList.contains("cf-hide")===false)return;
+    var t=T(),l=lang(),q=QZ[qzOrder[qzIdx]];
+    var good=parseInt(b.dataset.oi,10)===q.a;
+    if(good)qzScore++;
+    if(qzFreeMode)qzUseFree();
+    var fb=document.getElementById("qz-fb");
+    fb.className="cf-fb "+(good?"good":"bad");fb.style.display="block";
+    fb.textContent=(good?t.qzRight:t.qzWrong)+(q.ex[l]||q.ex.fr);
+    document.getElementById("qz-next").classList.remove("cf-hide");
+  });
+  document.getElementById("qz-next").addEventListener("click",function(){qzIdx++;qzRender();});
+  function qzFinish(){
+    var t=T();
+    var fb=document.getElementById("qz-fb");
+    var passed=!qzFreeMode&&qzScore>=15;
+    fb.className="cf-fb "+(qzScore>=Math.ceil(qzOrder.length*0.75)?"good":"bad");
+    fb.style.display="block";
+    fb.textContent=t.qzScore+qzScore+" / "+qzOrder.length+". "+(qzFreeMode?t.qzFree:(passed?t.qzPass:t.qzFail));
+    document.getElementById("qz-q").textContent="";
+    document.getElementById("qz-opts").innerHTML="";
+    document.getElementById("qz-next").classList.add("cf-hide");
+    if(!qzFreeMode&&qzHasCode()){post({action:"quiz",score:qzScore,total:qzOrder.length});}
+    if(qzFreeMode){setTimeout(function(){document.getElementById("cf-start").classList.remove("cf-hide");},400);}
+  }
+  document.getElementById("cf-try").addEventListener("click",function(){
+    var t=T();
+    if(qzFreeLeft()<=0){document.getElementById("cf-st1").textContent=t.qzFree;return;}
+    startQuiz(true);
+  });
+  document.getElementById("cf-quiz-btn").addEventListener("click",function(){startQuiz(false);});
 
   // ---------- efase ----------
   document.getElementById("cf-erase").addEventListener("click",function(){

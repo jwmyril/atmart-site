@@ -322,7 +322,7 @@
   "at2.home_desc": "Original works by Andrelita T. Myril (ATM), ENARTS-trained painter — the colors of Haiti and the Caribbean, for your home or office. Price on request.",
   "at2.home_cta": "Visit the Studio",
   "c36.title": "🚗 Chofè360 — pass the Massachusetts road test",
-  "c36.lead": "Driving school teaches in English and rushes you? Chofè360 Wout prepares the Class D road test in YOUR language: the examiner's real commands, the traps before you drive, on the road and on the way back — with your sponsor guided step by step. (Coming: written test and 7D certificate prep.)",
+  "c36.lead": "Driving school teaches in English and rushes you? Chofè360 preps the tests in YOUR language: the examiner's real commands, the traps, your sponsor guided. The Pèmi written test is included, and the 7D certificate has its own coach.",
   "c36.rib": "NEW — MASSACHUSETTS",
   "c36.mo": "/ 90 days of access",
   "c36.l1": "The RMV examiner's real commands, in English + your language",
@@ -339,5 +339,15 @@
   "nav.s_cho": "license & driving (MA)",
   "nav.s_kar": "your career coach",
   "nav.s_fom": "training for NGOs & schools",
-  "nav.s_loj": "free tutorials"
+  "nav.s_loj": "free tutorials",
+  "c36.l6": "<strong>NEW: Pèmi written test included</strong> — 20 practice questions with explanations",
+  "c36.rib7": "SCHOOL TRANSPORT",
+  "c36.mo7": "/ 92 days of access",
+  "c36.d_l1": "Preparation for the Massachusetts <strong>7D certificate</strong> written exam",
+  "c36.d_l2": "Built on the official RMV manual (2026 ed.) — exact numbers",
+  "c36.d_l3": "The coach explains in your language and drills you question by question",
+  "c36.d_l4": "The classic traps: 8 pupils max, post-trip, renewal…",
+  "c36.d_l5": "7D driver pool (opt-in) — companies recruit",
+  "c36.d_cta": "Get 7D Pro — $29",
+  "c36.d_open": "I already have a code → open my 7D coach"
 }

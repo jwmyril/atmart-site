@@ -322,7 +322,7 @@
   "at2.home_desc": "Zèv orijinal Andrelita T. Myril (ATM), atis pent diplome ENARTS — koulè Ayiti ak Karayib la, pou kay ou oswa biwo ou. Pri sou demann.",
   "at2.home_cta": "Vizite Atelye a",
   "c36.title": "🚗 Chofè360 — pase tès kondwi Massachusetts la",
-  "c36.lead": "Lekòl kondwi a anseye an angle epi li prese twòp ? Chofè360 Wout prepare tès wout Class D la nan LANG OU : vrè kòmand egzaminatè a, pèlen yo anvan w demare, sou wout la ak sou retou a — ak akonpayatè ou gide etap pa etap. (Talè : preparasyon tès ekri a ak sètifika 7D la.)",
+  "c36.lead": "Lekòl kondwi a anseye an angle epi li prese twòp ? Chofè360 prepare tès yo nan LANG OU : vrè kòmand egzaminatè a, pèlen yo, akonpayatè ou gide. Tès ekri Pèmi a enkli, epi sètifika 7D a gen coach pa l.",
   "c36.rib": "NOUVO — MASSACHUSETTS",
   "c36.mo": "/ 90 jou aksè",
   "c36.l1": "Vrè kòmand egzaminatè RMV la, an angle + nan lang ou",
@@ -339,5 +339,15 @@
   "nav.s_cho": "pèmi & kondwi (MA)",
   "nav.s_kar": "coach karyè ou",
   "nav.s_fom": "fòmasyon pou ONG & lekòl",
-  "nav.s_loj": "titoryèl gratis"
+  "nav.s_loj": "titoryèl gratis",
+  "c36.l6": "<strong>NOUVO : tès ekri Pèmi enkli</strong> — 20 kesyon pratik ak esplikasyon",
+  "c36.rib7": "TRANSPÒ ELÈV",
+  "c36.mo7": "/ 92 jou aksè",
+  "c36.d_l1": "Preparasyon pou egzamen ekri <strong>sètifika 7D</strong> Massachusetts la",
+  "c36.d_l2": "Bati sou manyèl ofisyèl RMV a (ed. 2026) — chif egzak yo",
+  "c36.d_l3": "Coach la esplike nan lang ou epi fè w pratike kesyon pa kesyon",
+  "c36.d_l4": "Pèlen klasik yo : 8 elèv max, post-trip, renouvèlman…",
+  "c36.d_l5": "Pool chofè 7D (opt-in) — konpayi yo rekrite",
+  "c36.d_cta": "Pran 7D Pro — 29 $",
+  "c36.d_open": "Mwen deja gen yon kòd → ouvri coach 7D mwen"
 }

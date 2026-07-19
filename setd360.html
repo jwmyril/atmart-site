@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#0e2240" />
+  <link rel="icon" type="image/svg+xml" href="assets/brand/atmart-mark.svg" />
+  <title>Chofè360 7D Pro — réussir l'examen 7D du Massachusetts | Atmart</title>
+  <meta name="description" content="Chofè360 7D Pro : le coach de préparation à l'examen écrit du certificat 7D (transport scolaire) du Massachusetts, bâti sur le manuel officiel de la RMV — en kreyòl, español, français, English. Non affilié à la RMV." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css?v=12" />
+  <style>
+    .sd-app{max-width:820px;margin:0 auto}
+    .sd-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:1.4rem;margin-bottom:1rem}
+    .sd-card label{display:block;font-weight:600;font-size:0.88rem;margin:0.9rem 0 0.3rem}
+    .sd-card label:first-of-type{margin-top:0}
+    .sd-card label small{display:block;font-weight:400;color:#9db2c7;margin-top:0.15rem;line-height:1.4}
+    .sd-card input,.sd-card textarea{width:100%;background:#0e2240;color:#eaf2fb;border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:0.55rem 0.7rem;font:inherit;font-size:0.93rem}
+    .sd-status{color:#f4a261;font-size:0.9rem;margin-top:0.7rem;min-height:1.2em}
+    .sd-hide{display:none}
+    .sd-msgs{min-height:300px;max-height:58vh;overflow-y:auto;display:flex;flex-direction:column;gap:0.7rem;padding:0.3rem 0.1rem}
+    .sd-m{max-width:88%;padding:0.7rem 0.95rem;border-radius:13px;font-size:0.94rem;line-height:1.6;white-space:pre-wrap}
+    .sd-m.user{align-self:flex-end;background:#12406b}
+    .sd-m.coach{align-self:flex-start;background:rgba(46,196,182,0.12);border:1px solid rgba(46,196,182,0.35)}
+    .sd-row{display:flex;gap:0.6rem;margin-top:0.9rem}
+    .sd-row textarea{flex:1;min-height:50px;resize:vertical}
+    .sd-quick{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.6rem}
+    .sd-quick button{background:#0e2240;border:1px solid rgba(46,196,182,0.4);color:#d7e3f0;border-radius:99px;padding:0.4rem 0.9rem;font:inherit;font-size:0.82rem;cursor:pointer}
+    .sd-tools{display:flex;gap:0.8rem;flex-wrap:wrap;justify-content:space-between;margin-top:0.8rem;padding-top:0.8rem;border-top:1px dashed rgba(255,255,255,0.15);font-size:0.8rem;color:#9db2c7}
+    .sd-tools button{background:none;border:none;color:#9db2c7;text-decoration:underline;cursor:pointer;font:inherit}
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li class="nav-grp"><span data-i18n="nav.g_win">🎯 Réussir</span>
+        <ul class="nav-sub">
+          <li><a href="index.html#entevyou360">Entèvyou360 <small data-i18n="nav.s_ent">l'entretien d'embauche</small></a></li>
+          <li><a href="chofe360.html">Chofè360 <small data-i18n="nav.s_cho">permis &amp; conduite (MA)</small></a></li>
+          <li><a href="karye360.html">Karyè360 <small data-i18n="nav.s_kar">votre coach de carrière</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.g_learn">🎓 Se former</span>
+        <ul class="nav-sub">
+          <li><a href="studio.html">Fòmasyon360 <small data-i18n="nav.s_fom">formations pour ONG &amp; écoles</small></a></li>
+          <li><a href="https://lojik360.atmart.ltd">Lojik360 <small data-i18n="nav.s_loj">tutoriels gratuits</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.g_data">🗂 Données</span>
+        <ul class="nav-sub">
+          <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
+          <li><a href="outils.html" data-i18n="foot.tools">Outils &amp; sources de données</a></li>
+        </ul>
+      </li>
+      <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding-bottom:1rem">
+  <div class="container">
+    <p class="kreyol" id="sd-kicker">Egzamen 7D a egziste an kreyòl — men manyèl la se an angle sèlman. Nou fèmen twou sa a.</p>
+    <h1>Chofè<em>360</em> — 7D Pro</h1>
+    <p class="lead" id="sd-lead">Le coach de préparation à l'examen écrit du certificat 7D (transport d'écoliers) du Massachusetts — bâti sur le manuel officiel de la RMV (éd. février 2026). Il explique chaque règle dans votre langue, vous fait réviser question par question, et connaît les pièges classiques de l'examen.</p>
+    <p style="color:#9db2c7;font-size:0.88rem" id="sd-note">Source : Guide to School Pupil Transport Vehicles (7D), Mass RMV. Non affilié à la RMV — préparation indépendante, aucune garantie. L'examen réel est offert en anglais, español, português et kreyòl ayisyen.</p>
+  </div>
+</section>
+
+<section style="padding-top:0.5rem">
+  <div class="container">
+    <div class="sd-app">
+
+      <form class="sd-card" id="sd-start">
+        <label for="sd-code" id="L-code">🔑 Votre code 7D Pro<small>Reçu à l'achat (SETD-XXXX-XXXX). Pas encore de code ? <a href="mailto:sales@atmart.ltd?subject=Chof%C3%A8360%207D%20Pro%20(29%24)" style="color:#2ec4b6">Acheter — 29 $</a></small></label>
+        <input type="text" id="sd-code" maxlength="24" autocomplete="off" placeholder="SETD-XXXX-XXXX" />
+        <label id="L-pool" style="display:flex;gap:0.5rem;align-items:flex-start;margin-top:1rem;cursor:pointer">
+          <input type="checkbox" id="sd-pool" style="width:auto;margin-top:0.2rem" />
+          <span id="L-poolTxt">Quand j'aurai mon certificat 7D, je veux entrer dans le <strong>pool de chauffeurs 7D</strong> : des compagnies de transport scolaire pourront me contacter. (Optionnel.)</span>
+        </label>
+        <div id="sd-poolfields" class="sd-hide">
+          <label for="sd-name" id="L-name">Votre nom</label>
+          <input type="text" id="sd-name" maxlength="80" />
+          <label for="sd-phone" id="L-phone">Votre téléphone (WhatsApp)</label>
+          <input type="text" id="sd-phone" maxlength="30" />
+        </div>
+        <div style="margin-top:1.1rem"><button type="submit" class="btn btn-primary" id="sd-go">Ouvrir mon coach 7D</button></div>
+        <p class="sd-status" id="sd-st1"></p>
+      </form>
+
+      <div class="sd-card sd-hide" id="sd-chat">
+        <div class="sd-msgs" id="sd-msgs"></div>
+        <div class="sd-quick" id="sd-quick">
+          <button data-q="drill">📝 Fè m pratike kesyon</button>
+          <button data-q="cert">🪪 Règ sètifika a</button>
+          <button data-q="veh">🚐 Règ machin nan</button>
+          <button data-q="ops">🧒 Règ transpò elèv yo</button>
+        </div>
+        <div class="sd-row">
+          <textarea id="sd-input" maxlength="4000" placeholder="Écrivez à votre coach 7D…"></textarea>
+          <button class="btn btn-primary" id="sd-send">Envoyer</button>
+        </div>
+        <p class="sd-status" id="sd-st2"></p>
+        <div class="sd-tools">
+          <span id="sd-privacy">🔒 Dossier anonyme lié à votre code.</span>
+          <span><button type="button" id="sd-passed">🏁 J'ai réussi l'examen !</button> · <button type="button" id="sd-erase">Effacer mon dossier</button></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-band" style="background:rgba(244,162,97,0.07);border:1px solid rgba(244,162,97,0.3);border-radius:14px;padding:1.5rem;text-align:center">
+      <h2 style="margin-top:0;font-size:1.2rem" id="sd-b2b-t">🚌 Compagnies de transport scolaire</h2>
+      <p style="color:#d7e3f0;max-width:680px;margin:0.5rem auto 1rem;font-size:0.92rem" id="sd-b2b-d">Préparez vos recrues au 7D dans leur langue (packs de codes), et recrutez dans le pool de chauffeurs certifiés — avec leur consentement, jamais sans.</p>
+      <a href="mailto:sales@atmart.ltd?subject=7D%20Pro%20-%20pack%20entreprise" class="btn btn-outline" id="sd-b2b-c">Pack entreprise / rejoindre le pool</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
+        <ul>
+          <li><a href="chofe360.html">Chofè360 Wout</a></li>
+          <li><a href="setd360.html">Chofè360 7D Pro</a></li>
+          <li><a href="karye360.html">Karyè360</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul><li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li></ul>
+      </div>
+    </div>
+    <p class="footer-note">© Atmart LLC — <span data-i18n="foot.rights">Tous droits réservés.</span> · Not affiliated with the Massachusetts RMV.</p>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/i18n.js"></script>
+<script>
+(function () {
+  "use strict";
+  var EP = "https://atmart-chat.atmartllc.workers.dev/setd";
+  var L = {
+    fr:{kicker:"L'examen 7D existe en kreyòl — mais le manuel n'est qu'en anglais. Nous fermons cette brèche.",
+        hello:"Bonjou ! 👋 Je suis votre coach 7D. Demandez-moi une règle, ou dites « pratique » et je vous pose des questions comme à l'examen.",
+        think:"Le coach réfléchit…",invalid:"Code invalide. Vérifiez-le, ou achetez-en un.",expired:"Accès expiré — sales@atmart.ltd.",
+        limit:"Limite du jour atteinte — le coach revient demain.",err:"Petit souci technique. Réessayez.",needCode:"Entrez votre code.",
+        savedPass:"Enregistré — félicitations ! 🎉 Pensez au pool d'embauche et à Karyè360 pour vos 90 premiers jours.",
+        quick:{drill:"Fais-moi pratiquer avec des questions d'examen.",cert:"Explique-moi les règles du certificat 7D (âge, années de permis, renouvellement).",veh:"Explique-moi les règles du véhicule 7D (capacité, équipement, inspections).",ops:"Explique-moi les règles de transport des élèves (embarquement, post-trip, interdictions)."}},
+    ht:{kicker:"Egzamen 7D a egziste an kreyòl — men manyèl la se an angle sèlman. Nou fèmen twou sa a.",
+        hello:"Bonjou ! 👋 Mwen se coach 7D ou. Mande m nenpòt règ, oswa di « pratike » pou m poze w kesyon tankou nan egzamen an.",
+        think:"Coach la ap reflechi…",invalid:"Kòd la pa bon. Verifye l, oswa achte youn.",expired:"Aksè a fini — sales@atmart.ltd.",
+        limit:"Limit jou a rive — coach la ap tounen demen.",err:"Yon ti pwoblèm teknik. Eseye ankò.",needCode:"Mete kòd ou.",
+        savedPass:"Anrejistre — felisitasyon ! 🎉 Sonje pool anbochaj la ak Karyè360 pou 90 premye jou ou yo.",
+        quick:{drill:"Fè m pratike ak kesyon egzamen.",cert:"Esplike m règ sètifika 7D a (laj, ane lisans, renouvèlman).",veh:"Esplike m règ machin 7D a (kapasite, ekipman, enspeksyon).",ops:"Esplike m règ transpò elèv yo (monte/desann, post-trip, sa ki entèdi)."}},
+    en:{kicker:"The 7D exam exists in Kreyòl — but the manual is English-only. We close that gap.",
+        hello:"Hello! 👋 I'm your 7D coach. Ask me any rule, or say \\"practice\\" and I'll quiz you like the exam.",
+        think:"The coach is thinking…",invalid:"Invalid code. Check it, or buy one.",expired:"Access expired — sales@atmart.ltd.",
+        limit:"Daily limit reached — back tomorrow.",err:"Small technical issue. Try again.",needCode:"Enter your code.",
+        savedPass:"Saved — congratulations! 🎉 Consider the hiring pool and Karyè360 for your first 90 days.",
+        quick:{drill:"Quiz me with exam-style questions.",cert:"Explain the 7D certificate rules (age, license years, renewal).",veh:"Explain the 7D vehicle rules (capacity, equipment, inspections).",ops:"Explain pupil transport rules (loading, post-trip, prohibitions)."}},
+    es:{kicker:"El examen 7D existe en kreyòl — pero el manual solo está en inglés. Cerramos esa brecha.",
+        hello:"¡Hola! 👋 Soy tu coach 7D. Pregúntame cualquier regla, o di «práctica» y te haré preguntas como en el examen.",
+        think:"El coach está pensando…",invalid:"Código inválido. Verifícalo o compra uno.",expired:"Acceso vencido — sales@atmart.ltd.",
+        limit:"Límite diario alcanzado — vuelve mañana.",err:"Pequeño problema técnico. Inténtalo de nuevo.",needCode:"Escribe tu código.",
+        savedPass:"Guardado — ¡felicidades! 🎉 Piensa en el pool de empleo y en Karyè360 para tus primeros 90 días.",
+        quick:{drill:"Hazme practicar con preguntas de examen.",cert:"Explícame las reglas del certificado 7D (edad, años de licencia, renovación).",veh:"Explícame las reglas del vehículo 7D (capacidad, equipo, inspecciones).",ops:"Explícame las reglas de transporte de alumnos (subida, post-trip, prohibiciones)."}}
+  };
+  function lang(){var l=document.documentElement.lang||localStorage.getItem("atmart_lang")||"fr";return L[l]?l:"fr";}
+  function T(){return L[lang()];}
+  var applied="";
+  function applyLang(){var l=lang();if(l===applied)return;applied=l;
+    document.getElementById("sd-kicker").textContent=L[l].kicker;}
+  applyLang();
+  new MutationObserver(applyLang).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+
+  var codeEl=document.getElementById("sd-code");
+  codeEl.value=localStorage.getItem("setd360_code")||"";
+  var busy=false;
+  function post(body){body.language=lang();body.code=codeEl.value.trim().toUpperCase();
+    return fetch(EP,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})
+      .then(function(r){return r.json().then(function(b){return {ok:r.ok,body:b};});});}
+  function emsg(c){var t=T();return c==="setd_invalid"?t.invalid:c==="setd_expired"?t.expired:c==="rate_limited"?t.limit:t.err;}
+  function addMsg(role,text){var d=document.createElement("div");d.className="sd-m "+(role==="user"?"user":"coach");
+    d.textContent=text;var ms=document.getElementById("sd-msgs");ms.appendChild(d);ms.scrollTop=ms.scrollHeight;}
+
+  document.getElementById("sd-pool").addEventListener("change",function(){
+    document.getElementById("sd-poolfields").classList.toggle("sd-hide",!this.checked);});
+  document.getElementById("sd-start").addEventListener("submit",function(e){
+    e.preventDefault();if(busy)return;var t=T();
+    if(!codeEl.value.trim()){document.getElementById("sd-st1").textContent=t.needCode;return;}
+    busy=true;document.getElementById("sd-st1").textContent=t.think;
+    post({action:"start",profile:{pool:{optin:document.getElementById("sd-pool").checked,
+      name:document.getElementById("sd-name").value,phone:document.getElementById("sd-phone").value}}})
+    .then(function(res){busy=false;
+      if(!res.ok){document.getElementById("sd-st1").textContent=emsg(res.body&&res.body.error);return;}
+      localStorage.setItem("setd360_code",codeEl.value.trim().toUpperCase());
+      document.getElementById("sd-start").classList.add("sd-hide");
+      document.getElementById("sd-chat").classList.remove("sd-hide");
+      addMsg("coach",t.hello);
+    }).catch(function(){busy=false;document.getElementById("sd-st1").textContent=t.err;});
+  });
+
+  function send(text){
+    if(busy||!text)return;var t=T();busy=true;addMsg("user",text);
+    document.getElementById("sd-st2").textContent=t.think;
+    post({message:text}).then(function(res){busy=false;
+      document.getElementById("sd-st2").textContent="";
+      if(!res.ok){document.getElementById("sd-st2").textContent=emsg(res.body&&res.body.error);return;}
+      addMsg("coach",res.body.reply);
+    }).catch(function(){busy=false;document.getElementById("sd-st2").textContent=t.err;});
+  }
+  document.getElementById("sd-send").addEventListener("click",function(){
+    var v=document.getElementById("sd-input").value.trim();
+    document.getElementById("sd-input").value="";send(v);});
+  document.getElementById("sd-input").addEventListener("keydown",function(e){
+    if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();
+      var v=this.value.trim();this.value="";send(v);}});
+  document.getElementById("sd-quick").addEventListener("click",function(e){
+    var b=e.target.closest("button[data-q]");if(!b)return;send(T().quick[b.dataset.q]);});
+  document.getElementById("sd-passed").addEventListener("click",function(){
+    post({action:"outcome",result:"pass"}).then(function(res){
+      if(res.ok)document.getElementById("sd-st2").textContent=T().savedPass;});
+  });
+  document.getElementById("sd-erase").addEventListener("click",function(){
+    if(!window.confirm("Efase dosye a ? / Effacer le dossier ?"))return;
+    post({action:"delete"}).then(function(){location.reload();});
+  });
+})();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+</body>
+</html>
