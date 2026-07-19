@@ -8,6 +8,8 @@
   <meta name="description" content="Datasets économiques, géographiques, sociaux et financiers sur Haïti, la Caraïbe et l'Afrique francophone — nettoyés, documentés, prêts à l'analyse." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#0e2240" />
   <link rel="stylesheet" href="assets/style.css?v=2" />
 </head>
 <body>
@@ -17,14 +19,27 @@
     <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Atmart" class="logo-img" />at<span>mart</span><small>marché de la tech et des données</small></a>
     <button class="nav-toggle" aria-label="Menu">☰</button>
     <ul class="nav-links">
-      <li><a href="index.html">Accueil</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li class="nav-grp"><span data-i18n="nav.g_win">🎯 Réussir</span>
+        <ul class="nav-sub">
+          <li><a href="index.html#entevyou360">Entèvyou360 <small data-i18n="nav.s_ent">l'entretien d'embauche</small></a></li>
+          <li><a href="chofe360.html">Chofè360 <small data-i18n="nav.s_cho">permis &amp; conduite (MA)</small></a></li>
+          <li><a href="karye360.html">Karyè360 <small data-i18n="nav.s_kar">votre coach de carrière</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.g_learn">🎓 Se former</span>
+        <ul class="nav-sub">
+          <li><a href="studio.html">Fòmasyon360 <small data-i18n="nav.s_fom">formations pour ONG &amp; écoles</small></a></li>
+          <li><a href="https://lojik360.atmart.ltd">Lojik360 <small data-i18n="nav.s_loj">tutoriels gratuits</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.g_data">🗂 Données</span>
+        <ul class="nav-sub">
+          <li><a href="datasets.html" class="active" data-i18n="nav.datasets">Datasets</a></li>
+          <li><a href="outils.html" data-i18n="foot.tools">Outils &amp; sources de données</a></li>
+        </ul>
+      </li>
       <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
-      <li><a href="chofe360.html">Chofè360</a></li>
-      <li><a href="index.html#studio">Lojik360 Studio</a></li>
-      <li><a href="datasets.html" class="active">Datasets</a></li>
-      <li><a href="index.html#saas">SaaS</a></li>
-      <li><a href="outils.html">Outils</a></li>
-      <li><a href="https://lojik360.atmart.ltd">Apprendre (Lojik360)</a></li>
     </ul>
   </nav>
 </header>
@@ -151,5 +166,6 @@
 
 <script src="assets/script.js"></script>
 
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>

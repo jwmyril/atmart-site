@@ -8,6 +8,8 @@
   <meta name="description" content="Karyè360 : le coach de carrière par abonnement de la Suite 360 — il vous accompagne dans votre nouveau poste, votre recherche d'emploi et votre progression, en kreyòl, français, anglais ou espagnol. Dossier anonyme par code, effaçable à tout moment." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#0e2240" />
   <link rel="stylesheet" href="assets/style.css?v=11" />
   <style>
     /* ---- Karyè360 app (page-scoped) ---- */
@@ -42,12 +44,26 @@
     <button class="nav-toggle" aria-label="Menu">☰</button>
     <ul class="nav-links">
       <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li class="nav-grp"><span data-i18n="nav.g_win">🎯 Réussir</span>
+        <ul class="nav-sub">
+          <li><a href="index.html#entevyou360">Entèvyou360 <small data-i18n="nav.s_ent">l'entretien d'embauche</small></a></li>
+          <li><a href="chofe360.html">Chofè360 <small data-i18n="nav.s_cho">permis &amp; conduite (MA)</small></a></li>
+          <li><a href="karye360.html" class="active">Karyè360 <small data-i18n="nav.s_kar">votre coach de carrière</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.g_learn">🎓 Se former</span>
+        <ul class="nav-sub">
+          <li><a href="studio.html">Fòmasyon360 <small data-i18n="nav.s_fom">formations pour ONG &amp; écoles</small></a></li>
+          <li><a href="https://lojik360.atmart.ltd">Lojik360 <small data-i18n="nav.s_loj">tutoriels gratuits</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.g_data">🗂 Données</span>
+        <ul class="nav-sub">
+          <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
+          <li><a href="outils.html" data-i18n="foot.tools">Outils &amp; sources de données</a></li>
+        </ul>
+      </li>
       <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
-      <li><a href="chofe360.html">Chofè360</a></li>
-      <li><a href="karye360.html" class="active">Karyè360</a></li>
-      <li><a href="studio.html">Fòmasyon360</a></li>
-      <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
-      <li><a href="https://lojik360.atmart.ltd" data-i18n="atm.nav_learn">Apprendre (Lojik360)</a></li>
     </ul>
   </nav>
 </header>
@@ -356,5 +372,6 @@
   });
 })();
 </script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 </body>
 </html>

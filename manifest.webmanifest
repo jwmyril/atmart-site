@@ -1,0 +1,22 @@
+{
+  "name": "Atmart — Suite 360",
+  "short_name": "Atmart",
+  "description": "Art, technologie, données et IA — Entèvyou360, Chofè360, Karyè360, Fòmasyon360.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0B0D",
+  "theme_color": "#0e2240",
+  "icons": [
+    {
+      "src": "assets/brand/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/brand/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

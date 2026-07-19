@@ -328,8 +328,16 @@
   "c36.l1": "Vrè kòmand egzaminatè RMV la, an angle + nan lang ou",
   "c36.l2": "Mòd Seyans : akonpayatè a note, coach la korije menm kote a",
   "c36.l3": "Pèlen echèk otomatik yo : anvan w demare · sou wout la · sou retou a",
-  "c36.l4": "Jòj preparasyon onèt + ti egzèsis chak jou",
+  "c36.l4": "Li di w san manti si w pare pou tès la + ti egzèsis chak jou",
   "c36.l5": "Gid sponsor pou enprime · kreyòl, español, français, English",
   "c36.cta": "Pran Wout — 19 $",
-  "c36.open": "Mwen deja gen yon kòd → ouvri coach mwen"
+  "c36.open": "Mwen deja gen yon kòd → ouvri coach mwen",
+  "nav.g_win": "🎯 Reyisi",
+  "nav.g_learn": "🎓 Fòme tèt ou",
+  "nav.g_data": "🗂 Done",
+  "nav.s_ent": "entèvyou travay la",
+  "nav.s_cho": "pèmi & kondwi (MA)",
+  "nav.s_kar": "coach karyè ou",
+  "nav.s_fom": "fòmasyon pou ONG & lekòl",
+  "nav.s_loj": "titoryèl gratis"
 }
