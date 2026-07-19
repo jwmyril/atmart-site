@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/brand/atmart-mark.svg" />
+  <title>Chofè360 Wout — réussir le test de conduite du Massachusetts | Atmart</title>
+  <meta name="description" content="Chofè360 Wout : le coach de préparation au test routier Class D du Massachusetts pour les communautés créole et hispanophone. Les commandes réelles de l'examinateur, les pièges avant/pendant/retour, le sponsor guidé pas à pas. Non affilié à la RMV." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css?v=11" />
+  <style>
+    .cf-app{max-width:860px;margin:0 auto}
+    .cf-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:1.4rem;margin-bottom:1rem}
+    .cf-card label{display:block;font-weight:600;font-size:0.88rem;margin:0.9rem 0 0.3rem}
+    .cf-card label:first-of-type{margin-top:0}
+    .cf-card label small{display:block;font-weight:400;color:#9db2c7;margin-top:0.15rem;line-height:1.4}
+    .cf-card input,.cf-card textarea{width:100%;background:#0e2240;color:#eaf2fb;border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:0.55rem 0.7rem;font:inherit;font-size:0.93rem}
+    .cf-status{color:#f4a261;font-size:0.9rem;margin-top:0.7rem;min-height:1.2em}
+    .cf-hide{display:none}
+    .cf-gauge{display:flex;align-items:center;gap:1rem;margin-bottom:0.6rem}
+    .cf-gauge .pct{font-family:"Space Grotesk",sans-serif;font-size:2.4rem;font-weight:700;color:#2ec4b6}
+    .cf-bar{flex:1;height:12px;background:rgba(255,255,255,0.1);border-radius:99px;overflow:hidden}
+    .cf-bar span{display:block;height:100%;background:linear-gradient(90deg,#e63946,#f4a261,#2ec4b6);border-radius:99px;transition:width 0.6s}
+    .cf-actions{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:0.8rem}
+    .cf-phase{display:inline-block;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;padding:0.2rem 0.7rem;border-radius:99px;background:rgba(46,196,182,0.15);color:#2ec4b6;text-transform:uppercase}
+    .cf-cmd{font-family:"Space Grotesk",sans-serif;font-size:1.5rem;font-weight:700;color:#fff;margin:0.7rem 0 0.2rem;line-height:1.3}
+    .cf-tr{color:#2ec4b6;font-size:1rem;margin-bottom:0.9rem}
+    .cf-chips{display:flex;gap:0.5rem;flex-wrap:wrap;margin:0.8rem 0}
+    .cf-chip{background:#0e2240;border:1px solid rgba(230,57,70,0.5);color:#eaf2fb;border-radius:99px;padding:0.5rem 0.9rem;font:inherit;font-size:0.85rem;cursor:pointer}
+    .cf-chip.on{background:#5c1a22;border-color:#e63946}
+    .cf-chip .sev{font-weight:700}
+    .cf-chip .sev.F{color:#e63946}
+    .cf-chip .sev.m{color:#f4a261}
+    .cf-ok{background:#123f2c;border:1px solid #2ec4b6;color:#eaf2fb;border-radius:10px;padding:0.7rem 1.4rem;font:inherit;font-size:1rem;font-weight:600;cursor:pointer}
+    .cf-fb{border-radius:10px;padding:0.8rem 1rem;margin-top:0.8rem;font-size:0.92rem;line-height:1.55;display:none}
+    .cf-fb.good{background:rgba(46,196,182,0.12);border:1px solid rgba(46,196,182,0.4)}
+    .cf-fb.bad{background:rgba(230,57,70,0.1);border:1px solid rgba(230,57,70,0.4)}
+    .cf-prog{color:#9db2c7;font-size:0.82rem}
+    .cf-msgs{max-height:45vh;overflow-y:auto;display:flex;flex-direction:column;gap:0.6rem;padding:0.3rem 0.1rem}
+    .cf-m{max-width:88%;padding:0.65rem 0.9rem;border-radius:13px;font-size:0.93rem;line-height:1.55;white-space:pre-wrap}
+    .cf-m.user{align-self:flex-end;background:#12406b}
+    .cf-m.coach{align-self:flex-start;background:rgba(46,196,182,0.12);border:1px solid rgba(46,196,182,0.35)}
+    .cf-row{display:flex;gap:0.6rem;margin-top:0.8rem}
+    .cf-row textarea{flex:1;min-height:48px;resize:vertical}
+    .cf-out{display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center;margin:0.5rem 0}
+    .cf-small{font-size:0.8rem;color:#9db2c7}
+    .cf-badge-note{font-size:0.78rem;color:#9db2c7;border-top:1px dashed rgba(255,255,255,0.15);margin-top:1rem;padding-top:0.7rem}
+    @media print{ header,footer,.no-print{display:none!important} body{background:#fff;color:#000} .print-only{display:block!important;color:#000} }
+    .print-only{display:none}
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="chofe360.html" class="active">Chofè360</a></li>
+      <li><a href="karye360.html">Karyè360</a></li>
+      <li><a href="studio.html">Fòmasyon360</a></li>
+      <li><a href="https://lojik360.atmart.ltd" data-i18n="atm.nav_learn">Apprendre (Lojik360)</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding-bottom:1rem">
+  <div class="container">
+    <p class="kreyol" id="cf-kicker">Lekòl la montre w kondwi. Nou menm, nou fè w PASE tès la — nan lang ou.</p>
+    <h1>Chofè<em>360</em> — Wout</h1>
+    <p class="lead" id="cf-lead">Le coach de préparation au test de conduite Class D du Massachusetts : les commandes réelles de l'examinateur en anglais, les pièges avant de démarrer, sur la route et au retour — et votre accompagnateur guidé pas à pas, séance après séance.</p>
+    <p style="color:#9db2c7;font-size:0.88rem" id="cf-note">Dossier anonyme par code. Non affilié à la RMV du Massachusetts — préparation indépendante, aucune garantie de réussite. Le téléphone reste dans les mains de l'accompagnateur, véhicule à l'arrêt.</p>
+  </div>
+</section>
+
+<section style="padding-top:0.5rem">
+  <div class="container">
+    <div class="cf-app">
+
+      <!-- ecran 1 : onboarding -->
+      <form class="cf-card" id="cf-start">
+        <label for="cf-code" id="L-code">🔑 Votre code Chofè360<small>Reçu à l'achat (WOUT-XXXX-XXXX). Pas encore de code ? <a href="mailto:sales@atmart.ltd?subject=Chof%C3%A8360%20Wout" style="color:#2ec4b6">Écrivez-nous</a></small></label>
+        <input type="text" id="cf-code" maxlength="24" autocomplete="off" placeholder="WOUT-XXXX-XXXX" />
+        <label for="cf-date" id="L-date">📅 Date de votre test routier (si déjà fixée)</label>
+        <input type="date" id="cf-date" />
+        <label id="L-pool" style="display:flex;gap:0.5rem;align-items:flex-start;margin-top:1rem;cursor:pointer">
+          <input type="checkbox" id="cf-pool" style="width:auto;margin-top:0.2rem" />
+          <span id="L-poolTxt">Quand j'aurai réussi, je veux entrer dans le <strong>pool de chauffeurs Chofè360</strong> : des employeurs du Massachusetts pourront me contacter pour un emploi. (Optionnel — nom et téléphone partagés seulement si vous cochez.)</span>
+        </label>
+        <div id="cf-poolfields" class="cf-hide">
+          <label for="cf-name" id="L-name">Votre nom</label>
+          <input type="text" id="cf-name" maxlength="80" />
+          <label for="cf-phone" id="L-phone">Votre téléphone (WhatsApp)</label>
+          <input type="text" id="cf-phone" maxlength="30" />
+        </div>
+        <div style="margin-top:1.1rem"><button type="submit" class="btn btn-primary" id="cf-go">Ouvrir mon coach</button></div>
+        <p class="cf-status" id="cf-st1"></p>
+      </form>
+
+      <!-- ecran 2 : tableau de bord -->
+      <div class="cf-card cf-hide" id="cf-dash">
+        <div class="cf-gauge">
+          <span class="pct" id="cf-pct">0%</span>
+          <div class="cf-bar"><span id="cf-barfill" style="width:0%"></span></div>
+        </div>
+        <p class="cf-small" id="cf-ready-label">Préparation au test — basée sur vos séances notées par votre accompagnateur.</p>
+        <div class="cf-actions">
+          <button class="btn btn-primary" id="cf-session-btn">🚗 Séance avec sponsor</button>
+          <button class="btn btn-outline" id="cf-coach-btn">💬 Parler au coach</button>
+          <button class="btn btn-outline" id="cf-guide-btn">🖨 Guide du sponsor</button>
+          <button class="btn btn-outline" id="cf-result-btn">🏁 Résultat du test</button>
+        </div>
+        <p class="cf-badge-note" id="cf-erase-zone"><span id="cf-privacy">🔒 Dossier anonyme lié à votre code.</span> <button type="button" id="cf-erase" style="background:none;border:none;color:#9db2c7;text-decoration:underline;cursor:pointer;font:inherit">Effacer mon dossier</button></p>
+      </div>
+
+      <!-- ecran 3 : mode seance -->
+      <div class="cf-card cf-hide" id="cf-session">
+        <p class="cf-prog"><span id="cf-phase-badge" class="cf-phase"></span> <span id="cf-prog-txt"></span></p>
+        <p class="cf-cmd" id="cf-cmd"></p>
+        <p class="cf-tr" id="cf-tr"></p>
+        <div class="cf-actions no-print">
+          <button class="btn btn-outline" id="cf-speak">🔊 Voix de l'examinateur</button>
+        </div>
+        <p class="cf-small" id="cf-sponsor-hint">Accompagnateur : lisez la commande, laissez exécuter, puis notez — véhicule à l'arrêt.</p>
+        <div class="cf-chips" id="cf-chips"></div>
+        <div class="cf-actions">
+          <button class="cf-ok" id="cf-okbtn">✅ Byen fèt</button>
+          <button class="btn btn-outline" id="cf-nextbtn">Suivant ⏭</button>
+        </div>
+        <div class="cf-fb" id="cf-fb"></div>
+        <p class="cf-status" id="cf-st3"></p>
+      </div>
+
+      <!-- ecran 4 : chat coach -->
+      <div class="cf-card cf-hide" id="cf-chat">
+        <div class="cf-msgs" id="cf-msgs"></div>
+        <div class="cf-row">
+          <textarea id="cf-input" maxlength="4000" placeholder="Écrivez à votre coach…"></textarea>
+          <button class="btn btn-primary" id="cf-send">Envoyer</button>
+        </div>
+        <p class="cf-status" id="cf-st4"></p>
+      </div>
+
+      <!-- ecran 5 : resultats officiels -->
+      <div class="cf-card cf-hide" id="cf-outcome">
+        <h3 id="L-out-title" style="margin-top:0">🏁 Vos résultats officiels RMV</h3>
+        <p class="cf-small" id="L-out-sub">Enregistrez vos résultats — ils nourrissent votre dossier et, si vous l'avez accepté, le pool d'embauche.</p>
+        <div class="cf-out"><strong id="L-out-w">Test écrit :</strong>
+          <button class="btn btn-outline" data-k="written" data-r="pass">✅ Réussi</button>
+          <button class="btn btn-outline" data-k="written" data-r="fail">❌ Échoué</button>
+          <span class="cf-small" id="cf-out-w-state"></span></div>
+        <div class="cf-out"><strong id="L-out-r">Test routier :</strong>
+          <button class="btn btn-outline" data-k="road" data-r="pass">✅ Réussi</button>
+          <button class="btn btn-outline" data-k="road" data-r="fail">❌ Échoué</button>
+          <span class="cf-small" id="cf-out-r-state"></span></div>
+        <p class="cf-status" id="cf-st5"></p>
+      </div>
+
+      <!-- guide sponsor imprimable -->
+      <div class="cf-card cf-hide" id="cf-guide">
+        <h3 style="margin-top:0" id="g-title">🖨 Guide de l'accompagnateur (sponsor)</h3>
+        <div id="g-body" style="font-size:0.92rem;line-height:1.65;color:#d7e3f0"></div>
+        <div class="cf-actions no-print"><button class="btn btn-primary" onclick="window.print()" id="g-print">Imprimer</button></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
+        <ul>
+          <li><a href="chofe360.html">Chofè360</a></li>
+          <li><a href="karye360.html">Karyè360</a></li>
+          <li><a href="studio.html">Fòmasyon360</a></li>
+          <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul><li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li></ul>
+      </div>
+    </div>
+    <p class="footer-note">© Atmart LLC — <span data-i18n="foot.rights">Tous droits réservés.</span> · Not affiliated with the Massachusetts RMV.</p>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/i18n.js"></script>
+<script>
+(function () {
+  "use strict";
+  var EP = "https://atmart-chat.atmartllc.workers.dev/wout";
+
+  // ---------- manoeuvres : 3 phases, commandes reelles, grilles d'erreurs ----------
+  // sev "F" = echec automatique au vrai test · "m" = erreur mineure (points)
+  var M = [
+    { id:"a1", ph:"A", en:"Get ready to drive.",
+      t:{ht:"Prepare w pou kondwi.",fr:"Préparez-vous à conduire.",es:"Prepárate para conducir.",en:"Get ready to drive."},
+      errs:[{id:"belt",sev:"F",t:{ht:"Pa mete senti AVAN tout bagay",fr:"Ceinture non mise en premier",es:"Sin cinturón primero",en:"No seatbelt first"}},
+            {id:"mir",sev:"m",t:{ht:"Pa regle sèj/retrovizè yo",fr:"Siège/rétros non réglés",es:"Asiento/espejos sin ajustar",en:"Seat/mirrors not adjusted"}},
+            {id:"ctl",sev:"m",t:{ht:"Pa konn ekipman yo (limyè, klaksòn…)",fr:"Commandes inconnues",es:"No conoce los controles",en:"Doesn't know controls"}}] },
+    { id:"a2", ph:"A", en:"Show me the hand signals: stop, left turn, right turn.",
+      t:{ht:"Montre m siyal men yo : kanpe, vire agoch, vire adwat.",fr:"Montrez-moi les signaux de la main : stop, gauche, droite.",es:"Muéstrame las señales de mano: alto, izquierda, derecha.",en:"Show me the hand signals."},
+      errs:[{id:"sig",sev:"F",t:{ht:"Siyal la pa kòrèk",fr:"Signal incorrect",es:"Señal incorrecta",en:"Wrong signal"}},
+            {id:"hes",sev:"m",t:{ht:"Twòp ezitasyon",fr:"Trop d'hésitation",es:"Demasiada duda",en:"Hesitation"}}] },
+    { id:"a3", ph:"A", en:"Pull away from the curb when it's safe.",
+      t:{ht:"Kite twotwa a lè li san danje.",fr:"Quittez le trottoir quand c'est sûr.",es:"Sal de la acera cuando sea seguro.",en:"Pull away from the curb."},
+      errs:[{id:"head",sev:"F",t:{ht:"Pa vire tèt (head check)",fr:"Pas de head check",es:"Sin girar la cabeza",en:"No head check"}},
+            {id:"sig",sev:"m",t:{ht:"Pa siyale",fr:"Pas de clignotant",es:"Sin señal",en:"No signal"}},
+            {id:"jerk",sev:"m",t:{ht:"Demaraj brital",fr:"Départ brusque",es:"Arranque brusco",en:"Jerky start"}}] },
+    { id:"b1", ph:"B", en:"Come to a complete stop at the stop sign.",
+      t:{ht:"Kanpe NÈT devan siy STOP la.",fr:"Arrêt COMPLET au stop.",es:"Alto COMPLETO en el stop.",en:"Complete stop."},
+      errs:[{id:"roll",sev:"F",t:{ht:"Rolling stop (wou yo pa janm kanpe nèt)",fr:"Rolling stop",es:"Alto incompleto",en:"Rolling stop"}},
+            {id:"line",sev:"m",t:{ht:"Kanpe APRE liy lan",fr:"Arrêt après la ligne",es:"Parado tras la línea",en:"Stopped past line"}},
+            {id:"look",sev:"m",t:{ht:"Pa gade de bò yo",fr:"Pas regardé des deux côtés",es:"No miró ambos lados",en:"Didn't look both ways"}}] },
+    { id:"b2", ph:"B", en:"Pull over and back up in a straight line.",
+      t:{ht:"Rete sou kote a epi fè bak an liy dwat.",fr:"Arrêtez-vous et reculez en ligne droite.",es:"Detente y retrocede en línea recta.",en:"Back up straight."},
+      errs:[{id:"look",sev:"F",t:{ht:"Pa gade DÈYÈ nan vit la",fr:"Pas regardé derrière (vitre)",es:"No miró atrás",en:"Didn't look back"}},
+            {id:"line",sev:"m",t:{ht:"Kite liy dwat la",fr:"Sorti de la ligne",es:"Salió de la línea",en:"Left the line"}},
+            {id:"fast",sev:"m",t:{ht:"Twò vit",fr:"Trop vite",es:"Muy rápido",en:"Too fast"}}] },
+    { id:"b3", ph:"B", en:"Make a 3-point turn.",
+      t:{ht:"Fè yon 3-point turn.",fr:"Faites un demi-tour en 3 temps.",es:"Haz un giro de 3 puntos.",en:"3-point turn."},
+      errs:[{id:"curb",sev:"F",t:{ht:"Monte/frape twotwa a",fr:"Trottoir touché",es:"Golpeó la acera",en:"Hit the curb"}},
+            {id:"look",sev:"F",t:{ht:"Pa gade anvan CHAK manèv",fr:"Pas regardé avant chaque manœuvre",es:"No miró antes de cada movimiento",en:"No look each move"}},
+            {id:"many",sev:"m",t:{ht:"Plis pase 3 manèv",fr:"Plus de 3 manœuvres",es:"Más de 3 movimientos",en:"Too many moves"}},
+            {id:"sig",sev:"m",t:{ht:"Pa siyale",fr:"Pas de clignotant",es:"Sin señal",en:"No signal"}}] },
+    { id:"b4", ph:"B", en:"Parallel park behind that vehicle.",
+      t:{ht:"Fè parallel parking dèyè machin sa a.",fr:"Stationnement parallèle derrière ce véhicule.",es:"Estaciona en paralelo detrás de ese vehículo.",en:"Parallel park."},
+      errs:[{id:"hit",sev:"F",t:{ht:"Frape kòn/twotwa/machin",fr:"Cône/trottoir touché",es:"Golpeó cono/acera",en:"Hit cone/curb"}},
+            {id:"far",sev:"m",t:{ht:"Twò lwen twotwa a (plis pase 12 pous)",fr:"Trop loin du trottoir (>12 po)",es:"Muy lejos de la acera",en:">12 in from curb"}},
+            {id:"many",sev:"m",t:{ht:"Twòp manèv",fr:"Trop de manœuvres",es:"Demasiados movimientos",en:"Too many moves"}}] },
+    { id:"b5", ph:"B", en:"Turn left at the next intersection.",
+      t:{ht:"Vire agoch nan pwochen entèseksyon an.",fr:"Tournez à gauche à la prochaine intersection.",es:"Gira a la izquierda en la próxima intersección.",en:"Turn at intersection."},
+      errs:[{id:"yield",sev:"F",t:{ht:"Pa sede pasaj",fr:"Priorité non cédée",es:"No cedió el paso",en:"Didn't yield"}},
+            {id:"lane",sev:"m",t:{ht:"Vire nan move liy",fr:"Mauvaise voie",es:"Carril equivocado",en:"Wrong lane"}},
+            {id:"sig",sev:"m",t:{ht:"Siyal twò ta",fr:"Clignotant tardif",es:"Señal tardía",en:"Late signal"}}] },
+    { id:"b6", ph:"B", en:"Continue straight and watch your speed.",
+      t:{ht:"Kontinye tou dwat, veye vitès ou (zòn 20/30 mph).",fr:"Continuez tout droit, surveillez la vitesse (zones 20/30 mph).",es:"Sigue recto, cuida tu velocidad.",en:"Watch your speed."},
+      errs:[{id:"speed",sev:"F",t:{ht:"Depase limit vitès la",fr:"Excès de vitesse",es:"Exceso de velocidad",en:"Over the limit"}},
+            {id:"slow",sev:"m",t:{ht:"Twò dousman",fr:"Trop lent",es:"Muy lento",en:"Too slow"}},
+            {id:"close",sev:"m",t:{ht:"Twò pre machin devan an",fr:"Distance trop courte",es:"Muy pegado",en:"Following too close"}}] },
+    { id:"b7", ph:"B", en:"Change lanes when it's safe.",
+      t:{ht:"Chanje liy lè li san danje.",fr:"Changez de voie quand c'est sûr.",es:"Cambia de carril cuando sea seguro.",en:"Change lanes."},
+      errs:[{id:"head",sev:"F",t:{ht:"Pa vire tèt (angle mò)",fr:"Angle mort non vérifié",es:"Punto ciego sin revisar",en:"No head check"}},
+            {id:"sig",sev:"m",t:{ht:"Pa siyale",fr:"Pas de clignotant",es:"Sin señal",en:"No signal"}}] },
+    { id:"c1", ph:"C", en:"Head back to the lot.",
+      t:{ht:"Retounen nan pakin lan — tès la POKO fini !",fr:"Retour au parking — le test n'est PAS fini !",es:"Regresa al estacionamiento — ¡el examen NO terminó!",en:"Head back — test not over!"},
+      errs:[{id:"relax",sev:"F",t:{ht:"Vijilans tonbe (stop rate, vitès…)",fr:"Relâchement (stop raté, vitesse…)",es:"Se relajó (alto/velocidad)",en:"Vigilance dropped"}},
+            {id:"lot",sev:"m",t:{ht:"Twò vit nan pakin lan",fr:"Trop vite dans le parking",es:"Rápido en el lote",en:"Fast in lot"}}] },
+    { id:"c2", ph:"C", en:"Park in that spot and secure the vehicle.",
+      t:{ht:"Pakin nan plas sa a epi sekirize machin nan.",fr:"Garez-vous et sécurisez le véhicule.",es:"Estaciona y asegura el vehículo.",en:"Park and secure."},
+      errs:[{id:"belt",sev:"F",t:{ht:"Retire senti pandan machin nan ap woule",fr:"Ceinture détachée en roulant",es:"Cinturón quitado en marcha",en:"Unbuckled while moving"}},
+            {id:"brake",sev:"m",t:{ht:"Pa mete fren pakin lan",fr:"Frein de stationnement oublié",es:"Sin freno de mano",en:"No parking brake"}},
+            {id:"eng",sev:"m",t:{ht:"Motè a rete limen",fr:"Moteur laissé allumé",es:"Motor encendido",en:"Engine left on"}}] }
+  ];
+  var PHASES = {
+    A:{ht:"ANVAN W DEMARE",fr:"AVANT DE DÉMARRER",es:"ANTES DE ARRANCAR",en:"BEFORE YOU DRIVE"},
+    B:{ht:"SOU WOUT LA",fr:"SUR LA ROUTE",es:"EN LA RUTA",en:"ON THE ROAD"},
+    C:{ht:"CHEMEN RETOU",fr:"LE RETOUR",es:"EL REGRESO",en:"THE WAY BACK"}
+  };
+
+  // ---------- interface 4 lang ----------
+  var L = {
+    fr:{kicker:"L'école vous montre à conduire. Nous, on vous fait PASSER le test — dans votre langue.",
+        lead:"Le coach de préparation au test de conduite Class D du Massachusetts : les commandes réelles de l'examinateur en anglais, les pièges avant de démarrer, sur la route et au retour — et votre accompagnateur guidé pas à pas.",
+        note:"Dossier anonyme par code. Non affilié à la RMV — préparation indépendante, aucune garantie de réussite. Le téléphone reste dans les mains de l'accompagnateur, véhicule à l'arrêt.",
+        ready:"Préparation au test — basée sur vos séances notées par votre accompagnateur.",
+        sess:"🚗 Séance avec sponsor",coach:"💬 Parler au coach",guide:"🖨 Guide du sponsor",res:"🏁 Résultat du test",
+        ok:"✅ Bien fait",next:"Suivant ⏭",speak:"🔊 Voix de l'examinateur",
+        hint:"Accompagnateur : lisez la commande, laissez exécuter, puis notez — véhicule à l'arrêt.",
+        good:"Parfait ! Manœuvre propre — on la refixera pour la stabilité.",
+        badF:"⛔ ÉLIMINATOIRE au vrai test : ",badm:"⚠️ Erreur mineure (points perdus) : ",
+        redo:"Corrigez et refaites-la maintenant, puis passez à la suite.",
+        fin:"Séance terminée — envoi au coach…",invalid:"Code invalide. Vérifiez-le, ou écrivez-nous.",
+        expired:"Accès expiré. Renouvelez pour continuer — sales@atmart.ltd.",limit:"Limite du jour atteinte — le coach revient demain.",
+        err:"Petit souci technique. Réessayez.",hello:"Bonjou ! 👋 Je suis votre coach Wout. Dites-moi où vous en êtes, ou lancez une séance avec votre accompagnateur.",
+        think:"Le coach réfléchit…",saved:"Enregistré ✔",needCode:"Entrez votre code."},
+    ht:{kicker:"Lekòl la montre w kondwi. Nou menm, nou fè w PASE tès la — nan lang ou.",
+        lead:"Coach preparasyon pou tès kondwi Class D Massachusetts la : vrè kòmand egzaminatè a an angle, pèlen yo anvan w demare, sou wout la ak sou chemen retou a — epi moun k ap akonpaye w la gide etap pa etap.",
+        note:"Dosye anonim ak kòd. Nou pa afilye ak RMV — preparasyon endepandan, okenn garanti. Telefòn nan rete nan men akonpayatè a, machin nan kanpe.",
+        ready:"Nivo preparasyon ou — baze sou seyans akonpayatè ou note yo.",
+        sess:"🚗 Seyans ak sponsor",coach:"💬 Pale ak coach la",guide:"🖨 Gid sponsor a",res:"🏁 Rezilta tès la",
+        ok:"✅ Byen fèt",next:"Pwochen ⏭",speak:"🔊 Vwa egzaminatè a",
+        hint:"Akonpayatè : li kòmand lan, kite l fè l, epi note — machin nan kanpe.",
+        good:"Bravo ! Manèv la pwòp — n ap refè l pou li vin solid.",
+        badF:"⛔ ECHÈK OTOMATIK nan vrè tès la : ",badm:"⚠️ Erè minè (pwen pèdi) : ",
+        redo:"Korije epi refè l kounye a, apre sa pase sou pwochen an.",
+        fin:"Seyans fini — n ap voye bay coach la…",invalid:"Kòd la pa bon. Verifye l, oswa ekri nou.",
+        expired:"Aksè a fini. Renouvle pou kontinye — sales@atmart.ltd.",limit:"Limit jou a rive — coach la ap tounen demen.",
+        err:"Yon ti pwoblèm teknik. Eseye ankò.",hello:"Bonjou ! 👋 Mwen se coach Wout ou. Di m kote ou ye, oswa kòmanse yon seyans ak akonpayatè ou.",
+        think:"Coach la ap reflechi…",saved:"Anrejistre ✔",needCode:"Mete kòd ou."},
+    en:{kicker:"Driving school teaches you to drive. We get you to PASS the test — in your language.",
+        lead:"The Massachusetts Class D road-test prep coach: the examiner's real English commands, the traps before you drive, on the road and on the way back — with your sponsor guided step by step.",
+        note:"Anonymous file by code. Not affiliated with the RMV — independent preparation, no guarantee. The phone stays in the sponsor's hands, vehicle stopped.",
+        ready:"Test readiness — based on sessions scored by your sponsor.",
+        sess:"🚗 Session with sponsor",coach:"💬 Talk to the coach",guide:"🖨 Sponsor guide",res:"🏁 Test result",
+        ok:"✅ Well done",next:"Next ⏭",speak:"🔊 Examiner's voice",
+        hint:"Sponsor: read the command, let them execute, then score — vehicle stopped.",
+        good:"Great! Clean maneuver — we'll repeat it for stability.",
+        badF:"⛔ AUTOMATIC FAIL on the real test: ",badm:"⚠️ Minor error (points lost): ",
+        redo:"Correct it and redo it now, then move on.",
+        fin:"Session finished — sending to the coach…",invalid:"Invalid code. Check it, or write to us.",
+        expired:"Access expired. Renew to continue — sales@atmart.ltd.",limit:"Daily limit reached — the coach returns tomorrow.",
+        err:"Small technical issue. Try again.",hello:"Hello! 👋 I'm your Wout coach. Tell me where you are, or start a session with your sponsor.",
+        think:"The coach is thinking…",saved:"Saved ✔",needCode:"Enter your code."},
+    es:{kicker:"La escuela te enseña a conducir. Nosotros te hacemos PASAR el examen — en tu idioma.",
+        lead:"El coach de preparación para el examen de manejo Class D de Massachusetts: las órdenes reales del examinador en inglés, las trampas antes de arrancar, en la ruta y al regreso — con tu acompañante guiado paso a paso.",
+        note:"Expediente anónimo por código. No afiliado al RMV — preparación independiente, sin garantía. El teléfono queda en manos del acompañante, vehículo detenido.",
+        ready:"Preparación para el examen — según las sesiones calificadas por tu acompañante.",
+        sess:"🚗 Sesión con sponsor",coach:"💬 Hablar con el coach",guide:"🖨 Guía del sponsor",res:"🏁 Resultado del examen",
+        ok:"✅ Bien hecho",next:"Siguiente ⏭",speak:"🔊 Voz del examinador",
+        hint:"Acompañante: lee la orden, deja ejecutar, luego califica — vehículo detenido.",
+        good:"¡Perfecto! Maniobra limpia — la repetiremos para afianzarla.",
+        badF:"⛔ FALLO AUTOMÁTICO en el examen real: ",badm:"⚠️ Error menor (puntos perdidos): ",
+        redo:"Corrígelo y repítelo ahora, luego sigue.",
+        fin:"Sesión terminada — enviando al coach…",invalid:"Código inválido. Verifícalo o escríbenos.",
+        expired:"Acceso vencido. Renueva para continuar — sales@atmart.ltd.",limit:"Límite diario alcanzado — el coach vuelve mañana.",
+        err:"Pequeño problema técnico. Inténtalo de nuevo.",hello:"¡Hola! 👋 Soy tu coach Wout. Dime dónde estás, o inicia una sesión con tu acompañante.",
+        think:"El coach está pensando…",saved:"Guardado ✔",needCode:"Escribe tu código."}
+  };
+
+  function lang(){var l=document.documentElement.lang||localStorage.getItem("atmart_lang")||"fr";return L[l]?l:"fr";}
+  function T(){return L[lang()];}
+  var applied="";
+  function applyLang(){
+    var l=lang(); if(l===applied) return; applied=l; var t=L[l];
+    document.getElementById("cf-kicker").textContent=t.kicker;
+    document.getElementById("cf-lead").textContent=t.lead;
+    document.getElementById("cf-note").textContent=t.note;
+    document.getElementById("cf-ready-label").textContent=t.ready;
+    document.getElementById("cf-session-btn").textContent=t.sess;
+    document.getElementById("cf-coach-btn").textContent=t.coach;
+    document.getElementById("cf-guide-btn").textContent=t.guide;
+    document.getElementById("cf-result-btn").textContent=t.res;
+    document.getElementById("cf-okbtn").textContent=t.ok;
+    document.getElementById("cf-nextbtn").textContent=t.next;
+    document.getElementById("cf-speak").textContent=t.speak;
+    document.getElementById("cf-sponsor-hint").textContent=t.hint;
+  }
+  applyLang();
+  new MutationObserver(applyLang).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+
+  // ---------- etat ----------
+  var codeEl=document.getElementById("cf-code");
+  codeEl.value=localStorage.getItem("chofe360_code")||"";
+  var busy=false, results=[], idx=0, feedbacks=0;
+
+  function post(body){
+    body.language=lang(); body.code=codeEl.value.trim().toUpperCase();
+    return fetch(EP,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})
+      .then(function(r){return r.json().then(function(b){return {ok:r.ok,body:b};});});
+  }
+  function emsg(c){var t=T();return c==="wout_invalid"?t.invalid:c==="wout_expired"?t.expired:c==="rate_limited"?t.limit:t.err;}
+  function show(id){["cf-dash","cf-session","cf-chat","cf-outcome","cf-guide"].forEach(function(x){
+    document.getElementById(x).classList.toggle("cf-hide",x!==id&&x!=="cf-dash");});
+    if(id!=="cf-dash")document.getElementById(id).classList.remove("cf-hide");}
+  function setReadiness(p){document.getElementById("cf-pct").textContent=p+"%";
+    document.getElementById("cf-barfill").style.width=p+"%";}
+
+  // ---------- onboarding ----------
+  document.getElementById("cf-pool").addEventListener("change",function(){
+    document.getElementById("cf-poolfields").classList.toggle("cf-hide",!this.checked);});
+  document.getElementById("cf-start").addEventListener("submit",function(e){
+    e.preventDefault(); if(busy)return; var t=T();
+    if(!codeEl.value.trim()){document.getElementById("cf-st1").textContent=t.needCode;return;}
+    busy=true; document.getElementById("cf-st1").textContent=t.think;
+    post({action:"start",profile:{testDate:document.getElementById("cf-date").value,
+      pool:{optin:document.getElementById("cf-pool").checked,
+            name:document.getElementById("cf-name").value,
+            phone:document.getElementById("cf-phone").value}}})
+    .then(function(res){busy=false;
+      if(!res.ok){document.getElementById("cf-st1").textContent=emsg(res.body&&res.body.error);return;}
+      document.getElementById("cf-st1").textContent="";
+      localStorage.setItem("chofe360_code",codeEl.value.trim().toUpperCase());
+      document.getElementById("cf-start").classList.add("cf-hide");
+      document.getElementById("cf-dash").classList.remove("cf-hide");
+      setReadiness(res.body.readiness||0);
+    }).catch(function(){busy=false;document.getElementById("cf-st1").textContent=t.err;});
+  });
+
+  // ---------- mode seance ----------
+  function chipHTML(er){var l=lang();
+    return '<button type="button" class="cf-chip" data-e="'+er.id+'" data-s="'+er.sev+'">'+
+      '<span class="sev '+er.sev+'">'+(er.sev==="F"?"⛔":"⚠️")+'</span> '+er.t[l]+'</button>';}
+  function renderStep(){
+    var m=M[idx], l=lang(), t=T();
+    document.getElementById("cf-phase-badge").textContent=PHASES[m.ph][l];
+    document.getElementById("cf-prog-txt").textContent=(idx+1)+" / "+M.length;
+    document.getElementById("cf-cmd").textContent="“"+m.en+"”";
+    document.getElementById("cf-tr").textContent=m.t[l];
+    document.getElementById("cf-chips").innerHTML=m.errs.map(chipHTML).join("");
+    var fb=document.getElementById("cf-fb"); fb.style.display="none"; fb.textContent="";
+  }
+  document.getElementById("cf-session-btn").addEventListener("click",function(){
+    results=[]; idx=0; show("cf-session"); renderStep();});
+  document.getElementById("cf-chips").addEventListener("click",function(e){
+    var b=e.target.closest(".cf-chip"); if(!b)return;
+    b.classList.toggle("on");
+    var t=T(), m=M[idx];
+    var er=m.errs.filter(function(x){return x.id===b.dataset.e;})[0];
+    var fb=document.getElementById("cf-fb");
+    if(b.classList.contains("on")){
+      fb.className="cf-fb bad"; fb.style.display="block";
+      fb.textContent=(er.sev==="F"?t.badF:t.badm)+er.t[lang()]+". "+t.redo;
+    }
+  });
+  document.getElementById("cf-speak").addEventListener("click",function(){
+    try{var u=new SpeechSynthesisUtterance(M[idx].en);u.lang="en-US";u.rate=0.95;
+      speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}
+  });
+  function record(okOnly){
+    var m=M[idx];
+    var on=[].slice.call(document.querySelectorAll("#cf-chips .cf-chip.on"));
+    var errs=on.map(function(b){return b.dataset.e;});
+    var fail=on.some(function(b){return b.dataset.s==="F";});
+    if(okOnly){errs=[];fail=false;
+      var t=T(),fb=document.getElementById("cf-fb");
+      fb.className="cf-fb good";fb.style.display="block";fb.textContent=t.good;}
+    results.push({m:m.id,errs:errs,fail:fail});
+  }
+  function advance(){
+    idx++;
+    if(idx>=M.length){finishSession();return;}
+    renderStep();
+  }
+  document.getElementById("cf-okbtn").addEventListener("click",function(){record(true);setTimeout(advance,700);});
+  document.getElementById("cf-nextbtn").addEventListener("click",function(){record(false);advance();});
+  function finishSession(){
+    var t=T(); document.getElementById("cf-st3").textContent=t.fin;
+    post({action:"log",results:results}).then(function(res){
+      document.getElementById("cf-st3").textContent="";
+      if(res.ok){setReadiness(res.body.readiness||0);}
+      show("cf-dash");
+      openChatWith(t.hello);
+    }).catch(function(){document.getElementById("cf-st3").textContent=t.err;});
+  }
+
+  // ---------- chat coach ----------
+  function addMsg(role,text){var d=document.createElement("div");
+    d.className="cf-m "+(role==="user"?"user":"coach");d.textContent=text;
+    var ms=document.getElementById("cf-msgs");ms.appendChild(d);ms.scrollTop=ms.scrollHeight;}
+  function openChatWith(greet){show("cf-chat");
+    if(!document.querySelector("#cf-msgs .cf-m"))addMsg("coach",greet);}
+  document.getElementById("cf-coach-btn").addEventListener("click",function(){openChatWith(T().hello);});
+  function send(){
+    if(busy)return;var inp=document.getElementById("cf-input");var v=inp.value.trim();if(!v)return;
+    var t=T();busy=true;addMsg("user",v);inp.value="";
+    document.getElementById("cf-st4").textContent=t.think;
+    post({message:v}).then(function(res){busy=false;
+      document.getElementById("cf-st4").textContent="";
+      if(!res.ok){document.getElementById("cf-st4").textContent=emsg(res.body&&res.body.error);return;}
+      addMsg("coach",res.body.reply);
+    }).catch(function(){busy=false;document.getElementById("cf-st4").textContent=t.err;});
+  }
+  document.getElementById("cf-send").addEventListener("click",send);
+  document.getElementById("cf-input").addEventListener("keydown",function(e){
+    if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();send();}});
+
+  // ---------- resultats officiels ----------
+  document.getElementById("cf-result-btn").addEventListener("click",function(){show("cf-outcome");});
+  document.getElementById("cf-outcome").addEventListener("click",function(e){
+    var b=e.target.closest("button[data-k]");if(!b)return;var t=T();
+    post({action:"outcome",kind:b.dataset.k,result:b.dataset.r}).then(function(res){
+      if(res.ok){document.getElementById("cf-out-"+(b.dataset.k==="written"?"w":"r")+"-state").textContent=t.saved;}
+      else{document.getElementById("cf-st5").textContent=emsg(res.body&&res.body.error);}
+    });
+  });
+
+  // ---------- guide sponsor ----------
+  var GUIDE = {
+    fr:'<p><strong>Votre rôle :</strong> vous êtes les yeux ; l\'app est le cerveau. Vous lisez les commandes en anglais (comme l\'examinateur), vous observez, vous notez — téléphone en main SEULEMENT véhicule à l\'arrêt. Loi MA : accompagnateur 21 ans+, permis valide depuis 1 an+.</p><p><strong>Les 6 séances :</strong> 1) Parking vide — installation, arrêts, marche arrière droite. 2) 3-point turn + marche arrière. 3) Parallel parking avec cônes. 4) Rues résidentielles — stops complets, head checks, zones 20/30 mph. 5) Parcours type autour du centre RMV. 6) Examen blanc complet, chronométré, sans aide.</p><p><strong>La règle des 3 phases :</strong> avant de démarrer (ceinture, rétros, signaux de la main), sur la route (commandes), et LE RETOUR — le test finit au frein de stationnement, pas avant.</p><p><strong>Le jour J :</strong> le candidat a droit à un interprète — demandez-le à la prise de rendez-vous si besoin.</p>',
+    ht:'<p><strong>Wòl ou :</strong> ou se je yo ; app la se sèvo a. Ou li kòmand yo an angle (menm jan ak egzaminatè a), ou gade, ou note — telefòn nan men w SÈLMAN lè machin nan kanpe. Lwa MA : akonpayatè 21 an+, lisans valid depi 1 an+.</p><p><strong>6 seyans yo :</strong> 1) Pakin vid — enstalasyon, kanpe, bak an liy dwat. 2) 3-point turn + bak. 3) Parallel parking ak kòn. 4) Ri rezidansyèl — stop konplè, head checks, zòn 20/30 mph. 5) Parkou tip bò sant RMV la. 6) Egzamen blan konplè, san èd.</p><p><strong>Règ 3 faz yo :</strong> anvan w demare (senti, retrovizè, siyal men), sou wout la (kòmand yo), ak RETOU A — tès la fini lè fren pakin lan mete, pa anvan.</p><p><strong>Jou tès la :</strong> kandida a gen dwa ak yon entèprèt — mande l lè w ap pran randevou a si w bezwen.</p>',
+    en:'<p><strong>Your role:</strong> you are the eyes; the app is the brain. You read the commands in English (like the examiner), watch, and score — phone in hand ONLY when the vehicle is stopped. MA law: sponsor 21+, licensed 1+ year.</p><p><strong>The 6 sessions:</strong> 1) Empty lot — setup ritual, stops, straight backing. 2) 3-point turn + backing. 3) Parallel parking with cones. 4) Residential streets — full stops, head checks, 20/30 mph zones. 5) Typical route near the RMV site. 6) Full mock test, timed, no help.</p><p><strong>The 3-phase rule:</strong> before driving (seatbelt, mirrors, hand signals), on the road (commands), and THE RETURN — the test ends at the parking brake, not before.</p><p><strong>Test day:</strong> the candidate has the right to an interpreter — request it when booking if needed.</p>',
+    es:'<p><strong>Tu papel:</strong> tú eres los ojos; la app es el cerebro. Lees las órdenes en inglés (como el examinador), observas y calificas — teléfono en mano SOLO con el vehículo detenido. Ley de MA: acompañante 21+, con licencia 1+ año.</p><p><strong>Las 6 sesiones:</strong> 1) Lote vacío — ritual de instalación, altos, retroceso recto. 2) Giro de 3 puntos + retroceso. 3) Estacionamiento paralelo con conos. 4) Calles residenciales — altos completos, head checks, zonas 20/30 mph. 5) Ruta típica cerca del RMV. 6) Examen simulado completo, sin ayuda.</p><p><strong>La regla de las 3 fases:</strong> antes de arrancar (cinturón, espejos, señales de mano), en la ruta (órdenes), y EL REGRESO — el examen termina con el freno de mano, no antes.</p><p><strong>El día del examen:</strong> el candidato tiene derecho a un intérprete — pídelo al reservar si lo necesita.</p>'
+  };
+  document.getElementById("cf-guide-btn").addEventListener("click",function(){
+    document.getElementById("g-body").innerHTML=GUIDE[lang()];show("cf-guide");});
+
+  // ---------- efase ----------
+  document.getElementById("cf-erase").addEventListener("click",function(){
+    if(!window.confirm("Efase dosye a ? / Effacer le dossier ?"))return;
+    post({action:"delete"}).then(function(){location.reload();});
+  });
+})();
+</script>
+</body>
+</html>
