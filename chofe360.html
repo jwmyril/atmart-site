@@ -114,6 +114,10 @@
           <input type="text" id="cf-phone" maxlength="30" />
           <label for="cf-city" id="L-city">Votre ville / zone <small>Ex. : Fitchburg, Worcester — aide les employeurs à cibler leur secteur.</small></label>
           <input type="text" id="cf-city" maxlength="60" />
+          <label for="cf-langs" id="L-langs">Langues que vous parlez <small>Ex. : kreyòl, anglais, español — un vrai atout pour l'embauche.</small></label>
+          <input type="text" id="cf-langs" maxlength="80" />
+          <label for="cf-nat" id="L-nat">Nationalité (optionnel) <small>Visible seulement par un employeur qui vous sélectionne.</small></label>
+          <input type="text" id="cf-nat" maxlength="60" />
         </div>
         <div style="margin-top:1.1rem;display:flex;gap:0.6rem;flex-wrap:wrap"><button type="submit" class="btn btn-primary" id="cf-go">Ouvrir mon coach</button><button type="button" class="btn btn-outline" id="cf-try">📝 Essayer 5 questions gratuites</button></div>
         <p class="cf-status" id="cf-st1"></p>
@@ -210,6 +214,7 @@
       <h2 style="margin-top:0;font-size:1.2rem" id="cf-b2b-t">🚌 Entreprises de transport &amp; districts scolaires</h2>
       <p style="color:#d7e3f0;max-width:680px;margin:0.5rem auto 1rem;font-size:0.92rem" id="cf-b2b-d">Recrutez dans le pool Chofè360 : des candidats préparés, avec résultats de tests vérifiables — et équipez vos recrues (préparation 7D bientôt disponible).</p>
       <a href="anplwaye360.html" class="btn btn-outline" id="cf-b2b-c">Ouvrir le portail employeurs</a>
+      <p style="font-size:0.82rem;color:#9db2c7;margin-top:0.8rem">Déjà licencié (Class D, 7D, CDL) ? <a href="rejistre.html" style="color:#2ec4b6">Inscrivez-vous gratuitement au pool →</a></p>
     </div>
   </div>
 </section>
@@ -423,7 +428,9 @@
       pool:{optin:document.getElementById("cf-pool").checked,
             name:document.getElementById("cf-name").value,
             phone:document.getElementById("cf-phone").value,
-            city:document.getElementById("cf-city").value}}})
+            city:document.getElementById("cf-city").value,
+            langs:document.getElementById("cf-langs").value,
+            nat:document.getElementById("cf-nat").value}}})
     .then(function(res){busy=false;
       if(!res.ok){document.getElementById("cf-st1").textContent=emsg(res.body&&res.body.error);return;}
       document.getElementById("cf-st1").textContent="";

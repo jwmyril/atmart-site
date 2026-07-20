@@ -91,6 +91,10 @@
           <input type="text" id="sd-phone" maxlength="30" />
           <label for="sd-city" id="L-city">Votre ville / zone <small>Ex. : Fitchburg, Worcester — aide les compagnies à cibler leur secteur.</small></label>
           <input type="text" id="sd-city" maxlength="60" />
+          <label for="sd-langs" id="L-langs">Langues que vous parlez <small>Ex. : kreyòl, anglais, español.</small></label>
+          <input type="text" id="sd-langs" maxlength="80" />
+          <label for="sd-nat" id="L-nat">Nationalité (optionnel) <small>Visible seulement par un employeur qui vous sélectionne.</small></label>
+          <input type="text" id="sd-nat" maxlength="60" />
         </div>
         <div style="margin-top:1.1rem"><button type="submit" class="btn btn-primary" id="sd-go">Ouvrir mon coach 7D</button></div>
         <p class="sd-status" id="sd-st1"></p>
@@ -125,6 +129,7 @@
       <h2 style="margin-top:0;font-size:1.2rem" id="sd-b2b-t">🚌 Compagnies de transport scolaire</h2>
       <p style="color:#d7e3f0;max-width:680px;margin:0.5rem auto 1rem;font-size:0.92rem" id="sd-b2b-d">Préparez vos recrues au 7D dans leur langue (packs de codes), et recrutez dans le pool de chauffeurs certifiés — avec leur consentement, jamais sans.</p>
       <a href="anplwaye360.html" class="btn btn-outline" id="sd-b2b-c">Portail employeurs / pack entreprise</a>
+      <p style="font-size:0.82rem;color:#9db2c7;margin-top:0.8rem">Déjà certifié 7D ou CDL ? <a href="rejistre.html" style="color:#2ec4b6">Inscrivez-vous gratuitement au pool →</a></p>
     </div>
   </div>
 </section>
@@ -211,7 +216,9 @@
     busy=true;document.getElementById("sd-st1").textContent=t.think;
     post({action:"start",profile:{pool:{optin:document.getElementById("sd-pool").checked,
       name:document.getElementById("sd-name").value,phone:document.getElementById("sd-phone").value,
-      city:document.getElementById("sd-city").value}}})
+      city:document.getElementById("sd-city").value,
+      langs:document.getElementById("sd-langs").value,
+      nat:document.getElementById("sd-nat").value}}})
     .then(function(res){busy=false;
       if(!res.ok){document.getElementById("sd-st1").textContent=emsg(res.body&&res.body.error);return;}
       localStorage.setItem("setd360_code",codeEl.value.trim().toUpperCase());
