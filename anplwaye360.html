@@ -106,11 +106,16 @@
 
       <div class="ep-card ep-hide" id="ep-dash">
         <p style="margin:0 0 0.6rem;color:#9db2c7;font-size:0.85rem"><span id="ep-org-lbl"></span> · <button type="button" id="ep-refresh" style="background:none;border:none;color:#2ec4b6;text-decoration:underline;cursor:pointer;font:inherit">Actualiser</button></p>
-        <p id="ep-quota-bar" style="margin:0 0 1.2rem;font-size:0.95rem">Sélections : <strong id="ep-selcount" style="color:#2ec4b6">0</strong> / <span id="ep-quotamax">0</span> candidats · <span id="ep-quota-note" style="color:#9db2c7;font-size:0.82rem"></span></p>
+        <p id="ep-quota-bar" style="margin:0 0 0.5rem;font-size:0.95rem">Crédits de sélection restants : <strong id="ep-selcount" style="color:#2ec4b6">0</strong> · <span id="ep-quota-note" style="color:#9db2c7;font-size:0.82rem"></span></p>
+        <p id="ep-warn" class="ep-hide" style="margin:0 0 0.8rem;background:rgba(244,162,97,0.12);border:1px solid rgba(244,162,97,0.4);border-radius:8px;padding:0.6rem 0.9rem;font-size:0.85rem"></p>
+        <label style="display:inline-flex;gap:0.45rem;align-items:center;font-size:0.85rem;color:#9db2c7;margin-bottom:1rem;cursor:pointer">
+          <input type="checkbox" id="ep-showall" style="width:auto" />
+          <span id="ep-showall-lbl">Voir aussi les chauffeurs qui visent un autre secteur</span>
+        </label>
 
         <h3 class="ep-h" id="ep-h-sel">⭐ Mes candidats sélectionnés</h3>
         <div class="ep-wrap"><table class="ep-t" id="ep-t-sel">
-          <thead><tr><th>Candidat</th><th>Contact</th><th>Ville / zone</th><th>Type</th></tr></thead>
+          <thead><tr><th>Candidat</th><th>Contact</th><th>Ville / zone</th><th>Type</th><th>Résultat</th></tr></thead>
           <tbody></tbody>
         </table></div>
         <p class="ep-empty" id="ep-empty-sel">Aucune sélection encore — parcourez les pools ci-dessous et sélectionnez vos candidats. Une sélection est définitive et révèle le contact.</p>
@@ -188,7 +193,8 @@
     return c === "emp_invalid" ? "Code invalide — demandez un code fondateur à sales@atmart.ltd."
       : c === "emp_expired" ? "Accès expiré — sales@atmart.ltd."
       : c === "rate_limited" ? "Limite du jour atteinte — réessayez demain."
-      : c === "quota_reached" ? "Quota atteint — écrivez à sales@atmart.ltd pour l'augmenter."
+      : c === "quota_reached" ? "Plus de crédits — écrivez à sales@atmart.ltd pour recharger."
+      : c === "declare_outcomes" ? "Déclarez d'abord le résultat de vos sélections précédentes."
       : "Petit souci technique. Réessayez.";
   }
   function badge(v, goodTxt, badTxt) {
@@ -204,21 +210,49 @@
   var LICLBL = { classd: "Class D", "7d": "7D", cdl_a: "CDL-A", cdl_b: "CDL-B", cdl_c: "CDL-C" };
   function licNames(a) { return (a || []).map(function (l) { return LICLBL[l] || l; }).join(", "); }
   function ref(id) { return "#" + (id || "").toString().toUpperCase(); }
+  var SECT = { school: "🏫", delivery: "📦", senior: "🧓", transit: "🚍", rideshare: "🚕", other: "➕" };
+  function matchBadge(e) {
+    if (e.match === "open") return '<span class="ep-b pass">⚡ Ouvert à tout</span>';
+    if (e.match === "sector") return '<span class="ep-b pass">✅ Cherche votre secteur</span>';
+    var v = (e.seeking || []).map(function (x) { return SECT[x] || ""; }).join("");
+    return '<span class="ep-b mid">↔️ Vise plutôt ' + (v || "autre") + "</span>";
+  }
+  function freshBadge(d) {
+    if (d === null || d === undefined) return "";
+    var cls = d <= 7 ? "pass" : d <= 21 ? "mid" : "fail";
+    var txt = d === 0 ? "aujourd'hui" : d === 1 ? "hier" : "il y a " + d + " j";
+    return '<span class="ep-b ' + cls + '">🕒 ' + txt + "</span>";
+  }
+  function outcomeCell(s) {
+    if (s.outcome === "hired") return '<span class="ep-b pass">✅ Embauché</span>';
+    if (s.outcome === "rejected") return '<span class="ep-b" style="color:#9db2c7">❌ Pas retenu</span>';
+    return '<button type="button" class="btn btn-outline ep-out" data-id="' + s.id + '" data-r="hired" style="padding:0.25rem 0.6rem;font-size:0.75rem">✅ Embauché</button> ' +
+           '<button type="button" class="btn btn-outline ep-out" data-id="' + s.id + '" data-r="rejected" style="padding:0.25rem 0.6rem;font-size:0.75rem">❌ Pas retenu</button>';
+  }
   function actionCell(e, atMax) {
     if (e.selected) return '<span class="ep-b pass">✓ Sélectionné</span>';
-    if (atMax) return '<span class="ep-b" style="color:#9db2c7">Quota atteint</span>';
+    if (atMax) return '<span class="ep-b" style="color:#9db2c7">Plus de crédits</span>';
     return '<button type="button" class="btn btn-outline ep-sel" data-id="' + e.id + '" style="padding:0.3rem 0.8rem;font-size:0.8rem">🔓 Sélectionner</button>';
   }
 
   function render(data) {
-    quota = data.quota || 0;
     var sel = data.selected || [];
-    var atMax = sel.length >= quota;
-    document.getElementById("ep-selcount").textContent = sel.length;
-    document.getElementById("ep-quotamax").textContent = quota;
-    document.getElementById("ep-quota-note").textContent = atMax
-      ? "quota atteint — pour en sélectionner davantage, écrivez-nous."
-      : "sélectionner un candidat est définitif et révèle son contact.";
+    var credits = data.credits || 0;
+    var undeclared = data.undeclared || 0;
+    var blocked = undeclared >= (data.undeclaredMax || 3);
+    var atMax = credits <= 0 || blocked;
+    document.getElementById("ep-selcount").textContent = credits;
+    var note = "sélectionner un candidat est définitif et révèle son contact.";
+    if (data.plan === "sub" && data.renewAt) note = "abonnement — prochaine recharge le " + data.renewAt + ". " + note;
+    document.getElementById("ep-quota-note").textContent = note;
+    var warn = document.getElementById("ep-warn");
+    if (blocked) {
+      warn.textContent = "⚠️ " + undeclared + " sélections sans résultat déclaré. Déclarez « Embauché » ou « Pas retenu » ci-dessous pour pouvoir continuer.";
+      warn.classList.remove("ep-hide");
+    } else if (credits <= 0) {
+      warn.textContent = "Plus de crédits de sélection. Écrivez à sales@atmart.ltd pour recharger (15 $ la sélection, ou abonnement 49 $/mois).";
+      warn.classList.remove("ep-hide");
+    } else { warn.classList.add("ep-hide"); }
 
     // mes selections (durable, depuis les snapshots)
     var ts = document.querySelector("#ep-t-sel tbody");
@@ -230,7 +264,7 @@
       if (s.licenses && s.licenses.length) extra.push("🪪 " + licNames(s.licenses));
       return "<tr><td><strong>" + (s.name || "") + "</strong>" +
         (extra.length ? '<br><small style="color:#9db2c7">' + extra.join(" · ") + "</small>" : "") +
-        "</td><td>" + waLink(s.phone) + "</td><td>" + (s.city || "—") + "</td><td>" + kind + "</td></tr>";
+        "</td><td>" + waLink(s.phone) + "</td><td>" + (s.city || "—") + "</td><td>" + kind + "</td><td>" + outcomeCell(s) + "</td></tr>";
     }).join("");
     document.getElementById("ep-empty-sel").classList.toggle("ep-hide", sel.length > 0);
     document.getElementById("ep-t-sel").classList.toggle("ep-hide", sel.length === 0);
@@ -243,7 +277,7 @@
     tl.innerHTML = (data.licensed || []).map(function (e) {
       var lic = (e.licenses || []).map(function (l) { return '<span class="ep-b pass" style="margin-right:0.2rem">' + (LICLBL[l] || l) + "</span>"; }).join("");
       var seek = (e.seeking || []).map(function (x) { return SEEKLBL[x] || ""; }).join(" ");
-      return "<tr><td>" + ref(e.id) + "</td><td>" + (lic || "—") + "</td>" +
+      return "<tr><td>" + ref(e.id) + "<br>" + matchBadge(e) + " " + freshBadge(e.fresh) + "</td><td>" + (lic || "—") + "</td>" +
         "<td>" + (e.years !== null && e.years !== undefined ? e.years + " ans" : "—") + "</td>" +
         "<td>" + (e.langs || "—") + "</td><td>" + (seek || "—") + "</td>" +
         "<td>" + (AVLBL[e.avail] || "—") + "</td><td>" + (AUTHLBL[e.auth] || "—") + "</td>" +
@@ -255,7 +289,7 @@
     // pool 7D
     var t7 = document.querySelector("#ep-t-7d tbody");
     t7.innerHTML = (data.setd || []).map(function (e) {
-      return "<tr><td>" + ref(e.id) + "</td><td>" + badge(e.written, "Réussi", "Échoué") + "</td><td>" + (e.city || "—") + "</td><td>" + actionCell(e, atMax) + "</td></tr>";
+      return "<tr><td>" + ref(e.id) + "<br>" + matchBadge(e) + " " + freshBadge(e.fresh) + "</td><td>" + badge(e.written, "Réussi", "Échoué") + "</td><td>" + (e.city || "—") + "</td><td>" + actionCell(e, atMax) + "</td></tr>";
     }).join("");
     document.getElementById("ep-empty-7d").classList.toggle("ep-hide", (data.setd || []).length > 0);
     document.getElementById("ep-t-7d").classList.toggle("ep-hide", (data.setd || []).length === 0);
@@ -266,7 +300,7 @@
       var res = [];
       if (e.written) res.push("Écrit : " + (e.written === "pass" ? "✅" : "❌"));
       if (e.road) res.push("Route : " + (e.road === "pass" ? "✅" : "❌"));
-      return "<tr><td>" + ref(e.id) + (e.testDate ? '<br><small style="color:#9db2c7">test : ' + e.testDate + "</small>" : "") + "</td>" +
+      return "<tr><td>" + ref(e.id) + (e.testDate ? '<br><small style="color:#9db2c7">test : ' + e.testDate + "</small>" : "") + "<br>" + matchBadge(e) + " " + freshBadge(e.fresh) + "</td>" +
         '<td><span class="ep-b ' + (e.readiness >= 70 ? "pass" : e.readiness >= 40 ? "mid" : "fail") + '">' + e.readiness + " %</span></td>" +
         "<td>" + (e.quizBest !== null && e.quizBest !== undefined ? e.quizBest + " %" : "—") + "</td>" +
         "<td>" + (res.join(" · ") || "—") + "</td>" +
@@ -280,7 +314,7 @@
   function loadPool() {
     var st = document.getElementById("ep-st2");
     st.textContent = "Chargement du pool…";
-    post({ action: "list" }).then(function (res) {
+    post({ action: "list", showAll: document.getElementById("ep-showall").checked }).then(function (res) {
       st.textContent = "";
       if (!res.ok) { st.textContent = emsg(res.body && res.body.error); return; }
       render(res.body);
@@ -326,6 +360,25 @@
     }).catch(function () { busy = false; document.getElementById("ep-st1").textContent = "Petit souci technique."; });
   });
   document.getElementById("ep-refresh").addEventListener("click", loadPool);
+  document.getElementById("ep-showall").addEventListener("change", loadPool);
+
+  // declaration du resultat (embauche / pas retenu)
+  document.getElementById("ep-dash").addEventListener("click", function (e) {
+    var b = e.target.closest(".ep-out");
+    if (!b || busy) return;
+    var msg = b.dataset.r === "hired"
+      ? "Confirmer que vous avez EMBAUCHÉ ce candidat ? Il sortira du pool pour tous les employeurs (il pourra y revenir lui-même s'il quitte le poste)."
+      : "Confirmer que ce candidat n'a PAS été retenu ? Il reste disponible pour les autres employeurs.";
+    if (!window.confirm(msg)) return;
+    busy = true;
+    var st = document.getElementById("ep-st2");
+    st.textContent = "Enregistrement…";
+    post({ action: "outcome", id: b.dataset.id, result: b.dataset.r }).then(function (res) {
+      busy = false; st.textContent = "";
+      if (!res.ok) { st.textContent = emsg(res.body && res.body.error); return; }
+      loadPool();
+    }).catch(function () { busy = false; st.textContent = "Petit souci technique."; });
+  });
 })();
 </script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>

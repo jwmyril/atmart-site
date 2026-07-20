@@ -125,6 +125,13 @@
           <label class="rj-chk"><input type="checkbox" value="rideshare" /> <span>🚕 Taxi / VTC</span></label>
           <label class="rj-chk"><input type="checkbox" value="other" /> <span>➕ Autre</span></label>
         </div>
+        <label id="L-flex">Jusqu'où êtes-vous ouvert ?<small>C'est vous qui décidez qui peut vous voir.</small></label>
+        <div id="rj-flex" style="display:flex;flex-direction:column;gap:0.5rem;margin-top:0.4rem">
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="flex" value="any" /> <span id="F-any">⚡ Je prends n'importe quel emploi de chauffeur — tous les employeurs peuvent me voir</span></label>
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="flex" value="prefer" checked /> <span id="F-prefer">↔️ J'ai des préférences, mais je reste ouvert aux autres offres</span></label>
+          <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="flex" value="only" /> <span id="F-only">🎯 Uniquement les secteurs que j'ai cochés — les autres employeurs ne me voient pas</span></label>
+        </div>
+
         <label for="rj-avail" id="L-avail">Disponibilité</label>
         <select id="rj-avail">
           <option value="">— choisir —</option>
@@ -150,6 +157,14 @@
         <h3 style="margin:0 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:#fff" id="rj-t4">Modifier ou retirer mon inscription</h3>
         <label for="rj-code" id="L-code2">Votre code personnel</label>
         <input type="text" id="rj-code" maxlength="24" placeholder="DRV-XXXX-XXXX" />
+        <div id="rj-statusbox" class="rj-hide" style="background:rgba(46,196,182,0.08);border:1px solid rgba(46,196,182,0.3);border-radius:10px;padding:1rem;margin-top:1rem">
+          <p style="margin:0 0 0.6rem;font-size:0.9rem" id="rj-status-now"></p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+            <button type="button" class="btn btn-primary" data-st="available" id="B-available">✅ Je suis disponible</button>
+            <button type="button" class="btn btn-outline" data-st="hired" id="B-hired">💼 J'ai trouvé un emploi</button>
+            <button type="button" class="btn btn-outline" data-st="paused" id="B-paused">⏸ Mettre en pause</button>
+          </div>
+        </div>
         <div style="margin-top:1rem;display:flex;gap:0.6rem;flex-wrap:wrap">
           <button type="submit" class="btn btn-primary" id="rj-load">Charger mon inscription</button>
           <button type="button" class="btn btn-outline" id="rj-del" style="border-color:rgba(230,57,70,0.6)">🗑 Me retirer du pool</button>
@@ -217,7 +232,7 @@
       saving:"Enregistrement…", loaded:"Inscription chargée — modifiez puis enregistrez.", updated:"Modifications enregistrées ✔",
       deleted:"Vous êtes retiré(e) du pool. Merci et bonne route !", confirmDel:"Vous retirer du pool ? Les employeurs ne vous verront plus.",
       invalid:"Code introuvable. Vérifiez-le.", limit:"Trop d'inscriptions depuis cet appareil aujourd'hui. Réessayez demain.",
-      err:"Petit souci technique. Réessayez.", save:"Enregistrer les modifications" },
+      err:"Petit souci technique. Réessayez.", save:"Enregistrer les modifications", flexT:"Jusqu'où êtes-vous ouvert ?", flexS:"C'est vous qui décidez qui peut vous voir.", fAny:"⚡ Je prends n'importe quel emploi de chauffeur — tous les employeurs peuvent me voir", fPrefer:"↔️ J'ai des préférences, mais je reste ouvert aux autres offres", fOnly:"🎯 Uniquement les secteurs que j'ai cochés — les autres employeurs ne me voient pas", bAvail:"✅ Je suis disponible", bHired:"💼 J'ai trouvé un emploi", bPaused:"⏸ Mettre en pause", stNow:"Statut actuel : ", stA:"disponible — les employeurs vous voient", stH:"en emploi — vous êtes hors du pool", stP:"en pause — vous êtes hors du pool", stOk:"Statut mis à jour ✔" },
     ht: { kicker:"Ou gen lisans ou deja ? Antre nan pool la — se gratis.",
       lead:"Ou gen lisans Class D ou, sètifika 7D ou, oswa CDL ou deja ? Enskri gratis : gen anplwayè nan Massachusetts k ap chèche chofè — transpò lekòl, livrezon pake, transpò granmoun, transpò rejyonal (MART) ak plis toujou.",
       note:"Gratis, san angajman. Non ou ak telefòn ou rete kache : yon anplwayè wè yo sèlman lè li chwazi w, epi li gen yon limit chwa. Ou ka retire w nenpòt lè.",
@@ -240,7 +255,7 @@
       saving:"N ap anrejistre…", loaded:"Enskripsyon chaje — chanje sa w vle epi anrejistre.", updated:"Chanjman anrejistre ✔",
       deleted:"Ou retire nan pool la. Mèsi epi bon wout !", confirmDel:"Retire w nan pool la ? Anplwayè yo p ap wè w ankò.",
       invalid:"Nou pa jwenn kòd la. Verifye l.", limit:"Twòp enskripsyon depi aparèy sa a jodi a. Eseye demen.",
-      err:"Yon ti pwoblèm teknik. Eseye ankò.", save:"Anrejistre chanjman yo" },
+      err:"Yon ti pwoblèm teknik. Eseye ankò.", save:"Anrejistre chanjman yo", flexT:"Jiskaki pwen ou louvri ?", flexS:"Se ou menm ki deside kilès ki ka wè w.", fAny:"⚡ M ap pran nenpòt travay chofè — tout anplwayè ka wè m", fPrefer:"↔️ Mwen gen preferans, men mwen rete louvri pou lòt òf", fOnly:"🎯 Sèlman sektè mwen tcheke yo — lòt anplwayè yo pa wè m", bAvail:"✅ Mwen disponib", bHired:"💼 Mwen jwenn yon travay", bPaused:"⏸ Mete an pòz", stNow:"Estati aktyèl : ", stA:"disponib — anplwayè yo wè w", stH:"nan travay — ou pa nan pool la", stP:"an pòz — ou pa nan pool la", stOk:"Estati chanje ✔" },
     en: { kicker:"Already licensed? Join the pool — it's free.",
       lead:"Do you already have your Class D license, 7D certificate or CDL? Register for free: Massachusetts employers are looking for drivers — school transport, package delivery, senior transport, regional transit (MART) and more.",
       note:"Free, no commitment. Your name and phone stay hidden: an employer sees them only when they select you, and their number of selections is limited. You can withdraw anytime.",
@@ -263,7 +278,7 @@
       saving:"Saving…", loaded:"Registration loaded — edit then save.", updated:"Changes saved ✔",
       deleted:"You have been withdrawn from the pool. Thank you and safe travels!", confirmDel:"Withdraw from the pool? Employers will no longer see you.",
       invalid:"Code not found. Please check it.", limit:"Too many registrations from this device today. Try tomorrow.",
-      err:"Small technical issue. Try again.", save:"Save changes" },
+      err:"Small technical issue. Try again.", save:"Save changes", flexT:"How open are you?", flexS:"You decide who can see you.", fAny:"⚡ I'll take any driving job — every employer can see me", fPrefer:"↔️ I have preferences, but I stay open to other offers", fOnly:"🎯 Only the sectors I checked — other employers cannot see me", bAvail:"✅ I'm available", bHired:"💼 I found a job", bPaused:"⏸ Pause", stNow:"Current status: ", stA:"available — employers can see you", stH:"employed — you are out of the pool", stP:"paused — you are out of the pool", stOk:"Status updated ✔" },
     es: { kicker:"¿Ya tienes tu licencia? Entra al pool — es gratis.",
       lead:"¿Ya tienes tu licencia Class D, tu certificado 7D o tu CDL? Regístrate gratis: empleadores de Massachusetts buscan choferes — transporte escolar, entrega de paquetes, transporte de personas mayores, transporte regional (MART) y más.",
       note:"Gratis y sin compromiso. Tu nombre y teléfono quedan ocultos: un empleador los ve solo cuando te selecciona, y su número de selecciones es limitado. Puedes retirarte cuando quieras.",
@@ -286,7 +301,7 @@
       saving:"Guardando…", loaded:"Registro cargado — edita y guarda.", updated:"Cambios guardados ✔",
       deleted:"Te has retirado del pool. ¡Gracias y buen camino!", confirmDel:"¿Retirarte del pool? Los empleadores ya no te verán.",
       invalid:"Código no encontrado. Verifícalo.", limit:"Demasiados registros desde este dispositivo hoy. Inténtalo mañana.",
-      err:"Pequeño problema técnico. Inténtalo de nuevo.", save:"Guardar cambios" }
+      err:"Pequeño problema técnico. Inténtalo de nuevo.", save:"Guardar cambios", flexT:"¿Hasta dónde estás abierto?", flexS:"Tú decides quién puede verte.", fAny:"⚡ Acepto cualquier empleo de chofer — todos los empleadores pueden verme", fPrefer:"↔️ Tengo preferencias, pero sigo abierto a otras ofertas", fOnly:"🎯 Solo los sectores que marqué — otros empleadores no me ven", bAvail:"✅ Estoy disponible", bHired:"💼 Encontré empleo", bPaused:"⏸ Pausar", stNow:"Estado actual: ", stA:"disponible — los empleadores te ven", stH:"empleado — estás fuera del pool", stP:"en pausa — estás fuera del pool", stOk:"Estado actualizado ✔" }
   };
   function lang(){var l=document.documentElement.lang||localStorage.getItem("atmart_lang")||"fr";return L[l]?l:"fr";}
   function T(){return L[lang()];}
@@ -300,7 +315,9 @@
     setL("L-name",t.name); setL("L-phone",t.phone); setL("L-city",t.city,t.citys);
     setL("L-langs",t.langs,t.langss); setL("L-nat",t.nat,t.nats); setL("L-auth",t.auth);
     setL("L-lic",t.lic,t.lics); setL("L-years",t.years); setL("L-seek",t.seek); setL("L-avail",t.avail);
-    setL("L-code2",t.code2);
+    setL("L-code2",t.code2); setL("L-flex",t.flexT,t.flexS);
+    setT("F-any",t.fAny); setT("F-prefer",t.fPrefer); setT("F-only",t.fOnly);
+    setT("B-available",t.bAvail); setT("B-hired",t.bHired); setT("B-paused",t.bPaused);
     var au=document.getElementById("rj-auth").options;
     au[0].text=t.a0; au[1].text=t.a1; au[2].text=t.a2; au[3].text=t.a3;
     var av=document.getElementById("rj-avail").options;
@@ -314,7 +331,10 @@
 
   // pastilles cochees
   document.querySelectorAll(".rj-chk input").forEach(function(cb){
-    cb.addEventListener("change",function(){cb.closest(".rj-chk").classList.toggle("on",cb.checked);});
+    cb.addEventListener("change",function(){
+      if(cb.type==="radio"){document.querySelectorAll("#rj-flex .rj-chk").forEach(function(l){
+        l.classList.toggle("on",l.querySelector("input").checked);});}
+      else cb.closest(".rj-chk").classList.toggle("on",cb.checked);});
   });
 
   var busy=false, editCode="";
@@ -330,6 +350,7 @@
       nat:document.getElementById("rj-nat").value,
       auth:document.getElementById("rj-auth").value,
       licenses:checked("#rj-lic"), years:document.getElementById("rj-years").value,
+      flex:(document.querySelector('input[name=flex]:checked')||{}).value||"prefer",
       seeking:checked("#rj-seek"), avail:document.getElementById("rj-avail").value};
   }
   function fill(p){
@@ -346,6 +367,17 @@
     document.querySelectorAll("#rj-seek input").forEach(function(cb){
       cb.checked=(p.seeking||[]).indexOf(cb.value)>=0; cb.closest(".rj-chk").classList.toggle("on",cb.checked);});
     document.getElementById("rj-consent").checked=true;
+    var fx=p.flex||"prefer";
+    var r=document.querySelector('input[name=flex][value="'+fx+'"]'); if(r)r.checked=true;
+    document.querySelectorAll("#rj-flex .rj-chk").forEach(function(l){
+      l.classList.toggle("on",l.querySelector("input").checked);});
+    showStatus(p.status||"available");
+  }
+  function showStatus(st){
+    var t=T();
+    var lbl=st==="hired"?t.stH:st==="paused"?t.stP:t.stA;
+    document.getElementById("rj-status-now").innerHTML=t.stNow+"<strong>"+lbl+"</strong>";
+    document.getElementById("rj-statusbox").classList.remove("rj-hide");
   }
 
   document.getElementById("rj-form").addEventListener("submit",function(e){
@@ -391,6 +423,30 @@
       document.getElementById("rj-st").textContent=t.loaded;
     }).catch(function(){busy=false;st2.textContent=t.err;});
   });
+  document.getElementById("rj-statusbox").addEventListener("click",function(e){
+    var b=e.target.closest("button[data-st]"); if(!b)return;
+    var t=T(), st2=document.getElementById("rj-st2");
+    var c=(editCode||document.getElementById("rj-code").value.trim().toUpperCase());
+    if(!c){st2.textContent=t.invalid;return;}
+    post({action:"status",code:c,status:b.dataset.st}).then(function(res){
+      if(!res.ok){st2.textContent=emsg(res.body&&res.body.error);return;}
+      showStatus(res.body.status); st2.textContent=t.stOk;
+    }).catch(function(){st2.textContent=t.err;});
+  });
+
+  // lien de reconfirmation en un clic : rejistre.html?c=DRV-XXXX-XXXX
+  var urlCode=(new URLSearchParams(location.search)).get("c");
+  if(urlCode){
+    var cIn=document.getElementById("rj-code"); cIn.value=urlCode.toUpperCase();
+    document.getElementById("rj-form").classList.add("rj-hide");
+    document.getElementById("rj-manage").classList.remove("rj-hide");
+    post({action:"avail",code:cIn.value}).then(function(res){
+      var t=T(), st2=document.getElementById("rj-st2");
+      if(!res.ok){st2.textContent=emsg(res.body&&res.body.error);return;}
+      editCode=cIn.value; showStatus(res.body.status); st2.textContent=t.stOk;
+    });
+  }
+
   document.getElementById("rj-del").addEventListener("click",function(){
     var t=T(), st2=document.getElementById("rj-st2");
     var c=document.getElementById("rj-code").value.trim().toUpperCase();
