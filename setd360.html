@@ -89,6 +89,8 @@
           <input type="text" id="sd-name" maxlength="80" />
           <label for="sd-phone" id="L-phone">Votre téléphone (WhatsApp)</label>
           <input type="text" id="sd-phone" maxlength="30" />
+          <label for="sd-city" id="L-city">Votre ville / zone <small>Ex. : Fitchburg, Worcester — aide les compagnies à cibler leur secteur.</small></label>
+          <input type="text" id="sd-city" maxlength="60" />
         </div>
         <div style="margin-top:1.1rem"><button type="submit" class="btn btn-primary" id="sd-go">Ouvrir mon coach 7D</button></div>
         <p class="sd-status" id="sd-st1"></p>
@@ -208,7 +210,8 @@
     if(!codeEl.value.trim()){document.getElementById("sd-st1").textContent=t.needCode;return;}
     busy=true;document.getElementById("sd-st1").textContent=t.think;
     post({action:"start",profile:{pool:{optin:document.getElementById("sd-pool").checked,
-      name:document.getElementById("sd-name").value,phone:document.getElementById("sd-phone").value}}})
+      name:document.getElementById("sd-name").value,phone:document.getElementById("sd-phone").value,
+      city:document.getElementById("sd-city").value}}})
     .then(function(res){busy=false;
       if(!res.ok){document.getElementById("sd-st1").textContent=emsg(res.body&&res.body.error);return;}
       localStorage.setItem("setd360_code",codeEl.value.trim().toUpperCase());
