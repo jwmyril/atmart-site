@@ -190,7 +190,7 @@
     if (!digits) return phone || "";
     return '<a href="https://wa.me/1' + digits + '" target="_blank" rel="noopener">' + phone + "</a>";
   }
-  function ref(id) { return "#" + (id || "").toString().toUpperCase().slice(0, 5); }
+  function ref(id) { return "#" + (id || "").toString().toUpperCase(); }
   function actionCell(e, atMax) {
     if (e.selected) return '<span class="ep-b pass">✓ Sélectionné</span>';
     if (atMax) return '<span class="ep-b" style="color:#9db2c7">Quota atteint</span>';
