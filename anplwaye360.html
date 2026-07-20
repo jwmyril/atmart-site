@@ -201,6 +201,8 @@
     if (!digits) return phone || "";
     return '<a href="https://wa.me/1' + digits + '" target="_blank" rel="noopener">' + phone + "</a>";
   }
+  var LICLBL = { classd: "Class D", "7d": "7D", cdl_a: "CDL-A", cdl_b: "CDL-B", cdl_c: "CDL-C" };
+  function licNames(a) { return (a || []).map(function (l) { return LICLBL[l] || l; }).join(", "); }
   function ref(id) { return "#" + (id || "").toString().toUpperCase(); }
   function actionCell(e, atMax) {
     if (e.selected) return '<span class="ep-b pass">✓ Sélectionné</span>';
@@ -225,7 +227,7 @@
       var extra = [];
       if (s.langs) extra.push("🗣 " + s.langs);
       if (s.nat) extra.push("🌍 " + s.nat);
-      if (s.licenses && s.licenses.length) extra.push("🪪 " + s.licenses.join(", "));
+      if (s.licenses && s.licenses.length) extra.push("🪪 " + licNames(s.licenses));
       return "<tr><td><strong>" + (s.name || "") + "</strong>" +
         (extra.length ? '<br><small style="color:#9db2c7">' + extra.join(" · ") + "</small>" : "") +
         "</td><td>" + waLink(s.phone) + "</td><td>" + (s.city || "—") + "</td><td>" + kind + "</td></tr>";
@@ -234,7 +236,6 @@
     document.getElementById("ep-t-sel").classList.toggle("ep-hide", sel.length === 0);
 
     // pool chauffeurs licencies
-    var LICLBL = { classd: "Class D", "7d": "7D", cdl_a: "CDL-A", cdl_b: "CDL-B", cdl_c: "CDL-C" };
     var SEEKLBL = { school: "🏫", delivery: "📦", senior: "🧓", transit: "🚍", rideshare: "🚕", other: "➕" };
     var AVLBL = { fulltime: "Temps plein", parttime: "Partiel", both: "Les deux" };
     var AUTHLBL = { yes: '<span class="ep-b pass">✅</span>', pending: '<span class="ep-b mid">⏳</span>', no: '<span class="ep-b fail">❌</span>' };
