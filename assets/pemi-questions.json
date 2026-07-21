@@ -1,5 +1,5 @@
 {
-  "note": "Chofè360 Pèmi — banque originale basée sur les règles établies du Massachusetts Driver's Manual. Jamais copiée du vrai examen RMV. Étendre chaque semaine.",
+  "note": "Driver360 Pèmi — banque originale basée sur les règles établies du Massachusetts Driver's Manual. Jamais copiée du vrai examen RMV. Étendre chaque semaine.",
   "pass": 15,
   "questions": [
     {"id":"q01","q":{"ht":"Nan yon zòn lekòl, ki limit vitès la ?","fr":"Dans une zone scolaire, quelle est la limite de vitesse ?","en":"In a school zone, what is the speed limit?","es":"En una zona escolar, ¿cuál es el límite de velocidad?"},
