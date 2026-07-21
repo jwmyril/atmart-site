@@ -460,7 +460,7 @@
   "to.t_gis": "Ayiti — SIG",
   "to.pbi_p": "Zouti tablo bò ki pi mande sou mache travay la — epi se li nou itilize nan titoryèl nou yo.",
   "to.pbi_1": "Windows sèlman. Enstale l atravè <strong>Microsoft Store</strong> (chèche « Power BI Desktop ») — mizajou otomatik.",
-  "to.pbi_2": "Louvri → « Obtenir les données » → Tèks/CSV.",
+  "to.pbi_2": "Louvri → « Get data » → Tèks/CSV.",
   "to.pbi_3": "<strong>Premye pratik :</strong> chaje <a href=\"data/transferts_diaspora_2000_2025.csv\" download>dataset transfè gratis nou an</a> epi fè yon istogram <code>pays × part_pib_pct</code>.",
   "to.tab_p": "Altènatif Power BI a, gratis nan vèsyon Public la — vizyalizasyon ou yo pibliye sou entènèt (pafè pou yon pòtfolyo).",
   "to.tab_1": "Kreye yon kont gratis sou public.tableau.com → telechaje Tableau Public (Windows/Mac).",
