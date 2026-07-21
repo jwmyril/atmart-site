@@ -582,3 +582,36 @@ figure.tuto-fig figcaption { padding: 0.7rem 1rem; font-size: 0.85rem; color: va
   .nav-grp > span { display: block; font-weight: 700; color: var(--ink); padding: 0.3rem 0 0.1rem; }
   .nav-sub { display: block; position: static; background: none; border: none; box-shadow: none; padding: 0 0 0 0.9rem; min-width: 0; }
 }
+
+/* ---- lanceur de produits (bouton lateral gauche) ---- */
+.atm-launch{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:120;background:#0e2240;border:1px solid rgba(46,196,182,0.45);border-left:none;border-radius:0 12px 12px 0;color:#eaf2fb;padding:0.9rem 0.5rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:0.45rem;font:inherit;font-size:0.68rem;letter-spacing:0.08em;box-shadow:0 6px 22px rgba(0,0,0,0.4);transition:background 0.2s}
+.atm-launch:hover{background:#12406b}
+.atm-launch .g{display:grid;grid-template-columns:repeat(3,5px);gap:3px}
+.atm-launch .g i{width:5px;height:5px;background:#2ec4b6;border-radius:1px;display:block}
+.atm-launch .lbl{writing-mode:vertical-rl;text-orientation:mixed;text-transform:uppercase;font-weight:600}
+.atm-ov{position:fixed;inset:0;background:rgba(3,9,18,0.72);z-index:130;display:none}
+.atm-ov.on{display:block}
+.atm-drawer{position:fixed;left:0;top:0;bottom:0;width:min(430px,92vw);background:#0b1a30;border-right:1px solid rgba(255,255,255,0.12);z-index:140;transform:translateX(-100%);transition:transform 0.28s ease;overflow-y:auto;padding:1.3rem}
+.atm-drawer.on{transform:none}
+.atm-dh{display:flex;justify-content:space-between;align-items:center}
+.atm-dh h3{margin:0;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.15rem}
+.atm-dh button{background:none;border:none;color:#9db2c7;font-size:1.7rem;cursor:pointer;line-height:1;padding:0 0.2rem}
+.atm-dh button:hover{color:#fff}
+.atm-dsub{color:#9db2c7;font-size:0.8rem;margin:0.2rem 0 1.1rem;letter-spacing:0.04em}
+.atm-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem}
+.atm-item{display:block;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:0.85rem;text-decoration:none;transition:border-color 0.2s,background 0.2s}
+.atm-item:hover{border-color:rgba(46,196,182,0.5);background:rgba(46,196,182,0.08)}
+.atm-item .ic{font-size:1.35rem;display:block;margin-bottom:0.35rem}
+.atm-item b{display:block;color:#fff;font-size:0.9rem;font-weight:600;line-height:1.25}
+.atm-item small{display:block;color:#9db2c7;font-size:0.74rem;margin-top:0.2rem;line-height:1.35}
+@media (max-width:560px){.atm-launch .lbl{display:none}.atm-grid{grid-template-columns:1fr}}
+@media print{.atm-launch,.atm-ov,.atm-drawer{display:none!important}}
+
+/* ---- grille produits (accueil) ---- */
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.4rem}
+.prod-card{display:block;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:1.25rem;text-decoration:none;transition:border-color 0.22s,transform 0.22s}
+.prod-card:hover{border-color:rgba(46,196,182,0.5);transform:translateY(-3px)}
+.prod-card .ic{font-size:1.8rem;display:block;margin-bottom:0.5rem}
+.prod-card b{display:block;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.05rem;margin-bottom:0.25rem}
+.prod-card span{display:block;color:#9db2c7;font-size:0.87rem;line-height:1.5}
+.prod-card em{display:inline-block;margin-top:0.55rem;color:#2ec4b6;font-style:normal;font-size:0.82rem;font-weight:600}

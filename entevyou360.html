@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#0e2240" />
+  <title>Entèvyou360 — arrivez préparé, repartez embauché | Atmart</title>
+  <meta name="description" content="Entèvyou360 : le diagnostic gratuit qui révèle vos forces face à l'IA et les 3 questions qu'un recruteur va vous poser — puis le kit Pro complet avec les réponses bâties sur VOS preuves. En kreyòl, français, English, español." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css?v=13" />
+  <style>
+    .ev-badges{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1.1rem}
+    .ev-badge{background:rgba(46,196,182,0.12);border:1px solid rgba(46,196,182,0.35);color:#d7e3f0;border-radius:99px;padding:0.35rem 0.9rem;font-size:0.82rem;font-weight:500}
+    .ev-feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin:1.6rem 0}
+    .ev-feat{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:1.3rem;transition:border-color 0.25s}
+    .ev-feat:hover{border-color:rgba(46,196,182,0.45)}
+    .ev-feat .ic{font-size:1.8rem;display:block;margin-bottom:0.5rem}
+    .ev-feat h3{margin:0 0 0.4rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.05rem}
+    .ev-feat p{margin:0;font-size:0.9rem;color:#9db2c7;line-height:1.6}
+    .ev-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;margin:1.4rem 0 0}
+    .ev-step{position:relative;padding-left:3rem}
+    .ev-step .n{position:absolute;left:0;top:0;width:2.2rem;height:2.2rem;border-radius:50%;background:rgba(46,196,182,0.15);border:1px solid rgba(46,196,182,0.5);color:#2ec4b6;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:"Space Grotesk",sans-serif}
+    .ev-step h4{margin:0.25rem 0 0.3rem;color:#fff;font-size:0.98rem;font-family:"Space Grotesk",sans-serif}
+    .ev-step p{margin:0;font-size:0.87rem;color:#9db2c7;line-height:1.55}
+    .ev-quote{border-left:4px solid #f4a261;background:rgba(244,162,97,0.07);border-radius:0 12px 12px 0;padding:1.1rem 1.3rem;margin:1.8rem 0;font-size:1.02rem;line-height:1.6;color:#d7e3f0}
+    .ev-faq{margin-top:1rem}
+    .ev-faq details{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:0.9rem 1.1rem;margin-bottom:0.6rem}
+    .ev-faq summary{cursor:pointer;color:#fff;font-weight:600;font-size:0.94rem}
+    .ev-faq p{margin:0.7rem 0 0;color:#9db2c7;font-size:0.89rem;line-height:1.6}
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/brand/logo-96.png" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li class="nav-grp"><span data-i18n="nav.g_win">🎯 Réussir</span>
+        <ul class="nav-sub">
+          <li><a href="entevyou360.html" class="active">Entèvyou360 <small data-i18n="nav.s_ent">l'entretien d'embauche</small></a></li>
+          <li><a href="chofe360.html">Chofè360 <small data-i18n="nav.s_cho">permis &amp; conduite (MA)</small></a></li>
+          <li><a href="karye360.html">Karyè360 <small data-i18n="nav.s_kar">votre coach de carrière</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.g_learn">🎓 Se former</span>
+        <ul class="nav-sub">
+          <li><a href="studio.html">Fòmasyon360 <small data-i18n="nav.s_fom">formations pour ONG &amp; écoles</small></a></li>
+          <li><a href="https://lojik360.atmart.ltd">Lojik360 <small data-i18n="nav.s_loj">tutoriels gratuits</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.g_data">🗂 Données</span>
+        <ul class="nav-sub">
+          <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
+          <li><a href="outils.html" data-i18n="foot.tools">Outils &amp; sources de données</a></li>
+        </ul>
+      </li>
+      <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding-bottom:1rem">
+  <div class="container">
+    <p class="kreyol" id="ev-kicker">Ou gen yon entèvyou ? Vin pare.</p>
+    <h1>Entèvyou<em>360</em></h1>
+    <p class="lead" id="ev-lead">Arrivez préparé, repartez embauché. Le diagnostic gratuit révèle vos forces face à l'IA et les questions qu'un recruteur va VOUS poser. Le kit Pro vous donne les réponses — bâties sur VOS preuves, pas sur des formules toutes faites.</p>
+    <div class="ev-badges">
+      <span class="ev-badge" id="ev-bg1">🗣 4 langues</span>
+      <span class="ev-badge" id="ev-bg2">⏱ 2 minutes</span>
+      <span class="ev-badge" id="ev-bg3">🎤 3 questions offertes</span>
+      <span class="ev-badge" id="ev-bg4">🔒 Rien n'est conservé</span>
+    </div>
+    <div style="margin-top:1.4rem">
+      <a href="https://lojik360.atmart.ltd/swot360.html" class="btn btn-primary" id="ev-cta1">Commencer gratuitement</a>
+      <a href="#plans" class="btn btn-outline" style="margin-left:0.6rem" id="ev-cta2">Voir le kit Pro</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0.5rem">
+  <div class="container">
+    <div class="ev-feats">
+      <div class="ev-feat"><span class="ic">🎯</span>
+        <h3 id="ev-f1t">Votre SWOT face à l'IA</h3>
+        <p id="ev-f1d">Vos forces, vos faiblesses, vos opportunités — et vos 3 axes : ce que vous déléguez à l'IA, ce que vous supervisez, ce que vous renforcez parce que la machine ne le fera jamais.</p></div>
+      <div class="ev-feat"><span class="ic">🎤</span>
+        <h3 id="ev-f2t">Les questions qu'on va VOUS poser</h3>
+        <p id="ev-f2d">Collez l'annonce du poste : le diagnostic en tire trois vraies questions de recruteur, dont une qui vise votre point faible. Gratuitement, et sans les réponses — les réponses sont le kit Pro.</p></div>
+      <div class="ev-feat"><span class="ic">🖥</span>
+        <h3 id="ev-f3t">Le kit complet, le jour J</h3>
+        <p id="ev-f3d">8 à 12 questions AVEC des réponses construites sur vos preuves, un deck « Présentez-vous », un plan 90 jours daté et les conseils du jour de l'entretien.</p></div>
+    </div>
+
+    <div class="ev-quote" id="ev-quote">Un entretien a une date. C'est ce qui rend la préparation urgente — et c'est exactement pour ce moment-là qu'Entèvyou360 est fait.</div>
+
+    <h2 id="ev-how">Comment ça marche</h2>
+    <div class="ev-steps">
+      <div class="ev-step"><span class="n">1</span>
+        <h4 id="ev-s1t">Répondez à 6 questions</h4>
+        <p id="ev-s1d">Votre métier, vos tâches, votre force, votre faiblesse, votre objectif. Deux minutes, dans votre langue.</p></div>
+      <div class="ev-step"><span class="n">2</span>
+        <h4 id="ev-s2t">Recevez votre diagnostic</h4>
+        <p id="ev-s2d">Votre SWOT en cartes, vos 3 axes, votre premier pas à 7 jours et 3 questions d'entretien probables — gratuitement.</p></div>
+      <div class="ev-step"><span class="n">3</span>
+        <h4 id="ev-s3t">Passez au kit complet</h4>
+        <p id="ev-s3d">Avec un code Pro, le même formulaire produit tout le kit d'entretien, prêt à travailler à voix haute.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="plans">
+  <div class="container">
+    <h2 id="ev-plans-t">Les deux formules</h2>
+    <div class="plan-grid" style="max-width:820px">
+      <div class="plan">
+        <h4>Entèvyou360</h4>
+        <p class="price" id="ev-free">Gratuit</p>
+        <ul>
+          <li id="ev-g1">6 questions, 2 minutes</li>
+          <li id="ev-g2">Votre SWOT personnel face à l'IA</li>
+          <li id="ev-g3">Vos 3 axes : Déléguer · Superviser · Renforcer</li>
+          <li id="ev-g4">Votre premier pas (7 jours)</li>
+          <li id="ev-g5">🎤 3 questions d'entretien — offertes</li>
+          <li id="ev-g6">Carte à partager sur WhatsApp</li>
+        </ul>
+        <a href="https://lojik360.atmart.ltd/swot360.html" class="btn btn-outline" id="ev-gcta">Commencer gratuitement</a>
+      </div>
+      <div class="plan hot">
+        <span class="ribbon" id="ev-rib">⭐ PRIX DE LANCEMENT −40%</span>
+        <h4>Entèvyou360 Pro</h4>
+        <p class="price"><span class="strike">49 $</span>29 $ <small id="ev-once">paiement unique</small></p>
+        <ul>
+          <li id="ev-p1">Tout Entèvyou360 gratuit</li>
+          <li id="ev-p2"><strong>Les questions qu'on va VOUS poser</strong> — avec les réponses bâties sur VOS preuves</li>
+          <li id="ev-p3">Comment répondre à la question sur votre faiblesse</li>
+          <li id="ev-p4">Deck « Présentez-vous » prêt à projeter</li>
+          <li id="ev-p5">Plan 90 jours daté + conseils du jour J</li>
+          <li id="ev-p6">4 langues · 5 générations par code</li>
+        </ul>
+        <a href="mailto:sales@atmart.ltd?subject=Ent%C3%A8vyou360%20Pro%20(29%24)" class="btn btn-primary" id="ev-pcta">Prendre Pro — 29 $</a>
+      </div>
+    </div>
+
+    <div class="cta-band" style="background:rgba(46,196,182,0.08);border:1px solid rgba(46,196,182,0.35);border-radius:12px;padding:1.1rem 1.3rem;margin-top:1.4rem">
+      <p style="margin:0;font-size:0.92rem;color:#d7e3f0" id="ev-bridge">🌱 <strong>Embauché ?</strong> Karyè360 vous accompagne dans vos 90 premiers jours et prépare la suite de votre carrière. <a href="karye360.html" style="color:#2ec4b6">Découvrir Karyè360 →</a></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 id="ev-faq-t">Questions fréquentes</h2>
+    <div class="ev-faq">
+      <details><summary id="ev-q1">Est-ce que mes réponses sont conservées ?</summary>
+        <p id="ev-a1">Non. Le diagnostic gratuit ne garde rien : vous répondez, vous recevez votre résultat, et rien n'est stocké. Aucun compte, aucun e-mail demandé.</p></details>
+      <details><summary id="ev-q2">Dans quelles langues ?</summary>
+        <p id="ev-a2">Kreyòl ayisyen, français, English et español — le résultat est généré dans la langue de la page, avec un soin particulier pour le kreyòl.</p></details>
+      <details><summary id="ev-q3">L'IA va-t-elle inventer des choses sur moi ?</summary>
+        <p id="ev-a3">Jamais. Tout est bâti sur ce que vous écrivez. Quand un exemple personnel manque, le kit laisse un espace entre [crochets] à compléter vous-même — c'est votre histoire, pas une histoire inventée.</p></details>
+      <details><summary id="ev-q4">Comment j'obtiens un code Pro ?</summary>
+        <p id="ev-a4">Écrivez à sales@atmart.ltd (ou par WhatsApp). Le paiement se fait par MonCash, Zelle ou virement, et vous recevez un code — sans créer de compte ni donner votre e-mail.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
+        <ul>
+          <li><a href="entevyou360.html">Entèvyou360</a></li>
+          <li><a href="chofe360.html">Chofè360</a></li>
+          <li><a href="karye360.html">Karyè360</a></li>
+          <li><a href="studio.html">Fòmasyon360</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul><li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li></ul>
+      </div>
+    </div>
+    <p class="footer-note">© Atmart LLC — <span data-i18n="foot.rights">Tous droits réservés.</span></p>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/i18n.js"></script>
+<script>
+(function () {
+  "use strict";
+  var L = {
+    fr: { kicker:"Vous avez un entretien ? Arrivez prêt.",
+      lead:"Arrivez préparé, repartez embauché. Le diagnostic gratuit révèle vos forces face à l'IA et les questions qu'un recruteur va VOUS poser. Le kit Pro vous donne les réponses — bâties sur VOS preuves, pas sur des formules toutes faites.",
+      bg1:"🗣 4 langues", bg2:"⏱ 2 minutes", bg3:"🎤 3 questions offertes", bg4:"🔒 Rien n'est conservé",
+      cta1:"Commencer gratuitement", cta2:"Voir le kit Pro",
+      f1t:"Votre SWOT face à l'IA", f1d:"Vos forces, vos faiblesses, vos opportunités — et vos 3 axes : ce que vous déléguez à l'IA, ce que vous supervisez, ce que vous renforcez parce que la machine ne le fera jamais.",
+      f2t:"Les questions qu'on va VOUS poser", f2d:"Collez l'annonce du poste : le diagnostic en tire trois vraies questions de recruteur, dont une qui vise votre point faible. Gratuitement, et sans les réponses — les réponses sont le kit Pro.",
+      f3t:"Le kit complet, le jour J", f3d:"8 à 12 questions AVEC des réponses construites sur vos preuves, un deck « Présentez-vous », un plan 90 jours daté et les conseils du jour de l'entretien.",
+      quote:"Un entretien a une date. C'est ce qui rend la préparation urgente — et c'est exactement pour ce moment-là qu'Entèvyou360 est fait.",
+      how:"Comment ça marche",
+      s1t:"Répondez à 6 questions", s1d:"Votre métier, vos tâches, votre force, votre faiblesse, votre objectif. Deux minutes, dans votre langue.",
+      s2t:"Recevez votre diagnostic", s2d:"Votre SWOT en cartes, vos 3 axes, votre premier pas à 7 jours et 3 questions d'entretien probables — gratuitement.",
+      s3t:"Passez au kit complet", s3d:"Avec un code Pro, le même formulaire produit tout le kit d'entretien, prêt à travailler à voix haute.",
+      plansT:"Les deux formules", free:"Gratuit", once:"paiement unique", rib:"⭐ PRIX DE LANCEMENT −40%",
+      g1:"6 questions, 2 minutes", g2:"Votre SWOT personnel face à l'IA", g3:"Vos 3 axes : Déléguer · Superviser · Renforcer",
+      g4:"Votre premier pas (7 jours)", g5:"🎤 3 questions d'entretien — offertes", g6:"Carte à partager sur WhatsApp",
+      gcta:"Commencer gratuitement",
+      p1:"Tout Entèvyou360 gratuit", p2:"<strong>Les questions qu'on va VOUS poser</strong> — avec les réponses bâties sur VOS preuves",
+      p3:"Comment répondre à la question sur votre faiblesse", p4:"Deck « Présentez-vous » prêt à projeter",
+      p5:"Plan 90 jours daté + conseils du jour J", p6:"4 langues · 5 générations par code", pcta:"Prendre Pro — 29 $",
+      bridge:"🌱 <strong>Embauché ?</strong> Karyè360 vous accompagne dans vos 90 premiers jours et prépare la suite de votre carrière. <a href='karye360.html' style='color:#2ec4b6'>Découvrir Karyè360 →</a>",
+      faqT:"Questions fréquentes",
+      q1:"Est-ce que mes réponses sont conservées ?", a1:"Non. Le diagnostic gratuit ne garde rien : vous répondez, vous recevez votre résultat, et rien n'est stocké. Aucun compte, aucun e-mail demandé.",
+      q2:"Dans quelles langues ?", a2:"Kreyòl ayisyen, français, English et español — le résultat est généré dans la langue de la page, avec un soin particulier pour le kreyòl.",
+      q3:"L'IA va-t-elle inventer des choses sur moi ?", a3:"Jamais. Tout est bâti sur ce que vous écrivez. Quand un exemple personnel manque, le kit laisse un espace entre [crochets] à compléter vous-même — c'est votre histoire, pas une histoire inventée.",
+      q4:"Comment j'obtiens un code Pro ?", a4:"Écrivez à sales@atmart.ltd (ou par WhatsApp). Le paiement se fait par MonCash, Zelle ou virement, et vous recevez un code — sans créer de compte ni donner votre e-mail." },
+    ht: { kicker:"Ou gen yon entèvyou ? Vin pare.",
+      lead:"Vin pare, soti ak djòb la. Dyagnostik gratis la montre fòs ou devan IA ak kesyon yon rekritè pral poze OU. Kit Pro a ba ou repons yo — bati sou PRÈV pa w, pa sou fraz tou fèt.",
+      bg1:"🗣 4 lang", bg2:"⏱ 2 minit", bg3:"🎤 3 kesyon gratis", bg4:"🔒 Nou pa kenbe anyen",
+      cta1:"Kòmanse gratis", cta2:"Gade kit Pro a",
+      f1t:"SWOT ou devan IA", f1d:"Fòs ou, feblès ou, opòtinite ou — ak 3 aks ou yo : sa ou delege bay IA, sa ou sipèvize, sa ou ranfòse paske machin nan p ap janm fè l.",
+      f2t:"Kesyon yo pral poze OU yo", f2d:"Kole anons travay la : dyagnostik la tire twa vrè kesyon rekritè, youn ladan yo vize pwen fèb ou. Gratis, san repons yo — repons yo se kit Pro a.",
+      f3t:"Kit konplè a, jou tès la", f3d:"8 a 12 kesyon AK repons ki bati sou prèv ou yo, yon deck « Prezante tèt ou », yon plan 90 jou ak dat, ak konsèy pou jou entèvyou a.",
+      quote:"Yon entèvyou gen yon dat. Se sa ki fè preparasyon an prese — epi se pou moman sa a menm Entèvyou360 fèt.",
+      how:"Kijan sa mache",
+      s1t:"Reponn 6 kesyon", s1d:"Metye w, travay ou fè, fòs ou, feblès ou, objektif ou. De minit, nan lang ou.",
+      s2t:"Resevwa dyagnostik ou", s2d:"SWOT ou an kat, 3 aks ou yo, premye pa ou nan 7 jou ak 3 kesyon entèvyou ki gen chans poze — gratis.",
+      s3t:"Pase sou kit konplè a", s3d:"Ak yon kòd Pro, menm fòm nan bay tout kit entèvyou a, pare pou w travay li fò.",
+      plansT:"De fòmil yo", free:"Gratis", once:"yon sèl peman", rib:"⭐ PRI LANSMAN −40%",
+      g1:"6 kesyon, 2 minit", g2:"SWOT pèsonèl ou devan IA", g3:"3 aks ou yo : Delege · Sipèvize · Ranfòse",
+      g4:"Premye pa ou (7 jou)", g5:"🎤 3 kesyon entèvyou — gratis", g6:"Kat pou pataje sou WhatsApp",
+      gcta:"Kòmanse gratis",
+      p1:"Tout Entèvyou360 gratis la", p2:"<strong>Kesyon yo pral poze OU yo</strong> — ak repons ki bati sou PRÈV pa w yo",
+      p3:"Kijan pou reponn kesyon sou feblès ou a", p4:"Deck « Prezante tèt ou » pare pou prezante",
+      p5:"Plan 90 jou ak dat + konsèy jou tès la", p6:"4 lang · 5 jenerasyon pou chak kòd", pcta:"Pran Pro a — 29 $",
+      bridge:"🌱 <strong>Ou jwenn djòb la ?</strong> Karyè360 akonpaye w nan 90 premye jou ou epi prepare rès karyè ou. <a href='karye360.html' style='color:#2ec4b6'>Dekouvri Karyè360 →</a>",
+      faqT:"Kesyon moun poze souvan",
+      q1:"Èske nou kenbe repons mwen yo ?", a1:"Non. Dyagnostik gratis la pa kenbe anyen : ou reponn, ou resevwa rezilta w, epi anyen pa estoke. Okenn kont, okenn imèl.",
+      q2:"Nan ki lang ?", a2:"Kreyòl ayisyen, franse, angle ak panyòl — rezilta a soti nan lang paj la, ak yon swen espesyal pou kreyòl la.",
+      q3:"Èske IA a ap envante bagay sou mwen ?", a3:"Jamè. Tout bagay bati sou sa ou ekri. Lè yon egzanp pèsonèl manke, kit la kite yon espas nan [kwochè] pou ou ranpli — se istwa pa w, pa yon istwa envante.",
+      q4:"Kijan pou m jwenn yon kòd Pro ?", a4:"Ekri sales@atmart.ltd (oswa sou WhatsApp). Peman an fèt ak MonCash, Zelle oswa vireman, epi ou resevwa yon kòd — san kreye kont, san bay imèl ou." },
+    en: { kicker:"Got an interview? Come prepared.",
+      lead:"Walk in prepared, walk out hired. The free diagnostic reveals your strengths in the AI era and the questions a recruiter will ask YOU. The Pro kit gives you the answers — built on YOUR proof, not on canned phrases.",
+      bg1:"🗣 4 languages", bg2:"⏱ 2 minutes", bg3:"🎤 3 free questions", bg4:"🔒 Nothing is stored",
+      cta1:"Start free", cta2:"See the Pro kit",
+      f1t:"Your SWOT in the AI era", f1d:"Your strengths, weaknesses and opportunities — plus your 3 axes: what you delegate to AI, what you supervise, and what you strengthen because the machine never will.",
+      f2t:"The questions they will ask YOU", f2d:"Paste the job posting: the diagnostic derives three real recruiter questions, one of them probing your weak point. Free, without the answers — the answers are the Pro kit.",
+      f3t:"The full kit, for the big day", f3d:"8 to 12 questions WITH answers built on your proof, an “Introduce yourself” deck, a dated 90-day plan and interview-day advice.",
+      quote:"An interview has a date. That is what makes preparation urgent — and that moment is exactly what Entèvyou360 was built for.",
+      how:"How it works",
+      s1t:"Answer 6 questions", s1d:"Your job, your tasks, your strength, your weakness, your goal. Two minutes, in your language.",
+      s2t:"Get your diagnostic", s2d:"Your SWOT in cards, your 3 axes, your 7-day first step and 3 likely interview questions — free.",
+      s3t:"Move to the full kit", s3d:"With a Pro code, the same form produces the entire interview kit, ready to rehearse out loud.",
+      plansT:"The two plans", free:"Free", once:"one-time payment", rib:"⭐ LAUNCH PRICE −40%",
+      g1:"6 questions, 2 minutes", g2:"Your personal SWOT in the AI era", g3:"Your 3 axes: Delegate · Supervise · Strengthen",
+      g4:"Your first step (7 days)", g5:"🎤 3 interview questions — free", g6:"Shareable WhatsApp card",
+      gcta:"Start free",
+      p1:"Everything in free Entèvyou360", p2:"<strong>The questions they will ask YOU</strong> — with answers built on YOUR proof",
+      p3:"How to answer the question about your weakness", p4:"A ready-to-present “Introduce yourself” deck",
+      p5:"Dated 90-day plan + interview-day advice", p6:"4 languages · 5 generations per code", pcta:"Get Pro — $29",
+      bridge:"🌱 <strong>Hired?</strong> Karyè360 supports you through your first 90 days and builds the rest of your career. <a href='karye360.html' style='color:#2ec4b6'>Discover Karyè360 →</a>",
+      faqT:"Frequently asked questions",
+      q1:"Are my answers stored?", a1:"No. The free diagnostic keeps nothing: you answer, you get your result, and nothing is stored. No account, no email required.",
+      q2:"In which languages?", a2:"Haitian Creole, French, English and Spanish — the result is generated in the language of the page, with particular care for Kreyòl.",
+      q3:"Will the AI invent things about me?", a3:"Never. Everything is built on what you write. When a personal example is missing, the kit leaves a [bracketed] space for you to fill — it is your story, not an invented one.",
+      q4:"How do I get a Pro code?", a4:"Write to sales@atmart.ltd (or on WhatsApp). Payment is by MonCash, Zelle or transfer, and you receive a code — without creating an account or giving your email." },
+    es: { kicker:"¿Tienes una entrevista? Llega preparado.",
+      lead:"Llega preparado, sal contratado. El diagnóstico gratuito revela tus fortalezas ante la IA y las preguntas que un reclutador TE hará. El kit Pro te da las respuestas — basadas en TUS pruebas, no en frases hechas.",
+      bg1:"🗣 4 idiomas", bg2:"⏱ 2 minutos", bg3:"🎤 3 preguntas gratis", bg4:"🔒 No se guarda nada",
+      cta1:"Empieza gratis", cta2:"Ver el kit Pro",
+      f1t:"Tu SWOT ante la IA", f1d:"Tus fortalezas, debilidades y oportunidades — y tus 3 ejes: lo que delegas a la IA, lo que supervisas y lo que refuerzas porque la máquina nunca lo hará.",
+      f2t:"Las preguntas que TE van a hacer", f2d:"Pega el anuncio del puesto: el diagnóstico extrae tres preguntas reales de reclutador, una de ellas apuntando a tu punto débil. Gratis y sin las respuestas — las respuestas son el kit Pro.",
+      f3t:"El kit completo, el día clave", f3d:"8 a 12 preguntas CON respuestas basadas en tus pruebas, un deck «Preséntate», un plan de 90 días con fechas y los consejos del día de la entrevista.",
+      quote:"Una entrevista tiene fecha. Eso hace urgente la preparación — y para ese momento exacto se creó Entèvyou360.",
+      how:"Cómo funciona",
+      s1t:"Responde 6 preguntas", s1d:"Tu oficio, tus tareas, tu fortaleza, tu debilidad, tu objetivo. Dos minutos, en tu idioma.",
+      s2t:"Recibe tu diagnóstico", s2d:"Tu SWOT en tarjetas, tus 3 ejes, tu primer paso a 7 días y 3 preguntas probables de entrevista — gratis.",
+      s3t:"Pasa al kit completo", s3d:"Con un código Pro, el mismo formulario produce todo el kit de entrevista, listo para ensayar en voz alta.",
+      plansT:"Los dos planes", free:"Gratis", once:"pago único", rib:"⭐ PRECIO DE LANZAMIENTO −40%",
+      g1:"6 preguntas, 2 minutos", g2:"Tu SWOT personal ante la IA", g3:"Tus 3 ejes: Delegar · Supervisar · Reforzar",
+      g4:"Tu primer paso (7 días)", g5:"🎤 3 preguntas de entrevista — gratis", g6:"Tarjeta para compartir en WhatsApp",
+      gcta:"Empieza gratis",
+      p1:"Todo Entèvyou360 gratis", p2:"<strong>Las preguntas que TE van a hacer</strong> — con respuestas basadas en TUS pruebas",
+      p3:"Cómo responder a la pregunta sobre tu debilidad", p4:"Deck «Preséntate» listo para proyectar",
+      p5:"Plan de 90 días con fechas + consejos del día", p6:"4 idiomas · 5 generaciones por código", pcta:"Compra Pro — 29 $",
+      bridge:"🌱 <strong>¿Contratado?</strong> Karyè360 te acompaña en tus primeros 90 días y construye el resto de tu carrera. <a href='karye360.html' style='color:#2ec4b6'>Descubrir Karyè360 →</a>",
+      faqT:"Preguntas frecuentes",
+      q1:"¿Se guardan mis respuestas?", a1:"No. El diagnóstico gratuito no guarda nada: respondes, recibes tu resultado y nada se almacena. Sin cuenta, sin correo.",
+      q2:"¿En qué idiomas?", a2:"Kreyòl haitiano, francés, inglés y español — el resultado se genera en el idioma de la página, con especial cuidado para el kreyòl.",
+      q3:"¿La IA inventará cosas sobre mí?", a3:"Nunca. Todo se basa en lo que escribes. Cuando falta un ejemplo personal, el kit deja un espacio entre [corchetes] para que lo completes — es tu historia, no una inventada.",
+      q4:"¿Cómo obtengo un código Pro?", a4:"Escribe a sales@atmart.ltd (o por WhatsApp). El pago es por MonCash, Zelle o transferencia, y recibes un código — sin crear cuenta ni dar tu correo." }
+  };
+  function lang(){var l=document.documentElement.lang||localStorage.getItem("atmart_lang")||"fr";return L[l]?l:"fr";}
+  var applied="";
+  function T(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+  function H(id,v){var e=document.getElementById(id);if(e)e.innerHTML=v;}
+  function applyLang(){
+    var l=lang(); if(l===applied)return; applied=l; var t=L[l];
+    T("ev-kicker",t.kicker); T("ev-lead",t.lead);
+    ["bg1","bg2","bg3","bg4","cta1","cta2","f1t","f1d","f2t","f2d","f3t","f3d","quote","how",
+     "s1t","s1d","s2t","s2d","s3t","s3d","free","once","rib","gcta","pcta",
+     "g1","g2","g3","g4","g5","g6","p1","p3","p4","p5","p6",
+     "q1","a1","q2","a2","q3","a3","q4","a4"].forEach(function(k){T("ev-"+k,t[k]);});
+    H("ev-p2",t.p2); H("ev-bridge",t.bridge);
+    T("ev-plans-t",t.plansT); T("ev-faq-t",t.faqT);
+  }
+  applyLang();
+  new MutationObserver(applyLang).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+})();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+<script src="assets/launcher.js"></script>
+</body>
+</html>
