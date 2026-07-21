@@ -10,16 +10,24 @@ if (toggle && links) {
 // Category filters (tutorials + datasets pages)
 document.querySelectorAll(".filters").forEach((bar) => {
   const buttons = bar.querySelectorAll(".filter-btn");
-  const targetGrid = document.querySelector(bar.dataset.target);
-  if (!targetGrid) return;
+  // plusieurs grilles possibles (boutique : rayon gratuit + rayon en vente)
+  const grids = document.querySelectorAll(bar.dataset.target);
+  if (!grids.length) return;
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
       buttons.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       const cat = btn.dataset.filter;
-      targetGrid.querySelectorAll(".card").forEach((card) => {
-        const show = cat === "all" || (card.dataset.cat || "").split(" ").includes(cat);
-        card.style.display = show ? "" : "none";
+      grids.forEach((grid) => {
+        let visibles = 0;
+        grid.querySelectorAll(".card").forEach((card) => {
+          const show = cat === "all" || (card.dataset.cat || "").split(" ").includes(cat);
+          card.style.display = show ? "" : "none";
+          if (show) visibles++;
+        });
+        // un rayon vide ne doit pas laisser son titre orphelin
+        const shelf = grid.closest(".shelf");
+        if (shelf) shelf.style.display = visibles ? "" : "none";
       });
     });
   });

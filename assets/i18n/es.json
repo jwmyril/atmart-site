@@ -524,5 +524,16 @@
   "to.start_p": "Nuestro consejo: <strong>Excel primero</strong> (ya está en tu ordenador), luego <strong>Power BI</strong>, luego <strong>Python en Colab</strong>. Sigue los tutoriales en orden — cada herramienta usa los mismos datos, así avanzas sin volver a empezar de cero.",
   "to.start_cta1": "Seguir los tutoriales",
   "to.start_cta2": "Crear una formación con el Studio",
-  "foot.rights": "Todos los derechos reservados."
+  "foot.rights": "Todos los derechos reservados.",
+  "ds.free_h": "🎁 Gratis — sírvase",
+  "ds.free_p": "Descarga inmediata, sin cuenta y sin correo. Cada archivo llega con su documentación.",
+  "ds.paid_h": "🛒 En venta",
+  "ds.paid_p": "Conjuntos de datos que no encontrará en otro sitio — recopilados, limpiados y documentados a mano. Pago único, descarga inmediata.",
+  "ds.f_art": "🎨 Data art",
+  "ds.t_art": "Data art",
+  "ds.art_h": "Liy Lavi — la obra de datos <span class='badge-new'>NUEVO</span>",
+  "ds.art_p": "Ocho curvas, ocho diásporas. La altura de cada línea es la parte del PIB que los suyos envían al país, año tras año desde 2000. Nada está inventado: la obra se traza directamente desde nuestro dataset gratuito de remesas.",
+  "ds.art_pr": "0 $ <small>póster SVG · imprímalo cuantas veces quiera</small>",
+  "ds.art_meta": "🎨 Data art • Fuente: Banco Mundial (WDI) • <a href='data/transferts_diaspora_2000_2025.csv' download>el dataset que la produjo</a>",
+  "ds.art_cta": "Descargar el póster"
 }

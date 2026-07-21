@@ -524,5 +524,16 @@
   "to.start_p": "Konsèy nou : <strong>Excel anvan</strong> (li deja sou machin ou), apre sa <strong>Power BI</strong>, apre sa <strong>Python sou Colab</strong>. Swiv titoryèl yo nan lòd — chak zouti itilize menm done yo, konsa w ap avanse san rekòmanse depi zewo.",
   "to.start_cta1": "Swiv titoryèl yo",
   "to.start_cta2": "Kreye yon fòmasyon ak Studio a",
-  "foot.rights": "Tout dwa rezève."
+  "foot.rights": "Tout dwa rezève.",
+  "ds.free_h": "🎁 Gratis — sèvi ou",
+  "ds.free_p": "Telechaje touswit, san kont, san imèl. Chak fichye vini ak dokimantasyon l.",
+  "ds.paid_h": "🛒 An vant",
+  "ds.paid_p": "Jeu done ou pa jwenn lòt kote — ranmase, netwaye epi dokimante alamen. Yon sèl peman, telechajman touswit.",
+  "ds.f_art": "🎨 Data art",
+  "ds.t_art": "Data art",
+  "ds.art_h": "Liy Lavi — zèv done a <span class='badge-new'>NOUVO</span>",
+  "ds.art_p": "Uit koub, uit dyaspora. Wotè chak liy se pousantaj PIB moun li yo voye tounen nan peyi a, ane apre ane depi 2000. Nou pa envante okenn chif : zèv la trase dirèkteman soti nan dataset transfè gratis nou an.",
+  "ds.art_pr": "0 $ <small>afich SVG · enprime otan ou vle</small>",
+  "ds.art_meta": "🎨 Data art • Sous : Bank Mondyal (WDI) • <a href='data/transferts_diaspora_2000_2025.csv' download>dataset ki fè l la</a>",
+  "ds.art_cta": "Telechaje afich la"
 }

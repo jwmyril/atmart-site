@@ -753,3 +753,21 @@ figure.tuto-fig figcaption { padding: 0.7rem 1rem; font-size: 0.85rem; color: va
 /* deux formules cote a cote des qu'il y a la place */
 .plan-grid.duo{grid-template-columns:1fr 1fr;gap:1.2rem}
 @media(max-width:640px){.plan-grid.duo{grid-template-columns:1fr}}
+
+/* ---- boutique : rayons gratuit / en vente ---- */
+.shelf{margin-top:2.4rem}
+.shelf:first-of-type{margin-top:1.4rem}
+.shelf-head{border-left:4px solid #2ec4b6;padding-left:0.9rem;margin-bottom:1.1rem}
+.shelf-head h2{margin:0 0 0.2rem;font-size:1.3rem}
+.shelf-head p{margin:0;color:#9db2c7;font-size:0.9rem;max-width:720px}
+#shelf-paid .shelf-head{border-left-color:#f4a261}
+/* ---- carte data art ---- */
+.art-card{grid-column:1/-1;display:grid;grid-template-columns:minmax(200px,300px) 1fr;
+  gap:1.4rem;align-items:start;background:linear-gradient(140deg,rgba(46,196,182,0.09),rgba(244,162,97,0.06));
+  border-color:rgba(46,196,182,0.4)}
+.art-card .tag{grid-column:1/-1}
+.art-thumb{grid-row:span 5;display:block;border-radius:12px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.14);background:#081426;line-height:0}
+.art-thumb img{width:100%;height:auto;display:block;transition:transform 0.4s}
+.art-thumb:hover img{transform:scale(1.03)}
+@media(max-width:700px){.art-card{grid-template-columns:1fr}.art-thumb{grid-row:auto;max-width:320px}}

@@ -524,5 +524,16 @@
   "to.start_p": "Our advice: <strong>Excel first</strong> (already on your machine), then <strong>Power BI</strong>, then <strong>Python on Colab</strong>. Follow the tutorials in order — every tool uses the same data, so you progress without starting from scratch.",
   "to.start_cta1": "Follow the tutorials",
   "to.start_cta2": "Build a training course with the Studio",
-  "foot.rights": "All rights reserved."
+  "foot.rights": "All rights reserved.",
+  "ds.free_h": "🎁 Free — help yourself",
+  "ds.free_p": "Instant download, no account, no email. Every file comes with its documentation.",
+  "ds.paid_h": "🛒 For sale",
+  "ds.paid_p": "Datasets you won't find anywhere else — collected, cleaned and documented by hand. One-time payment, instant download.",
+  "ds.f_art": "🎨 Data art",
+  "ds.t_art": "Data art",
+  "ds.art_h": "Liy Lavi — the data artwork <span class='badge-new'>NEW</span>",
+  "ds.art_p": "Eight curves, eight diasporas. The height of each line is the share of GDP their people send home, year after year since 2000. Nothing is invented: the artwork is drawn straight from our free remittances dataset.",
+  "ds.art_pr": "$0 <small>SVG poster · print it as often as you like</small>",
+  "ds.art_meta": "🎨 Data art • Source: World Bank (WDI) • <a href='data/transferts_diaspora_2000_2025.csv' download>the dataset behind it</a>",
+  "ds.art_cta": "Download the poster"
 }
