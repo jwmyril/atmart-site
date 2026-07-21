@@ -30,6 +30,16 @@
     .sd-quick button{background:#0e2240;border:1px solid rgba(46,196,182,0.4);color:#d7e3f0;border-radius:99px;padding:0.4rem 0.9rem;font:inherit;font-size:0.82rem;cursor:pointer}
     .sd-tools{display:flex;gap:0.8rem;flex-wrap:wrap;justify-content:space-between;margin-top:0.8rem;padding-top:0.8rem;border-top:1px dashed rgba(255,255,255,0.15);font-size:0.8rem;color:#9db2c7}
     .sd-tools button{background:none;border:none;color:#9db2c7;text-decoration:underline;cursor:pointer;font:inherit}
+    .sd-badges{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1.1rem}
+    .sd-badge{background:rgba(46,196,182,0.12);border:1px solid rgba(46,196,182,0.35);color:#d7e3f0;border-radius:99px;padding:0.35rem 0.9rem;font-size:0.82rem;font-weight:500}
+    .sd-feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin:0 0 1.6rem}
+    .sd-feat{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:1.25rem;transition:border-color 0.25s}
+    .sd-feat:hover{border-color:rgba(46,196,182,0.45)}
+    .sd-feat .ic{font-size:1.7rem;display:block;margin-bottom:0.5rem}
+    .sd-feat h4{margin:0 0 0.35rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.02rem}
+    .sd-feat p{margin:0;font-size:0.87rem;color:#9db2c7;line-height:1.55}
+    .sd-formhead{font-family:"Space Grotesk",sans-serif;font-size:1.15rem;color:#fff;margin:0 0 0.3rem}
+    .sd-formsub{font-size:0.85rem;color:#9db2c7;margin:0 0 1.2rem;line-height:1.5}
   </style>
 </head>
 <body>
@@ -69,7 +79,13 @@
     <p class="kreyol" id="sd-kicker">Egzamen 7D a egziste an kreyòl — men manyèl la se an angle sèlman. Nou fèmen twou sa a.</p>
     <h1>Chofè<em>360</em> — 7D Pro</h1>
     <p class="lead" id="sd-lead">Le coach de préparation à l'examen écrit du certificat 7D (transport d'écoliers) du Massachusetts — bâti sur le manuel officiel de la RMV (éd. février 2026). Il explique chaque règle dans votre langue, vous fait réviser question par question, et connaît les pièges classiques de l'examen.</p>
-    <p style="color:#9db2c7;font-size:0.88rem" id="sd-note">Source : Guide to School Pupil Transport Vehicles (7D), Mass RMV. Non affilié à la RMV — préparation indépendante, aucune garantie. L'examen réel est offert en anglais, español, português et kreyòl ayisyen.</p>
+    <div class="sd-badges">
+      <span class="sd-badge" id="sd-bg1">🗣 4 langues</span>
+      <span class="sd-badge" id="sd-bg2">📘 Manuel officiel RMV</span>
+      <span class="sd-badge" id="sd-bg3">🎯 Les pièges de l'examen</span>
+      <span class="sd-badge" id="sd-bg4">🕒 92 jours d'accès</span>
+    </div>
+    <p style="color:#9db2c7;font-size:0.88rem;margin-top:1.1rem" id="sd-note">Source : Guide to School Pupil Transport Vehicles (7D), Mass RMV. Non affilié à la RMV — préparation indépendante, aucune garantie. L'examen réel est offert en anglais, español, português et kreyòl ayisyen.</p>
   </div>
 </section>
 
@@ -77,7 +93,21 @@
   <div class="container">
     <div class="sd-app">
 
+      <div class="sd-feats">
+        <div class="sd-feat"><span class="ic">📘</span>
+          <h4 id="sd-f1t">Le manuel officiel, distillé</h4>
+          <p id="sd-f1d">Chaque règle et chaque chiffre viennent du guide officiel de la RMV — jamais d'invention.</p></div>
+        <div class="sd-feat"><span class="ic">💬</span>
+          <h4 id="sd-f2t">Il explique dans votre langue</h4>
+          <p id="sd-f2d">L'examen existe en kreyòl et en español, mais pas le manuel. Le coach comble ce vide.</p></div>
+        <div class="sd-feat"><span class="ic">🎯</span>
+          <h4 id="sd-f3t">Les pièges classiques</h4>
+          <p id="sd-f3d">8 élèves maximum, inspection post-trajet, renouvellement, visite médicale — ce qui fait échouer.</p></div>
+      </div>
+
       <form class="sd-card" id="sd-start">
+        <p class="sd-formhead" id="sd-fh">Commencer</p>
+        <p class="sd-formsub" id="sd-fs">Entrez votre code d'accès 7D Pro pour ouvrir votre coach.</p>
         <label for="sd-code" id="L-code">🔑 Votre code 7D Pro<small>Reçu à l'achat (SETD-XXXX-XXXX). Pas encore de code ? <a href="mailto:sales@atmart.ltd?subject=Chof%C3%A8360%207D%20Pro%20(29%24)" style="color:#2ec4b6">Acheter — 29 $</a></small></label>
         <input type="text" id="sd-code" maxlength="24" autocomplete="off" placeholder="SETD-XXXX-XXXX" />
         <label id="L-pool" style="display:flex;gap:0.5rem;align-items:flex-start;margin-top:1rem;cursor:pointer">
@@ -103,10 +133,10 @@
       <div class="sd-card sd-hide" id="sd-chat">
         <div class="sd-msgs" id="sd-msgs"></div>
         <div class="sd-quick" id="sd-quick">
-          <button data-q="drill">📝 Fè m pratike kesyon</button>
-          <button data-q="cert">🪪 Règ sètifika a</button>
-          <button data-q="veh">🚐 Règ machin nan</button>
-          <button data-q="ops">🧒 Règ transpò elèv yo</button>
+          <button data-q="drill" id="sd-q1">📝 Me faire pratiquer</button>
+          <button data-q="cert" id="sd-q2">🪪 Règles du certificat</button>
+          <button data-q="veh" id="sd-q3">🚐 Règles du véhicule</button>
+          <button data-q="ops" id="sd-q4">🧒 Transport des élèves</button>
         </div>
         <div class="sd-row">
           <textarea id="sd-input" maxlength="4000" placeholder="Écrivez à votre coach 7D…"></textarea>
@@ -129,7 +159,7 @@
       <h2 style="margin-top:0;font-size:1.2rem" id="sd-b2b-t">🚌 Compagnies de transport scolaire</h2>
       <p style="color:#d7e3f0;max-width:680px;margin:0.5rem auto 1rem;font-size:0.92rem" id="sd-b2b-d">Préparez vos recrues au 7D dans leur langue (packs de codes), et recrutez dans le pool de chauffeurs certifiés — avec leur consentement, jamais sans.</p>
       <a href="anplwaye360.html" class="btn btn-outline" id="sd-b2b-c">Portail employeurs / pack entreprise</a>
-      <p style="font-size:0.82rem;color:#9db2c7;margin-top:0.8rem">Déjà certifié 7D ou CDL ? <a href="rejistre.html" style="color:#2ec4b6">Inscrivez-vous gratuitement au pool →</a></p>
+      <p id="sd-b2b-lic" style="font-size:0.82rem;color:#9db2c7;margin-top:0.8rem">Déjà certifié 7D ou CDL ? <a href="rejistre.html" style="color:#2ec4b6">Inscrivez-vous gratuitement au pool →</a></p>
     </div>
   </div>
 </section>
@@ -170,31 +200,46 @@
         think:"Le coach réfléchit…",invalid:"Code invalide. Vérifiez-le, ou achetez-en un.",expired:"Accès expiré — sales@atmart.ltd.",
         limit:"Limite du jour atteinte — le coach revient demain.",err:"Petit souci technique. Réessayez.",needCode:"Entrez votre code.",
         savedPass:"Enregistré — félicitations ! 🎉 Pensez au pool d'embauche et à Karyè360 pour vos 90 premiers jours.",
-        quick:{drill:"Fais-moi pratiquer avec des questions d'examen.",cert:"Explique-moi les règles du certificat 7D (âge, années de permis, renouvellement).",veh:"Explique-moi les règles du véhicule 7D (capacité, équipement, inspections).",ops:"Explique-moi les règles de transport des élèves (embarquement, post-trip, interdictions)."}},
+        lead:"Le coach de préparation à l'examen écrit du certificat 7D (transport d'écoliers) du Massachusetts — bâti sur le manuel officiel de la RMV. Il explique chaque règle dans votre langue, vous interroge question par question, et connaît les pièges classiques.",note:"Source : Guide to School Pupil Transport Vehicles (7D), Mass RMV. Non affilié à la RMV — préparation indépendante, aucune garantie. L'examen réel est offert en anglais, español, português et kreyòl ayisyen.",bg1:"🗣 4 langues",bg2:"📘 Manuel officiel RMV",bg3:"🎯 Les pièges de l'examen",bg4:"🕒 92 jours d'accès",f1t:"Le manuel officiel, distillé",f1d:"Chaque règle et chaque chiffre viennent du guide officiel de la RMV — jamais d'invention.",f2t:"Il explique dans votre langue",f2d:"L'examen existe en kreyòl et en español, mais pas le manuel. Le coach comble ce vide.",f3t:"Les pièges classiques",f3d:"8 élèves maximum, inspection post-trajet, renouvellement, visite médicale — ce qui fait échouer.",fh:"Commencer",fs:"Entrez votre code d'accès 7D Pro pour ouvrir votre coach.",code:"🔑 Votre code 7D Pro",codeS:"Reçu à l'achat (SETD-XXXX-XXXX). Pas encore de code ? <a href='mailto:sales@atmart.ltd?subject=7DPro' style='color:#2ec4b6'>Acheter — 29 $</a>",poolTxt:"Quand j'aurai mon certificat 7D, je veux entrer dans le <strong>pool de chauffeurs 7D</strong> : des compagnies de transport pourront me contacter. (Optionnel.)",name:"Votre nom",phone:"Votre téléphone (WhatsApp)",city:"Votre ville / zone",cityS:"Ex. : Fitchburg, Worcester — aide les compagnies à cibler leur secteur.",langs:"Langues que vous parlez",langsS:"Ex. : kreyòl, anglais, español.",nat:"Nationalité (optionnel)",natS:"Visible seulement par un employeur qui vous sélectionne.",go:"Ouvrir mon coach 7D",send:"Envoyer",inputP:"Écrivez à votre coach 7D…",privacy:"🔒 Dossier anonyme lié à votre code.",passed:"🏁 J'ai réussi l'examen !",erase:"Effacer mon dossier",q1:"📝 Me faire pratiquer",q2:"🪪 Règles du certificat",q3:"🚐 Règles du véhicule",q4:"🧒 Transport des élèves",b2bT:"🚌 Vous êtes une compagnie de transport ?",b2bD:"Préparez vos recrues au 7D dans leur langue (packs de codes), et recrutez dans le pool de chauffeurs certifiés — avec leur consentement, jamais sans.",b2bC:"Portail employeurs / pack entreprise",b2bLic:"Déjà certifié 7D ou CDL ? <a href='rejistre.html' style='color:#2ec4b6'>Inscrivez-vous gratuitement au pool →</a>",quick:{drill:"Fais-moi pratiquer avec des questions d'examen.",cert:"Explique-moi les règles du certificat 7D (âge, années de permis, renouvellement).",veh:"Explique-moi les règles du véhicule 7D (capacité, équipement, inspections).",ops:"Explique-moi les règles de transport des élèves (embarquement, post-trip, interdictions)."}},
     ht:{kicker:"Egzamen 7D a egziste an kreyòl — men manyèl la se an angle sèlman. Nou fèmen twou sa a.",
         hello:"Bonjou ! 👋 Mwen se coach 7D ou. Mande m nenpòt règ, oswa di « pratike » pou m poze w kesyon tankou nan egzamen an.",
         think:"Coach la ap reflechi…",invalid:"Kòd la pa bon. Verifye l, oswa achte youn.",expired:"Aksè a fini — sales@atmart.ltd.",
         limit:"Limit jou a rive — coach la ap tounen demen.",err:"Yon ti pwoblèm teknik. Eseye ankò.",needCode:"Mete kòd ou.",
         savedPass:"Anrejistre — felisitasyon ! 🎉 Sonje pool anbochaj la ak Karyè360 pou 90 premye jou ou yo.",
-        quick:{drill:"Fè m pratike ak kesyon egzamen.",cert:"Esplike m règ sètifika 7D a (laj, ane lisans, renouvèlman).",veh:"Esplike m règ machin 7D a (kapasite, ekipman, enspeksyon).",ops:"Esplike m règ transpò elèv yo (monte/desann, post-trip, sa ki entèdi)."}},
+        lead:"Coach preparasyon pou egzamen ekri sètifika 7D la (transpò elèv) nan Massachusetts — bati sou manyèl ofisyèl RMV la. Li esplike chak règ nan lang ou, li poze w kesyon youn apre lòt, epi li konnen pèlen klasik yo.",note:"Sous : Guide to School Pupil Transport Vehicles (7D), Mass RMV. Nou pa afilye ak RMV — preparasyon endepandan, okenn garanti. Vrè egzamen an disponib an angle, panyòl, pòtigè ak kreyòl ayisyen.",bg1:"🗣 4 lang",bg2:"📘 Manyèl ofisyèl RMV",bg3:"🎯 Pèlen egzamen an",bg4:"🕒 92 jou aksè",f1t:"Manyèl ofisyèl la, distile",f1d:"Chak règ ak chak chif soti nan gid ofisyèl RMV la — nou pa janm envante.",f2t:"Li esplike nan lang ou",f2d:"Egzamen an egziste an kreyòl ak panyòl, men manyèl la non. Coach la fèmen twou sa a.",f3t:"Pèlen klasik yo",f3d:"8 elèv maksimòm, enspeksyon apre wout la, renouvèlman, vizit medikal — sa ki fè moun echwe.",fh:"Kòmanse",fs:"Mete kòd aksè 7D Pro ou pou ouvri coach ou.",code:"🔑 Kòd 7D Pro ou",codeS:"Ou resevwa l lè w achte (SETD-XXXX-XXXX). Ou poko gen kòd ? <a href='mailto:sales@atmart.ltd?subject=7DPro' style='color:#2ec4b6'>Achte — 29 $</a>",poolTxt:"Lè m jwenn sètifika 7D mwen, mwen vle antre nan <strong>pool chofè 7D la</strong> : konpayi transpò ap ka kontakte m. (Opsyonèl.)",name:"Non ou",phone:"Telefòn ou (WhatsApp)",city:"Vil / zòn ou",cityS:"Egz. : Fitchburg, Worcester — sa ede konpayi yo vize sektè yo.",langs:"Lang ou pale",langsS:"Egz. : kreyòl, angle, panyòl.",nat:"Nasyonalite (opsyonèl)",natS:"Sèlman yon anplwayè ki chwazi w ki wè l.",go:"Ouvri coach 7D mwen",send:"Voye",inputP:"Ekri coach 7D ou a…",privacy:"🔒 Dosye anonim ki mare ak kòd ou.",passed:"🏁 Mwen pase egzamen an !",erase:"Efase dosye m",q1:"📝 Fè m pratike",q2:"🪪 Règ sètifika a",q3:"🚐 Règ machin nan",q4:"🧒 Transpò elèv yo",b2bT:"🚌 Ou se yon konpayi transpò ?",b2bD:"Prepare nouvo anplwaye w yo pou 7D a nan lang yo (pake kòd), epi rekrite nan pool chofè sètifye yo — ak konsantman yo, pa janm san sa.",b2bC:"Pòtay anplwayè / pake antrepriz",b2bLic:"Ou gen sètifika 7D oswa CDL deja ? <a href='rejistre.html' style='color:#2ec4b6'>Enskri gratis nan pool la →</a>",quick:{drill:"Fè m pratike ak kesyon egzamen.",cert:"Esplike m règ sètifika 7D a (laj, ane lisans, renouvèlman).",veh:"Esplike m règ machin 7D a (kapasite, ekipman, enspeksyon).",ops:"Esplike m règ transpò elèv yo (monte/desann, post-trip, sa ki entèdi)."}},
     en:{kicker:"The 7D exam exists in Kreyòl — but the manual is English-only. We close that gap.",
         hello:"Hello! 👋 I'm your 7D coach. Ask me any rule, or say “practice” and I'll quiz you like the exam.",
         think:"The coach is thinking…",invalid:"Invalid code. Check it, or buy one.",expired:"Access expired — sales@atmart.ltd.",
         limit:"Daily limit reached — back tomorrow.",err:"Small technical issue. Try again.",needCode:"Enter your code.",
         savedPass:"Saved — congratulations! 🎉 Consider the hiring pool and Karyè360 for your first 90 days.",
-        quick:{drill:"Quiz me with exam-style questions.",cert:"Explain the 7D certificate rules (age, license years, renewal).",veh:"Explain the 7D vehicle rules (capacity, equipment, inspections).",ops:"Explain pupil transport rules (loading, post-trip, prohibitions)."}},
+        lead:"The prep coach for the Massachusetts 7D certificate written exam (school pupil transport) — built on the official RMV manual. It explains every rule in your language, quizzes you question by question, and knows the classic traps.",note:"Source: Guide to School Pupil Transport Vehicles (7D), Mass RMV. Not affiliated with the RMV — independent preparation, no guarantee. The real exam is offered in English, Spanish, Portuguese and Haitian Creole.",bg1:"🗣 4 languages",bg2:"📘 Official RMV manual",bg3:"🎯 The exam's traps",bg4:"🕒 92 days of access",f1t:"The official manual, distilled",f1d:"Every rule and number comes from the official RMV guide — never invented.",f2t:"It explains in your language",f2d:"The exam exists in Kreyòl and Spanish, but the manual does not. The coach closes that gap.",f3t:"The classic traps",f3d:"8 pupils maximum, post-trip inspection, renewal, medical exam — what makes people fail.",fh:"Get started",fs:"Enter your 7D Pro access code to open your coach.",code:"🔑 Your 7D Pro code",codeS:"Received at purchase (SETD-XXXX-XXXX). No code yet? <a href='mailto:sales@atmart.ltd?subject=7DPro' style='color:#2ec4b6'>Buy — $29</a>",poolTxt:"Once I have my 7D certificate, I want to join the <strong>7D driver pool</strong>: transport companies may contact me. (Optional.)",name:"Your name",phone:"Your phone (WhatsApp)",city:"Your city / area",cityS:"E.g.: Fitchburg, Worcester — helps companies target their area.",langs:"Languages you speak",langsS:"E.g.: Kreyòl, English, Spanish.",nat:"Nationality (optional)",natS:"Visible only to an employer who selects you.",go:"Open my 7D coach",send:"Send",inputP:"Write to your 7D coach…",privacy:"🔒 Anonymous file tied to your code.",passed:"🏁 I passed the exam!",erase:"Erase my file",q1:"📝 Quiz me",q2:"🪪 Certificate rules",q3:"🚐 Vehicle rules",q4:"🧒 Pupil transport rules",b2bT:"🚌 Are you a transport company?",b2bD:"Prepare your new hires for the 7D in their language (code packs), and recruit from the certified driver pool — with their consent, never without.",b2bC:"Employer portal / company pack",b2bLic:"Already 7D or CDL certified? <a href='rejistre.html' style='color:#2ec4b6'>Join the pool for free →</a>",quick:{drill:"Quiz me with exam-style questions.",cert:"Explain the 7D certificate rules (age, license years, renewal).",veh:"Explain the 7D vehicle rules (capacity, equipment, inspections).",ops:"Explain pupil transport rules (loading, post-trip, prohibitions)."}},
     es:{kicker:"El examen 7D existe en kreyòl — pero el manual solo está en inglés. Cerramos esa brecha.",
         hello:"¡Hola! 👋 Soy tu coach 7D. Pregúntame cualquier regla, o di «práctica» y te haré preguntas como en el examen.",
         think:"El coach está pensando…",invalid:"Código inválido. Verifícalo o compra uno.",expired:"Acceso vencido — sales@atmart.ltd.",
         limit:"Límite diario alcanzado — vuelve mañana.",err:"Pequeño problema técnico. Inténtalo de nuevo.",needCode:"Escribe tu código.",
         savedPass:"Guardado — ¡felicidades! 🎉 Piensa en el pool de empleo y en Karyè360 para tus primeros 90 días.",
-        quick:{drill:"Hazme practicar con preguntas de examen.",cert:"Explícame las reglas del certificado 7D (edad, años de licencia, renovación).",veh:"Explícame las reglas del vehículo 7D (capacidad, equipo, inspecciones).",ops:"Explícame las reglas de transporte de alumnos (subida, post-trip, prohibiciones)."}}
+        lead:"El coach de preparación para el examen escrito del certificado 7D (transporte escolar) de Massachusetts — basado en el manual oficial del RMV. Explica cada regla en tu idioma, te hace preguntas una por una y conoce las trampas clásicas.",note:"Fuente: Guide to School Pupil Transport Vehicles (7D), Mass RMV. No afiliado al RMV — preparación independiente, sin garantía. El examen real se ofrece en inglés, español, portugués y kreyòl haitiano.",bg1:"🗣 4 idiomas",bg2:"📘 Manual oficial del RMV",bg3:"🎯 Las trampas del examen",bg4:"🕒 92 días de acceso",f1t:"El manual oficial, destilado",f1d:"Cada regla y cada número vienen de la guía oficial del RMV — nunca inventados.",f2t:"Explica en tu idioma",f2d:"El examen existe en kreyòl y español, pero el manual no. El coach cierra esa brecha.",f3t:"Las trampas clásicas",f3d:"8 alumnos máximo, inspección post-viaje, renovación, examen médico — lo que hace reprobar.",fh:"Empezar",fs:"Escribe tu código de acceso 7D Pro para abrir tu coach.",code:"🔑 Tu código 7D Pro",codeS:"Recibido al comprar (SETD-XXXX-XXXX). ¿Sin código? <a href='mailto:sales@atmart.ltd?subject=7DPro' style='color:#2ec4b6'>Comprar — 29 $</a>",poolTxt:"Cuando tenga mi certificado 7D, quiero entrar al <strong>pool de choferes 7D</strong>: compañías de transporte podrán contactarme. (Opcional.)",name:"Tu nombre",phone:"Tu teléfono (WhatsApp)",city:"Tu ciudad / zona",cityS:"Ej.: Fitchburg, Worcester — ayuda a las compañías a enfocar su zona.",langs:"Idiomas que hablas",langsS:"Ej.: kreyòl, inglés, español.",nat:"Nacionalidad (opcional)",natS:"Visible solo para un empleador que te selecciona.",go:"Abrir mi coach 7D",send:"Enviar",inputP:"Escríbele a tu coach 7D…",privacy:"🔒 Expediente anónimo ligado a tu código.",passed:"🏁 ¡Aprobé el examen!",erase:"Borrar mi expediente",q1:"📝 Hazme practicar",q2:"🪪 Reglas del certificado",q3:"🚐 Reglas del vehículo",q4:"🧒 Transporte de alumnos",b2bT:"🚌 ¿Eres una compañía de transporte?",b2bD:"Prepara a tus nuevos choferes para el 7D en su idioma (paquetes de códigos) y recluta del pool de choferes certificados — con su consentimiento, nunca sin él.",b2bC:"Portal de empleadores / paquete empresa",b2bLic:"¿Ya certificado 7D o CDL? <a href='rejistre.html' style='color:#2ec4b6'>Únete al pool gratis →</a>",quick:{drill:"Hazme practicar con preguntas de examen.",cert:"Explícame las reglas del certificado 7D (edad, años de licencia, renovación).",veh:"Explícame las reglas del vehículo 7D (capacidad, equipo, inspecciones).",ops:"Explícame las reglas de transporte de alumnos (subida, post-trip, prohibiciones)."}}
   };
   function lang(){var l=document.documentElement.lang||localStorage.getItem("atmart_lang")||"fr";return L[l]?l:"fr";}
   function T(){return L[lang()];}
   var applied="";
-  function applyLang(){var l=lang();if(l===applied)return;applied=l;
-    document.getElementById("sd-kicker").textContent=L[l].kicker;}
+  function applyLang(){
+    var l=lang(); if(l===applied)return; applied=l; var t=L[l];
+    function setTxt(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+    function setH(id,v){var e=document.getElementById(id);if(e)e.innerHTML=v;}
+    function setLab(id,m,sub){var e=document.getElementById(id);if(e)e.innerHTML=m+(sub?"<small>"+sub+"</small>":"");}
+    setTxt("sd-kicker",t.kicker); setTxt("sd-lead",t.lead); setTxt("sd-note",t.note);
+    ["bg1","bg2","bg3","bg4","f1t","f1d","f2t","f2d","f3t","f3d","fh","fs",
+     "q1","q2","q3","q4","go","send","privacy","passed","erase"].forEach(function(k){
+      setTxt("sd-"+k,t[k]);});
+    setLab("L-code",t.code,t.codeS); setH("L-poolTxt",t.poolTxt);
+    setLab("L-name",t.name); setLab("L-phone",t.phone);
+    setLab("L-city",t.city,t.cityS); setLab("L-langs",t.langs,t.langsS);
+    setLab("L-nat",t.nat,t.natS);
+    var ip=document.getElementById("sd-input"); if(ip)ip.placeholder=t.inputP;
+    setTxt("sd-b2b-t",t.b2bT); setTxt("sd-b2b-d",t.b2bD); setTxt("sd-b2b-c",t.b2bC);
+    setH("sd-b2b-lic",t.b2bLic);
+  }
   applyLang();
   new MutationObserver(applyLang).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
 

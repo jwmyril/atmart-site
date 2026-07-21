@@ -34,6 +34,16 @@
     .ky-tools a:hover,.ky-tools button:hover{color:#e63946}
     .ky-spin{display:inline-block;width:1em;height:1em;border:2px solid rgba(255,255,255,0.3);border-top-color:#2ec4b6;border-radius:50%;animation:kyspin 0.8s linear infinite;vertical-align:-0.15em;margin-right:0.4em}
     @keyframes kyspin{to{transform:rotate(360deg)}}
+    .ky-badges{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1.1rem}
+    .ky-badge{background:rgba(46,196,182,0.12);border:1px solid rgba(46,196,182,0.35);color:#d7e3f0;border-radius:99px;padding:0.35rem 0.9rem;font-size:0.82rem;font-weight:500}
+    .ky-feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin:0 0 1.6rem}
+    .ky-feat{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:1.25rem;transition:border-color 0.25s}
+    .ky-feat:hover{border-color:rgba(46,196,182,0.45)}
+    .ky-feat .ic{font-size:1.7rem;display:block;margin-bottom:0.5rem}
+    .ky-feat h4{margin:0 0 0.35rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.02rem}
+    .ky-feat p{margin:0;font-size:0.87rem;color:#9db2c7;line-height:1.55}
+    .ky-formhead{font-family:"Space Grotesk",sans-serif;font-size:1.15rem;color:#fff;margin:0 0 0.3rem}
+    .ky-formsub{font-size:0.85rem;color:#9db2c7;margin:0 0 1.2rem;line-height:1.5}
   </style>
 </head>
 <body>
@@ -74,7 +84,13 @@
     <p class="kreyol" id="ky-kicker">Yon kout men chak semèn — pou karyè ou grandi nan epòk IA a.</p>
     <h1>Karyè<em>360</em></h1>
     <p class="lead" id="ky-lead">Votre coach de carrière à l'ère de l'IA : il vous accompagne dans votre nouveau poste, votre recherche d'emploi et votre progression — et il se souvient de votre parcours, semaine après semaine.</p>
-    <p style="color:#9db2c7;font-size:0.9rem" id="ky-note">Dossier 100 % anonyme : votre code est votre compte. Aucun nom, aucun e-mail. Vous pouvez effacer votre dossier à tout moment.</p>
+    <div class="ky-badges">
+      <span class="ky-badge" id="ky-bg1">🗣 4 langues</span>
+      <span class="ky-badge" id="ky-bg2">🧠 Il se souvient de vous</span>
+      <span class="ky-badge" id="ky-bg3">📅 Une séance par semaine</span>
+      <span class="ky-badge" id="ky-bg4">🔒 Dossier anonyme</span>
+    </div>
+    <p style="color:#9db2c7;font-size:0.9rem;margin-top:1.1rem" id="ky-note">Dossier 100 % anonyme : votre code est votre compte. Aucun nom, aucun e-mail. Vous pouvez effacer votre dossier à tout moment.</p>
   </div>
 </section>
 
@@ -83,8 +99,22 @@
   <div class="container">
     <div class="ky-app">
 
+      <div class="ky-feats">
+        <div class="ky-feat"><span class="ic">🚀</span>
+          <h4 id="ky-f1t">Vos 90 premiers jours</h4>
+          <p id="ky-f1d">Nouveau poste : observer, livrer une première victoire, ouvrir le dialogue avec votre superviseur.</p></div>
+        <div class="ky-feat"><span class="ic">🔎</span>
+          <h4 id="ky-f2t">Trouver le prochain emploi</h4>
+          <p id="ky-f2d">Cibler les postes, bâtir vos preuves, activer votre réseau humain — et préparer chaque entretien.</p></div>
+        <div class="ky-feat"><span class="ic">📈</span>
+          <h4 id="ky-f3t">Grandir dans votre poste</h4>
+          <p id="ky-f3d">Déléguer à l'IA, superviser, renforcer l'humain — et rendre vos résultats visibles.</p></div>
+      </div>
+
       <!-- ===== écran 1 : code + profil ===== -->
       <form class="ky-card" id="ky-start">
+        <p class="ky-formhead" id="ky-fh">Commencer</p>
+        <p class="ky-formsub" id="ky-fs">Votre code est votre compte : aucun nom, aucun e-mail. Trois questions et votre coach vous connaît.</p>
         <label for="ky-code" id="L-code">🔑 Votre code Karyè360<small>Le code reçu à l'achat (KOACH-XXXX-XXXX). Pas encore de code ? <a href="index.html#karye360" style="color:#2ec4b6">Voir les plans</a></small></label>
         <input type="text" id="ky-code" maxlength="24" autocomplete="off" placeholder="KOACH-XXXX-XXXX" />
         <label for="ky-role" id="L-role">1. Votre métier / travail actuel</label>
@@ -180,7 +210,7 @@
       invalid: "Code invalide. Vérifiez-le, ou voyez les plans sur la page d'accueil.",
       expired: "Abonnement expiré. Renouvelez-le pour continuer avec votre coach — sales@atmart.ltd.",
       limit: "Vous avez beaucoup travaillé aujourd'hui 💪 Le coach revient demain (30 messages/jour).",
-      err: "Petit souci technique. Réessayez dans un instant."
+      err: "Petit souci technique. Réessayez dans un instant.",bg1:"🗣 4 langues",bg2:"🧠 Il se souvient de vous",bg3:"📅 Une séance par semaine",bg4:"🔒 Dossier anonyme",f1t:"Vos 90 premiers jours",f1d:"Nouveau poste : observer, livrer une première victoire, ouvrir le dialogue avec votre superviseur.",f2t:"Trouver le prochain emploi",f2d:"Cibler les postes, bâtir vos preuves, activer votre réseau humain — et préparer chaque entretien.",f3t:"Grandir dans votre poste",f3d:"Déléguer à l'IA, superviser, renforcer l'humain — et rendre vos résultats visibles.",fh:"Commencer",fs:"Votre code est votre compte : aucun nom, aucun e-mail. Trois questions et votre coach vous connaît."
     },
     ht: {
       kicker: "Yon kout men chak semèn — pou karyè ou grandi nan epòk IA a.",
@@ -201,7 +231,7 @@
       invalid: "Kòd la pa bon. Verifye l, oswa gade plan yo sou paj akèy la.",
       expired: "Abònman an fini. Renouvle l pou kontinye ak coach ou — sales@atmart.ltd.",
       limit: "Ou travay anpil jodi a 💪 Coach la ap tounen demen (30 mesaj pa jou).",
-      err: "Yon ti pwoblèm teknik. Eseye ankò talè."
+      err: "Yon ti pwoblèm teknik. Eseye ankò talè.",bg1:"🗣 4 lang",bg2:"🧠 Li sonje w",bg3:"📅 Yon seyans chak semèn",bg4:"🔒 Dosye anonim",f1t:"90 premye jou ou yo",f1d:"Nouvo djòb : obsève, bay yon premye viktwa, louvri dyalòg ak sipèvizè w.",f2t:"Jwenn pwochen djòb la",f2d:"Vize bon pòs yo, bati prèv ou yo, aktive rezo moun ou — epi prepare chak entèvyou.",f3t:"Grandi nan pòs ou",f3d:"Delege bay IA, sipèvize, ranfòse sa ki imen — epi fè rezilta ou yo parèt.",fh:"Kòmanse",fs:"Kòd ou se kont ou : okenn non, okenn imèl. Twa kesyon epi coach la konnen w."
     },
     en: {
       kicker: "A helping hand every week — to grow your career in the AI era.",
@@ -222,7 +252,7 @@
       invalid: "Invalid code. Check it, or see the plans on the home page.",
       expired: "Subscription expired. Renew it to continue with your coach — sales@atmart.ltd.",
       limit: "You worked hard today 💪 The coach is back tomorrow (30 messages/day).",
-      err: "Small technical issue. Try again in a moment."
+      err: "Small technical issue. Try again in a moment.",bg1:"🗣 4 languages",bg2:"🧠 It remembers you",bg3:"📅 One session a week",bg4:"🔒 Anonymous file",f1t:"Your first 90 days",f1d:"New job: observe, deliver an early win, open the conversation with your supervisor.",f2t:"Land the next job",f2d:"Target the roles, build your proof, activate your human network — and prepare every interview.",f3t:"Grow in your role",f3d:"Delegate to AI, supervise it, strengthen what is human — and make your results visible.",fh:"Get started",fs:"Your code is your account: no name, no email. Three questions and your coach knows you."
     },
     es: {
       kicker: "Una mano cada semana — para hacer crecer tu carrera en la era de la IA.",
@@ -243,7 +273,7 @@
       invalid: "Código inválido. Verifícalo, o mira los planes en la página de inicio.",
       expired: "Suscripción vencida. Renuévala para seguir con tu coach — sales@atmart.ltd.",
       limit: "Hoy trabajaste mucho 💪 El coach vuelve mañana (30 mensajes/día).",
-      err: "Pequeño problema técnico. Inténtalo de nuevo en un momento."
+      err: "Pequeño problema técnico. Inténtalo de nuevo en un momento.",bg1:"🗣 4 idiomas",bg2:"🧠 Se acuerda de ti",bg3:"📅 Una sesión por semana",bg4:"🔒 Expediente anónimo",f1t:"Tus primeros 90 días",f1d:"Nuevo puesto: observar, lograr una primera victoria, abrir el diálogo con tu supervisor.",f2t:"Conseguir el próximo empleo",f2d:"Apuntar a los puestos, construir tus pruebas, activar tu red humana — y preparar cada entrevista.",f3t:"Crecer en tu puesto",f3d:"Delegar en la IA, supervisarla, reforzar lo humano — y hacer visibles tus resultados.",fh:"Empezar",fs:"Tu código es tu cuenta: sin nombre, sin correo. Tres preguntas y tu coach te conoce."
     }
   };
 
@@ -275,6 +305,8 @@
     document.getElementById("ky-input").placeholder = t.inputP;
     setTxt("ky-go", t.go); setTxt("ky-send", t.send);
     setTxt("ky-privacy", t.privacy); setTxt("ky-erase", t.erase);
+    ["bg1","bg2","bg3","bg4","f1t","f1d","f2t","f2d","f3t","f3d","fh","fs"].forEach(function(k){
+      setTxt("ky-"+k,t[k]);});
   }
   applyLang();
   new MutationObserver(applyLang).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
