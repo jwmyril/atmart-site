@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0e2240" />
-  <link rel="stylesheet" href="assets/style.css?v=21" />
+  <link rel="stylesheet" href="assets/style.css?v=22" />
 <script>/* langue auto : avant le 1er affichage, evite le clignotement */
 (function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
 s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
@@ -779,7 +779,9 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       btn.addEventListener("click",function(){say(c.en,btn);});
       var b=document.createElement("b"); b.textContent=c.en;
       row.appendChild(btn); row.appendChild(b); d.appendChild(row);
-      var tr=document.createElement("p"); tr.className="km-tr"; tr.textContent=c[l]||c.fr; d.appendChild(tr);
+      if(l!=="en"){ // en anglais la traduction repeterait la commande
+        var tr=document.createElement("p"); tr.className="km-tr"; tr.textContent=c[l]||c.fr; d.appendChild(tr);
+      }
       var doo=document.createElement("p"); doo.className="km-do";
       doo.innerHTML="<b>"+t.todo+"</b> "+String(c["do_"+l]||c.do_fr).replace(/[<>]/g,"");
       d.appendChild(doo);
