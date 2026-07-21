@@ -771,3 +771,28 @@ figure.tuto-fig figcaption { padding: 0.7rem 1rem; font-size: 0.85rem; color: va
 .art-thumb img{width:100%;height:auto;aspect-ratio:1000/1500;display:block;transition:transform 0.4s}
 .art-thumb:hover img{transform:scale(1.03)}
 @media(max-width:700px){.art-card{grid-template-columns:1fr}.art-thumb{grid-row:auto;max-width:320px}}
+
+/* ---- pourquoi payant : comparatif ---- */
+.why{background:rgba(244,162,97,0.06);border:1px solid rgba(244,162,97,0.28);
+  border-radius:14px;padding:1.2rem 1.3rem;margin-bottom:1.3rem}
+.why-lead{margin:0 0 0.9rem;font-family:"Space Grotesk",sans-serif;font-size:1.05rem;color:#fff}
+.why-tab{width:100%;border-collapse:collapse;font-size:0.88rem}
+.why-tab th,.why-tab td{text-align:left;padding:0.55rem 0.7rem;vertical-align:top;
+  border-bottom:1px solid rgba(255,255,255,0.07)}
+.why-tab thead th{font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:#9db2c7;
+  border-bottom:1px solid rgba(255,255,255,0.16)}
+.why-tab thead th:nth-child(3){color:#f4a261}
+.why-tab td:first-child{color:#9db2c7;width:24%}
+.why-tab td:nth-child(2){color:#8fa6bd;width:30%}
+.why-tab td:nth-child(3){color:#e8d5c4}
+.why-tab tbody tr:last-child td{border-bottom:0}
+.why-note{margin:0.9rem 0 0;font-size:0.86rem;color:#9db2c7;line-height:1.6;font-style:italic}
+@media(max-width:640px){
+  .why-tab thead{display:none}
+  .why-tab tr{display:block;padding:0.6rem 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .why-tab td{display:block;border:0;padding:0.15rem 0}
+  .why-tab td:first-child{color:#fff;font-weight:600;width:auto;margin-bottom:0.25rem}
+  .why-tab td:nth-child(2)::before{content:"Gratuit : ";color:#6f8296}
+  .why-tab td:nth-child(3)::before{content:"En vente : ";color:#f4a261}
+  .why-tab td:nth-child(2),.why-tab td:nth-child(3){width:auto}
+}
