@@ -645,3 +645,79 @@ figure.tuto-fig figcaption { padding: 0.7rem 1rem; font-size: 0.85rem; color: va
   cursor:pointer;padding:0 0.2rem}
 .atm-hint .x:hover{color:#fff}
 @media (max-width:520px){.atm-hint{font-size:0.86rem;gap:0.5rem}}
+
+/* ---- module commandes de l'examinateur (Chofè360 Wout) ---- */
+.km-head{margin-bottom:1rem}
+.km-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.9rem}
+.km-tab{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.14);color:#d7e3f0;
+  border-radius:999px;padding:0.45rem 1rem;font-size:0.88rem;cursor:pointer;font-family:inherit}
+.km-tab:hover{border-color:rgba(46,196,182,0.5)}
+.km-tab.on{background:rgba(46,196,182,0.16);border-color:#2ec4b6;color:#fff;font-weight:600}
+.km-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:0.8rem}
+.km-toggle{background:none;border:1px solid rgba(255,255,255,0.16);color:#9db2c7;border-radius:8px;
+  padding:0.35rem 0.75rem;font-size:0.83rem;cursor:pointer;font-family:inherit}
+.km-toggle:hover{color:#fff;border-color:#2ec4b6}
+.km-count{color:#9db2c7;font-size:0.83rem}
+.km-list{display:grid;gap:0.85rem}
+.km-item{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.05rem 1.15rem}
+.km-en{display:flex;align-items:flex-start;gap:0.65rem}
+.km-en b{font-family:"Space Grotesk",sans-serif;font-size:1.08rem;color:#fff;line-height:1.4;flex:1}
+.km-say{background:rgba(46,196,182,0.14);border:1px solid rgba(46,196,182,0.4);color:#2ec4b6;
+  border-radius:9px;min-width:40px;height:36px;font-size:1rem;cursor:pointer;flex-shrink:0}
+.km-say:hover{background:rgba(46,196,182,0.26)}
+.km-say[disabled]{opacity:0.35;cursor:not-allowed}
+.km-tr{color:#9db2c7;font-size:0.92rem;margin:0.55rem 0 0}
+.km-do{margin:0.6rem 0 0;padding:0.6rem 0.8rem;background:rgba(244,162,97,0.08);
+  border-left:3px solid #f4a261;border-radius:0 8px 8px 0;color:#e8d5c4;font-size:0.89rem;line-height:1.55}
+.km-do b{color:#f4a261;font-weight:600}
+.km-hidden .km-tr,.km-hidden .km-do{display:none}
+.km-foot{color:#6f8296;font-size:0.78rem;margin-top:1rem;font-style:italic}
+@media(max-width:520px){.km-en b{font-size:1rem}}
+
+/* ---- appellation courante (nom que les gens utilisent) ---- */
+.aka{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(46,196,182,0.1);
+  border:1px solid rgba(46,196,182,0.32);border-radius:999px;padding:0.3rem 0.9rem;
+  margin:0.1rem 0 0.9rem;font-size:0.84rem;color:#bfe9e3}
+.aka b{color:#2ec4b6;font-weight:700;letter-spacing:0.02em}
+.aka small{color:#8fa6bd;font-size:0.78rem}
+/* ---- formateurs 7D certifies ---- */
+.trn-note{background:rgba(244,162,97,0.08);border:1px solid rgba(244,162,97,0.3);
+  border-radius:12px;padding:1rem 1.15rem;margin:0 0 1.2rem;color:#e8d5c4;font-size:0.9rem;line-height:1.6}
+.trn-note b{color:#f4a261}
+.trn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:0.85rem}
+.trn{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:0.95rem 1.05rem}
+.trn .cty{display:inline-block;background:rgba(46,196,182,0.14);color:#2ec4b6;border-radius:6px;
+  padding:0.12rem 0.5rem;font-size:0.72rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:0.45rem}
+.trn h4{margin:0 0 0.3rem;font-family:"Space Grotesk",sans-serif;font-size:1rem;color:#fff}
+.trn p{margin:0.15rem 0;font-size:0.855rem;color:#9db2c7;line-height:1.5}
+.trn a{color:#2ec4b6;text-decoration:none;word-break:break-word}
+.trn a:hover{text-decoration:underline}
+
+/* ---- bouton de partage ---- */
+.atm-share{position:fixed;right:14px;bottom:16px;z-index:70;display:flex;align-items:center;gap:0.45rem;
+  background:#2ec4b6;color:#06251f;border:0;border-radius:999px;padding:0.62rem 1.05rem;
+  font-family:inherit;font-size:0.88rem;font-weight:700;cursor:pointer;
+  box-shadow:0 6px 20px rgba(0,0,0,0.4)}
+.atm-share:hover{filter:brightness(1.08)}
+.atm-share .ic{font-size:1rem;line-height:1}
+.atm-sov{position:fixed;inset:0;background:rgba(4,12,22,0.72);z-index:80;display:none}
+.atm-sov.on{display:block}
+.atm-sheet{position:fixed;left:50%;bottom:0;transform:translateX(-50%);z-index:81;display:none;
+  width:min(440px,100%);background:#12233d;border:1px solid #1e3a5f;border-bottom:0;
+  border-radius:18px 18px 0 0;padding:1.1rem 1.25rem 1.4rem}
+.atm-sheet.on{display:block}
+.atm-sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.9rem}
+.atm-sh h3{margin:0;font-family:"Space Grotesk",sans-serif;font-size:1.05rem;color:#fff}
+.atm-sh .x{background:none;border:0;color:#8fa6bd;font-size:1.6rem;line-height:1;cursor:pointer;padding:0 0.2rem}
+.atm-sh .x:hover{color:#fff}
+.atm-sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:0.5rem}
+.atm-net{display:flex;flex-direction:column;align-items:center;gap:0.3rem;padding:0.75rem 0.4rem;
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;
+  color:#d7e3f0;text-decoration:none;font-size:0.78rem}
+.atm-net:hover{border-color:#2ec4b6;background:rgba(46,196,182,0.1)}
+.atm-net span{font-size:1.35rem}
+.atm-copy{width:100%;margin-top:0.9rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
+  color:#d7e3f0;border-radius:10px;padding:0.7rem;font-family:inherit;font-size:0.88rem;cursor:pointer}
+.atm-copy:hover{border-color:#2ec4b6;color:#fff}
+@media(max-width:520px){.atm-share{right:12px;bottom:12px;padding:0.58rem 0.9rem;font-size:0.84rem}}
+@media print{.atm-share,.atm-sheet,.atm-sov{display:none!important}}

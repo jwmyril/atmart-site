@@ -6,13 +6,13 @@
   <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
-  <title>Chofè360 Wout — réussir le test de conduite du Massachusetts | Atmart</title>
+  <title>Road Test MA — Chofè360 Wout : réussir le test de conduite du Massachusetts en kreyòl, español, français | Atmart</title>
   <meta name="description" content="Chofè360 Wout : le coach de préparation au test routier Class D du Massachusetts pour les communautés créole et hispanophone. Les commandes réelles de l'examinateur, les pièges avant/pendant/retour, le sponsor guidé pas à pas. Non affilié à la RMV." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0e2240" />
-  <link rel="stylesheet" href="assets/style.css?v=20" />
+  <link rel="stylesheet" href="assets/style.css?v=21" />
 <script>/* langue auto : avant le 1er affichage, evite le clignotement */
 (function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
 s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
@@ -110,6 +110,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   <div class="container">
     <p class="kreyol" id="cf-kicker">Lekòl la montre w kondwi. Nou menm, nou fè w PASE tès la — nan lang ou.</p>
     <h1>Chofè<em>360</em> — Wout</h1>
+    <div class="aka"><b id="cf-aka">Road Test MA</b><small id="cf-aka-s">le nom que tout le monde utilise</small></div>
     <p class="lead" id="cf-lead">Le coach de préparation au test de conduite Class D du Massachusetts : les commandes réelles de l'examinateur en anglais, les pièges avant de démarrer, sur la route et au retour — et votre accompagnateur guidé pas à pas, séance après séance.</p>
     <div class="cf-badges">
       <span class="cf-badge" id="cf-bg1">🗣 4 langues</span>
@@ -249,6 +250,23 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   </div>
 </section>
 
+<!-- MODULE : LES COMMANDES DE L'EXAMINATEUR EN ANGLAIS -->
+<section id="komand" style="padding-top:0">
+  <div class="container">
+    <div class="km-head">
+      <h2 id="km-title" style="margin:0 0 0.3rem">🗣 Les commandes de l'examinateur — en anglais</h2>
+      <p id="km-sub" style="color:#9db2c7;margin:0;max-width:760px;font-size:0.93rem">L'examinateur parle anglais. Même avec un interprète, c'est vous qui conduisez : entendez la phrase, comprenez-la dans votre langue, sachez quoi faire. Gratuit, sans code.</p>
+    </div>
+    <div class="km-tabs" id="km-tabs"></div>
+    <div class="km-bar">
+      <button type="button" class="km-toggle" id="km-hide">👁 <span id="km-hide-t">Masquer les traductions</span></button>
+      <span class="km-count" id="km-count"></span>
+    </div>
+    <div class="km-list" id="km-list"></div>
+    <p class="km-foot" id="km-foot">Formulations courantes, reformulées par Atmart — ce n'est pas la reproduction d'un test officiel. Non affilié à la RMV du Massachusetts.</p>
+  </div>
+</section>
+
 <!-- B2B : entreprises & ecoles -->
 <section>
   <div class="container">
@@ -376,7 +394,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         fin:"Séance terminée — envoi au coach…",invalid:"Code invalide. Vérifiez-le, ou écrivez-nous.",
         expired:"Accès expiré. Renouvelez pour continuer — sales@atmart.ltd.",limit:"Limite du jour atteinte — le coach revient demain.",
         err:"Petit souci technique. Réessayez.",hello:"Bonjou ! 👋 Je suis votre coach Wout. Dites-moi où vous en êtes, ou lancez une séance avec votre accompagnateur.",
-        think:"Le coach réfléchit…",saved:"Enregistré ✔",needCode:"Entrez votre code.",qzTitle:"Test écrit (Pèmi) — 20 questions, 15 pour réussir",qzRight:"✅ Correct ! ",qzWrong:"❌ Incorrect. ",qzScore:"Votre score : ",qzPass:"RÉUSSI 🎉 — vous êtes prêt pour le vrai test écrit.",qzFail:"Pas encore — révisez et recommencez demain.",qzFree:"Essai gratuit terminé (5 questions/jour). Le code Chofè360 débloque les 20 questions + le coach.",qzNext:"Suivant ⏭",bg1:"🗣 4 langues",bg2:"🎯 12 manœuvres du test",bg3:"📝 Test écrit inclus",bg4:"🕒 90 jours d'accès",f1t:"Mode Séance",f1d:"Les commandes réelles de l'examinateur, en anglais et dans votre langue. Votre accompagnateur note, le coach corrige à l'instant.",f2t:"Coach personnel",f2d:"Il se souvient de vos séances, cible vos points faibles et vous donne un exercice court chaque jour.",f3t:"Guide de l'accompagnateur",f3d:"Six séances structurées à imprimer : votre sponsor devient un vrai instructeur, sans rien connaître au départ.",fh:"Commencer",fs:"Entrez votre code d'accès, ou essayez d'abord 5 questions du test écrit — gratuitement.",code:"🔑 Votre code Chofè360",codeS:"Reçu à l'achat (WOUT-XXXX-XXXX). Pas encore de code ? <a href='mailto:sales@atmart.ltd?subject=Chofe360' style='color:#2ec4b6'>Écrivez-nous</a>",date:"📅 Date de votre test routier (si déjà fixée)",poolTxt:"Quand j'aurai réussi, je veux entrer dans le <strong>pool de chauffeurs Chofè360</strong> : des employeurs du Massachusetts pourront me contacter. (Optionnel — nom et téléphone partagés seulement si vous cochez.)",name:"Votre nom",phone:"Votre téléphone (WhatsApp)",city:"Votre ville / zone",cityS:"Ex. : Fitchburg, Worcester — aide les employeurs à cibler leur secteur.",langs:"Langues que vous parlez",langsS:"Ex. : kreyòl, anglais, español — un vrai atout pour l'embauche.",nat:"Nationalité (optionnel)",natS:"Visible seulement par un employeur qui vous sélectionne.",go:"Ouvrir mon coach",tryb:"📝 Essayer 5 questions gratuites",quizBtn:"📝 Test écrit (Pèmi)",privacy:"🔒 Dossier anonyme lié à votre code.",erase:"Effacer mon dossier",send:"Envoyer",inputP:"Écrivez à votre coach…",outTitle:"🏁 Vos résultats officiels RMV",outSub:"Enregistrez vos résultats — ils nourrissent votre dossier et, si vous l'avez accepté, le pool d'embauche.",outW:"Test écrit :",outR:"Test routier :",bpass:"✅ Réussi",bfail:"❌ Échoué",guideT:"🖨 Guide de l'accompagnateur (sponsor)",guideP:"Imprimer",b2bT:"🚌 Vous êtes une compagnie de transport ?",b2bD:"Recrutez dans le pool Chofè360 : des candidats préparés, avec résultats vérifiables — et équipez vos recrues dans leur langue.",b2bC:"Ouvrir le portail employeurs",b2bLic:"Déjà licencié (Class D, 7D, CDL) ? <a href='rejistre.html' style='color:#2ec4b6'>Inscrivez-vous gratuitement au pool →</a>",bridge:"Félicitations ! Prochaine étape : vos 90 premiers jours au volant d'un emploi."},
+        think:"Le coach réfléchit…",saved:"Enregistré ✔",needCode:"Entrez votre code.",qzTitle:"Test écrit (Pèmi) — 20 questions, 15 pour réussir",qzRight:"✅ Correct ! ",qzWrong:"❌ Incorrect. ",qzScore:"Votre score : ",qzPass:"RÉUSSI 🎉 — vous êtes prêt pour le vrai test écrit.",qzFail:"Pas encore — révisez et recommencez demain.",qzFree:"Essai gratuit terminé (5 questions/jour). Le code Chofè360 débloque les 20 questions + le coach.",qzNext:"Suivant ⏭",bg1:"🗣 4 langues",bg2:"🎯 12 manœuvres du test",bg3:"📝 Test écrit inclus",bg4:"🕒 90 jours d'accès",f1t:"Mode Séance",f1d:"Les commandes réelles de l'examinateur, en anglais et dans votre langue. Votre accompagnateur note, le coach corrige à l'instant.",f2t:"Coach personnel",f2d:"Il se souvient de vos séances, cible vos points faibles et vous donne un exercice court chaque jour.",f3t:"Guide de l'accompagnateur",f3d:"Six séances structurées à imprimer : votre sponsor devient un vrai instructeur, sans rien connaître au départ.",fh:"Commencer",fs:"Entrez votre code d'accès, ou essayez d'abord 5 questions du test écrit — gratuitement.",code:"🔑 Votre code Chofè360",codeS:"Reçu à l'achat (WOUT-XXXX-XXXX). Pas encore de code ? <a href='mailto:sales@atmart.ltd?subject=Chofe360' style='color:#2ec4b6'>Écrivez-nous</a>",date:"📅 Date de votre test routier (si déjà fixée)",poolTxt:"Quand j'aurai réussi, je veux entrer dans le <strong>pool de chauffeurs Chofè360</strong> : des employeurs du Massachusetts pourront me contacter. (Optionnel — nom et téléphone partagés seulement si vous cochez.)",name:"Votre nom",phone:"Votre téléphone (WhatsApp)",city:"Votre ville / zone",cityS:"Ex. : Fitchburg, Worcester — aide les employeurs à cibler leur secteur.",langs:"Langues que vous parlez",langsS:"Ex. : kreyòl, anglais, español — un vrai atout pour l'embauche.",nat:"Nationalité (optionnel)",natS:"Visible seulement par un employeur qui vous sélectionne.",go:"Ouvrir mon coach",tryb:"📝 Essayer 5 questions gratuites",quizBtn:"📝 Test écrit (Pèmi)",privacy:"🔒 Dossier anonyme lié à votre code.",erase:"Effacer mon dossier",send:"Envoyer",inputP:"Écrivez à votre coach…",outTitle:"🏁 Vos résultats officiels RMV",outSub:"Enregistrez vos résultats — ils nourrissent votre dossier et, si vous l'avez accepté, le pool d'embauche.",outW:"Test écrit :",outR:"Test routier :",bpass:"✅ Réussi",bfail:"❌ Échoué",guideT:"🖨 Guide de l'accompagnateur (sponsor)",guideP:"Imprimer",b2bT:"🚌 Vous êtes une compagnie de transport ?",b2bD:"Recrutez dans le pool Chofè360 : des candidats préparés, avec résultats vérifiables — et équipez vos recrues dans leur langue.",b2bC:"Ouvrir le portail employeurs",b2bLic:"Déjà licencié (Class D, 7D, CDL) ? <a href='rejistre.html' style='color:#2ec4b6'>Inscrivez-vous gratuitement au pool →</a>",bridge:"Félicitations ! Prochaine étape : vos 90 premiers jours au volant d'un emploi.",aka:"Road Test MA",akaS:"le nom que tout le monde utilise"},
     ht:{kicker:"Lekòl la montre w kondwi. Nou menm, nou fè w PASE tès la — nan lang ou.",
         lead:"Coach preparasyon pou tès kondwi Class D Massachusetts la : vrè kòmand egzaminatè a an angle, pèlen yo anvan w demare, sou wout la ak sou chemen retou a — epi moun k ap akonpaye w la gide etap pa etap.",
         note:"Dosye anonim ak kòd. Nou pa afilye ak RMV — preparasyon endepandan, okenn garanti. Telefòn nan rete nan men akonpayatè a, machin nan kanpe.",
@@ -390,7 +408,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         fin:"Seyans fini — n ap voye bay coach la…",invalid:"Kòd la pa bon. Verifye l, oswa ekri nou.",
         expired:"Aksè a fini. Renouvle pou kontinye — sales@atmart.ltd.",limit:"Limit jou a rive — coach la ap tounen demen.",
         err:"Yon ti pwoblèm teknik. Eseye ankò.",hello:"Bonjou ! 👋 Mwen se coach Wout ou. Di m kote ou ye, oswa kòmanse yon seyans ak akonpayatè ou.",
-        think:"Coach la ap reflechi…",saved:"Anrejistre ✔",needCode:"Mete kòd ou.",qzTitle:"Tès ekri (Pèmi) — 20 kesyon, 15 pou pase",qzRight:"✅ Kòrèk ! ",qzWrong:"❌ Pa sa. ",qzScore:"Nòt ou : ",qzPass:"OU PASE 🎉 — ou pare pou vrè tès ekri a.",qzFail:"Poko — revize epi rekòmanse demen.",qzFree:"Esè gratis la fini (5 kesyon pa jou). Kòd Chofè360 a debloke tout 20 kesyon yo + coach la.",qzNext:"Pwochen ⏭",bg1:"🗣 4 lang",bg2:"🎯 12 manèv tès la",bg3:"📝 Tès ekri enkli",bg4:"🕒 90 jou aksè",f1t:"Mòd Seyans",f1d:"Vrè kòmand egzaminatè a, an angle ak nan lang ou. Akonpayatè ou note, coach la korije menm kote a.",f2t:"Coach pèsonèl",f2d:"Li sonje seyans ou yo, vize pwen fèb ou yo epi ba ou yon ti egzèsis chak jou.",f3t:"Gid akonpayatè a",f3d:"Sis seyans byen ranje pou enprime : sponsò w vin yon vrè enstriktè, san li pa t bezwen konnen anyen davans.",fh:"Kòmanse",fs:"Mete kòd aksè ou, oswa eseye 5 kesyon tès ekri a anvan — gratis.",code:"🔑 Kòd Chofè360 ou",codeS:"Ou resevwa l lè w achte (WOUT-XXXX-XXXX). Ou poko gen kòd ? <a href='mailto:sales@atmart.ltd?subject=Chofe360' style='color:#2ec4b6'>Ekri nou</a>",date:"📅 Dat tès wout ou (si li fikse deja)",poolTxt:"Lè m pase tès la, mwen vle antre nan <strong>pool chofè Chofè360 la</strong> : anplwayè nan Massachusetts ap ka kontakte m. (Opsyonèl — non ak telefòn pataje sèlman si w tcheke.)",name:"Non ou",phone:"Telefòn ou (WhatsApp)",city:"Vil / zòn ou",cityS:"Egz. : Fitchburg, Worcester — sa ede anplwayè yo vize sektè yo.",langs:"Lang ou pale",langsS:"Egz. : kreyòl, angle, panyòl — se yon gwo atou pou jwenn travay.",nat:"Nasyonalite (opsyonèl)",natS:"Sèlman yon anplwayè ki chwazi w ki wè l.",go:"Ouvri coach mwen",tryb:"📝 Eseye 5 kesyon gratis",quizBtn:"📝 Tès ekri (Pèmi)",privacy:"🔒 Dosye anonim ki mare ak kòd ou.",erase:"Efase dosye m",send:"Voye",inputP:"Ekri coach ou a…",outTitle:"🏁 Rezilta ofisyèl RMV ou yo",outSub:"Anrejistre rezilta ou yo — yo nouri dosye w, epi si w te dakò, pool anbochaj la.",outW:"Tès ekri :",outR:"Tès wout :",bpass:"✅ Pase",bfail:"❌ Echwe",guideT:"🖨 Gid akonpayatè a (sponsor)",guideP:"Enprime",b2bT:"🚌 Ou se yon konpayi transpò ?",b2bD:"Rekrite nan pool Chofè360 la : kandida ki prepare, ak rezilta ou ka verifye — epi ekipe nouvo anplwaye w yo nan lang yo.",b2bC:"Ouvri pòtay anplwayè a",b2bLic:"Ou gen lisans deja (Class D, 7D, CDL) ? <a href='rejistre.html' style='color:#2ec4b6'>Enskri gratis nan pool la →</a>",bridge:"Felisitasyon ! Pwochen etap : 90 premye jou ou nan yon nouvo travay."},
+        think:"Coach la ap reflechi…",saved:"Anrejistre ✔",needCode:"Mete kòd ou.",qzTitle:"Tès ekri (Pèmi) — 20 kesyon, 15 pou pase",qzRight:"✅ Kòrèk ! ",qzWrong:"❌ Pa sa. ",qzScore:"Nòt ou : ",qzPass:"OU PASE 🎉 — ou pare pou vrè tès ekri a.",qzFail:"Poko — revize epi rekòmanse demen.",qzFree:"Esè gratis la fini (5 kesyon pa jou). Kòd Chofè360 a debloke tout 20 kesyon yo + coach la.",qzNext:"Pwochen ⏭",bg1:"🗣 4 lang",bg2:"🎯 12 manèv tès la",bg3:"📝 Tès ekri enkli",bg4:"🕒 90 jou aksè",f1t:"Mòd Seyans",f1d:"Vrè kòmand egzaminatè a, an angle ak nan lang ou. Akonpayatè ou note, coach la korije menm kote a.",f2t:"Coach pèsonèl",f2d:"Li sonje seyans ou yo, vize pwen fèb ou yo epi ba ou yon ti egzèsis chak jou.",f3t:"Gid akonpayatè a",f3d:"Sis seyans byen ranje pou enprime : sponsò w vin yon vrè enstriktè, san li pa t bezwen konnen anyen davans.",fh:"Kòmanse",fs:"Mete kòd aksè ou, oswa eseye 5 kesyon tès ekri a anvan — gratis.",code:"🔑 Kòd Chofè360 ou",codeS:"Ou resevwa l lè w achte (WOUT-XXXX-XXXX). Ou poko gen kòd ? <a href='mailto:sales@atmart.ltd?subject=Chofe360' style='color:#2ec4b6'>Ekri nou</a>",date:"📅 Dat tès wout ou (si li fikse deja)",poolTxt:"Lè m pase tès la, mwen vle antre nan <strong>pool chofè Chofè360 la</strong> : anplwayè nan Massachusetts ap ka kontakte m. (Opsyonèl — non ak telefòn pataje sèlman si w tcheke.)",name:"Non ou",phone:"Telefòn ou (WhatsApp)",city:"Vil / zòn ou",cityS:"Egz. : Fitchburg, Worcester — sa ede anplwayè yo vize sektè yo.",langs:"Lang ou pale",langsS:"Egz. : kreyòl, angle, panyòl — se yon gwo atou pou jwenn travay.",nat:"Nasyonalite (opsyonèl)",natS:"Sèlman yon anplwayè ki chwazi w ki wè l.",go:"Ouvri coach mwen",tryb:"📝 Eseye 5 kesyon gratis",quizBtn:"📝 Tès ekri (Pèmi)",privacy:"🔒 Dosye anonim ki mare ak kòd ou.",erase:"Efase dosye m",send:"Voye",inputP:"Ekri coach ou a…",outTitle:"🏁 Rezilta ofisyèl RMV ou yo",outSub:"Anrejistre rezilta ou yo — yo nouri dosye w, epi si w te dakò, pool anbochaj la.",outW:"Tès ekri :",outR:"Tès wout :",bpass:"✅ Pase",bfail:"❌ Echwe",guideT:"🖨 Gid akonpayatè a (sponsor)",guideP:"Enprime",b2bT:"🚌 Ou se yon konpayi transpò ?",b2bD:"Rekrite nan pool Chofè360 la : kandida ki prepare, ak rezilta ou ka verifye — epi ekipe nouvo anplwaye w yo nan lang yo.",b2bC:"Ouvri pòtay anplwayè a",b2bLic:"Ou gen lisans deja (Class D, 7D, CDL) ? <a href='rejistre.html' style='color:#2ec4b6'>Enskri gratis nan pool la →</a>",bridge:"Felisitasyon ! Pwochen etap : 90 premye jou ou nan yon nouvo travay.",aka:"Road Test MA",akaS:"non tout moun itilize a"},
     en:{kicker:"Driving school teaches you to drive. We get you to PASS the test — in your language.",
         lead:"The Massachusetts Class D road-test prep coach: the examiner's real English commands, the traps before you drive, on the road and on the way back — with your sponsor guided step by step.",
         note:"Anonymous file by code. Not affiliated with the RMV — independent preparation, no guarantee. The phone stays in the sponsor's hands, vehicle stopped.",
@@ -404,7 +422,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         fin:"Session finished — sending to the coach…",invalid:"Invalid code. Check it, or write to us.",
         expired:"Access expired. Renew to continue — sales@atmart.ltd.",limit:"Daily limit reached — the coach returns tomorrow.",
         err:"Small technical issue. Try again.",hello:"Hello! 👋 I'm your Wout coach. Tell me where you are, or start a session with your sponsor.",
-        think:"The coach is thinking…",saved:"Saved ✔",needCode:"Enter your code.",qzTitle:"Written test (Pèmi) — 20 questions, 15 to pass",qzRight:"✅ Correct! ",qzWrong:"❌ Not quite. ",qzScore:"Your score: ",qzPass:"PASSED 🎉 — you are ready for the real written test.",qzFail:"Not yet — review and try again tomorrow.",qzFree:"Free trial done (5 questions/day). The Chofè360 code unlocks all 20 + the coach.",qzNext:"Next ⏭",bg1:"🗣 4 languages",bg2:"🎯 12 test maneuvers",bg3:"📝 Written test included",bg4:"🕒 90 days of access",f1t:"Session Mode",f1d:"The examiner's real commands, in English and in your language. Your sponsor scores, the coach corrects instantly.",f2t:"Personal coach",f2d:"It remembers your sessions, targets your weak points and gives you one short drill every day.",f3t:"Sponsor's guide",f3d:"Six structured sessions to print: your sponsor becomes a real instructor, with no prior knowledge.",fh:"Get started",fs:"Enter your access code, or try 5 written-test questions first — free.",code:"🔑 Your Chofè360 code",codeS:"Received at purchase (WOUT-XXXX-XXXX). No code yet? <a href='mailto:sales@atmart.ltd?subject=Chofe360' style='color:#2ec4b6'>Write to us</a>",date:"📅 Your road test date (if already booked)",poolTxt:"Once I pass, I want to join the <strong>Chofè360 driver pool</strong>: Massachusetts employers may contact me. (Optional — name and phone shared only if you check this.)",name:"Your name",phone:"Your phone (WhatsApp)",city:"Your city / area",cityS:"E.g.: Fitchburg, Worcester — helps employers target their area.",langs:"Languages you speak",langsS:"E.g.: Kreyòl, English, Spanish — a real hiring advantage.",nat:"Nationality (optional)",natS:"Visible only to an employer who selects you.",go:"Open my coach",tryb:"📝 Try 5 free questions",quizBtn:"📝 Written test (Pèmi)",privacy:"🔒 Anonymous file tied to your code.",erase:"Erase my file",send:"Send",inputP:"Write to your coach…",outTitle:"🏁 Your official RMV results",outSub:"Record your results — they feed your file and, if you agreed, the hiring pool.",outW:"Written test:",outR:"Road test:",bpass:"✅ Passed",bfail:"❌ Failed",guideT:"🖨 Sponsor's guide",guideP:"Print",b2bT:"🚌 Are you a transport company?",b2bD:"Recruit from the Chofè360 pool: prepared candidates with verifiable results — and equip your new hires in their language.",b2bC:"Open the employer portal",b2bLic:"Already licensed (Class D, 7D, CDL)? <a href='rejistre.html' style='color:#2ec4b6'>Join the pool for free →</a>",bridge:"Congratulations! Next step: your first 90 days on the job."},
+        think:"The coach is thinking…",saved:"Saved ✔",needCode:"Enter your code.",qzTitle:"Written test (Pèmi) — 20 questions, 15 to pass",qzRight:"✅ Correct! ",qzWrong:"❌ Not quite. ",qzScore:"Your score: ",qzPass:"PASSED 🎉 — you are ready for the real written test.",qzFail:"Not yet — review and try again tomorrow.",qzFree:"Free trial done (5 questions/day). The Chofè360 code unlocks all 20 + the coach.",qzNext:"Next ⏭",bg1:"🗣 4 languages",bg2:"🎯 12 test maneuvers",bg3:"📝 Written test included",bg4:"🕒 90 days of access",f1t:"Session Mode",f1d:"The examiner's real commands, in English and in your language. Your sponsor scores, the coach corrects instantly.",f2t:"Personal coach",f2d:"It remembers your sessions, targets your weak points and gives you one short drill every day.",f3t:"Sponsor's guide",f3d:"Six structured sessions to print: your sponsor becomes a real instructor, with no prior knowledge.",fh:"Get started",fs:"Enter your access code, or try 5 written-test questions first — free.",code:"🔑 Your Chofè360 code",codeS:"Received at purchase (WOUT-XXXX-XXXX). No code yet? <a href='mailto:sales@atmart.ltd?subject=Chofe360' style='color:#2ec4b6'>Write to us</a>",date:"📅 Your road test date (if already booked)",poolTxt:"Once I pass, I want to join the <strong>Chofè360 driver pool</strong>: Massachusetts employers may contact me. (Optional — name and phone shared only if you check this.)",name:"Your name",phone:"Your phone (WhatsApp)",city:"Your city / area",cityS:"E.g.: Fitchburg, Worcester — helps employers target their area.",langs:"Languages you speak",langsS:"E.g.: Kreyòl, English, Spanish — a real hiring advantage.",nat:"Nationality (optional)",natS:"Visible only to an employer who selects you.",go:"Open my coach",tryb:"📝 Try 5 free questions",quizBtn:"📝 Written test (Pèmi)",privacy:"🔒 Anonymous file tied to your code.",erase:"Erase my file",send:"Send",inputP:"Write to your coach…",outTitle:"🏁 Your official RMV results",outSub:"Record your results — they feed your file and, if you agreed, the hiring pool.",outW:"Written test:",outR:"Road test:",bpass:"✅ Passed",bfail:"❌ Failed",guideT:"🖨 Sponsor's guide",guideP:"Print",b2bT:"🚌 Are you a transport company?",b2bD:"Recruit from the Chofè360 pool: prepared candidates with verifiable results — and equip your new hires in their language.",b2bC:"Open the employer portal",b2bLic:"Already licensed (Class D, 7D, CDL)? <a href='rejistre.html' style='color:#2ec4b6'>Join the pool for free →</a>",bridge:"Congratulations! Next step: your first 90 days on the job.",aka:"Road Test MA",akaS:"the name everyone uses"},
     es:{kicker:"La escuela te enseña a conducir. Nosotros te hacemos PASAR el examen — en tu idioma.",
         lead:"El coach de preparación para el examen de manejo Class D de Massachusetts: las órdenes reales del examinador en inglés, las trampas antes de arrancar, en la ruta y al regreso — con tu acompañante guiado paso a paso.",
         note:"Expediente anónimo por código. No afiliado al RMV — preparación independiente, sin garantía. El teléfono queda en manos del acompañante, vehículo detenido.",
@@ -418,7 +436,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         fin:"Sesión terminada — enviando al coach…",invalid:"Código inválido. Verifícalo o escríbenos.",
         expired:"Acceso vencido. Renueva para continuar — sales@atmart.ltd.",limit:"Límite diario alcanzado — el coach vuelve mañana.",
         err:"Pequeño problema técnico. Inténtalo de nuevo.",hello:"¡Hola! 👋 Soy tu coach Wout. Dime dónde estás, o inicia una sesión con tu acompañante.",
-        think:"El coach está pensando…",saved:"Guardado ✔",needCode:"Escribe tu código.",qzTitle:"Examen escrito (Pèmi) — 20 preguntas, 15 para aprobar",qzRight:"✅ ¡Correcto! ",qzWrong:"❌ No es así. ",qzScore:"Tu puntaje: ",qzPass:"APROBADO 🎉 — listo para el examen escrito real.",qzFail:"Aún no — repasa e inténtalo mañana.",qzFree:"Prueba gratis terminada (5 preguntas/día). El código Chofè360 desbloquea las 20 + el coach.",qzNext:"Siguiente ⏭",bg1:"🗣 4 idiomas",bg2:"🎯 12 maniobras del examen",bg3:"📝 Examen escrito incluido",bg4:"🕒 90 días de acceso",f1t:"Modo Sesión",f1d:"Las órdenes reales del examinador, en inglés y en tu idioma. Tu acompañante califica, el coach corrige al instante.",f2t:"Coach personal",f2d:"Recuerda tus sesiones, apunta a tus puntos débiles y te da un ejercicio corto cada día.",f3t:"Guía del acompañante",f3d:"Seis sesiones estructuradas para imprimir: tu acompañante se vuelve un verdadero instructor, sin saber nada antes.",fh:"Empezar",fs:"Escribe tu código de acceso, o prueba primero 5 preguntas del examen escrito — gratis.",code:"🔑 Tu código Chofè360",codeS:"Recibido al comprar (WOUT-XXXX-XXXX). ¿Sin código? <a href='mailto:sales@atmart.ltd?subject=Chofe360' style='color:#2ec4b6'>Escríbenos</a>",date:"📅 Fecha de tu examen de manejo (si ya la tienes)",poolTxt:"Cuando apruebe, quiero entrar al <strong>pool de choferes Chofè360</strong>: empleadores de Massachusetts podrán contactarme. (Opcional — nombre y teléfono se comparten solo si marcas.)",name:"Tu nombre",phone:"Tu teléfono (WhatsApp)",city:"Tu ciudad / zona",cityS:"Ej.: Fitchburg, Worcester — ayuda a los empleadores a enfocar su zona.",langs:"Idiomas que hablas",langsS:"Ej.: kreyòl, inglés, español — una ventaja real para el empleo.",nat:"Nacionalidad (opcional)",natS:"Visible solo para un empleador que te selecciona.",go:"Abrir mi coach",tryb:"📝 Probar 5 preguntas gratis",quizBtn:"📝 Examen escrito (Pèmi)",privacy:"🔒 Expediente anónimo ligado a tu código.",erase:"Borrar mi expediente",send:"Enviar",inputP:"Escríbele a tu coach…",outTitle:"🏁 Tus resultados oficiales del RMV",outSub:"Registra tus resultados — alimentan tu expediente y, si lo aceptaste, el pool de empleo.",outW:"Examen escrito:",outR:"Examen de manejo:",bpass:"✅ Aprobado",bfail:"❌ Reprobado",guideT:"🖨 Guía del acompañante",guideP:"Imprimir",b2bT:"🚌 ¿Eres una compañía de transporte?",b2bD:"Recluta del pool Chofè360: candidatos preparados con resultados verificables — y equipa a tus nuevos choferes en su idioma.",b2bC:"Abrir el portal de empleadores",b2bLic:"¿Ya tienes licencia (Class D, 7D, CDL)? <a href='rejistre.html' style='color:#2ec4b6'>Únete al pool gratis →</a>",bridge:"¡Felicidades! Siguiente paso: tus primeros 90 días en el nuevo empleo."}
+        think:"El coach está pensando…",saved:"Guardado ✔",needCode:"Escribe tu código.",qzTitle:"Examen escrito (Pèmi) — 20 preguntas, 15 para aprobar",qzRight:"✅ ¡Correcto! ",qzWrong:"❌ No es así. ",qzScore:"Tu puntaje: ",qzPass:"APROBADO 🎉 — listo para el examen escrito real.",qzFail:"Aún no — repasa e inténtalo mañana.",qzFree:"Prueba gratis terminada (5 preguntas/día). El código Chofè360 desbloquea las 20 + el coach.",qzNext:"Siguiente ⏭",bg1:"🗣 4 idiomas",bg2:"🎯 12 maniobras del examen",bg3:"📝 Examen escrito incluido",bg4:"🕒 90 días de acceso",f1t:"Modo Sesión",f1d:"Las órdenes reales del examinador, en inglés y en tu idioma. Tu acompañante califica, el coach corrige al instante.",f2t:"Coach personal",f2d:"Recuerda tus sesiones, apunta a tus puntos débiles y te da un ejercicio corto cada día.",f3t:"Guía del acompañante",f3d:"Seis sesiones estructuradas para imprimir: tu acompañante se vuelve un verdadero instructor, sin saber nada antes.",fh:"Empezar",fs:"Escribe tu código de acceso, o prueba primero 5 preguntas del examen escrito — gratis.",code:"🔑 Tu código Chofè360",codeS:"Recibido al comprar (WOUT-XXXX-XXXX). ¿Sin código? <a href='mailto:sales@atmart.ltd?subject=Chofe360' style='color:#2ec4b6'>Escríbenos</a>",date:"📅 Fecha de tu examen de manejo (si ya la tienes)",poolTxt:"Cuando apruebe, quiero entrar al <strong>pool de choferes Chofè360</strong>: empleadores de Massachusetts podrán contactarme. (Opcional — nombre y teléfono se comparten solo si marcas.)",name:"Tu nombre",phone:"Tu teléfono (WhatsApp)",city:"Tu ciudad / zona",cityS:"Ej.: Fitchburg, Worcester — ayuda a los empleadores a enfocar su zona.",langs:"Idiomas que hablas",langsS:"Ej.: kreyòl, inglés, español — una ventaja real para el empleo.",nat:"Nacionalidad (opcional)",natS:"Visible solo para un empleador que te selecciona.",go:"Abrir mi coach",tryb:"📝 Probar 5 preguntas gratis",quizBtn:"📝 Examen escrito (Pèmi)",privacy:"🔒 Expediente anónimo ligado a tu código.",erase:"Borrar mi expediente",send:"Enviar",inputP:"Escríbele a tu coach…",outTitle:"🏁 Tus resultados oficiales del RMV",outSub:"Registra tus resultados — alimentan tu expediente y, si lo aceptaste, el pool de empleo.",outW:"Examen escrito:",outR:"Examen de manejo:",bpass:"✅ Aprobado",bfail:"❌ Reprobado",guideT:"🖨 Guía del acompañante",guideP:"Imprimir",b2bT:"🚌 ¿Eres una compañía de transporte?",b2bD:"Recluta del pool Chofè360: candidatos preparados con resultados verificables — y equipa a tus nuevos choferes en su idioma.",b2bC:"Abrir el portal de empleadores",b2bLic:"¿Ya tienes licencia (Class D, 7D, CDL)? <a href='rejistre.html' style='color:#2ec4b6'>Únete al pool gratis →</a>",bridge:"¡Felicidades! Siguiente paso: tus primeros 90 días en el nuevo empleo.",aka:"Road Test MA",akaS:"el nombre que todos usan"}
   };
 
   function lang(){var l=document.documentElement.lang||localStorage.getItem("atmart_lang")||"fr";return L[l]?l:"fr";}
@@ -457,6 +475,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     document.querySelectorAll("#cf-outcome button[data-r=pass]").forEach(function(b){b.textContent=t.bpass;});
     document.querySelectorAll("#cf-outcome button[data-r=fail]").forEach(function(b){b.textContent=t.bfail;});
     setTxt("g-title",t.guideT); setTxt("g-print",t.guideP);
+    setTxt("cf-aka",t.aka); setTxt("cf-aka-s",t.akaS);
     setTxt("cf-b2b-t",t.b2bT); setTxt("cf-b2b-d",t.b2bD); setTxt("cf-b2b-c",t.b2bC);
     setH("cf-b2b-lic",t.b2bLic); setTxt("cf-bridge-txt",t.bridge);
   }
@@ -681,7 +700,107 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   });
 })();
 </script>
+<script>
+/* ---- Chofè360 Wout : commandes de l'examinateur en anglais ---- */
+(function(){
+  "use strict";
+  var T={
+    fr:{title:"🗣 Les commandes de l'examinateur — en anglais",
+      sub:"L'examinateur parle anglais. Même avec un interprète, c'est vous qui conduisez : entendez la phrase, comprenez-la dans votre langue, sachez quoi faire. Gratuit, sans code.",
+      hide:"Masquer les traductions",show:"Afficher les traductions",
+      count:function(n){return n+" commandes";},todo:"À faire :",
+      say:"Écouter en anglais",noVoice:"Voix anglaise indisponible sur cet appareil",
+      foot:"Formulations courantes, reformulées par Atmart — ce n'est pas la reproduction d'un test officiel. Non affilié à la RMV du Massachusetts."},
+    ht:{title:"🗣 Kòmandman egzaminatè a — an angle",
+      sub:"Egzaminatè a pale angle. Menm ak yon entèprèt, se ou menm k ap kondwi : tande fraz la, konprann li nan lang ou, konnen sa pou w fè. Gratis, san kòd.",
+      hide:"Kache tradiksyon yo",show:"Montre tradiksyon yo",
+      count:function(n){return n+" kòmandman";},todo:"Sa pou w fè :",
+      say:"Koute an angle",noVoice:"Vwa angle a pa disponib sou aparèy sa a",
+      foot:"Se fason yo konn pale, Atmart rekri yo — se pa kopi yon tès ofisyèl. Nou pa afilye ak RMV Massachusetts la."},
+    en:{title:"🗣 The examiner's commands — in English",
+      sub:"The examiner speaks English. Even with an interpreter, you are the one driving: hear the sentence, understand it in your language, know what to do. Free, no code needed.",
+      hide:"Hide translations",show:"Show translations",
+      count:function(n){return n+" commands";},todo:"What to do:",
+      say:"Listen in English",noVoice:"English voice not available on this device",
+      foot:"Common phrasings, rewritten by Atmart — not a reproduction of an official test. Not affiliated with the Massachusetts RMV."},
+    es:{title:"🗣 Las órdenes del examinador — en inglés",
+      sub:"El examinador habla inglés. Incluso con intérprete, usted es quien conduce: escuche la frase, entiéndala en su idioma, sepa qué hacer. Gratis, sin código.",
+      hide:"Ocultar las traducciones",show:"Mostrar las traducciones",
+      count:function(n){return n+" órdenes";},todo:"Qué hacer:",
+      say:"Escuchar en inglés",noVoice:"Voz en inglés no disponible en este dispositivo",
+      foot:"Formulaciones habituales, reescritas por Atmart — no es la reproducción de un examen oficial. No afiliado al RMV de Massachusetts."}
+  };
+  function lg(){var l=document.documentElement.lang||localStorage.getItem("atmart_lang")||"fr";return T[l]?l:"fr";}
+  var DATA=null, phase=null, hidden=false;
+  var elList=document.getElementById("km-list"), elTabs=document.getElementById("km-tabs");
+  if(!elList) return;
+
+  var canSpeak = "speechSynthesis" in window;
+  function say(txt,btn){
+    if(!canSpeak) return;
+    try{
+      window.speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance(txt);
+      u.lang="en-US"; u.rate=0.85;
+      var vs=window.speechSynthesis.getVoices()||[];
+      for(var i=0;i<vs.length;i++){ if(/^en[-_]US/i.test(vs[i].lang)){u.voice=vs[i];break;} }
+      if(!u.voice){ for(var j=0;j<vs.length;j++){ if(/^en/i.test(vs[j].lang)){u.voice=vs[j];break;} } }
+      if(btn){ btn.textContent="🔊"; u.onend=u.onerror=function(){btn.textContent="🔈";}; }
+      window.speechSynthesis.speak(u);
+    }catch(e){}
+  }
+
+  function paint(){
+    if(!DATA) return;
+    var l=lg(), t=T[l];
+    document.getElementById("km-title").textContent=t.title;
+    document.getElementById("km-sub").textContent=t.sub;
+    document.getElementById("km-foot").textContent=t.foot;
+    document.getElementById("km-hide-t").textContent=hidden?t.show:t.hide;
+    elTabs.innerHTML="";
+    DATA.phases.forEach(function(p){
+      var b=document.createElement("button");
+      b.type="button"; b.className="km-tab"+(p.id===phase?" on":"");
+      b.textContent=p[l]||p.fr;
+      b.addEventListener("click",function(){phase=p.id;paint();});
+      elTabs.appendChild(b);
+    });
+    var list=DATA.commands.filter(function(c){return c.p===phase;});
+    document.getElementById("km-count").textContent=t.count(list.length);
+    elList.innerHTML="";
+    elList.className="km-list"+(hidden?" km-hidden":"");
+    list.forEach(function(c){
+      var d=document.createElement("div"); d.className="km-item";
+      var row=document.createElement("div"); row.className="km-en";
+      var btn=document.createElement("button");
+      btn.type="button"; btn.className="km-say"; btn.textContent="🔈";
+      btn.setAttribute("aria-label",t.say); btn.title=canSpeak?t.say:t.noVoice;
+      if(!canSpeak) btn.disabled=true;
+      btn.addEventListener("click",function(){say(c.en,btn);});
+      var b=document.createElement("b"); b.textContent=c.en;
+      row.appendChild(btn); row.appendChild(b); d.appendChild(row);
+      var tr=document.createElement("p"); tr.className="km-tr"; tr.textContent=c[l]||c.fr; d.appendChild(tr);
+      var doo=document.createElement("p"); doo.className="km-do";
+      doo.innerHTML="<b>"+t.todo+"</b> "+String(c["do_"+l]||c.do_fr).replace(/[<>]/g,"");
+      d.appendChild(doo);
+      elList.appendChild(d);
+    });
+  }
+
+  document.getElementById("km-hide").addEventListener("click",function(){hidden=!hidden;paint();});
+  if(canSpeak && window.speechSynthesis.onvoiceschanged!==undefined)
+    window.speechSynthesis.onvoiceschanged=function(){};
+
+  fetch("assets/komand.json",{cache:"no-cache"}).then(function(r){return r.json();}).then(function(j){
+    DATA=j; phase=j.phases[0].id; paint();
+    new MutationObserver(paint).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+  }).catch(function(){
+    elList.innerHTML='<p style="color:#9db2c7">—</p>';
+  });
+})();
+</script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 <script src="assets/launcher.js"></script>
+<script src="assets/share.js"></script>
 </body>
 </html>
