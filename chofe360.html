@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0e2240" />
-  <link rel="stylesheet" href="assets/style.css?v=22" />
+  <link rel="stylesheet" href="assets/style.css?v=23" />
 <script>/* langue auto : avant le 1er affichage, evite le clignotement */
 (function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
 s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
@@ -260,9 +260,26 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     <div class="km-tabs" id="km-tabs"></div>
     <div class="km-bar">
       <button type="button" class="km-toggle" id="km-hide">👁 <span id="km-hide-t">Masquer les traductions</span></button>
+      <button type="button" class="km-toggle km-drillbtn" id="km-drill">🎯 <span id="km-drill-t">M'interroger</span></button>
       <span class="km-count" id="km-count"></span>
     </div>
     <div class="km-list" id="km-list"></div>
+    <div class="km-drill" id="km-drillbox" hidden>
+      <p class="km-dprog" id="km-dprog"></p>
+      <p class="km-dcmd" id="km-dcmd"></p>
+      <button type="button" class="km-say km-dsay" id="km-dsay">🔈</button>
+      <p class="km-dask" id="km-dask"></p>
+      <div class="km-dreveal" id="km-dreveal" hidden>
+        <p class="km-tr" id="km-dtr"></p>
+        <p class="km-do" id="km-ddo"></p>
+      </div>
+      <div class="km-dacts">
+        <button type="button" class="btn btn-outline" id="km-dshow">Voir la réponse</button>
+        <button type="button" class="btn btn-primary km-hide2" id="km-dok">✅ Je savais</button>
+        <button type="button" class="btn btn-outline km-hide2" id="km-dko">❌ Je ne savais pas</button>
+      </div>
+      <p class="km-dend" id="km-dend" hidden></p>
+    </div>
     <p class="km-foot" id="km-foot">Formulations courantes, reformulées par Atmart — ce n'est pas la reproduction d'un test officiel. Non affilié à la RMV du Massachusetts.</p>
   </div>
 </section>
@@ -757,6 +774,8 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     document.getElementById("km-sub").textContent=t.sub;
     document.getElementById("km-foot").textContent=t.foot;
     document.getElementById("km-hide-t").textContent=hidden?t.show:t.hide;
+    if(typeof paintDrillChrome==="function") paintDrillChrome();
+    if(drilling && queue.length && qi<queue.length) showQ();
     elTabs.innerHTML="";
     DATA.phases.forEach(function(p){
       var b=document.createElement("button");
@@ -790,11 +809,113 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   }
 
   document.getElementById("km-hide").addEventListener("click",function(){hidden=!hidden;paint();});
+
+  // ---------- mode drill ----------
+  var D={fr:{btn:"M'interroger",stop:"Arrêter",ask:"Que faites-vous ? Répondez à voix haute, puis vérifiez.",
+      show:"Voir la réponse",ok:"✅ Je savais",ko:"❌ Je ne savais pas",prog:function(a,b){return "Commande "+a+" sur "+b;},
+      end:function(n,t){return "Terminé : "+n+" sur "+t+" maîtrisées. Votre coach reprendra celles que vous avez ratées.";},
+      endFree:function(n,t){return "Terminé : "+n+" sur "+t+" maîtrisées. Avec un code Chofè360, votre coach garde la liste et vous réinterroge.";}},
+    ht:{btn:"Poze m kesyon",stop:"Kanpe",ask:"Kisa w ap fè ? Reponn awotvwa, apre sa tcheke.",
+      show:"Wè repons lan",ok:"✅ Mwen te konnen",ko:"❌ Mwen pa t konnen",prog:function(a,b){return "Kòmandman "+a+" sou "+b;},
+      end:function(n,t){return "Fini : "+n+" sou "+t+" ou metrize. Coach ou a ap repran sa w rate yo.";},
+      endFree:function(n,t){return "Fini : "+n+" sou "+t+" ou metrize. Ak yon kòd Chofè360, coach ou a kenbe lis la epi li poze w kesyon ankò.";}},
+    en:{btn:"Quiz me",stop:"Stop",ask:"What do you do? Say it out loud, then check.",
+      show:"Show the answer",ok:"✅ I knew it",ko:"❌ I didn't know",prog:function(a,b){return "Command "+a+" of "+b;},
+      end:function(n,t){return "Done: "+n+" of "+t+" mastered. Your coach will drill the ones you missed.";},
+      endFree:function(n,t){return "Done: "+n+" of "+t+" mastered. With a Chofè360 code, your coach keeps the list and re-drills you.";}},
+    es:{btn:"Pregúntame",stop:"Parar",ask:"¿Qué hace usted? Dígalo en voz alta, luego verifique.",
+      show:"Ver la respuesta",ok:"✅ Lo sabía",ko:"❌ No lo sabía",prog:function(a,b){return "Orden "+a+" de "+b;},
+      end:function(n,t){return "Listo: "+n+" de "+t+" dominadas. Su coach repasará las que falló.";},
+      endFree:function(n,t){return "Listo: "+n+" de "+t+" dominadas. Con un código Chofè360, su coach guarda la lista y le vuelve a preguntar.";}}};
+  var drilling=false, queue=[], qi=0, answers=[], score=0;
+  var box=document.getElementById("km-drillbox");
+
+  function dT(){return D[lg()];}
+  function paintDrillChrome(){
+    var t=dT();
+    document.getElementById("km-drill-t").textContent=drilling?t.stop:t.btn;
+    document.getElementById("km-dshow").textContent=t.show;
+    document.getElementById("km-dok").textContent=t.ok;
+    document.getElementById("km-dko").textContent=t.ko;
+    document.getElementById("km-dask").textContent=t.ask;
+  }
+  function startDrill(){
+    if(!DATA) return;
+    queue=DATA.commands.slice();
+    // priorite aux commandes deja ratees (memorisees par le coach)
+    var weak=null;
+    try{ weak=JSON.parse(localStorage.getItem("chofe360_weakcmds")||"null"); }catch(e){}
+    if(weak && weak.length) queue.sort(function(a,b){return (weak.indexOf(b.id)>-1?1:0)-(weak.indexOf(a.id)>-1?1:0);});
+    qi=0; answers=[]; score=0; drilling=true;
+    document.getElementById("km-list").hidden=true;
+    document.getElementById("km-dend").hidden=true;
+    box.hidden=false; paintDrillChrome(); showQ();
+  }
+  function stopDrill(){
+    drilling=false; box.hidden=true;
+    document.getElementById("km-list").hidden=false;
+    paintDrillChrome();
+  }
+  function showQ(){
+    var t=dT(), c=queue[qi], l=lg();
+    document.getElementById("km-dprog").textContent=t.prog(qi+1,queue.length);
+    document.getElementById("km-dcmd").textContent=c.en;
+    document.getElementById("km-dtr").textContent=(l==="en"?"":(c[l]||c.fr));
+    document.getElementById("km-ddo").innerHTML="<b>"+T[l].todo+"</b> "+String(c["do_"+l]||c.do_fr).replace(/[<>]/g,"");
+    document.getElementById("km-dreveal").hidden=true;
+    document.getElementById("km-dshow").hidden=false;
+    document.querySelectorAll(".km-hide2").forEach(function(b){b.hidden=true;});
+  }
+  function reveal(){
+    document.getElementById("km-dreveal").hidden=false;
+    document.getElementById("km-dshow").hidden=true;
+    document.querySelectorAll(".km-hide2").forEach(function(b){b.hidden=false;});
+  }
+  function answer(good){
+    var c=queue[qi];
+    answers.push({k:c.id,m:c.m||"",ok:good});
+    if(good) score++;
+    qi++;
+    if(qi<queue.length){ showQ(); return; }
+    finish();
+  }
+  function finish(){
+    var t=dT(), total=queue.length;
+    document.getElementById("km-dcmd").textContent="";
+    document.getElementById("km-dask").textContent="";
+    document.getElementById("km-dsay").hidden=true;
+    document.getElementById("km-dprog").textContent="";
+    document.getElementById("km-dreveal").hidden=true;
+    document.querySelectorAll(".km-dacts button").forEach(function(b){b.hidden=true;});
+    var end=document.getElementById("km-dend");
+    end.hidden=false;
+    // memorise localement les ratees (sert a prioriser le prochain drill)
+    var weak=answers.filter(function(a){return !a.ok;}).map(function(a){return a.k;});
+    try{ localStorage.setItem("chofe360_weakcmds",JSON.stringify(weak)); }catch(e){}
+    var code=(localStorage.getItem("chofe360_code")||"").trim();
+    if(code){
+      end.textContent=t.end(score,total);
+      fetch("https://atmart-chat.atmartllc.workers.dev/wout",
+        {method:"POST",headers:{"Content-Type":"application/json"},
+         body:JSON.stringify({code:code,language:lg(),action:"komand",results:answers})}).catch(function(){});
+    } else {
+      end.textContent=t.endFree(score,total);
+    }
+  }
+  document.getElementById("km-drill").addEventListener("click",function(){drilling?stopDrill():startDrill();});
+  document.getElementById("km-dshow").addEventListener("click",reveal);
+  document.getElementById("km-dok").addEventListener("click",function(){answer(true);});
+  document.getElementById("km-dko").addEventListener("click",function(){answer(false);});
+  document.getElementById("km-dsay").addEventListener("click",function(){
+    if(queue[qi]) say(queue[qi].en,document.getElementById("km-dsay"));});
+
   if(canSpeak && window.speechSynthesis.onvoiceschanged!==undefined)
     window.speechSynthesis.onvoiceschanged=function(){};
 
+  document.getElementById("km-drill").disabled=true; // reactive une fois les donnees chargees
   fetch("assets/komand.json",{cache:"no-cache"}).then(function(r){return r.json();}).then(function(j){
     DATA=j; phase=j.phases[0].id; paint();
+    document.getElementById("km-drill").disabled=false;
     new MutationObserver(paint).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
   }).catch(function(){
     elList.innerHTML='<p style="color:#9db2c7">—</p>';

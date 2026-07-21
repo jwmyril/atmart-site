@@ -721,3 +721,17 @@ figure.tuto-fig figcaption { padding: 0.7rem 1rem; font-size: 0.85rem; color: va
 .atm-copy:hover{border-color:#2ec4b6;color:#fff}
 @media(max-width:520px){.atm-share{right:12px;bottom:12px;padding:0.58rem 0.9rem;font-size:0.84rem}}
 @media print{.atm-share,.atm-sheet,.atm-sov{display:none!important}}
+
+/* ---- drill des commandes ---- */
+.km-drillbtn{border-color:rgba(46,196,182,0.45);color:#2ec4b6}
+.km-drill{background:rgba(255,255,255,0.045);border:1px solid rgba(46,196,182,0.35);
+  border-radius:16px;padding:1.6rem 1.3rem;text-align:center}
+.km-dprog{color:#9db2c7;font-size:0.8rem;margin:0 0 0.7rem;letter-spacing:0.04em;text-transform:uppercase}
+.km-dcmd{font-family:"Space Grotesk",sans-serif;font-size:1.35rem;color:#fff;line-height:1.4;margin:0 0 0.7rem}
+.km-dsay{margin:0 auto 0.9rem;display:block}
+.km-dask{color:#9db2c7;font-size:0.9rem;margin:0 0 1.1rem}
+.km-dreveal{text-align:left;max-width:560px;margin:0 auto 1.1rem}
+.km-dacts{display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap}
+.km-dacts .btn{min-width:150px}
+.km-dend{color:#2ec4b6;font-size:1rem;font-weight:600;margin:0.5rem 0 0;line-height:1.6}
+@media(max-width:520px){.km-dcmd{font-size:1.12rem}.km-dacts .btn{min-width:0;flex:1}}
