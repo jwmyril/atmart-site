@@ -631,3 +631,17 @@ figure.tuto-fig figcaption { padding: 0.7rem 1rem; font-size: 0.85rem; color: va
 .prod-card b{display:block;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.05rem;margin-bottom:0.25rem}
 .prod-card span{display:block;color:#9db2c7;font-size:0.87rem;line-height:1.5}
 .prod-card em{display:inline-block;margin-top:0.55rem;color:#2ec4b6;font-style:normal;font-size:0.82rem;font-weight:600}
+
+/* ---- langue auto : masque le temps du rendu (filet de securite 1,5 s dans le <head>) ---- */
+.i18n-wait body { visibility: hidden; }
+/* ---- invitation Kreyol ---- */
+.atm-hint{display:flex;align-items:center;justify-content:center;gap:0.75rem;flex-wrap:wrap;
+  background:rgba(46,196,182,0.11);border-bottom:1px solid rgba(46,196,182,0.32);
+  padding:0.6rem 1rem;font-size:0.92rem;color:#dbe9f5}
+.atm-hint .go{background:var(--teal);color:#06251f;border:0;border-radius:8px;
+  padding:0.4rem 0.9rem;font-weight:700;font-size:0.88rem;cursor:pointer}
+.atm-hint .go:hover{filter:brightness(1.08)}
+.atm-hint .x{background:none;border:0;color:#8fa6bd;font-size:1.3rem;line-height:1;
+  cursor:pointer;padding:0 0.2rem}
+.atm-hint .x:hover{color:#fff}
+@media (max-width:520px){.atm-hint{font-size:0.86rem;gap:0.5rem}}

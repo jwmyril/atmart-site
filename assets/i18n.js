@@ -46,7 +46,13 @@
     Object.keys(LANGS).forEach((code) => {
       const o = document.createElement("button");
       o.type = "button"; o.className = "lang-opt"; o.dataset.lang = code; o.textContent = LANGS[code];
-      o.addEventListener("click", (e) => { e.stopPropagation(); apply(code); menu.classList.remove("open"); });
+      o.addEventListener("click", (e) => {
+        e.stopPropagation();
+        localStorage.setItem("atmart_lang_manual", "1"); // un choix manuel prime sur la detection
+        hideHint();
+        apply(code);
+        menu.classList.remove("open");
+      });
       menu.appendChild(o);
     });
     btn.addEventListener("click", (e) => { e.stopPropagation(); menu.classList.toggle("open"); });
@@ -54,7 +60,57 @@
     li.appendChild(btn); li.appendChild(menu); nav.appendChild(li);
   }
 
+  // ===== Invitation Kreyol =====
+  // La detection du navigateur ne trouve pratiquement jamais les creolophones :
+  // le code "ht" est a peine propose comme langue d'interface par Android/iOS,
+  // et un Haitien du Massachusetts a le plus souvent un telephone en anglais.
+  // On ne montre donc l'invitation que dans ce cas precis (langue detectee = EN,
+  // aucun choix manuel), au maximum 3 fois, et jamais apres un clic.
+  const HINT_MAX = 3;
+
+  function hideHint() {
+    localStorage.setItem("atmart_ht_hint", "done");
+    const b = document.querySelector(".atm-hint");
+    if (b) b.remove();
+  }
+
+  function maybeHint(lang) {
+    if (lang !== "en") return;
+    if (!window.__atmAuto) return;                          // langue deja choisie a la main
+    if (localStorage.getItem("atmart_lang_manual")) return;
+    const seen = localStorage.getItem("atmart_ht_hint");
+    if (seen === "done") return;
+    const n = parseInt(seen || "0", 10);
+    if (n >= HINT_MAX) return;
+    localStorage.setItem("atmart_ht_hint", String(n + 1));
+
+    const bar = document.createElement("div");
+    bar.className = "atm-hint";
+    bar.innerHTML =
+      '<span>Sit sa a disponib an Kreyòl ayisyen.</span>' +
+      '<button type="button" class="go">Ale an Kreyòl</button>' +
+      '<button type="button" class="x" aria-label="Fèmen">×</button>';
+    bar.querySelector(".go").addEventListener("click", () => {
+      localStorage.setItem("atmart_lang_manual", "1");
+      hideHint();
+      apply("ht");
+    });
+    bar.querySelector(".x").addEventListener("click", hideHint);
+    const nav = document.querySelector("nav, header");
+    if (nav && nav.parentNode) nav.parentNode.insertBefore(bar, nav.nextSibling);
+    else document.body.insertBefore(bar, document.body.firstChild);
+  }
+
+  // __atmLang vient du petit script place dans le <head> : il a deja lu le choix
+  // memorise, sinon la langue du navigateur, et masque la page le temps du rendu.
+  const start = window.__atmLang && LANGS[window.__atmLang]
+    ? window.__atmLang
+    : (localStorage.getItem("atmart_lang") || DEFAULT);
+
   capture();
   buildSelector();
-  apply(localStorage.getItem("atmart_lang") || DEFAULT);
+  apply(start).then(() => {
+    document.documentElement.classList.remove("i18n-wait");
+    maybeHint(start);
+  });
 })();

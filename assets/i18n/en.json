@@ -368,5 +368,11 @@
   "pg.data": "Rare data, cleaned and documented, ready for analysis.",
   "pg.more": "Discover →",
   "pg.free": "Free →",
-  "pg.ent_more": "All about Entèvyou360 →"
+  "pg.ent_more": "All about Entèvyou360 →",
+  "tools_h1": "Tools & data sources",
+  "tools_lead": "Official sources we have vetted and use in our own work.",
+  "tools_sources_h2": "Data sources",
+  "tools_search_ph": "Search a tool or a source…",
+  "search_btn": "Search",
+  "tools_install": "Install"
 }

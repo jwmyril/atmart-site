@@ -368,5 +368,11 @@
   "pg.data": "Done ki ra, netwaye epi dokimante, pare pou analiz.",
   "pg.more": "Dekouvri →",
   "pg.free": "Gratis →",
-  "pg.ent_more": "Tout sou Entèvyou360 →"
+  "pg.ent_more": "Tout sou Entèvyou360 →",
+  "tools_h1": "Zouti ak sous done",
+  "tools_lead": "Sous ofisyèl nou verifye epi n ap itilize nan travay nou.",
+  "tools_sources_h2": "Sous done yo",
+  "tools_search_ph": "Chèche yon zouti oswa yon sous…",
+  "search_btn": "Chèche",
+  "tools_install": "Enstale"
 }

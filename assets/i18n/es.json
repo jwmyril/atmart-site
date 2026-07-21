@@ -368,5 +368,11 @@
   "pg.data": "Datos raros, limpios y documentados, listos para analizar.",
   "pg.more": "Descubrir →",
   "pg.free": "Gratis →",
-  "pg.ent_more": "Todo sobre Entèvyou360 →"
+  "pg.ent_more": "Todo sobre Entèvyou360 →",
+  "tools_h1": "Herramientas y fuentes de datos",
+  "tools_lead": "Fuentes oficiales que hemos verificado y usamos en nuestro trabajo.",
+  "tools_sources_h2": "Fuentes de datos",
+  "tools_search_ph": "Buscar una herramienta o una fuente…",
+  "search_btn": "Buscar",
+  "tools_install": "Instalar"
 }
