@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>AI Compass — Diagnostic | Atmart</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font: 8.95pt/1.42 "Segoe UI", Calibri, Arial, sans-serif;
+    color: #17242b; background: #fff;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .navy { color: #0a1a2f; }
+  .teal { color: #12857c; }
+
+  /* ---- en-tête ---- */
+  header { display: flex; align-items: flex-start; gap: 10mm; border-bottom: 2.2pt solid #0a1a2f; padding-bottom: 3mm; }
+  header img { width: 22mm; flex-shrink: 0; margin-top: 1mm; }
+  header .t { flex: 1; }
+  h1 { margin: 0; font-size: 18.4pt; letter-spacing: -0.2pt; color: #0a1a2f; line-height: 1.1; }
+  h1 span { color: #12857c; }
+  .sub { margin: 1mm 0 0; font-size: 9pt; color: #4a5a66; }
+  .meta { text-align: right; font-size: 8.2pt; color: #4a5a66; line-height: 1.5; flex-shrink: 0; }
+  .meta b { color: #0a1a2f; display: block; font-size: 10.5pt; }
+
+  /* ---- promesse ---- */
+  .promise { margin: 3.4mm 0 0; padding: 2.9mm 3.6mm; background: #f0f7f6; border-left: 3pt solid #12857c; font-size: 9.8pt; line-height: 1.5; }
+  .promise b { color: #0a1a2f; }
+
+  h2 { font-size: 8.8pt; text-transform: uppercase; letter-spacing: 0.6pt; color: #12857c; margin: 3.1mm 0 1.4mm; padding-bottom: 0.8mm; border-bottom: 0.6pt solid #cfdde0; }
+  .cols { display: flex; gap: 7mm; }
+  .c { flex: 1; min-width: 0; }
+
+  ul { margin: 0; padding-left: 4.2mm; }
+  li { margin-bottom: 1mm; }
+  li b { color: #0a1a2f; }
+
+  /* ---- étapes ---- */
+  ol.steps { margin: 0; padding: 0; list-style: none; counter-reset: s; }
+  ol.steps li { counter-increment: s; position: relative; padding-left: 6mm; margin-bottom: 1.4mm; }
+  ol.steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 0.1mm;
+    width: 4.4mm; height: 4.4mm; border-radius: 50%; background: #0a1a2f; color: #fff;
+    font-size: 7.4pt; font-weight: 700; text-align: center; line-height: 4.4mm;
+  }
+  ol.steps li b { display: block; color: #0a1a2f; }
+  ol.steps li span { color: #45555f; }
+
+  /* ---- livrables ---- */
+  .deliv { margin: 0; padding: 0; list-style: none; }
+  .deliv li { padding: 1mm 0 1mm 3mm; border-left: 2pt solid #12857c; margin-bottom: 1.1mm; background: #fafcfc; }
+  .deliv b { display: block; color: #0a1a2f; }
+  .deliv span { color: #45555f; font-size: 8.5pt; }
+
+  /* ---- prix ---- */
+  .price { margin: 3.4mm 0 0; display: flex; align-items: center; gap: 4.4mm; background: #0a1a2f; color: #fff; border-radius: 2.2mm; padding: 2.8mm 3.8mm; }
+  .price .amt { font-size: 15.4pt; font-weight: 700; line-height: 1; white-space: nowrap; }
+  .price .amt small { display: block; font-size: 7.8pt; font-weight: 400; color: #a9c0cf; margin-top: 1mm; }
+  .price .txt { font-size: 8.6pt; line-height: 1.5; color: #dbe7ee; }
+  .price .txt b { color: #ffd9a8; }
+
+  /* ---- bas de page ---- */
+  .why { display: flex; gap: 4mm; margin-top: 2mm; }
+  .why div { flex: 1; background: #fafcfc; border: 0.6pt solid #dde7e9; border-radius: 2mm; padding: 2.2mm 2.8mm; font-size: 8.4pt; color: #45555f; }
+  .why b { display: block; color: #0a1a2f; margin-bottom: 0.6mm; }
+  .next { margin-top: 3.2mm; border-top: 1.4pt solid #0a1a2f; padding-top: 2.2mm; display: flex; align-items: flex-end; gap: 6mm; }
+  .next .l { flex: 1; }
+  .next h3 { margin: 0 0 0.8mm; font-size: 10.2pt; color: #0a1a2f; }
+  .next p { margin: 0; font-size: 8.6pt; color: #45555f; }
+  .next .r { text-align: right; font-size: 9.4pt; line-height: 1.55; white-space: nowrap; }
+  .next .r b { color: #12857c; }
+  .legal { margin: 2.4mm 0 0; font-size: 6.9pt; color: #8496a1; line-height: 1.45; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="../../assets/brand/atmart-logo-transparent.png" alt="Atmart" />
+  <div class="t">
+    <h1>AI <span>Compass</span> — Diagnostic</h1>
+    <p class="sub">Know exactly which tasks to hand to AI, which ones to supervise, and which ones must stay human.</p>
+  </div>
+  <div class="meta"><b>Atmart LLC</b>Advisory for companies<br />and NGOs<br />atmart.ltd</div>
+</header>
+
+<p class="promise">In two weeks you walk away with the <b>map of your tasks</b>, a <b>prioritised roadmap</b> and a <b>risk register</b> — not a demo. We also state, in writing, what must <b>not</b> be automated in your organisation.</p>
+
+<h2>Who it is for</h2>
+<p style="margin:0;color:#45555f"><b class="navy">NGOs and programmes</b> (donor reports, translation, qualitative analysis) · <b class="navy">Service SMEs</b> (accounting, insurance, real estate, agencies) · <b class="navy">Transport and delivery</b> (scheduling, multilingual communication with drivers, compliance) · <b class="navy">Schools and institutions</b> (administration, communication with families in several languages).</p>
+
+<div class="cols">
+  <div class="c">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><b>Scoping — 30 minutes</b><span>Together we set the boundary: one team, one department, one process.</span></li>
+      <li><b>Observation — days 1 to 5</b><span>Interviews with your teams, observation of the real work, measurement of volumes and turnaround times. No technical decision at this stage.</span></li>
+      <li><b>Analysis — days 6 to 9</b><span>Every task is sorted: delegate, supervise, or keep human. Gain, effort and risk are quantified.</span></li>
+      <li><b>Findings workshop — 90 minutes</b><span>We present the map, the roadmap and the risks to your decision-makers. You choose what comes next, or you stop there — no commitment.</span></li>
+    </ol>
+    <h2>What is not included</h2>
+    <p style="margin:0;color:#45555f">Building the automations themselves (that is the <b>Guided pilot</b>), software licence purchases, and any promise of quantified results before the real work has been observed.</p>
+  </div>
+
+  <div class="c">
+    <h2>What you receive</h2>
+    <ul class="deliv">
+      <li><b>The map of your tasks</b><span>Volume, risk and decision for every task in scope.</span></li>
+      <li><b>The prioritised roadmap</b><span>What to do first, estimated gain, effort, order of play.</span></li>
+      <li><b>The risk register</b><span>Personal data, errors, compliance, vendor dependency.</span></li>
+      <li><b>The internal rules</b><span>What must never enter an AI tool; who is allowed to approve.</span></li>
+      <li><b>The report, 10 to 15 pages</b><span>Written for your decision-makers, not for engineers.</span></li>
+      <li><b>The findings workshop</b><span>90 minutes with your teams, in their language: English, Haitian Creole, French or Spanish.</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="price">
+  <div class="amt">from $1,500<small>fixed price, agreed before we start</small></div>
+  <div class="txt"><b>1 to 2 weeks.</b> No obligation to continue after the findings workshop.<br />
+  <b>Launch offer:</b> the first 2 organisations get a reduced rate in exchange for honest feedback and permission to cite the case — figures anonymised if you prefer.</div>
+</div>
+
+<h2>Why Atmart</h2>
+<div class="why">
+  <div><b>A practitioner, not a salesman</b>A practising monitoring &amp; evaluation consultant: we live the tasks we are discussing.</div>
+  <div><b>Proof before promises</b>Our pilots ship with an audit trail, quality tests and a known cost per task.</div>
+  <div><b>Your teams, their language</b>Everything is delivered and facilitated in English, Haitian Creole, French or Spanish.</div>
+</div>
+
+<div class="next">
+  <div class="l">
+    <h3>Next step: a 30-minute conversation</h3>
+    <p>You describe your work, we tell you plainly where AI can help in your case — and where it should stay out. If the answer is “nowhere”, we will say that too.</p>
+  </div>
+  <div class="r"><b>sales@atmart.ltd</b><br />atmart.ltd/conseil-ia.html</div>
+</div>
+
+<p class="legal">Atmart LLC — advisory on the use of artificial intelligence for companies and organisations. The diagnostic is an analysis service: it carries no guarantee of quantified results and does not replace legal, accounting or medical advice. A confidentiality agreement is signed before any access to your data. Non-contractual document — the prices shown are a starting point; the final proposal is issued after scoping.</p>
+
+</body>
+</html>
