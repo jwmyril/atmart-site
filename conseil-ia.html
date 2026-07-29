@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <title>Boussole IA — conseil Atmart : automatiser, superviser, renforcer l'humain | Atmart</title>
+  <meta name="description" content="Boussole IA : le conseil Atmart pour les entreprises et ONG qui veulent automatiser leurs tâches avec l'IA sans perdre le contrôle. Diagnostic, pilote encadré avec piste d'audit et tests de qualité, accompagnement continu. Nous ne livrons pas une démonstration, nous livrons une preuve." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#0e2240" />
+  <link rel="stylesheet" href="assets/style.css?v=31" />
+<script>/* langue auto : avant le 1er affichage, evite le clignotement */
+(function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
+s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
+var l=s&&S[s]?s:null;
+if(!l){var n=navigator.languages||[navigator.language||""];
+for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().split("-")[0];
+if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
+window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;
+if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove("i18n-wait")},1500)}})();
+</script>
+  <style>
+    .bia-badges{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1.2rem}
+    .bia-badge{background:rgba(46,196,182,0.12);border:1px solid rgba(46,196,182,0.35);color:#d7e3f0;border-radius:99px;padding:0.35rem 0.9rem;font-size:0.82rem;font-weight:500}
+    .bia-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1rem;margin:1.2rem 0 0}
+    .bia-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:1.3rem;transition:border-color 0.25s}
+    .bia-card:hover{border-color:rgba(46,196,182,0.45)}
+    .bia-card .ic{font-size:1.7rem;display:block;margin-bottom:0.5rem}
+    .bia-card h4{margin:0 0 0.4rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.02rem}
+    .bia-card p{margin:0;font-size:0.89rem;color:#9db2c7;line-height:1.6}
+    .bia-axes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1.1rem}
+    .bia-axe{border-radius:14px;padding:1.3rem;border:1px solid rgba(255,255,255,0.1)}
+    .bia-axe.a1{background:rgba(46,196,182,0.07);border-color:rgba(46,196,182,0.3)}
+    .bia-axe.a2{background:rgba(93,156,236,0.07);border-color:rgba(93,156,236,0.3)}
+    .bia-axe.a3{background:rgba(244,162,97,0.07);border-color:rgba(244,162,97,0.3)}
+    .bia-axe h4{margin:0 0 0.4rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.05rem}
+    .bia-axe p{margin:0;font-size:0.89rem;color:#c9d8e6;line-height:1.6}
+    .bia-deliv{list-style:none;padding:0;margin:1rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0.7rem}
+    .bia-deliv li{background:rgba(255,255,255,0.03);border-left:3px solid #2ec4b6;border-radius:0 10px 10px 0;padding:0.75rem 1rem;font-size:0.9rem;color:#d7e3f0;line-height:1.55}
+    .bia-deliv li b{color:#fff;display:block;margin-bottom:0.15rem;font-size:0.94rem}
+    .bia-who{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0.8rem;margin-top:1rem}
+    .bia-who div{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:0.9rem 1.05rem;font-size:0.88rem;color:#c9d8e6}
+    .bia-who b{color:#fff;display:block;margin-bottom:0.2rem}
+    .bia-launch{background:rgba(244,162,97,0.09);border:1px solid rgba(244,162,97,0.4);border-radius:14px;padding:1.3rem 1.5rem;margin-top:1.6rem}
+    .bia-launch h3{margin:0 0 0.4rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.1rem}
+    .bia-launch p{margin:0 0 0.9rem;font-size:0.92rem;color:#e4dbcf;line-height:1.6}
+    .bia-faq{max-width:860px;margin-top:1rem}
+    .bia-faq details{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:0.9rem 1.15rem;margin-bottom:0.7rem}
+    .bia-faq summary{cursor:pointer;font-weight:600;color:#fff;font-size:0.95rem}
+    .bia-faq p{margin:0.7rem 0 0;font-size:0.9rem;color:#9db2c7;line-height:1.65}
+    .bia-steps{counter-reset:s;list-style:none;padding:0;margin:1rem 0 0;max-width:860px}
+    .bia-steps li{counter-increment:s;position:relative;padding:0 0 0 2.6rem;margin-bottom:0.85rem;font-size:0.92rem;color:#c9d8e6;line-height:1.6}
+    .bia-steps li::before{content:counter(s);position:absolute;left:0;top:-0.1rem;width:1.8rem;height:1.8rem;border-radius:50%;background:rgba(46,196,182,0.15);border:1px solid rgba(46,196,182,0.45);color:#2ec4b6;font-weight:700;font-size:0.85rem;display:flex;align-items:center;justify-content:center}
+    .bia-steps li b{color:#fff}
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="conseil-ia.html" class="active" data-i18n="nav.advisory">💼 Entreprises</a></li>
+      <li class="nav-grp"><span data-i18n="nav.g_win">🎯 Réussir</span>
+        <ul class="nav-sub">
+          <li><a href="entevyou360.html">Interview360 <small data-i18n="nav.s_ent">l'entretien d'embauche</small></a></li>
+          <li><a href="chofe360.html">Driver360 <small data-i18n="nav.s_cho">permis &amp; conduite (MA)</small></a></li>
+          <li><a href="karye360.html">Career360 <small data-i18n="nav.s_kar">votre coach de carrière</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.g_learn">🎓 Se former</span>
+        <ul class="nav-sub">
+          <li><a href="studio.html">Formation360 <small data-i18n="nav.s_fom">formation pour les entreprises, ONG &amp; Écoles</small></a></li>
+          <li><a href="https://lojik360.atmart.ltd">Lojik360 <small data-i18n="nav.s_loj">tutoriels gratuits</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.g_data">🗂 Données</span>
+        <ul class="nav-sub">
+          <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
+          <li><a href="outils.html" data-i18n="foot.tools">Outils &amp; sources de données</a></li>
+        </ul>
+      </li>
+      <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="padding-bottom:1.2rem">
+  <div class="container">
+    <p class="kreyol" data-i18n="bia.kicker">Vous voulez utiliser l'IA sans jouer votre réputation dessus.</p>
+    <h1>Boussole <em>IA</em></h1>
+    <div class="aka"><b data-i18n="bia.aka">conseil Atmart pour entreprises et ONG</b><small data-i18n="bia.aka_s">automatiser · superviser · renforcer l'humain</small></div>
+    <p class="lead" data-i18n-html="bia.lead">La plupart des prestations IA s'arrêtent à la démonstration qui impressionne en réunion. <strong>Nous ne livrons pas une démonstration, nous livrons une preuve</strong> : une automatisation réellement en service, traçable, testée, avec son coût connu — et la liste claire des tâches qui doivent rester humaines.</p>
+    <div class="bia-badges">
+      <span class="bia-badge" data-i18n="bia.bg1">🔍 Piste d'audit</span>
+      <span class="bia-badge" data-i18n="bia.bg2">🧪 Tests de qualité</span>
+      <span class="bia-badge" data-i18n="bia.bg3">💵 Coût par tâche</span>
+      <span class="bia-badge" data-i18n="bia.bg4">🌱 Ce qui reste humain</span>
+      <span class="bia-badge" data-i18n="bia.bg5">🗣 4 langues</span>
+    </div>
+    <div style="margin-top:1.3rem">
+      <a href="mailto:sales@atmart.ltd?subject=Boussole%20IA%20-%20entretien%2030%20min&amp;body=Bonjour%2C%0A%0AOrganisation%20%3A%0ASecteur%20%3A%0ACe%20que%20nous%20aimerions%20automatiser%20ou%20am%C3%A9liorer%20%3A%0ANombre%20de%20personnes%20concern%C3%A9es%20%3A%0A%0AMerci." class="btn btn-primary" data-i18n="bia.cta1">Réserver 30 minutes</a>
+      <a href="#niveaux" class="btn btn-outline" style="margin-left:0.6rem" data-i18n="bia.cta2">Voir les 3 niveaux</a>
+    </div>
+  </div>
+</section>
+
+<!-- LE PROBLEME -->
+<section style="padding-top:0.5rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="bia.pb_t">Pourquoi les projets IA échouent en entreprise</h2>
+      <p data-i18n="bia.pb_d">Trois causes, toujours les mêmes — et aucune n'est technique.</p></div>
+    <div class="bia-grid">
+      <div class="bia-card"><span class="ic">🎭</span>
+        <h4 data-i18n="bia.pb1_t">La démo ne survit pas au réel</h4>
+        <p data-i18n="bia.pb1_d">Le prototype marche sur trois exemples choisis. Au premier cas inhabituel, personne ne sait quoi faire, et l'équipe revient à sa méthode d'avant.</p></div>
+      <div class="bia-card"><span class="ic">🕳</span>
+        <h4 data-i18n="bia.pb2_t">Personne ne peut dire ce que l'outil a fait</h4>
+        <p data-i18n="bia.pb2_d">Sans trace des actions et des décisions, impossible de corriger une erreur, de répondre à un audit, ou simplement de faire confiance.</p></div>
+      <div class="bia-card"><span class="ic">⚠️</span>
+        <h4 data-i18n="bia.pb3_t">On automatise ce qu'il fallait garder humain</h4>
+        <p data-i18n="bia.pb3_d">Le jugement, la relation, la responsabilité : automatisés à la légère, ils coûtent des clients, du personnel et parfois une réputation.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LA METHODE -->
+<section style="padding-top:1.2rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="bia.me_t">La méthode : trois gestes, dans cet ordre</h2>
+      <p data-i18n="bia.me_d">La même boussole que nous enseignons gratuitement sur Lojik360 — appliquée à votre organisation, tâche par tâche.</p></div>
+    <div class="bia-axes">
+      <div class="bia-axe a1"><h4 data-i18n="bia.a1_t">🤖 Déléguer</h4>
+        <p data-i18n="bia.a1_d">Confier à la machine ce qu'elle fait bien et sans risque : brouillons, résumés, classement, extraction, traduction, préparation de dossiers. Une tâche n'est déléguée que lorsqu'elle est comprise et mesurée.</p></div>
+      <div class="bia-axe a2"><h4 data-i18n="bia.a2_t">🔍 Superviser</h4>
+        <p data-i18n="bia.a2_d">Contrôler ce qu'elle fait imparfaitement : qui valide, à quel moment, sur quels critères. Chaque action tracée, chaque sortie testée — la qualité devient prouvable, pas promise.</p></div>
+      <div class="bia-axe a3"><h4 data-i18n="bia.a3_t">🌱 Renforcer l'humain</h4>
+        <p data-i18n="bia.a3_d">Nommer les tâches qui doivent rester humaines — jugement, relation client, décision, responsabilité — et y réinvestir le temps gagné. C'est ce qui fait tenir le projet dans la durée.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LES 3 NIVEAUX -->
+<section id="niveaux" style="padding-top:1.4rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="bia.lv_t">Trois niveaux d'engagement</h2>
+      <p data-i18n="bia.lv_d">On commence toujours petit : un diagnostic à prix fixe, sans obligation de suite.</p></div>
+    <div class="plan-grid">
+      <div class="plan hot">
+        <span class="ribbon" data-i18n="bia.n1_rib">COMMENCER ICI</span>
+        <h4 data-i18n="bia.n1_name">Diagnostic</h4>
+        <p class="price" data-i18n="bia.n1_price">à partir de 1 500 $</p>
+        <p style="font-size:0.78rem;color:#9db2c7;margin:-0.5rem 0 0.6rem" data-i18n="bia.n1_dur">1 à 2 semaines · prix fixe</p>
+        <ul>
+          <li data-i18n="bia.n1_l1">Inventaire des tâches d'une équipe ou d'un service</li>
+          <li data-i18n="bia.n1_l2">Classement : à déléguer · à superviser · à garder humain</li>
+          <li data-i18n="bia.n1_l3">Feuille de route priorisée : gain estimé, effort, risque</li>
+          <li data-i18n="bia.n1_l4">Registre des risques : données personnelles, erreurs, conformité</li>
+          <li data-i18n="bia.n1_l5">Rapport de 10 à 15 pages + atelier de restitution (90 min)</li>
+        </ul>
+        <a href="mailto:sales@atmart.ltd?subject=Boussole%20IA%20-%20Diagnostic" class="btn btn-primary" data-i18n="bia.n1_cta">Demander un diagnostic</a>
+      </div>
+      <div class="plan">
+        <span class="ribbon" style="background:#5d9cec" data-i18n="bia.n2_rib">LA PREUVE</span>
+        <h4 data-i18n="bia.n2_name">Pilote encadré</h4>
+        <p class="price" data-i18n="bia.n2_price">à partir de 5 000 $</p>
+        <p style="font-size:0.78rem;color:#9db2c7;margin:-0.5rem 0 0.6rem" data-i18n="bia.n2_dur">4 à 6 semaines · une automatisation menée jusqu'au bout</p>
+        <ul>
+          <li data-i18n="bia.n2_l1">Une tâche de votre feuille de route, réellement mise en service</li>
+          <li data-i18n="bia.n2_l2">Contrôle humain conçu explicitement : qui valide quoi, quand</li>
+          <li data-i18n="bia.n2_l3">Piste d'audit : chaque action de l'outil est traçable et explicable</li>
+          <li data-i18n="bia.n2_l4">Jeu de tests qui prouve la qualité avant et après</li>
+          <li data-i18n="bia.n2_l5">Modèle de coût : coût par tâche, plafonds, budget prévisible</li>
+          <li data-i18n="bia.n2_l6">Formation de l'équipe + guide de dépannage</li>
+        </ul>
+        <a href="mailto:sales@atmart.ltd?subject=Boussole%20IA%20-%20Pilote" class="btn btn-outline" data-i18n="bia.n2_cta">Parler d'un pilote</a>
+      </div>
+      <div class="plan">
+        <span class="ribbon" style="background:#f4a261" data-i18n="bia.n3_rib">DANS LA DURÉE</span>
+        <h4 data-i18n="bia.n3_name">Accompagnement</h4>
+        <p class="price" data-i18n="bia.n3_price">à partir de 1 000 $/mois</p>
+        <p style="font-size:0.78rem;color:#9db2c7;margin:-0.5rem 0 0.6rem" data-i18n="bia.n3_dur">mensuel · résiliable à tout moment</p>
+        <ul>
+          <li data-i18n="bia.n3_l1">Un nouveau cas d'usage par mois</li>
+          <li data-i18n="bia.n3_l2">Revue de qualité : les tests rejoués, les dérives détectées</li>
+          <li data-i18n-html="bia.n3_l3"><strong>Licences Career360 Ekip incluses</strong> pour votre équipe</li>
+          <li data-i18n="bia.n3_l4">Règles internes et gouvernance tenues à jour</li>
+          <li data-i18n="bia.n3_l5">Priorité sur nos disponibilités</li>
+        </ul>
+        <a href="mailto:sales@atmart.ltd?subject=Boussole%20IA%20-%20Accompagnement" class="btn btn-outline" data-i18n="bia.n3_cta">Discuter d'un suivi</a>
+      </div>
+    </div>
+
+    <div class="bia-launch">
+      <h3 data-i18n="bia.of_t">🎯 Offre de lancement — 2 premières missions</h3>
+      <p data-i18n="bia.of_d">Nous démarrons cette offre : les deux premières organisations obtiennent un tarif de lancement, en échange d'un retour honnête et de l'autorisation de citer le cas (chiffres anonymisés si vous préférez). Vous gagnez le prix, nous gagnons la référence.</p>
+      <a href="mailto:sales@atmart.ltd?subject=Boussole%20IA%20-%20offre%20de%20lancement" class="btn btn-primary" data-i18n="bia.of_cta">Prendre une des 2 places</a>
+    </div>
+  </div>
+</section>
+
+<!-- CE QUE VOUS RECEVEZ -->
+<section style="padding-top:1.4rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="bia.dl_t">Ce que vous recevez, précisément</h2>
+      <p data-i18n="bia.dl_d">Des livrables qui restent chez vous et servent même si vous changez de prestataire.</p></div>
+    <ul class="bia-deliv">
+      <li><b data-i18n="bia.dl1_t">La carte de vos tâches</b><span data-i18n="bia.dl1_d">Chaque tâche du périmètre, son volume, son risque, et la décision : déléguer, superviser, garder humain.</span></li>
+      <li><b data-i18n="bia.dl2_t">Le jeu de tests</b><span data-i18n="bia.dl2_d">Des cas réels avec la réponse attendue : vous mesurez la qualité de l'outil aujourd'hui et dans six mois.</span></li>
+      <li><b data-i18n="bia.dl3_t">La piste d'audit</b><span data-i18n="bia.dl3_d">Un journal lisible de ce que l'outil a fait, avec quelles données, et qui a validé.</span></li>
+      <li><b data-i18n="bia.dl4_t">Le modèle de coût</b><span data-i18n="bia.dl4_d">Coût par tâche et par mois, plafonds de dépense, seuil au-delà duquel l'automatisation n'est plus rentable.</span></li>
+      <li><b data-i18n="bia.dl5_t">Le guide de dépannage</b><span data-i18n="bia.dl5_d">Que faire quand l'outil se trompe, tombe en panne ou coûte trop cher — écrit pour votre équipe, pas pour des informaticiens.</span></li>
+      <li><b data-i18n="bia.dl6_t">Les règles internes</b><span data-i18n="bia.dl6_d">Ce qui ne doit jamais entrer dans un outil d'IA, qui a le droit de valider, comment on informe les personnes concernées.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- COMMENT CA SE PASSE -->
+<section style="padding-top:1.4rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="bia.hw_t">Comment ça se passe</h2></div>
+    <ol class="bia-steps">
+      <li data-i18n-html="bia.hw1"><b>Entretien de 30 minutes.</b> Vous décrivez votre activité, nous disons franchement si l'IA peut aider — et si la réponse est non, nous le disons aussi.</li>
+      <li data-i18n-html="bia.hw2"><b>Diagnostic.</b> Entretiens avec vos équipes, observation du travail réel, mesure des volumes. Aucune décision technique à ce stade.</li>
+      <li data-i18n-html="bia.hw3"><b>Restitution.</b> Un atelier de 90 minutes : la carte des tâches, la feuille de route, les risques. Vous décidez de la suite, ou vous vous arrêtez là.</li>
+      <li data-i18n-html="bia.hw4"><b>Pilote.</b> Une seule tâche, menée jusqu'à la mise en service, avec vos équipes dans la boucle.</li>
+      <li data-i18n-html="bia.hw5"><b>Passage de relais.</b> Votre équipe fait tourner l'outil sans nous. C'est le critère de réussite — pas notre présence permanente.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- POUR QUI -->
+<section style="padding-top:1.4rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="bia.wh_t">Pour qui</h2>
+      <p data-i18n="bia.wh_d">Des organisations où le travail est réel, les moyens comptés, et la confiance essentielle.</p></div>
+    <div class="bia-who">
+      <div><b data-i18n="bia.wh1_t">ONG et programmes</b><span data-i18n="bia.wh1_d">Rapports bailleurs, traduction, analyse qualitative, synthèse de données — avec l'exigence de traçabilité qui va avec.</span></div>
+      <div><b data-i18n="bia.wh2_t">PME de services</b><span data-i18n="bia.wh2_d">Comptabilité, assurance, immobilier, agences : rédaction, réponses clients, préparation de dossiers.</span></div>
+      <div><b data-i18n="bia.wh3_t">Transport et livraison</b><span data-i18n="bia.wh3_d">Planification, communication multilingue avec les chauffeurs, suivi de conformité.</span></div>
+      <div><b data-i18n="bia.wh4_t">Écoles et institutions</b><span data-i18n="bia.wh4_d">Administratif, communication aux familles en plusieurs langues, préparation pédagogique.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUI PARLE -->
+<section style="padding-top:1.4rem">
+  <div class="container">
+    <div class="banner" style="max-width:900px">
+      <h2 data-i18n="bia.me2_t">Qui vous parle</h2>
+      <p data-i18n="bia.me2_d">Atmart LLC — Jean Wisner Myril. Consultant en suivi et évaluation en exercice : je vis les tâches dont nous parlons, je ne les imagine pas. J'ai bâti et mis en production la Suite 360 (coachs IA multilingues, portail de recrutement, générateur de documents de formation) et je publie gratuitement, sur Lojik360, les tutoriels qui enseignent cette même méthode en kreyòl, français, anglais et espagnol.</p>
+      <p style="font-size:0.88rem;color:#9db2c7;margin-top:0.6rem" data-i18n="bia.me2_d2">Conséquence pratique : les livrables sont ceux d'un praticien — testables, chiffrés, et rédigés dans la langue de vos équipes.</p>
+      <a href="https://lojik360.atmart.ltd/tutoriels/construire-app-claude.html" class="btn btn-outline" data-i18n="bia.me2_cta">Voir notre méthode, en accès libre</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding-top:1.4rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="bia.fq_t">Questions qu'on nous pose</h2></div>
+    <div class="bia-faq">
+      <details><summary data-i18n="bia.fq1_q">L'IA va-t-elle remplacer mon personnel ?</summary>
+        <p data-i18n="bia.fq1_a">Ce n'est pas l'objectif, et ce n'est pas ce que nous vendons. Nous cherchons les tâches répétitives qui épuisent vos équipes, et nous protégeons explicitement celles qui exigent du jugement et de la relation. Un diagnostic honnête dit toujours ce qui NE doit PAS être automatisé.</p></details>
+      <details><summary data-i18n="bia.fq2_q">Nos données sont confidentielles.</summary>
+        <p data-i18n="bia.fq2_a">Nous signons un accord de confidentialité avant tout accès. Le diagnostic définit une règle écrite sur ce qui ne doit jamais entrer dans un outil d'IA, et le pilote est conçu pour fonctionner avec des données réduites ou anonymisées quand c'est possible.</p></details>
+      <details><summary data-i18n="bia.fq3_q">Et si le fournisseur d'IA change ses prix ou ses règles ?</summary>
+        <p data-i18n="bia.fq3_a">C'est un risque réel, nous le mettons par écrit. Chaque automatisation est livrée avec son coût connu, un plafond de dépense, et un mode de repli manuel documenté. Vous ne devez jamais être bloqué par un fournisseur.</p></details>
+      <details><summary data-i18n="bia.fq4_q">Nous sommes une petite structure. Est-ce pour nous ?</summary>
+        <p data-i18n="bia.fq4_a">Oui, c'est même là que l'effet est le plus fort : une personne qui récupère cinq heures par semaine, dans une équipe de six, ça se voit. Le diagnostic est à prix fixe précisément pour rester accessible.</p></details>
+      <details><summary data-i18n="bia.fq5_q">Quelle est votre capacité réelle ?</summary>
+        <p data-i18n="bia.fq5_a">Deux pilotes en parallèle au maximum. Nous préférons le dire et tenir un calendrier honnête plutôt que promettre des délais que la qualité ne supporterait pas.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section style="padding-top:1.4rem;padding-bottom:2rem">
+  <div class="container">
+    <div class="cta-band" style="background:rgba(46,196,182,0.08);border:1px solid rgba(46,196,182,0.35);border-radius:14px;padding:1.8rem;text-align:center">
+      <h2 style="margin:0 0 0.5rem" data-i18n="bia.end_t">Commençons par une conversation</h2>
+      <p style="margin:0 auto 1.1rem;max-width:620px;color:#c9d8e6" data-i18n="bia.end_d">Trente minutes, sans engagement : vous décrivez votre activité, nous vous disons où l'IA peut aider chez vous — et où elle ne devrait pas intervenir.</p>
+      <a href="mailto:sales@atmart.ltd?subject=Boussole%20IA%20-%20entretien%2030%20min&amp;body=Bonjour%2C%0A%0AOrganisation%20%3A%0ASecteur%20%3A%0ACe%20que%20nous%20aimerions%20automatiser%20ou%20am%C3%A9liorer%20%3A%0ANombre%20de%20personnes%20concern%C3%A9es%20%3A%0A%0AMerci." class="btn btn-primary" data-i18n="bia.end_cta">Réserver 30 minutes — sales@atmart.ltd</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
+        <ul>
+          <li><a href="conseil-ia.html" data-i18n="nav.advisory">💼 Entreprises</a></li>
+          <li><a href="karye360.html">Career360</a></li>
+          <li><a href="studio.html">Formation360</a></li>
+          <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_learn">Apprendre</h4>
+        <ul>
+          <li><a href="https://lojik360.atmart.ltd" data-i18n="atm.foot_l360">Lojik360 — tutoriels gratuits</a></li>
+          <li><a href="podcast.html" data-i18n="foot.podcast">Podcast Lojik360</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-note">© Atmart LLC — <span data-i18n="foot.rights">Tous droits réservés.</span></p>
+  </div>
+</footer>
+
+<script src="assets/script.js?v=2"></script>
+<script src="assets/i18n.js?v=10"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+<script src="assets/launcher.js?v=3"></script>
+<script src="assets/share.js?v=3"></script>
+</body>
+</html>
