@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>AI Compass — Guided pilot | Atmart</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font: 8.95pt/1.42 "Segoe UI", Calibri, Arial, sans-serif;
+    color: #17242b; background: #fff;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .navy { color: #0a1a2f; }
+  .teal { color: #12857c; }
+
+  /* ---- en-tête ---- */
+  header { display: flex; align-items: flex-start; gap: 10mm; border-bottom: 2.2pt solid #0a1a2f; padding-bottom: 3mm; }
+  header img { width: 22mm; flex-shrink: 0; margin-top: 1mm; }
+  header .t { flex: 1; }
+  h1 { margin: 0; font-size: 18.4pt; letter-spacing: -0.2pt; color: #0a1a2f; line-height: 1.1; }
+  h1 span { color: #12857c; }
+  .sub { margin: 1mm 0 0; font-size: 9pt; color: #4a5a66; }
+  .meta { text-align: right; font-size: 8.2pt; color: #4a5a66; line-height: 1.5; flex-shrink: 0; }
+  .meta b { color: #0a1a2f; display: block; font-size: 10.5pt; }
+
+  /* ---- promesse ---- */
+  .promise { margin: 3.4mm 0 0; padding: 2.9mm 3.6mm; background: #f0f7f6; border-left: 3pt solid #12857c; font-size: 9.8pt; line-height: 1.5; }
+  .promise b { color: #0a1a2f; }
+
+  h2 { font-size: 8.8pt; text-transform: uppercase; letter-spacing: 0.6pt; color: #12857c; margin: 3.1mm 0 1.4mm; padding-bottom: 0.8mm; border-bottom: 0.6pt solid #cfdde0; }
+  .cols { display: flex; gap: 7mm; }
+  .c { flex: 1; min-width: 0; }
+
+  ul { margin: 0; padding-left: 4.2mm; }
+  li { margin-bottom: 1mm; }
+  li b { color: #0a1a2f; }
+
+  /* ---- étapes ---- */
+  ol.steps { margin: 0; padding: 0; list-style: none; counter-reset: s; }
+  ol.steps li { counter-increment: s; position: relative; padding-left: 6mm; margin-bottom: 1.4mm; }
+  ol.steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 0.1mm;
+    width: 4.4mm; height: 4.4mm; border-radius: 50%; background: #0a1a2f; color: #fff;
+    font-size: 7.4pt; font-weight: 700; text-align: center; line-height: 4.4mm;
+  }
+  ol.steps li b { display: block; color: #0a1a2f; }
+  ol.steps li span { color: #45555f; }
+
+  /* ---- livrables ---- */
+  .deliv { margin: 0; padding: 0; list-style: none; }
+  .deliv li { padding: 1mm 0 1mm 3mm; border-left: 2pt solid #12857c; margin-bottom: 1.1mm; background: #fafcfc; }
+  .deliv b { display: block; color: #0a1a2f; }
+  .deliv span { color: #45555f; font-size: 8.5pt; }
+
+  /* ---- prix ---- */
+  .price { margin: 3.4mm 0 0; display: flex; align-items: center; gap: 4.4mm; background: #0a1a2f; color: #fff; border-radius: 2.2mm; padding: 2.8mm 3.8mm; }
+  .price .amt { font-size: 15.4pt; font-weight: 700; line-height: 1; white-space: nowrap; }
+  .price .amt small { display: block; font-size: 7.8pt; font-weight: 400; color: #a9c0cf; margin-top: 1mm; }
+  .price .txt { font-size: 8.6pt; line-height: 1.5; color: #dbe7ee; }
+  .price .txt b { color: #ffd9a8; }
+
+  /* ---- bas de page ---- */
+  .why { display: flex; gap: 4mm; margin-top: 2mm; }
+  .why div { flex: 1; background: #fafcfc; border: 0.6pt solid #dde7e9; border-radius: 2mm; padding: 2.2mm 2.8mm; font-size: 8.4pt; color: #45555f; }
+  .why b { display: block; color: #0a1a2f; margin-bottom: 0.6mm; }
+  .next { margin-top: 3.2mm; border-top: 1.4pt solid #0a1a2f; padding-top: 2.2mm; display: flex; align-items: flex-end; gap: 6mm; }
+  .next .l { flex: 1; }
+  .next h3 { margin: 0 0 0.8mm; font-size: 10.2pt; color: #0a1a2f; }
+  .next p { margin: 0; font-size: 8.6pt; color: #45555f; }
+  .next .r { text-align: right; font-size: 9.4pt; line-height: 1.55; white-space: nowrap; }
+  .next .r b { color: #12857c; }
+  .legal { margin: 2.4mm 0 0; font-size: 6.9pt; color: #8496a1; line-height: 1.45; }
+</style>
+<style>
+  /* densite : ces fiches ont une etape de plus et des textes plus longs */
+  body { font-size: 8.4pt; line-height: 1.35; }
+  h1 { font-size: 17.2pt; }
+  .sub { font-size: 8.8pt; }
+  .promise { font-size: 9.2pt; line-height: 1.44; padding: 2.5mm 3.3mm; }
+  h2 { margin: 2.9mm 0 1.3mm; }
+  ol.steps li { margin-bottom: 1.25mm; }
+  .deliv li { padding: 0.95mm 0 0.95mm 3mm; margin-bottom: 1mm; }
+  .deliv span { font-size: 8pt; }
+  .price { padding: 2.6mm 3.6mm; margin-top: 3.1mm; }
+  .price .amt { font-size: 14.8pt; }
+  .price .txt { font-size: 8.1pt; line-height: 1.42; }
+  .why div { padding: 1.9mm 2.5mm; font-size: 7.9pt; }
+  .next { margin-top: 3mm; padding-top: 2.1mm; }
+  .next h3 { font-size: 9.9pt; }
+  .next p { font-size: 8.1pt; }
+  .legal { font-size: 6.5pt; margin-top: 2.1mm; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="../../assets/brand/atmart-logo-transparent.png" alt="Atmart" />
+  <div class="t">
+    <h1>AI <span>Compass</span> — Guided pilot</h1>
+    <p class="sub">One automated task, taken all the way into service — with the proof that it works.</p>
+  </div>
+  <div class="meta"><b>Atmart LLC</b>Advisory for companies<br />and NGOs<br />atmart.ltd</div>
+</header>
+
+<p class="promise">By the end, the automation <b>actually runs</b> in your organisation and your team operates it <b>without us</b>. You own the test set that proves its quality, the audit trail that shows what it did, and its exact cost per task.</p>
+
+<h2>Who it is for</h2>
+<p style="margin:0;color:#45555f">Organisations that completed a <b class="navy">Diagnostic</b> and want to start with the highest-value task · those who already know which task is draining them and want a solution that holds · those who tried an AI tool and dropped it for lack of control and method.</p>
+
+<div class="cols">
+  <div class="c">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><b>Week 0 — Choice and criteria</b><span>We pick the task and write the success criteria together BEFORE building: expected quality, target time, cost ceiling.</span></li>
+      <li><b>Week 1 — Control and tests</b><span>We design the human control (who validates what, and when) and build the test set from your real cases, including the awkward ones.</span></li>
+      <li><b>Weeks 2 to 4 — Build</b><span>Gradual roll-out: first alongside your current method, then replacing it once the tests pass.</span></li>
+      <li><b>Week 5 — Measurement</b><span>Quality measured by the tests, time actually saved, observed cost per task. Numbers, not impressions.</span></li>
+      <li><b>Week 6 — Handover</b><span>Training for your team, a troubleshooting guide, and a 30-day review to confirm it holds without us.</span></li>
+    </ol>
+    <h2>What is not included</h2>
+    <p style="margin:0;color:#45555f">Rebuilding your existing software, licence purchases, data migration, and any guarantee of quantified gains before the week-5 measurement. A second use case means another pilot or an <b>Ongoing support</b> agreement.</p>
+  </div>
+
+  <div class="c">
+    <h2>What you receive</h2>
+    <ul class="deliv">
+      <li><b>The automation in service</b><span>Running on your real scope, not on a demo.</span></li>
+      <li><b>The test set</b><span>Your real cases with the expected answer: measure quality today and again in six months.</span></li>
+      <li><b>The audit trail</b><span>A readable log: what the tool did, with which data, and who approved it.</span></li>
+      <li><b>The cost model</b><span>Cost per task and per month, spending cap, break-even threshold.</span></li>
+      <li><b>The troubleshooting guide</b><span>What to do when the tool is wrong, breaks down or costs too much — written for your team.</span></li>
+      <li><b>Training and a 30-day review</b><span>Your team self-sufficient, then a check one month later.</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="price">
+  <div class="amt">from $5,000<small>firm quote after scoping</small></div>
+  <div class="txt"><b>4 to 6 weeks.</b> The price depends on the complexity of the task and the number of people involved — it is agreed in writing before we start.<br /><b>Two conditions for success:</b> an available point of contact on your side (2 to 3 hours a week) and access to the necessary data. We run at most 2 pilots in parallel.</div>
+</div>
+
+<h2>Why Atmart</h2>
+<div class="why">
+  <div><b>Proof, not a demo</b>Tests, audit trail and known cost: three things a demo never gives you.</div>
+  <div><b>Human control first</b>We design who validates what before writing a single automation.</div>
+  <div><b>Your teams, their language</b>Training and documents in English, Haitian Creole, French or Spanish.</div>
+</div>
+
+<div class="next">
+  <div class="l">
+    <h3>Next step: choosing the task</h3>
+    <p>If you already have a Diagnostic, we start from your roadmap. If not, a 30-minute conversation is enough to tell whether a task is a good candidate — and to say plainly if it is not.</p>
+  </div>
+  <div class="r"><b>sales@atmart.ltd</b><br />atmart.ltd/conseil-ia.html</div>
+</div>
+
+<p class="legal">Atmart LLC — advisory on the use of artificial intelligence. The pilot is a design and deployment service: gains are measured, never guaranteed in advance. The automation relies on third-party AI services whose prices and rules may change; a manual fallback is always documented. A confidentiality agreement is signed before any access to data. Non-contractual document — the final proposal is issued after scoping.</p>
+
+</body>
+</html>

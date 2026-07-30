@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Boussole IA — Pilote encadré | Atmart</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font: 8.95pt/1.42 "Segoe UI", Calibri, Arial, sans-serif;
+    color: #17242b; background: #fff;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .navy { color: #0a1a2f; }
+  .teal { color: #12857c; }
+
+  /* ---- en-tête ---- */
+  header { display: flex; align-items: flex-start; gap: 10mm; border-bottom: 2.2pt solid #0a1a2f; padding-bottom: 3mm; }
+  header img { width: 22mm; flex-shrink: 0; margin-top: 1mm; }
+  header .t { flex: 1; }
+  h1 { margin: 0; font-size: 18.4pt; letter-spacing: -0.2pt; color: #0a1a2f; line-height: 1.1; }
+  h1 span { color: #12857c; }
+  .sub { margin: 1mm 0 0; font-size: 9pt; color: #4a5a66; }
+  .meta { text-align: right; font-size: 8.2pt; color: #4a5a66; line-height: 1.5; flex-shrink: 0; }
+  .meta b { color: #0a1a2f; display: block; font-size: 10.5pt; }
+
+  /* ---- promesse ---- */
+  .promise { margin: 3.4mm 0 0; padding: 2.9mm 3.6mm; background: #f0f7f6; border-left: 3pt solid #12857c; font-size: 9.8pt; line-height: 1.5; }
+  .promise b { color: #0a1a2f; }
+
+  h2 { font-size: 8.8pt; text-transform: uppercase; letter-spacing: 0.6pt; color: #12857c; margin: 3.1mm 0 1.4mm; padding-bottom: 0.8mm; border-bottom: 0.6pt solid #cfdde0; }
+  .cols { display: flex; gap: 7mm; }
+  .c { flex: 1; min-width: 0; }
+
+  ul { margin: 0; padding-left: 4.2mm; }
+  li { margin-bottom: 1mm; }
+  li b { color: #0a1a2f; }
+
+  /* ---- étapes ---- */
+  ol.steps { margin: 0; padding: 0; list-style: none; counter-reset: s; }
+  ol.steps li { counter-increment: s; position: relative; padding-left: 6mm; margin-bottom: 1.4mm; }
+  ol.steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 0.1mm;
+    width: 4.4mm; height: 4.4mm; border-radius: 50%; background: #0a1a2f; color: #fff;
+    font-size: 7.4pt; font-weight: 700; text-align: center; line-height: 4.4mm;
+  }
+  ol.steps li b { display: block; color: #0a1a2f; }
+  ol.steps li span { color: #45555f; }
+
+  /* ---- livrables ---- */
+  .deliv { margin: 0; padding: 0; list-style: none; }
+  .deliv li { padding: 1mm 0 1mm 3mm; border-left: 2pt solid #12857c; margin-bottom: 1.1mm; background: #fafcfc; }
+  .deliv b { display: block; color: #0a1a2f; }
+  .deliv span { color: #45555f; font-size: 8.5pt; }
+
+  /* ---- prix ---- */
+  .price { margin: 3.4mm 0 0; display: flex; align-items: center; gap: 4.4mm; background: #0a1a2f; color: #fff; border-radius: 2.2mm; padding: 2.8mm 3.8mm; }
+  .price .amt { font-size: 15.4pt; font-weight: 700; line-height: 1; white-space: nowrap; }
+  .price .amt small { display: block; font-size: 7.8pt; font-weight: 400; color: #a9c0cf; margin-top: 1mm; }
+  .price .txt { font-size: 8.6pt; line-height: 1.5; color: #dbe7ee; }
+  .price .txt b { color: #ffd9a8; }
+
+  /* ---- bas de page ---- */
+  .why { display: flex; gap: 4mm; margin-top: 2mm; }
+  .why div { flex: 1; background: #fafcfc; border: 0.6pt solid #dde7e9; border-radius: 2mm; padding: 2.2mm 2.8mm; font-size: 8.4pt; color: #45555f; }
+  .why b { display: block; color: #0a1a2f; margin-bottom: 0.6mm; }
+  .next { margin-top: 3.2mm; border-top: 1.4pt solid #0a1a2f; padding-top: 2.2mm; display: flex; align-items: flex-end; gap: 6mm; }
+  .next .l { flex: 1; }
+  .next h3 { margin: 0 0 0.8mm; font-size: 10.2pt; color: #0a1a2f; }
+  .next p { margin: 0; font-size: 8.6pt; color: #45555f; }
+  .next .r { text-align: right; font-size: 9.4pt; line-height: 1.55; white-space: nowrap; }
+  .next .r b { color: #12857c; }
+  .legal { margin: 2.4mm 0 0; font-size: 6.9pt; color: #8496a1; line-height: 1.45; }
+</style>
+<style>
+  /* densite : ces fiches ont une etape de plus et des textes plus longs */
+  body { font-size: 8.4pt; line-height: 1.35; }
+  h1 { font-size: 17.2pt; }
+  .sub { font-size: 8.8pt; }
+  .promise { font-size: 9.2pt; line-height: 1.44; padding: 2.5mm 3.3mm; }
+  h2 { margin: 2.9mm 0 1.3mm; }
+  ol.steps li { margin-bottom: 1.25mm; }
+  .deliv li { padding: 0.95mm 0 0.95mm 3mm; margin-bottom: 1mm; }
+  .deliv span { font-size: 8pt; }
+  .price { padding: 2.6mm 3.6mm; margin-top: 3.1mm; }
+  .price .amt { font-size: 14.8pt; }
+  .price .txt { font-size: 8.1pt; line-height: 1.42; }
+  .why div { padding: 1.9mm 2.5mm; font-size: 7.9pt; }
+  .next { margin-top: 3mm; padding-top: 2.1mm; }
+  .next h3 { font-size: 9.9pt; }
+  .next p { font-size: 8.1pt; }
+  .legal { font-size: 6.5pt; margin-top: 2.1mm; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="../../assets/brand/atmart-logo-transparent.png" alt="Atmart" />
+  <div class="t">
+    <h1>Boussole <span>IA</span> — Pilote encadré</h1>
+    <p class="sub">Une seule tâche automatisée, menée jusqu'à la mise en service — avec la preuve que ça marche.</p>
+  </div>
+  <div class="meta"><b>Atmart LLC</b>Conseil aux entreprises<br />et aux ONG<br />atmart.ltd</div>
+</header>
+
+<p class="promise">À la fin, l'automatisation <b>tourne réellement</b> chez vous et votre équipe la fait fonctionner <b>sans nous</b>. Vous détenez le jeu de tests qui prouve sa qualité, la piste d'audit qui montre ce qu'elle a fait, et son coût exact par tâche.</p>
+
+<h2>Pour qui</h2>
+<p style="margin:0;color:#45555f">Les organisations qui ont fait un <b class="navy">Diagnostic</b> et veulent commencer par la tâche la plus rentable · celles qui savent déjà quelle tâche les épuise et veulent une solution qui tienne · celles qui ont essayé un outil d'IA et l'ont abandonné faute de contrôle et de méthode.</p>
+
+<div class="cols">
+  <div class="c">
+    <h2>Comment ça se passe</h2>
+    <ol class="steps">
+      <li><b>Semaine 0 — Choix et critères</b><span>Nous choisissons la tâche et écrivons ensemble les critères de réussite AVANT de construire : qualité attendue, temps visé, coût plafond.</span></li>
+      <li><b>Semaine 1 — Contrôle et tests</b><span>Nous concevons le contrôle humain (qui valide quoi, quand) et bâtissons le jeu de tests à partir de vos vrais cas, y compris ceux qui fâchent.</span></li>
+      <li><b>Semaines 2 à 4 — Construction</b><span>Mise en service progressive : d'abord en parallèle de votre méthode actuelle, puis en remplacement quand les tests passent.</span></li>
+      <li><b>Semaine 5 — Mesure</b><span>Qualité mesurée par les tests, temps réellement gagné, coût par tâche constaté. Les chiffres, pas les impressions.</span></li>
+      <li><b>Semaine 6 — Passage de relais</b><span>Formation de votre équipe, guide de dépannage, et une revue à 30 jours pour vérifier que ça tient sans nous.</span></li>
+    </ol>
+    <h2>Ce qui n'est pas inclus</h2>
+    <p style="margin:0;color:#45555f">La refonte de vos logiciels existants, l'achat de licences, la migration de vos données, et toute garantie de gain chiffré avant la mesure de la semaine 5. Un second cas d'usage fait l'objet d'un nouveau pilote ou d'un <b>Accompagnement</b>.</p>
+  </div>
+
+  <div class="c">
+    <h2>Ce que vous recevez</h2>
+    <ul class="deliv">
+      <li><b>L'automatisation en service</b><span>Elle tourne sur votre périmètre réel, pas sur une démonstration.</span></li>
+      <li><b>Le jeu de tests</b><span>Vos cas réels avec la réponse attendue : vous mesurez la qualité aujourd'hui et dans six mois.</span></li>
+      <li><b>La piste d'audit</b><span>Un journal lisible : ce que l'outil a fait, avec quelles données, qui a validé.</span></li>
+      <li><b>Le modèle de coût</b><span>Coût par tâche et par mois, plafond de dépense, seuil de rentabilité.</span></li>
+      <li><b>Le guide de dépannage</b><span>Que faire quand l'outil se trompe, tombe en panne ou coûte trop cher — écrit pour votre équipe.</span></li>
+      <li><b>La formation et la revue à 30 jours</b><span>Votre équipe autonome, puis un contrôle un mois plus tard.</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="price">
+  <div class="amt">à partir de 5 000 $<small>devis ferme après le cadrage</small></div>
+  <div class="txt"><b>4 à 6 semaines.</b> Le prix dépend de la complexité de la tâche et du nombre de personnes concernées — il est arrêté par écrit avant de commencer.<br /><b>Deux conditions de réussite :</b> un référent disponible chez vous (2 à 3 heures par semaine) et l'accès aux données nécessaires. Nous menons au maximum 2 pilotes en parallèle.</div>
+</div>
+
+<h2>Pourquoi Atmart</h2>
+<div class="why">
+  <div><b>La preuve, pas la démonstration</b>Tests, piste d'audit et coût connu : trois choses qu'une démonstration ne donne jamais.</div>
+  <div><b>Le contrôle humain d'abord</b>Nous concevons qui valide quoi avant d'écrire la moindre automatisation.</div>
+  <div><b>Vos équipes, leur langue</b>Formation et documents en kreyòl, français, anglais ou espagnol.</div>
+</div>
+
+<div class="next">
+  <div class="l">
+    <h3>Prochaine étape : choisir la tâche</h3>
+    <p>Si vous avez déjà un Diagnostic, nous partons de votre feuille de route. Sinon, une conversation de 30 minutes suffit pour savoir si une tâche est un bon candidat — et pour vous le dire franchement si elle ne l'est pas.</p>
+  </div>
+  <div class="r"><b>sales@atmart.ltd</b><br />atmart.ltd/conseil-ia.html</div>
+</div>
+
+<p class="legal">Atmart LLC — conseil en usage de l'intelligence artificielle. Le pilote est une prestation de conception et de mise en service : les gains sont mesurés, jamais garantis à l'avance. L'automatisation repose sur des services d'IA tiers dont les prix et les règles peuvent changer ; un mode de repli manuel est systématiquement documenté. Un accord de confidentialité est signé avant tout accès aux données. Document non contractuel — la proposition finale est établie après le cadrage.</p>
+
+</body>
+</html>

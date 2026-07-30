@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Boussole IA — Accompagnement | Atmart</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font: 8.95pt/1.42 "Segoe UI", Calibri, Arial, sans-serif;
+    color: #17242b; background: #fff;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .navy { color: #0a1a2f; }
+  .teal { color: #12857c; }
+
+  /* ---- en-tête ---- */
+  header { display: flex; align-items: flex-start; gap: 10mm; border-bottom: 2.2pt solid #0a1a2f; padding-bottom: 3mm; }
+  header img { width: 22mm; flex-shrink: 0; margin-top: 1mm; }
+  header .t { flex: 1; }
+  h1 { margin: 0; font-size: 18.4pt; letter-spacing: -0.2pt; color: #0a1a2f; line-height: 1.1; }
+  h1 span { color: #12857c; }
+  .sub { margin: 1mm 0 0; font-size: 9pt; color: #4a5a66; }
+  .meta { text-align: right; font-size: 8.2pt; color: #4a5a66; line-height: 1.5; flex-shrink: 0; }
+  .meta b { color: #0a1a2f; display: block; font-size: 10.5pt; }
+
+  /* ---- promesse ---- */
+  .promise { margin: 3.4mm 0 0; padding: 2.9mm 3.6mm; background: #f0f7f6; border-left: 3pt solid #12857c; font-size: 9.8pt; line-height: 1.5; }
+  .promise b { color: #0a1a2f; }
+
+  h2 { font-size: 8.8pt; text-transform: uppercase; letter-spacing: 0.6pt; color: #12857c; margin: 3.1mm 0 1.4mm; padding-bottom: 0.8mm; border-bottom: 0.6pt solid #cfdde0; }
+  .cols { display: flex; gap: 7mm; }
+  .c { flex: 1; min-width: 0; }
+
+  ul { margin: 0; padding-left: 4.2mm; }
+  li { margin-bottom: 1mm; }
+  li b { color: #0a1a2f; }
+
+  /* ---- étapes ---- */
+  ol.steps { margin: 0; padding: 0; list-style: none; counter-reset: s; }
+  ol.steps li { counter-increment: s; position: relative; padding-left: 6mm; margin-bottom: 1.4mm; }
+  ol.steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 0.1mm;
+    width: 4.4mm; height: 4.4mm; border-radius: 50%; background: #0a1a2f; color: #fff;
+    font-size: 7.4pt; font-weight: 700; text-align: center; line-height: 4.4mm;
+  }
+  ol.steps li b { display: block; color: #0a1a2f; }
+  ol.steps li span { color: #45555f; }
+
+  /* ---- livrables ---- */
+  .deliv { margin: 0; padding: 0; list-style: none; }
+  .deliv li { padding: 1mm 0 1mm 3mm; border-left: 2pt solid #12857c; margin-bottom: 1.1mm; background: #fafcfc; }
+  .deliv b { display: block; color: #0a1a2f; }
+  .deliv span { color: #45555f; font-size: 8.5pt; }
+
+  /* ---- prix ---- */
+  .price { margin: 3.4mm 0 0; display: flex; align-items: center; gap: 4.4mm; background: #0a1a2f; color: #fff; border-radius: 2.2mm; padding: 2.8mm 3.8mm; }
+  .price .amt { font-size: 15.4pt; font-weight: 700; line-height: 1; white-space: nowrap; }
+  .price .amt small { display: block; font-size: 7.8pt; font-weight: 400; color: #a9c0cf; margin-top: 1mm; }
+  .price .txt { font-size: 8.6pt; line-height: 1.5; color: #dbe7ee; }
+  .price .txt b { color: #ffd9a8; }
+
+  /* ---- bas de page ---- */
+  .why { display: flex; gap: 4mm; margin-top: 2mm; }
+  .why div { flex: 1; background: #fafcfc; border: 0.6pt solid #dde7e9; border-radius: 2mm; padding: 2.2mm 2.8mm; font-size: 8.4pt; color: #45555f; }
+  .why b { display: block; color: #0a1a2f; margin-bottom: 0.6mm; }
+  .next { margin-top: 3.2mm; border-top: 1.4pt solid #0a1a2f; padding-top: 2.2mm; display: flex; align-items: flex-end; gap: 6mm; }
+  .next .l { flex: 1; }
+  .next h3 { margin: 0 0 0.8mm; font-size: 10.2pt; color: #0a1a2f; }
+  .next p { margin: 0; font-size: 8.6pt; color: #45555f; }
+  .next .r { text-align: right; font-size: 9.4pt; line-height: 1.55; white-space: nowrap; }
+  .next .r b { color: #12857c; }
+  .legal { margin: 2.4mm 0 0; font-size: 6.9pt; color: #8496a1; line-height: 1.45; }
+</style>
+<style>
+  /* densite : ces fiches ont une etape de plus et des textes plus longs */
+  body { font-size: 8.4pt; line-height: 1.35; }
+  h1 { font-size: 17.2pt; }
+  .sub { font-size: 8.8pt; }
+  .promise { font-size: 9.2pt; line-height: 1.44; padding: 2.5mm 3.3mm; }
+  h2 { margin: 2.9mm 0 1.3mm; }
+  ol.steps li { margin-bottom: 1.25mm; }
+  .deliv li { padding: 0.95mm 0 0.95mm 3mm; margin-bottom: 1mm; }
+  .deliv span { font-size: 8pt; }
+  .price { padding: 2.6mm 3.6mm; margin-top: 3.1mm; }
+  .price .amt { font-size: 14.8pt; }
+  .price .txt { font-size: 8.1pt; line-height: 1.42; }
+  .why div { padding: 1.9mm 2.5mm; font-size: 7.9pt; }
+  .next { margin-top: 3mm; padding-top: 2.1mm; }
+  .next h3 { font-size: 9.9pt; }
+  .next p { font-size: 8.1pt; }
+  .legal { font-size: 6.5pt; margin-top: 2.1mm; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="../../assets/brand/atmart-logo-transparent.png" alt="Atmart" />
+  <div class="t">
+    <h1>Boussole <span>IA</span> — Accompagnement</h1>
+    <p class="sub">Chaque mois : un nouveau cas d'usage, la qualité vérifiée, et une équipe qui monte en compétence.</p>
+  </div>
+  <div class="meta"><b>Atmart LLC</b>Conseil aux entreprises<br />et aux ONG<br />atmart.ltd</div>
+</header>
+
+<p class="promise">Une automatisation qui tourne se dégrade si personne ne la surveille : les données changent, les modèles évoluent, les équipes tournent. L'accompagnement <b>maintient la qualité prouvée</b> et ajoute <b>un cas d'usage par mois</b> — sans engagement de durée.</p>
+
+<h2>Pour qui</h2>
+<p style="margin:0;color:#45555f">Les organisations qui sortent d'un <b class="navy">Pilote</b> et veulent continuer à avancer · celles qui utilisent déjà des outils d'IA <b class="navy">sans contrôle ni règles écrites</b> · celles dont les équipes changent souvent et qui doivent former en continu.</p>
+
+<div class="cols">
+  <div class="c">
+    <h2>Ce qui se passe chaque mois</h2>
+    <ol class="steps">
+      <li><b>Un nouveau cas d'usage</b><span>Une tâche de plus, conçue et mise en service avec la même méthode : critères écrits, contrôle humain, tests.</span></li>
+      <li><b>La revue de qualité</b><span>Nous rejouons vos jeux de tests sur les automatisations existantes et vous signalons toute dérive avant qu'elle ne fasse mal.</span></li>
+      <li><b>Le tableau de coût</b><span>Ce que vous avez réellement dépensé, par tâche et par mois, avec les plafonds tenus ou dépassés.</span></li>
+      <li><b>Une session avec l'équipe</b><span>Une heure : ce qui marche, ce qui bloque, comment mieux superviser. Les licences Career360 Ekip sont incluses pour la pratique entre les sessions.</span></li>
+      <li><b>La veille de gouvernance</b><span>Vos règles internes tenues à jour quand les outils, les prix ou les obligations changent.</span></li>
+    </ol>
+    <h2>Ce qui n'est pas inclus</h2>
+    <p style="margin:0;color:#45555f">Le développement d'une automatisation lourde (c'est un <b>Pilote</b>), l'assistance 24 h/24, la maintenance de vos logiciels métier, et l'achat de licences tierces. Le mois n'est pas cumulable : un cas d'usage non demandé n'est pas reporté.</p>
+  </div>
+
+  <div class="c">
+    <h2>Ce que vous recevez</h2>
+    <ul class="deliv">
+      <li><b>Un cas d'usage par mois</b><span>Choisi par vous dans votre feuille de route, livré avec ses tests.</span></li>
+      <li><b>Le rapport mensuel</b><span>Qualité mesurée, coûts réels, dérives détectées, décisions à prendre.</span></li>
+      <li><b>Les licences Career360 Ekip</b><span>Jusqu'à 5 membres : le coach de montée en compétences de votre équipe, en 4 langues.</span></li>
+      <li><b>Les règles internes à jour</b><span>Ce qui ne doit jamais entrer dans un outil d'IA, révisé à chaque changement.</span></li>
+      <li><b>La priorité sur nos disponibilités</b><span>Vos demandes passent avant les nouvelles missions.</span></li>
+      <li><b>Le droit de partir</b><span>Résiliable à tout moment avec 30 jours de préavis. Tout ce qui a été livré vous appartient.</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="price">
+  <div class="amt">à partir de 1 000 $/mois<small>mensuel, résiliable à tout moment</small></div>
+  <div class="txt"><b>Le tarif dépend du nombre d'automatisations à surveiller et de la taille de l'équipe accompagnée.</b><br />Aucun engagement de durée : si l'accompagnement n'apporte plus rien, vous arrêtez — et vous gardez les tests, la piste d'audit et la documentation. C'est la meilleure garantie que nous devons rester utiles chaque mois.</div>
+</div>
+
+<h2>Pourquoi Atmart</h2>
+<div class="why">
+  <div><b>La qualité reste prouvable</b>Les tests rejoués chaque mois : vous savez si l'outil dérive, vous ne le devinez pas.</div>
+  <div><b>Le logiciel avec le service</b>Les licences Career360 Ekip sont comprises — l'équipe pratique entre deux sessions.</div>
+  <div><b>Vous restez libre</b>Résiliation à 30 jours, livrables à vous, aucun verrouillage technique.</div>
+</div>
+
+<div class="next">
+  <div class="l">
+    <h3>Prochaine étape : une conversation de 30 minutes</h3>
+    <p>Dites-nous ce qui tourne déjà chez vous et ce que vous voulez ajouter. Si un simple pilote suffit et qu'un accompagnement serait superflu, nous le dirons — nous préférons une mission utile à un abonnement de confort.</p>
+  </div>
+  <div class="r"><b>sales@atmart.ltd</b><br />atmart.ltd/conseil-ia.html</div>
+</div>
+
+<p class="legal">Atmart LLC — conseil en usage de l'intelligence artificielle. L'accompagnement est une prestation de suivi et d'amélioration : la qualité est mesurée, jamais garantie de façon absolue. Les services d'IA tiers peuvent modifier leurs prix et leurs règles ; les plafonds de dépense et les replis manuels sont revus à chaque rapport mensuel. Un accord de confidentialité couvre l'ensemble de la relation. Document non contractuel — la proposition finale est établie après échange.</p>
+
+</body>
+</html>
