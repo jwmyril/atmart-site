@@ -1,5 +1,5 @@
 // Atmart PWA — cache statique (les appels IA passent toujours par le reseau)
-const CACHE = "atmart-v52";
+const CACHE = "atmart-v53";
 
 // Le noyau du site : navigation et identite visuelle.
 const CORE = ["/", "/index.html", "/chofe360.html", "/karye360.html", "/studio.html", "/atelier.html",
@@ -8,7 +8,7 @@ const CORE = ["/", "/index.html", "/chofe360.html", "/karye360.html", "/studio.h
   "/atelier-collection.html", "/atelier-diaspora.html",
   "/assets/atelier.css?v=2", "/assets/atelier.js?v=3", "/assets/atelier-offres.js?v=1",
   "/assets/atelier/oeuvres.json", "/assets/atelier/collection.json",
-  "/assets/style.css?v=31", "/assets/script.js?v=2", "/assets/i18n.js?v=11",
+  "/assets/style.css?v=31", "/assets/script.js?v=2", "/assets/i18n.js?v=12",
   "/assets/i18n/ht.json", "/assets/i18n/en.json", "/assets/i18n/es.json",
   "/assets/i18n/explorateur.en.json", "/assets/i18n/explorateur.ht.json",
   "/assets/i18n/explorateur.es.json",
