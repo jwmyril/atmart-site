@@ -1,0 +1,5 @@
+# Le banc d'essai et ses fixtures ne sont PAS publiables : GitHub Pages sert
+# tout le depot, et les fixtures contiennent des territoires synthetiques
+# (« FIXTURE DE TEST — ne pas publier »). Les mettre en ligne reviendrait a
+# poser de fausses donnees haitiennes sur atmart.ltd.
+tests/

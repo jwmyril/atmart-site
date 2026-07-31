@@ -28,6 +28,9 @@
     document.querySelectorAll("[data-i18n-aria]").forEach((el) => { el.setAttribute("aria-label", val(el.dataset.i18nAria, orig.get(el))); });
     document.documentElement.lang = lang;
     localStorage.setItem("atmart_lang", lang);
+    // Les pages qui fabriquent leur contenu en JS (Explorateur) ne peuvent pas
+    // etre traduites par attributs : on les previent pour qu'elles redessinent.
+    document.dispatchEvent(new CustomEvent("atmart:lang", { detail: lang }));
     document.querySelectorAll(".lang-opt").forEach((b) => b.classList.toggle("active", b.dataset.lang === lang));
     const cur = document.querySelector(".lang-current");
     if (cur) cur.textContent = "🌐 " + lang.toUpperCase();

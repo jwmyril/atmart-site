@@ -1,5 +1,5 @@
 // Atmart PWA — cache statique (les appels IA passent toujours par le reseau)
-const CACHE = "atmart-v49";
+const CACHE = "atmart-v51";
 
 // Le noyau du site : navigation et identite visuelle.
 const CORE = ["/", "/index.html", "/chofe360.html", "/karye360.html", "/studio.html", "/atelier.html",
@@ -8,8 +8,10 @@ const CORE = ["/", "/index.html", "/chofe360.html", "/karye360.html", "/studio.h
   "/atelier-collection.html", "/atelier-diaspora.html",
   "/assets/atelier.css?v=2", "/assets/atelier.js?v=3", "/assets/atelier-offres.js?v=1",
   "/assets/atelier/oeuvres.json", "/assets/atelier/collection.json",
-  "/assets/style.css?v=31", "/assets/script.js?v=2", "/assets/i18n.js",
+  "/assets/style.css?v=31", "/assets/script.js?v=2", "/assets/i18n.js?v=11",
   "/assets/i18n/ht.json", "/assets/i18n/en.json", "/assets/i18n/es.json",
+  "/assets/i18n/explorateur.en.json", "/assets/i18n/explorateur.ht.json",
+  "/assets/i18n/explorateur.es.json",
   "/assets/brand/logo-dark-96.png", "/assets/brand/icon-192.png"];
 
 // Atmart Data hors connexion. C'est tout l'interet : en Haiti, une connexion
@@ -21,7 +23,7 @@ const DATA = [
   "/datasets.html", "/donnees-solutions.html", "/donnees-campus.html",
   "/donnees-parrainage.html", "/donnees-confiance.html",
   "/donnees-pack-geo-haiti.html",
-  "/assets/data.css?v=11", "/assets/explorateur.js?v=13",
+  "/assets/data.css?v=11", "/assets/explorateur.js?v=15",
   "/data/atmart_referentiel_territoire_base_HT.csv",
   "/data/atmart_indicateurs_communes_HT.csv",
   "/data/atmart_referentiel_indicateurs.csv",

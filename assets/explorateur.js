@@ -28,6 +28,79 @@
   var aggEntite = {};   /* agregats precalcules des departements et arrondissements */
   var $ = function (s) { return document.querySelector(s); };
 
+  /* ------------------------------------------------------------------ langue
+     La cle de traduction est la phrase francaise elle-meme. Deux consequences
+     voulues : aucun nom de cle a inventer, et une traduction absente degrade
+     vers le francais lisible plutot que vers une cle technique affichee crue. */
+  var LANG = "fr", DICO = {};
+  var LOCALE = { fr: "fr-FR", ht: "fr-HT", en: "en-US", es: "es-ES" };
+  var BASE = CFG.base || "";
+
+  function substituer(t, vars) {
+    Object.keys(vars || {}).forEach(function (k) {
+      t = t.split("{" + k + "}").join(vars[k]);
+    });
+    return t;
+  }
+  function T(t) {
+    if (LANG === "fr" || !t) return t;
+    var v = DICO[t];
+    if (v == null) return t;
+    return typeof v === "string" ? v : (v.other || v.one || t);
+  }
+  /* Une phrase a variables reste une seule unite de traduction : le traducteur
+     voit la phrase entiere et peut deplacer les variables selon sa grammaire. */
+  function TF(t, vars) { return substituer(T(t), vars); }
+
+  /* Le pluriel n'obeit pas aux memes regles partout : le francais met zero au
+     singulier, l'anglais et l'espagnol au pluriel, et le creole n'inflechit pas
+     apres un nombre. Une seule regle francaise cablee en dur produirait
+     « 0 communes » en francais et « 1 territories » en anglais. */
+  function formePlurielle(n) {
+    if (LANG === "fr") return n < 2 ? "one" : "other";
+    if (LANG === "ht") return "other";
+    return n === 1 ? "one" : "other";
+  }
+  /* formes = { one: "...", other: "..." } en francais ; la cle de traduction
+     est la forme « other ». Une langue peut ne fournir qu'une chaine. */
+  function TN(formes, n, vars) {
+    var trad = LANG === "fr" ? formes : DICO[formes.other];
+    if (trad == null) trad = formes;
+    if (typeof trad === "string") trad = { one: trad, other: trad };
+    var f = trad[formePlurielle(n)] || trad.other || trad.one;
+    return substituer(f, vars || {});
+  }
+
+  /* Un rang ne s'ecrit pas pareil partout : 1er/2e en francais, 1st/2nd en
+     anglais, 1.º/2.º en espagnol, 1ye/2yem en creole. Coller « <sup>e</sup> »
+     a un chiffre ne marche qu'en francais. */
+  function ordinal(n) {
+    if (LANG === "en") {
+      var r100 = n % 100, r10 = n % 10;
+      var suf = (r100 >= 11 && r100 <= 13) ? "th"
+              : r10 === 1 ? "st" : r10 === 2 ? "nd" : r10 === 3 ? "rd" : "th";
+      return n + "<sup>" + suf + "</sup>";
+    }
+    if (LANG === "es") return n + ".<sup>o</sup>";
+    if (LANG === "ht") return n === 1 ? "1<sup>ye</sup>" : n + "<sup>yèm</sup>";
+    return n === 1 ? "1<sup>er</sup>" : n + "<sup>e</sup>";
+  }
+
+  /* « de Ouest » se dit « de l'Ouest » : elision devant voyelle. C'est une
+     regle francaise. Les autres langues recoivent le nom brut et composent
+     leur propre tournure dans leur modele de phrase. */
+  function deNom(n) {
+    return /^[aeiouyéèêàâîôûAEIOUYÉÈÊÀÂÎÔÛ]/.test(n) ? "de l'" + n : "de " + n;
+  }
+  function chargerLangue(l) {
+    LANG = LOCALE[l] ? l : "fr";
+    if (LANG === "fr") { DICO = {}; return Promise.resolve(); }
+    return fetch(BASE + "assets/i18n/explorateur." + LANG + ".json" + DV, { cache: "no-cache" })
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .then(function (j) { DICO = j || {}; })
+      .catch(function () { DICO = {}; });  /* dictionnaire absent : on reste en francais */
+  }
+
   /* ---------------------------------------------------------------- outils */
   function parseCSV(txt) {
     txt = txt.replace(/^﻿/, "");
@@ -53,13 +126,18 @@
   function fmt(v, u) {
     var n = nb(v);
     if (n === null) return esc(v) || "—";
-    var s = (Math.round(n * 100) / 100).toLocaleString("fr-FR");
+    var s = (Math.round(n * 100) / 100).toLocaleString(LOCALE[LANG]);
     return u === "%" ? s + " %" : (u && u !== "nombre" ? s + " " + esc(u) : s);
   }
+  /* La date suit la langue : 31/07/2026 en francais et en creole,
+     7/31/2026 en anglais, 31/7/2026 en espagnol. */
   function jour(d) {
     if (!d) return "—";
     var p = d.split("-");
-    return p.length === 3 ? p[2] + "/" + p[1] + "/" + p[0] : d;
+    if (p.length !== 3) return d;
+    var dt = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
+    if (isNaN(dt.getTime())) return d;
+    return dt.toLocaleDateString(LOCALE[LANG], { timeZone: "UTC" });
   }
 
   var NIVEAU = { "1": "Département", "2": "Arrondissement", "3": "Commune",
@@ -76,53 +154,51 @@
   /* Quatre objectifs plutôt que sept profils : chacun réordonne les thèmes,
      change le résumé et propose des actions différentes. */
   var OBJECTIFS = {
-    tout: { nom: "Vue complète", ordre: null },
+    tout: { nom: T("Vue complète"), ordre: null },
     planifier: {
-      nom: "Planifier les services publics",
+      nom: T("Planifier les services publics"),
       ordre: ["Territoire", "Santé", "Éducation", "Marchés", "Qualité"],
       resume: function (r, s) {
-        return "Profil administratif de " + esc(r.nom_fr) + ". " + s.phrase +
-               " Les données disponibles couvrent " + s.themes + ". " +
-               s.absents + " indicateur" + (s.nAbsents > 1 ? "s" : "") +
-               " reste" + (s.nAbsents > 1 ? "nt" : "") + " à documenter sur cette commune.";
+        return TF(s.nAbsents > 1
+          ? T("Profil administratif de {n}. {phrase} Les données disponibles couvrent {themes}. {absents} indicateurs restent à documenter sur cette commune.")
+          : T("Profil administratif de {n}. {phrase} Les données disponibles couvrent {themes}. {absents} indicateur reste à documenter sur cette commune."),
+          { n: esc(r.nom_fr), phrase: s.phrase, themes: s.themes, absents: s.absents });
       },
-      actions: [["Comparer aux communes voisines", "#comparer"],
-                ["Voir ce qui reste à documenter", "#lacunes"],
+      actions: [[T("Comparer aux communes voisines"), "#comparer"],
+                [T("Voir ce qui reste à documenter"), "#lacunes"],
                 ["Licence institutionnelle", "donnees-solutions.html#licences"]]
     },
     projet: {
-      nom: "Préparer un projet ou une intervention",
+      nom: T("Préparer un projet ou une intervention"),
       ordre: ["Santé", "Éducation", "Marchés", "Territoire", "Qualité"],
       resume: function (r, s) {
-        return "Avant d'intervenir sur " + esc(r.nom_fr) + " : " + s.phrase +
-               " Le score de complétude vous dit d'avance sur quoi votre diagnostic " +
-               "reposera — et sur quoi il ne reposera pas.";
+        return TF("Avant d'intervenir sur {n} : {phrase} Le score de complétude vous dit d'avance sur quoi votre diagnostic reposera — et sur quoi il ne reposera pas.",
+          { n: esc(r.nom_fr), phrase: s.phrase });
       },
-      actions: [["Voir ce qui reste à documenter", "#lacunes"],
-                ["Référentiel géographique complet", "donnees-pack-geo-haiti.html"],
-                ["Packs décisionnels", "donnees-solutions.html#packs"]]
+      actions: [[T("Voir ce qui reste à documenter"), "#lacunes"],
+                [T("Référentiel géographique complet"), "donnees-pack-geo-haiti.html"],
+                [T("Packs décisionnels"), "donnees-solutions.html#packs"]]
     },
     recherche: {
-      nom: "Réaliser une recherche",
+      nom: T("Réaliser une recherche"),
       ordre: ["Qualité", "Territoire", "Santé", "Éducation", "Marchés"],
       resume: function (r, s) {
-        return "Chaque valeur affichée pour " + esc(r.nom_fr) + " porte son année de référence, " +
-               "sa source et sa méthode de calcul — de quoi les reprendre dans une méthodologie. " +
-               s.phrase;
+        return TF("Chaque valeur affichée pour {n} porte son année de référence, sa source et sa méthode de calcul — de quoi les reprendre dans une méthodologie. {phrase}",
+          { n: esc(r.nom_fr), phrase: s.phrase });
       },
-      actions: [["Définitions et méthodes", "donnees-backbone.html#indicateurs"],
-                ["Accès Campus pour un mémoire", "donnees-campus.html"],
-                ["Registre des sources", "data/atmart_registre_sources.csv"]]
+      actions: [[T("Définitions et méthodes"), "donnees-backbone.html#indicateurs"],
+                [T("Accès Campus pour un mémoire"), "donnees-campus.html"],
+                [T("Registre des sources"), "data/atmart_registre_sources.csv"]]
     },
     macommune: {
       nom: "Explorer ma commune",
       ordre: ["Territoire", "Éducation", "Santé", "Marchés", "Qualité"],
       resume: function (r, s) {
-        return "Ce que l'on sait publiquement de " + esc(r.nom_fr) + " : " + s.phrase +
-               " Tout ceci est libre et téléchargeable.";
+        return TF("Ce que l'on sait publiquement de {n} : {phrase} Tout ceci est libre et téléchargeable.",
+          { n: esc(r.nom_fr), phrase: s.phrase });
       },
-      actions: [["Télécharger les données libres", "datasets.html#shelf-free"],
-                ["Comment ces chiffres sont établis", "donnees-backbone.html"]]
+      actions: [[T("Télécharger les données libres"), "datasets.html#shelf-free"],
+                [T("Comment ces chiffres sont établis"), "donnees-backbone.html"]]
     }
   };
 
@@ -136,8 +212,7 @@
     km2: { nom: "Pour 100 km\u00b2", suffixe: " / 100 km\u00b2", possible: true },
     part: { nom: "Part du total national", suffixe: " %", possible: true },
     habitant: { nom: "Pour 10 000 habitants \u2014 indisponible", suffixe: "", possible: false,
-                raison: "La population communale n'est pas encore int\u00e9gr\u00e9e : aucune des " +
-                        "192 entit\u00e9s n'en porte. Cet indicateur attend les estimations IHSI." }
+                raison: "La population communale n'est pas encore int\u00e9gr\u00e9e : aucune des 192 entit\u00e9s n'en porte. Cet indicateur attend les estimations IHSI." }
   };
 
   /* La normalisation n'a de sens que sur un comptage : normaliser un
@@ -204,21 +279,27 @@
     el.hidden = false;
     if (!liste.length) {
       var sug = proches(q);
-      el.innerHTML = '<p class="x-vide">Aucun territoire ne correspond à « ' + esc(q) + " ».</p>" +
-        (sug.length ? '<p class="x-vide" style="padding-top:0">Vouliez-vous dire :</p>' +
-          sug.map(function (r) { return carteResultat(r); }).join("") :
-          '<p class="x-vide" style="padding-top:0">Essayez un nom de commune, un p-code (HT0121) ' +
-          "ou un identifiant Atmart.</p>");
-      annoncer(sug.length ? "Aucun résultat exact, " + sug.length + " suggestions" : "Aucun résultat");
+      el.innerHTML = '<p class="x-vide">' +
+        TF("Aucun territoire ne correspond à « {q} ».", { q: esc(q) }) + "</p>" +
+        (sug.length
+          ? '<p class="x-vide" style="padding-top:0">' + T("Vouliez-vous dire :") + "</p>" +
+            sug.map(function (r) { return carteResultat(r); }).join("")
+          : '<p class="x-vide" style="padding-top:0">' +
+            T("Essayez un nom de commune, un p-code (HT0121) ou un identifiant Atmart.") + "</p>");
+      annoncer(sug.length
+        ? TN({ one: "Aucun résultat exact. {n} suggestion proche.",
+               other: "Aucun résultat exact. {n} suggestions proches." }, sug.length, { n: sug.length })
+        : T("Aucun résultat."));
       return;
     }
     el.innerHTML = liste.map(carteResultat).join("");
-    annoncer(liste.length + " territoire" + (liste.length > 1 ? "s" : "") + " trouvé" + (liste.length > 1 ? "s" : ""));
+    annoncer(TN({ one: "{n} territoire trouvé.", other: "{n} territoires trouvés." },
+                liste.length, { n: liste.length }));
   }
   function carteResultat(r) {
     return '<button class="x-res" role="option" data-id="' + esc(r.atmart_geo_id) + '"><b>' +
       esc(r.nom_fr) + "</b>" + (r.nom_ht && r.nom_ht !== r.nom_fr ? " <i>" + esc(r.nom_ht) + "</i>" : "") +
-      "<small>" + (NIVEAU[r.niveau_admin] || esc(r.type_entite)) + " · " +
+      "<small>" + (T(NIVEAU[r.niveau_admin]) || esc(r.type_entite)) + " · " +
       esc(r.pcode || r.source_geo_id) + "</small></button>";
   }
   function annoncer(t) { var a = $("#x-annonce"); if (a) a.textContent = t; }
@@ -247,11 +328,18 @@
     while (cur && g++ < 6) { ch.unshift(cur); cur = parId[cur.parent_atmart_geo_id]; }
     var dep = ch.filter(function (x) { return x.niveau_admin === "1"; })[0];
     var arr = ch.filter(function (x) { return x.niveau_admin === "2"; })[0];
-    /* « du département de Ouest » se dit « de l'Ouest » : élision devant voyelle. */
-    function de(n) { return /^[aeiouyéèêàâîôûAEIOUYÉÈÊÀÂÎÔÛ]/.test(n) ? "de l'" + n : "de " + n; }
-    var t = NIVEAU[r.niveau_admin] || r.type_entite;
-    if (dep) t += " du département " + de(dep.nom_fr);
-    if (arr && r.niveau_admin === "3") t += ", arrondissement " + de(arr.nom_fr);
+    /* Chaque langue reçoit le nom brut ET la forme élidée française : elle
+       compose sa propre tournure au lieu de recevoir « du département » collé. */
+    var t = T(NIVEAU[r.niveau_admin]) || r.type_entite;
+    if (dep && arr && r.niveau_admin === "3") {
+      return TF("{niveau} du département {dep_de}, arrondissement {arr_de}",
+        { niveau: t, dep: dep.nom_fr, dep_de: deNom(dep.nom_fr),
+          arr: arr.nom_fr, arr_de: deNom(arr.nom_fr) });
+    }
+    if (dep) {
+      return TF("{niveau} du département {dep_de}",
+        { niveau: t, dep: dep.nom_fr, dep_de: deNom(dep.nom_fr) });
+    }
     return t;
   }
 
@@ -274,9 +362,15 @@
       nSources: Object.keys(sources).length,
       completude: comp,
       annees: annees.length ? [Math.min.apply(null, annees), Math.max.apply(null, annees)] : null,
-      themes: Object.keys(themes).map(function (t) { return t.toLowerCase(); }).join(", ") || "aucun thème",
-      phrase: (sec ? "Elle compte " + sec + " section" + (sec > 1 ? "s" : "") + " communale" +
-               (sec > 1 ? "s" : "") : "") + (loc ? " et " + loc + " localités référencées." : ".")
+      themes: Object.keys(themes).map(function (t) { return T(t).toLowerCase(); }).join(", ") || T("aucun thème"),
+      phrase: !sec
+        ? ""
+        : (loc
+            ? TN({ one: "Elle compte {sec} section communale et {loc} localités référencées.",
+                   other: "Elle compte {sec} sections communales et {loc} localités référencées." },
+                 +sec, { sec: sec, loc: loc })
+            : TN({ one: "Elle compte {sec} section communale.",
+                   other: "Elle compte {sec} sections communales." }, +sec, { sec: sec }))
     };
   }
 
@@ -291,19 +385,28 @@
     if (r.niveau_admin === "3") {
       h.push('<div class="x-actions">');
       h.push('<button class="btn btn-primary x-btn-export" data-export="' + esc(r.pcode) + '">' +
-             "Télécharger les " + s.nConnus + " indicateurs de " + esc(r.nom_fr) + " (CSV)</button>");
-      h.push('<button class="btn btn-outline x-btn-lien">Copier le lien de cette fiche</button>');
-      h.push('<a class="btn btn-outline" href="#lacunes">Ce qui reste à documenter (' + s.nAbsents + ")</a>");
+             TN({ one: "Télécharger l'indicateur de {nom} (CSV)",
+                  other: "Télécharger les {n} indicateurs de {nom} (CSV)" },
+                s.nConnus, { n: s.nConnus, nom: esc(r.nom_fr) }) + "</button>");
+      h.push('<button class="btn btn-outline x-btn-lien">' +
+             T("Copier le lien de cette fiche") + "</button>");
+      h.push('<a class="btn btn-outline" href="#lacunes">' +
+             TF("Ce qui reste à documenter ({n})", { n: s.nAbsents }) + "</a>");
       h.push('<button class="btn btn-outline x-btn-comp" data-comparer="' + esc(r.atmart_geo_id) +
-             '">Ajouter à la comparaison</button>');
-      h.push('<button class="btn btn-outline x-btn-print">Imprimer / PDF</button>');
+             '">' + T("Ajouter à la comparaison") + "</button>");
+      h.push('<button class="btn btn-outline x-btn-print">' + T("Imprimer / PDF") + "</button>");
       h.push("</div>");
-      h.push('<p class="x-confiance">Fiche ' + esc(r.version) + " · " + s.nSources + " source" +
-             (s.nSources > 1 ? "s" : "") +
-             (s.completude ? " · complétude " + s.completude + " %" : "") +
-             (s.annees ? " · données de " + s.annees[0] + " à " + s.annees[1] : "") +
-             " · mise à jour Atmart le " + jour(maj.date_extraction) +
-             ' · <a href="donnees-backbone.html#statuts">méthodologie</a></p>');
+      /* Ligne de confiance : chaque segment est une phrase autonome, assemblée
+         par un séparateur neutre. Aucune langue n'hérite de l'ordre français. */
+      var seg = [
+        TF("Fiche {version}", { version: esc(r.version) }),
+        TN({ one: "{n} source", other: "{n} sources" }, s.nSources, { n: s.nSources })
+      ];
+      if (s.completude) seg.push(TF("complétude {pct} %", { pct: s.completude }));
+      if (s.annees) seg.push(TF("données de {a} à {b}", { a: s.annees[0], b: s.annees[1] }));
+      seg.push(TF("mise à jour Atmart le {date}", { date: jour(maj.date_extraction) }));
+      h.push('<p class="x-confiance">' + seg.join(" · ") +
+             ' · <a href="donnees-backbone.html#statuts">' + T("méthodologie") + "</a></p>");
     }
     h.push("</div>");
     return h.join("");
@@ -371,12 +474,16 @@
     var nFam = Object.keys(famille).filter(function (k) { return k !== r.atmart_geo_id; }).length;
     var commune = r.niveau_admin === "3";
     var libFam = commune
-      ? nFam + " autre" + (nFam > 1 ? "s" : "") + " commune" + (nFam > 1 ? "s" : "") +
-        " du même arrondissement"
-      : "ses " + nFam + " communes";
+      ? TN({ one: "{n} autre commune du même arrondissement",
+             other: "{n} autres communes du même arrondissement" }, nFam, { n: nFam })
+      : TN({ one: "sa commune", other: "ses {n} communes" }, nFam, { n: nFam });
+    /* Texte alternatif de la carte : une phrase entière par cas, jamais un
+       assemblage — un lecteur d'écran lit une phrase, pas des morceaux. */
     var alt = commune
-      ? r.nom_fr + " est située sur la carte d'Haïti, avec les " + libFam + "."
-      : r.nom_fr + " sur la carte d'Haïti : " + libFam + " sont mises en évidence.";
+      ? TF("{nom} est située sur la carte d'Haïti, avec {famille}.",
+           { nom: r.nom_fr, famille: libFam, n: nFam })
+      : TF("{nom} sur la carte d'Haïti : {famille} sont mises en évidence.",
+           { nom: r.nom_fr, famille: libFam, n: nFam });
 
     return '<div class="x-carte"><svg viewBox="0 0 ' + L + " " + H + '" role="img" ' +
       'aria-label="' + esc(alt) + '" preserveAspectRatio="xMidYMid meet">' +
@@ -384,10 +491,12 @@
       '<p class="x-legende">' +
       (commune ? '<span class="x-l-sel"></span> ' + esc(r.nom_fr) + "  " : "") +
       '<span class="x-l-pro"></span> ' + esc(libFam) +
-      '  <span class="x-l-autre"></span> autres communes du pays' +
-      ' — <a href="donnees-pack-geo-haiti.html">limites détaillées et polygones</a></p>' +
-      '<p class="x-note">Carte de situation : contour national du CNIGS simplifié, ' +
-      "centres officiels des communes. Cliquez un point pour ouvrir sa fiche.</p></div>";
+      '  <span class="x-l-autre"></span> ' + T("autres communes du pays") +
+      ' — <a href="donnees-pack-geo-haiti.html">' +
+      T("limites détaillées et polygones") + "</a></p>" +
+      '<p class="x-note">' +
+      T("Carte de situation : contour national du CNIGS simplifié, centres officiels des communes. Cliquez un point pour ouvrir sa fiche.") +
+      "</p></div>";
   }
 
   function blocObjectif(r) {
@@ -395,11 +504,11 @@
     var o = OBJECTIFS[objectif];
     if (!o || !o.resume) return "";
     var s = synthese(r);
-    return '<div class="x-objectif"><p class="x-theme">' + esc(o.nom) + "</p><p>" + o.resume(r, s) + "</p>" +
+    return '<div class="x-objectif"><p class="x-theme">' + esc(T(o.nom)) + "</p><p>" + o.resume(r, s) + "</p>" +
       '<div class="x-actions x-actions-sec">' + (o.actions || []).map(function (a) {
         return a[1].charAt(0) === "#"
-          ? '<a class="btn btn-outline" href="' + a[1] + '">' + esc(a[0]) + "</a>"
-          : '<a class="btn btn-outline" href="' + a[1] + '">' + esc(a[0]) + " →</a>";
+          ? '<a class="btn btn-outline" href="' + a[1] + '">' + esc(T(a[0])) + "</a>"
+          : '<a class="btn btn-outline" href="' + a[1] + '">' + esc(T(a[0])) + " →</a>";
       }).join("") + "</div></div>";
   }
 
@@ -416,30 +525,37 @@
                 ["Territoire", "Santé", "Éducation", "Marchés", "Qualité"];
     var cles = ordre.filter(function (c) { return groupes[c]; })
                     .concat(Object.keys(groupes).filter(function (c) { return ordre.indexOf(c) < 0; }));
-    var h = ['<h3 class="x-h3" id="indicateurs">Indicateurs documentés</h3>',
-             '<p class="x-note" style="margin-top:0">Chaque chiffre porte son année de référence, ' +
-             "sa source et son statut. Dépliez une carte pour la définition et la méthode.</p>"];
+    var h = ['<h3 class="x-h3" id="indicateurs">' + T("Indicateurs documentés") + "</h3>",
+             '<p class="x-note" style="margin-top:0">' +
+             T("Chaque chiffre porte son année de référence, sa source et son statut. Dépliez une carte pour la définition et la méthode.") +
+             "</p>"];
     cles.forEach(function (cat) {
-      h.push('<p class="x-theme">' + (THEME[cat] || esc(cat)) + "</p>");
+      h.push('<p class="x-theme">' + (T(THEME[cat]) || esc(cat)) + "</p>");
       h.push('<div class="x-mesures">' + groupes[cat].map(function (p) {
         var v = p[0], d = p[1], rg = rang(v.indicateur_id, r.pcode);
         return '<details class="x-mesure"><summary>' +
           "<b>" + fmt(v.valeur, v.unite) + "</b>" +
           "<span>" + esc(d.nom || v.indicateur_id) + "</span>" +
-          '<small class="x-mill">' + (v.annee_reference ? "Millésime " + esc(v.annee_reference) + " · " : "") +
+          '<small class="x-mill">' +
+          (v.annee_reference ? TF("Millésime {an}", { an: esc(v.annee_reference) }) + " · " : "") +
           esc((d.source_primaire || v.source).split(" — ")[0]) + "</small>" +
-          (rg ? '<small class="x-rang">' + rg.rang + "<sup>e</sup> sur " + rg.total +
-                " communes documentées</small>" : "") + "</summary>" +
+          (rg ? '<small class="x-rang">' +
+                TF("{rang} sur {total} communes documentées",
+                   { rang: ordinal(rg.rang), total: rg.total }) + "</small>" : "") + "</summary>" +
           '<div class="x-detail">' +
-          (d.definition ? "<p><b>Définition.</b> " + esc(d.definition) + "</p>" : "") +
-          (d.methode_calcul ? "<p><b>Méthode.</b> " + esc(d.methode_calcul) + "</p>" : "") +
-          "<p><b>Statut.</b> " + esc(STATUT[v.statut_valeur] || v.statut_valeur) + " · " +
-          esc(QUALITE[v.niveau_qualite] || v.niveau_qualite) + "</p>" +
-          "<p><b>Source.</b> " + esc(v.source) +
-          (v.date_source ? ", publiée le " + jour(v.date_source) : "") +
-          " · relevée par Atmart le " + jour(v.date_extraction) + "</p>" +
-          (d.limites_connues ? '<p class="x-limite"><b>Limites.</b> ' + esc(d.limites_connues) + "</p>" : "") +
-          (d.sens_interpretation ? "<p><b>Lecture.</b> " + esc(d.sens_interpretation) + "</p>" : "") +
+          (d.definition ? "<p><b>" + T("Définition.") + "</b> " + esc(d.definition) + "</p>" : "") +
+          (d.methode_calcul ? "<p><b>" + T("Méthode.") + "</b> " + esc(d.methode_calcul) + "</p>" : "") +
+          "<p><b>" + T("Statut.") + "</b> " + esc(T(STATUT[v.statut_valeur]) || v.statut_valeur) + " · " +
+          esc(T(QUALITE[v.niveau_qualite]) || v.niveau_qualite) + "</p>" +
+          "<p><b>" + T("Source.") + "</b> " +
+          (v.date_source
+            ? TF("{src}, publiée le {date}", { src: esc(v.source), date: jour(v.date_source) })
+            : esc(v.source)) + " · " +
+          TF("relevée par Atmart le {date}", { date: jour(v.date_extraction) }) + "</p>" +
+          (d.limites_connues ? '<p class="x-limite"><b>' + T("Limites.") + "</b> " +
+            esc(d.limites_connues) + "</p>" : "") +
+          (d.sens_interpretation ? "<p><b>" + T("Lecture.") + "</b> " +
+            esc(d.sens_interpretation) + "</p>" : "") +
           "</div></details>";
       }).join("") + "</div>");
     });
@@ -450,29 +566,37 @@
     var m = vals.filter(function (v) { return v.pcode_commune === r.pcode; });
     var absents = m.filter(function (v) { return v.statut_valeur === "N"; });
     var bloques = Object.keys(dico).filter(function (k) { return dico[k].statut !== "Disponible"; });
-    var h = ['<h3 class="x-h3" id="lacunes">Ce qui reste à documenter</h3>'];
-    h.push('<p class="x-note" style="margin-top:0">Une case vide n\'est pas un zéro. ' +
-           "Chaque ligne indique pourquoi la donnée manque et ce qui la débloquerait.</p>");
-    h.push('<div class="x-tabwrap"><table class="x-tab x-lacunes"><thead><tr>' +
-           "<th>Indicateur</th><th>À quoi il sert</th><th>Pourquoi il manque</th>" +
-           "<th>Ce qui le débloquerait</th></tr></thead><tbody>");
+    var h = ['<h3 class="x-h3" id="lacunes">' + T("Ce qui reste à documenter") + "</h3>"];
+    h.push('<p class="x-note" style="margin-top:0">' +
+           T("Une case vide n'est pas un zéro. Chaque ligne indique pourquoi la donnée manque et ce qui la débloquerait.") +
+           "</p>");
+    h.push('<div class="x-tabwrap"><table class="x-tab x-lacunes"><thead><tr><th>' +
+           T("Indicateur") + "</th><th>" + T("À quoi il sert") + "</th><th>" +
+           T("Pourquoi il manque") + "</th><th>" + T("Ce qui le débloquerait") +
+           "</th></tr></thead><tbody>");
     absents.forEach(function (v) {
       var d = dico[v.indicateur_id] || {};
       h.push("<tr><td><b>" + esc(d.nom || v.indicateur_id) + "</b></td><td>" +
         esc(d.sens_interpretation || d.definition || "—") + "</td><td>" + esc(v.methode) +
-        '</td><td>Compléter le registre national — <a href="donnees-parrainage.html#catalogue">parrainable</a></td></tr>');
+        "</td><td>" + TF("Compléter le registre national — {lien}",
+          { lien: '<a href="donnees-parrainage.html#catalogue">' + T("parrainable") + "</a>" }) +
+        "</td></tr>");
     });
     bloques.forEach(function (k) {
       var d = dico[k];
       h.push("<tr><td><b>" + esc(d.nom) + "</b></td><td>" + esc(d.sens_interpretation || d.definition) +
         "</td><td>" + esc(d.statut) + " — " + esc(d.dependance) +
-        '</td><td><a href="donnees-parrainage.html#catalogue">Financer la source manquante</a></td></tr>');
+        '</td><td><a href="donnees-parrainage.html#catalogue">' +
+        T("Financer la source manquante") + "</a></td></tr>");
     });
-    if (!absents.length && !bloques.length) h.push("<tr><td colspan=4>Aucune lacune connue.</td></tr>");
+    if (!absents.length && !bloques.length) {
+      h.push("<tr><td colspan=4>" + T("Aucune lacune connue.") + "</td></tr>");
+    }
     h.push("</tbody></table></div>");
-    h.push('<p class="x-note">Vous disposez d\'une source pour l\'une de ces lignes ? ' +
-           '<a href="mailto:sales@atmart.ltd?subject=Source%20pour%20un%20indicateur%20manquant">' +
-           "Signalez-la</a> — elle sera créditée au registre des sources.</p>");
+    h.push('<p class="x-note">' + TF(
+      "Vous disposez d'une source pour l'une de ces lignes ? {lien} — elle sera créditée au registre des sources.",
+      { lien: '<a href="mailto:sales@atmart.ltd?subject=Source%20pour%20un%20indicateur%20manquant">' +
+              T("Signalez-la") + "</a>" }) + "</p>");
     return h.join("");
   }
 
@@ -482,36 +606,38 @@
     var parent = parId[r.parent_atmart_geo_id];
     if (parent) voisins = (enfantsDe[parent.atmart_geo_id] || []).filter(function (x) {
       return x.atmart_geo_id !== r.atmart_geo_id; });
-    var h = ['<h3 class="x-h3" id="comparer">Comparer</h3>'];
+    var h = ['<h3 class="x-h3" id="comparer">' + T("Comparer") + "</h3>"];
     if (voisins.length) {
-      h.push('<p class="x-note" style="margin-top:0">Les autres communes de l\'arrondissement de ' +
-             esc(parent.nom_fr) + " :</p>");
+      h.push('<p class="x-note" style="margin-top:0">' +
+             TF("Les autres communes de l'arrondissement {arr_de} :",
+                { arr: esc(parent.nom_fr), arr_de: deNom(esc(parent.nom_fr)) }) + "</p>");
       h.push('<div class="x-puces">' + voisins.map(function (v) {
         return '<button class="x-puce" data-id="' + esc(v.atmart_geo_id) + '">' + esc(v.nom_fr) + "</button>";
       }).join("") + "</div>");
     }
-    h.push('<p class="x-note">Le <button class="x-lien x-vers-classement">classement des ' +
-           terr.filter(function (x) { return x.niveau_admin === "3"; }).length +
-           " communes</button> permet de situer n'importe quel territoire sur un indicateur, " +
-           "et d'exporter le tableau.</p>");
+    var nCom = terr.filter(function (x) { return x.niveau_admin === "3"; }).length;
+    h.push('<p class="x-note">' + TF(
+      "Le {lien} permet de situer n'importe quel territoire sur un indicateur, et d'exporter le tableau.",
+      { lien: '<button class="x-lien x-vers-classement">' +
+              TF("classement des {n} communes", { n: nCom }) + "</button>" }) + "</p>");
     return h.join("");
   }
 
   function blocTechnique(r) {
-    var l = [["Code officiel (p-code OCHA)", r.pcode || "—"],
-             ["Identifiant Atmart", r.atmart_geo_id],
-             ["Version du référentiel", r.version],
-             ["Découpage en vigueur depuis", jour(r.date_validite_debut)],
-             ["Statut de la valeur", (STATUT[r.statut_valeur] || r.statut_valeur) + " (" + r.statut_valeur + ")"],
-             ["Niveau de qualité", (QUALITE[r.niveau_qualite] || r.niveau_qualite) + " (" + r.niveau_qualite + ")"],
-             ["Source", r.source + (r.date_source ? ", publiée le " + jour(r.date_source) : "")],
-             ["Géométrie", ADMIN ? "disponible dans le Pack Géo" : "non incluse dans l'édition publique"]];
-    if (r.latitude) l.push(["Centre (WGS84)", (+r.latitude).toFixed(5) + ", " + (+r.longitude).toFixed(5)]);
-    if (r.methode) l.push(["Méthode", r.methode]);
-    return '<details class="x-tech"><summary>Informations techniques</summary>' +
-      '<p class="x-note">Deux identifiants coexistent : le <b>p-code</b> est le code officiel ' +
-      "OCHA/CNIGS, utilisé par les acteurs humanitaires ; l'<b>identifiant Atmart</b> ne change " +
-      "jamais, même si la source renumérote, ce qui permet de suivre une entité dans le temps.</p>" +
+    var l = [[T("Code officiel (p-code OCHA)"), r.pcode || "—"],
+             [T("Identifiant Atmart"), r.atmart_geo_id],
+             [T("Version du référentiel"), r.version],
+             [T("Découpage en vigueur depuis"), jour(r.date_validite_debut)],
+             [T("Statut de la valeur"), (T(STATUT[r.statut_valeur]) || r.statut_valeur) + " (" + r.statut_valeur + ")"],
+             [T("Niveau de qualité"), (T(QUALITE[r.niveau_qualite]) || r.niveau_qualite) + " (" + r.niveau_qualite + ")"],
+             [T("Source"), r.date_source
+               ? TF("{src}, publiée le {date}", { src: r.source, date: jour(r.date_source) })
+               : r.source],
+             [T("Géométrie"), ADMIN ? T("disponible dans le Pack Géo") : T("non incluse dans l'édition publique")]];
+    if (r.latitude) l.push([T("Centre (WGS84)"), (+r.latitude).toFixed(5) + ", " + (+r.longitude).toFixed(5)]);
+    if (r.methode) l.push([T("Méthode"), r.methode]);
+    return '<details class="x-tech"><summary>' + T("Informations techniques") + "</summary>" +
+      '<p class="x-note">' + T("Deux identifiants coexistent : le p-code est le code officiel OCHA/CNIGS, utilisé par les acteurs humanitaires ; l'identifiant Atmart ne change jamais, même si la source renumérote, ce qui permet de suivre une entité dans le temps.") + "</p>" +
       '<table class="x-tab">' + l.map(function (x) {
         return "<tr><th>" + esc(x[0]) + "</th><td>" + esc(x[1]) + "</td></tr>"; }).join("") +
       "</table></details>";
@@ -520,22 +646,30 @@
   function blocOrganisations(r) {
     if (!ADMIN) return "";
     var liste = (r.niveau_admin === "3" ? orgsCom[r.pcode] : orgsSec[r.pcode]) || [];
-    if (!liste.length) return '<h3 class="x-h3">Organisations recensées</h3><p class="x-note">Aucune.</p>';
+    if (!liste.length) {
+      return '<h3 class="x-h3">' + T("Organisations recensées") + '</h3><p class="x-note">' +
+             T("Aucune.") + "</p>";
+    }
     var parCat = {};
     liste.forEach(function (o) { (parCat[o.categorie] = parCat[o.categorie] || []).push(o); });
-    var h = ['<h3 class="x-h3">Organisations recensées — ' + liste.length + "</h3>"];
+    var h = ['<h3 class="x-h3">' +
+             TF("Organisations recensées — {n}", { n: liste.length }) + "</h3>"];
     Object.keys(parCat).forEach(function (cat) {
       var g = parCat[cat];
-      h.push('<p class="x-theme">' + (THEME[cat] || esc(cat)) + " — " + g.length + "</p>");
-      h.push('<div class="x-tabwrap"><table class="x-tab x-orgs"><thead><tr><th>Nom</th><th>Type</th>' +
-             "<th>Statut</th><th>Géo</th><th>Identifiant</th></tr></thead><tbody>");
+      h.push('<p class="x-theme">' + (T(THEME[cat]) || esc(cat)) + " — " + g.length + "</p>");
+      h.push('<div class="x-tabwrap"><table class="x-tab x-orgs"><thead><tr><th>' +
+             T("Nom") + "</th><th>" + T("Type") + "</th><th>" + T("Statut") + "</th><th>" +
+             T("Géo") + "</th><th>" + T("Identifiant") + "</th></tr></thead><tbody>");
       g.slice(0, 60).forEach(function (o) {
         h.push("<tr><td>" + esc(o.nom) + "</td><td>" + esc(o.sous_categorie) + "</td><td>" +
           (esc(o.statut) || "—") + "</td><td>" + (o.geocode === "Oui" ? "✓" : "—") +
           "</td><td><code>" + esc(o.atmart_org_id) + "</code></td></tr>");
       });
       h.push("</tbody></table></div>");
-      if (g.length > 60) h.push('<p class="x-note">' + (g.length - 60) + " autres non affichées.</p>");
+      if (g.length > 60) {
+        h.push('<p class="x-note">' + TN({ one: "{n} autre non affichée.",
+          other: "{n} autres non affichées." }, g.length - 60, { n: g.length - 60 }) + "</p>");
+      }
     });
     return h.join("");
   }
@@ -543,24 +677,34 @@
   function blocEnfants(r) {
     var enf = enfantsDe[r.atmart_geo_id] || [];
     if (!enf.length) return "";
-    var lbl = { "1": "arrondissements", "2": "communes", "3": "sections communales", "4": "localités" };
-    var h = ['<h3 class="x-h3">' + enf.length + " " + (lbl[r.niveau_admin] || "entités") + "</h3>",
+    /* Le titre est une phrase complète par niveau : « 20 communes » ne se
+       fabrique pas en collant un nombre et un mot, le créole intercale. */
+    var titre = {
+      "1": { one: "{n} arrondissement", other: "{n} arrondissements" },
+      "2": { one: "{n} commune", other: "{n} communes" },
+      "3": { one: "{n} section communale", other: "{n} sections communales" },
+      "4": { one: "{n} localité", other: "{n} localités" }
+    }[r.niveau_admin] || { one: "{n} entité", other: "{n} entités" };
+    var h = ['<h3 class="x-h3">' + TN(titre, enf.length, { n: enf.length }) + "</h3>",
              '<div class="x-puces">' + enf.slice(0, 120).map(function (e) {
                return '<button class="x-puce" data-id="' + esc(e.atmart_geo_id) + '">' + esc(e.nom_fr) + "</button>";
              }).join("") + "</div>"];
-    if (enf.length > 120) h.push('<p class="x-note">' + (enf.length - 120) + " autres — affinez par la recherche.</p>");
+    if (enf.length > 120) {
+      h.push('<p class="x-note">' + TF("{n} autres — affinez par la recherche.",
+        { n: enf.length - 120 }) + "</p>");
+    }
     return h.join("");
   }
 
   function blocVerrou(r) {
     if (ADMIN || r.niveau_admin !== "3") return "";
-    return '<h3 class="x-h3">Aller plus bas que la commune</h3><div class="x-verrou"><div>' +
-      "<p>Les <b>sections communales</b>, les <b>localités et quartiers</b> et les <b>polygones</b> " +
-      "existent dans le référentiel, mais l'édition publique s'arrête à la commune. Ils sont livrés " +
-      "avec le Pack Géo Haïti.</p><p>Les <b>écoles, centres de santé et marchés nommés</b> sont " +
-      "identifiés et rattachés à leur territoire ; leur couverture reste partielle, ils seront " +
-      "ouverts quand les registres nationaux seront complets.</p>" +
-      '</div><a class="btn btn-primary" href="donnees-pack-geo-haiti.html">Voir le Pack Géo</a></div>';
+    return '<h3 class="x-h3">' + T("Aller plus bas que la commune") +
+      '</h3><div class="x-verrou"><div><p>' +
+      T("Les sections communales, les localités et quartiers et les polygones existent dans le référentiel, mais l'édition publique s'arrête à la commune. Ils sont livrés avec le Pack Géo Haïti.") +
+      "</p><p>" +
+      T("Les écoles, centres de santé et marchés nommés sont identifiés et rattachés à leur territoire ; leur couverture reste partielle, ils seront ouverts quand les registres nationaux seront complets.") +
+      '</p></div><a class="btn btn-primary" href="donnees-pack-geo-haiti.html">' +
+      T("Voir le Pack Géo") + "</a></div>";
   }
 
   /* Agregation : la regle vient du dictionnaire, plus d'une liste ecrite ici.
@@ -599,22 +743,23 @@
       var val = null, note = "";
       if (regle === "officielle") {
         val = nb(r.superficie_km2);
-        note = "valeur officielle de l'entité";
-        if (val === null && sommes[k] !== undefined) { val = sommes[k]; note = "somme des communes couvertes"; }
+        note = T("valeur officielle de l'entité");
+        if (val === null && sommes[k] !== undefined) { val = sommes[k]; note = T("somme des communes couvertes"); }
       } else if (regle === "somme") {
         if (sommes[k] === undefined) return;
         val = sommes[k];
-        note = "somme sur " + compte[k] + " commune" + (compte[k] > 1 ? "s" : "") + " couverte" + (compte[k] > 1 ? "s" : "");
+        note = TN({ one: "somme sur {n} commune couverte",
+                    other: "somme sur {n} communes couvertes" }, compte[k], { n: compte[k] });
       } else if (regle === "ratio_recalcule") {
         var num = d.numerateur === "IND-GEO-001" ? nb(r.superficie_km2) : sommes[d.numerateur];
         var den = d.denominateur === "IND-GEO-001" ? nb(r.superficie_km2) : sommes[d.denominateur];
         if (num == null || den == null || !den) return;
         val = (d.unite === "%") ? num / den * 100 : num / den * 100;
-        note = "recalculé sur les totaux, pas moyenné entre communes";
+        note = T("recalculé sur les totaux, pas moyenné entre communes");
       } else if (regle === "moyenne_simple") {
         if (compte[k] === undefined) return;
         val = sommes[k] / compte[k];
-        note = "moyenne non pondérée des " + compte[k] + " communes couvertes";
+        note = TF("moyenne non pondérée des {n} communes couvertes", { n: compte[k] });
       }
       if (val === null || val === undefined) return;
       res[k] = { valeur: val, unite: unites[k] || d.unite, annee: annees[k], note: note,
@@ -627,31 +772,37 @@
     var communes = communesDe(r);
     var agg = agreger(r, communes);
     var cles = Object.keys(agg).filter(function (k) { return (dico[k] || {}).categorie !== "Qualité" || k === "IND-QUA-001"; });
-    var h = ['<h3 class="x-h3">Agrégat sur ' + communes.length + " communes</h3>",
+    var h = ['<h3 class="x-h3">' +
+             TN({ one: "Agrégat sur {n} commune", other: "Agrégat sur {n} communes" },
+                communes.length, { n: communes.length }) + "</h3>",
              '<div class="x-mesures">' + cles.map(function (k) {
                var d = dico[k] || {}, a = agg[k];
                return '<details class="x-mesure"><summary><b>' + fmt(a.valeur, a.unite) + "</b><span>" +
                  esc(d.nom || k) + '</span><small class="x-mill">' +
-                 (a.annee ? "Millésime " + esc(a.annee) + " · " : "") + esc(a.note) + "</small></summary>" +
+                 (a.annee ? TF("Millésime {an}", { an: esc(a.annee) }) + " · " : "") +
+                 esc(a.note) + "</small></summary>" +
                  '<div class="x-detail">' +
-                 (d.definition ? "<p><b>Définition.</b> " + esc(d.definition) + "</p>" : "") +
-                 "<p><b>Règle d'agrégation.</b> " + esc(d.regle_agregation) +
+                 (d.definition ? "<p><b>" + T("Définition.") + "</b> " + esc(d.definition) + "</p>" : "") +
+                 "<p><b>" + T("Règle d'agrégation.") + "</b> " + esc(d.regle_agregation) +
                  (d.numerateur ? " — " + esc((dico[d.numerateur] || {}).nom || d.numerateur) + " ÷ " +
                    esc((dico[d.denominateur] || {}).nom || d.denominateur) : "") + "</p>" +
-                 "<p><b>Couverture.</b> " + a.couvertes + " commune" + (a.couvertes > 1 ? "s" : "") +
-                 " sur " + communes.length + " apportent une valeur.</p>" +
-                 (d.limites_connues ? '<p class="x-limite"><b>Limites.</b> ' + esc(d.limites_connues) + "</p>" : "") +
+                 "<p><b>" + T("Couverture.") + "</b> " +
+                 TN({ one: "{n} commune sur {total} apporte une valeur.",
+                      other: "{n} communes sur {total} apportent une valeur." },
+                    a.couvertes, { n: a.couvertes, total: communes.length }) + "</p>" +
+                 (d.limites_connues ? '<p class="x-limite"><b>' + T("Limites.") + "</b> " +
+                   esc(d.limites_connues) + "</p>" : "") +
                  "</div></details>";
              }).join("") + "</div>"];
-    h.push('<p class="x-note">Les totaux ne portent que sur les communes où la donnée existe : ' +
-           "additionner des absences reviendrait à les compter pour zéro. Les pourcentages sont " +
-           "<b>recalculés sur les totaux</b> — une moyenne des taux communaux donnerait le même " +
-           "poids à la plus petite commune qu'à la plus grande.</p>");
+    h.push('<p class="x-note">' +
+      T("Les totaux ne portent que sur les communes où la donnée existe : additionner des absences reviendrait à les compter pour zéro.") +
+      " " + TF("Les pourcentages sont {recalcules} — une moyenne des taux communaux donnerait le même poids à la plus petite commune qu'à la plus grande.",
+        { recalcules: "<b>" + T("recalculés sur les totaux") + "</b>" }) + "</p>");
     h.push('<div class="x-actions"><button class="btn btn-outline x-btn-export-agg" data-agg="' +
-           esc(r.atmart_geo_id) + '">Exporter cet agrégat (CSV)</button>' +
+           esc(r.atmart_geo_id) + '">' + T("Exporter cet agrégat (CSV)") + "</button>" +
            '<button class="btn btn-outline x-btn-comp" data-comparer="' + esc(r.atmart_geo_id) +
-           '">Ajouter à la comparaison</button>' +
-           '<button class="btn btn-outline x-btn-print">Imprimer / PDF</button></div>');
+           '">' + T("Ajouter à la comparaison") + "</button>" +
+           '<button class="btn btn-outline x-btn-print">' + T("Imprimer / PDF") + "</button></div>");
     return h.join("");
   }
 
@@ -669,7 +820,7 @@
     var t = $("#x-titre-fiche");
     if (t) t.textContent = r.nom_fr;
     majURL();
-    annoncer("Fiche de " + r.nom_fr + " affichée");
+    annoncer(TF("Fiche de {nom} affichée.", { nom: r.nom_fr }));
   }
 
   function majURL() {
@@ -712,7 +863,7 @@
     var a = (aggEntite[entite.atmart_geo_id] || {})[indId];
     if (!a) return null;
     return { valeur: a.valeur, unite: a.unite, annee: a.annee, statut: "A",
-             source: "Agrégat Atmart", methode: a.note, couvertes: a.couvertes };
+             source: T("Agrégat Atmart"), methode: a.note, couvertes: a.couvertes };
   }
 
   function totalNational(indId) {
@@ -759,16 +910,16 @@
         ? comparees.map(function (id) {
             var e = parId[id];
             return '<span class="x-jeton">' + esc(e ? e.nom_fr : id) +
-              '<button class="x-jeton-x" data-retirer="' + esc(id) + '" aria-label="Retirer ' +
-              esc(e ? e.nom_fr : id) + '">\u00d7</button></span>';
+              '<button class="x-jeton-x" data-retirer="' + esc(id) + '" aria-label="' +
+              esc(TF("Retirer {nom} de la comparaison", { nom: e ? e.nom_fr : id })) +
+              '">\u00d7</button></span>';
           }).join("")
-        : '<span class="x-note">Aucun territoire s\u00e9lectionn\u00e9.</span>';
+        : '<span class="x-note">' + T("Aucun territoire sélectionné.") + "</span>";
     }
     if (comparees.length < 2) {
-      zone.innerHTML = '<p class="x-note">Ajoutez au moins deux territoires. Depuis une fiche, ' +
-        'le bouton \u00ab Ajouter \u00e0 la comparaison \u00bb ; ou cherchez un territoire dans la barre ' +
-        'ci-dessus puis ajoutez-le. Jusqu\u2019\u00e0 ' + MAX_COMP +
-        ' territoires, communes et d\u00e9partements m\u00e9lang\u00e9s.</p>';
+      zone.innerHTML = '<p class="x-note">' + TF(
+        "Ajoutez au moins deux territoires. Depuis une fiche, le bouton « Ajouter à la comparaison » ; ou cherchez un territoire dans la barre ci-dessus puis ajoutez-le. Jusqu'à {max} territoires, communes et départements mélangés.",
+        { max: MAX_COMP }) + "</p>";
       return;
     }
     var ents = comparees.map(function (id) { return parId[id]; }).filter(Boolean);
@@ -782,14 +933,15 @@
     ents.forEach(function (e) { niveaux[e.niveau_admin] = 1; });
     var h = [];
     if (Object.keys(niveaux).length > 1) {
-      h.push('<p class="x-avert"><b>Niveaux territoriaux m\u00e9lang\u00e9s.</b> Vous comparez des ' +
-        'entit\u00e9s de tailles diff\u00e9rentes \u2014 les valeurs brutes ne sont pas comparables telles ' +
-        'quelles. Passez en <b>Pour 100 km\u00b2</b> ou en <b>Part du total national</b> pour une ' +
-        'lecture juste, ou comparez des territoires de m\u00eame niveau.</p>');
+      h.push('<p class="x-avert"><b>' + T("Niveaux territoriaux mélangés.") + "</b> " + TF(
+        "Vous comparez des entités de tailles différentes — les valeurs brutes ne sont pas comparables telles quelles. Passez en {km2} ou en {part} pour une lecture juste, ou comparez des territoires de même niveau.",
+        { km2: "<b>" + T(NORMALISATIONS.km2.nom) + "</b>",
+          part: "<b>" + T(NORMALISATIONS.part.nom) + "</b>" }) + "</p>");
     }
-    h.push('<div class="x-tabwrap"><table class="x-tab x-comp"><thead><tr><th>Indicateur</th>');
+    h.push('<div class="x-tabwrap"><table class="x-tab x-comp"><thead><tr><th>' +
+           T("Indicateur") + "</th>");
     ents.forEach(function (e) {
-      h.push("<th>" + esc(e.nom_fr) + "<small>" + (NIVEAU[e.niveau_admin] || "") + "</small></th>");
+      h.push("<th>" + esc(e.nom_fr) + "<small>" + (T(NIVEAU[e.niveau_admin]) || "") + "</small></th>");
     });
     h.push("</tr></thead><tbody>");
     var alertes = 0;
@@ -799,11 +951,12 @@
       var melange = annees.length > 1 && annees.some(function (a) { return a !== annees[0]; });
       if (melange) alertes++;
       h.push("<tr><td><b>" + esc(d.nom) + "</b><small>" + esc(d.unite) +
-             (melange ? ' \u00b7 <span class="x-alerte">mill\u00e9simes diff\u00e9rents</span>' : "") + "</small></td>");
+             (melange ? ' \u00b7 <span class="x-alerte">' + T("millésimes différents") +
+               "</span>" : "") + "</small></td>");
       ents.forEach(function (e, i) {
         var v = jeux[i][k];
         if (!v || v.valeur === "" || v.valeur === undefined || v.statut_valeur === "N") {
-          h.push('<td class="x-nd">non document\u00e9</td>');
+          h.push('<td class="x-nd">' + T("non documenté") + "</td>");
         } else {
           h.push("<td>" + fmt(v.valeur, v.unite) +
                  (v.annee_reference ? "<small>" + esc(v.annee_reference) + "</small>" : "") + "</td>");
@@ -813,16 +966,22 @@
     });
     h.push("</tbody></table></div>");
     if (alertes) {
-      h.push('<p class="x-note"><b>' + alertes + " indicateur" + (alertes > 1 ? "s" : "") +
-        " compare" + (alertes > 1 ? "nt" : "") + " des mill\u00e9simes diff\u00e9rents</b> \u2014 l\u2019\u00e9cart peut " +
-        "venir du temps \u00e9coul\u00e9, pas du territoire. Les ann\u00e9es sont sous chaque valeur.</p>");
+      h.push('<p class="x-note">' + TN({
+        one: "{strong} — l'écart peut venir du temps écoulé, pas du territoire. Les années sont sous chaque valeur.",
+        other: "{strong} — l'écart peut venir du temps écoulé, pas du territoire. Les années sont sous chaque valeur."
+      }, alertes, { strong: "<b>" + TN({
+        one: "{n} indicateur compare des millésimes différents",
+        other: "{n} indicateurs comparent des millésimes différents" },
+        alertes, { n: alertes }) + "</b>" }) + "</p>");
     }
-    h.push('<p class="x-note">\u00ab non document\u00e9 \u00bb ne veut pas dire z\u00e9ro : le territoire n\u2019est ' +
-           "pas couvert par la source de cet indicateur.</p>");
+    h.push('<p class="x-note">' + TF(
+      "« {nd} » ne veut pas dire zéro : le territoire n'est pas couvert par la source de cet indicateur.",
+      { nd: T("non documenté") }) + "</p>");
     h.push('<div class="x-actions"><button class="btn btn-outline x-btn-export-comp">' +
-           "Exporter la comparaison (CSV)</button>" +
-           '<button class="btn btn-outline x-btn-lien">Copier le lien de cette comparaison</button>' +
-           '<button class="btn btn-outline x-btn-print">Imprimer / PDF</button></div>');
+           T("Exporter la comparaison (CSV)") + "</button>" +
+           '<button class="btn btn-outline x-btn-lien">' +
+           T("Copier le lien de cette comparaison") + "</button>" +
+           '<button class="btn btn-outline x-btn-print">' + T("Imprimer / PDF") + "</button></div>");
     zone.innerHTML = h.join("");
   }
 
@@ -834,7 +993,7 @@
     Object.keys(ids).sort().forEach(function (k) {
       ents.forEach(function (e, i) {
         var v = jeux[i][k] || {};
-        lignes.push([e.atmart_geo_id, e.pcode || "", e.nom_fr, NIVEAU[e.niveau_admin] || "",
+        lignes.push([e.atmart_geo_id, e.pcode || "", e.nom_fr, T(NIVEAU[e.niveau_admin]) || "",
                      k, (dico[k] || {}).nom || "", v.valeur === undefined ? "" : v.valeur,
                      v.unite || "", v.annee_reference || "", v.statut_valeur || "N", v.methode || ""]);
       });
@@ -850,7 +1009,11 @@
   function classement(indId) {
     var d = dico[indId] || {};
     var ents = entitesDuNiveau(niveauComp);
-    var lbl = niveauComp === "1" ? "d\u00e9partements" : niveauComp === "2" ? "arrondissements" : "communes";
+    var sansValeur = niveauComp === "1"
+      ? { one: "{n} département sans valeur", other: "{n} départements sans valeur" }
+      : niveauComp === "2"
+      ? { one: "{n} arrondissement sans valeur", other: "{n} arrondissements sans valeur" }
+      : { one: "{n} commune sans valeur", other: "{n} communes sans valeur" };
     var tot = normalisation === "part" ? totalNational(indId) : 0;
 
     var lignes = [], sans = [];
@@ -866,20 +1029,24 @@
     var an = (lignes[0] || {}).brut ? lignes[0].brut.annee : "";
     var normInfo = NORMALISATIONS[normalisation];
     var h = ['<p class="x-note">' + esc(d.definition) +
-             (an ? " <b>Mill\u00e9sime " + esc(an) + ".</b>" : "") +
-             (normalisation !== "total" ? " <b>Lecture :</b> " + esc(normInfo.nom) + "." : "") +
-             (d.limites_connues ? " <b>Limite :</b> " + esc(d.limites_connues) : "") + "</p>"];
+             (an ? " <b>" + TF("Millésime {an}.", { an: esc(an) }) + "</b>" : "") +
+             (normalisation !== "total"
+               ? " <b>" + T("Lecture :") + "</b> " + esc(T(normInfo.nom)) + "." : "") +
+             (d.limites_connues ? " <b>" + T("Limite :") + "</b> " + esc(d.limites_connues) : "") +
+             "</p>"];
 
     if (normalisation !== "total" && !normalisable(indId)) {
-      h.push('<p class="x-avert">Cet indicateur est d\u00e9j\u00e0 un taux ou une densit\u00e9 : ' +
-             "le normaliser n'aurait pas de sens. Les valeurs brutes sont affich\u00e9es.</p>");
+      h.push('<p class="x-avert">' +
+        T("Cet indicateur est déjà un taux ou une densité : le normaliser n'aurait pas de sens. Les valeurs brutes sont affichées.") +
+        "</p>");
     }
 
+    var colTerr = T(NIVEAU[niveauComp]);
     h.push('<div class="x-tabwrap"><table class="x-tab x-classement"><thead><tr><th>#</th><th>' +
-           (niveauComp === "1" ? "D\u00e9partement" : niveauComp === "2" ? "Arrondissement" : "Commune") +
-           "</th><th>" + esc(d.nom || indId) +
-           (normalisation !== "total" && normalisable(indId) ? " <small>" + esc(normInfo.nom) + "</small>" : "") +
-           "</th><th>" + (niveauComp === "3" ? "D\u00e9partement" : "Couverture") +
+           esc(colTerr) + "</th><th>" + esc(d.nom || indId) +
+           (normalisation !== "total" && normalisable(indId)
+             ? " <small>" + esc(T(normInfo.nom)) + "</small>" : "") +
+           "</th><th>" + (niveauComp === "3" ? esc(T(NIVEAU["1"])) : T("Couverture")) +
            "</th><th></th></tr></thead><tbody>");
 
     lignes.forEach(function (l, i) {
@@ -890,27 +1057,32 @@
                                  cur = parId[cur.parent_atmart_geo_id]; }
         contexte = (dep || {}).nom_fr || "\u2014";
       } else {
-        contexte = (l.brut.couvertes || 0) + " commune" + (l.brut.couvertes > 1 ? "s" : "") + " document\u00e9e" +
-                   (l.brut.couvertes > 1 ? "s" : "");
+        contexte = TN({ one: "{n} commune documentée", other: "{n} communes documentées" },
+                      l.brut.couvertes || 0, { n: l.brut.couvertes || 0 });
       }
       h.push("<tr><td>" + (i + 1) + '</td><td><button class="x-lien" data-id="' +
         esc(l.e.atmart_geo_id) + '">' + esc(l.e.nom_fr) + "</button></td><td>" +
         fmt(l.aff, l.unite) + "</td><td>" + esc(contexte) +
         '</td><td><button class="x-mini" data-comparer="' + esc(l.e.atmart_geo_id) +
-        '" title="Ajouter \u00e0 la comparaison">+</button></td></tr>');
+        '" title="' + esc(T("Ajouter à la comparaison")) + '">+</button></td></tr>');
     });
     h.push("</tbody></table></div>");
 
     if (sans.length) {
-      h.push('<p class="x-note"><b>' + sans.length + " " + lbl + " sans valeur</b> \u2014 non couvert" +
-        (sans.length > 1 ? "s" : "") + " par la source de cet indicateur, donc absent" +
-        (sans.length > 1 ? "s" : "") + " du classement plut\u00f4t que plac\u00e9" +
-        (sans.length > 1 ? "s" : "") + " en bas : " +
-        sans.map(function (e) { return esc(e.nom_fr); }).sort().join(", ") + ".</p>");
+      h.push('<p class="x-note">' + TN({
+        one: "{titre} — non couvert par la source de cet indicateur, donc absent du classement plutôt que placé en bas : {liste}.",
+        other: "{titre} — non couverts par la source de cet indicateur, donc absents du classement plutôt que placés en bas : {liste}."
+      }, sans.length, {
+        titre: "<b>" + TN(sansValeur, sans.length, { n: sans.length }) + "</b>",
+        liste: sans.map(function (e) { return esc(e.nom_fr); }).sort().join(", ")
+      }) + "</p>");
     }
-    h.push('<div class="x-actions"><button class="btn btn-outline x-btn-export-cl">Exporter ce classement (CSV)</button>' +
-           '<button class="btn btn-outline x-btn-comp-top">Comparer les 4 premiers</button>' +
-           '<button class="btn btn-outline x-btn-lien">Copier le lien de cette vue</button></div>');
+    h.push('<div class="x-actions"><button class="btn btn-outline x-btn-export-cl">' +
+           T("Exporter ce classement (CSV)") + "</button>" +
+           '<button class="btn btn-outline x-btn-comp-top">' +
+           TF("Comparer les {n} premiers", { n: MAX_COMP }) + "</button>" +
+           '<button class="btn btn-outline x-btn-lien">' +
+           T("Copier le lien de cette vue") + "</button></div>");
     $("#x-classement-corps").innerHTML = h.join("");
     window.__classement = lignes;
   }
@@ -923,7 +1095,7 @@
   }
   function ligneMeta() {
     return ["Atmart Data \u2014 atmart.ltd", "CNIGS 2018", (terr[0] || {}).version || "",
-            (vals[0] || {}).date_extraction || "", NORMALISATIONS[normalisation].nom,
+            (vals[0] || {}).date_extraction || "", T(NORMALISATIONS[normalisation].nom),
             "https://atmart.ltd/donnees-backbone.html#indicateurs"];
   }
 
@@ -960,16 +1132,25 @@
     var nArr = terr.filter(function (r) { return r.niveau_admin === "2"; }).length;
     var nCom = terr.filter(function (r) { return r.niveau_admin === "3"; }).length;
     var nObs = vals.filter(function (v) { return v.statut_valeur !== "N"; }).length;
-    var el = $("#x-compte");
-    if (el) el.innerHTML = terr.length.toLocaleString("fr-FR") + " territoires référencés · " +
-      nCom + " communes documentées · " + nObs.toLocaleString("fr-FR") + " observations sourcées" +
-      (ADMIN ? " · " + orgs.length.toLocaleString("fr-FR") + " organisations" : "");
+    function compteurs() {
+      var el = $("#x-compte");
+      if (!el) return;
+      el.innerHTML = TF("{t} territoires référencés · {c} communes documentées · {o} observations sourcées",
+        { t: terr.length.toLocaleString(LOCALE[LANG]), c: nCom,
+          o: nObs.toLocaleString(LOCALE[LANG]) }) +
+        (ADMIN ? " · " + TF("{n} organisations",
+          { n: orgs.length.toLocaleString(LOCALE[LANG]) }) : "");
+    }
+    compteurs();
     var cv = $("#x-couverture");
-    if (cv) cv.innerHTML = "Le référentiel administratif en vigueur — CNIGS, publié par OCHA — compte " +
-      "<b>" + nDep + " départements, " + nArr + " arrondissements et " + nCom + " communes</b>. " +
-      "D'autres référentiels haïtiens, dont les estimations démographiques récentes de l'IHSI, " +
-      "en dénombrent davantage. " +
-      '<button class="x-lien" id="x-pourquoi">Pourquoi ce nombre varie-t-il ?</button>';
+    if (cv) {
+      cv.innerHTML = TF(
+        "Le référentiel administratif en vigueur — CNIGS, publié par OCHA — compte {decompte}. D'autres référentiels haïtiens, dont les estimations démographiques récentes de l'IHSI, en dénombrent davantage.",
+        { decompte: "<b>" + TF("{dep} départements, {arr} arrondissements et {com} communes",
+            { dep: nDep, arr: nArr, com: nCom }) + "</b>" }) +
+        ' <button class="x-lien" id="x-pourquoi">' +
+        T("Pourquoi ce nombre varie-t-il ?") + "</button>";
+    }
 
     var sel = $("#x-indicateur"), dispo = {};
     vals.forEach(function (v) { dispo[v.indicateur_id] = 1; });
@@ -1023,15 +1204,17 @@
       if (e.target.closest(".x-btn-lien")) {
         var u = location.href;
         if (navigator.clipboard) navigator.clipboard.writeText(u);
-        e.target.textContent = "Lien copié ✓";
-        setTimeout(function () { e.target.textContent = "Copier le lien de cette fiche"; }, 2200);
+        var libelle = e.target.textContent;
+        e.target.textContent = T("Lien copié ✓");
+        setTimeout(function () { e.target.textContent = libelle; }, 2200);
         return;
       }
       var bc = e.target.closest("[data-comparer]");
       if (bc) {
         ajouterComparaison(bc.dataset.comparer);
         bc.textContent = comparees.indexOf(bc.dataset.comparer) > -1
-          ? "Ajouté à la comparaison ✓" : "Comparaison pleine (" + MAX_COMP + ")";
+          ? T("Ajouté à la comparaison ✓")
+          : TF("Comparaison pleine ({n})", { n: MAX_COMP });
         return;
       }
       var br = e.target.closest("[data-retirer]");
@@ -1049,7 +1232,7 @@
           ["atmart_geo_id", "territoire", "niveau", "indicateur_id", "indicateur", "valeur",
            "unite", "annee_reference", "regle_agregation", "communes_couvertes"],
           Object.keys(agg).map(function (k) {
-            return [ent.atmart_geo_id, ent.nom_fr, NIVEAU[ent.niveau_admin], k,
+            return [ent.atmart_geo_id, ent.nom_fr, T(NIVEAU[ent.niveau_admin]), k,
                     (dico[k] || {}).nom || "", agg[k].valeur, agg[k].unite, agg[k].annee,
                     (dico[k] || {}).regle_agregation, agg[k].couvertes]; }));
         return;
@@ -1078,7 +1261,7 @@
     if (selNorm) selNorm.addEventListener("change", function () {
       var v = selNorm.value;
       if (!NORMALISATIONS[v].possible) {
-        alert(NORMALISATIONS[v].raison);
+        alert(T(NORMALISATIONS[v].raison));
         selNorm.value = normalisation; return;
       }
       normalisation = v; classement(sel.value); rendreComparaison(); majURL(); });
@@ -1092,7 +1275,7 @@
          "statut_valeur", "regle_agregation"].concat(enTeteMeta()),
         l.map(function (x, i) {
           return [i + 1, x.e.atmart_geo_id, x.e.pcode || "", x.e.nom_fr,
-                  NIVEAU[x.e.niveau_admin], sel.value, d.nom || "",
+                  T(NIVEAU[x.e.niveau_admin]), sel.value, d.nom || "",
                   x.aff, x.unite, x.brut.valeur, x.brut.unite, x.brut.annee,
                   x.brut.statut, d.regle_agregation || ""].concat(ligneMeta()); }));
     }
@@ -1144,6 +1327,22 @@
     if (OBJECTIFS[ob]) { objectif = ob; if (selObj) selObj.value = ob; }
     var id = (location.search.match(/id=([A-Z0-9-]+)/) || [])[1];
     fiche(parId[id] ? id : "HTC-0111");
+
+    /* Changement de langue. L'etat de l'application — territoire courant,
+       territoires compares, niveau, mode de lecture, onglet actif — vit dans
+       des variables du module : il traverse le changement sans etre touche.
+       On ne recharge que le dictionnaire, puis on redessine les trois vues. */
+    function redessiner() {
+      compteurs();
+      classement(sel.value);
+      rendreComparaison();
+      if (courant) fiche(courant.atmart_geo_id);
+      var actif = document.querySelector('[data-onglet="' + ongletActif + '"]');
+      if (actif) actif.click();
+    }
+    document.addEventListener("atmart:lang", function (e) {
+      chargerLangue(e.detail).then(redessiner);
+    });
   }
 
   /* Une connexion instable coupe une requete sur cinq : on retente deux fois,
@@ -1173,9 +1372,21 @@
         if (g) contour = g.features[0].geometry.coordinates;
       })
       .catch(function () {})
+      /* La langue precede le premier rendu : sinon l'utilisateur voit un
+         eclair de francais avant que sa langue ne s'applique. */
+      .then(function () {
+        var l = "fr";
+        try { l = localStorage.getItem("atmart_lang") || "fr"; } catch (e) {}
+        return chargerLangue(l);
+      })
       .then(pret);
   }).catch(function (e) {
-    $("#x-chargement").innerHTML = '<p class="x-vide">Les données n\'ont pas pu être chargées (' +
-      esc(e.message) + '). Les fichiers restent téléchargeables depuis le <a href="datasets.html">catalogue</a>.</p>';
+    /* Une panne silencieuse est pire qu'une panne visible : on trace la cause
+       reelle avant de composer un message, dont la traduction pourrait echouer. */
+    if (window.console) console.error("Explorateur :", e);
+    $("#x-chargement").innerHTML = '<p class="x-vide">' +
+      TF("Les données n'ont pas pu être chargées ({err}). Les fichiers restent téléchargeables depuis le {lien}.",
+        { err: esc(e.message),
+          lien: '<a href="datasets.html">' + T("catalogue") + "</a>" }) + "</p>";
   });
 })();
