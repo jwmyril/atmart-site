@@ -80,14 +80,16 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       <a href="donnees.html">Atmart Data</a> › <a href="datasets.html">Catalogue</a> › Pack Géo Haïti
     </p>
     <span class="d-pill live">Disponible</span>
-    <span class="d-pill spons" style="background:rgba(46,196,182,.16);color:var(--teal)">Niveau de confiance A</span>
+    <span class="d-pill spons" style="background:rgba(46,196,182,.16);color:var(--teal)">Source officielle CNIGS</span>
+    <span class="d-pill spons">v2 — juillet 2026</span>
     <h1 class="d-h" style="font-size:clamp(1.7rem,3.6vw,2.4rem);margin-top:0.6rem">
       Pack Géo Haïti — toutes les divisions administratives avec coordonnées GPS
     </h1>
     <p class="d-sub">
       Le référentiel géographique complet d'Haïti, prêt à joindre à vos propres données : 570 sections
       communales, 140 villes chefs-lieux, 10 945 lieux habités, et les polygones des trois niveaux
-      administratifs. Avec les p-codes officiels OCHA — la clé de jointure standard du secteur humanitaire.
+      administratifs. Avec les p-codes officiels OCHA — la clé de jointure standard du secteur humanitaire —
+      et <strong>tous les noms en français et en kreyòl</strong>.
     </p>
   </div>
 </section>
@@ -102,9 +104,9 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <table class="d-tab">
             <thead><tr><th>Fichier</th><th>Une ligne = </th><th>Volume</th></tr></thead>
             <tbody>
-              <tr><td>haiti_570_sections_communales_gps.csv</td><td>Une section communale (admin 3)</td><td>570 lignes · 12 colonnes</td></tr>
-              <tr><td>haiti_140_villes_chefs_lieux_gps.csv</td><td>Une ville chef-lieu, avec son statut</td><td>140 lignes · 8 colonnes</td></tr>
-              <tr><td>haiti_lieux_habites_geonames_gps.csv</td><td>Un lieu habité recensé (ville, localité, quartier)</td><td>10 945 lignes · 7 colonnes</td></tr>
+              <tr><td>haiti_570_sections_communales_gps.csv</td><td>Une section communale (admin 3)</td><td>570 lignes · 13 colonnes</td></tr>
+              <tr><td>haiti_140_villes_chefs_lieux_gps.csv</td><td>Une ville chef-lieu, avec son statut</td><td>140 lignes · 13 colonnes</td></tr>
+              <tr><td>haiti_lieux_habites_geonames_gps.csv</td><td>Un lieu habité, rattaché à sa section communale</td><td>10 945 lignes · 14 colonnes</td></tr>
               <tr><td>hti_admin1.geojson</td><td>Un département (polygone)</td><td>10 entités</td></tr>
               <tr><td>hti_admin2.geojson</td><td>Une commune (polygone)</td><td>140 entités</td></tr>
               <tr><td>hti_admin3.geojson</td><td>Une section communale (polygone)</td><td>570 entités</td></tr>
@@ -117,13 +119,13 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         <div class="d-preview">
           <table>
             <thead>
-              <tr><th>departement_fr</th><th>commune_fr</th><th>section_communale_fr</th><th>pcode_section</th><th>superficie_km2</th><th>latitude</th><th>longitude</th></tr>
+              <tr><th>departement_ht</th><th>commune_ht</th><th>section_communale_fr</th><th>section_communale_ht</th><th>pcode_section</th><th>superficie_km2</th><th>latitude</th><th>longitude</th></tr>
             </thead>
             <tbody>
-              <tr><td>Ouest</td><td>Croix-Des-Bouquets</td><td>1re Section des Varreux</td><td>HT0131-01</td><td>41.38</td><td>18.640441</td><td>-72.304818</td></tr>
-              <tr><td>Ouest</td><td>Port-au-Prince</td><td>1re Section Turgeau</td><td>HT0111-01</td><td>18.35</td><td>18.536790</td><td>-72.322631</td></tr>
-              <tr><td>Ouest</td><td>Port-au-Prince</td><td>3e Section Martissant</td><td>HT0111-03</td><td>8.95</td><td>18.518016</td><td>-72.359607</td></tr>
-              <tr><td>Ouest</td><td>Delmas</td><td>1re Section St Martin</td><td>HT0112-01</td><td>26.04</td><td>18.551396</td><td>-72.287185</td></tr>
+              <tr><td>Lwès</td><td>Pòtoprens</td><td>1re Section Turgeau</td><td>1ye Seksyon Turgeau</td><td>HT0111-01</td><td>18.35</td><td>18.536790</td><td>-72.322631</td></tr>
+              <tr><td>Lwès</td><td>Pòtoprens</td><td>3e Section Martissant</td><td>3yèm Seksyon Martissant</td><td>HT0111-03</td><td>8.95</td><td>18.518016</td><td>-72.359607</td></tr>
+              <tr><td>Lwès</td><td>Dèlma</td><td>1re Section St Martin</td><td>1ye Seksyon St Martin</td><td>HT0112-01</td><td>26.04</td><td>18.551396</td><td>-72.287185</td></tr>
+              <tr><td>Lwès</td><td>Leyogàn</td><td>11e Section Gros Morne</td><td>11yèm Seksyon Gro Mòn</td><td>HT0121-11</td><td>28.37</td><td>18.433665</td><td>-72.590076</td></tr>
             </tbody>
           </table>
         </div>
@@ -138,51 +140,82 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <li><b>Géocodage d'enquêtes</b> — rattacher des relevés terrain à une section communale identifiée.</li>
           <li><b>Calculs de distance</b> — points de vente, écoles, centres de santé : distances ville ↔ section via les coordonnées.</li>
           <li><b>Mémoires et recherche</b> — un découpage administratif stable et citable, avec ses superficies.</li>
+          <li><b>Remonter d'une localité à sa section</b> — les 10 945 lieux habités portent le p-code de leur section : un nom de village dans vos données devient une zone administrative.</li>
+          <li><b>Cartes et rapports en kreyòl</b> — les GeoJSON portent les noms kreyòl dans leurs propriétés : les étiquettes sortent directement, sans jointure.</li>
         </ul>
 
         <h2>Sources et méthode</h2>
         <ul class="d-list">
-          <li><b>Limites administratives, centres et superficies</b> — UN OCHA COD-AB Haïti (données CNIGS), licence CC BY 3.0 IGO.</li>
+          <li><b>Limites administratives, centres, superficies, p-codes et noms</b> — <strong>CNIGS</strong>, diffusé par UN OCHA (COD-AB Haïti), publication du 26 janvier 2026, licence CC BY 3.0 IGO.</li>
           <li><b>Lieux habités</b> — GeoNames, licence CC BY 4.0.</li>
-          <li><b>Travail Atmart</b> — extraction, mise en tables, contrôle des p-codes, calcul des centres, harmonisation des noms, production des CSV et des GeoJSON allégés pour Power BI. Compilation de juin 2026.</li>
+          <li><b>Travail Atmart</b> — récupération des noms kreyòl des communes dans la couche des chefs-lieux, normalisation kreyòl des sections, rattachement des 10 945 lieux habités à leur section par calcul point-dans-polygone, harmonisation des graphies accentuées, production des CSV et des GeoJSON étiquetés. Reconstruction de juillet 2026, entièrement automatisée et reproductible.</li>
         </ul>
+
+        <h2>Les noms en kreyòl, et d'où ils viennent</h2>
+        <p>
+          Le CNIGS prévoit un champ kreyòl mais ne le remplit pas partout. La v2 va le chercher là où
+          il existe réellement, et dit clairement ce qui relève de la source et ce qui relève de nous.
+        </p>
+        <div class="d-tab-wrap">
+          <table class="d-tab">
+            <thead><tr><th>Niveau</th><th>Kreyòl dans le pack</th><th>Provenance</th></tr></thead>
+            <tbody>
+              <tr><td>10 départements</td><td>10 / 10</td><td>CNIGS — noms officiels</td></tr>
+              <tr><td>140 communes</td><td>140 / 140</td><td>CNIGS — récupérés dans la couche des chefs-lieux</td></tr>
+              <tr><td>140 villes chefs-lieux</td><td>140 / 140</td><td>CNIGS — noms officiels</td></tr>
+              <tr><td>570 sections communales</td><td>570 / 570</td><td>Normalisation Atmart documentée, toponyme CNIGS conservé</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="d-note" style="margin-top:0.8rem">
+          La règle appliquée aux sections est déterministe : l'ordinal passe en kreyòl
+          (<code>1re → 1ye</code>, <code>10e → 10yèm</code>), « Section » devient « Seksyon », la préposition
+          française est retirée, et <strong>le toponyme reste exactement celui du CNIGS</strong> — sauf quand
+          le CNIGS en donne lui-même une forme kreyòl officielle (<em>Gros Morne → Gro Mòn</em>,
+          <em>Pointe à Raquette → Pwent a Rakèt</em>). Une colonne <code>section_ht_provenance</code> porte
+          l'information ligne par ligne. Le nom français officiel reste dans le fichier : c'est lui qui fait foi.
+        </p>
 
         <h2>Limites connues</h2>
         <div class="d-box amber">
-          <p>
-            <b>Noms en kreyòl.</b> Les colonnes <code>departement_ht</code> et <code>ville_ht</code> sont renseignées.
-            Les colonnes <code>commune_ht</code> et <code>section_communale_ht</code> existent dans le fichier mais
-            sont <strong>encore vides</strong> : leur remplissage est prévu en v1.1. Si votre usage en dépend,
-            écrivez-nous avant d'acheter.
-          </p>
           <p>
             <b>Population des lieux habités.</b> GeoNames ne renseigne une population que pour
             <strong>114 lieux sur 10 945</strong> (environ 1 %). Ce fichier sert à localiser, pas à dimensionner.
           </p>
           <p>
-            <b>Découpage administratif.</b> Le pack reflète le référentiel COD-AB en vigueur à la date de compilation ;
-            il ne préjuge pas de créations ou fusions de communes postérieures.
+            <b>Rattachement administratif des lieux habités.</b> 10 808 lieux (98,7 %) tombent à l'intérieur
+            du polygone de leur section. Les <strong>137 autres</strong> (1,3 %) sont rattachés à la section la
+            plus proche, parce que GeoNames arrondit souvent ses coordonnées au 1/60<sup>e</sup> de degré. La colonne
+            <code>rattachement</code> le dit ligne par ligne — à filtrer si votre usage exige une localisation stricte.
+          </p>
+          <p>
+            <b>Accents.</b> Le CNIGS écrit une partie des noms sans accent (104 communes sur 140, 501 sections
+            sur 570). Nous conservons sa graphie : la corriger reviendrait à nous écarter de la source qui fait foi.
+          </p>
+          <p>
+            <b>Découpage administratif.</b> Millésime CNIGS en vigueur au 29 novembre 2018, publié par OCHA le
+            26 janvier 2026. Il ne préjuge pas de créations ou fusions de communes postérieures.
           </p>
         </div>
 
         <h2>Fiche de données (Fèy Done)</h2>
         <table class="d-specs">
-          <tr><th>Version</th><td>v1.2026.06 — compilé en juin 2026</td></tr>
-          <tr><th>Prochaine mise à jour</th><td>v1.1 — remplissage des noms kreyòl commune et section</td></tr>
-          <tr><th>Couverture géographique</th><td>Haïti — 10 départements, 140 communes, 570 sections communales</td></tr>
-          <tr><th>Formats</th><td>3 CSV (UTF-8) + 3 GeoJSON (WGS84) + documentation</td></tr>
+          <tr><th>Version</th><td>v2.2026.07 — reconstruit intégralement depuis le CNIGS</td></tr>
+          <tr><th>Prochaine mise à jour</th><td>à la prochaine publication COD-AB du CNIGS ; incluse sans surcoût pour les acheteurs de l'année</td></tr>
+          <tr><th>Couverture géographique</th><td>Haïti — 10 départements, 140 communes, 570 sections communales, 10 945 lieux habités</td></tr>
+          <tr><th>Formats</th><td>3 CSV (UTF-8 avec BOM) + 3 GeoJSON (WGS84) + LISEZMOI + Fèy Done en 4 langues</td></tr>
           <tr><th>Système de coordonnées</th><td>WGS84 (EPSG:4326)</td></tr>
-          <tr><th>Clé de jointure</th><td>p-codes OCHA : <code>pcode_departement</code>, <code>pcode_commune</code>, <code>pcode_section</code></td></tr>
-          <tr><th>Niveau de confiance</th><td>A — source officielle, méthode publiée (<a href="donnees-confiance.html#niveaux">voir l'échelle</a>)</td></tr>
+          <tr><th>Clé de jointure</th><td>p-codes OCHA : <code>pcode_departement</code>, <code>pcode_commune</code>, <code>pcode_section</code> — présents dans les trois CSV et dans les trois GeoJSON</td></tr>
+          <tr><th>Niveau de confiance</th><td>A pour le référentiel et les noms français ; B pour les noms kreyòl des sections (normalisation Atmart) — <a href="donnees-confiance.html#niveaux">voir l'échelle</a></td></tr>
           <tr><th>Données personnelles</th><td>Aucune</td></tr>
-          <tr><th>Licence</th><td>Usage mono-organisation, revente et redistribution interdites ; attribution « Pack Géo Haïti — Atmart / OCHA / GeoNames »</td></tr>
+          <tr><th>Licence</th><td>Usage mono-organisation, revente et redistribution interdites ; attribution « Pack Géo Haïti — Atmart / CNIGS-OCHA / GeoNames »</td></tr>
           <tr><th>Contact</th><td><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></td></tr>
         </table>
 
         <h2>Citation</h2>
         <p style="font-family:ui-monospace,Menlo,monospace;font-size:0.85rem;color:var(--ink);background:var(--card);border:1px solid var(--border);border-radius:10px;padding:0.9rem">
-          Atmart LLC (2026). <em>Pack Géo Haïti — sections communales, villes et lieux habités</em>, v1.2026.06
-          [jeu de données]. Atmart Data. Sources primaires : UN OCHA COD-AB Haïti (CNIGS) ; GeoNames.
+          Atmart LLC (2026). <em>Pack Géo Haïti — sections communales, villes et lieux habités</em>, v2.2026.07
+          [jeu de données]. Atmart Data. Sources primaires : CNIGS, diffusé par UN OCHA (COD-AB Haïti) ; GeoNames.
         </p>
 
       </div>
@@ -195,9 +228,10 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         <ul>
           <li>3 CSV + 3 GeoJSON</li>
           <li>11 655 lignes géolocalisées</li>
+          <li>Noms français ET kreyòl, partout</li>
           <li>P-codes officiels OCHA</li>
           <li>Superficies en km²</li>
-          <li>Documentation et fiche de données</li>
+          <li>LISEZMOI + Fèy Done en 4 langues</li>
           <li>Mises à jour de l'année incluses</li>
         </ul>
         <p class="d-note" style="margin-top:1rem;font-size:0.78rem">
