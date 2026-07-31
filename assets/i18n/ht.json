@@ -770,5 +770,9 @@
   "ds.c15_h": "Referans tan Ayiti <span class=\"badge-new\">NOUVO</span>",
   "ds.c15_p": "1 201 peryòd depi 1971 rive 2030 : chak ane, chak sis mwa, chak twa mwa, chak mwa — ak <strong>ane fiskal ayisyen an</strong>, ki kòmanse 1ye oktòb pou fini 30 septanm. Chak mwa konnen ki trimès li ye, ki ane fiskal li ye ak si li fini oswa l ap kouri toujou. Non yo ekri an français ak an kreyòl.",
   "ds.c15_pr": "0 $ <small>CSV • 1 201 liy • 24 kolòn</small>",
-  "ds.c15_meta": "📅 Tan • 2yèm referans mèt <a href=\"donnees-backbone.html#temps\">Zo rèl do a</a> • yon tab dat ki pare pou Power BI"
+  "ds.c15_meta": "📅 Tan • 2yèm referans mèt <a href=\"donnees-backbone.html#temps\">Zo rèl do a</a> • yon tab dat ki pare pou Power BI",
+  "ds.c16_h": "Endikatè pou 140 komin yo <span class=\"badge-new\">NOUVO</span>",
+  "ds.c16_p": "1 197 valè nou kalkile pou 140 komin yo : sipèfisi, seksyon, lokalite, sant sante, lekòl, mache ak yon <strong>nòt sou konbyen enfòmasyon nou genyen sou komin nan</strong>. Li vini ak diksyonè li : kijan nou kalkile chak endikatè, si yo konparab, ki limit yo genyen ak kijan pou li yo — pou tout 17 endikatè yo.",
+  "ds.c16_pr": "0 $ <small>2 CSV • 1 197 valè • 17 definièsyon</small>",
+  "ds.c16_meta": "📊 4yèm referans mèt <a href=\"donnees-backbone.html#indicateurs\">Zo rèl do a</a> • 217 valè nou di ki pa disponib olye nou mete yon zewo"
 }

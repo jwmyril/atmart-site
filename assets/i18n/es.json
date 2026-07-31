@@ -770,5 +770,9 @@
   "ds.c15_h": "Referencial de tiempo Haití <span class=\"badge-new\">NUEVO</span>",
   "ds.c15_p": "1 201 períodos de 1971 a 2030: anual, semestral, trimestral, mensual — y el <strong>ejercicio fiscal haitiano</strong>, del 1 de octubre al 30 de septiembre. Cada mes conoce su trimestre, su ejercicio presupuestario y su estado de actualidad. Etiquetas en francés y criollo haitiano.",
   "ds.c15_pr": "0 $ <small>CSV • 1 201 filas • 24 columnas</small>",
-  "ds.c15_meta": "📅 Tiempo • 2º referencial maestro del <a href=\"donnees-backbone.html#temps\">Backbone</a> • tabla de fechas lista para Power BI"
+  "ds.c15_meta": "📅 Tiempo • 2º referencial maestro del <a href=\"donnees-backbone.html#temps\">Backbone</a> • tabla de fechas lista para Power BI",
+  "ds.c16_h": "Indicadores de las 140 comunas <span class=\"badge-new\">NUEVO</span>",
+  "ds.c16_p": "1 197 valores calculados sobre las 140 comunas: superficie, secciones, localidades, centros de salud, escuelas, mercados y un <strong>índice de completitud administrativa</strong>. Incluye su diccionario: método de cálculo, comparabilidad, límites y sentido de interpretación para cada uno de los 17 indicadores.",
+  "ds.c16_pr": "0 $ <small>2 CSV • 1 197 valores • 17 definiciones</small>",
+  "ds.c16_meta": "📊 4º referencial maestro del <a href=\"donnees-backbone.html#indicateurs\">Backbone</a> • 217 valores declarados no disponibles en lugar de puestos a cero"
 }

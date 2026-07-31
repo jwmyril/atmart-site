@@ -770,5 +770,9 @@
   "ds.c15_h": "Haiti time reference set <span class=\"badge-new\">NEW</span>",
   "ds.c15_p": "1,201 periods from 1971 to 2030: annual, half-year, quarterly, monthly — and the <strong>Haitian fiscal year</strong>, running 1 October to 30 September. Every month knows its quarter, its budget year and its freshness status. Labels in French and Haitian Creole.",
   "ds.c15_pr": "0 $ <small>CSV • 1,201 rows • 24 columns</small>",
-  "ds.c15_meta": "📅 Time • 2nd master reference set of the <a href=\"donnees-backbone.html#temps\">Backbone</a> • date table ready for Power BI"
+  "ds.c15_meta": "📅 Time • 2nd master reference set of the <a href=\"donnees-backbone.html#temps\">Backbone</a> • date table ready for Power BI",
+  "ds.c16_h": "Indicators for the 140 communes <span class=\"badge-new\">NEW</span>",
+  "ds.c16_p": "1,197 values computed across the 140 communes: area, sections, localities, health facilities, schools, markets and an <strong>administrative completeness score</strong>. Ships with its dictionary: calculation method, comparability, limitations and reading guidance for each of the 17 indicators.",
+  "ds.c16_pr": "0 $ <small>2 CSV • 1,197 values • 17 definitions</small>",
+  "ds.c16_meta": "📊 4th master reference set of the <a href=\"donnees-backbone.html#indicateurs\">Backbone</a> • 217 values declared unavailable rather than set to zero"
 }

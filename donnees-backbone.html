@@ -88,7 +88,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     <div class="d-proof">
       <div><b>11 707</b><small>entités territoriales identifiées, du département à la localité</small></div>
       <div><b>5 niveaux</b><small>département › arrondissement › commune › section › localité</small></div>
-      <div><b>23 champs</b><small>le même schéma pour tous les produits Atmart</small></div>
+      <div><b>5 029</b><small>écoles, centres de santé et marchés identifiés</small></div>
       <div><b>1 201</b><small>périodes alignées, exercice fiscal haïtien compris</small></div>
     </div>
   </div>
@@ -131,16 +131,18 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <strong>exercice fiscal haïtien</strong>. Hiérarchie complète et statut de fraîcheur.</p>
         <span class="go">Voir le référentiel →</span>
       </a>
-      <div class="d-door" style="cursor:default">
-        <h3>🏫 Organisations &amp; infrastructures <span class="d-pill soon">à construire</span></h3>
-        <p>Écoles, établissements sanitaires, marchés, institutions, projets. Identifiant stable, nom
-          normalisé et variantes, catégorie, géocodage, territoire de rattachement, degré de vérification.</p>
-      </div>
-      <div class="d-door" style="cursor:default">
-        <h3>📊 Indicateurs <span class="d-pill soon">à construire</span></h3>
-        <p>Définition, unité, méthode, source primaire, niveau territorial, fréquence, comparabilité
-          dans le temps, limites connues. Le dictionnaire qui empêche deux chiffres de se contredire.</p>
-      </div>
+      <a class="d-door" href="#organisations">
+        <h3>🏫 Organisations &amp; infrastructures <span class="d-pill live">v1 publié</span></h3>
+        <p>5 029 entités : 730 établissements de santé, 4 122 écoles, 182 marchés. Identifiant stable,
+          nom normalisé <em>et</em> nom source, rattachement territorial, degré de vérification.</p>
+        <span class="go">Voir le référentiel →</span>
+      </a>
+      <a class="d-door" href="#indicateurs">
+        <h3>📊 Indicateurs <span class="d-pill live">v1 publié</span></h3>
+        <p>17 définitions et 1 197 valeurs calculées sur les 140 communes. Le dictionnaire qui empêche
+          deux produits de calculer la même notion de deux façons.</p>
+        <span class="go">Voir le dictionnaire →</span>
+      </a>
     </div>
     <div class="d-box" style="margin-top:1.4rem">
       <h3>Pourquoi cet ordre</h3>
@@ -278,6 +280,125 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <code>date_debut</code>, puis reliez-la à vos séries par <code>atmart_periode_id</code>.
           Vos mesures basculent de l'année civile à l'exercice fiscal en changeant un seul axe.</p>
         <p class="meta">📘 Un tutoriel Lojik360 suivra</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORGANISATIONS -->
+<section class="d-sec" id="organisations">
+  <div class="container">
+    <p class="d-lbl">Référentiel organisations &amp; infrastructures · v1.2026.07</p>
+    <h2 class="d-h">5 029 entités — et ce qu'elles révèlent des sources</h2>
+    <p class="d-sub" style="margin-bottom:1.2rem">
+      C'est le référentiel qui débloque les registres nationaux : sans identifiant stable rattaché au
+      territoire, aucun indicateur de couverture ou d'accessibilité n'est calculable. Chaque entité porte
+      son nom normalisé <strong>et</strong> son nom source, son rattachement territorial et son degré de
+      vérification.
+    </p>
+    <div class="d-tab-wrap">
+      <table class="d-tab">
+        <thead><tr><th>Catégorie</th><th>Entités</th><th>Couverture réelle</th><th>Géocodage</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>Santé</td><td>730</td><td><strong>14 communes sur 140</strong></td><td>66 % (480)</td><td>OCHA Haïti 2023 · CC BY</td></tr>
+          <tr><td>Éducation</td><td>4 122</td><td><strong>49 communes sur 140</strong></td><td>aucun</td><td>OCHA Haïti 2022 · CC BY</td></tr>
+          <tr><td>Marchés</td><td>182</td><td>136 communes</td><td>100 %</td><td>PAM · CC BY-IGO</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="d-box amber" style="margin-top:1.4rem">
+      <h3>Ce que la reconstitution a mis au jour</h3>
+      <p>
+        <b>Aucune de ces sources n'est un registre national</b>, malgré leurs titres. Le fichier OCHA
+        intitulé « Location of health facilities » concentre ses 730 établissements sur
+        <strong>14 communes</strong>. La cartographie scolaire de 2022 couvre 4 départements, ceux de la
+        réponse post-séisme. Une commune absente n'a pas zéro école : elle n'est pas couverte — et le
+        référentiel écrit la différence au lieu de la laisser lire comme un zéro.
+      </p>
+      <p>
+        <b>Les codes source ne sont pas des identifiants.</b> Le code <code>721101</code> désigne trois
+        établissements différents ; <code>111645</code> revient trois fois. Cinq lignes strictement
+        identiques ont été retirées, 85 entités reçoivent un identifiant suffixé et une colonne
+        <code>homonyme_source</code> qui le dit.
+      </p>
+      <p>
+        <b>Une anomalie nommée.</b> L'Hôpital Universitaire de Mirebalais est rattaché par la source à la
+        commune de Gonaïves. Nous conservons la valeur source et signalons l'écart : corriger en silence
+        reviendrait à substituer notre jugement à celui de la source, sans trace.
+      </p>
+      <p>
+        <b>Les libellés ne se comparaient pas.</b> « PUBLIQUE », « Public », « NON PUBLIQUE »,
+        « Non-Public » : quatre écritures pour deux statuts. Harmonisés en <code>statut</code>,
+        l'original conservé en <code>statut_source</code>.
+      </p>
+    </div>
+
+    <p class="d-note" style="margin-top:1rem">
+      <strong>Un choix de licence.</strong> Les équivalents OpenStreetMap (HOTOSM, Healthsites) sont plus
+      récents et couvrent tout le pays. Ils sont sous <strong>ODbL</strong> : la clause de partage à
+      l'identique est incompatible avec une licence Atmart propriétaire. Ils sont donc écartés des produits
+      payants, et réservés à une éventuelle couche ouverte publiée elle-même sous ODbL. C'est écrit dans
+      le registre des sources, à la ligne SRC-012.
+    </p>
+  </div>
+</section>
+
+<!-- INDICATEURS -->
+<section class="d-sec" id="indicateurs">
+  <div class="container">
+    <p class="d-lbl">Référentiel indicateurs · v1.2026.07</p>
+    <h2 class="d-h">17 définitions, 1 197 valeurs — et 217 absences déclarées</h2>
+    <p class="d-sub" style="margin-bottom:1.2rem">
+      Les trois premiers référentiels disent où, quand et qui. Celui-ci dit <em>ce que l'on mesure</em>,
+      et comment — pour que deux produits Atmart ne calculent jamais la même notion de deux façons.
+    </p>
+    <div class="d-tab-wrap">
+      <table class="d-tab">
+        <thead><tr><th>Statut</th><th>Indicateurs</th><th>Ce que cela signifie</th></tr></thead>
+        <tbody>
+          <tr><td>Disponible</td><td>11</td><td>Calculable aujourd'hui avec le backbone seul</td></tr>
+          <tr><td>Définition prête, donnée absente</td><td>3</td><td>La formule est écrite, la source manque — population IHSI notamment</td></tr>
+          <tr><td>À construire</td><td>3</td><td>Dépend d'une source non encore reconstituée : réseau routier, séries de prix, budget</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="d-note" style="margin-top:0.9rem">
+      Écrire la définition d'un indicateur qu'on ne peut pas encore calculer n'est pas un exercice
+      théorique : c'est ce qui évite de le définir à la hâte le jour où la donnée arrive.
+    </p>
+
+    <div class="d-box" style="margin-top:1.4rem">
+      <h3>Le score de complétude administrative</h3>
+      <p>
+        Cinq dimensions testées par commune — superficie, localités, santé, écoles, marché. Le résultat
+        est une carte des angles morts documentaires d'Haïti : moyenne <strong>68 %</strong>, une seule
+        commune à 100 % (Port-au-Prince), quatre à 40 %.
+      </p>
+      <p>
+        Cet indicateur ne mesure pas la commune : il mesure <strong>ce que nous savons d'elle</strong>.
+        Un score bas ne dit pas qu'une commune est démunie, il dit que toute analyse la concernant sera
+        fragile. C'est précisément l'information qui manque à qui décide où intervenir.
+      </p>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:1.4rem">
+      <div class="card">
+        <span class="tag">Gratuit · CC BY 4.0</span>
+        <h3>Indicateurs communaux + dictionnaire</h3>
+        <p>1 197 valeurs sur les 140 communes, au format long du schéma maître, avec les 17 définitions
+          complètes : méthode de calcul, comparabilité, limites, sens d'interprétation.</p>
+        <p class="price">0 $ <small>2 CSV • 1 197 valeurs • 17 définitions</small></p>
+        <a href="data/atmart_indicateurs_communes_HT.csv" download class="btn btn-primary">Télécharger les valeurs</a>
+        <p class="meta" style="margin-top:0.7rem"><a href="data/atmart_referentiel_indicateurs.csv" download>Télécharger le dictionnaire</a></p>
+      </div>
+      <div class="card">
+        <span class="tag amber">Ce qui reste à financer</span>
+        <h3>Compléter les registres</h3>
+        <p>Passer de 14 à 140 communes en santé, de 49 à 140 en éducation : c'est exactement ce que
+          couvrent les packs <em>Écoles Haïti 360</em> et <em>Santé Haïti 360</em> de la feuille de route.</p>
+        <p class="meta">🤝 Les deux sont parrainables</p>
+        <a href="donnees-parrainage.html#catalogue" class="btn btn-outline">Parrainer un registre</a>
       </div>
     </div>
   </div>

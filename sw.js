@@ -1,5 +1,5 @@
 // Atmart PWA — cache statique (les appels IA passent toujours par le reseau)
-const CACHE = "atmart-v29";
+const CACHE = "atmart-v30";
 const CORE = ["/", "/index.html", "/chofe360.html", "/karye360.html", "/studio.html", "/atelier.html",
   "/oeuvre.html", "/atelier-institutions.html", "/impact.html",
   "/donnees.html", "/donnees-backbone.html", "/datasets.html", "/donnees-solutions.html", "/donnees-campus.html",
