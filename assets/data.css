@@ -337,3 +337,100 @@ a.sys-card:hover { transform: translateY(-2px); border-color: var(--teal); }
 }
 .x-admin-bandeau b { color: var(--red); font-family: var(--font-head); }
 .x-admin-bandeau p { color: var(--ink-dim); font-size: 0.86rem; margin: 0.25rem 0 0; }
+
+/* ===== Explorateur v3 — premier écran, indicateurs contextualisés, mobile ===== */
+.x-label { display: block; font-size: 0.84rem; color: var(--ink-dim); margin-bottom: 0.4rem; }
+.x-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.x-exemples { text-align: center; color: var(--ink-dim); font-size: 0.9rem; margin: 0.8rem 0 0; }
+.x-exemples .x-lien { font-size: 0.9rem; min-height: 44px; padding: 0 0.2rem; }
+.x-preuve { text-align: center; color: var(--ink-dim); font-size: 0.82rem; margin: 0.7rem 0 0; }
+.x-couverture {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 0.85rem 1.1rem; color: var(--ink-dim); font-size: 0.87rem; line-height: 1.65; margin: 0 0 0.6rem;
+}
+.x-couverture b { color: var(--ink); }
+
+.x-adapter { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+.x-adapter label { color: var(--ink-dim); font-size: 0.86rem; }
+.x-adapter select, .x-outils select {
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px; color: var(--ink);
+  padding: 0.6rem 0.75rem; font-family: var(--font-body); font-size: 0.92rem; min-height: 44px; max-width: 100%;
+}
+
+.x-situe { color: var(--ink-dim); font-size: 0.95rem; margin: 0.3rem 0 0; }
+.x-actions { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1rem; }
+.x-actions .btn { font-size: 0.86rem; padding: 0.6rem 1rem; min-height: 44px; }
+.x-actions-sec { margin-top: 0.8rem; }
+.x-confiance { color: var(--ink-dim); font-size: 0.8rem; margin: 0.9rem 0 0; line-height: 1.6; }
+
+.x-objectif {
+  background: rgba(46,196,182,.07); border: 1px solid rgba(46,196,182,.3);
+  border-radius: var(--radius); padding: 1rem 1.2rem; margin: 1.4rem 0;
+}
+.x-objectif p { color: var(--ink-dim); font-size: 0.92rem; margin: 0; line-height: 1.65; }
+.x-objectif .x-theme { margin: 0 0 0.4rem; color: var(--teal); }
+
+details.x-mesure { padding: 0; }
+details.x-mesure summary {
+  list-style: none; cursor: pointer; padding: 0.85rem 0.9rem; border-radius: 12px;
+}
+details.x-mesure summary::-webkit-details-marker { display: none; }
+details.x-mesure summary::after {
+  content: "Détails +"; display: block; margin-top: 0.5rem;
+  color: var(--teal); font-size: 0.72rem; font-family: var(--font-head);
+}
+details.x-mesure[open] summary::after { content: "Réduire −"; }
+details.x-mesure summary:hover { background: rgba(46,196,182,.05); }
+.x-mill { display: block; color: var(--ink-dim); font-size: 0.72rem; margin-top: 0.35rem; line-height: 1.45; }
+.x-rang { display: block; color: var(--amber); font-size: 0.72rem; margin-top: 0.2rem; }
+.x-detail { padding: 0 0.9rem 0.9rem; border-top: 1px solid var(--border); margin-top: 0.2rem; }
+.x-detail p { color: var(--ink-dim); font-size: 0.8rem; line-height: 1.6; margin-top: 0.6rem; }
+.x-detail b { color: var(--ink); }
+.x-detail .x-limite b { color: var(--amber); }
+.x-mesure.x-statique { padding: 0.85rem 0.9rem; }
+
+.x-lacunes { font-size: 0.84rem; min-width: 620px; }
+.x-lacunes th { width: auto; }
+.x-lacunes td:first-child { color: var(--ink); }
+
+details.x-tech {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 0.9rem 1.1rem; margin-top: 1.8rem;
+}
+details.x-tech summary {
+  cursor: pointer; color: var(--teal); font-family: var(--font-head); font-size: 0.88rem;
+  min-height: 44px; display: flex; align-items: center;
+}
+.x-liste { list-style: none; margin: 0.7rem 0 0; padding: 0; }
+.x-liste li { color: var(--ink-dim); font-size: 0.86rem; padding: 0.3rem 0 0.3rem 1.4rem;
+              position: relative; line-height: 1.6; }
+.x-liste li::before { content: "→"; position: absolute; left: 0; color: var(--teal); }
+.x-liste b { color: var(--ink); }
+
+/* --- accessibilité --- */
+.x-res:focus-visible, .x-lien:focus-visible, .x-puce:focus-visible,
+.filter-btn:focus-visible, .btn:focus-visible, summary:focus-visible,
+select:focus-visible, input:focus-visible {
+  outline: 2px solid var(--teal); outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
+
+/* --- mobile : cibles tactiles, onglets courts, bouton latéral --- */
+.x-court { display: none; }
+@media (max-width: 640px) {
+  .x-long { display: none; }
+  .x-court { display: inline; }
+  .x-onglets .filter-btn, .x-adapter select, .x-outils select, .x-outils .btn { min-height: 44px; }
+  .x-onglets { gap: 0.4rem; }
+  .x-actions .btn { flex: 1 1 100%; text-align: center; }
+  .x-adapter { flex-direction: column; align-items: stretch; }
+  .x-adapter select { width: 100%; }
+  .x-outils { flex-direction: column; align-items: stretch; }
+  .x-outils select, .x-outils .btn { width: 100%; }
+  .x-mesures { grid-template-columns: 1fr; }
+  .x-puce { min-height: 44px; display: inline-flex; align-items: center; }
+  /* le bouton latéral « Products » chevauche le bord gauche sur petit écran */
+  .atm-launch { transform: scale(0.8); transform-origin: left bottom; opacity: 0.65; }
+}
