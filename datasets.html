@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
   <title>Catalogue des jeux de données — Atmart Data</title>
-  <meta name="description" content="Jeux de données économiques, géographiques, sociaux et financiers sur Haïti, la Caraïbe et l'Afrique francophone — sourcés, nettoyés, documentés, avec leur fiche de données et leur licence." />
+  <meta name="description" content="Jeux de données économiques, géographiques, sociaux et financiers sur Haïti — sourcés, nettoyés, documentés, avec leur fiche de données et leur licence. Année 1 : Haïti exclusivement." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -88,7 +88,11 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       <span class="d-pill soon">En préparation</span>.
       Nous ne mettons pas de bouton « Acheter » sur un fichier qui n'existe pas encore.
     </p>
-    <p class="d-note" style="margin-top:0.8rem" data-i18n-html="ds.hero_note">
+    <p class="d-note" style="margin-top:0.8rem">
+      <strong>Année 1 : Haïti exclusivement.</strong> Tout ce qui figure ici porte sur Haïti.
+      Les jeux régionaux et africains reviendront en deuxième année, une fois le pays couvert.
+    </p>
+    <p class="d-note" style="margin-top:0.5rem" data-i18n-html="ds.hero_note">
       Vous cherchez plutôt une solution complète pour votre organisation ?
       <a href="donnees-solutions.html">Voir les packs décisionnels et les licences →</a>
     </p>
@@ -104,7 +108,6 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       <button class="filter-btn" data-filter="social" data-i18n="ds.f_soc">👥 Social</button>
       <button class="filter-btn" data-filter="finance" data-i18n="ds.f_fin">📈 Finance</button>
       <button class="filter-btn" data-filter="guide" data-i18n="ds.f_gui">📘 Guides</button>
-      <button class="filter-btn" data-filter="art" data-i18n="ds.f_art">🎨 Data art</button>
     </div>
 
     <!-- ===== GRATUITS ===== -->
@@ -115,25 +118,13 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       </div>
       <div class="grid grid-3" id="data-grid-free">
 
-        <div class="card art-card" data-cat="art gratuit">
-          <span class="tag" data-i18n="ds.t_art">Data art</span>
-          <a href="assets/art/liy-lavi.svg" target="_blank" rel="noopener" class="art-thumb">
-            <img src="assets/art/liy-lavi.svg" alt="Liy Lavi — Atmart" width="1000" height="1500" />
-          </a>
-          <h3 data-i18n-html="ds.art_h">Liy Lavi — l'œuvre de données <span class="badge-new">NOUVO</span></h3>
-          <p data-i18n="ds.art_p">Huit courbes, huit diasporas. La hauteur de chaque ligne est la part du PIB que les siens renvoient au pays, année après année depuis 2000. Aucun chiffre inventé : l'œuvre est tracée directement depuis notre dataset gratuit des transferts.</p>
-          <p class="price" data-i18n-html="ds.art_pr">0 $ <small>affiche SVG · impression illimitée</small></p>
-          <p class="meta" data-i18n-html="ds.art_meta">🎨 Data art • Source : Banque mondiale (WDI) • <a href="data/transferts_diaspora_2000_2025.csv" download>le dataset qui l'a produite</a></p>
-          <a href="assets/art/liy-lavi.svg" download class="btn btn-primary" data-i18n="ds.art_cta">Télécharger l'affiche</a>
-        </div>
-
         <div class="card" data-cat="economie gratuit">
           <span class="tag" data-i18n="ds.t_free">Gratuit</span>
-          <h3 data-i18n="ds.c2_h">Transferts de la diaspora (2000–2025) — Haïti + 7 pays</h3>
-          <p data-i18n="ds.c2_p">Transferts reçus en USD et en % du PIB : Haïti, Rép. dominicaine, Jamaïque, Sénégal, Côte d'Ivoire, Mali, Cameroun, Togo. Données réelles, documentées. Source : Banque mondiale.</p>
-          <p class="price" data-i18n-html="ds.c2_pr">0 $ <small>CSV • 208 lignes</small></p>
-          <p class="meta" data-i18n-html="ds.c2_meta">💰 Économie • 26 ans • Niveau de confiance A • <a href="data/LISEZMOI_transferts_diaspora.md">documentation</a></p>
-          <a href="data/transferts_diaspora_2000_2025.csv" download class="btn btn-primary" data-i18n="ds.dl">Télécharger gratuitement</a>
+          <h3 data-i18n="ds.c2_h">Transferts de la diaspora vers Haïti (2000–2024)</h3>
+          <p data-i18n="ds.c2_p">Ce que la diaspora envoie chaque année, en dollars et en part du PIB. Le sommet est atteint en 2020 à 22,45 % du PIB ; en 2024, 4,1 milliards de dollars, soit 16,3 %. Source : Banque mondiale.</p>
+          <p class="price" data-i18n-html="ds.c2_pr">0 $ <small>CSV • 26 lignes • 25 années renseignées</small></p>
+          <p class="meta" data-i18n-html="ds.c2_meta">💰 Économie • Haïti • Niveau de confiance A • <a href="data/LISEZMOI_transferts_diaspora.md">documentation</a></p>
+          <a href="data/transferts_diaspora_haiti_2000_2025.csv" download class="btn btn-primary" data-i18n="ds.dl">Télécharger gratuitement</a>
         </div>
 
         <div class="card" data-cat="geo gratuit">
@@ -288,33 +279,6 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <p class="price" data-i18n-html="ds.s4_pr">≈ 3 000 $ <small>coût d'ouverture</small></p>
           <p class="meta" data-i18n-html="ds.s4_meta">👥 Social • Sources identifiées : MSPP, OMS/OPS, EMMUS</p>
           <a href="donnees-parrainage.html#catalogue" class="btn btn-outline" data-i18n="ds.spons_cta">Parrainer ce jeu</a>
-        </div>
-
-        <div class="card" data-cat="social">
-          <span class="d-pill spons" data-i18n="ds.pill_spons">Parrainable</span>
-          <h3 data-i18n="ds.s5_h">Démographie de la Caraïbe francophone (1990–2025)</h3>
-          <p data-i18n="ds.s5_p">Haïti, Guadeloupe, Martinique, Guyane : structure par âge, migration, urbanisation sur 35 ans.</p>
-          <p class="price" data-i18n-html="ds.s5_pr">≈ 2 500 $ <small>coût d'ouverture</small></p>
-          <p class="meta" data-i18n-html="ds.s5_meta">👥 Social • Sources identifiées : ONU DAES, INSEE, IHSI</p>
-          <a href="donnees-parrainage.html#catalogue" class="btn btn-outline" data-i18n="ds.spons_cta">Parrainer ce jeu</a>
-        </div>
-
-        <div class="card" data-cat="finance">
-          <span class="d-pill spons" data-i18n="ds.pill_spons">Parrainable</span>
-          <h3 data-i18n="ds.s6_h">Inclusion financière &amp; mobile money — Afrique francophone</h3>
-          <p data-i18n="ds.s6_p">Bancarisation, adoption du mobile money et microfinance dans 12 pays, 2015–2025.</p>
-          <p class="price" data-i18n-html="ds.s6_pr">≈ 3 000 $ <small>coût d'ouverture</small></p>
-          <p class="meta" data-i18n-html="ds.s6_meta">📈 Finance • Sources identifiées : Global Findex, GSMA, banques centrales</p>
-          <a href="donnees-parrainage.html#catalogue" class="btn btn-outline" data-i18n="ds.spons_cta">Parrainer ce jeu</a>
-        </div>
-
-        <div class="card" data-cat="economie finance">
-          <span class="d-pill soon" data-i18n="ds.pill_soon">En préparation</span>
-          <h3 data-i18n="ds.s7_h">Pack Analyste Caraïbe — abonnement annuel</h3>
-          <p data-i18n="ds.s7_p">Tous les jeux premium, actuels et futurs, pendant un an, avec mises à jour. Ouvrira dès que trois jeux premium seront publiés.</p>
-          <p class="price" data-i18n-html="ds.s7_pr">79 $/an <small>prix cible</small></p>
-          <p class="meta" data-i18n-html="ds.s7_meta">⭐ Réservé aux abonnés — <a href="mailto:sales@atmart.ltd?subject=Pack%20Analyste%20Cara%C3%AFbe%20-%20me%20pr%C3%A9venir">être prévenu au lancement</a></p>
-          <span class="soon-btn" data-i18n="ds.soon_btn">Bientôt</span>
         </div>
 
       </div>

@@ -1,7 +1,8 @@
 # Dataset : Transferts de la diaspora (2000–2025)
 
 **Éditeur :** Atmart LLC (Mache Teknoloji ak Done) — dataset gratuit
-**Fichier :** `transferts_diaspora_2000_2025.csv` (UTF-8, séparateur virgule)
+**Fichier publié :** `transferts_diaspora_haiti_2000_2025.csv` — Haïti seul, 26 lignes (UTF-8, séparateur virgule)
+**Fichier de comparaison :** `transferts_diaspora_2000_2025.csv` — Haïti + 7 pays, 208 lignes. Conservé en ligne pour les liens existants, mais **retiré du catalogue** : pendant sa première année, Atmart Data ne publie que des données sur Haïti. Les comparaisons régionales reviendront en année 2.
 **Dernière mise à jour de la source :** 08 avril 2026 (Banque mondiale)
 **Lignes :** 208 (8 pays × 26 années)
 
