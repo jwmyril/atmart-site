@@ -1,10 +1,10 @@
 // Atmart PWA — cache statique (les appels IA passent toujours par le reseau)
-const CACHE = "atmart-v38";
+const CACHE = "atmart-v41";
 const CORE = ["/", "/index.html", "/chofe360.html", "/karye360.html", "/studio.html", "/atelier.html",
   "/oeuvre.html", "/atelier-institutions.html", "/impact.html",
-  "/donnees.html", "/donnees-explorateur.html", "/assets/explorateur.js?v=5", "/donnees-systeme.html", "/donnees-backbone.html", "/datasets.html", "/donnees-solutions.html", "/donnees-campus.html",
+  "/donnees.html", "/donnees-explorateur.html", "/assets/explorateur.js?v=8", "/donnees-systeme.html", "/donnees-backbone.html", "/datasets.html", "/donnees-solutions.html", "/donnees-campus.html",
   "/donnees-parrainage.html", "/donnees-confiance.html", "/donnees-pack-geo-haiti.html",
-  "/assets/data.css?v=6", "/data/atmart_referentiel_territoire_base_HT.csv", "/data/atmart_referentiel_temps_HT.csv",
+  "/assets/data.css?v=7", "/data/atmart_referentiel_territoire_base_HT.csv", "/data/atmart_referentiel_temps_HT.csv",
   "/atelier-maison.html", "/atelier-business.html", "/atelier-artistes.html", "/atelier-collection.html", "/atelier-diaspora.html",
   "/assets/atelier.css?v=2", "/assets/atelier.js?v=3", "/assets/atelier-offres.js?v=1",
   "/assets/atelier/oeuvres.json", "/assets/atelier/collection.json",

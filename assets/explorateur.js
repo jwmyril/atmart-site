@@ -17,7 +17,7 @@
     orgs: ADMIN ? DIR + "atmart_referentiel_organisations_HT.csv" : null
   };
 
-  var terr = [], vals = [], orgs = [], dico = {};
+  var terr = [], vals = [], orgs = [], dico = {}, contour = null;
   var parId = {}, parPcode = {}, enfantsDe = {}, orgsCom = {}, orgsSec = {};
   var parIndicateur = {}, courant = null, objectif = "tout";
   var $ = function (s) { return document.querySelector(s); };
@@ -265,6 +265,87 @@
     return h.join("");
   }
 
+  /* ------------------------------------------------------------- la carte
+     Carte de situation en SVG, sans dépendance externe : le contour national
+     simplifié du CNIGS, les centres officiels des communes, et l'entité
+     sélectionnée mise en évidence. Le découpage administratif détaillé reste
+     dans le Pack Géo — cette carte situe, elle ne délimite pas. */
+  function blocCarte(r) {
+    if (!contour) return "";
+    var L = 760, H = 420, M = 14;
+    var xs = [], ys = [];
+    contour.forEach(function (poly) {
+      poly[0].forEach(function (p) { xs.push(p[0]); ys.push(p[1]); });
+    });
+    var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs);
+    var y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
+    var kx = Math.cos((y0 + y1) / 2 * Math.PI / 180);   // correction méridienne
+    var w = (x1 - x0) * kx, h = y1 - y0;
+    var ech = Math.min((L - 2 * M) / w, (H - 2 * M) / h);
+    var dx = (L - w * ech) / 2, dy = (H - h * ech) / 2;
+    function px(lon) { return dx + (lon - x0) * kx * ech; }
+    function py(lat) { return dy + (y1 - lat) * ech; }
+
+    var chemins = contour.map(function (poly) {
+      return "M" + poly[0].map(function (p) {
+        return px(p[0]).toFixed(1) + " " + py(p[1]).toFixed(1); }).join("L") + "Z";
+    }).join(" ");
+
+    /* quelles communes mettre en avant : celles du même parent */
+    var famille = {};
+    if (r.niveau_admin === "3") {
+      (enfantsDe[r.parent_atmart_geo_id] || []).forEach(function (x) { famille[x.atmart_geo_id] = 1; });
+    } else {
+      terr.forEach(function (x) {
+        if (x.niveau_admin !== "3") return;
+        var cur = x, g = 0;
+        while (cur && g++ < 5) {
+          if (cur.atmart_geo_id === r.atmart_geo_id) { famille[x.atmart_geo_id] = 1; return; }
+          cur = parId[cur.parent_atmart_geo_id];
+        }
+      });
+    }
+
+    var pts = terr.filter(function (x) {
+      return x.niveau_admin === "3" && x.latitude && x.longitude;
+    }).map(function (x) {
+      var sel = x.atmart_geo_id === r.atmart_geo_id;
+      var pro = !sel && famille[x.atmart_geo_id];
+      return '<circle class="x-pt' + (sel ? " x-pt-sel" : pro ? " x-pt-pro" : "") + '" r="' +
+        (sel ? 7 : pro ? 4.5 : 3) + '" cx="' + px(+x.longitude).toFixed(1) + '" cy="' +
+        py(+x.latitude).toFixed(1) + '" data-id="' + esc(x.atmart_geo_id) + '"><title>' +
+        esc(x.nom_fr) + "</title></circle>";
+    }).join("");
+
+    var cible = r.niveau_admin === "3" ? r :
+      (r.latitude ? r : null);
+    var repere = cible && cible.latitude ?
+      '<circle class="x-pt-halo" cx="' + px(+cible.longitude).toFixed(1) + '" cy="' +
+      py(+cible.latitude).toFixed(1) + '" r="15" />' : "";
+
+    /* la famille contient l'entité elle-même : on ne la compte pas deux fois */
+    var nFam = Object.keys(famille).filter(function (k) { return k !== r.atmart_geo_id; }).length;
+    var commune = r.niveau_admin === "3";
+    var libFam = commune
+      ? nFam + " autre" + (nFam > 1 ? "s" : "") + " commune" + (nFam > 1 ? "s" : "") +
+        " du même arrondissement"
+      : "ses " + nFam + " communes";
+    var alt = commune
+      ? r.nom_fr + " est située sur la carte d'Haïti, avec les " + libFam + "."
+      : r.nom_fr + " sur la carte d'Haïti : " + libFam + " sont mises en évidence.";
+
+    return '<div class="x-carte"><svg viewBox="0 0 ' + L + " " + H + '" role="img" ' +
+      'aria-label="' + esc(alt) + '" preserveAspectRatio="xMidYMid meet">' +
+      '<path class="x-terre" d="' + chemins + '" />' + repere + pts + "</svg>" +
+      '<p class="x-legende">' +
+      (commune ? '<span class="x-l-sel"></span> ' + esc(r.nom_fr) + "  " : "") +
+      '<span class="x-l-pro"></span> ' + esc(libFam) +
+      '  <span class="x-l-autre"></span> autres communes du pays' +
+      ' — <a href="donnees-pack-geo-haiti.html">limites détaillées et polygones</a></p>' +
+      '<p class="x-note">Carte de situation : contour national du CNIGS simplifié, ' +
+      "centres officiels des communes. Cliquez un point pour ouvrir sa fiche.</p></div>";
+  }
+
   function blocObjectif(r) {
     if (ADMIN || r.niveau_admin !== "3") return "";
     var o = OBJECTIFS[objectif];
@@ -480,7 +561,7 @@
     var r = parId[id];
     if (!r) return;
     courant = r;
-    var h = [blocResume(r)];
+    var h = [blocResume(r), blocCarte(r)];
     if (r.niveau_admin === "3") {
       h.push(blocObjectif(r), blocIndicateurs(r), blocComparer(r), blocLacunes(r));
     } else h.push(agregat(r));
@@ -675,7 +756,14 @@
     terr = parseCSV(t[0]); vals = parseCSV(t[1]);
     parseCSV(t[2]).forEach(function (d) { dico[d.indicateur_id] = d; });
     if (t[3]) orgs = parseCSV(t[3]);
-    pret();
+    /* Le contour est un agrement : s'il manque, la fiche s'affiche sans carte. */
+    return fetch(CFG.contour || DIR + "haiti_contour_simplifie.geojson")
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (g) {
+        if (g) contour = g.features[0].geometry.coordinates;
+      })
+      .catch(function () {})
+      .then(pret);
   }).catch(function (e) {
     $("#x-chargement").innerHTML = '<p class="x-vide">Les données n\'ont pas pu être chargées (' +
       esc(e.message) + '). Les fichiers restent téléchargeables depuis le <a href="datasets.html">catalogue</a>.</p>';

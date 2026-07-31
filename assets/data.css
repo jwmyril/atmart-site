@@ -434,3 +434,23 @@ select:focus-visible, input:focus-visible {
   /* le bouton latéral « Products » chevauche le bord gauche sur petit écran */
   .atm-launch { transform: scale(0.8); transform-origin: left bottom; opacity: 0.65; }
 }
+
+/* ===== Carte de situation ===== */
+.x-carte { margin: 1.4rem 0 0; }
+.x-carte svg {
+  width: 100%; height: auto; max-height: 46vh; display: block;
+  background: rgba(46,196,182,.04); border: 1px solid var(--border); border-radius: var(--radius);
+}
+.x-terre { fill: rgba(46,196,182,.09); stroke: rgba(46,196,182,.45); stroke-width: 1.1; }
+.x-pt { fill: #7d92a8; opacity: 0.55; cursor: pointer; }
+.x-pt:hover { fill: var(--amber); opacity: 1; }
+.x-pt-pro { fill: var(--teal); opacity: 0.75; }
+.x-pt-sel { fill: var(--amber); opacity: 1; stroke: #0a1a2f; stroke-width: 1.6; }
+.x-pt-halo { fill: none; stroke: var(--amber); stroke-width: 1.4; opacity: 0.55; }
+.x-pt:focus-visible { outline: 2px solid var(--teal); }
+.x-legende { color: var(--ink-dim); font-size: 0.78rem; margin: 0.6rem 0 0; line-height: 1.8; }
+.x-legende span { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 0.15rem; vertical-align: middle; }
+.x-l-sel { background: var(--amber); }
+.x-l-pro { background: var(--teal); }
+.x-l-autre { background: #7d92a8; opacity: 0.55; }
+@media (max-width: 640px) { .x-carte svg { max-height: 38vh; } }
