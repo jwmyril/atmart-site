@@ -2,10 +2,19 @@
 // Le français est la langue de base (texte dans le HTML). Les autres langues
 // viennent de assets/i18n/<lang>.json. Aucune clé manquante = aucun mélange.
 (function () {
-  const LANGS = { fr: "Français", ht: "Kreyòl", en: "English", es: "Español" };
+  const TOUTES = { fr: "Français", ht: "Kreyòl", en: "English", es: "Español" };
   const DEFAULT = "fr";
+  // Une page dont la traduction n'est pas complete declare window.ATM_LANGUES.
+  // Mieux vaut du francais entier qu'un menu traduit au-dessus de contenus
+  // restes en francais : l'utilisateur croirait la page traduite.
+  const LANGS = {};
+  (window.ATM_LANGUES || Object.keys(TOUTES)).forEach((c) => {
+    if (TOUTES[c]) LANGS[c] = TOUTES[c];
+  });
+  if (!Object.keys(LANGS).length) LANGS[DEFAULT] = TOUTES[DEFAULT];
   const orig = new Map();
-  const base = (location.pathname.includes("/tutoriels/")) ? "../" : "";
+  const base = window.ATM_I18N_BASE
+    || (location.pathname.includes("/tutoriels/") ? "../" : "");
 
   function capture() {
     document.querySelectorAll("[data-i18n]").forEach((el) => orig.set(el, el.textContent));
@@ -15,6 +24,7 @@
   }
 
   async function apply(lang) {
+    const demande = lang;
     if (!LANGS[lang]) lang = DEFAULT;
     let dict = {};
     if (lang !== DEFAULT) {
@@ -27,7 +37,10 @@
     document.querySelectorAll("[data-i18n-ph]").forEach((el) => { el.setAttribute("placeholder", val(el.dataset.i18nPh, orig.get(el))); });
     document.querySelectorAll("[data-i18n-aria]").forEach((el) => { el.setAttribute("aria-label", val(el.dataset.i18nAria, orig.get(el))); });
     document.documentElement.lang = lang;
-    localStorage.setItem("atmart_lang", lang);
+    // Si la page a ramene la langue au francais faute de traduction complete,
+    // on ne touche pas au choix memorise : sinon visiter cette page effacerait
+    // la preference de l'utilisateur pour tout le site.
+    if (lang === demande) localStorage.setItem("atmart_lang", lang);
     // Les pages qui fabriquent leur contenu en JS (Explorateur) ne peuvent pas
     // etre traduites par attributs : on les previent pour qu'elles redessinent.
     document.dispatchEvent(new CustomEvent("atmart:lang", { detail: lang }));
@@ -39,6 +52,7 @@
   function buildSelector() {
     const nav = document.querySelector(".nav-links");
     if (!nav) return;
+    if (Object.keys(LANGS).length < 2) return;   // rien a choisir
     const li = document.createElement("li");
     li.className = "lang-select";
     const btn = document.createElement("button");
@@ -79,6 +93,7 @@
 
   function maybeHint(lang) {
     if (lang !== "en") return;
+    if (!LANGS.ht) return;                       // cette page n'offre pas le kreyol
     if (!window.__atmAuto) return;                          // langue deja choisie a la main
     if (localStorage.getItem("atmart_lang_manual")) return;
     const seen = localStorage.getItem("atmart_ht_hint");

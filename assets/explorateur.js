@@ -1341,7 +1341,9 @@
       if (actif) actif.click();
     }
     document.addEventListener("atmart:lang", function (e) {
-      chargerLangue(e.detail).then(redessiner);
+      var l = e.detail;
+      if (window.ATM_LANGUES && window.ATM_LANGUES.indexOf(l) < 0) l = "fr";
+      chargerLangue(l).then(redessiner);
     });
   }
 
@@ -1377,6 +1379,10 @@
       .then(function () {
         var l = "fr";
         try { l = localStorage.getItem("atmart_lang") || "fr"; } catch (e) {}
+        /* La page peut restreindre les langues offertes : un visiteur venu
+           d'une page en kreyol ne doit pas voir le moteur basculer seul
+           pendant que le HTML de la page reste en francais. */
+        if (window.ATM_LANGUES && window.ATM_LANGUES.indexOf(l) < 0) l = "fr";
         return chargerLangue(l);
       })
       .then(pret);

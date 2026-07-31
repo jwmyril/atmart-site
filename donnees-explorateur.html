@@ -258,8 +258,15 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   </div>
 </footer>
 
+<script>
+  /* Tant que les 47 blocs de cette page et les libelles du referentiel des
+     indicateurs ne sont pas traduits, on n'offre que le francais. Un menu en
+     kreyol au-dessus d'indicateurs francais ferait croire a une page traduite.
+     Le moteur i18n reste en place : il suffira d'ajouter les langues ici. */
+  window.ATM_LANGUES = ["fr"];
+</script>
 <script src="assets/script.js?v=2"></script>
-<script src="assets/explorateur.js?v=15"></script>
+<script src="assets/explorateur.js?v=16"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 <script src="assets/i18n.js?v=11"></script>
 <script src="assets/launcher.js?v=3"></script>
