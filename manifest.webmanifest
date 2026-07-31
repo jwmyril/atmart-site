@@ -1,11 +1,17 @@
 {
-  "name": "Atmart — Suite 360",
+  "id": "/",
+  "name": "Atmart — données, art et technologie",
   "short_name": "Atmart",
-  "description": "Art, technologie, données et IA — Interview360, Driver360, Career360, Formation360.",
+  "description": "Atmart Data : les 140 communes d'Haïti, leurs indicateurs, leurs sources et leurs lacunes — consultables hors connexion. Plus Interview360, Driver360, Career360, Formation360 et l'Atelier ATM.",
+  "lang": "fr",
+  "dir": "ltr",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#F9F3F0",
+  "orientation": "any",
+  "background_color": "#0a1a2f",
   "theme_color": "#0e2240",
+  "categories": ["education", "productivity", "utilities"],
   "icons": [
     {
       "src": "assets/brand/icon-192.png",
@@ -24,6 +30,29 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Explorateur Haïti",
+      "short_name": "Explorateur",
+      "description": "Chercher une commune et consulter son profil territorial",
+      "url": "/donnees-explorateur.html",
+      "icons": [{ "src": "assets/brand/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Catalogue des données",
+      "short_name": "Catalogue",
+      "description": "Les jeux de données sur Haïti, gratuits et premium",
+      "url": "/datasets.html",
+      "icons": [{ "src": "assets/brand/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Interview360",
+      "short_name": "Interview360",
+      "description": "Préparer un entretien d'embauche",
+      "url": "/entevyou360.html",
+      "icons": [{ "src": "assets/brand/icon-192.png", "sizes": "192x192", "type": "image/png" }]
     }
   ]
 }
