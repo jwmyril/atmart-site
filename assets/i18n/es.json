@@ -766,5 +766,9 @@
   "ds.s0_h": "Perfil de las 140 comunas de Haití <span class=\"badge-new\">PRIORIDAD 1</span>",
   "ds.s0_p": "Una ficha estandarizada por comuna: identidad territorial, población, superficie, localidades, escuelas, centros de salud, mercados, carreteras, exposición a riesgos, diez indicadores socioeconómicos — cada uno con su fuente y su puntuación de calidad. El primer producto que utiliza el Backbone de principio a fin.",
   "ds.s0_pr": "≈ 6 000 $ <small>coste de construcción · Excel + GeoJSON + Power BI + fichas PDF</small>",
-  "ds.s0_meta": "🗺 Transversal • Basado en el <a href=\"donnees-backbone.html\">referencial territorial</a> ya publicado"
+  "ds.s0_meta": "🗺 Transversal • Basado en el <a href=\"donnees-backbone.html\">referencial territorial</a> ya publicado",
+  "ds.c15_h": "Referencial de tiempo Haití <span class=\"badge-new\">NUEVO</span>",
+  "ds.c15_p": "1 201 períodos de 1971 a 2030: anual, semestral, trimestral, mensual — y el <strong>ejercicio fiscal haitiano</strong>, del 1 de octubre al 30 de septiembre. Cada mes conoce su trimestre, su ejercicio presupuestario y su estado de actualidad. Etiquetas en francés y criollo haitiano.",
+  "ds.c15_pr": "0 $ <small>CSV • 1 201 filas • 24 columnas</small>",
+  "ds.c15_meta": "📅 Tiempo • 2º referencial maestro del <a href=\"donnees-backbone.html#temps\">Backbone</a> • tabla de fechas lista para Power BI"
 }

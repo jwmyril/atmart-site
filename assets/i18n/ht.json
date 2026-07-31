@@ -766,5 +766,9 @@
   "ds.s0_h": "Pwofil 140 komin Ayiti yo <span class=\"badge-new\">PRIYORITE 1</span>",
   "ds.s0_p": "Yon fich estanda pou chak komin : idantite tèritoryal, popilasyon, sipèfisi, lokalite, lekòl, sant sante, mache, wout, ekspozisyon ak risk, dis endikatè sosyo-ekonomik — chak ak sous li ak nòt kalite li. Se premye pwodui ki sèvi ak Zo rèl do a depi nan konmansman jiska nan bout.",
   "ds.s0_pr": "≈ 6 000 $ <small>pou konstwi l · Excel + GeoJSON + Power BI + fich PDF</small>",
-  "ds.s0_meta": "🗺 Transvèsal • Chita sou <a href=\"donnees-backbone.html\">referans tèritwa a</a> ki deja pibliye"
+  "ds.s0_meta": "🗺 Transvèsal • Chita sou <a href=\"donnees-backbone.html\">referans tèritwa a</a> ki deja pibliye",
+  "ds.c15_h": "Referans tan Ayiti <span class=\"badge-new\">NOUVO</span>",
+  "ds.c15_p": "1 201 peryòd depi 1971 rive 2030 : chak ane, chak sis mwa, chak twa mwa, chak mwa — ak <strong>ane fiskal ayisyen an</strong>, ki kòmanse 1ye oktòb pou fini 30 septanm. Chak mwa konnen ki trimès li ye, ki ane fiskal li ye ak si li fini oswa l ap kouri toujou. Non yo ekri an français ak an kreyòl.",
+  "ds.c15_pr": "0 $ <small>CSV • 1 201 liy • 24 kolòn</small>",
+  "ds.c15_meta": "📅 Tan • 2yèm referans mèt <a href=\"donnees-backbone.html#temps\">Zo rèl do a</a> • yon tab dat ki pare pou Power BI"
 }

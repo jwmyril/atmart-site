@@ -89,7 +89,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       <div><b>11 707</b><small>entités territoriales identifiées, du département à la localité</small></div>
       <div><b>5 niveaux</b><small>département › arrondissement › commune › section › localité</small></div>
       <div><b>23 champs</b><small>le même schéma pour tous les produits Atmart</small></div>
-      <div><b>192</b><small>entités publiées en accès libre dès aujourd'hui</small></div>
+      <div><b>1 201</b><small>périodes alignées, exercice fiscal haïtien compris</small></div>
     </div>
   </div>
 </section>
@@ -125,11 +125,12 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           immuable, p-code OCHA, noms français et kreyòl, géométrie, parent, dates de validité.</p>
         <span class="go">Voir le référentiel →</span>
       </a>
-      <div class="d-door" style="cursor:default">
-        <h3>📅 Temps <span class="d-pill soon">à construire</span></h3>
-        <p>Période standardisée, date de publication, date de validité, millésime, fréquence,
-          date de révision, statut de fraîcheur. Ce qui permet d'aligner du mensuel sur de l'annuel.</p>
-      </div>
+      <a class="d-door" href="#temps">
+        <h3>📅 Temps <span class="d-pill live">v1 publié</span></h3>
+        <p>1 201 périodes de 1971 à 2030 : annuel, semestriel, trimestriel, mensuel et
+          <strong>exercice fiscal haïtien</strong>. Hiérarchie complète et statut de fraîcheur.</p>
+        <span class="go">Voir le référentiel →</span>
+      </a>
       <div class="d-door" style="cursor:default">
         <h3>🏫 Organisations &amp; infrastructures <span class="d-pill soon">à construire</span></h3>
         <p>Écoles, établissements sanitaires, marchés, institutions, projets. Identifiant stable, nom
@@ -203,6 +204,81 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         à ce que la source atteste. Les créations postérieures seront intégrées avec leurs dates de
         validité, sans réécrire l'historique.
       </p>
+    </div>
+  </div>
+</section>
+
+<!-- LE RÉFÉRENTIEL TEMPS -->
+<section class="d-sec" id="temps">
+  <div class="container">
+    <p class="d-lbl">Référentiel temps · v1.2026.07</p>
+    <h2 class="d-h">1 201 périodes — et l'exercice fiscal haïtien</h2>
+    <p class="d-sub" style="margin-bottom:1.2rem">
+      Un calendrier ne mérite pas d'être un produit. Celui-ci en est un pour une seule raison :
+      il porte le calendrier budgétaire du pays, celui qui fait dérailler les comparaisons quand on l'ignore.
+    </p>
+
+    <div class="d-box amber">
+      <h3>Le piège que ce référentiel supprime</h3>
+      <p>
+        Le budget de l'État haïtien court du <strong>1<sup>er</sup> octobre au 30 septembre</strong>.
+        Une dépense de mars 2026 appartient donc à l'exercice <strong>2025-2026</strong>, pas à l'année
+        civile 2026. Comparer une exécution budgétaire à un PIB ou à une inflation en année civile, c'est
+        décaler deux séries de trois mois sans s'en apercevoir — et l'erreur ne se voit pas dans le résultat.
+      </p>
+      <p>
+        Chaque mois et chaque trimestre du référentiel porte donc son <code>exercice_fiscal</code> de
+        rattachement et son <code>trimestre_fiscal</code> (octobre = T1). La jointure se fait toute seule.
+      </p>
+    </div>
+
+    <div class="d-tab-wrap" style="margin-top:1.4rem">
+      <table class="d-tab">
+        <thead><tr><th>Fréquence</th><th>Périodes</th><th>Identifiant</th><th>Exemple</th></tr></thead>
+        <tbody>
+          <tr><td>Annuelle</td><td>60</td><td><code>HT-A-2026</code></td><td>Année 2026 · Ane 2026</td></tr>
+          <tr><td>Exercice fiscal</td><td>61</td><td><code>HT-F-2025-2026</code></td><td>1<sup>er</sup> oct. 2025 → 30 sept. 2026</td></tr>
+          <tr><td>Semestrielle</td><td>120</td><td><code>HT-S-2026-S2</code></td><td>S2 2026 · 2yèm semès 2026</td></tr>
+          <tr><td>Trimestrielle</td><td>240</td><td><code>HT-T-2026-T3</code></td><td>T3 2026 · 3yèm trimès 2026</td></tr>
+          <tr><td>Mensuelle</td><td>720</td><td><code>HT-M-2026-07</code></td><td>juillet 2026 · jiyè 2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="font-size:1.1rem;margin-top:1.6rem">Ce que chaque période porte</h2>
+    <ul class="d-list">
+      <li><b>Une hiérarchie complète</b> — le mois connaît son trimestre, qui connaît son semestre, qui connaît son année. Une série mensuelle s'agrège sans table de passage.</li>
+      <li><b>Des libellés en français et en kreyòl</b> — <em>jiyè 2026</em>, <em>3yèm trimès 2026</em>, <em>ane fiskal 2025-2026</em>.</li>
+      <li><b>Des bornes exactes</b> — date de début, date de fin, nombre de jours. Les années bissextiles sont justes, ce qui compte dès qu'on calcule une moyenne journalière.</li>
+      <li><b>Un statut de fraîcheur</b> — clôturée, en cours ou à venir, calculé à une date de référence <strong>inscrite dans le fichier</strong>. Un statut sans sa date de calcul ne veut rien dire.</li>
+    </ul>
+
+    <div class="d-box" style="margin-top:1.3rem">
+      <h3>Une limite déclarée</h3>
+      <p>
+        La règle du 1<sup>er</sup> octobre est celle en vigueur aujourd'hui. Pour les exercices antérieurs
+        à 2000, elle reste à confronter aux publications du Ministère de l'Économie et des Finances : c'est
+        écrit dans la colonne <code>methode</code> de chaque ligne d'exercice, et non enfoui dans une note.
+      </p>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:1.4rem">
+      <div class="card">
+        <span class="tag">Gratuit · CC BY 4.0</span>
+        <h3>Référentiel temps Haïti</h3>
+        <p>1 201 périodes de 1971 à 2030, cinq fréquences, hiérarchie, exercice fiscal haïtien,
+          libellés FR/kreyòl et statut de fraîcheur.</p>
+        <p class="price">0 $ <small>CSV • 1 201 lignes • 24 colonnes</small></p>
+        <a href="data/atmart_referentiel_temps_HT.csv" download class="btn btn-primary">Télécharger le référentiel</a>
+      </div>
+      <div class="card">
+        <span class="tag">Comment l'utiliser</span>
+        <h3>Dans Power BI ou Excel</h3>
+        <p>Chargez le CSV comme table de dates, marquez-la comme table de dates sur
+          <code>date_debut</code>, puis reliez-la à vos séries par <code>atmart_periode_id</code>.
+          Vos mesures basculent de l'année civile à l'exercice fiscal en changeant un seul axe.</p>
+        <p class="meta">📘 Un tutoriel Lojik360 suivra</p>
+      </div>
     </div>
   </div>
 </section>
@@ -309,6 +385,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           noms FR/kreyòl, chefs-lieux, superficies et coordonnées.</p>
         <p class="price">0 $ <small>CSV • 192 lignes • 23 colonnes</small></p>
         <a href="data/atmart_referentiel_territoire_base_HT.csv" download class="btn btn-primary">Télécharger le référentiel</a>
+        <p class="meta" style="margin-top:0.7rem">Le <a href="#temps">référentiel temps</a> est gratuit lui aussi — 1 201 périodes.</p>
       </div>
       <div class="card">
         <span class="tag amber">Premium</span>

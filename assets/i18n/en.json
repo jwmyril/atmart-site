@@ -766,5 +766,9 @@
   "ds.s0_h": "Profile of Haiti's 140 communes <span class=\"badge-new\">PRIORITY 1</span>",
   "ds.s0_p": "A standardised sheet per commune: territorial identity, population, area, localities, schools, health facilities, markets, roads, risk exposure, ten socio-economic indicators — each with its source and quality score. The first product that uses the Backbone end to end.",
   "ds.s0_pr": "≈ 6,000 $ <small>build cost · Excel + GeoJSON + Power BI + PDF sheets</small>",
-  "ds.s0_meta": "🗺 Cross-cutting • Built on the <a href=\"donnees-backbone.html\">territorial reference set</a> already published"
+  "ds.s0_meta": "🗺 Cross-cutting • Built on the <a href=\"donnees-backbone.html\">territorial reference set</a> already published",
+  "ds.c15_h": "Haiti time reference set <span class=\"badge-new\">NEW</span>",
+  "ds.c15_p": "1,201 periods from 1971 to 2030: annual, half-year, quarterly, monthly — and the <strong>Haitian fiscal year</strong>, running 1 October to 30 September. Every month knows its quarter, its budget year and its freshness status. Labels in French and Haitian Creole.",
+  "ds.c15_pr": "0 $ <small>CSV • 1,201 rows • 24 columns</small>",
+  "ds.c15_meta": "📅 Time • 2nd master reference set of the <a href=\"donnees-backbone.html#temps\">Backbone</a> • date table ready for Power BI"
 }
