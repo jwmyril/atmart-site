@@ -774,5 +774,7 @@
   "ds.c16_h": "Endikatè pou 140 komin yo <span class=\"badge-new\">NOUVO</span>",
   "ds.c16_p": "1 197 valè nou kalkile pou 140 komin yo : sipèfisi, seksyon, lokalite, sant sante, lekòl, mache ak yon <strong>nòt sou konbyen enfòmasyon nou genyen sou komin nan</strong>. Li vini ak diksyonè li : kijan nou kalkile chak endikatè, si yo konparab, ki limit yo genyen ak kijan pou li yo — pou tout 17 endikatè yo.",
   "ds.c16_pr": "0 $ <small>2 CSV • 1 197 valè • 17 definièsyon</small>",
-  "ds.c16_meta": "📊 4yèm referans mèt <a href=\"donnees-backbone.html#indicateurs\">Zo rèl do a</a> • 217 valè nou di ki pa disponib olye nou mete yon zewo"
+  "ds.c16_meta": "📊 4yèm referans mèt <a href=\"donnees-backbone.html#indicateurs\">Zo rèl do a</a> • 217 valè nou di ki pa disponib olye nou mete yon zewo",
+  "nav.d_sys": "Kat sistèm nan",
+  "nav.d_sys_s": "tout bagay sou yon paj"
 }

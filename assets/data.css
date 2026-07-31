@@ -159,3 +159,54 @@
   .d-buy { position: static; }
   .d-form .two { grid-template-columns: 1fr; }
 }
+
+/* ===== Carte du système (donnees-systeme.html) ===== */
+.sys-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.4rem 0 0.4rem; }
+.sys-note { color: var(--ink-dim); font-size: 0.85rem; margin-bottom: 1.4rem; }
+
+.sys-path {
+  background: rgba(46, 196, 182, 0.07); border: 1px solid rgba(46, 196, 182, 0.3);
+  border-radius: var(--radius); padding: 1rem 1.2rem; margin: 0 0 2rem;
+}
+.sys-path b { color: var(--teal); font-family: var(--font-head); }
+.sys-path p { color: var(--ink-dim); font-size: 0.92rem; margin: 0.3rem 0 0; line-height: 1.65; }
+
+.sys-layer { display: grid; grid-template-columns: 190px 1fr; gap: 1.3rem; margin-bottom: 1.6rem; }
+.sys-head { position: sticky; top: 88px; align-self: start; }
+.sys-head .num {
+  font-family: var(--font-head); font-size: 2rem; font-weight: 700;
+  color: var(--teal); line-height: 1; opacity: 0.5;
+}
+.sys-head h2 { font-size: 1.05rem; margin: 0.2rem 0 0.35rem; }
+.sys-head p { color: var(--ink-dim); font-size: 0.8rem; line-height: 1.5; margin: 0; }
+
+.sys-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(226px, 1fr)); gap: 0.8rem; }
+.sys-card {
+  display: block; background: var(--card); border: 1px solid var(--border);
+  border-left: 3px solid var(--border); border-radius: 12px; padding: 0.85rem 0.95rem;
+  transition: transform .14s ease, border-color .14s ease;
+}
+a.sys-card:hover { transform: translateY(-2px); border-color: var(--teal); }
+.sys-card h3 { font-size: 0.94rem; color: var(--ink); margin: 0.3rem 0 0.25rem; line-height: 1.3; }
+.sys-card p { color: var(--ink-dim); font-size: 0.8rem; margin: 0; line-height: 1.5; }
+.sys-card .vol {
+  display: block; margin-top: 0.45rem; font-family: var(--font-head);
+  font-size: 0.8rem; color: var(--teal);
+}
+.sys-card.live { border-left-color: var(--teal); }
+.sys-card.partiel { border-left-color: var(--amber); }
+.sys-card.finance { border-left-color: var(--red); }
+.sys-card.finance .vol { color: var(--amber); }
+.sys-card.dim { opacity: 0.28; }
+.sys-card.off { display: none; }
+
+.sys-legend { display: flex; flex-wrap: wrap; gap: 1.1rem; margin: 0.2rem 0 1.6rem; font-size: 0.82rem; color: var(--ink-dim); }
+.sys-legend span { display: flex; align-items: center; gap: 0.4rem; }
+.sys-legend i { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+
+@media (max-width: 780px) {
+  .sys-layer { grid-template-columns: 1fr; gap: 0.7rem; }
+  .sys-head { position: static; }
+  .sys-head .num { font-size: 1.4rem; display: inline-block; margin-right: 0.5rem; }
+  .sys-head h2 { display: inline-block; }
+}
