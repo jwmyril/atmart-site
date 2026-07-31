@@ -13,7 +13,7 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0e2240" />
   <link rel="stylesheet" href="assets/style.css?v=31" />
-  <link rel="stylesheet" href="assets/data.css?v=9" />
+  <link rel="stylesheet" href="assets/data.css?v=11" />
 <script>/* langue auto : avant le 1er affichage, evite le clignotement */
 (function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
 s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
@@ -76,9 +76,10 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 <section class="hero" style="padding:2.6rem 0 0.8rem">
   <div class="container">
     <p class="kreyol">Chèche yon komin. Jwenn pwofil li.</p>
-    <h1>Explorez les communes d’<em>Haïti</em></h1>
+    <h1>Explorez les territoires d’<em>Haïti</em></h1>
     <p class="lead" style="max-width:64ch">
-      Recherchez un territoire et consultez son profil : services essentiels, indicateurs
+      Recherchez une commune, un arrondissement ou un département, et consultez son profil :
+      services essentiels, indicateurs
       disponibles, sources et millésimes. <strong>Comparez les territoires, repérez les déficits
       de services et exportez les résultats</strong> pour vos rapports, projets et décisions.
     </p>
@@ -176,7 +177,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         <p class="x-note" style="margin-top:0">
           Deux à quatre territoires côte à côte — communes, arrondissements ou départements.
           Chaque valeur porte son millésime, et les comparaisons entre millésimes différents
-          sont signalées plutôt que lissees.
+          sont signalées plutôt que lissées.
         </p>
         <div id="x-comp-choix" class="x-jetons"></div>
         <div id="x-comparaison-corps"></div>
@@ -184,10 +185,28 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 
       <div id="x-vue-classement" role="tabpanel" hidden>
         <div class="x-outils">
-          <label for="x-indicateur">Classer les communes par</label>
+          <label for="x-niveau">Classer les</label>
+          <select id="x-niveau">
+            <option value="3">Communes</option>
+            <option value="2">Arrondissements</option>
+            <option value="1">Départements</option>
+          </select>
+          <label for="x-indicateur">par</label>
           <select id="x-indicateur"></select>
+          <label for="x-normalisation">lecture</label>
+          <select id="x-normalisation">
+            <option value="total">Valeur brute</option>
+            <option value="km2">Pour 100 km²</option>
+            <option value="part">Part du total national</option>
+            <option value="habitant">Pour 10 000 habitants — indisponible</option>
+          </select>
           <button id="x-export" class="btn btn-outline">Exporter en CSV</button>
         </div>
+        <p class="x-note" style="margin-top:0">
+          Les départements et arrondissements n’ont pas de valeurs propres : elles sont agrégées
+          depuis leurs communes selon la règle inscrite au dictionnaire, et le nombre de communes
+          documentées est affiché en regard. Le bouton <b>+</b> ajoute un territoire à la comparaison.
+        </p>
         <div id="x-classement-corps"></div>
       </div>
     </div>
@@ -201,8 +220,9 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         tel quel depuis le <a href="datasets.html">catalogue</a> et le recalculer vous-même.
       </p>
       <p>
-        Il s’arrête au niveau <b>commune</b>. Les sections communales, les localités et les
-        polygones sont dans le <a href="donnees-pack-geo-haiti.html">Pack Géo Haïti</a>.
+        La <b>commune est le niveau territorial le plus détaillé de l’édition publique</b>.
+        Les sections communales, les localités et les polygones détaillés sont disponibles dans le
+        <a href="donnees-pack-geo-haiti.html">Pack Géo Haïti</a>.
         Les définitions, méthodes et statuts de qualité sont exposés sur la page
         <a href="donnees-backbone.html#statuts">Backbone</a>.
       </p>
@@ -239,7 +259,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 </footer>
 
 <script src="assets/script.js?v=2"></script>
-<script src="assets/explorateur.js?v=11"></script>
+<script src="assets/explorateur.js?v=13"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 <script src="assets/i18n.js?v=10"></script>
 <script src="assets/launcher.js?v=3"></script>

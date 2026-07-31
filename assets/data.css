@@ -505,3 +505,28 @@ select:focus-visible, input:focus-visible {
   a[href]::after { content: "" !important; }
   @page { margin: 14mm; }
 }
+
+/* Classement multi-niveaux, avertissements, mini-boutons */
+.x-avert {
+  background: rgba(244,162,97,.09); border: 1px solid rgba(244,162,97,.35);
+  border-radius: 10px; padding: 0.7rem 0.9rem; color: var(--ink-dim);
+  font-size: 0.85rem; line-height: 1.6; margin: 0 0 1rem;
+}
+.x-avert b { color: var(--amber); }
+.x-mini {
+  background: rgba(46,196,182,.12); border: 1px solid rgba(46,196,182,.4); color: var(--teal);
+  border-radius: 8px; width: 32px; height: 32px; cursor: pointer; font-size: 1rem; line-height: 1;
+}
+.x-mini:hover { background: var(--teal); color: #0a1a2f; }
+.x-outils label { color: var(--ink-dim); font-size: 0.86rem; }
+.x-classement th small { display: block; color: var(--ink-dim); font-weight: 400; font-size: 0.72rem; }
+@media (max-width: 1024px) { .x-mini { width: 44px; height: 44px; } }
+
+/* Dans un tableau, le nom du territoire est une cible de navigation :
+   au doigt, il doit remplir sa cellule et non se limiter a la hauteur du texte. */
+@media (max-width: 1024px) {
+  .x-classement td .x-lien, .x-comp td .x-lien {
+    display: block; width: 100%; padding: 0.62rem 0; min-height: 44px; text-align: left;
+  }
+  .x-classement td, .x-comp td { padding-top: 0.2rem; padding-bottom: 0.2rem; }
+}

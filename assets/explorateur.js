@@ -24,6 +24,8 @@
   var terr = [], vals = [], orgs = [], dico = {}, contour = null;
   var parId = {}, parPcode = {}, enfantsDe = {}, orgsCom = {}, orgsSec = {};
   var parIndicateur = {}, courant = null, objectif = "tout", comparees = [];
+  var niveauComp = "3", normalisation = "total", ongletActif = "fiche";
+  var aggEntite = {};   /* agregats precalcules des departements et arrondissements */
   var $ = function (s) { return document.querySelector(s); };
 
   /* ---------------------------------------------------------------- outils */
@@ -123,6 +125,41 @@
                 ["Comment ces chiffres sont établis", "donnees-backbone.html"]]
     }
   };
+
+  /* --------------------------------------------------------- normalisation
+     Rapporter une valeur a une base commune. « par habitant » manque a l'appel :
+     la population communale n'est pas encore integree (aucune des 192 entites
+     n'en porte). Le proposer griserait une promesse qu'on ne tient pas, alors
+     on l'affiche indisponible, avec sa raison. */
+  var NORMALISATIONS = {
+    total: { nom: "Valeur brute", suffixe: "", possible: true },
+    km2: { nom: "Pour 100 km\u00b2", suffixe: " / 100 km\u00b2", possible: true },
+    part: { nom: "Part du total national", suffixe: " %", possible: true },
+    habitant: { nom: "Pour 10 000 habitants \u2014 indisponible", suffixe: "", possible: false,
+                raison: "La population communale n'est pas encore int\u00e9gr\u00e9e : aucune des " +
+                        "192 entit\u00e9s n'en porte. Cet indicateur attend les estimations IHSI." }
+  };
+
+  /* La normalisation n'a de sens que sur un comptage : normaliser un
+     pourcentage ou une densite produirait un nombre sans signification. */
+  function normalisable(indId) {
+    var d = dico[indId] || {};
+    return d.unite === "nombre";
+  }
+
+  function appliquerNorm(indId, valeur, entite, totalNational) {
+    if (normalisation === "total" || !normalisable(indId)) return { v: valeur, u: (dico[indId] || {}).unite };
+    if (normalisation === "km2") {
+      var s = nb(entite.superficie_km2);
+      if (!s) return { v: null, u: "" };
+      return { v: valeur / s * 100, u: "/ 100 km\u00b2" };
+    }
+    if (normalisation === "part") {
+      if (!totalNational) return { v: null, u: "" };
+      return { v: valeur / totalNational * 100, u: "%" };
+    }
+    return { v: valeur, u: (dico[indId] || {}).unite };
+  }
 
   /* ------------------------------------------------------------- recherche */
   function chercher(q) {
@@ -637,9 +674,54 @@
 
   function majURL() {
     if (!courant) return;
-    var q = "?id=" + courant.atmart_geo_id + (objectif !== "tout" ? "&objectif=" + objectif : "") +
-            (comparees.length ? "&comparer=" + comparees.join(",") : "");
+    var q = "?id=" + courant.atmart_geo_id +
+            (objectif !== "tout" ? "&objectif=" + objectif : "") +
+            (comparees.length ? "&comparer=" + comparees.join(",") : "") +
+            (ongletActif !== "fiche" ? "&onglet=" + ongletActif : "") +
+            (niveauComp !== "3" ? "&niveau=" + niveauComp : "") +
+            (normalisation !== "total" ? "&norm=" + normalisation : "");
+    var si = $("#x-indicateur");
+    if (si && si.value && si.value !== "IND-QUA-001") q += "&ind=" + si.value;
     try { history.replaceState(null, "", q); } catch (e) {}
+  }
+
+  /* --------------------------------------------- valeurs par niveau territorial
+     Un departement n'a pas de valeurs propres dans le fichier : elles sont
+     agregees depuis ses communes, selon la regle du dictionnaire. On les
+     calcule une fois au demarrage plutot qu'a chaque affichage. */
+  function precalculerAgregats() {
+    terr.forEach(function (e) {
+      if (e.niveau_admin === "1" || e.niveau_admin === "2") {
+        aggEntite[e.atmart_geo_id] = agreger(e, communesDe(e));
+      }
+    });
+  }
+
+  function entitesDuNiveau(niv) {
+    return terr.filter(function (e) { return e.niveau_admin === niv; });
+  }
+
+  function valeurBrute(entite, indId) {
+    if (entite.niveau_admin === "3") {
+      var v = vals.filter(function (x) {
+        return x.pcode_commune === entite.pcode && x.indicateur_id === indId; })[0];
+      if (!v || v.statut_valeur === "N") return null;
+      return { valeur: nb(v.valeur), unite: v.unite, annee: v.annee_reference,
+               statut: v.statut_valeur, source: v.source, methode: v.methode };
+    }
+    var a = (aggEntite[entite.atmart_geo_id] || {})[indId];
+    if (!a) return null;
+    return { valeur: a.valeur, unite: a.unite, annee: a.annee, statut: "A",
+             source: "Agrégat Atmart", methode: a.note, couvertes: a.couvertes };
+  }
+
+  function totalNational(indId) {
+    var t = 0, n = 0;
+    entitesDuNiveau("3").forEach(function (c) {
+      var v = valeurBrute(c, indId);
+      if (v && v.valeur !== null) { t += v.valeur; n++; }
+    });
+    return n ? t : 0;
   }
 
   /* ----------------------------------------------------------- comparaison
@@ -660,7 +742,7 @@
       vals.forEach(function (v) { if (v.pcode_commune === r.pcode) m[v.indicateur_id] = v; });
       return m;
     }
-    var agg = agreger(r, communesDe(r));
+    var agg = aggEntite[r.atmart_geo_id] || agreger(r, communesDe(r));
     Object.keys(agg).forEach(function (k) {
       m[k] = { valeur: agg[k].valeur, unite: agg[k].unite, annee_reference: agg[k].annee,
                statut_valeur: "A", methode: agg[k].note };
@@ -696,7 +778,16 @@
     var cles = Object.keys(ids).filter(function (k) { return dico[k]; }).sort(function (a, b) {
       return (dico[a].categorie + dico[a].nom).localeCompare(dico[b].categorie + dico[b].nom); });
 
-    var h = ['<div class="x-tabwrap"><table class="x-tab x-comp"><thead><tr><th>Indicateur</th>'];
+    var niveaux = {};
+    ents.forEach(function (e) { niveaux[e.niveau_admin] = 1; });
+    var h = [];
+    if (Object.keys(niveaux).length > 1) {
+      h.push('<p class="x-avert"><b>Niveaux territoriaux m\u00e9lang\u00e9s.</b> Vous comparez des ' +
+        'entit\u00e9s de tailles diff\u00e9rentes \u2014 les valeurs brutes ne sont pas comparables telles ' +
+        'quelles. Passez en <b>Pour 100 km\u00b2</b> ou en <b>Part du total national</b> pour une ' +
+        'lecture juste, ou comparez des territoires de m\u00eame niveau.</p>');
+    }
+    h.push('<div class="x-tabwrap"><table class="x-tab x-comp"><thead><tr><th>Indicateur</th>');
     ents.forEach(function (e) {
       h.push("<th>" + esc(e.nom_fr) + "<small>" + (NIVEAU[e.niveau_admin] || "") + "</small></th>");
     });
@@ -751,34 +842,89 @@
     telecharger("atmart_comparaison_" +
       ents.map(function (e) { return e.pcode || e.atmart_geo_id; }).join("_") + ".csv",
       ["atmart_geo_id", "pcode", "territoire", "niveau", "indicateur_id", "indicateur",
-       "valeur", "unite", "annee_reference", "statut_valeur", "methode"], lignes);
+       "valeur", "unite", "annee_reference", "statut_valeur", "methode"].concat(enTeteMeta()),
+      lignes.map(function (l) { return l.concat(ligneMeta()); }));
   }
 
   /* ------------------------------------------------------------ classement */
   function classement(indId) {
     var d = dico[indId] || {};
-    var connus = (parIndicateur[indId] || []);
-    var absents = vals.filter(function (v) { return v.indicateur_id === indId && v.statut_valeur === "N"; });
-    var an = (connus[0] || {}).annee_reference;
+    var ents = entitesDuNiveau(niveauComp);
+    var lbl = niveauComp === "1" ? "d\u00e9partements" : niveauComp === "2" ? "arrondissements" : "communes";
+    var tot = normalisation === "part" ? totalNational(indId) : 0;
+
+    var lignes = [], sans = [];
+    ents.forEach(function (e) {
+      var v = valeurBrute(e, indId);
+      if (!v || v.valeur === null) { sans.push(e); return; }
+      var n = appliquerNorm(indId, v.valeur, e, tot);
+      if (n.v === null) { sans.push(e); return; }
+      lignes.push({ e: e, brut: v, aff: n.v, unite: n.u });
+    });
+    lignes.sort(function (a, b) { return b.aff - a.aff; });
+
+    var an = (lignes[0] || {}).brut ? lignes[0].brut.annee : "";
+    var normInfo = NORMALISATIONS[normalisation];
     var h = ['<p class="x-note">' + esc(d.definition) +
-             (an ? " <b>Millésime " + esc(an) + ".</b>" : "") +
+             (an ? " <b>Mill\u00e9sime " + esc(an) + ".</b>" : "") +
+             (normalisation !== "total" ? " <b>Lecture :</b> " + esc(normInfo.nom) + "." : "") +
              (d.limites_connues ? " <b>Limite :</b> " + esc(d.limites_connues) : "") + "</p>"];
-    h.push('<div class="x-tabwrap"><table class="x-tab x-classement"><thead><tr><th>#</th><th>Commune</th><th>' +
-           esc(d.nom || indId) + "</th><th>Département</th></tr></thead><tbody>");
-    connus.forEach(function (v, i) {
-      var c = parPcode[v.pcode_commune] || {}, cur = parId[c.parent_atmart_geo_id], dep = null, g = 0;
-      while (cur && g++ < 5) { if (cur.niveau_admin === "1") { dep = cur; break; } cur = parId[cur.parent_atmart_geo_id]; }
-      h.push("<tr><td>" + (i + 1) + '</td><td><button class="x-lien" data-id="' + esc(c.atmart_geo_id) +
-        '">' + esc(v.nom_commune) + "</button></td><td>" + fmt(v.valeur, v.unite) + "</td><td>" +
-        esc((dep || {}).nom_fr || "—") + "</td></tr>");
+
+    if (normalisation !== "total" && !normalisable(indId)) {
+      h.push('<p class="x-avert">Cet indicateur est d\u00e9j\u00e0 un taux ou une densit\u00e9 : ' +
+             "le normaliser n'aurait pas de sens. Les valeurs brutes sont affich\u00e9es.</p>");
+    }
+
+    h.push('<div class="x-tabwrap"><table class="x-tab x-classement"><thead><tr><th>#</th><th>' +
+           (niveauComp === "1" ? "D\u00e9partement" : niveauComp === "2" ? "Arrondissement" : "Commune") +
+           "</th><th>" + esc(d.nom || indId) +
+           (normalisation !== "total" && normalisable(indId) ? " <small>" + esc(normInfo.nom) + "</small>" : "") +
+           "</th><th>" + (niveauComp === "3" ? "D\u00e9partement" : "Couverture") +
+           "</th><th></th></tr></thead><tbody>");
+
+    lignes.forEach(function (l, i) {
+      var contexte;
+      if (niveauComp === "3") {
+        var cur = parId[l.e.parent_atmart_geo_id], dep = null, g = 0;
+        while (cur && g++ < 5) { if (cur.niveau_admin === "1") { dep = cur; break; }
+                                 cur = parId[cur.parent_atmart_geo_id]; }
+        contexte = (dep || {}).nom_fr || "\u2014";
+      } else {
+        contexte = (l.brut.couvertes || 0) + " commune" + (l.brut.couvertes > 1 ? "s" : "") + " document\u00e9e" +
+                   (l.brut.couvertes > 1 ? "s" : "");
+      }
+      h.push("<tr><td>" + (i + 1) + '</td><td><button class="x-lien" data-id="' +
+        esc(l.e.atmart_geo_id) + '">' + esc(l.e.nom_fr) + "</button></td><td>" +
+        fmt(l.aff, l.unite) + "</td><td>" + esc(contexte) +
+        '</td><td><button class="x-mini" data-comparer="' + esc(l.e.atmart_geo_id) +
+        '" title="Ajouter \u00e0 la comparaison">+</button></td></tr>');
     });
     h.push("</tbody></table></div>");
-    if (absents.length) h.push('<p class="x-note"><b>' + absents.length +
-      " communes sans donnée</b> — non couvertes par la source, donc absentes du classement plutôt " +
-      "que placées en bas : " + absents.map(function (v) { return esc(v.nom_commune); }).sort().join(", ") + ".</p>");
+
+    if (sans.length) {
+      h.push('<p class="x-note"><b>' + sans.length + " " + lbl + " sans valeur</b> \u2014 non couvert" +
+        (sans.length > 1 ? "s" : "") + " par la source de cet indicateur, donc absent" +
+        (sans.length > 1 ? "s" : "") + " du classement plut\u00f4t que plac\u00e9" +
+        (sans.length > 1 ? "s" : "") + " en bas : " +
+        sans.map(function (e) { return esc(e.nom_fr); }).sort().join(", ") + ".</p>");
+    }
+    h.push('<div class="x-actions"><button class="btn btn-outline x-btn-export-cl">Exporter ce classement (CSV)</button>' +
+           '<button class="btn btn-outline x-btn-comp-top">Comparer les 4 premiers</button>' +
+           '<button class="btn btn-outline x-btn-lien">Copier le lien de cette vue</button></div>');
     $("#x-classement-corps").innerHTML = h.join("");
-    var b = $("#x-export");
-    b.textContent = "Exporter les " + connus.length + " communes classées (CSV)";
+    window.__classement = lignes;
+  }
+
+  /* Metadonnees communes a tous les exports : sans elles, un CSV sorti de son
+     contexte devient un tableau de chiffres sans provenance. */
+  function enTeteMeta() {
+    return ["source_donnees", "millesime_referentiel", "version_referentiel",
+            "date_extraction_atmart", "normalisation", "url_methodologie"];
+  }
+  function ligneMeta() {
+    return ["Atmart Data \u2014 atmart.ltd", "CNIGS 2018", (terr[0] || {}).version || "",
+            (vals[0] || {}).date_extraction || "", NORMALISATIONS[normalisation].nom,
+            "https://atmart.ltd/donnees-backbone.html#indicateurs"];
   }
 
   function telecharger(nom, entetes, lignes) {
@@ -833,7 +979,7 @@
       sel.appendChild(o);
     });
     sel.value = "IND-QUA-001";
-    classement("IND-QUA-001");
+    precalculerAgregats();
 
     $("#x-chargement").hidden = true;
     $("#x-app").hidden = false;
@@ -924,13 +1070,41 @@
       if (courant) fiche(courant.atmart_geo_id);
     });
 
-    sel.addEventListener("change", function () { classement(sel.value); });
-    $("#x-export").addEventListener("click", function () {
-      var l = parIndicateur[sel.value] || [];
-      telecharger("atmart_" + sel.value + "_classement.csv",
-        ["rang", "pcode_commune", "commune", "valeur", "unite", "annee_reference", "source"],
-        l.map(function (v, i) {
-          return [i + 1, v.pcode_commune, v.nom_commune, v.valeur, v.unite, v.annee_reference, v.source]; }));
+    sel.addEventListener("change", function () { classement(sel.value); majURL(); });
+    var selNiv = $("#x-niveau");
+    if (selNiv) selNiv.addEventListener("change", function () {
+      niveauComp = selNiv.value; classement(sel.value); majURL(); });
+    var selNorm = $("#x-normalisation");
+    if (selNorm) selNorm.addEventListener("change", function () {
+      var v = selNorm.value;
+      if (!NORMALISATIONS[v].possible) {
+        alert(NORMALISATIONS[v].raison);
+        selNorm.value = normalisation; return;
+      }
+      normalisation = v; classement(sel.value); rendreComparaison(); majURL(); });
+    function exporterClassement() {
+      var l = window.__classement || [];
+      var d = dico[sel.value] || {};
+      var niv = niveauComp === "1" ? "departements" : niveauComp === "2" ? "arrondissements" : "communes";
+      telecharger("atmart_" + sel.value + "_" + niv + "_" + normalisation + ".csv",
+        ["rang", "atmart_geo_id", "pcode", "territoire", "niveau", "indicateur_id", "indicateur",
+         "valeur_affichee", "unite_affichee", "valeur_brute", "unite_brute", "annee_reference",
+         "statut_valeur", "regle_agregation"].concat(enTeteMeta()),
+        l.map(function (x, i) {
+          return [i + 1, x.e.atmart_geo_id, x.e.pcode || "", x.e.nom_fr,
+                  NIVEAU[x.e.niveau_admin], sel.value, d.nom || "",
+                  x.aff, x.unite, x.brut.valeur, x.brut.unite, x.brut.annee,
+                  x.brut.statut, d.regle_agregation || ""].concat(ligneMeta()); }));
+    }
+    $("#x-export").addEventListener("click", exporterClassement);
+    document.addEventListener("click", function (e) {
+      if (e.target.closest(".x-btn-export-cl")) exporterClassement();
+      if (e.target.closest(".x-btn-comp-top")) {
+        comparees = (window.__classement || []).slice(0, MAX_COMP)
+          .map(function (x) { return x.e.atmart_geo_id; });
+        rendreComparaison(); majURL();
+        document.querySelector('[data-onglet="comparaison"]').click();
+      }
     });
 
     [].forEach.call(document.querySelectorAll("[data-onglet]"), function (b) {
@@ -939,15 +1113,33 @@
           x.classList.toggle("active", x === b);
           x.setAttribute("aria-selected", x === b ? "true" : "false");
         });
+        ongletActif = b.dataset.onglet;
         $("#x-vue-fiche").hidden = b.dataset.onglet !== "fiche";
         $("#x-vue-comparaison").hidden = b.dataset.onglet !== "comparaison";
         $("#x-vue-classement").hidden = b.dataset.onglet !== "classement";
+        majURL();
       });
     });
 
+    var niv = (location.search.match(/niveau=([123])/) || [])[1];
+    if (niv) { niveauComp = niv; var sn = $("#x-niveau"); if (sn) sn.value = niv; }
+    var nrm = (location.search.match(/norm=([a-z0-9]+)/) || [])[1];
+    if (nrm && NORMALISATIONS[nrm] && NORMALISATIONS[nrm].possible) {
+      normalisation = nrm; var snn = $("#x-normalisation"); if (snn) snn.value = nrm;
+    }
+    var ind = (location.search.match(/ind=(IND-[A-Z0-9-]+)/) || [])[1];
+    if (ind && dico[ind]) sel.value = ind;
+    classement(sel.value);
     var cmp = (location.search.match(/comparer=([A-Z0-9,\-]+)/) || [])[1];
     if (cmp) comparees = cmp.split(",").filter(function (x) { return parId[x]; }).slice(0, MAX_COMP);
     rendreComparaison();
+    /* Un lien de comparaison doit ouvrir la comparaison, pas la fiche. */
+    var ong = (location.search.match(/onglet=([a-z]+)/) || [])[1];
+    if (!ong && cmp) ong = "comparaison";
+    if (ong) {
+      var bo = document.querySelector('[data-onglet="' + ong + '"]');
+      if (bo) bo.click();
+    }
     var ob = (location.search.match(/objectif=([a-z]+)/) || [])[1];
     if (OBJECTIFS[ob]) { objectif = ob; if (selObj) selObj.value = ob; }
     var id = (location.search.match(/id=([A-Z0-9-]+)/) || [])[1];
