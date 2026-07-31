@@ -4,9 +4,12 @@ HTC-0111,HT0111,Port-au-Prince,IND-GEO-002,HT-A-2018,2018,3,nombre,A,Comptage de
 HTC-0111,HT0111,Port-au-Prince,IND-GEO-003,HT-A-2026,2026,37,nombre,A,Comptage des localités rattachées par point-dans-polygone,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0111,HT0111,Port-au-Prince,IND-GEO-004,HT-A-2026,2026,108.12,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0111,HT0111,Port-au-Prince,IND-SAN-001,HT-A-2023,2023,126,nombre,A,Comptage des établissements de santé recensés,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0111,HT0111,Port-au-Prince,IND-SAN-004,HT-A-2023,2023,46,nombre,A,Comptage des établissements de statut Public,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0111,HT0111,Port-au-Prince,IND-SAN-005,HT-A-2023,2023,91,nombre,A,Comptage des établissements avec coordonnées,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0111,HT0111,Port-au-Prince,IND-SAN-002,HT-A-2023,2023,36.5,%,A,Établissements publics ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0111,HT0111,Port-au-Prince,IND-SAN-003,HT-A-2023,2023,72.2,%,A,Établissements géocodés ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0111,HT0111,Port-au-Prince,IND-EDU-001,HT-A-2022,2022,211,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0111,HT0111,Port-au-Prince,IND-EDU-003,HT-A-2022,2022,28,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0111,HT0111,Port-au-Prince,IND-EDU-002,HT-A-2022,2022,13.3,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0111,HT0111,Port-au-Prince,IND-MAR-001,HT-A-2026,2026,4,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0111,HT0111,Port-au-Prince,IND-QUA-001,HT-A-2026,2026,100,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -16,6 +19,7 @@ HTC-0112,HT0112,Delmas,IND-GEO-003,HT-A-2026,2026,15,nombre,A,Comptage des local
 HTC-0112,HT0112,Delmas,IND-GEO-004,HT-A-2026,2026,57.6,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0112,HT0112,Delmas,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0112,HT0112,Delmas,IND-EDU-001,HT-A-2022,2022,100,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0112,HT0112,Delmas,IND-EDU-003,HT-A-2022,2022,11,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0112,HT0112,Delmas,IND-EDU-002,HT-A-2022,2022,11.0,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0112,HT0112,Delmas,IND-MAR-001,HT-A-2026,2026,2,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0112,HT0112,Delmas,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -33,6 +37,7 @@ HTC-0114,HT0114,Pétion-Ville,IND-GEO-003,HT-A-2026,2026,99,nombre,A,Comptage de
 HTC-0114,HT0114,Pétion-Ville,IND-GEO-004,HT-A-2026,2026,63.0,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0114,HT0114,Pétion-Ville,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0114,HT0114,Pétion-Ville,IND-EDU-001,HT-A-2022,2022,18,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0114,HT0114,Pétion-Ville,IND-EDU-003,HT-A-2022,2022,5,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0114,HT0114,Pétion-Ville,IND-EDU-002,HT-A-2022,2022,27.8,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0114,HT0114,Pétion-Ville,IND-MAR-001,HT-A-2026,2026,3,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0114,HT0114,Pétion-Ville,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -58,6 +63,7 @@ HTC-0117,HT0117,Cité Soleil,IND-GEO-003,HT-A-2026,2026,20,nombre,A,Comptage des
 HTC-0117,HT0117,Cité Soleil,IND-GEO-004,HT-A-2026,2026,93.59,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0117,HT0117,Cité Soleil,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0117,HT0117,Cité Soleil,IND-EDU-001,HT-A-2022,2022,301,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0117,HT0117,Cité Soleil,IND-EDU-003,HT-A-2022,2022,15,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0117,HT0117,Cité Soleil,IND-EDU-002,HT-A-2022,2022,5.0,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0117,HT0117,Cité Soleil,IND-MAR-001,HT-A-2026,2026,3,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0117,HT0117,Cité Soleil,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -67,6 +73,7 @@ HTC-0118,HT0118,Tabarre,IND-GEO-003,HT-A-2026,2026,19,nombre,A,Comptage des loca
 HTC-0118,HT0118,Tabarre,IND-GEO-004,HT-A-2026,2026,66.83,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0118,HT0118,Tabarre,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0118,HT0118,Tabarre,IND-EDU-001,HT-A-2022,2022,82,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0118,HT0118,Tabarre,IND-EDU-003,HT-A-2022,2022,3,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0118,HT0118,Tabarre,IND-EDU-002,HT-A-2022,2022,3.7,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0118,HT0118,Tabarre,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0118,HT0118,Tabarre,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -100,6 +107,7 @@ HTC-0131,HT0131,Croix-Des-Bouquets,IND-GEO-003,HT-A-2026,2026,225,nombre,A,Compt
 HTC-0131,HT0131,Croix-Des-Bouquets,IND-GEO-004,HT-A-2026,2026,34.96,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0131,HT0131,Croix-Des-Bouquets,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0131,HT0131,Croix-Des-Bouquets,IND-EDU-001,HT-A-2022,2022,217,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0131,HT0131,Croix-Des-Bouquets,IND-EDU-003,HT-A-2022,2022,12,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0131,HT0131,Croix-Des-Bouquets,IND-EDU-002,HT-A-2022,2022,5.5,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0131,HT0131,Croix-Des-Bouquets,IND-MAR-001,HT-A-2026,2026,4,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0131,HT0131,Croix-Des-Bouquets,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -109,6 +117,7 @@ HTC-0132,HT0132,Thomazeau,IND-GEO-003,HT-A-2026,2026,85,nombre,A,Comptage des lo
 HTC-0132,HT0132,Thomazeau,IND-GEO-004,HT-A-2026,2026,29.1,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0132,HT0132,Thomazeau,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0132,HT0132,Thomazeau,IND-EDU-001,HT-A-2022,2022,23,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0132,HT0132,Thomazeau,IND-EDU-003,HT-A-2022,2022,1,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0132,HT0132,Thomazeau,IND-EDU-002,HT-A-2022,2022,4.3,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0132,HT0132,Thomazeau,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0132,HT0132,Thomazeau,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -118,6 +127,7 @@ HTC-0133,HT0133,Ganthier,IND-GEO-003,HT-A-2026,2026,142,nombre,A,Comptage des lo
 HTC-0133,HT0133,Ganthier,IND-GEO-004,HT-A-2026,2026,28.86,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0133,HT0133,Ganthier,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0133,HT0133,Ganthier,IND-EDU-001,HT-A-2022,2022,19,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0133,HT0133,Ganthier,IND-EDU-003,HT-A-2022,2022,3,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0133,HT0133,Ganthier,IND-EDU-002,HT-A-2022,2022,15.8,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0133,HT0133,Ganthier,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0133,HT0133,Ganthier,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -254,6 +264,8 @@ HTC-0311,HT0311,Cap-Haïtien,IND-GEO-002,HT-A-2018,2018,3,nombre,A,Comptage des 
 HTC-0311,HT0311,Cap-Haïtien,IND-GEO-003,HT-A-2026,2026,31,nombre,A,Comptage des localités rattachées par point-dans-polygone,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0311,HT0311,Cap-Haïtien,IND-GEO-004,HT-A-2026,2026,57.29,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0311,HT0311,Cap-Haïtien,IND-SAN-001,HT-A-2023,2023,68,nombre,A,Comptage des établissements de santé recensés,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0311,HT0311,Cap-Haïtien,IND-SAN-004,HT-A-2023,2023,32,nombre,A,Comptage des établissements de statut Public,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0311,HT0311,Cap-Haïtien,IND-SAN-005,HT-A-2023,2023,42,nombre,A,Comptage des établissements avec coordonnées,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0311,HT0311,Cap-Haïtien,IND-SAN-002,HT-A-2023,2023,47.1,%,A,Établissements publics ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0311,HT0311,Cap-Haïtien,IND-SAN-003,HT-A-2023,2023,61.8,%,A,Établissements géocodés ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0311,HT0311,Cap-Haïtien,IND-EDU-001,HT-A-2022,2022,,nombre,N,"Commune hors de la zone couverte par la cartographie 2022 : absence de donnée, et non absence d'école",C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
@@ -512,6 +524,8 @@ HTC-0511,HT0511,Gonaïves,IND-GEO-002,HT-A-2018,2018,5,nombre,A,Comptage des sec
 HTC-0511,HT0511,Gonaïves,IND-GEO-003,HT-A-2026,2026,191,nombre,A,Comptage des localités rattachées par point-dans-polygone,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0511,HT0511,Gonaïves,IND-GEO-004,HT-A-2026,2026,33.61,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0511,HT0511,Gonaïves,IND-SAN-001,HT-A-2023,2023,80,nombre,A,Comptage des établissements de santé recensés,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0511,HT0511,Gonaïves,IND-SAN-004,HT-A-2023,2023,29,nombre,A,Comptage des établissements de statut Public,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0511,HT0511,Gonaïves,IND-SAN-005,HT-A-2023,2023,48,nombre,A,Comptage des établissements avec coordonnées,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0511,HT0511,Gonaïves,IND-SAN-002,HT-A-2023,2023,36.2,%,A,Établissements publics ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0511,HT0511,Gonaïves,IND-SAN-003,HT-A-2023,2023,60.0,%,A,Établissements géocodés ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0511,HT0511,Gonaïves,IND-EDU-001,HT-A-2022,2022,,nombre,N,"Commune hors de la zone couverte par la cartographie 2022 : absence de donnée, et non absence d'école",C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
@@ -522,6 +536,8 @@ HTC-0512,HT0512,Ennery,IND-GEO-002,HT-A-2018,2018,4,nombre,A,Comptage des sectio
 HTC-0512,HT0512,Ennery,IND-GEO-003,HT-A-2026,2026,128,nombre,A,Comptage des localités rattachées par point-dans-polygone,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0512,HT0512,Ennery,IND-GEO-004,HT-A-2026,2026,60.19,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0512,HT0512,Ennery,IND-SAN-001,HT-A-2023,2023,28,nombre,A,Comptage des établissements de santé recensés,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0512,HT0512,Ennery,IND-SAN-004,HT-A-2023,2023,13,nombre,A,Comptage des établissements de statut Public,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0512,HT0512,Ennery,IND-SAN-005,HT-A-2023,2023,22,nombre,A,Comptage des établissements avec coordonnées,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0512,HT0512,Ennery,IND-SAN-002,HT-A-2023,2023,46.4,%,A,Établissements publics ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0512,HT0512,Ennery,IND-SAN-003,HT-A-2023,2023,78.6,%,A,Établissements géocodés ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0512,HT0512,Ennery,IND-EDU-001,HT-A-2022,2022,,nombre,N,"Commune hors de la zone couverte par la cartographie 2022 : absence de donnée, et non absence d'école",C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
@@ -564,6 +580,8 @@ HTC-0531,HT0531,Saint-Marc,IND-GEO-002,HT-A-2018,2018,6,nombre,A,Comptage des se
 HTC-0531,HT0531,Saint-Marc,IND-GEO-003,HT-A-2026,2026,170,nombre,A,Comptage des localités rattachées par point-dans-polygone,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0531,HT0531,Saint-Marc,IND-GEO-004,HT-A-2026,2026,30.55,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0531,HT0531,Saint-Marc,IND-SAN-001,HT-A-2023,2023,108,nombre,A,Comptage des établissements de santé recensés,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0531,HT0531,Saint-Marc,IND-SAN-004,HT-A-2023,2023,53,nombre,A,Comptage des établissements de statut Public,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0531,HT0531,Saint-Marc,IND-SAN-005,HT-A-2023,2023,73,nombre,A,Comptage des établissements avec coordonnées,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0531,HT0531,Saint-Marc,IND-SAN-002,HT-A-2023,2023,49.1,%,A,Établissements publics ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0531,HT0531,Saint-Marc,IND-SAN-003,HT-A-2023,2023,67.6,%,A,Établissements géocodés ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0531,HT0531,Saint-Marc,IND-EDU-001,HT-A-2022,2022,,nombre,N,"Commune hors de la zone couverte par la cartographie 2022 : absence de donnée, et non absence d'école",C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
@@ -574,6 +592,8 @@ HTC-0532,HT0532,Verrettes,IND-GEO-002,HT-A-2018,2018,6,nombre,A,Comptage des sec
 HTC-0532,HT0532,Verrettes,IND-GEO-003,HT-A-2026,2026,157,nombre,A,Comptage des localités rattachées par point-dans-polygone,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0532,HT0532,Verrettes,IND-GEO-004,HT-A-2026,2026,45.11,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0532,HT0532,Verrettes,IND-SAN-001,HT-A-2023,2023,73,nombre,A,Comptage des établissements de santé recensés,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0532,HT0532,Verrettes,IND-SAN-004,HT-A-2023,2023,23,nombre,A,Comptage des établissements de statut Public,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0532,HT0532,Verrettes,IND-SAN-005,HT-A-2023,2023,54,nombre,A,Comptage des établissements avec coordonnées,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0532,HT0532,Verrettes,IND-SAN-002,HT-A-2023,2023,31.5,%,A,Établissements publics ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0532,HT0532,Verrettes,IND-SAN-003,HT-A-2023,2023,74.0,%,A,Établissements géocodés ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0532,HT0532,Verrettes,IND-EDU-001,HT-A-2022,2022,,nombre,N,"Commune hors de la zone couverte par la cartographie 2022 : absence de donnée, et non absence d'école",C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
@@ -584,6 +604,8 @@ HTC-0533,HT0533,La Chapelle,IND-GEO-002,HT-A-2018,2018,2,nombre,A,Comptage des s
 HTC-0533,HT0533,La Chapelle,IND-GEO-003,HT-A-2026,2026,52,nombre,A,Comptage des localités rattachées par point-dans-polygone,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0533,HT0533,La Chapelle,IND-GEO-004,HT-A-2026,2026,35.53,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0533,HT0533,La Chapelle,IND-SAN-001,HT-A-2023,2023,2,nombre,A,Comptage des établissements de santé recensés,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0533,HT0533,La Chapelle,IND-SAN-004,HT-A-2023,2023,0,nombre,A,Comptage des établissements de statut Public,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0533,HT0533,La Chapelle,IND-SAN-005,HT-A-2023,2023,0,nombre,A,Comptage des établissements avec coordonnées,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0533,HT0533,La Chapelle,IND-SAN-002,HT-A-2023,2023,0.0,%,A,Établissements publics ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0533,HT0533,La Chapelle,IND-SAN-003,HT-A-2023,2023,0.0,%,A,Établissements géocodés ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0533,HT0533,La Chapelle,IND-EDU-001,HT-A-2022,2022,,nombre,N,"Commune hors de la zone couverte par la cartographie 2022 : absence de donnée, et non absence d'école",C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
@@ -594,6 +616,8 @@ HTC-0541,HT0541,Dessalines,IND-GEO-002,HT-A-2018,2018,6,nombre,A,Comptage des se
 HTC-0541,HT0541,Dessalines,IND-GEO-003,HT-A-2026,2026,186,nombre,A,Comptage des localités rattachées par point-dans-polygone,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0541,HT0541,Dessalines,IND-GEO-004,HT-A-2026,2026,39.61,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0541,HT0541,Dessalines,IND-SAN-001,HT-A-2023,2023,132,nombre,A,Comptage des établissements de santé recensés,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0541,HT0541,Dessalines,IND-SAN-004,HT-A-2023,2023,22,nombre,A,Comptage des établissements de statut Public,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0541,HT0541,Dessalines,IND-SAN-005,HT-A-2023,2023,79,nombre,A,Comptage des établissements avec coordonnées,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0541,HT0541,Dessalines,IND-SAN-002,HT-A-2023,2023,16.7,%,A,Établissements publics ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0541,HT0541,Dessalines,IND-SAN-003,HT-A-2023,2023,59.8,%,A,Établissements géocodés ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0541,HT0541,Dessalines,IND-EDU-001,HT-A-2022,2022,,nombre,N,"Commune hors de la zone couverte par la cartographie 2022 : absence de donnée, et non absence d'école",C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
@@ -612,6 +636,8 @@ HTC-0543,HT0543,Grande Saline,IND-GEO-002,HT-A-2018,2018,1,nombre,A,Comptage des
 HTC-0543,HT0543,Grande Saline,IND-GEO-003,HT-A-2026,2026,10,nombre,A,Comptage des localités rattachées par point-dans-polygone,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0543,HT0543,Grande Saline,IND-GEO-004,HT-A-2026,2026,19.73,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0543,HT0543,Grande Saline,IND-SAN-001,HT-A-2023,2023,3,nombre,A,Comptage des établissements de santé recensés,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0543,HT0543,Grande Saline,IND-SAN-004,HT-A-2023,2023,2,nombre,A,Comptage des établissements de statut Public,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0543,HT0543,Grande Saline,IND-SAN-005,HT-A-2023,2023,3,nombre,A,Comptage des établissements avec coordonnées,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0543,HT0543,Grande Saline,IND-SAN-002,HT-A-2023,2023,66.7,%,A,Établissements publics ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0543,HT0543,Grande Saline,IND-SAN-003,HT-A-2023,2023,100.0,%,A,Établissements géocodés ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0543,HT0543,Grande Saline,IND-EDU-001,HT-A-2022,2022,,nombre,N,"Commune hors de la zone couverte par la cartographie 2022 : absence de donnée, et non absence d'école",C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
@@ -622,6 +648,8 @@ HTC-0544,HT0544,Desdunes,IND-GEO-002,HT-A-2018,2018,1,nombre,A,Comptage des sect
 HTC-0544,HT0544,Desdunes,IND-GEO-003,HT-A-2026,2026,11,nombre,A,Comptage des localités rattachées par point-dans-polygone,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0544,HT0544,Desdunes,IND-GEO-004,HT-A-2026,2026,10.98,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0544,HT0544,Desdunes,IND-SAN-001,HT-A-2023,2023,4,nombre,A,Comptage des établissements de santé recensés,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0544,HT0544,Desdunes,IND-SAN-004,HT-A-2023,2023,3,nombre,A,Comptage des établissements de statut Public,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0544,HT0544,Desdunes,IND-SAN-005,HT-A-2023,2023,3,nombre,A,Comptage des établissements avec coordonnées,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0544,HT0544,Desdunes,IND-SAN-002,HT-A-2023,2023,75.0,%,A,Établissements publics ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0544,HT0544,Desdunes,IND-SAN-003,HT-A-2023,2023,75.0,%,A,Établissements géocodés ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0544,HT0544,Desdunes,IND-EDU-001,HT-A-2022,2022,,nombre,N,"Commune hors de la zone couverte par la cartographie 2022 : absence de donnée, et non absence d'école",C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
@@ -640,6 +668,8 @@ HTC-0552,HT0552,Marmelade,IND-GEO-002,HT-A-2018,2018,3,nombre,A,Comptage des sec
 HTC-0552,HT0552,Marmelade,IND-GEO-003,HT-A-2026,2026,73,nombre,A,Comptage des localités rattachées par point-dans-polygone,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0552,HT0552,Marmelade,IND-GEO-004,HT-A-2026,2026,65.04,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0552,HT0552,Marmelade,IND-SAN-001,HT-A-2023,2023,6,nombre,A,Comptage des établissements de santé recensés,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0552,HT0552,Marmelade,IND-SAN-004,HT-A-2023,2023,1,nombre,A,Comptage des établissements de statut Public,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0552,HT0552,Marmelade,IND-SAN-005,HT-A-2023,2023,3,nombre,A,Comptage des établissements avec coordonnées,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0552,HT0552,Marmelade,IND-SAN-002,HT-A-2023,2023,16.7,%,A,Établissements publics ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0552,HT0552,Marmelade,IND-SAN-003,HT-A-2023,2023,50.0,%,A,Établissements géocodés ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0552,HT0552,Marmelade,IND-EDU-001,HT-A-2022,2022,,nombre,N,"Commune hors de la zone couverte par la cartographie 2022 : absence de donnée, et non absence d'école",C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
@@ -650,6 +680,8 @@ HTC-0611,HT0611,Hinche,IND-GEO-002,HT-A-2018,2018,4,nombre,A,Comptage des sectio
 HTC-0611,HT0611,Hinche,IND-GEO-003,HT-A-2026,2026,171,nombre,A,Comptage des localités rattachées par point-dans-polygone,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0611,HT0611,Hinche,IND-GEO-004,HT-A-2026,2026,29.36,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0611,HT0611,Hinche,IND-SAN-001,HT-A-2023,2023,52,nombre,A,Comptage des établissements de santé recensés,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0611,HT0611,Hinche,IND-SAN-004,HT-A-2023,2023,17,nombre,A,Comptage des établissements de statut Public,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0611,HT0611,Hinche,IND-SAN-005,HT-A-2023,2023,23,nombre,A,Comptage des établissements avec coordonnées,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0611,HT0611,Hinche,IND-SAN-002,HT-A-2023,2023,32.7,%,A,Établissements publics ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0611,HT0611,Hinche,IND-SAN-003,HT-A-2023,2023,44.2,%,A,Établissements géocodés ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0611,HT0611,Hinche,IND-EDU-001,HT-A-2022,2022,,nombre,N,"Commune hors de la zone couverte par la cartographie 2022 : absence de donnée, et non absence d'école",C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
@@ -660,6 +692,8 @@ HTC-0612,HT0612,Maïssade,IND-GEO-002,HT-A-2018,2018,3,nombre,A,Comptage des sec
 HTC-0612,HT0612,Maïssade,IND-GEO-003,HT-A-2026,2026,73,nombre,A,Comptage des localités rattachées par point-dans-polygone,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0612,HT0612,Maïssade,IND-GEO-004,HT-A-2026,2026,24.69,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0612,HT0612,Maïssade,IND-SAN-001,HT-A-2023,2023,24,nombre,A,Comptage des établissements de santé recensés,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0612,HT0612,Maïssade,IND-SAN-004,HT-A-2023,2023,10,nombre,A,Comptage des établissements de statut Public,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0612,HT0612,Maïssade,IND-SAN-005,HT-A-2023,2023,20,nombre,A,Comptage des établissements avec coordonnées,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0612,HT0612,Maïssade,IND-SAN-002,HT-A-2023,2023,41.7,%,A,Établissements publics ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0612,HT0612,Maïssade,IND-SAN-003,HT-A-2023,2023,83.3,%,A,Établissements géocodés ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0612,HT0612,Maïssade,IND-EDU-001,HT-A-2022,2022,,nombre,N,"Commune hors de la zone couverte par la cartographie 2022 : absence de donnée, et non absence d'école",C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
@@ -670,6 +704,8 @@ HTC-0613,HT0613,Thomonde,IND-GEO-002,HT-A-2018,2018,4,nombre,A,Comptage des sect
 HTC-0613,HT0613,Thomonde,IND-GEO-003,HT-A-2026,2026,115,nombre,A,Comptage des localités rattachées par point-dans-polygone,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0613,HT0613,Thomonde,IND-GEO-004,HT-A-2026,2026,31.79,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0613,HT0613,Thomonde,IND-SAN-001,HT-A-2023,2023,24,nombre,A,Comptage des établissements de santé recensés,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0613,HT0613,Thomonde,IND-SAN-004,HT-A-2023,2023,11,nombre,A,Comptage des établissements de statut Public,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
+HTC-0613,HT0613,Thomonde,IND-SAN-005,HT-A-2023,2023,19,nombre,A,Comptage des établissements avec coordonnées,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0613,HT0613,Thomonde,IND-SAN-002,HT-A-2023,2023,45.8,%,A,Établissements publics ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0613,HT0613,Thomonde,IND-SAN-003,HT-A-2023,2023,79.2,%,A,Établissements géocodés ÷ total × 100,A,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0613,HT0613,Thomonde,IND-EDU-001,HT-A-2022,2022,,nombre,N,"Commune hors de la zone couverte par la cartographie 2022 : absence de donnée, et non absence d'école",C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
@@ -753,6 +789,7 @@ HTC-0711,HT0711,Les Cayes,IND-GEO-003,HT-A-2026,2026,116,nombre,A,Comptage des l
 HTC-0711,HT0711,Les Cayes,IND-GEO-004,HT-A-2026,2026,53.21,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0711,HT0711,Les Cayes,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0711,HT0711,Les Cayes,IND-EDU-001,HT-A-2022,2022,332,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0711,HT0711,Les Cayes,IND-EDU-003,HT-A-2022,2022,44,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0711,HT0711,Les Cayes,IND-EDU-002,HT-A-2022,2022,13.3,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0711,HT0711,Les Cayes,IND-MAR-001,HT-A-2026,2026,2,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0711,HT0711,Les Cayes,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -762,6 +799,7 @@ HTC-0712,HT0712,Torbeck,IND-GEO-003,HT-A-2026,2026,106,nombre,A,Comptage des loc
 HTC-0712,HT0712,Torbeck,IND-GEO-004,HT-A-2026,2026,56.01,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0712,HT0712,Torbeck,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0712,HT0712,Torbeck,IND-EDU-001,HT-A-2022,2022,94,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0712,HT0712,Torbeck,IND-EDU-003,HT-A-2022,2022,23,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0712,HT0712,Torbeck,IND-EDU-002,HT-A-2022,2022,24.5,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0712,HT0712,Torbeck,IND-MAR-001,HT-A-2026,2026,3,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0712,HT0712,Torbeck,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -771,6 +809,7 @@ HTC-0713,HT0713,Chantal,IND-GEO-003,HT-A-2026,2026,66,nombre,A,Comptage des loca
 HTC-0713,HT0713,Chantal,IND-GEO-004,HT-A-2026,2026,43.69,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0713,HT0713,Chantal,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0713,HT0713,Chantal,IND-EDU-001,HT-A-2022,2022,39,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0713,HT0713,Chantal,IND-EDU-003,HT-A-2022,2022,13,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0713,HT0713,Chantal,IND-EDU-002,HT-A-2022,2022,33.3,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0713,HT0713,Chantal,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0713,HT0713,Chantal,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -780,6 +819,7 @@ HTC-0714,HT0714,Camp-Perrin,IND-GEO-003,HT-A-2026,2026,51,nombre,A,Comptage des 
 HTC-0714,HT0714,Camp-Perrin,IND-GEO-004,HT-A-2026,2026,40.19,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0714,HT0714,Camp-Perrin,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0714,HT0714,Camp-Perrin,IND-EDU-001,HT-A-2022,2022,88,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0714,HT0714,Camp-Perrin,IND-EDU-003,HT-A-2022,2022,15,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0714,HT0714,Camp-Perrin,IND-EDU-002,HT-A-2022,2022,17.0,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0714,HT0714,Camp-Perrin,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0714,HT0714,Camp-Perrin,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -789,6 +829,7 @@ HTC-0715,HT0715,Maniche,IND-GEO-003,HT-A-2026,2026,63,nombre,A,Comptage des loca
 HTC-0715,HT0715,Maniche,IND-GEO-004,HT-A-2026,2026,48.3,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0715,HT0715,Maniche,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0715,HT0715,Maniche,IND-EDU-001,HT-A-2022,2022,39,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0715,HT0715,Maniche,IND-EDU-003,HT-A-2022,2022,10,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0715,HT0715,Maniche,IND-EDU-002,HT-A-2022,2022,25.6,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0715,HT0715,Maniche,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0715,HT0715,Maniche,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -798,6 +839,7 @@ HTC-0716,HT0716,Île à Vache,IND-GEO-003,HT-A-2026,2026,24,nombre,A,Comptage de
 HTC-0716,HT0716,Île à Vache,IND-GEO-004,HT-A-2026,2026,52.53,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0716,HT0716,Île à Vache,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0716,HT0716,Île à Vache,IND-EDU-001,HT-A-2022,2022,25,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0716,HT0716,Île à Vache,IND-EDU-003,HT-A-2022,2022,5,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0716,HT0716,Île à Vache,IND-EDU-002,HT-A-2022,2022,20.0,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0716,HT0716,Île à Vache,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0716,HT0716,Île à Vache,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -807,6 +849,7 @@ HTC-0721,HT0721,Port-Salut,IND-GEO-003,HT-A-2026,2026,50,nombre,A,Comptage des l
 HTC-0721,HT0721,Port-Salut,IND-GEO-004,HT-A-2026,2026,85.78,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0721,HT0721,Port-Salut,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0721,HT0721,Port-Salut,IND-EDU-001,HT-A-2022,2022,131,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0721,HT0721,Port-Salut,IND-EDU-003,HT-A-2022,2022,32,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0721,HT0721,Port-Salut,IND-EDU-002,HT-A-2022,2022,24.4,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0721,HT0721,Port-Salut,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0721,HT0721,Port-Salut,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -816,6 +859,7 @@ HTC-0722,HT0722,Saint Jean du Sud,IND-GEO-003,HT-A-2026,2026,57,nombre,A,Comptag
 HTC-0722,HT0722,Saint Jean du Sud,IND-GEO-004,HT-A-2026,2026,82.36,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0722,HT0722,Saint Jean du Sud,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0722,HT0722,Saint Jean du Sud,IND-EDU-001,HT-A-2022,2022,48,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0722,HT0722,Saint Jean du Sud,IND-EDU-003,HT-A-2022,2022,12,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0722,HT0722,Saint Jean du Sud,IND-EDU-002,HT-A-2022,2022,25.0,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0722,HT0722,Saint Jean du Sud,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0722,HT0722,Saint Jean du Sud,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -825,6 +869,7 @@ HTC-0723,HT0723,Arniquet,IND-GEO-003,HT-A-2026,2026,53,nombre,A,Comptage des loc
 HTC-0723,HT0723,Arniquet,IND-GEO-004,HT-A-2026,2026,105.98,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0723,HT0723,Arniquet,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0723,HT0723,Arniquet,IND-EDU-001,HT-A-2022,2022,39,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0723,HT0723,Arniquet,IND-EDU-003,HT-A-2022,2022,11,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0723,HT0723,Arniquet,IND-EDU-002,HT-A-2022,2022,28.2,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0723,HT0723,Arniquet,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0723,HT0723,Arniquet,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -834,6 +879,7 @@ HTC-0731,HT0731,Aquin,IND-GEO-003,HT-A-2026,2026,249,nombre,A,Comptage des local
 HTC-0731,HT0731,Aquin,IND-GEO-004,HT-A-2026,2026,39.08,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0731,HT0731,Aquin,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0731,HT0731,Aquin,IND-EDU-001,HT-A-2022,2022,244,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0731,HT0731,Aquin,IND-EDU-003,HT-A-2022,2022,28,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0731,HT0731,Aquin,IND-EDU-002,HT-A-2022,2022,11.5,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0731,HT0731,Aquin,IND-MAR-001,HT-A-2026,2026,3,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0731,HT0731,Aquin,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -843,6 +889,7 @@ HTC-0732,HT0732,Saint Louis du Sud,IND-GEO-003,HT-A-2026,2026,87,nombre,A,Compta
 HTC-0732,HT0732,Saint Louis du Sud,IND-GEO-004,HT-A-2026,2026,47.62,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0732,HT0732,Saint Louis du Sud,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0732,HT0732,Saint Louis du Sud,IND-EDU-001,HT-A-2022,2022,95,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0732,HT0732,Saint Louis du Sud,IND-EDU-003,HT-A-2022,2022,12,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0732,HT0732,Saint Louis du Sud,IND-EDU-002,HT-A-2022,2022,12.6,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0732,HT0732,Saint Louis du Sud,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0732,HT0732,Saint Louis du Sud,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -852,6 +899,7 @@ HTC-0733,HT0733,Cavaillon,IND-GEO-003,HT-A-2026,2026,106,nombre,A,Comptage des l
 HTC-0733,HT0733,Cavaillon,IND-GEO-004,HT-A-2026,2026,46.37,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0733,HT0733,Cavaillon,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0733,HT0733,Cavaillon,IND-EDU-001,HT-A-2022,2022,183,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0733,HT0733,Cavaillon,IND-EDU-003,HT-A-2022,2022,14,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0733,HT0733,Cavaillon,IND-EDU-002,HT-A-2022,2022,7.7,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0733,HT0733,Cavaillon,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0733,HT0733,Cavaillon,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -861,6 +909,7 @@ HTC-0741,HT0741,Côteaux,IND-GEO-003,HT-A-2026,2026,37,nombre,A,Comptage des loc
 HTC-0741,HT0741,Côteaux,IND-GEO-004,HT-A-2026,2026,52.16,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0741,HT0741,Côteaux,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0741,HT0741,Côteaux,IND-EDU-001,HT-A-2022,2022,59,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0741,HT0741,Côteaux,IND-EDU-003,HT-A-2022,2022,17,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0741,HT0741,Côteaux,IND-EDU-002,HT-A-2022,2022,28.8,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0741,HT0741,Côteaux,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0741,HT0741,Côteaux,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -870,6 +919,7 @@ HTC-0742,HT0742,Port-à-Piment,IND-GEO-003,HT-A-2026,2026,36,nombre,A,Comptage d
 HTC-0742,HT0742,Port-à-Piment,IND-GEO-004,HT-A-2026,2026,62.7,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0742,HT0742,Port-à-Piment,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0742,HT0742,Port-à-Piment,IND-EDU-001,HT-A-2022,2022,19,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0742,HT0742,Port-à-Piment,IND-EDU-003,HT-A-2022,2022,6,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0742,HT0742,Port-à-Piment,IND-EDU-002,HT-A-2022,2022,31.6,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0742,HT0742,Port-à-Piment,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0742,HT0742,Port-à-Piment,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -879,6 +929,7 @@ HTC-0743,HT0743,Roche à Bâteau,IND-GEO-003,HT-A-2026,2026,28,nombre,A,Comptage
 HTC-0743,HT0743,Roche à Bâteau,IND-GEO-004,HT-A-2026,2026,56.82,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0743,HT0743,Roche à Bâteau,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0743,HT0743,Roche à Bâteau,IND-EDU-001,HT-A-2022,2022,36,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0743,HT0743,Roche à Bâteau,IND-EDU-003,HT-A-2022,2022,11,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0743,HT0743,Roche à Bâteau,IND-EDU-002,HT-A-2022,2022,30.6,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0743,HT0743,Roche à Bâteau,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0743,HT0743,Roche à Bâteau,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -888,6 +939,7 @@ HTC-0751,HT0751,Chardonnières,IND-GEO-003,HT-A-2026,2026,56,nombre,A,Comptage d
 HTC-0751,HT0751,Chardonnières,IND-GEO-004,HT-A-2026,2026,48.83,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0751,HT0751,Chardonnières,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0751,HT0751,Chardonnières,IND-EDU-001,HT-A-2022,2022,80,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0751,HT0751,Chardonnières,IND-EDU-003,HT-A-2022,2022,21,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0751,HT0751,Chardonnières,IND-EDU-002,HT-A-2022,2022,26.2,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0751,HT0751,Chardonnières,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0751,HT0751,Chardonnières,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -897,6 +949,7 @@ HTC-0752,HT0752,Les Anglais,IND-GEO-003,HT-A-2026,2026,51,nombre,A,Comptage des 
 HTC-0752,HT0752,Les Anglais,IND-GEO-004,HT-A-2026,2026,42.51,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0752,HT0752,Les Anglais,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0752,HT0752,Les Anglais,IND-EDU-001,HT-A-2022,2022,36,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0752,HT0752,Les Anglais,IND-EDU-003,HT-A-2022,2022,7,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0752,HT0752,Les Anglais,IND-EDU-002,HT-A-2022,2022,19.4,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0752,HT0752,Les Anglais,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0752,HT0752,Les Anglais,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -906,6 +959,7 @@ HTC-0753,HT0753,Tiburon,IND-GEO-003,HT-A-2026,2026,54,nombre,A,Comptage des loca
 HTC-0753,HT0753,Tiburon,IND-GEO-004,HT-A-2026,2026,36.72,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0753,HT0753,Tiburon,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0753,HT0753,Tiburon,IND-EDU-001,HT-A-2022,2022,31,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0753,HT0753,Tiburon,IND-EDU-003,HT-A-2022,2022,12,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0753,HT0753,Tiburon,IND-EDU-002,HT-A-2022,2022,38.7,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0753,HT0753,Tiburon,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0753,HT0753,Tiburon,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -915,6 +969,7 @@ HTC-0811,HT0811,Jérémie,IND-GEO-003,HT-A-2026,2026,176,nombre,A,Comptage des l
 HTC-0811,HT0811,Jérémie,IND-GEO-004,HT-A-2026,2026,42.09,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0811,HT0811,Jérémie,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0811,HT0811,Jérémie,IND-EDU-001,HT-A-2022,2022,281,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0811,HT0811,Jérémie,IND-EDU-003,HT-A-2022,2022,88,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0811,HT0811,Jérémie,IND-EDU-002,HT-A-2022,2022,31.3,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0811,HT0811,Jérémie,IND-MAR-001,HT-A-2026,2026,5,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0811,HT0811,Jérémie,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -924,6 +979,7 @@ HTC-0812,HT0812,Abricots,IND-GEO-003,HT-A-2026,2026,74,nombre,A,Comptage des loc
 HTC-0812,HT0812,Abricots,IND-GEO-004,HT-A-2026,2026,72.16,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0812,HT0812,Abricots,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0812,HT0812,Abricots,IND-EDU-001,HT-A-2022,2022,39,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0812,HT0812,Abricots,IND-EDU-003,HT-A-2022,2022,6,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0812,HT0812,Abricots,IND-EDU-002,HT-A-2022,2022,15.4,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0812,HT0812,Abricots,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0812,HT0812,Abricots,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -933,6 +989,7 @@ HTC-0813,HT0813,Bonbon,IND-GEO-003,HT-A-2026,2026,25,nombre,A,Comptage des local
 HTC-0813,HT0813,Bonbon,IND-GEO-004,HT-A-2026,2026,72.4,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0813,HT0813,Bonbon,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0813,HT0813,Bonbon,IND-EDU-001,HT-A-2022,2022,7,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0813,HT0813,Bonbon,IND-EDU-003,HT-A-2022,2022,4,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0813,HT0813,Bonbon,IND-EDU-002,HT-A-2022,2022,57.1,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0813,HT0813,Bonbon,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0813,HT0813,Bonbon,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -942,6 +999,7 @@ HTC-0814,HT0814,Moron,IND-GEO-003,HT-A-2026,2026,55,nombre,A,Comptage des locali
 HTC-0814,HT0814,Moron,IND-GEO-004,HT-A-2026,2026,30.39,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0814,HT0814,Moron,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0814,HT0814,Moron,IND-EDU-001,HT-A-2022,2022,40,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0814,HT0814,Moron,IND-EDU-003,HT-A-2022,2022,21,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0814,HT0814,Moron,IND-EDU-002,HT-A-2022,2022,52.5,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0814,HT0814,Moron,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0814,HT0814,Moron,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -951,6 +1009,7 @@ HTC-0815,HT0815,Chambellan,IND-GEO-003,HT-A-2026,2026,45,nombre,A,Comptage des l
 HTC-0815,HT0815,Chambellan,IND-GEO-004,HT-A-2026,2026,61.21,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0815,HT0815,Chambellan,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0815,HT0815,Chambellan,IND-EDU-001,HT-A-2022,2022,32,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0815,HT0815,Chambellan,IND-EDU-003,HT-A-2022,2022,6,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0815,HT0815,Chambellan,IND-EDU-002,HT-A-2022,2022,18.8,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0815,HT0815,Chambellan,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0815,HT0815,Chambellan,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -960,6 +1019,7 @@ HTC-0821,HT0821,Anse d'Hainault,IND-GEO-003,HT-A-2026,2026,41,nombre,A,Comptage 
 HTC-0821,HT0821,Anse d'Hainault,IND-GEO-004,HT-A-2026,2026,42.29,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0821,HT0821,Anse d'Hainault,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0821,HT0821,Anse d'Hainault,IND-EDU-001,HT-A-2022,2022,47,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0821,HT0821,Anse d'Hainault,IND-EDU-003,HT-A-2022,2022,13,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0821,HT0821,Anse d'Hainault,IND-EDU-002,HT-A-2022,2022,27.7,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0821,HT0821,Anse d'Hainault,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0821,HT0821,Anse d'Hainault,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -969,6 +1029,7 @@ HTC-0822,HT0822,Dame Marie,IND-GEO-003,HT-A-2026,2026,72,nombre,A,Comptage des l
 HTC-0822,HT0822,Dame Marie,IND-GEO-004,HT-A-2026,2026,71.63,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0822,HT0822,Dame Marie,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0822,HT0822,Dame Marie,IND-EDU-001,HT-A-2022,2022,51,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0822,HT0822,Dame Marie,IND-EDU-003,HT-A-2022,2022,14,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0822,HT0822,Dame Marie,IND-EDU-002,HT-A-2022,2022,27.5,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0822,HT0822,Dame Marie,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0822,HT0822,Dame Marie,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -978,6 +1039,7 @@ HTC-0823,HT0823,Les Irois,IND-GEO-003,HT-A-2026,2026,32,nombre,A,Comptage des lo
 HTC-0823,HT0823,Les Irois,IND-GEO-004,HT-A-2026,2026,25.32,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0823,HT0823,Les Irois,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0823,HT0823,Les Irois,IND-EDU-001,HT-A-2022,2022,35,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0823,HT0823,Les Irois,IND-EDU-003,HT-A-2022,2022,12,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0823,HT0823,Les Irois,IND-EDU-002,HT-A-2022,2022,34.3,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0823,HT0823,Les Irois,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0823,HT0823,Les Irois,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -987,6 +1049,7 @@ HTC-0831,HT0831,Corail,IND-GEO-003,HT-A-2026,2026,38,nombre,A,Comptage des local
 HTC-0831,HT0831,Corail,IND-GEO-004,HT-A-2026,2026,35.24,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0831,HT0831,Corail,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0831,HT0831,Corail,IND-EDU-001,HT-A-2022,2022,36,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0831,HT0831,Corail,IND-EDU-003,HT-A-2022,2022,9,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0831,HT0831,Corail,IND-EDU-002,HT-A-2022,2022,25.0,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0831,HT0831,Corail,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0831,HT0831,Corail,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -996,6 +1059,7 @@ HTC-0832,HT0832,Roseaux,IND-GEO-003,HT-A-2026,2026,73,nombre,A,Comptage des loca
 HTC-0832,HT0832,Roseaux,IND-GEO-004,HT-A-2026,2026,34.18,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0832,HT0832,Roseaux,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0832,HT0832,Roseaux,IND-EDU-001,HT-A-2022,2022,72,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0832,HT0832,Roseaux,IND-EDU-003,HT-A-2022,2022,17,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0832,HT0832,Roseaux,IND-EDU-002,HT-A-2022,2022,23.6,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0832,HT0832,Roseaux,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0832,HT0832,Roseaux,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -1005,6 +1069,7 @@ HTC-0833,HT0833,Beaumont,IND-GEO-003,HT-A-2026,2026,39,nombre,A,Comptage des loc
 HTC-0833,HT0833,Beaumont,IND-GEO-004,HT-A-2026,2026,23.26,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0833,HT0833,Beaumont,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0833,HT0833,Beaumont,IND-EDU-001,HT-A-2022,2022,45,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0833,HT0833,Beaumont,IND-EDU-003,HT-A-2022,2022,21,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0833,HT0833,Beaumont,IND-EDU-002,HT-A-2022,2022,46.7,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0833,HT0833,Beaumont,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0833,HT0833,Beaumont,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -1014,6 +1079,7 @@ HTC-0834,HT0834,Pestel,IND-GEO-003,HT-A-2026,2026,80,nombre,A,Comptage des local
 HTC-0834,HT0834,Pestel,IND-GEO-004,HT-A-2026,2026,27.47,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-0834,HT0834,Pestel,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-0834,HT0834,Pestel,IND-EDU-001,HT-A-2022,2022,74,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-0834,HT0834,Pestel,IND-EDU-003,HT-A-2022,2022,25,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0834,HT0834,Pestel,IND-EDU-002,HT-A-2022,2022,33.8,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-0834,HT0834,Pestel,IND-MAR-001,HT-A-2026,2026,2,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-0834,HT0834,Pestel,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -1103,6 +1169,7 @@ HTC-1011,HT1011,Miragoâne,IND-GEO-003,HT-A-2026,2026,57,nombre,A,Comptage des l
 HTC-1011,HT1011,Miragoâne,IND-GEO-004,HT-A-2026,2026,33.55,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-1011,HT1011,Miragoâne,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-1011,HT1011,Miragoâne,IND-EDU-001,HT-A-2022,2022,180,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-1011,HT1011,Miragoâne,IND-EDU-003,HT-A-2022,2022,28,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1011,HT1011,Miragoâne,IND-EDU-002,HT-A-2022,2022,15.6,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1011,HT1011,Miragoâne,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-1011,HT1011,Miragoâne,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -1112,6 +1179,7 @@ HTC-1012,HT1012,Petite Rivière de Nippes,IND-GEO-003,HT-A-2026,2026,29,nombre,A
 HTC-1012,HT1012,Petite Rivière de Nippes,IND-GEO-004,HT-A-2026,2026,32.36,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-1012,HT1012,Petite Rivière de Nippes,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-1012,HT1012,Petite Rivière de Nippes,IND-EDU-001,HT-A-2022,2022,59,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-1012,HT1012,Petite Rivière de Nippes,IND-EDU-003,HT-A-2022,2022,13,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1012,HT1012,Petite Rivière de Nippes,IND-EDU-002,HT-A-2022,2022,22.0,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1012,HT1012,Petite Rivière de Nippes,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-1012,HT1012,Petite Rivière de Nippes,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -1121,6 +1189,7 @@ HTC-1013,HT1013,Fonds des Nègres,IND-GEO-003,HT-A-2026,2026,35,nombre,A,Comptag
 HTC-1013,HT1013,Fonds des Nègres,IND-GEO-004,HT-A-2026,2026,40.81,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-1013,HT1013,Fonds des Nègres,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-1013,HT1013,Fonds des Nègres,IND-EDU-001,HT-A-2022,2022,89,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-1013,HT1013,Fonds des Nègres,IND-EDU-003,HT-A-2022,2022,14,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1013,HT1013,Fonds des Nègres,IND-EDU-002,HT-A-2022,2022,15.7,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1013,HT1013,Fonds des Nègres,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-1013,HT1013,Fonds des Nègres,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -1130,6 +1199,7 @@ HTC-1014,HT1014,Paillant,IND-GEO-003,HT-A-2026,2026,22,nombre,A,Comptage des loc
 HTC-1014,HT1014,Paillant,IND-GEO-004,HT-A-2026,2026,33.37,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-1014,HT1014,Paillant,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-1014,HT1014,Paillant,IND-EDU-001,HT-A-2022,2022,43,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-1014,HT1014,Paillant,IND-EDU-003,HT-A-2022,2022,9,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1014,HT1014,Paillant,IND-EDU-002,HT-A-2022,2022,20.9,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1014,HT1014,Paillant,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-1014,HT1014,Paillant,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -1139,6 +1209,7 @@ HTC-1021,HT1021,Anse-à-Veau,IND-GEO-003,HT-A-2026,2026,43,nombre,A,Comptage des
 HTC-1021,HT1021,Anse-à-Veau,IND-GEO-004,HT-A-2026,2026,40.29,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-1021,HT1021,Anse-à-Veau,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-1021,HT1021,Anse-à-Veau,IND-EDU-001,HT-A-2022,2022,88,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-1021,HT1021,Anse-à-Veau,IND-EDU-003,HT-A-2022,2022,26,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1021,HT1021,Anse-à-Veau,IND-EDU-002,HT-A-2022,2022,29.5,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1021,HT1021,Anse-à-Veau,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-1021,HT1021,Anse-à-Veau,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -1148,6 +1219,7 @@ HTC-1022,HT1022,Petit Trou de Nippes,IND-GEO-003,HT-A-2026,2026,65,nombre,A,Comp
 HTC-1022,HT1022,Petit Trou de Nippes,IND-GEO-004,HT-A-2026,2026,42.12,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-1022,HT1022,Petit Trou de Nippes,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-1022,HT1022,Petit Trou de Nippes,IND-EDU-001,HT-A-2022,2022,46,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-1022,HT1022,Petit Trou de Nippes,IND-EDU-003,HT-A-2022,2022,11,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1022,HT1022,Petit Trou de Nippes,IND-EDU-002,HT-A-2022,2022,23.9,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1022,HT1022,Petit Trou de Nippes,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-1022,HT1022,Petit Trou de Nippes,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -1157,6 +1229,7 @@ HTC-1023,HT1023,L'Asile,IND-GEO-003,HT-A-2026,2026,72,nombre,A,Comptage des loca
 HTC-1023,HT1023,L'Asile,IND-GEO-004,HT-A-2026,2026,45.8,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-1023,HT1023,L'Asile,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-1023,HT1023,L'Asile,IND-EDU-001,HT-A-2022,2022,93,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-1023,HT1023,L'Asile,IND-EDU-003,HT-A-2022,2022,33,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1023,HT1023,L'Asile,IND-EDU-002,HT-A-2022,2022,35.5,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1023,HT1023,L'Asile,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-1023,HT1023,L'Asile,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -1166,6 +1239,7 @@ HTC-1024,HT1024,Arnaud,IND-GEO-003,HT-A-2026,2026,29,nombre,A,Comptage des local
 HTC-1024,HT1024,Arnaud,IND-GEO-004,HT-A-2026,2026,39.15,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-1024,HT1024,Arnaud,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-1024,HT1024,Arnaud,IND-EDU-001,HT-A-2022,2022,37,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-1024,HT1024,Arnaud,IND-EDU-003,HT-A-2022,2022,11,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1024,HT1024,Arnaud,IND-EDU-002,HT-A-2022,2022,29.7,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1024,HT1024,Arnaud,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-1024,HT1024,Arnaud,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -1175,6 +1249,7 @@ HTC-1025,HT1025,Plaisance du Sud,IND-GEO-003,HT-A-2026,2026,29,nombre,A,Comptage
 HTC-1025,HT1025,Plaisance du Sud,IND-GEO-004,HT-A-2026,2026,31.75,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-1025,HT1025,Plaisance du Sud,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-1025,HT1025,Plaisance du Sud,IND-EDU-001,HT-A-2022,2022,51,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-1025,HT1025,Plaisance du Sud,IND-EDU-003,HT-A-2022,2022,17,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1025,HT1025,Plaisance du Sud,IND-EDU-002,HT-A-2022,2022,33.3,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1025,HT1025,Plaisance du Sud,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-1025,HT1025,Plaisance du Sud,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -1184,6 +1259,7 @@ HTC-1031,HT1031,Baradères,IND-GEO-003,HT-A-2026,2026,54,nombre,A,Comptage des l
 HTC-1031,HT1031,Baradères,IND-GEO-004,HT-A-2026,2026,28.99,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-1031,HT1031,Baradères,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-1031,HT1031,Baradères,IND-EDU-001,HT-A-2022,2022,73,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-1031,HT1031,Baradères,IND-EDU-003,HT-A-2022,2022,19,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1031,HT1031,Baradères,IND-EDU-002,HT-A-2022,2022,26.0,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1031,HT1031,Baradères,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-1031,HT1031,Baradères,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07
@@ -1193,6 +1269,7 @@ HTC-1032,HT1032,Grand-Boucan,IND-GEO-003,HT-A-2026,2026,29,nombre,A,Comptage des
 HTC-1032,HT1032,Grand-Boucan,IND-GEO-004,HT-A-2026,2026,64.7,localités / 100 km²,A,IND-GEO-003 ÷ superficie × 100,B,GeoNames + CNIGS via OCHA COD-AB,2026-01-26,2026-07-31,v1.2026.07
 HTC-1032,HT1032,Grand-Boucan,IND-SAN-001,HT-A-2023,2023,,nombre,N,"Commune hors des 14 communes couvertes par la source OCHA 2023 : absence de donnée, et non absence d'établissement",C,OCHA Haïti — établissements de santé (2023),2023-12-22,2026-07-31,v1.2026.07
 HTC-1032,HT1032,Grand-Boucan,IND-EDU-001,HT-A-2022,2022,10,nombre,A,Comptage des écoles recensées,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
+HTC-1032,HT1032,Grand-Boucan,IND-EDU-003,HT-A-2022,2022,5,nombre,A,Comptage des écoles de statut Public après harmonisation,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1032,HT1032,Grand-Boucan,IND-EDU-002,HT-A-2022,2022,50.0,%,A,Écoles publiques ÷ total recensé × 100,C,OCHA Haïti — institutions scolaires (2022),2022-09-28,2026-07-31,v1.2026.07
 HTC-1032,HT1032,Grand-Boucan,IND-MAR-001,HT-A-2026,2026,1,nombre,A,Comptage des marchés suivis pour les prix,B,PAM — Haiti Food Prices,2026-07-26,2026-07-31,v1.2026.07
 HTC-1032,HT1032,Grand-Boucan,IND-QUA-001,HT-A-2026,2026,80,%,A,"Cinq dimensions testées : superficie, localités, santé, écoles, marchés",A,Atmart — calcul sur le backbone,2026-07-31,2026-07-31,v1.2026.07

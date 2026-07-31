@@ -13,7 +13,7 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0e2240" />
   <link rel="stylesheet" href="assets/style.css?v=31" />
-  <link rel="stylesheet" href="assets/data.css?v=7" />
+  <link rel="stylesheet" href="assets/data.css?v=9" />
 <script>/* langue auto : avant le 1er affichage, evite le clignotement */
 (function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
 s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
@@ -120,6 +120,24 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           créées après 2018 et affichent donc des totaux plus élevés.</li>
       </ul>
       <p class="x-note">
+        <b>Formulation exacte :</b> cette version de l’Explorateur couvre les
+        <b>140 communes du référentiel CNIGS 2018</b>. Des millésimes plus récents reconnaissent
+        des communes supplémentaires. Un territoire absent de 2018 n’est pas un territoire
+        inexistant — il est absent de <em>ce</em> millésime.
+      </p>
+      <p class="x-note">
+        Pour le département de l’Ouest : le référentiel CNIGS 2018 y contient <b>20 communes</b>.
+        Ce nombre peut différer dans des référentiels plus récents. Nous l’avons obtenu en
+        comptant ce fichier, pas en le reprenant d’une source tierce.
+      </p>
+      <p class="x-note">
+        La <a href="data/atmart_millesimes_territoriaux.csv" download>table de correspondance des
+        millésimes</a> (CSV, 192 entités) donne pour chaque territoire son identifiant Atmart,
+        son p-code, son millésime, ses dates de validité et une note de divergence. Elle ne
+        contient aujourd’hui que le millésime 2018 : les autres y seront ajoutés quand nous
+        disposerons des fichiers officiels, pas avant.
+      </p>
+      <p class="x-note">
         Nous ne choisissons pas un chiffre en silence : l’explorateur compte ce que contient le
         référentiel qu’il charge, et le nomme. Les communes créées après 2018 seront intégrées
         avec leurs dates de validité dès qu’un référentiel officiel les publiera avec leurs codes,
@@ -134,6 +152,8 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       <div class="x-onglets" role="tablist" aria-label="Vues de l’explorateur">
         <button class="filter-btn active" role="tab" aria-selected="true" data-onglet="fiche">
           <span class="x-long">Fiche &amp; indicateurs</span><span class="x-court">Fiche</span></button>
+        <button class="filter-btn" role="tab" aria-selected="false" data-onglet="comparaison">
+          <span class="x-long">Comparer des territoires</span><span class="x-court">Comparer</span></button>
         <button class="filter-btn" role="tab" aria-selected="false" data-onglet="classement">
           <span class="x-long">Classement des communes</span><span class="x-court">Classement</span></button>
       </div>
@@ -150,6 +170,16 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           </select>
         </div>
         <div id="x-fiche" hidden></div>
+      </div>
+
+      <div id="x-vue-comparaison" role="tabpanel" hidden>
+        <p class="x-note" style="margin-top:0">
+          Deux à quatre territoires côte à côte — communes, arrondissements ou départements.
+          Chaque valeur porte son millésime, et les comparaisons entre millésimes différents
+          sont signalées plutôt que lissees.
+        </p>
+        <div id="x-comp-choix" class="x-jetons"></div>
+        <div id="x-comparaison-corps"></div>
       </div>
 
       <div id="x-vue-classement" role="tabpanel" hidden>
@@ -209,7 +239,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 </footer>
 
 <script src="assets/script.js?v=2"></script>
-<script src="assets/explorateur.js?v=8"></script>
+<script src="assets/explorateur.js?v=11"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 <script src="assets/i18n.js?v=10"></script>
 <script src="assets/launcher.js?v=3"></script>

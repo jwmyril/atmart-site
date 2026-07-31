@@ -419,6 +419,14 @@ select:focus-visible, input:focus-visible {
 
 /* --- mobile : cibles tactiles, onglets courts, bouton latéral --- */
 .x-court { display: none; }
+/* Cibles tactiles : jusqu'a 1024 px on est probablement au doigt, pas a la souris */
+@media (max-width: 1024px) {
+  .x-onglets .filter-btn, .x-adapter select, .x-outils select, .x-outils .btn,
+  .x-actions .btn, .x-puce, details.x-tech summary, .x-jeton-x, .filter-btn {
+    min-height: 44px;
+  }
+  .x-jeton-x { min-width: 44px; }
+}
 @media (max-width: 640px) {
   .x-long { display: none; }
   .x-court { display: inline; }
@@ -454,3 +462,46 @@ select:focus-visible, input:focus-visible {
 .x-l-pro { background: var(--teal); }
 .x-l-autre { background: #7d92a8; opacity: 0.55; }
 @media (max-width: 640px) { .x-carte svg { max-height: 38vh; } }
+
+/* ===== Comparaison ===== */
+.x-jetons { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0 0 1rem; align-items: center; }
+.x-jeton {
+  display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(46,196,182,.12);
+  border: 1px solid rgba(46,196,182,.4); border-radius: 999px; color: var(--ink);
+  padding: 0.35rem 0.5rem 0.35rem 0.85rem; font-size: 0.86rem; min-height: 36px;
+}
+.x-jeton-x {
+  background: none; border: 0; color: var(--ink-dim); cursor: pointer; font-size: 1.1rem;
+  line-height: 1; padding: 0 0.35rem; min-width: 28px; min-height: 28px;
+}
+.x-jeton-x:hover { color: var(--red); }
+.x-comp { min-width: 560px; font-size: 0.86rem; }
+.x-comp th { width: auto; vertical-align: bottom; }
+.x-comp th small, .x-comp td small { display: block; color: var(--ink-dim); font-size: 0.72rem; font-weight: 400; }
+.x-comp td { text-align: right; }
+.x-comp td:first-child, .x-comp th:first-child { text-align: left; }
+.x-comp .x-nd { color: var(--ink-dim); font-style: italic; }
+.x-alerte { color: var(--amber); }
+
+/* ===== Impression / PDF ===== */
+@media print {
+  header, footer, .x-barre, .x-exemples, .x-preuve, .x-onglets, .x-adapter,
+  .x-actions, .atm-launch, .atm-share, .atm-drawer, #x-vue-classement,
+  .x-couverture, #x-millesimes, .d-box, .x-compte, #x-resultats { display: none !important; }
+  body { background: #fff !important; color: #111 !important; }
+  .hero { padding: 0 !important; }
+  h1, h2, h3, .x-tete h2, .x-h3, .x-theme { color: #111 !important; }
+  .x-note, .x-situe, .x-meta, .x-confiance, .x-mesure span, .x-detail p { color: #333 !important; }
+  .x-mesure, .x-tab, .x-carte svg, details.x-tech {
+    border-color: #bbb !important; background: #fff !important; break-inside: avoid;
+  }
+  .x-mesure b, .x-legende span { color: #111 !important; }
+  .x-terre { fill: #eee !important; stroke: #888 !important; }
+  .x-pt { fill: #bbb !important; } .x-pt-pro { fill: #666 !important; } .x-pt-sel { fill: #111 !important; }
+  details.x-mesure summary::after { content: "" !important; }
+  details[open] .x-detail, .x-detail { display: block !important; }
+  details.x-tech { break-before: auto; }
+  .x-mesures { grid-template-columns: repeat(3, 1fr) !important; }
+  a[href]::after { content: "" !important; }
+  @page { margin: 14mm; }
+}

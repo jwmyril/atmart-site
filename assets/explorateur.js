@@ -9,6 +9,10 @@
   var CFG = window.ATM_EXPLORATEUR || {};
   var ADMIN = !!CFG.admin;
   var DIR = CFG.dir || "data/";
+  /* Version des donnees. A incrementer des qu'un fichier de data/ est
+     regenere : sinon le cache du navigateur sert l'ancien fichier et
+     l'interface affiche du perime sans le savoir. */
+  var DV = "?d=2026-07-31b";
   var F = {
     terr: DIR + (ADMIN ? "atmart_referentiel_territoire_HT.csv"
                        : "atmart_referentiel_territoire_base_HT.csv"),
@@ -19,7 +23,7 @@
 
   var terr = [], vals = [], orgs = [], dico = {}, contour = null;
   var parId = {}, parPcode = {}, enfantsDe = {}, orgsCom = {}, orgsSec = {};
-  var parIndicateur = {}, courant = null, objectif = "tout";
+  var parIndicateur = {}, courant = null, objectif = "tout", comparees = [];
   var $ = function (s) { return document.querySelector(s); };
 
   /* ---------------------------------------------------------------- outils */
@@ -253,6 +257,9 @@
              "Télécharger les " + s.nConnus + " indicateurs de " + esc(r.nom_fr) + " (CSV)</button>");
       h.push('<button class="btn btn-outline x-btn-lien">Copier le lien de cette fiche</button>');
       h.push('<a class="btn btn-outline" href="#lacunes">Ce qui reste à documenter (' + s.nAbsents + ")</a>");
+      h.push('<button class="btn btn-outline x-btn-comp" data-comparer="' + esc(r.atmart_geo_id) +
+             '">Ajouter à la comparaison</button>');
+      h.push('<button class="btn btn-outline x-btn-print">Imprimer / PDF</button>');
       h.push("</div>");
       h.push('<p class="x-confiance">Fiche ' + esc(r.version) + " · " + s.nSources + " source" +
              (s.nSources > 1 ? "s" : "") +
@@ -519,41 +526,95 @@
       '</div><a class="btn btn-primary" href="donnees-pack-geo-haiti.html">Voir le Pack Géo</a></div>';
   }
 
-  function agregat(r) {
-    var pcodes = {}, n = 0;
+  /* Agregation : la regle vient du dictionnaire, plus d'une liste ecrite ici.
+     Un pourcentage se recalcule sur les totaux ; le moyenner entre communes
+     donnerait le meme poids a une commune de 3 000 habitants qu'a la capitale. */
+  function communesDe(r) {
+    var out = [];
     terr.forEach(function (x) {
       if (x.niveau_admin !== "3") return;
       var cur = x, g = 0;
       while (cur && g++ < 5) {
-        if (cur.atmart_geo_id === r.atmart_geo_id) { pcodes[x.pcode] = 1; n++; return; }
+        if (cur.atmart_geo_id === r.atmart_geo_id) { out.push(x); return; }
         cur = parId[cur.parent_atmart_geo_id];
       }
     });
-    var agg = {};
+    return out;
+  }
+
+  function agreger(r, communes) {
+    var pcodes = {}, sommes = {}, compte = {}, unites = {}, annees = {};
+    communes.forEach(function (c) { pcodes[c.pcode] = 1; });
     vals.forEach(function (v) {
       if (!pcodes[v.pcode_commune] || v.statut_valeur === "N") return;
       var x = nb(v.valeur);
       if (x === null) return;
-      if (!agg[v.indicateur_id]) agg[v.indicateur_id] = { s: 0, n: 0, u: v.unite, an: v.annee_reference };
-      agg[v.indicateur_id].s += x; agg[v.indicateur_id].n++;
+      sommes[v.indicateur_id] = (sommes[v.indicateur_id] || 0) + x;
+      compte[v.indicateur_id] = (compte[v.indicateur_id] || 0) + 1;
+      unites[v.indicateur_id] = v.unite;
+      annees[v.indicateur_id] = v.annee_reference;
     });
-    var SOMME = { "IND-GEO-001": 1, "IND-GEO-002": 1, "IND-GEO-003": 1, "IND-SAN-001": 1,
-                  "IND-EDU-001": 1, "IND-MAR-001": 1 };
-    if (r.superficie_km2 && agg["IND-GEO-001"]) agg["IND-GEO-001"].s = nb(r.superficie_km2);
-    if (agg["IND-GEO-004"] && agg["IND-GEO-001"] && agg["IND-GEO-003"])
-      agg["IND-GEO-004"].calc = agg["IND-GEO-003"].s / agg["IND-GEO-001"].s * 100;
-    var h = ['<h3 class="x-h3">Agrégat sur ' + n + " communes</h3>",
-             '<div class="x-mesures">' + Object.keys(agg).map(function (k) {
+    var res = {};
+    Object.keys(dico).forEach(function (k) {
+      var d = dico[k], regle = d.regle_agregation;
+      if (!regle && d.unite === "nombre") regle = "somme";   // dictionnaire ancien
+      if (!regle || regle === "non_agregeable") return;
+      var val = null, note = "";
+      if (regle === "officielle") {
+        val = nb(r.superficie_km2);
+        note = "valeur officielle de l'entité";
+        if (val === null && sommes[k] !== undefined) { val = sommes[k]; note = "somme des communes couvertes"; }
+      } else if (regle === "somme") {
+        if (sommes[k] === undefined) return;
+        val = sommes[k];
+        note = "somme sur " + compte[k] + " commune" + (compte[k] > 1 ? "s" : "") + " couverte" + (compte[k] > 1 ? "s" : "");
+      } else if (regle === "ratio_recalcule") {
+        var num = d.numerateur === "IND-GEO-001" ? nb(r.superficie_km2) : sommes[d.numerateur];
+        var den = d.denominateur === "IND-GEO-001" ? nb(r.superficie_km2) : sommes[d.denominateur];
+        if (num == null || den == null || !den) return;
+        val = (d.unite === "%") ? num / den * 100 : num / den * 100;
+        note = "recalculé sur les totaux, pas moyenné entre communes";
+      } else if (regle === "moyenne_simple") {
+        if (compte[k] === undefined) return;
+        val = sommes[k] / compte[k];
+        note = "moyenne non pondérée des " + compte[k] + " communes couvertes";
+      }
+      if (val === null || val === undefined) return;
+      res[k] = { valeur: val, unite: unites[k] || d.unite, annee: annees[k], note: note,
+                 couvertes: compte[k] || 0 };
+    });
+    return res;
+  }
+
+  function agregat(r) {
+    var communes = communesDe(r);
+    var agg = agreger(r, communes);
+    var cles = Object.keys(agg).filter(function (k) { return (dico[k] || {}).categorie !== "Qualité" || k === "IND-QUA-001"; });
+    var h = ['<h3 class="x-h3">Agrégat sur ' + communes.length + " communes</h3>",
+             '<div class="x-mesures">' + cles.map(function (k) {
                var d = dico[k] || {}, a = agg[k];
-               var moy = !SOMME[k] && a.calc === undefined;
-               var v = a.calc !== undefined ? a.calc : (SOMME[k] ? a.s : a.s / a.n);
-               return '<div class="x-mesure x-statique"><b>' + fmt(v, a.u) + "</b><span>" + esc(d.nom || k) +
-                 (moy ? " (moyenne)" : "") + '</span><small class="x-mill">Millésime ' +
-                 esc(a.an) + "</small></div>";
-             }).join("") + "</div>",
-             '<p class="x-note">Les totaux ne portent que sur les communes où la donnée existe : ' +
-             "additionner des absences reviendrait à les compter pour zéro. Les pourcentages sont des " +
-             "moyennes non pondérées.</p>"];
+               return '<details class="x-mesure"><summary><b>' + fmt(a.valeur, a.unite) + "</b><span>" +
+                 esc(d.nom || k) + '</span><small class="x-mill">' +
+                 (a.annee ? "Millésime " + esc(a.annee) + " · " : "") + esc(a.note) + "</small></summary>" +
+                 '<div class="x-detail">' +
+                 (d.definition ? "<p><b>Définition.</b> " + esc(d.definition) + "</p>" : "") +
+                 "<p><b>Règle d'agrégation.</b> " + esc(d.regle_agregation) +
+                 (d.numerateur ? " — " + esc((dico[d.numerateur] || {}).nom || d.numerateur) + " ÷ " +
+                   esc((dico[d.denominateur] || {}).nom || d.denominateur) : "") + "</p>" +
+                 "<p><b>Couverture.</b> " + a.couvertes + " commune" + (a.couvertes > 1 ? "s" : "") +
+                 " sur " + communes.length + " apportent une valeur.</p>" +
+                 (d.limites_connues ? '<p class="x-limite"><b>Limites.</b> ' + esc(d.limites_connues) + "</p>" : "") +
+                 "</div></details>";
+             }).join("") + "</div>"];
+    h.push('<p class="x-note">Les totaux ne portent que sur les communes où la donnée existe : ' +
+           "additionner des absences reviendrait à les compter pour zéro. Les pourcentages sont " +
+           "<b>recalculés sur les totaux</b> — une moyenne des taux communaux donnerait le même " +
+           "poids à la plus petite commune qu'à la plus grande.</p>");
+    h.push('<div class="x-actions"><button class="btn btn-outline x-btn-export-agg" data-agg="' +
+           esc(r.atmart_geo_id) + '">Exporter cet agrégat (CSV)</button>' +
+           '<button class="btn btn-outline x-btn-comp" data-comparer="' + esc(r.atmart_geo_id) +
+           '">Ajouter à la comparaison</button>' +
+           '<button class="btn btn-outline x-btn-print">Imprimer / PDF</button></div>');
     return h.join("");
   }
 
@@ -576,8 +637,121 @@
 
   function majURL() {
     if (!courant) return;
-    var q = "?id=" + courant.atmart_geo_id + (objectif !== "tout" ? "&objectif=" + objectif : "");
+    var q = "?id=" + courant.atmart_geo_id + (objectif !== "tout" ? "&objectif=" + objectif : "") +
+            (comparees.length ? "&comparer=" + comparees.join(",") : "");
     try { history.replaceState(null, "", q); } catch (e) {}
+  }
+
+  /* ----------------------------------------------------------- comparaison
+     Deux a quatre territoires cote a cote. Une ligne par indicateur, avec son
+     millesime : comparer des valeurs de millesimes differents est signale. */
+  var MAX_COMP = 4;
+
+  function ajouterComparaison(id) {
+    if (comparees.indexOf(id) > -1 || comparees.length >= MAX_COMP) return;
+    comparees.push(id);
+    rendreComparaison();
+    majURL();
+  }
+
+  function valeursDe(r) {
+    var m = {};
+    if (r.niveau_admin === "3") {
+      vals.forEach(function (v) { if (v.pcode_commune === r.pcode) m[v.indicateur_id] = v; });
+      return m;
+    }
+    var agg = agreger(r, communesDe(r));
+    Object.keys(agg).forEach(function (k) {
+      m[k] = { valeur: agg[k].valeur, unite: agg[k].unite, annee_reference: agg[k].annee,
+               statut_valeur: "A", methode: agg[k].note };
+    });
+    return m;
+  }
+
+  function rendreComparaison() {
+    var zone = $("#x-comparaison-corps");
+    if (!zone) return;
+    var choix = $("#x-comp-choix");
+    if (choix) {
+      choix.innerHTML = comparees.length
+        ? comparees.map(function (id) {
+            var e = parId[id];
+            return '<span class="x-jeton">' + esc(e ? e.nom_fr : id) +
+              '<button class="x-jeton-x" data-retirer="' + esc(id) + '" aria-label="Retirer ' +
+              esc(e ? e.nom_fr : id) + '">\u00d7</button></span>';
+          }).join("")
+        : '<span class="x-note">Aucun territoire s\u00e9lectionn\u00e9.</span>';
+    }
+    if (comparees.length < 2) {
+      zone.innerHTML = '<p class="x-note">Ajoutez au moins deux territoires. Depuis une fiche, ' +
+        'le bouton \u00ab Ajouter \u00e0 la comparaison \u00bb ; ou cherchez un territoire dans la barre ' +
+        'ci-dessus puis ajoutez-le. Jusqu\u2019\u00e0 ' + MAX_COMP +
+        ' territoires, communes et d\u00e9partements m\u00e9lang\u00e9s.</p>';
+      return;
+    }
+    var ents = comparees.map(function (id) { return parId[id]; }).filter(Boolean);
+    var jeux = ents.map(valeursDe);
+    var ids = {};
+    jeux.forEach(function (m) { Object.keys(m).forEach(function (k) { ids[k] = 1; }); });
+    var cles = Object.keys(ids).filter(function (k) { return dico[k]; }).sort(function (a, b) {
+      return (dico[a].categorie + dico[a].nom).localeCompare(dico[b].categorie + dico[b].nom); });
+
+    var h = ['<div class="x-tabwrap"><table class="x-tab x-comp"><thead><tr><th>Indicateur</th>'];
+    ents.forEach(function (e) {
+      h.push("<th>" + esc(e.nom_fr) + "<small>" + (NIVEAU[e.niveau_admin] || "") + "</small></th>");
+    });
+    h.push("</tr></thead><tbody>");
+    var alertes = 0;
+    cles.forEach(function (k) {
+      var d = dico[k];
+      var annees = ents.map(function (e, i) { return (jeux[i][k] || {}).annee_reference; }).filter(Boolean);
+      var melange = annees.length > 1 && annees.some(function (a) { return a !== annees[0]; });
+      if (melange) alertes++;
+      h.push("<tr><td><b>" + esc(d.nom) + "</b><small>" + esc(d.unite) +
+             (melange ? ' \u00b7 <span class="x-alerte">mill\u00e9simes diff\u00e9rents</span>' : "") + "</small></td>");
+      ents.forEach(function (e, i) {
+        var v = jeux[i][k];
+        if (!v || v.valeur === "" || v.valeur === undefined || v.statut_valeur === "N") {
+          h.push('<td class="x-nd">non document\u00e9</td>');
+        } else {
+          h.push("<td>" + fmt(v.valeur, v.unite) +
+                 (v.annee_reference ? "<small>" + esc(v.annee_reference) + "</small>" : "") + "</td>");
+        }
+      });
+      h.push("</tr>");
+    });
+    h.push("</tbody></table></div>");
+    if (alertes) {
+      h.push('<p class="x-note"><b>' + alertes + " indicateur" + (alertes > 1 ? "s" : "") +
+        " compare" + (alertes > 1 ? "nt" : "") + " des mill\u00e9simes diff\u00e9rents</b> \u2014 l\u2019\u00e9cart peut " +
+        "venir du temps \u00e9coul\u00e9, pas du territoire. Les ann\u00e9es sont sous chaque valeur.</p>");
+    }
+    h.push('<p class="x-note">\u00ab non document\u00e9 \u00bb ne veut pas dire z\u00e9ro : le territoire n\u2019est ' +
+           "pas couvert par la source de cet indicateur.</p>");
+    h.push('<div class="x-actions"><button class="btn btn-outline x-btn-export-comp">' +
+           "Exporter la comparaison (CSV)</button>" +
+           '<button class="btn btn-outline x-btn-lien">Copier le lien de cette comparaison</button>' +
+           '<button class="btn btn-outline x-btn-print">Imprimer / PDF</button></div>');
+    zone.innerHTML = h.join("");
+  }
+
+  function exporterComparaison() {
+    var ents = comparees.map(function (id) { return parId[id]; }).filter(Boolean);
+    var jeux = ents.map(valeursDe), ids = {};
+    jeux.forEach(function (m) { Object.keys(m).forEach(function (k) { ids[k] = 1; }); });
+    var lignes = [];
+    Object.keys(ids).sort().forEach(function (k) {
+      ents.forEach(function (e, i) {
+        var v = jeux[i][k] || {};
+        lignes.push([e.atmart_geo_id, e.pcode || "", e.nom_fr, NIVEAU[e.niveau_admin] || "",
+                     k, (dico[k] || {}).nom || "", v.valeur === undefined ? "" : v.valeur,
+                     v.unite || "", v.annee_reference || "", v.statut_valeur || "N", v.methode || ""]);
+      });
+    });
+    telecharger("atmart_comparaison_" +
+      ents.map(function (e) { return e.pcode || e.atmart_geo_id; }).join("_") + ".csv",
+      ["atmart_geo_id", "pcode", "territoire", "niveau", "indicateur_id", "indicateur",
+       "valeur", "unite", "annee_reference", "statut_valeur", "methode"], lignes);
   }
 
   /* ------------------------------------------------------------ classement */
@@ -707,6 +881,33 @@
         setTimeout(function () { e.target.textContent = "Copier le lien de cette fiche"; }, 2200);
         return;
       }
+      var bc = e.target.closest("[data-comparer]");
+      if (bc) {
+        ajouterComparaison(bc.dataset.comparer);
+        bc.textContent = comparees.indexOf(bc.dataset.comparer) > -1
+          ? "Ajouté à la comparaison ✓" : "Comparaison pleine (" + MAX_COMP + ")";
+        return;
+      }
+      var br = e.target.closest("[data-retirer]");
+      if (br) {
+        comparees = comparees.filter(function (x) { return x !== br.dataset.retirer; });
+        rendreComparaison(); majURL(); return;
+      }
+      if (e.target.closest(".x-btn-export-comp")) { exporterComparaison(); return; }
+      if (e.target.closest(".x-btn-print")) { window.print(); return; }
+      var ba = e.target.closest("[data-agg]");
+      if (ba) {
+        var ent = parId[ba.dataset.agg];
+        var agg = agreger(ent, communesDe(ent));
+        telecharger("atmart_" + (ent.pcode || ent.atmart_geo_id) + "_agregat.csv",
+          ["atmart_geo_id", "territoire", "niveau", "indicateur_id", "indicateur", "valeur",
+           "unite", "annee_reference", "regle_agregation", "communes_couvertes"],
+          Object.keys(agg).map(function (k) {
+            return [ent.atmart_geo_id, ent.nom_fr, NIVEAU[ent.niveau_admin], k,
+                    (dico[k] || {}).nom || "", agg[k].valeur, agg[k].unite, agg[k].annee,
+                    (dico[k] || {}).regle_agregation, agg[k].couvertes]; }));
+        return;
+      }
       if (e.target.closest(".x-vers-classement")) {
         document.querySelector('[data-onglet="classement"]').click();
         $("#x-vue-classement").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -739,26 +940,43 @@
           x.setAttribute("aria-selected", x === b ? "true" : "false");
         });
         $("#x-vue-fiche").hidden = b.dataset.onglet !== "fiche";
+        $("#x-vue-comparaison").hidden = b.dataset.onglet !== "comparaison";
         $("#x-vue-classement").hidden = b.dataset.onglet !== "classement";
       });
     });
 
+    var cmp = (location.search.match(/comparer=([A-Z0-9,\-]+)/) || [])[1];
+    if (cmp) comparees = cmp.split(",").filter(function (x) { return parId[x]; }).slice(0, MAX_COMP);
+    rendreComparaison();
     var ob = (location.search.match(/objectif=([a-z]+)/) || [])[1];
     if (OBJECTIFS[ob]) { objectif = ob; if (selObj) selObj.value = ob; }
     var id = (location.search.match(/id=([A-Z0-9-]+)/) || [])[1];
     fiche(parId[id] ? id : "HTC-0111");
   }
 
+  /* Une connexion instable coupe une requete sur cinq : on retente deux fois,
+     en espacant, avant d'abandonner. Sans cela l'Explorateur affiche une erreur
+     la ou un simple rechargement aurait suffi. */
+  function charger(u, essais) {
+    essais = essais === undefined ? 2 : essais;
+    return fetch(u + DV).then(function (r) {
+      if (!r.ok) throw new Error(u + " : " + r.status);
+      return r.text();
+    }).catch(function (e) {
+      if (essais <= 0) throw e;
+      return new Promise(function (ok) { setTimeout(ok, 500); })
+        .then(function () { return charger(u, essais - 1); });
+    });
+  }
+
   var liste = [F.terr, F.vals, F.dico].concat(F.orgs ? [F.orgs] : []);
-  Promise.all(liste.map(function (u) {
-    return fetch(u).then(function (r) { if (!r.ok) throw new Error(u + " : " + r.status); return r.text(); });
-  })).then(function (t) {
+  Promise.all(liste.map(function (u) { return charger(u); })).then(function (t) {
     terr = parseCSV(t[0]); vals = parseCSV(t[1]);
     parseCSV(t[2]).forEach(function (d) { dico[d.indicateur_id] = d; });
     if (t[3]) orgs = parseCSV(t[3]);
     /* Le contour est un agrement : s'il manque, la fiche s'affiche sans carte. */
-    return fetch(CFG.contour || DIR + "haiti_contour_simplifie.geojson")
-      .then(function (r) { return r.ok ? r.json() : null; })
+    return charger(CFG.contour || DIR + "haiti_contour_simplifie.geojson")
+      .then(function (t) { return JSON.parse(t); })
       .then(function (g) {
         if (g) contour = g.features[0].geometry.coordinates;
       })
