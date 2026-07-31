@@ -92,13 +92,50 @@
   function deNom(n) {
     return /^[aeiouyéèêàâîôûAEIOUYÉÈÊÀÂÎÔÛ]/.test(n) ? "de l'" + n : "de " + n;
   }
+  /* Libelles du referentiel des indicateurs, dans un fichier satellite :
+     le fichier d'origine reste intact pour qui l'a deja telecharge.
+     Cle = indicateur|langue|champ. */
+  var LIB = {}, UNITES = {}, libCharge = {};
+
+  function chargerLibelles(l) {
+    if (l === "fr" || libCharge[l]) return Promise.resolve();
+    return charger(DIR + "atmart_referentiel_indicateurs_i18n.csv", 1)
+      .then(function (t) {
+        parseCSV(t).forEach(function (r) {
+          LIB[r.indicateur_id + "|" + r.langue + "|" + r.champ] = r.valeur;
+          if (r.champ === "unite") {
+            var fr = (dico[r.indicateur_id] || {}).unite;
+            if (fr) UNITES[fr + "|" + r.langue] = r.valeur;
+          }
+        });
+        libCharge[l] = true;
+      })
+      /* Absent ou illisible : on garde le francais plutot que d'afficher des
+         libelles vides. Une donnee sans nom est pire qu'une donnee en francais. */
+      .catch(function () { libCharge[l] = true; });
+  }
+
+  /* Un champ du dictionnaire, dans la langue courante, francais par defaut. */
+  function libelle(indId, nom) {
+    if (LANG !== "fr") {
+      var v = LIB[indId + "|" + LANG + "|" + nom];
+      if (v) return v;
+    }
+    return (dico[indId] || {})[nom] || "";
+  }
+  function uniteL(u) {
+    if (LANG === "fr" || !u) return u;
+    return UNITES[u + "|" + LANG] || u;
+  }
+
   function chargerLangue(l) {
     LANG = LOCALE[l] ? l : "fr";
     if (LANG === "fr") { DICO = {}; return Promise.resolve(); }
     return fetch(BASE + "assets/i18n/explorateur." + LANG + ".json" + DV, { cache: "no-cache" })
       .then(function (r) { return r.ok ? r.json() : {}; })
       .then(function (j) { DICO = j || {}; })
-      .catch(function () { DICO = {}; });  /* dictionnaire absent : on reste en francais */
+      .catch(function () { DICO = {}; })   /* dictionnaire absent : on reste en francais */
+      .then(function () { return chargerLibelles(LANG); });
   }
 
   /* ---------------------------------------------------------------- outils */
@@ -127,7 +164,9 @@
     var n = nb(v);
     if (n === null) return esc(v) || "—";
     var s = (Math.round(n * 100) / 100).toLocaleString(LOCALE[LANG]);
-    return u === "%" ? s + " %" : (u && u !== "nombre" ? s + " " + esc(u) : s);
+    if (u === "%") return s + " %";
+    if (!u || u === "nombre") return s;
+    return s + " " + esc(uniteL(u));
   }
   /* La date suit la langue : 31/07/2026 en francais et en creole,
      7/31/2026 en anglais, 31/7/2026 en espagnol. */
@@ -150,6 +189,15 @@
                  I: "Valeur interpolée", M: "Valeur modélisée", E: "Valeur estimée",
                  N: "Donnée non disponible" };
   var QUALITE = { A: "qualité élevée", B: "qualité acceptable", C: "qualité limitée" };
+  /* Vocabulaires fermes du dictionnaire : ils vivent dans le code, pas dans le
+     referentiel, parce que ce sont des codes de pilotage et non du texte
+     redige. Les traduire en donnee les rendrait illisibles au moteur. */
+  var REGLE = { somme: "somme", ratio_recalcule: "ratio recalculé",
+                moyenne_simple: "moyenne simple", officielle: "valeur officielle",
+                non_agregeable: "non agrégeable" };
+  var STATUT_IND = { "Disponible": "Disponible",
+                     "Définition prête, donnée absente": "Définition prête, donnée absente",
+                     "À construire": "À construire" };
 
   /* Quatre objectifs plutôt que sept profils : chacun réordonne les thèmes,
      change le résumé et propose des actions différentes. */
@@ -535,7 +583,7 @@
         var v = p[0], d = p[1], rg = rang(v.indicateur_id, r.pcode);
         return '<details class="x-mesure"><summary>' +
           "<b>" + fmt(v.valeur, v.unite) + "</b>" +
-          "<span>" + esc(d.nom || v.indicateur_id) + "</span>" +
+          "<span>" + esc(libelle(v.indicateur_id, "nom") || v.indicateur_id) + "</span>" +
           '<small class="x-mill">' +
           (v.annee_reference ? TF("Millésime {an}", { an: esc(v.annee_reference) }) + " · " : "") +
           esc((d.source_primaire || v.source).split(" — ")[0]) + "</small>" +
@@ -543,8 +591,10 @@
                 TF("{rang} sur {total} communes documentées",
                    { rang: ordinal(rg.rang), total: rg.total }) + "</small>" : "") + "</summary>" +
           '<div class="x-detail">' +
-          (d.definition ? "<p><b>" + T("Définition.") + "</b> " + esc(d.definition) + "</p>" : "") +
-          (d.methode_calcul ? "<p><b>" + T("Méthode.") + "</b> " + esc(d.methode_calcul) + "</p>" : "") +
+          (d.definition ? "<p><b>" + T("Définition.") + "</b> " +
+            esc(libelle(v.indicateur_id, "definition")) + "</p>" : "") +
+          (d.methode_calcul ? "<p><b>" + T("Méthode.") + "</b> " +
+            esc(libelle(v.indicateur_id, "methode_calcul")) + "</p>" : "") +
           "<p><b>" + T("Statut.") + "</b> " + esc(T(STATUT[v.statut_valeur]) || v.statut_valeur) + " · " +
           esc(T(QUALITE[v.niveau_qualite]) || v.niveau_qualite) + "</p>" +
           "<p><b>" + T("Source.") + "</b> " +
@@ -553,9 +603,9 @@
             : esc(v.source)) + " · " +
           TF("relevée par Atmart le {date}", { date: jour(v.date_extraction) }) + "</p>" +
           (d.limites_connues ? '<p class="x-limite"><b>' + T("Limites.") + "</b> " +
-            esc(d.limites_connues) + "</p>" : "") +
+            esc(libelle(v.indicateur_id, "limites_connues")) + "</p>" : "") +
           (d.sens_interpretation ? "<p><b>" + T("Lecture.") + "</b> " +
-            esc(d.sens_interpretation) + "</p>" : "") +
+            esc(libelle(v.indicateur_id, "sens_interpretation")) + "</p>" : "") +
           "</div></details>";
       }).join("") + "</div>");
     });
@@ -576,16 +626,19 @@
            "</th></tr></thead><tbody>");
     absents.forEach(function (v) {
       var d = dico[v.indicateur_id] || {};
-      h.push("<tr><td><b>" + esc(d.nom || v.indicateur_id) + "</b></td><td>" +
-        esc(d.sens_interpretation || d.definition || "—") + "</td><td>" + esc(v.methode) +
+      h.push("<tr><td><b>" + esc(libelle(v.indicateur_id, "nom") || v.indicateur_id) +
+        "</b></td><td>" +
+        esc(libelle(v.indicateur_id, "sens_interpretation") ||
+            libelle(v.indicateur_id, "definition") || "—") + "</td><td>" + esc(v.methode) +
         "</td><td>" + TF("Compléter le registre national — {lien}",
           { lien: '<a href="donnees-parrainage.html#catalogue">' + T("parrainable") + "</a>" }) +
         "</td></tr>");
     });
     bloques.forEach(function (k) {
       var d = dico[k];
-      h.push("<tr><td><b>" + esc(d.nom) + "</b></td><td>" + esc(d.sens_interpretation || d.definition) +
-        "</td><td>" + esc(d.statut) + " — " + esc(d.dependance) +
+      h.push("<tr><td><b>" + esc(libelle(k, "nom")) + "</b></td><td>" +
+        esc(libelle(k, "sens_interpretation") || libelle(k, "definition")) +
+        "</td><td>" + esc(T(STATUT_IND[d.statut] || d.statut)) + " — " + esc(d.dependance) +
         '</td><td><a href="donnees-parrainage.html#catalogue">' +
         T("Financer la source manquante") + "</a></td></tr>");
     });
@@ -778,20 +831,22 @@
              '<div class="x-mesures">' + cles.map(function (k) {
                var d = dico[k] || {}, a = agg[k];
                return '<details class="x-mesure"><summary><b>' + fmt(a.valeur, a.unite) + "</b><span>" +
-                 esc(d.nom || k) + '</span><small class="x-mill">' +
+                 esc(libelle(k, "nom") || k) + '</span><small class="x-mill">' +
                  (a.annee ? TF("Millésime {an}", { an: esc(a.annee) }) + " · " : "") +
                  esc(a.note) + "</small></summary>" +
                  '<div class="x-detail">' +
-                 (d.definition ? "<p><b>" + T("Définition.") + "</b> " + esc(d.definition) + "</p>" : "") +
-                 "<p><b>" + T("Règle d'agrégation.") + "</b> " + esc(d.regle_agregation) +
-                 (d.numerateur ? " — " + esc((dico[d.numerateur] || {}).nom || d.numerateur) + " ÷ " +
-                   esc((dico[d.denominateur] || {}).nom || d.denominateur) : "") + "</p>" +
+                 (d.definition ? "<p><b>" + T("Définition.") + "</b> " +
+                   esc(libelle(k, "definition")) + "</p>" : "") +
+                 "<p><b>" + T("Règle d'agrégation.") + "</b> " +
+                 esc(T(REGLE[d.regle_agregation] || d.regle_agregation)) +
+                 (d.numerateur ? " — " + esc(libelle(d.numerateur, "nom") || d.numerateur) + " ÷ " +
+                   esc(libelle(d.denominateur, "nom") || d.denominateur) : "") + "</p>" +
                  "<p><b>" + T("Couverture.") + "</b> " +
                  TN({ one: "{n} commune sur {total} apporte une valeur.",
                       other: "{n} communes sur {total} apportent une valeur." },
                     a.couvertes, { n: a.couvertes, total: communes.length }) + "</p>" +
                  (d.limites_connues ? '<p class="x-limite"><b>' + T("Limites.") + "</b> " +
-                   esc(d.limites_connues) + "</p>" : "") +
+                   esc(libelle(k, "limites_connues")) + "</p>" : "") +
                  "</div></details>";
              }).join("") + "</div>"];
     h.push('<p class="x-note">' +
@@ -950,7 +1005,7 @@
       var annees = ents.map(function (e, i) { return (jeux[i][k] || {}).annee_reference; }).filter(Boolean);
       var melange = annees.length > 1 && annees.some(function (a) { return a !== annees[0]; });
       if (melange) alertes++;
-      h.push("<tr><td><b>" + esc(d.nom) + "</b><small>" + esc(d.unite) +
+      h.push("<tr><td><b>" + esc(libelle(k, "nom")) + "</b><small>" + esc(uniteL(d.unite)) +
              (melange ? ' \u00b7 <span class="x-alerte">' + T("millésimes différents") +
                "</span>" : "") + "</small></td>");
       ents.forEach(function (e, i) {
@@ -994,8 +1049,9 @@
       ents.forEach(function (e, i) {
         var v = jeux[i][k] || {};
         lignes.push([e.atmart_geo_id, e.pcode || "", e.nom_fr, T(NIVEAU[e.niveau_admin]) || "",
-                     k, (dico[k] || {}).nom || "", v.valeur === undefined ? "" : v.valeur,
-                     v.unite || "", v.annee_reference || "", v.statut_valeur || "N", v.methode || ""]);
+                     k, libelle(k, "nom"), v.valeur === undefined ? "" : v.valeur,
+                     uniteL(v.unite || ""), v.annee_reference || "",
+                     v.statut_valeur || "N", v.methode || ""]);
       });
     });
     telecharger("atmart_comparaison_" +
@@ -1028,11 +1084,12 @@
 
     var an = (lignes[0] || {}).brut ? lignes[0].brut.annee : "";
     var normInfo = NORMALISATIONS[normalisation];
-    var h = ['<p class="x-note">' + esc(d.definition) +
+    var h = ['<p class="x-note">' + esc(libelle(indId, "definition")) +
              (an ? " <b>" + TF("Millésime {an}.", { an: esc(an) }) + "</b>" : "") +
              (normalisation !== "total"
                ? " <b>" + T("Lecture :") + "</b> " + esc(T(normInfo.nom)) + "." : "") +
-             (d.limites_connues ? " <b>" + T("Limite :") + "</b> " + esc(d.limites_connues) : "") +
+             (d.limites_connues ? " <b>" + T("Limite :") + "</b> " +
+               esc(libelle(indId, "limites_connues")) : "") +
              "</p>"];
 
     if (normalisation !== "total" && !normalisable(indId)) {
@@ -1043,7 +1100,7 @@
 
     var colTerr = T(NIVEAU[niveauComp]);
     h.push('<div class="x-tabwrap"><table class="x-tab x-classement"><thead><tr><th>#</th><th>' +
-           esc(colTerr) + "</th><th>" + esc(d.nom || indId) +
+           esc(colTerr) + "</th><th>" + esc(libelle(indId, "nom") || indId) +
            (normalisation !== "total" && normalisable(indId)
              ? " <small>" + esc(T(normInfo.nom)) + "</small>" : "") +
            "</th><th>" + (niveauComp === "3" ? esc(T(NIVEAU["1"])) : T("Couverture")) +
@@ -1091,11 +1148,14 @@
      contexte devient un tableau de chiffres sans provenance. */
   function enTeteMeta() {
     return ["source_donnees", "millesime_referentiel", "version_referentiel",
-            "date_extraction_atmart", "normalisation", "url_methodologie"];
+            "date_extraction_atmart", "normalisation", "langue_libelles", "url_methodologie"];
   }
   function ligneMeta() {
+    /* La langue des libelles est tracee : un CSV sorti de son contexte doit
+       dire dans quelle langue ses intitules ont ete ecrits. Les identifiants,
+       eux, ne changent jamais — c'est par eux qu'on rejoint les fichiers. */
     return ["Atmart Data \u2014 atmart.ltd", "CNIGS 2018", (terr[0] || {}).version || "",
-            (vals[0] || {}).date_extraction || "", T(NORMALISATIONS[normalisation].nom),
+            (vals[0] || {}).date_extraction || "", T(NORMALISATIONS[normalisation].nom), LANG,
             "https://atmart.ltd/donnees-backbone.html#indicateurs"];
   }
 
@@ -1154,11 +1214,20 @@
 
     var sel = $("#x-indicateur"), dispo = {};
     vals.forEach(function (v) { dispo[v.indicateur_id] = 1; });
-    Object.keys(dispo).sort().forEach(function (k) {
-      var o = document.createElement("option");
-      o.value = k; o.textContent = (dico[k] || {}).nom || k;
-      sel.appendChild(o);
-    });
+    /* Les options portent le nom de l'indicateur : elles doivent etre
+       reecrites quand la langue change, sinon la liste reste en francais
+       au-dessus d'un tableau traduit. */
+    function remplirIndicateurs() {
+      var garde = sel.value;
+      sel.innerHTML = "";
+      Object.keys(dispo).sort().forEach(function (k) {
+        var o = document.createElement("option");
+        o.value = k; o.textContent = libelle(k, "nom") || k;
+        sel.appendChild(o);
+      });
+      if (garde) sel.value = garde;
+    }
+    remplirIndicateurs();
     sel.value = "IND-QUA-001";
     precalculerAgregats();
 
@@ -1193,11 +1262,12 @@
         var m = vals.filter(function (v) { return v.pcode_commune === courant.pcode; });
         telecharger("atmart_" + courant.pcode + "_indicateurs.csv",
           ["indicateur_id", "indicateur", "valeur", "unite", "annee_reference", "statut_valeur",
-           "niveau_qualite", "source", "date_source", "methode"],
+           "niveau_qualite", "source", "date_source", "methode"].concat(enTeteMeta()),
           m.map(function (v) {
-            var d = dico[v.indicateur_id] || {};
-            return [v.indicateur_id, d.nom || "", v.valeur, v.unite, v.annee_reference,
-                    v.statut_valeur, v.niveau_qualite, v.source, v.date_source, v.methode];
+            return [v.indicateur_id, libelle(v.indicateur_id, "nom"), v.valeur,
+                    uniteL(v.unite), v.annee_reference,
+                    v.statut_valeur, v.niveau_qualite, v.source, v.date_source,
+                    v.methode].concat(ligneMeta());
           }));
         return;
       }
@@ -1230,11 +1300,13 @@
         var agg = agreger(ent, communesDe(ent));
         telecharger("atmart_" + (ent.pcode || ent.atmart_geo_id) + "_agregat.csv",
           ["atmart_geo_id", "territoire", "niveau", "indicateur_id", "indicateur", "valeur",
-           "unite", "annee_reference", "regle_agregation", "communes_couvertes"],
+           "unite", "annee_reference", "regle_agregation",
+           "communes_couvertes"].concat(enTeteMeta()),
           Object.keys(agg).map(function (k) {
             return [ent.atmart_geo_id, ent.nom_fr, T(NIVEAU[ent.niveau_admin]), k,
-                    (dico[k] || {}).nom || "", agg[k].valeur, agg[k].unite, agg[k].annee,
-                    (dico[k] || {}).regle_agregation, agg[k].couvertes]; }));
+                    libelle(k, "nom"), agg[k].valeur, uniteL(agg[k].unite), agg[k].annee,
+                    (dico[k] || {}).regle_agregation,
+                    agg[k].couvertes].concat(ligneMeta()); }));
         return;
       }
       if (e.target.closest(".x-vers-classement")) {
@@ -1275,8 +1347,8 @@
          "statut_valeur", "regle_agregation"].concat(enTeteMeta()),
         l.map(function (x, i) {
           return [i + 1, x.e.atmart_geo_id, x.e.pcode || "", x.e.nom_fr,
-                  T(NIVEAU[x.e.niveau_admin]), sel.value, d.nom || "",
-                  x.aff, x.unite, x.brut.valeur, x.brut.unite, x.brut.annee,
+                  T(NIVEAU[x.e.niveau_admin]), sel.value, libelle(sel.value, "nom"),
+                  x.aff, uniteL(x.unite), x.brut.valeur, uniteL(x.brut.unite), x.brut.annee,
                   x.brut.statut, d.regle_agregation || ""].concat(ligneMeta()); }));
     }
     $("#x-export").addEventListener("click", exporterClassement);
@@ -1333,6 +1405,7 @@
        des variables du module : il traverse le changement sans etre touche.
        On ne recharge que le dictionnaire, puis on redessine les trois vues. */
     function redessiner() {
+      remplirIndicateurs();
       compteurs();
       classement(sel.value);
       rendreComparaison();
@@ -1379,6 +1452,7 @@
       .then(function () {
         var l = "fr";
         try { l = localStorage.getItem("atmart_lang") || "fr"; } catch (e) {}
+        if (window.ATM_LANG_FORCE) l = window.ATM_LANG_FORCE;   // URL de langue
         /* La page peut restreindre les langues offertes : un visiteur venu
            d'une page en kreyol ne doit pas voir le moteur basculer seul
            pendant que le HTML de la page reste en francais. */

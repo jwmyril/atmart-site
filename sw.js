@@ -9,7 +9,7 @@ const CORE = ["/", "/index.html", "/chofe360.html", "/karye360.html", "/studio.h
   "/assets/atelier.css?v=2", "/assets/atelier.js?v=3", "/assets/atelier-offres.js?v=1",
   "/assets/atelier/oeuvres.json", "/assets/atelier/collection.json",
   "/assets/atelier/fiches/table-ancetres.json",
-  "/assets/style.css?v=31", "/assets/script.js?v=2", "/assets/i18n.js?v=12",
+  "/assets/style.css?v=31", "/assets/script.js?v=2", "/assets/i18n.js?v=13",
   "/assets/i18n/ht.json", "/assets/i18n/en.json", "/assets/i18n/es.json",
   "/assets/i18n/explorateur.en.json", "/assets/i18n/explorateur.ht.json",
   "/assets/i18n/explorateur.es.json",
@@ -19,15 +19,16 @@ const CORE = ["/", "/index.html", "/chofe360.html", "/karye360.html", "/studio.h
 // intermittente ne doit pas empecher de consulter le profil d'une commune.
 // L'Explorateur tient entierement dans ces fichiers.
 const DATA = [
-  "/donnees-explorateur.html",
+  "/donnees-explorateur.html", "/ht/donnees-explorateur.html",
+  "/en/donnees-explorateur.html", "/es/donnees-explorateur.html",
   "/donnees.html", "/donnees-systeme.html", "/donnees-backbone.html",
   "/datasets.html", "/donnees-solutions.html", "/donnees-campus.html",
   "/donnees-parrainage.html", "/donnees-confiance.html",
   "/donnees-pack-geo-haiti.html",
-  "/assets/data.css?v=11", "/assets/explorateur.js?v=16",
+  "/assets/data.css?v=11", "/assets/explorateur.js?v=18",
   "/data/atmart_referentiel_territoire_base_HT.csv",
   "/data/atmart_indicateurs_communes_HT.csv",
-  "/data/atmart_referentiel_indicateurs.csv",
+  "/data/atmart_referentiel_indicateurs.csv", "/data/atmart_referentiel_indicateurs_i18n.csv",
   "/data/atmart_registre_sources.csv",
   "/data/atmart_referentiel_temps_HT.csv",
   "/data/haiti_contour_simplifie.geojson", "/data/atmart_millesimes_territoriaux.csv",

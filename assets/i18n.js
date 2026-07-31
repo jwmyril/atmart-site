@@ -67,6 +67,15 @@
         e.stopPropagation();
         localStorage.setItem("atmart_lang_manual", "1"); // un choix manuel prime sur la detection
         hideHint();
+        // Quand la page existe sous une URL par langue, on y va : traduire sur
+        // place laisserait les trois autres langues invisibles pour un moteur
+        // de recherche, et l'utilisateur ne pourrait pas partager le lien.
+        const urls = window.ATM_LANG_URLS;
+        if (urls && urls[code] && code !== document.documentElement.lang) {
+          localStorage.setItem("atmart_lang", code);
+          location.href = urls[code] + location.search + location.hash;
+          return;
+        }
         apply(code);
         menu.classList.remove("open");
       });
@@ -121,9 +130,14 @@
 
   // __atmLang vient du petit script place dans le <head> : il a deja lu le choix
   // memorise, sinon la langue du navigateur, et masque la page le temps du rendu.
-  const start = window.__atmLang && LANGS[window.__atmLang]
-    ? window.__atmLang
-    : (localStorage.getItem("atmart_lang") || DEFAULT);
+  // Une page servie sous une URL de langue impose sa langue : arriver sur
+  // /ht/ depuis un moteur de recherche doit donner du kreyol, pas la langue
+  // qu'on avait choisie la derniere fois.
+  const start = (window.ATM_LANG_FORCE && LANGS[window.ATM_LANG_FORCE])
+    ? window.ATM_LANG_FORCE
+    : (window.__atmLang && LANGS[window.__atmLang]
+        ? window.__atmLang
+        : (localStorage.getItem("atmart_lang") || DEFAULT));
 
   capture();
   buildSelector();
