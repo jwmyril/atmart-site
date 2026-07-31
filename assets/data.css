@@ -297,3 +297,43 @@ a.sys-card:hover { transform: translateY(-2px); border-color: var(--teal); }
   .x-mesures { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
   .x-cta { flex-direction: column; align-items: flex-start; }
 }
+
+/* Explorateur — profils, thèmes, verrou, tableaux d'organisations */
+.x-profils { display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; margin: 0 0 1.2rem; }
+.x-profils .filter-btn { font-size: 0.84rem; padding: 0.4rem 0.9rem; }
+
+.x-theme { font-family: var(--font-head); font-size: 0.9rem; color: var(--ink);
+           margin: 1.1rem 0 0.5rem; }
+.x-mesure .x-meth { display: none; }
+.x-mesure:hover .x-meth {
+  display: block; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border);
+  color: var(--ink-dim); font-size: 0.72rem; line-height: 1.45;
+}
+
+.x-profil {
+  background: rgba(46,196,182,.07); border: 1px solid rgba(46,196,182,.3);
+  border-radius: var(--radius); padding: 1rem 1.2rem; margin-bottom: 1.4rem;
+}
+.x-profil p { color: var(--ink-dim); font-size: 0.9rem; margin: 0; line-height: 1.6; }
+.x-profil .x-theme { margin: 0 0 0.35rem; color: var(--teal); }
+
+.x-verrou {
+  display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; justify-content: space-between;
+  background: rgba(244,162,97,.06); border: 1px solid rgba(244,162,97,.3);
+  border-radius: var(--radius); padding: 1.1rem 1.3rem;
+}
+.x-verrou > div { flex: 1 1 380px; min-width: 0; }
+.x-verrou p { color: var(--ink-dim); font-size: 0.88rem; margin: 0; line-height: 1.6; }
+.x-verrou p + p { margin-top: 0.6rem; }
+
+.x-tabwrap { overflow-x: auto; max-width: 100%; min-width: 0; }
+.x-orgs { font-size: 0.82rem; min-width: 560px; }
+.x-orgs th { width: auto; }
+.x-orgs code { font-size: 0.9em; }
+
+.x-admin-bandeau {
+  background: rgba(230,57,70,.12); border: 1px solid rgba(230,57,70,.4);
+  border-radius: var(--radius); padding: 0.8rem 1.1rem; margin-bottom: 1.4rem;
+}
+.x-admin-bandeau b { color: var(--red); font-family: var(--font-head); }
+.x-admin-bandeau p { color: var(--ink-dim); font-size: 0.86rem; margin: 0.25rem 0 0; }
