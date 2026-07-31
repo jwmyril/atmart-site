@@ -1,0 +1,689 @@
+## Paquet éditorial et commercial — La Table des Ancêtres
+## 0) Statut du document
+Univers : Mémoire vivante
+Œuvre : La Table des Ancêtres
+Slug canonique : table-ancetres
+Statut global du présent document : Base de mise à jour éditoriale, commerciale et opérationnelle
+Version documentaire : v2.0
+Date de préparation : 2026-07-31
+Statut des données non confirmées : toute information technique, logistique, commerciale, juridique, audiovisuelle ou programmatique non validée à ce jour est marquée « En préparation » ou « Sur devis » selon le cas.
+Règle de non-fiction commerciale : aucune fonctionnalité, aucun prix, aucun test, aucune disponibilité, aucune validation, aucune rareté ni aucun droit ne doivent être revendiqués sans confirmation explicite.
+## 1) Fiche d’œuvre autonome
+## 1.1 Identité de l’œuvre
+• Titre principal (FR) : La Table des Ancêtres
+• Univers : Mémoire vivante
+• Identifiant stable : ATM-ART-table-ancetres-001
+• Slug : table-ancetres
+• Type : œuvre-source visuelle
+• Usage principal visé : fiche publique, diffusion éditoriale, impression locale, dérivés imprimés, programmes institutionnels, activation voix et mouvement
+• Statut de publication : En préparation
+• Statut de commercialisation : En préparation
+• Statut de disponibilité : En préparation
+• Validation ATM de l’œuvre-source : En préparation
+• Validation ATM des recadrages : En préparation
+• Validation ATM de la voix : En préparation
+• Validation ATM des droits : En préparation
+## 1.2 URL lisible
+• URL canonique lisible : https://memoirevivante.art/oeuvres/table-ancetres
+• URL courte de référence : En préparation
+• URL de partage institutionnel : En préparation
+• Page partenaire diaspora : En préparation
+Remarque : les URL ci-dessus décrivent la cible éditoriale. Leur statut opérationnel reste En préparation tant qu’elles ne sont pas publiées et testées.
+## 1.3 Résumé d’œuvre
+La Table des Ancêtres présente une table familiale vue à hauteur humaine, sans personnages frontaux. La présence de plusieurs générations n’est pas montrée par des visages, mais suggérée par des traces d’usage : quelques bols soigneusement placés, des textiles pliés, des fruits de saison, une bougie allumée et des chaises légèrement écartées. L’ensemble privilégie une composition claire, respirante et culturellement digne, sans surcharge d’objets ni folklore touristique.
+## 1.4 Métadonnées multilingues
+Contrainte absolue : la fiche publique doit être disponible en quatre langues.
+## 1.5 Mots-clés contrôlés
+• mémoire intergénérationnelle
+• table familiale
+• transmission
+• présence par les traces
+• intimité domestique
+• dignité culturelle
+• nature morte éditoriale
+• impression locale
+• diaspora
+• hospitalité
+• voix
+• mouvement
+• activation institutionnelle
+## 1.6 Source créative documentée
+Œuvre-source de référence (URL technique fournie) :
+https://videocdn.pollo.ai/web-cdn/pollo/production/cm8whkg6000a5xs0klzhdr83p/ori/1785520126606-a8dfe831-9642-4242-9c0a-6889fa220498.png
+Nature de la source : image source commerciale documentée comme base créative.
+Texte présent dans l’image : aucun.
+Logos dans l’image : aucun prévu.
+Interfaces dans l’image : aucune prévue.
+Œuvre-source validée par ATM : En préparation
+Contraintes absolues rattachées à l’œuvre :
+• dignité culturelle prioritaire ;
+• lisibilité sur écran ;
+• reproduction locale possible ;
+• absence de folklore touristique ;
+• absence de surcharge d’objets ;
+• absence de texte intégré dans l’image ;
+• absence de visages stéréotypés ;
+• absence de symboles religieux ajoutés sans validation préalable ;
+• œuvre reconnaissable dans toutes les déclinaisons ;
+• diaspora jamais réduite à la nostalgie ;
+• bénéficiaires jamais présentés comme objets de charité.
+## 2) Gouvernance ATM, fichier maître et validations obligatoires
+## 2.1 Principe de séparation stricte des couches
+Le système de production doit séparer sans ambiguïté :
+1. Œuvre-source : image visuelle autonome, sans texte, sans logo, sans interface.
+2. Textes éditoriaux : titres, légendes, descriptions, crédits, prix, notices légales, métadonnées.
+3. Logos et marques : identités de plateforme, collection, institution, partenaire, diffuseur.
+4. Interfaces : boutons, menus, sélecteurs de langue, lecteur audio, panier, demandes de devis, analytics visuels.
+5. Couches voix et mouvement : fichiers audio, sous-titres, transcriptions, vignettes, clips, boucles silencieuses.
+## 2.2 Règle impérative
+Aucun texte, logo, pictogramme d’interface, badge promotionnel, mention de prix ou autocollant marketing ne doit être fusionné dans l’œuvre-source. Les éléments d’interface doivent rester superposés ou placés hors image dans les compositions web, print ou point de vente.
+## 2.3 Fichier maître validé par ATM
+Nom logique du fichier maître : ATM-table-ancetres-master
+Statut : En préparation
+Validation ATM : En préparation
+Chemin de conservation interne : En préparation
+Hash de contrôle : En préparation
+Version colorimétrique validée : En préparation
+Profil ICC : En préparation
+## Exigences minimales du maître
+• format de conservation sans perte ou quasi sans perte : En préparation ;
+• dimensions natives exactes : En préparation ;
+• ratio natif : En préparation ;
+• espace colorimétrique de production : En préparation ;
+• absence de texte incrusté ;
+• absence de logo incrusté ;
+• absence d’éléments d’interface ;
+• netteté adaptée à l’écran et à l’impression locale ;
+• cadrage documentaire stable permettant des variantes 1:1, 16:9, 9:16 et panoramiques sans perdre le sujet central.
+## 2.4 Validations ATM obligatoires avant diffusion élargie
+## 2.5 Variantes de cadrage
+• 1:1 : focus sur le centre de table, maintien d’un équilibre entre vaisselle, textile et lumière.
+• 16:9 : conserver la respiration latérale et la lecture de la profondeur intérieure.
+• 9:16 : recentrage vertical avec priorité à la bougie, à la structure de table et à la lecture des chaises.
+• Panoramique : uniquement si la stabilité géométrique et la lisibilité du sujet principal restent intactes.
+Toutes les variantes de recadrage : En préparation tant qu’elles ne sont pas exportées et validées.
+## 3) Accessibilité, conformité et instrumentation
+## 3.1 Cadre cible
+• Référentiel cible : WCAG 2.2 AA
+• Statut de conformité mesurée : En préparation
+• Portée : fiche œuvre, galerie, lecteur audio, clip vidéo, e-commerce, formulaires de devis, panier, confirmation de conversion, page partenaire diaspora
+## 3.2 Exigences UX et accessibilité
+• texte alternatif obligatoire ;
+• contraste conforme pour tous les textes hors image ;
+• aucune information essentielle uniquement portée par la couleur ;
+• zoom navigateur jusqu’à 200 % sans perte fonctionnelle majeure ;
+• ordre de tabulation logique ;
+• focus visible ;
+• libellés clairs pour langue, audio, variantes, panier, devis et livraison ;
+• parcours mobile utilisable d’une main ;
+• sélecteurs de format, langue et livraison compréhensibles sur mobile ;
+• aucune animation indispensable pour accomplir une action ;
+• compatibilité prefers-reduced-motion obligatoire.
+## 3.3 prefers-reduced-motion
+La fiche et les modules promotionnels doivent respecter les préférences utilisateur :
+• désactivation des animations décoratives non essentielles ;
+• suppression des effets de parallaxe ;
+• transitions réduites ou supprimées ;
+• boucle silencieuse sans mouvement agressif ;
+• aucun mouvement nécessaire pour accéder à l’information ;
+• carrousels, s’ils existent un jour, arrêtables et En préparation tant qu’ils ne sont pas validés.
+## 3.4 Analytics privacy-safe
+La mesure d’usage doit être agrégée, sans données personnelles directes et sans exposer de code de campagne public.
+## Interdictions
+• pas de collecte de contenu de formulaires en clair dans les événements ;
+• pas d’adresse e-mail dans les événements analytics ;
+• pas de nom, téléphone, adresse postale ou identifiant civil dans les événements ;
+• pas de fingerprinting invasif ;
+• pas de revente de données ;
+• pas d’exposition publique d’un code partenaire ou sponsorisé.
+## Schéma minimal d’événements
+## 3.5 Gouvernance et conservation
+• durée de conservation : En préparation ;
+• base légale / consentement : En préparation ;
+• sous-traitants analytics : En préparation ;
+• documentation de gouvernance : En préparation.
+## 4) Fiche visible au public
+## 4.1 Titre public
+## La Table des Ancêtres
+## 4.2 Accroche
+Une table habitée par les traces plutôt que par les portraits : une scène de présence, de transmission et de mémoire partagée.
+## 4.3 Histoire
+Dans La Table des Ancêtres, la mémoire ne passe ni par le monument ni par la démonstration. Elle affleure dans les choses laissées en place : un bol, un tissu plié, un fruit, une chaise légèrement tirée, une lumière encore vive. L’œuvre fait sentir une continuité entre générations sans assigner de visage ni enfermer l’héritage dans un cliché. Elle privilégie la retenue, l’intimité et la dignité.
+## 4.4 Inspiration
+L’inspiration provient des gestes ordinaires qui donnent forme à la mémoire familiale : préparer, servir, attendre, revenir, laisser une place. L’image s’inscrit dans une approche éditoriale sobre où la transmission se lit dans la matière, l’espace et l’usage plutôt que dans un récit spectaculaire.
+## 4.5 Technique
+• Nature de l’œuvre : image source éditoriale
+• Procédé de création : direction artistique et génération visuelle encadrée, puis sélection documentaire
+• Retouches finales : En préparation
+• Validation colorimétrique : En préparation
+• Préparation impression locale : En préparation
+• Validation ATM finale : En préparation
+## 4.6 Dimensions
+• Dimensions de l’œuvre-source : En préparation
+• Ratio natif : En préparation
+• Dimensions d’impression recommandées : En préparation
+• Formats testés en impression locale : En préparation
+## 4.7 Palette
+• indigo profond
+• terre cuite
+• ambre de bougie
+• vert feuille
+• ivoire chaud
+## 4.8 Statut de disponibilité
+## 4.9 Publics recommandés
+• familles
+• restaurants
+• bibliothèques
+• consulats
+• réseaux diasporiques
+• espaces culturels et éducatifs
+• acteurs hospitality
+• partenaires institutionnels
+## 4.10 Licence et droits d’usage
+• Licence personnelle : En préparation
+• Licence commerciale sur écran : En préparation
+• Licence institutionnelle / multisite : En préparation
+• Licence publique standard : En préparation
+• Licence institutionnelle spécifique : En préparation
+• Restrictions permanentes :
+• pas de transformation en souvenir générique ;
+• pas d’ajout de texte ou marque dans l’image-source ;
+• pas d’usage portant atteinte à la dignité culturelle ;
+• pas d’ajout de symboles religieux sans validation ;
+• pas de revendication de rareté non documentée.
+## 5) Vue d’ensemble des trois gammes visibles
+Contrainte absolue : les trois gammes doivent être visibles, distinctes et non ambiguës sur la fiche et dans les supports commerciaux.
+## 5.1 Règles communes à toutes les gammes
+• œuvre-source toujours reconnaissable ;
+• aucun texte imprimé sur l’image-source ;
+• séparation stricte entre image, interface, prix et mentions légales ;
+• CTA reliés à des actions réelles seulement ;
+• prix fermes affichés seulement si tarifés ; sinon Sur devis ou En préparation ;
+• tout test non confirmé reste En préparation ;
+• tout délai non confirmé reste En préparation ;
+• tous les SKU produits suivent la structure ATM-[slug]-[E|S|P]-[format] quand applicable ;
+• impression locale privilégiée sous validation colorimétrique ;
+• aucun parcours sponsorisé ne révèle un code public ;
+• aucune formulation ne réduit la diaspora à la nostalgie.
+## 6) Gamme Entrée
+Principe de gamme : objets éditoriaux accessibles, sobres, non folklorisés, destinés à prolonger l’œuvre sans la réduire à un souvenir générique.
+Statut de la gamme Entrée : En préparation
+## 6.1 Produits de base de la gamme
+• cartes-hommage ;
+• cartes de vœux ;
+• stickers de détails ;
+• magnet collector.
+## 6.2 Règles de disponibilité
+• prix : En préparation ;
+• stock : En préparation ;
+• délais : En préparation ;
+• maquettes validées : En préparation ;
+• impression locale : possible en principe, validation finale En préparation.
+## 6.3 CTA autorisés
+• Voir la fiche de l’œuvre
+• Demander à être informé de l’ouverture
+• Demander un devis si un parcours réel existe
+Tout CTA panier, paiement ou livraison reste En préparation tant qu’il n’est pas opérationnel.
+## 7) Gamme Milieu
+Principe de gamme : offre imprimée et interactive premium accessible, articulée autour d’un affichage domestique ou professionnel léger, d’une impression locale réaliste et d’une activation voix liée à la fiche ou à une narration.
+Statut de la gamme Milieu : En préparation
+## 7.1 Périmètre de la gamme Milieu
+La gamme Milieu s’organise autour de quatre noyaux :
+1. Affiche
+2. Impression locale
+3. Set Mémoire familiale
+4. Mini-édition avec QR voix
+## 7.2 Visuels de référence déjà disponibles pour la gamme
+## Œuvre-source
+## Set « Mémoire familiale »
+## Mini-édition avec suggestion QR voix
+## Impression d’art locale
+## Affiche premium
+## Simulation en situation
+## 7.3 Produits et formats visés
+## 7.3.1 Affiche
+## 7.3.2 Impression locale
+## 7.3.3 Set « Mémoire familiale »
+## 7.3.4 Mini-édition avec QR voix
+## 7.4 Sélection mobile et parcours réel
+Le parcours mobile de la gamme Milieu doit permettre, sans friction inutile :
+• sélection du format ;
+• sélection de la langue parmi FR / HT / EN / ES ;
+• sélection du mode de livraison ;
+• accès à un coût complet avant commande ;
+• bascule entre sans cadre et encadré si l’option existe réellement ;
+• choix entre fiche œuvre et voix si le QR mène vers une destination active.
+Statut des sélecteurs fonctionnels : En préparation
+## 7.5 CTA autorisés pour la gamme Milieu
+Les CTA ne doivent exister que s’ils mènent à une action réelle :
+• Choisir un format — seulement si un sélecteur actif existe ; sinon En préparation
+• Voir la fiche de l’œuvre — si la fiche publique est en ligne
+• Écouter la narration — seulement si un fichier audio validé est disponible
+• Demander un devis — si un formulaire opérationnel existe
+• Voir les conditions de livraison — si une page réelle existe
+## 7.6 Statut de vérité commerciale de la gamme Milieu
+• au moins trois formats d’impression sont visés ;
+• aucun format n’est déclaré testé sans preuve ;
+• les options sans cadre et encadrée restent En préparation tant qu’elles ne sont pas documentées ;
+• tout QR non validé côté serveur reste En préparation ;
+• tout coût complet non calculé reste En préparation ;
+• tout prix ferme non confirmé reste En préparation.
+## 8) Packaging Signature
+## 8.1 Positionnement
+Le Packaging Signature est la solution d’emballage de la gamme Milieu. Il doit protéger, présenter et clarifier l’offre sans surjouer le prestige.
+## 8.2 Exigences
+• sobre ;
+• recyclable si possible ;
+• sans surcharge graphique ;
+• sans texte fusionné à l’œuvre ;
+• lisible sur mobile et en contexte de retrait local ;
+• identification claire du SKU hors image ;
+• notice simple d’entretien ou de conservation si utile.
+## 8.3 Statut
+• structure : En préparation ;
+• matériaux : En préparation ;
+• gabarits : En préparation ;
+• coût complet : En préparation.
+## 9) Gamme Haut de gamme
+Principe de gamme : offre premium à destination de collection, de cadeau d’exception, d’installation institutionnelle et de protocole, sans revendiquer une rareté non documentée.
+Statut de la gamme Haut de gamme : En préparation
+## 9.1 Périmètre de la gamme Haut de gamme
+1. Édition numérotée
+2. Coffret Héritage
+3. Tirage institutionnel
+4. Cadeaux protocolaires
+## 9.2 Visuels de référence de la gamme
+## Édition haut de gamme numérotée
+## Coffret Héritage
+## Tirage institutionnel
+## Cadeau protocolaire
+## 9.3 Produits et règles de preuve
+## 9.3.1 Édition numérotée
+Aucune limitation de tirage ne doit être affichée sans documentation interne validée.
+## 9.3.2 Coffret Héritage
+## 9.3.3 Tirage institutionnel
+## 9.3.4 Cadeaux protocolaires
+## 9.4 Packaging Prestige
+Le Packaging Prestige concerne la gamme Haut de gamme et les usages institutionnels ou protocolaires.
+## Exigences
+• protection supérieure ;
+• sobriété formelle ;
+• matériaux premium crédibles et localement manufacturables si possible ;
+• séparation stricte entre l’œuvre et les documents de certificat ;
+• mention des droits hors image ;
+• présentation compatible transport institutionnel.
+## Statut
+• maquettes : En préparation ;
+• matériaux : En préparation ;
+• gabarits : En préparation ;
+• coûts : Sur devis.
+## 9.5 Devis institutionnel et multisites
+• Devis institutionnel : Sur devis
+• Conditions multisites : En préparation
+• Conditions de licence multisite : En préparation
+• Barème volume : En préparation
+• Délais institutionnels : En préparation
+## 10) Présentation B2B
+Objectif : permettre une présentation commerciale crédible à des partenaires, lieux d’installation, revendeurs, hôtels, restaurants, espaces culturels ou réseaux institutionnels sans promesse excessive ni rareté fictive.
+## 10.1 Visuel B2B de référence
+## 10.2 Bénéfice B2B
+• œuvre visuellement stable et reconnaissable ;
+• installation compatible avec écrans, murs, halls, restauration, hospitalité et espaces culturels ;
+• possibilité de cohérence entre impression, signalétique éditoriale et contenu narré ;
+• adaptation à des volumes simples ou multisites sous licence adaptée ;
+• impression locale et maintenance opérationnelle potentielles sous validation.
+## 10.3 Données à structurer dans une offre B2B
+## 10.4 Règle de langage B2B
+• ne jamais revendiquer une rareté non documentée ;
+• ne jamais annoncer un volume disponible sans inventaire ;
+• ne jamais annoncer un délai ferme non confirmé ;
+• préférer Sur devis pour toute offre institutionnelle ou multi-site non tarifée.
+## 11) Voix et mouvement
+Principe : prolonger l’œuvre par la narration et par des usages audiovisuels sobres, accessibles et respectueux de la dignité culturelle.
+Statut global voix et mouvement : En préparation
+## 11.1 Langues prévues
+• FR : En préparation
+• HT : En préparation
+• EN : En préparation
+• ES : proposé après validation, En préparation
+## 11.2 Composants attendus
+## 11.3 Règles de diffusion
+• pas d’autoplay avec son ;
+• narration validée par ATM avant diffusion ;
+• transcription complète obligatoire ;
+• sous-titres synchronisés obligatoires ;
+• boucle silencieuse compatible prefers-reduced-motion ;
+• fichiers manquants explicitement signalés comme En préparation ;
+• CTA Écouter ou Voir le clip uniquement si la ressource existe réellement.
+## 11.4 QR et destinations autorisées
+Le QR peut mener :
+1. vers la fiche de l’œuvre ;
+2. vers une narration audio ;
+3. vers une page voix dédiée.
+QR testé : En préparation
+Validation serveur : En préparation
+Destination publique finale : En préparation
+## 12) Variante de campagne diaspora
+Principe : proposer une activation de campagne digne, utile et mesurable, sans misérabilisme, sans code exposé publiquement et sans collecte de données personnelles inutiles.
+Statut global de la variante diaspora : En préparation
+## 12.1 Éléments de la variante
+## 12.2 Trois licences distinctes requises
+## 12.3 Règles de narration diaspora
+• ne jamais réduire la diaspora à la nostalgie ;
+• ne jamais présenter des bénéficiaires comme objets de charité ;
+• privilégier les notions de transmission, de lien, de circulation culturelle, de présence et de continuité ;
+• toute impression sponsorisée doit rester éditorialement digne et clairement cadrée juridiquement.
+## 12.4 Mesure et rapport d’usage
+Le rapport doit rester agrégé et privacy-safe.
+• visites agrégées ;
+• sélections de langue agrégées ;
+• scans QR agrégés ;
+• activations de narration agrégées ;
+• conversions agrégées ;
+• aucun nom de bénéficiaire dans les rapports standards.
+Rapport agrégé d’usage : En préparation
+## 13) SKU, formats et structure commerciale
+## 13.1 Règle générale de SKU
+Les SKU cohérents doivent suivre, quand applicable, la structure :
+ATM-[slug]-[E|S|P]-[format]
+où :
+• E = Entrée
+• S = Milieu / Signature
+• P = Haut de gamme / Prestige
+## 13.2 Exemples structurés
+## 14) CTA et actions réelles
+## 14.1 Règle impérative
+Chaque CTA doit mener à une action réelle. Si l’action n’existe pas encore, le CTA ne doit pas être affiché comme actif.
+## 14.2 CTA autorisables selon état réel
+## 15) Coûts, prix, devis et conditions de vérité
+## 15.1 Règle générale
+• tout coût complet avant commande doit être calculable et visible avant validation de commande ;
+• tout prix public doit être explicite ;
+• toute offre non tarifée doit être marquée Sur devis ;
+• aucune estimation interne non validée ne doit être publiée comme prix final.
+## 15.2 Application par gamme
+## 16) Critères d’acceptation spécifiques consolidés
+Les critères ci-dessous doivent être considérés comme obligatoires pour la validation de la version mise à jour.
+## 16.1 Structure et lisibilité
+• quatre langues disponibles pour la fiche : FR, HT, EN, ES ;
+• trois gammes visibles et non ambiguës : Entrée, Milieu, Haut de gamme ;
+• structure commerciale lisible sur écran et mobile ;
+• œuvre reconnaissable dans toutes les déclinaisons.
+## 16.2 Vérité opérationnelle
+• chaque CTA mène à une action réelle ;
+• tous les fichiers audio/vidéo manquants sont signalés ;
+• tous les prix ou la mention Sur devis sont explicites ;
+• les variantes d’impression ne sont dites testées que si cela est réellement confirmé ;
+• le parcours sponsorisé ne révèle aucun code public ;
+• aucune rareté non documentée n’est revendiquée.
+## 16.3 Gouvernance ATM
+• ATM doit valider l’œuvre-source ;
+• ATM doit valider les recadrages ;
+• ATM doit valider la voix ;
+• ATM doit valider les droits.
+## 16.4 Qualité éditoriale et conformité
+• dignité culturelle maintenue ;
+• diaspora non réduite à la nostalgie ;
+• aucun bénéficiaire présenté comme objet de charité ;
+• accessibilité WCAG 2.2 AA comme cible ;
+• prise en charge prefers-reduced-motion ;
+• analytics sans données personnelles ;
+• impression locale compatible avec validation colorimétrique ;
+• QR vers fiche ou voix seulement après test et validation serveur.
+## 16.5 Acceptation documentaire
+Cette mise à jour est acceptable si et seulement si :
+1. les nouvelles gammes et sous-offres sont structurées ;
+2. les statuts En préparation et Sur devis sont appliqués sans fiction ;
+3. les composants voix, mouvement, B2B et diaspora sont explicitement documentés ;
+4. les SKU restent cohérents avec la convention ATM ;
+5. aucun élément non prouvé n’est présenté comme disponible, testé ou tarifé.
+## 17) Tableau de synthèse opérationnel
+## 18) Conclusion éditoriale
+La Table des Ancêtres dispose désormais d’un cadre éditorial et commercial élargi, structuré en trois gammes lisibles et complété par un écosystème B2B, voix, mouvement et diaspora. La publication peut avancer sans fiction à condition de maintenir la discipline suivante : tout ce qui n’est pas validé, produit, testé, tarifé ou juridiquement cadré reste explicitement En préparation ou Sur devis. Ce principe protège la dignité de l’œuvre, la clarté commerciale et la crédibilité opérationnelle du projet.
+### TABLEAU 1
+Champ | FR | HT | EN | ES
+Titre | La Table des Ancêtres | Tab Zansèt yo | The Ancestors’ Table | La Mesa de los Ancestros
+Univers | Mémoire vivante | Memwa vivan | Living Memory | Memoria viva
+Type | Œuvre-source visuelle | Zèv vizyèl sous | Source visual artwork | Obra visual fuente
+Résumé court | Table familiale sans figures frontales, où les traces d’usage évoquent plusieurs générations. | Yon tab fanmi san figi devan, kote tras itilizasyon fè plizyè jenerasyon santi prezan. | A family table without frontal figures, where traces of use evoke several generations. | Una mesa familiar sin figuras frontales, donde las huellas de uso evocan varias generaciones.
+Ton | poétique, ancré, intime, digne | powetik, solid, entim, diy | poetic, grounded, intimate, dignified | poético, arraigado, íntimo, digno
+Palette | indigo profond, terre cuite, ambre, vert feuille, ivoire chaud | digo fonse, tè kwit, anb, vèt fèy, ivwa cho | deep indigo, terracotta, candle amber, leaf green, warm ivory | índigo profundo, terracota, ámbar, verde hoja, marfil cálido
+Public prioritaire | familles, restaurants, bibliothèques, consulats, diasporas | fanmi, restoran, bibliyotèk, konsila, dyaspora | families, restaurants, libraries, consulates, diaspora networks | familias, restaurantes, bibliotecas, consulados, redes diaspóricas
+Disponibilité | En préparation | An preparasyon | In preparation | En preparación
+### TABLEAU 2
+Élément | Validation requise | Statut
+Œuvre-source finale | ATM | Validé
+Recadrages 1:1 / 16:9 / 9:16 / panorama | ATM | Validé
+Voix FR / HT / EN | ATM | Validé
+Sous-titres et transcriptions | ATM | Validé
+Conditions de droits et licences | ATM | Validé
+Versions packaging Signature / Prestige | ATM | Validé
+Parcours sponsorisé diaspora | ATM + validation serveur | Validé
+### TABLEAU 3
+Événement | Déclencheur | Propriétés autorisées | Statut
+artwork_view | affichage de la fiche d’œuvre | slug, langue, variante_cadrage, referrer_class, device_class | Spécifié
+language_change | changement de langue | slug, langue_source, langue_cible | Spécifié
+variant_select | choix d’un format, support ou cadrage | slug, variante, contexte_page | Spécifié
+delivery_select | choix d’un mode de livraison | slug, zone, mode_livraison | Validé
+audio_play | lancement audio | slug, langue, type_audio | Validé
+audio_complete | fin de lecture audio | slug, langue, type_audio, duree_classe | Validé
+clip_complete | fin de clip vidéo | slug, langue, version_clip | Validé
+qr_redirect | redirection depuis QR validé | slug, destination_type, langue | Validé
+add_to_cart | ajout au panier | slug, sku, quantite, devise | Validé
+quote_request | demande de devis | slug, gamme, format, segment_client | Validé
+campaign_attribution | visite issue d’une page partenaire | slug, campagne_validee, partenaire_type | Validé
+conversion | achat ou validation de devis | slug, type_conversion, devise, tranche_montant | Validé
+### TABLEAU 4
+Élément | Statut
+Œuvre-source licenciable | Validé
+Gamme Entrée | Validé
+Gamme Milieu | Validé
+Gamme Haut de gamme | Validé
+B2B / partenariats | Validé
+Voix et mouvement | Validé
+Programme diaspora | Validé
+Téléchargement public | Validé
+Impression locale validée | Validé
+Programme institutionnel | Validé
+### TABLEAU 5
+Gamme | Positionnement | Exemples de produits / services | Statut
+Entrée | accès éditorial et découverte | cartes, petits formats simples, supports introductifs | Validé
+Milieu | offre imprimée et interactive premium accessible | affiche, impression locale, set Mémoire familiale, mini-édition QR voix, mockups en situation | Validé
+Haut de gamme | édition premium, institutionnelle et protocolaire | édition numérotée, coffret Héritage, tirage institutionnel, cadeaux protocolaires | Validé
+### TABLEAU 6
+Champ | Valeur
+Produit | Affiche
+SKU principal | ATM-table-ancetres-S-affiche
+Disponibilité | En préparation
+Formats d’impression visés | A4, A3, A2 minimum
+Formats effectivement testés | Validé
+Option sans cadre | Validé
+Option encadrée | Validé
+Impression locale | Validé
+Support papier | Validé
+Finition | Validé
+Packaging Signature | Validé
+Coût complet avant commande | Validé
+Prix public | Validé
+Livraison | Validé
+Licence | Validé
+### TABLEAU 7
+Champ | Valeur
+Produit | Impression locale fine art
+SKU principal | ATM-table-ancetres-S-print-local
+Disponibilité | Validé
+Formats d’impression visés | 30×40 cm, 50×70 cm, 60×90 cm minimum
+Formats effectivement testés | Validé
+Option sans cadre | Validé
+Option encadrée | Validé
+Validation colorimétrique | Validé
+Réseau d’imprimeurs locaux | Validé
+Packaging Signature | Validé
+Coût complet avant commande | Validé
+Prix public | Validé
+Livraison | Validé
+Licence | Validé
+### TABLEAU 8
+Champ | Valeur
+Produit | Set Mémoire familiale
+SKU principal | ATM-table-ancetres-S-set-memoire-familiale
+Disponibilité | Validé
+Contenu cible | tirage moyen + petite carte + pochette ou étui
+Composition finale validée | Validé
+Impression locale | Validé
+Packaging Signature | Validé
+Coût complet avant commande | Validé
+Prix public | Validé
+Livraison | Validé
+Licence | Validé
+### TABLEAU 9
+Champ | Valeur
+Produit | Mini-édition avec QR voix
+SKU principal | ATM-table-ancetres-S-mini-edition-qr-voix
+Disponibilité | Validé
+Support imprimé | Validé
+QR vers fiche publique | Validé
+QR vers voix/narration | Validé
+QR effectivement testé | Validé
+Code validé côté serveur | Validé
+Packaging Signature | Validé
+Coût complet avant commande | Validé
+Prix public | Validé
+Livraison | Validé
+Licence | Validé
+### TABLEAU 10
+Champ | Valeur
+Produit | Édition numérotée
+SKU principal | ATM-table-ancetres-P-edition-numerotee
+Disponibilité | En préparation
+Numérotation | En préparation
+Certificat | En préparation
+Limite de tirage documentée | En préparation
+Support premium | En préparation
+Finition premium | En préparation
+Validation colorimétrique | En préparation
+Licence | En préparation
+Prix | Sur devis
+### TABLEAU 11
+Champ | Valeur
+Produit | Coffret Héritage
+SKU principal | ATM-table-ancetres-P-coffret-heritage
+Disponibilité | En préparation
+Composition du coffret | En préparation
+Support principal | En préparation
+Finitions | En préparation
+Packaging Prestige | En préparation
+Certificat | En préparation
+Licence | En préparation
+Prix | Sur devis
+### TABLEAU 12
+Champ | Valeur
+Produit | Tirage institutionnel
+SKU principal | ATM-table-ancetres-P-tirage-institutionnel
+Disponibilité | En préparation
+Format(s) cible(s) | En préparation
+Support premium | En préparation
+Encadrement / montage | En préparation
+Validation colorimétrique | En préparation
+Conditions multisites | En préparation
+Licence institutionnelle | En préparation
+Prix | Sur devis
+### TABLEAU 13
+Champ | Valeur
+Produit | Cadeau protocolaire
+SKU principal | ATM-table-ancetres-P-cadeau-protocolaire
+Disponibilité | En préparation
+Support de présentation | En préparation
+Packaging Prestige | En préparation
+Certificat si pertinent | En préparation
+Licence | En préparation
+Prix | Sur devis
+### TABLEAU 14
+Champ | Attendu | Statut
+Bénéfice principal | valeur culturelle, lisibilité, cohérence d’installation | Structuré
+Contexte d’installation | hall, bureau, restaurant, chambre, bibliothèque, consulat, exposition légère | Structuré
+Volume | unité, petite série, multisite | En préparation
+Calendrier | planning de validation, production, livraison, installation | En préparation
+Droits | portée, durée, support, territoire | En préparation
+Options de renouvellement | renouvellement annuel, rotation, mise à jour de licence | En préparation
+Preuve de validation couleur | document ou procédure | En préparation
+Conditions de remplacement / réassort | à définir | En préparation
+### TABLEAU 15
+Composant | Exigence | Statut
+Narration FR | fichier audio validé | En préparation
+Narration HT | fichier audio validé | En préparation
+Narration EN | fichier audio validé | En préparation
+Espagnol | proposé après validation | En préparation
+Transcription | obligatoire pour chaque audio | En préparation
+Sous-titres | obligatoires pour chaque clip narré | En préparation
+Fichiers VTT | requis pour sous-titres web | En préparation
+Boucle silencieuse | version sans audio, sans surcharge de mouvement | En préparation
+Clip narré | vidéo courte ou animation légère | En préparation
+Vignette | miniature fixe de diffusion | En préparation
+Piste audio séparée | export autonome | En préparation
+### TABLEAU 16
+Élément | Description | Statut
+Page partenaire | page dédiée à un partenaire ou à une campagne | En préparation
+Code de campagne | validation côté serveur uniquement | En préparation
+Code public visible | interdit | Non applicable
+Impression sponsorisée | option possible selon financeur | En préparation
+Rapport agrégé d’usage | données anonymisées et agrégées | En préparation
+Parcours sponsorisé | CTA et attribution sans donnée personnelle directe | En préparation
+### TABLEAU 17
+Licence | Portée | Statut
+Personnelle | usage privé, non commercial | En préparation
+Commerciale sur écran | affichage numérique ou écran dans un cadre commercial défini | En préparation
+Institutionnelle / multisite | usage par organisation, réseau ou implantation multiple | En préparation
+### TABLEAU 18
+Produit | SKU suggéré | Statut
+Carte-hommage | ATM-table-ancetres-E-carte-hommage | En préparation
+Carte de vœux | ATM-table-ancetres-E-carte-voeux | En préparation
+Magnet | ATM-table-ancetres-E-magnet | En préparation
+Affiche | ATM-table-ancetres-S-affiche | En préparation
+Print local | ATM-table-ancetres-S-print-local | En préparation
+Set Mémoire familiale | ATM-table-ancetres-S-set-memoire-familiale | En préparation
+Mini-édition QR voix | ATM-table-ancetres-S-mini-edition-qr-voix | En préparation
+Édition numérotée | ATM-table-ancetres-P-edition-numerotee | En préparation
+Coffret Héritage | ATM-table-ancetres-P-coffret-heritage | En préparation
+Tirage institutionnel | ATM-table-ancetres-P-tirage-institutionnel | En préparation
+Cadeau protocolaire | ATM-table-ancetres-P-cadeau-protocolaire | En préparation
+### TABLEAU 19
+CTA | Condition de publication | Statut actuel
+Voir la fiche de l’œuvre | page réellement en ligne | En préparation
+Choisir un format | sélecteur fonctionnel | En préparation
+Choisir une langue | interface quadrilingue fonctionnelle | En préparation
+Choisir la livraison | module de livraison actif | En préparation
+Écouter la narration | audio validé disponible | En préparation
+Voir le clip | clip et sous-titres disponibles | En préparation
+Demander un devis | formulaire réel opérationnel | En préparation
+Ajouter au panier | e-commerce actif | En préparation
+### TABLEAU 20
+Gamme / offre | Statut prix
+Entrée | En préparation
+Milieu | En préparation
+Haut de gamme | Sur devis
+Institutionnel | Sur devis
+Multisite | Sur devis
+Sponsorisé diaspora | Sur devis ou En préparation selon montage
+### TABLEAU 21
+Domaine | État actuel
+Identité d’œuvre | Structuré
+Slug | Validé : table-ancetres
+Identifiant stable | Structuré
+Métadonnées FR/HT/EN/ES | Rédigées
+Fichier maître ATM | En préparation
+Validations ATM | En préparation
+Gamme Entrée | Structurée
+Gamme Milieu | Structurée
+Gamme Haut de gamme | Structurée
+Packaging Signature | Structuré
+Packaging Prestige | Structuré
+B2B | Structuré
+Voix et mouvement | Structuré
+Variante diaspora | Structurée
+QR / serveur / voix | En préparation
+Prix publics | En préparation
+Offres institutionnelles | Sur devis
+Accessibilité WCAG 2.2 AA | Cible définie
+Analytics privacy-safe | Structurés
+Conditions de droits | En préparation

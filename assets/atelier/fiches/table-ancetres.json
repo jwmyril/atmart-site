@@ -1,0 +1,207 @@
+{
+  "_doc": "docs/atelier-atm/03-paquet-table-ancetres-v2.txt (v2.0, 31/07/2026). Regle de non-fiction : tout ce qui n'est ni valide, ni produit, ni teste, ni tarife, ni cadre juridiquement reste 'prep' (En preparation) ou 'devis' (Sur devis).",
+  "_visuels": "Les 11 visuels viennent du .docx source (67 Mo, conserve dans OneDrive). Versions web 1600 px dans assets/atelier/table-ancetres/.",
+
+  "id": "table-ancetres",
+  "uid": "ATM-ART-table-ancetres-001",
+  "univers": "memwa",
+  "dir": "assets/atelier/table-ancetres/",
+
+  "st": {
+    "prep": { "fr": "En préparation", "ht": "N ap prepare l", "en": "In preparation", "es": "En preparación" },
+    "devis": { "fr": "Sur devis", "ht": "Sou devi", "en": "On quote", "es": "Presupuesto a medida" }
+  },
+
+  "t": { "fr": "La Table des Ancêtres", "ht": "Tab Zansèt yo", "en": "The Ancestors' Table", "es": "La Mesa de los Ancestros" },
+  "type": { "fr": "Œuvre-source visuelle", "ht": "Zèv vizyèl sous", "en": "Source visual artwork", "es": "Obra visual fuente" },
+  "ton": { "fr": "poétique, ancré, intime, digne", "ht": "powetik, solid, entim, diy", "en": "poetic, grounded, intimate, dignified", "es": "poético, arraigado, íntimo, digno" },
+  "resume": {
+    "fr": "Table familiale sans figures frontales, où les traces d'usage évoquent plusieurs générations.",
+    "ht": "Yon tab fanmi san figi devan, kote tras itilizasyon fè plizyè jenerasyon santi prezan.",
+    "en": "A family table without frontal figures, where traces of use evoke several generations.",
+    "es": "Una mesa familiar sin figuras frontales, donde las huellas de uso evocan varias generaciones."
+  },
+  "accroche": {
+    "fr": "Une table habitée par les traces plutôt que par les portraits : une scène de présence, de transmission et de mémoire partagée.",
+    "ht": "Yon tab kote se tras moun ki rete, se pa pòtre : yon sèn prezans, transmisyon ak memwa nou pataje.",
+    "en": "A table inhabited by traces rather than portraits: a scene of presence, transmission and shared memory.",
+    "es": "Una mesa habitada por las huellas más que por los retratos: una escena de presencia, transmisión y memoria compartida."
+  },
+  "histoire": {
+    "fr": "Dans La Table des Ancêtres, la mémoire ne passe ni par le monument ni par la démonstration. Elle affleure dans les choses laissées en place : un bol, un tissu plié, un fruit, une chaise légèrement tirée, une lumière encore vive. L'œuvre fait sentir une continuité entre générations sans assigner de visage ni enfermer l'héritage dans un cliché. Elle privilégie la retenue, l'intimité et la dignité.",
+    "ht": "Nan Tab Zansèt yo, memwa a pa pase ni nan yon moniman ni nan yon demonstrasyon. Li parèt nan bagay moun kite an plas : yon bòl, yon twal yo pliye, yon fwi, yon chèz yo rale yon ti kras, yon limyè ki poko tenyen. Zèv la fè w santi jenerasyon yo kontinye youn nan lòt san li pa bay yon figi ni fèmen eritaj la nan yon imaj tou fèt. Li chwazi rete diskrè, entim ak diy.",
+    "en": "In The Ancestors' Table, memory passes through neither monument nor demonstration. It surfaces in the things left in place: a bowl, a folded cloth, a fruit, a chair pulled slightly back, a light still burning. The work lets you feel a continuity between generations without assigning a face or locking heritage into a cliché. It chooses restraint, intimacy and dignity.",
+    "es": "En La Mesa de los Ancestros, la memoria no pasa por el monumento ni por la demostración. Aflora en las cosas dejadas en su sitio: un cuenco, una tela doblada, una fruta, una silla ligeramente apartada, una luz aún encendida. La obra hace sentir una continuidad entre generaciones sin asignar un rostro ni encerrar la herencia en un cliché. Elige la contención, la intimidad y la dignidad."
+  },
+  "inspiration": {
+    "fr": "L'inspiration provient des gestes ordinaires qui donnent forme à la mémoire familiale : préparer, servir, attendre, revenir, laisser une place. La transmission se lit dans la matière, l'espace et l'usage plutôt que dans un récit spectaculaire.",
+    "ht": "Enspirasyon an soti nan ti jès òdinè ki bay memwa fanmi an fòm : prepare, sèvi, tann, tounen, kite yon plas. Se nan matyè a, nan espas la ak nan jan moun sèvi ak bagay yo transmisyon an li, se pa nan yon gwo istwa espektakilè.",
+    "en": "The inspiration comes from the ordinary gestures that shape family memory: preparing, serving, waiting, coming back, keeping a place. Transmission is read in the matter, the space and the use rather than in a spectacular story.",
+    "es": "La inspiración viene de los gestos ordinarios que dan forma a la memoria familiar: preparar, servir, esperar, volver, dejar un sitio. La transmisión se lee en la materia, el espacio y el uso, no en un relato espectacular."
+  },
+
+  "palette": [
+    { "h": "#1b2a4a", "t": { "fr": "indigo profond", "ht": "digo fonse", "en": "deep indigo", "es": "índigo profundo" } },
+    { "h": "#a4552f", "t": { "fr": "terre cuite", "ht": "tè kwit", "en": "terracotta", "es": "terracota" } },
+    { "h": "#e3a94a", "t": { "fr": "ambre de bougie", "ht": "anb balèn", "en": "candle amber", "es": "ámbar de vela" } },
+    { "h": "#3f6b3a", "t": { "fr": "vert feuille", "ht": "vèt fèy", "en": "leaf green", "es": "verde hoja" } },
+    { "h": "#f0e6d2", "t": { "fr": "ivoire chaud", "ht": "ivwa cho", "en": "warm ivory", "es": "marfil cálido" } }
+  ],
+
+  "publics": [
+    { "fr": "familles", "ht": "fanmi", "en": "families", "es": "familias" },
+    { "fr": "restaurants", "ht": "restoran", "en": "restaurants", "es": "restaurantes" },
+    { "fr": "bibliothèques", "ht": "bibliyotèk", "en": "libraries", "es": "bibliotecas" },
+    { "fr": "consulats", "ht": "konsila", "en": "consulates", "es": "consulados" },
+    { "fr": "réseaux diasporiques", "ht": "rezo dyaspora", "en": "diaspora networks", "es": "redes diaspóricas" },
+    { "fr": "espaces culturels et éducatifs", "ht": "espas kiltirèl ak edikatif", "en": "cultural and educational spaces", "es": "espacios culturales y educativos" },
+    { "fr": "acteurs hospitality", "ht": "moun ki nan akey ak otelri", "en": "hospitality operators", "es": "actores de hostelería" },
+    { "fr": "partenaires institutionnels", "ht": "patnè enstitisyonèl", "en": "institutional partners", "es": "socios institucionales" }
+  ],
+
+  "gouvernance": [
+    { "k": { "fr": "Statut de publication", "ht": "Estati piblikasyon", "en": "Publication status", "es": "Estado de publicación" }, "v": "prep" },
+    { "k": { "fr": "Statut de commercialisation", "ht": "Estati komèsyalizasyon", "en": "Commercialisation status", "es": "Estado de comercialización" }, "v": "prep" },
+    { "k": { "fr": "Statut de disponibilité", "ht": "Estati disponibilite", "en": "Availability status", "es": "Estado de disponibilidad" }, "v": "prep" },
+    { "k": { "fr": "Validation ATM de l'œuvre-source", "ht": "Validasyon ATM pou zèv sous la", "en": "ATM validation of the source work", "es": "Validación ATM de la obra fuente" }, "v": "prep" },
+    { "k": { "fr": "Validation ATM des recadrages", "ht": "Validasyon ATM pou rekadraj yo", "en": "ATM validation of the crops", "es": "Validación ATM de los recortes" }, "v": "prep" },
+    { "k": { "fr": "Validation ATM de la voix", "ht": "Validasyon ATM pou vwa a", "en": "ATM validation of the voice", "es": "Validación ATM de la voz" }, "v": "prep" },
+    { "k": { "fr": "Validation ATM des droits", "ht": "Validasyon ATM pou dwa yo", "en": "ATM validation of the rights", "es": "Validación ATM de los derechos" }, "v": "prep" },
+    { "k": { "fr": "Dimensions et ratio natifs", "ht": "Dimansyon ak ratio orijinal yo", "en": "Native dimensions and ratio", "es": "Dimensiones y proporción nativas" }, "v": "prep" },
+    { "k": { "fr": "Validation colorimétrique", "ht": "Validasyon koulè yo", "en": "Colour validation", "es": "Validación colorimétrica" }, "v": "prep" },
+    { "k": { "fr": "Préparation impression locale", "ht": "Preparasyon pou enprime lokal", "en": "Local print preparation", "es": "Preparación de impresión local" }, "v": "prep" }
+  ],
+
+  "gammes": [
+    {
+      "id": "entree", "img": "set-memoire.jpg", "v": "prep",
+      "t": { "fr": "Gamme Entrée", "ht": "Gam Antre", "en": "Entry range", "es": "Gama de entrada" },
+      "p": {
+        "fr": "Objets éditoriaux accessibles et sobres, destinés à prolonger l'œuvre sans la réduire à un souvenir générique.",
+        "ht": "Bagay abòdab ak senp ki fèt pou kontinye zèv la, san yo pa fè l tounen yon senp souvni tankou tout lòt yo.",
+        "en": "Accessible, restrained editorial objects meant to extend the work without reducing it to a generic souvenir.",
+        "es": "Objetos editoriales accesibles y sobrios, para prolongar la obra sin reducirla a un recuerdo genérico."
+      },
+      "prods": [
+        { "sku": "ATM-table-ancetres-E-carte-hommage", "v": "prep", "t": { "fr": "Carte-hommage", "ht": "Kat onè", "en": "Tribute card", "es": "Tarjeta homenaje" } },
+        { "sku": "ATM-table-ancetres-E-carte-voeux", "v": "prep", "t": { "fr": "Carte de vœux", "ht": "Kat swè", "en": "Greeting card", "es": "Tarjeta de felicitación" } },
+        { "sku": "ATM-table-ancetres-E-sticker", "v": "prep", "t": { "fr": "Stickers de détails", "ht": "Otokolan detay", "en": "Detail stickers", "es": "Pegatinas de detalle" } },
+        { "sku": "ATM-table-ancetres-E-magnet", "v": "prep", "t": { "fr": "Magnet collector", "ht": "Manyèt koleksyon", "en": "Collector magnet", "es": "Imán de colección" } }
+      ]
+    },
+    {
+      "id": "milieu", "img": "affiche.jpg", "v": "prep",
+      "t": { "fr": "Gamme Milieu", "ht": "Gam Mitan", "en": "Mid range", "es": "Gama media" },
+      "p": {
+        "fr": "Offre imprimée et interactive premium accessible : affichage domestique ou professionnel léger, impression locale réaliste, activation voix par QR.",
+        "ht": "Yon òf enprime ak entèaktif, bon kalite men abòdab : pou kay ou oswa yon espas travay, enprime lokal ki reyalis, ak vwa ou jwenn ak yon kòd QR.",
+        "en": "Accessible premium printed and interactive offer: light domestic or professional display, realistic local printing, voice activation by QR.",
+        "es": "Oferta impresa e interactiva premium accesible: exhibición doméstica o profesional ligera, impresión local realista, activación de voz por QR."
+      },
+      "prods": [
+        { "sku": "ATM-table-ancetres-S-affiche", "v": "prep", "img": "affiche.jpg",
+          "t": { "fr": "Affiche", "ht": "Afich", "en": "Poster", "es": "Cartel" },
+          "n": { "fr": "Formats visés : A4, A3, A2 minimum. Formats testés : en préparation.", "ht": "Fòma nou vize : A4, A3, A2 omwen. Fòma nou teste deja : n ap prepare l.", "en": "Target sizes: A4, A3, A2 minimum. Sizes actually tested: in preparation.", "es": "Formatos previstos: A4, A3, A2 mínimo. Formatos probados: en preparación." } },
+        { "sku": "ATM-table-ancetres-S-print-local", "v": "prep", "img": "print-local.jpg",
+          "t": { "fr": "Impression locale fine art", "ht": "Enprime lokal bon kalite", "en": "Local fine art print", "es": "Impresión local fine art" },
+          "n": { "fr": "Formats visés : 30×40, 50×70, 60×90 cm minimum. Validation colorimétrique et réseau d'imprimeurs : en préparation.", "ht": "Fòma nou vize : 30×40, 50×70, 60×90 cm omwen. Validasyon koulè ak rezo enprimè yo : n ap prepare l.", "en": "Target sizes: 30×40, 50×70, 60×90 cm minimum. Colour validation and printer network: in preparation.", "es": "Formatos previstos: 30×40, 50×70, 60×90 cm mínimo. Validación de color y red de imprentas: en preparación." } },
+        { "sku": "ATM-table-ancetres-S-set-memoire-familiale", "v": "prep", "img": "set-memoire.jpg",
+          "t": { "fr": "Set « Mémoire familiale »", "ht": "Sè « Memwa fanmi »", "en": "\"Family memory\" set", "es": "Set «Memoria familiar»" },
+          "n": { "fr": "Contenu cible : tirage moyen + petite carte + pochette. Composition finale : en préparation.", "ht": "Sa ki vize ladan l : yon tiraj mwayen + yon ti kat + yon pòch. Konpozisyon final la : n ap prepare l.", "en": "Target contents: medium print + small card + sleeve. Final composition: in preparation.", "es": "Contenido previsto: tirada media + tarjeta pequeña + funda. Composición final: en preparación." } },
+        { "sku": "ATM-table-ancetres-S-mini-edition-qr-voix", "v": "prep", "img": "mini-edition.jpg",
+          "t": { "fr": "Mini-édition avec QR voix", "ht": "Mini-edisyon ak kòd QR pou vwa a", "en": "Mini edition with voice QR", "es": "Mini edición con QR de voz" },
+          "n": { "fr": "Le QR ne sera publié qu'après test et validation côté serveur.", "ht": "Nou p ap pibliye kòd QR la anvan nou teste l epi valide l sou sèvè a.", "en": "The QR will only be published after testing and server-side validation.", "es": "El QR solo se publicará tras la prueba y la validación en el servidor." } }
+      ]
+    },
+    {
+      "id": "haut", "img": "coffret-heritage.jpg", "v": "devis",
+      "t": { "fr": "Gamme Haut de gamme", "ht": "Gam Wo", "en": "High-end range", "es": "Gama alta" },
+      "p": {
+        "fr": "Édition premium, institutionnelle et protocolaire — sans revendiquer une rareté non documentée.",
+        "ht": "Edisyon bon kalite, pou enstitisyon ak pwotokòl — san nou pa di yon bagay ra si nou pa gen dokiman ki pwouve l.",
+        "en": "Premium, institutional and protocol editions — without claiming undocumented rarity.",
+        "es": "Edición premium, institucional y protocolaria, sin reivindicar una rareza no documentada."
+      },
+      "prods": [
+        { "sku": "ATM-table-ancetres-P-edition-numerotee", "v": "devis", "img": "edition-numerotee.jpg",
+          "t": { "fr": "Édition numérotée", "ht": "Edisyon ak nimewo", "en": "Numbered edition", "es": "Edición numerada" },
+          "n": { "fr": "Aucune limite de tirage ne sera affichée sans documentation interne validée.", "ht": "Nou p ap afiche okenn limit tiraj san nou pa gen dokiman anndan ki valide.", "en": "No print run limit will be shown without validated internal documentation.", "es": "No se mostrará ningún límite de tirada sin documentación interna validada." } },
+        { "sku": "ATM-table-ancetres-P-coffret-heritage", "v": "devis", "img": "coffret-heritage.jpg",
+          "t": { "fr": "Coffret Héritage", "ht": "Bwat Eritaj", "en": "Heritage box set", "es": "Estuche Herencia" },
+          "n": { "fr": "Composition, finitions, certificat et packaging Prestige : en préparation.", "ht": "Konpozisyon, finisyon, sètifika ak anbalaj Prestij : n ap prepare yo.", "en": "Composition, finishes, certificate and Prestige packaging: in preparation.", "es": "Composición, acabados, certificado y packaging Prestigio: en preparación." } },
+        { "sku": "ATM-table-ancetres-P-tirage-institutionnel", "v": "devis", "img": "tirage-institutionnel.jpg",
+          "t": { "fr": "Tirage institutionnel", "ht": "Tiraj pou enstitisyon", "en": "Institutional print", "es": "Tirada institucional" },
+          "n": { "fr": "Conditions multisites, licence institutionnelle et délais : en préparation.", "ht": "Kondisyon pou plizyè lokal, lisans enstitisyonèl ak delè : n ap prepare yo.", "en": "Multi-site conditions, institutional licence and lead times: in preparation.", "es": "Condiciones multisede, licencia institucional y plazos: en preparación." } },
+        { "sku": "ATM-table-ancetres-P-cadeau-protocolaire", "v": "devis", "img": "cadeau-protocolaire.jpg",
+          "t": { "fr": "Cadeau protocolaire", "ht": "Kado pwotokolè", "en": "Protocol gift", "es": "Regalo protocolario" },
+          "n": { "fr": "Support de présentation, packaging Prestige et certificat : en préparation.", "ht": "Sipò prezantasyon, anbalaj Prestij ak sètifika : n ap prepare yo.", "en": "Presentation support, Prestige packaging and certificate: in preparation.", "es": "Soporte de presentación, packaging Prestigio y certificado: en preparación." } }
+      ]
+    }
+  ],
+
+  "b2b": {
+    "img": "b2b.jpg",
+    "ben": [
+      { "fr": "Œuvre visuellement stable et reconnaissable dans toutes les déclinaisons.", "ht": "Yon zèv ki rete estab e ki rekonesab nan tout deklinezon yo.", "en": "A visually stable work, recognisable across every derivative.", "es": "Obra visualmente estable y reconocible en todas sus declinaciones." },
+      { "fr": "Installation compatible écrans, murs, halls, restauration, hospitality et espaces culturels.", "ht": "Li ka enstale sou ekran, sou mi, nan antre, nan restoran, nan otèl ak nan espas kiltirèl.", "en": "Fits screens, walls, lobbies, dining, hospitality and cultural spaces.", "es": "Instalación compatible con pantallas, paredes, vestíbulos, restauración, hostelería y espacios culturales." },
+      { "fr": "Cohérence possible entre impression, signalétique éditoriale et contenu narré.", "ht": "Enprime a, siyalizasyon an ak vwa ki rakonte a ka mache ansanm.", "en": "Print, editorial signage and narrated content can align.", "es": "Coherencia posible entre impresión, señalética editorial y contenido narrado." },
+      { "fr": "Volumes simples ou multisites, sous licence adaptée.", "ht": "Ti kantite oswa plizyè lokal, anba yon lisans ki adapte.", "en": "Simple or multi-site volumes, under a suitable licence.", "es": "Volúmenes simples o multisede, bajo licencia adaptada." }
+    ],
+    "reg": [
+      { "fr": "Ne jamais revendiquer une rareté non documentée.", "ht": "Pa janm di yon bagay ra si nou pa gen dokiman pou li.", "en": "Never claim undocumented rarity.", "es": "Nunca reivindicar una rareza no documentada." },
+      { "fr": "Ne jamais annoncer un volume disponible sans inventaire.", "ht": "Pa janm anonse yon kantite ki disponib si nou pa gen envantè.", "en": "Never announce available volume without inventory.", "es": "Nunca anunciar un volumen disponible sin inventario." },
+      { "fr": "Ne jamais annoncer un délai ferme non confirmé.", "ht": "Pa janm bay yon dat fiks si nou pa konfime l.", "en": "Never announce a firm lead time that is not confirmed.", "es": "Nunca anunciar un plazo firme no confirmado." },
+      { "fr": "Préférer « Sur devis » pour toute offre institutionnelle ou multisite non tarifée.", "ht": "Pito nou di « Sou devi » pou tout òf enstitisyonèl oswa milti-lokal ki poko gen pri.", "en": "Prefer \"On quote\" for any institutional or multi-site offer that is not priced.", "es": "Preferir «Presupuesto a medida» para toda oferta institucional o multisede sin tarifa." }
+    ]
+  },
+
+  "voix": {
+    "v": "prep",
+    "comp": [
+      { "v": "prep", "t": { "fr": "Narration FR", "ht": "Vwa an fransè", "en": "French narration", "es": "Narración en francés" } },
+      { "v": "prep", "t": { "fr": "Narration HT", "ht": "Vwa an kreyòl", "en": "Creole narration", "es": "Narración en creole" } },
+      { "v": "prep", "t": { "fr": "Narration EN", "ht": "Vwa an anglè", "en": "English narration", "es": "Narración en inglés" } },
+      { "v": "prep", "t": { "fr": "Narration ES (après validation)", "ht": "Vwa an panyòl (apre validasyon)", "en": "Spanish narration (after validation)", "es": "Narración en español (tras validación)" } },
+      { "v": "prep", "t": { "fr": "Transcription complète", "ht": "Transkripsyon konplè", "en": "Full transcript", "es": "Transcripción completa" } },
+      { "v": "prep", "t": { "fr": "Sous-titres et fichiers VTT", "ht": "Sou-tit ak fichye VTT", "en": "Subtitles and VTT files", "es": "Subtítulos y archivos VTT" } },
+      { "v": "prep", "t": { "fr": "Boucle silencieuse", "ht": "Bouk san son", "en": "Silent loop", "es": "Bucle silencioso" } },
+      { "v": "prep", "t": { "fr": "Clip narré et vignette", "ht": "Ti videyo ak vwa, ak yon vinyèt", "en": "Narrated clip and thumbnail", "es": "Clip narrado y miniatura" } }
+    ],
+    "reg": [
+      { "fr": "Pas de lecture automatique avec son.", "ht": "Pa gen son k ap pati pou kont li.", "en": "No autoplay with sound.", "es": "Sin reproducción automática con sonido." },
+      { "fr": "Transcription et sous-titres obligatoires pour chaque pièce.", "ht": "Chak moso dwe gen transkripsyon ak sou-tit.", "en": "Transcript and subtitles required for every piece.", "es": "Transcripción y subtítulos obligatorios para cada pieza." },
+      { "fr": "Boucle silencieuse compatible avec prefers-reduced-motion.", "ht": "Bouk san son an dwe respekte prefers-reduced-motion.", "en": "Silent loop compatible with prefers-reduced-motion.", "es": "Bucle silencioso compatible con prefers-reduced-motion." },
+      { "fr": "Aucun bouton « Écouter » tant que le fichier validé n'existe pas.", "ht": "Pa gen bouton « Koute » toutotan fichye ki valide a poko egziste.", "en": "No \"Listen\" button until the validated file exists.", "es": "Ningún botón «Escuchar» mientras no exista el archivo validado." }
+    ]
+  },
+
+  "diaspora": {
+    "v": "prep",
+    "el": [
+      { "v": "prep", "t": { "fr": "Page partenaire dédiée", "ht": "Yon paj espesyal pou patnè a", "en": "Dedicated partner page", "es": "Página de socio dedicada" } },
+      { "v": "prep", "t": { "fr": "Code de campagne validé côté serveur", "ht": "Kòd kanpay la valide sou sèvè a", "en": "Campaign code validated server-side", "es": "Código de campaña validado en servidor" } },
+      { "v": "prep", "t": { "fr": "Impression sponsorisée selon financeur", "ht": "Enprime yon patnè peye, selon financè a", "en": "Sponsored printing depending on the funder", "es": "Impresión patrocinada según el financiador" } },
+      { "v": "prep", "t": { "fr": "Rapport d'usage agrégé et anonyme", "ht": "Rapò itilizasyon ki agreje e ki san non", "en": "Aggregated, anonymous usage report", "es": "Informe de uso agregado y anónimo" } }
+    ],
+    "reg": [
+      { "fr": "Ne jamais réduire la diaspora à la nostalgie.", "ht": "Pa janm fè dyaspora a tounen senp nostalji.", "en": "Never reduce the diaspora to nostalgia.", "es": "Nunca reducir la diáspora a la nostalgia." },
+      { "fr": "Ne jamais présenter des bénéficiaires comme objets de charité.", "ht": "Pa janm prezante moun k ap benefisye yo tankou moun k ap mande charite.", "en": "Never present beneficiaries as objects of charity.", "es": "Nunca presentar a los beneficiarios como objetos de caridad." },
+      { "fr": "Aucun code de campagne visible publiquement.", "ht": "Pa gen okenn kòd kanpay ki parèt an piblik.", "en": "No campaign code publicly visible.", "es": "Ningún código de campaña visible públicamente." },
+      { "fr": "Aucune donnée personnelle dans les mesures d'usage.", "ht": "Pa gen okenn done pèsonèl nan mezi itilizasyon yo.", "en": "No personal data in usage measurement.", "es": "Ningún dato personal en las mediciones de uso." }
+    ]
+  },
+
+  "licences": [
+    { "v": "prep", "t": { "fr": "Licence personnelle", "ht": "Lisans pèsonèl", "en": "Personal licence", "es": "Licencia personal" }, "p": { "fr": "usage privé, non commercial", "ht": "itilizasyon prive, san komès", "en": "private, non-commercial use", "es": "uso privado, no comercial" } },
+    { "v": "prep", "t": { "fr": "Licence commerciale sur écran", "ht": "Lisans komèsyal pou ekran", "en": "Commercial screen licence", "es": "Licencia comercial en pantalla" }, "p": { "fr": "affichage numérique dans un cadre commercial défini", "ht": "afichaj nimerik nan yon kad komèsyal ki byen defini", "en": "digital display within a defined commercial setting", "es": "exhibición digital en un marco comercial definido" } },
+    { "v": "prep", "t": { "fr": "Licence institutionnelle / multisite", "ht": "Lisans enstitisyonèl / plizyè lokal", "en": "Institutional / multi-site licence", "es": "Licencia institucional / multisede" }, "p": { "fr": "usage par une organisation, un réseau ou plusieurs implantations", "ht": "itilizasyon pa yon òganizasyon, yon rezo oswa plizyè lokal", "en": "use by an organisation, a network or several locations", "es": "uso por una organización, una red o varias sedes" } }
+  ],
+
+  "restrictions": [
+    { "fr": "Pas de transformation en souvenir générique.", "ht": "Nou p ap fè l tounen yon souvni tankou tout lòt yo.", "en": "No turning it into a generic souvenir.", "es": "Sin convertirla en un recuerdo genérico." },
+    { "fr": "Aucun texte ni marque ajouté dans l'image-source.", "ht": "Pa gen tèks ni mak nou mete nan imaj sous la.", "en": "No text or brand added inside the source image.", "es": "Sin texto ni marca añadidos en la imagen fuente." },
+    { "fr": "Aucun usage portant atteinte à la dignité culturelle.", "ht": "Pa gen okenn itilizasyon ki manke respè pou diyite kiltirèl la.", "en": "No use that undermines cultural dignity.", "es": "Ningún uso que atente contra la dignidad cultural." },
+    { "fr": "Aucun symbole religieux ajouté sans validation.", "ht": "Pa gen senbòl relijye nou ajoute san validasyon.", "en": "No religious symbol added without validation.", "es": "Ningún símbolo religioso añadido sin validación." },
+    { "fr": "Aucune rareté revendiquée sans documentation.", "ht": "Nou pa di yon bagay ra si nou pa gen dokiman pou sa.", "en": "No rarity claimed without documentation.", "es": "Ninguna rareza reivindicada sin documentación." }
+  ]
+}

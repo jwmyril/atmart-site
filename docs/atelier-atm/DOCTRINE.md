@@ -158,7 +158,23 @@ novembre (Thanksgiving — « Gratitude/Rekonesans » en tête) · décembre (f�
 Chaque vue porte : la situation vécue, ce qu'ATM propose, les bundles adaptés avec prix,
 les secteurs concernés et un contact pré-rempli. Ne jamais revenir à un message unique.
 
-## 14. Limite matérielle connue (à lever)
+## 14. Fiches d'œuvre étendues — règle de non-fiction
+
+Depuis le paquet **La Table des Ancêtres v2** (31/07/2026, `03-paquet-table-ancetres-v2.txt`),
+chaque œuvre vitrine dispose d'une fiche complète servie par `fiche.html?o=<slug>` et alimentée
+par `assets/atelier/fiches/<slug>.json`.
+
+**Règle absolue héritée du paquet** : tout ce qui n'est ni validé, ni produit, ni testé, ni tarifé,
+ni juridiquement cadré s'affiche **En préparation** (`"v": "prep"`) ou **Sur devis** (`"v": "devis"`).
+Un CTA n'est rendu que s'il mène à une action réelle — pour l'instant, deux seulement :
+« Être informé de l'ouverture » et « Demander un devis » (courriel). Pas de panier, pas de paiement,
+pas de bouton « Écouter » tant que le fichier validé n'existe pas.
+
+Autres exigences du paquet appliquées : séparation stricte œuvre / texte / logo / interface
+(aucun texte fusionné dans l'image) · quatre langues obligatoires · alt text · pas d'autoplay ·
+`prefers-reduced-motion` · aucune donnée personnelle mesurée · SKU `ATM-[slug]-[E|S|P]-[format]`.
+
+## 15. Limite matérielle connue (à lever)
 
 Les 12 œuvres réelles ne sont numérisées qu'en ~1 000 px (fiches de présentation recadrées).
 C'est suffisant pour l'écran, insuffisant pour l'affiche 18 × 24 po et pour toute licence

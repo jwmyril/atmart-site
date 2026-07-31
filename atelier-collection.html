@@ -252,7 +252,8 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     "co.r5": { fr: "Organiser le calendrier : rentrée, fêtes, saison touristique, temps forts diaspora", ht: "Òganize kalandriye a : larantre, fèt, sezon touris, gwo moman dyaspora", en: "Organise the calendar: back-to-school, holidays, tourist season, diaspora moments", es: "Organizar el calendario: vuelta a clases, fiestas, temporada turística, momentos de la diáspora" },
     "co.r6": { fr: "Segmenter la diaspora de manière exploitable", ht: "Separe dyaspora a an segman nou ka travay avè yo", en: "Segment the diaspora in a usable way", es: "Segmentar la diáspora de forma utilizable" },
     "co.r7": { fr: "Activer les secteurs où l'effet sur le quotidien est immédiat", ht: "Aktive sektè kote enpak sou lavi chak jou a rive vit", en: "Activate the sectors with immediate everyday effect", es: "Activar los sectores con efecto inmediato en la vida diaria" },
-    "co.soon": { fr: "à produire", ht: "pou fèt", en: "to be produced", es: "por producir" }
+    "co.soon": { fr: "à produire", ht: "pou fèt", en: "to be produced", es: "por producir" },
+    "co.fiche": { fr: "fiche complète", ht: "fich konplè", en: "full sheet", es: "ficha completa" }
   });
 
   function fill(D) {
@@ -267,7 +268,13 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       }).join("");
       var conc = u.concepts.map(function (id) {
         var c = cpt[id];
-        return c ? '<span class="soon">' + c.t + " · " + ATM.T("co.soon") + "</span>" : "";
+        if (!c) return "";
+        // une fiche complete existe : le concept devient cliquable, sans cesser
+        // d'etre annonce comme non produit.
+        if (c.fiche) {
+          return '<a href="fiche.html?o=' + c.id + '">' + c.t + " · " + ATM.T("co.fiche") + "</a>";
+        }
+        return '<span class="soon">' + c.t + " · " + ATM.T("co.soon") + "</span>";
       }).join("");
       return '<div class="uni"><span class="num">' + u.n + " · " + u.emo + "</span>" +
         "<h3>" + ATM.V(u.t) + "</h3><p class=\"art-note\">" + ATM.V(u.d) + "</p>" +
