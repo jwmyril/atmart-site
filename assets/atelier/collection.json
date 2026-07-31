@@ -1,0 +1,1969 @@
+{
+  "_source": "docs/atelier-atm/ — DOCTRINE.md + les 2 documents de reference (30/07/2026). Ne pas modifier la structure sans relire la doctrine.",
+  "_regle": "Les 15 concepts ont statut=concept : jamais presentes comme disponibles tant qu'ils ne sont pas produits.",
+  "univers": [
+    {
+      "id": "memwa",
+      "n": "I",
+      "emo": "🕯",
+      "works": [
+        "papa-ak-pitit",
+        "de-fas",
+        "fidel-la"
+      ],
+      "concepts": [
+        "table-zanset",
+        "men-transmet",
+        "vwa-lakou"
+      ],
+      "t": {
+        "fr": "Mémoire vivante",
+        "ht": "Memwa vivan",
+        "en": "Living memory",
+        "es": "Memoria viva"
+      },
+      "d": {
+        "fr": "Les gestes, les objets et les liens familiaux deviennent des présences.",
+        "ht": "Jès, bagay ak lyen fanmi tounen prezans ou ka wè.",
+        "en": "Gestures, objects and family ties become visible presences.",
+        "es": "Los gestos, los objetos y los lazos familiares se vuelven presencias."
+      }
+    },
+    {
+      "id": "rezilyans",
+      "n": "II",
+      "emo": "🌤",
+      "works": [
+        "wonn-lavi",
+        "fet-lannwit",
+        "rekonesans"
+      ],
+      "concepts": [
+        "mache-kanpe",
+        "maten-kreyol",
+        "pote-demen"
+      ],
+      "t": {
+        "fr": "Résilience quotidienne",
+        "ht": "Fòs chak jou",
+        "en": "Everyday resilience",
+        "es": "Resiliencia cotidiana"
+      },
+      "d": {
+        "fr": "Le mouvement, l'effort et la beauté née de l'énergie collective.",
+        "ht": "Mouvman, efò ak bèlte ki soti nan fòs tout moun ansanm.",
+        "en": "Movement, effort and the beauty born of collective energy.",
+        "es": "El movimiento, el esfuerzo y la belleza nacida de la energía colectiva."
+      }
+    },
+    {
+      "id": "espirit",
+      "n": "III",
+      "emo": "🌊",
+      "works": [
+        "lwanj",
+        "souf",
+        "soley-an-damye"
+      ],
+      "concepts": [
+        "vey-limye",
+        "lanme-traverse",
+        "pyebwa-gadyen"
+      ],
+      "t": {
+        "fr": "Spiritualités caribéennes",
+        "ht": "Espiritualite karayibeyen",
+        "en": "Caribbean spiritualities",
+        "es": "Espiritualidades caribeñas"
+      },
+      "d": {
+        "fr": "La protection, la mer, les présences invisibles, le soin.",
+        "ht": "Pwoteksyon, lanmè, prezans je pa wè, swen.",
+        "en": "Protection, the sea, invisible presences, care.",
+        "es": "La protección, el mar, las presencias invisibles, el cuidado."
+      }
+    },
+    {
+      "id": "lakay",
+      "n": "IV",
+      "emo": "🏠",
+      "works": [
+        "rekonesans",
+        "wout-andeyo",
+        "soley-simen"
+      ],
+      "concepts": [
+        "chanm-louvri",
+        "kizin-memwa",
+        "galri-vwazen"
+      ],
+      "t": {
+        "fr": "Hospitalité, maison et lien social",
+        "ht": "Akey, kay ak lyen sosyal",
+        "en": "Hospitality, home and social ties",
+        "es": "Hospitalidad, casa y vínculo social"
+      },
+      "d": {
+        "fr": "L'accueil, les gestes simples, les intérieurs habités.",
+        "ht": "Akey, ti jès senp yo, kay kote moun ap viv toutbon.",
+        "en": "Welcome, simple gestures, lived-in interiors.",
+        "es": "La acogida, los gestos simples, los interiores habitados."
+      }
+    },
+    {
+      "id": "dyaspora",
+      "n": "V",
+      "emo": "🧭",
+      "works": [
+        "liy-ble",
+        "soley-an-damye",
+        "wout-andeyo"
+      ],
+      "concepts": [
+        "valiz-vwa",
+        "kat-tounen",
+        "achipel-anndan"
+      ],
+      "t": {
+        "fr": "Diaspora et circulation",
+        "ht": "Dyaspora ak sikilasyon",
+        "en": "Diaspora and circulation",
+        "es": "Diáspora y circulación"
+      },
+      "d": {
+        "fr": "Non la nostalgie : la circulation des ressources, des savoirs et de l'influence.",
+        "ht": "Se pa nostalji : se resous, konesans ak enfliyans k ap sikile.",
+        "en": "Not nostalgia: the circulation of resources, skills and influence.",
+        "es": "No la nostalgia: la circulación de recursos, saberes e influencia."
+      }
+    }
+  ],
+  "gammes": [
+    {
+      "id": "esansyel",
+      "t": {
+        "fr": "Essentiel",
+        "ht": "Esansyèl",
+        "en": "Essential",
+        "es": "Esencial"
+      },
+      "p": {
+        "fr": "Affiche locale, carte, sticker, magnet, petit token",
+        "ht": "Afich lokal, kat, otokolan, manyèt, ti jeton",
+        "en": "Local poster, card, sticker, magnet, small token",
+        "es": "Cartel local, tarjeta, pegatina, imán, ficha"
+      },
+      "k": {
+        "fr": "Pochette soignée, titre, micro-récit, QR",
+        "ht": "Yon bèl ti pòch, tit la, yon ti istwa, kòd QR",
+        "en": "Neat sleeve, title, micro-story, QR",
+        "es": "Funda cuidada, título, micro-relato, QR"
+      },
+      "d": {
+        "fr": "Premium accessible : facile à acheter, facile à offrir, collectionnable.",
+        "ht": "Bon jan bagay ki rete abòdab : fasil pou achte, fasil pou bay kado, moun ka ranmase yo.",
+        "en": "Accessible premium: easy to buy, easy to give, collectable.",
+        "es": "Premium accesible: fácil de comprar, de regalar y de coleccionar."
+      }
+    },
+    {
+      "id": "siyati",
+      "t": {
+        "fr": "Signature",
+        "ht": "Siyati",
+        "en": "Signature",
+        "es": "Firma"
+      },
+      "p": {
+        "fr": "Œuvre + voix multilingue + clip court, sets, packs maison, objets cadeaux",
+        "ht": "Zèv la + vwa nan plizyè lang + ti videyo, sè kat, pak pou lakay, bagay pou bay kado",
+        "en": "Work + multilingual voice + short clip, sets, home packs, gift objects",
+        "es": "Obra + voz multilingüe + clip corto, sets, packs de casa, regalos"
+      },
+      "k": {
+        "fr": "Enveloppe premium, marquage de collection, insert narratif",
+        "ht": "Anvlòp bon kalite, mak koleksyon an, yon ti tèks istwa",
+        "en": "Premium envelope, collection marking, narrative insert",
+        "es": "Sobre premium, marca de colección, inserto narrativo"
+      },
+      "d": {
+        "fr": "Le client n'achète pas une impression : il achète un fragment de l'univers ATM.",
+        "ht": "Moun nan pa achte yon senp enprime : li achte yon moso nan mond ATM la.",
+        "en": "The buyer is not getting a print: they are getting a piece of the ATM world.",
+        "es": "El cliente no compra una impresión: compra un fragmento del universo ATM."
+      }
+    },
+    {
+      "id": "prestij",
+      "t": {
+        "fr": "Prestige",
+        "ht": "Prestij",
+        "en": "Prestige",
+        "es": "Prestigio"
+      },
+      "p": {
+        "fr": "Série curatée, adaptation sectorielle, narration dédiée, impression premium multisite, édition numérotée",
+        "ht": "Yon seri yo chwazi ak swen, adaptasyon pou sektè a, yon vwa espesyal, enprime bon kalite nan plizyè lokal, edisyon ki gen nimewo",
+        "en": "Curated series, sector adaptation, dedicated narration, premium multi-site printing, numbered edition",
+        "es": "Serie curada, adaptación sectorial, narración dedicada, impresión premium multisede, edición numerada"
+      },
+      "k": {
+        "fr": "Coffret rigide, certificat ou numérotation, support voix",
+        "ht": "Yon bwat solid, sètifika oswa nimewo, sipò vwa a",
+        "en": "Rigid box, certificate or numbering, voice support",
+        "es": "Estuche rígido, certificado o numeración, soporte de voz"
+      },
+      "d": {
+        "fr": "Rareté, statut, cadeau institutionnel ou pièce de collectionneur.",
+        "ht": "Bagay ki ra, ki bay estati, yon kado pou enstitisyon oswa yon pyès pou moun k ap ranmase.",
+        "en": "Rarity, status, institutional gift or collector's piece.",
+        "es": "Rareza, estatus, regalo institucional o pieza de coleccionista."
+      }
+    }
+  ],
+  "supports": [
+    {
+      "id": "kat",
+      "emo": "💌",
+      "t": {
+        "fr": "Carte",
+        "ht": "Kat",
+        "en": "Card",
+        "es": "Tarjeta"
+      },
+      "u": {
+        "fr": "cadeau, protocole, correspondance",
+        "ht": "kado, pwotokòl, korespondans",
+        "en": "gift, protocol, correspondence",
+        "es": "regalo, protocolo, correspondencia"
+      }
+    },
+    {
+      "id": "otokolan",
+      "emo": "✴️",
+      "t": {
+        "fr": "Sticker",
+        "ht": "Otokolan",
+        "en": "Sticker",
+        "es": "Pegatina"
+      },
+      "u": {
+        "fr": "activation, appropriation, souvenir",
+        "ht": "aktivasyon, apwopriyasyon, souvni",
+        "en": "activation, appropriation, souvenir",
+        "es": "activación, apropiación, recuerdo"
+      }
+    },
+    {
+      "id": "manyet",
+      "emo": "🧲",
+      "t": {
+        "fr": "Magnet",
+        "ht": "Manyèt",
+        "en": "Magnet",
+        "es": "Imán"
+      },
+      "u": {
+        "fr": "frigo, bureau, souvenir",
+        "ht": "frijidè, biwo, souvni",
+        "en": "fridge, desk, souvenir",
+        "es": "nevera, escritorio, recuerdo"
+      }
+    },
+    {
+      "id": "jeton",
+      "emo": "🪙",
+      "t": {
+        "fr": "Token",
+        "ht": "Jeton",
+        "en": "Token",
+        "es": "Ficha"
+      },
+      "u": {
+        "fr": "badge, édition, appartenance",
+        "ht": "badj, edisyon, apatenans",
+        "en": "badge, edition, belonging",
+        "es": "insignia, edición, pertenencia"
+      }
+    },
+    {
+      "id": "espinè",
+      "emo": "🌀",
+      "t": {
+        "fr": "Fidget spinner",
+        "ht": "Espinè",
+        "en": "Fidget spinner",
+        "es": "Fidget spinner"
+      },
+      "u": {
+        "fr": "animation, cadeau, activation jeunesse",
+        "ht": "animasyon, kado, aktivite pou jèn yo",
+        "en": "animation, gift, youth activation",
+        "es": "animación, regalo, activación juvenil"
+      }
+    },
+    {
+      "id": "afich",
+      "emo": "🖼",
+      "t": {
+        "fr": "Affiche",
+        "ht": "Afich",
+        "en": "Poster",
+        "es": "Cartel"
+      },
+      "u": {
+        "fr": "décoration, communication",
+        "ht": "dekorasyon, kominikasyon",
+        "en": "decoration, communication",
+        "es": "decoración, comunicación"
+      }
+    },
+    {
+      "id": "enprime",
+      "emo": "🖨",
+      "t": {
+        "fr": "Impression locale",
+        "ht": "Enprime lokal",
+        "en": "Local print",
+        "es": "Impresión local"
+      },
+      "u": {
+        "fr": "multisite, volume, accessibilité",
+        "ht": "plizyè lokal, gwo kantite, aksè fasil",
+        "en": "multi-site, volume, accessibility",
+        "es": "multisede, volumen, accesibilidad"
+      }
+    },
+    {
+      "id": "videyo",
+      "emo": "🎬",
+      "t": {
+        "fr": "Clip",
+        "ht": "Ti videyo",
+        "en": "Clip",
+        "es": "Clip"
+      },
+      "u": {
+        "fr": "teaser, écran, réseaux",
+        "ht": "tizè, ekran, rezo sosyal",
+        "en": "teaser, screen, social",
+        "es": "teaser, pantalla, redes"
+      }
+    },
+    {
+      "id": "vwa",
+      "emo": "🎙",
+      "t": {
+        "fr": "Voix",
+        "ht": "Vwa",
+        "en": "Voice",
+        "es": "Voz"
+      },
+      "u": {
+        "fr": "accueil, médiation, QR, pédagogie",
+        "ht": "akey, medyasyon, kòd QR, ansèyman",
+        "en": "welcome, mediation, QR, teaching",
+        "es": "acogida, mediación, QR, pedagogía"
+      }
+    },
+    {
+      "id": "kado",
+      "emo": "🎁",
+      "t": {
+        "fr": "Objet cadeau",
+        "ht": "Bagay pou bay kado",
+        "en": "Gift object",
+        "es": "Objeto regalo"
+      },
+      "u": {
+        "fr": "cadeau, protocole, fin d'année",
+        "ht": "kado, pwotokòl, fen ane",
+        "en": "gift, protocol, year-end",
+        "es": "regalo, protocolo, fin de año"
+      }
+    },
+    {
+      "id": "evenman",
+      "emo": "🎪",
+      "t": {
+        "fr": "Support événementiel",
+        "ht": "Sipò pou evenman",
+        "en": "Event support",
+        "es": "Soporte de evento"
+      },
+      "u": {
+        "fr": "salon, conférence, lancement",
+        "ht": "salon, konferans, lansman",
+        "en": "trade show, conference, launch",
+        "es": "feria, conferencia, lanzamiento"
+      }
+    },
+    {
+      "id": "edisyon",
+      "emo": "📜",
+      "t": {
+        "fr": "Édition institutionnelle",
+        "ht": "Edisyon pou enstitisyon",
+        "en": "Institutional edition",
+        "es": "Edición institucional"
+      },
+      "u": {
+        "fr": "diffusion officielle, médiation",
+        "ht": "difizyon ofisyèl, medyasyon",
+        "en": "official distribution, mediation",
+        "es": "difusión oficial, mediación"
+      }
+    },
+    {
+      "id": "kay",
+      "emo": "🏠",
+      "t": {
+        "fr": "Format maison",
+        "ht": "Fòma pou lakay",
+        "en": "Home format",
+        "es": "Formato casa"
+      },
+      "u": {
+        "fr": "habiter, offrir, transmettre",
+        "ht": "viv avè l, bay kado, transmèt",
+        "en": "live with, give, pass on",
+        "es": "habitar, regalar, transmitir"
+      }
+    },
+    {
+      "id": "antrepriz",
+      "emo": "🏢",
+      "t": {
+        "fr": "Format entreprise",
+        "ht": "Fòma pou antrepriz",
+        "en": "Business format",
+        "es": "Formato empresa"
+      },
+      "u": {
+        "fr": "accueil, bureaux, cadeau",
+        "ht": "akey, biwo, kado",
+        "en": "reception, offices, gifting",
+        "es": "acogida, oficinas, regalo"
+      }
+    },
+    {
+      "id": "sezon",
+      "emo": "🗓",
+      "t": {
+        "fr": "Collection saisonnière",
+        "ht": "Koleksyon sezon",
+        "en": "Seasonal collection",
+        "es": "Colección de temporada"
+      },
+      "u": {
+        "fr": "fêtes, été, rentrée, fin d'année",
+        "ht": "fèt, ete, larantre, fen ane",
+        "en": "holidays, summer, back-to-school, year-end",
+        "es": "fiestas, verano, vuelta a clases, fin de año"
+      }
+    },
+    {
+      "id": "seri",
+      "emo": "💎",
+      "t": {
+        "fr": "Série limitée",
+        "ht": "Seri limite",
+        "en": "Limited series",
+        "es": "Serie limitada"
+      },
+      "u": {
+        "fr": "cadeau prestige, collection",
+        "ht": "kado prestij, koleksyon",
+        "en": "prestige gift, collection",
+        "es": "regalo de prestigio, colección"
+      }
+    }
+  ],
+  "bundles": {
+    "b2c": [
+      {
+        "id": "dekouvet",
+        "g": "esansyel",
+        "c": [
+          "kat",
+          "otokolan",
+          "manyet"
+        ],
+        "t": {
+          "fr": "Bundle Découverte",
+          "ht": "Pakè Dekouvèt",
+          "en": "Discovery bundle",
+          "es": "Pack Descubrimiento"
+        },
+        "o": {
+          "fr": "Premier achat, souvenir, cadeau simple.",
+          "ht": "Premye acha, souvni, yon ti kado senp.",
+          "en": "First purchase, souvenir, simple gift.",
+          "es": "Primera compra, recuerdo, regalo simple."
+        },
+        "px": 19,
+        "pxu": {
+          "fr": "hors livraison",
+          "ht": "san livrezon",
+          "en": "excl. delivery",
+          "es": "sin envío"
+        }
+      },
+      {
+        "id": "pak-kay",
+        "g": "siyati",
+        "c": [
+          "afich",
+          "kat",
+          "vwa"
+        ],
+        "t": {
+          "fr": "Bundle Maison",
+          "ht": "Pakè Lakay",
+          "en": "Home bundle",
+          "es": "Pack Casa"
+        },
+        "o": {
+          "fr": "Décoration accessible et transmission affective.",
+          "ht": "Dekorasyon ki abòdab ak yon bagay pou transmèt nan fanmi an.",
+          "en": "Affordable decoration and family transmission.",
+          "es": "Decoración accesible y transmisión afectiva."
+        },
+        "px": 69,
+        "pxu": {
+          "fr": "hors livraison",
+          "ht": "san livrezon",
+          "en": "excl. delivery",
+          "es": "sin envío"
+        }
+      },
+      {
+        "id": "pak-dyaspora",
+        "g": "siyati",
+        "c": [
+          "kat",
+          "afich",
+          "manyet",
+          "vwa"
+        ],
+        "t": {
+          "fr": "Bundle Diaspora",
+          "ht": "Pakè Dyaspora",
+          "en": "Diaspora bundle",
+          "es": "Pack Diáspora"
+        },
+        "o": {
+          "fr": "Cadeau émotionnel et lien à distance.",
+          "ht": "Yon kado ki touche kè moun epi ki kenbe lyen an malgre distans lan.",
+          "en": "Emotional gift and long-distance link.",
+          "es": "Regalo emocional y vínculo a distancia."
+        },
+        "px": 49,
+        "pxu": {
+          "fr": "hors livraison",
+          "ht": "san livrezon",
+          "en": "excl. delivery",
+          "es": "sin envío"
+        }
+      },
+      {
+        "id": "pak-sezon",
+        "g": "esansyel",
+        "c": [
+          "kat",
+          "kado",
+          "otokolan"
+        ],
+        "t": {
+          "fr": "Bundle Saison / Fêtes",
+          "ht": "Pakè Sezon ak Fèt",
+          "en": "Season / holidays bundle",
+          "es": "Pack Temporada / Fiestas"
+        },
+        "o": {
+          "fr": "Créer un rendez-vous d'achat récurrent.",
+          "ht": "Kreye yon randevou acha ki tounen chak ane.",
+          "en": "Create a recurring buying moment.",
+          "es": "Crear una cita de compra recurrente."
+        },
+        "px": 39,
+        "pxu": {
+          "fr": "hors livraison",
+          "ht": "san livrezon",
+          "en": "excl. delivery",
+          "es": "sin envío"
+        }
+      },
+      {
+        "id": "pak-limite",
+        "g": "prestij",
+        "c": [
+          "seri",
+          "jeton",
+          "kat"
+        ],
+        "t": {
+          "fr": "Bundle Collection limitée",
+          "ht": "Pakè Koleksyon limite",
+          "en": "Limited collection bundle",
+          "es": "Pack Colección limitada"
+        },
+        "o": {
+          "fr": "Désirabilité forte et montée en gamme.",
+          "ht": "Fè moun anvi l anpil epi monte nivo a.",
+          "en": "Strong desirability and trading up.",
+          "es": "Deseo fuerte y subida de gama."
+        },
+        "px": 245,
+        "pxu": {
+          "fr": "hors livraison",
+          "ht": "san livrezon",
+          "en": "excl. delivery",
+          "es": "sin envío"
+        }
+      },
+      {
+        "id": "dyaspora-aktif",
+        "g": "prestij",
+        "c": [
+          "kat",
+          "vwa",
+          "kado"
+        ],
+        "t": {
+          "fr": "Bundle Diaspora active",
+          "ht": "Pakè Dyaspora aktif",
+          "en": "Active diaspora bundle",
+          "es": "Pack Diáspora activa"
+        },
+        "o": {
+          "fr": "Sortir du souvenir seul : un cadeau premium qui parle de contribution et d'avenir.",
+          "ht": "Depase senp souvni an : yon kado bon kalite ki pale de sa moun nan bay ak sa k ap vini.",
+          "en": "Beyond the souvenir: a premium gift about contribution and the future.",
+          "es": "Más allá del recuerdo: un regalo premium sobre la contribución y el futuro."
+        },
+        "px": 89,
+        "pxu": {
+          "fr": "hors livraison",
+          "ht": "san livrezon",
+          "en": "excl. delivery",
+          "es": "sin envío"
+        }
+      }
+    ],
+    "b2b": [
+      {
+        "id": "pak-akey",
+        "c": [
+          "afich",
+          "videyo",
+          "vwa",
+          "kat"
+        ],
+        "t": {
+          "fr": "Pack Accueil",
+          "ht": "Pak Akey",
+          "en": "Welcome pack",
+          "es": "Pack Acogida"
+        },
+        "o": {
+          "fr": "Hôtels, entreprises, institutions, cliniques.",
+          "ht": "Otèl, antrepriz, enstitisyon, klinik.",
+          "en": "Hotels, companies, institutions, clinics.",
+          "es": "Hoteles, empresas, instituciones, clínicas."
+        },
+        "px": 1200,
+        "pxu": {
+          "fr": "par site et par an",
+          "ht": "pou chak lokal chak ane",
+          "en": "per site, per year",
+          "es": "por sede y por año"
+        }
+      },
+      {
+        "id": "pak-biwo",
+        "c": [
+          "afich",
+          "antrepriz",
+          "kat",
+          "kado"
+        ],
+        "t": {
+          "fr": "Pack Bureau",
+          "ht": "Pak Biwo",
+          "en": "Office pack",
+          "es": "Pack Oficina"
+        },
+        "o": {
+          "fr": "Sièges, open spaces, banques, télécoms.",
+          "ht": "Gwo biwo santral, espas louvri, bank, telekominikasyon.",
+          "en": "Headquarters, open spaces, banks, telecoms.",
+          "es": "Sedes, espacios abiertos, bancos, telecomunicaciones."
+        },
+        "px": 2500,
+        "pxu": {
+          "fr": "par an",
+          "ht": "chak ane",
+          "en": "per year",
+          "es": "por año"
+        }
+      },
+      {
+        "id": "pak-enstitisyon",
+        "c": [
+          "afich",
+          "edisyon",
+          "vwa",
+          "enprime"
+        ],
+        "t": {
+          "fr": "Pack Institution",
+          "ht": "Pak Enstitisyon",
+          "en": "Institution pack",
+          "es": "Pack Institución"
+        },
+        "o": {
+          "fr": "Ministères, centres culturels, écoles, bibliothèques, collectivités.",
+          "ht": "Ministè, sant kiltirèl, lekòl, bibliyotèk, kolektivite.",
+          "en": "Ministries, cultural centres, schools, libraries, local authorities.",
+          "es": "Ministerios, centros culturales, escuelas, bibliotecas, municipios."
+        },
+        "px": 4500,
+        "pxu": {
+          "fr": "par an",
+          "ht": "chak ane",
+          "en": "per year",
+          "es": "por año"
+        }
+      },
+      {
+        "id": "pak-evenman",
+        "c": [
+          "evenman",
+          "jeton",
+          "otokolan",
+          "videyo",
+          "espinè"
+        ],
+        "t": {
+          "fr": "Pack Événement",
+          "ht": "Pak Evenman",
+          "en": "Event pack",
+          "es": "Pack Evento"
+        },
+        "o": {
+          "fr": "Salons, forums, festivals, conférences, activations jeunesse.",
+          "ht": "Salon, fowòm, festival, konferans, aktivite pou jèn.",
+          "en": "Trade shows, forums, festivals, conferences, youth activations.",
+          "es": "Ferias, foros, festivales, conferencias, activaciones juveniles."
+        },
+        "px": 1800,
+        "pxu": {
+          "fr": "par événement",
+          "ht": "pou chak evenman",
+          "en": "per event",
+          "es": "por evento"
+        }
+      },
+      {
+        "id": "pak-kado",
+        "c": [
+          "kat",
+          "kado",
+          "vwa"
+        ],
+        "t": {
+          "fr": "Pack Cadeaux d'affaires",
+          "ht": "Pak Kado biznis",
+          "en": "Corporate gifts pack",
+          "es": "Pack Regalos de empresa"
+        },
+        "o": {
+          "fr": "Relations clients, protocole, fin d'année, délégations.",
+          "ht": "Relasyon ak kliyan, pwotokòl, fen ane, delegasyon.",
+          "en": "Client relations, protocol, year-end, delegations.",
+          "es": "Relaciones con clientes, protocolo, fin de año, delegaciones."
+        },
+        "px": 45,
+        "pxu": {
+          "fr": "par destinataire · minimum 25",
+          "ht": "pou chak moun · omwen 25",
+          "en": "per recipient · minimum 25",
+          "es": "por destinatario · mínimo 25"
+        }
+      },
+      {
+        "id": "pak-pwogram",
+        "c": [
+          "sezon",
+          "afich",
+          "vwa"
+        ],
+        "t": {
+          "fr": "Pack Programme récurrent",
+          "ht": "Pak Pwogram ki repete",
+          "en": "Recurring programme pack",
+          "es": "Pack Programa recurrente"
+        },
+        "o": {
+          "fr": "Groupes hôteliers, réseaux d'agences, écoles, institutions multisites.",
+          "ht": "Gwoup otèl, rezo ajans, lekòl, enstitisyon ki gen plizyè lokal.",
+          "en": "Hotel groups, agency networks, schools, multi-site institutions.",
+          "es": "Grupos hoteleros, redes de agencias, escuelas, instituciones multisede."
+        },
+        "px": 6000,
+        "pxu": {
+          "fr": "par an · multisite",
+          "ht": "chak ane · plizyè lokal",
+          "en": "per year · multi-site",
+          "es": "por año · multisede"
+        }
+      },
+      {
+        "id": "pak-dyaspora-strateji",
+        "c": [
+          "edisyon",
+          "vwa",
+          "evenman",
+          "kado"
+        ],
+        "t": {
+          "fr": "Pack Diaspora stratégique",
+          "ht": "Pak Dyaspora estratejik",
+          "en": "Strategic diaspora pack",
+          "es": "Pack Diáspora estratégica"
+        },
+        "o": {
+          "fr": "Consulats, chambres de commerce, réseaux professionnels, fondations, forums, mentorat.",
+          "ht": "Konsila, chanm komès, rezo pwofesyonèl, fondasyon, fowòm, mentora.",
+          "en": "Consulates, chambers of commerce, professional networks, foundations, forums, mentoring.",
+          "es": "Consulados, cámaras de comercio, redes profesionales, fundaciones, foros, mentoría."
+        },
+        "px": 7500,
+        "pxu": {
+          "fr": "par campagne",
+          "ht": "pou chak kanpay",
+          "en": "per campaign",
+          "es": "por campaña"
+        }
+      }
+    ],
+    "_apd": {
+      "fr": "à partir de",
+      "ht": "apati de",
+      "en": "from",
+      "es": "desde"
+    }
+  },
+  "licences": [
+    {
+      "id": "dekoratif",
+      "t": {
+        "fr": "Licence décorative simple",
+        "ht": "Lisans dekoratif senp",
+        "en": "Simple decorative licence",
+        "es": "Licencia decorativa simple"
+      },
+      "p": {
+        "fr": "Bureaux, halls, chambres, maisons d'hôtes, espaces de soin.",
+        "ht": "Biwo, antre, chanm, kay dòmi, kote yo bay swen.",
+        "en": "Offices, lobbies, rooms, guest houses, care spaces.",
+        "es": "Oficinas, vestíbulos, habitaciones, casas de huéspedes, espacios de cuidado."
+      }
+    },
+    {
+      "id": "enstitisyonel",
+      "t": {
+        "fr": "Licence institutionnelle de diffusion",
+        "ht": "Lisans difizyon pou enstitisyon",
+        "en": "Institutional distribution licence",
+        "es": "Licencia institucional de difusión"
+      },
+      "p": {
+        "fr": "Bibliothèques, écoles, centres culturels, expositions, administrations.",
+        "ht": "Bibliyotèk, lekòl, sant kiltirèl, ekspozisyon, administrasyon.",
+        "en": "Libraries, schools, cultural centres, exhibitions, administrations.",
+        "es": "Bibliotecas, escuelas, centros culturales, exposiciones, administraciones."
+      }
+    },
+    {
+      "id": "kominikasyon",
+      "t": {
+        "fr": "Licence publicitaire / communication",
+        "ht": "Lisans piblisite ak kominikasyon",
+        "en": "Advertising / communication licence",
+        "es": "Licencia publicitaria / comunicación"
+      },
+      "p": {
+        "fr": "Campagnes, affichage, supports de communication, digital, événementiel.",
+        "ht": "Kanpay, afichaj, sipò kominikasyon, dijital, evenman.",
+        "en": "Campaigns, outdoor, communication materials, digital, events.",
+        "es": "Campañas, exterior, soportes de comunicación, digital, eventos."
+      }
+    },
+    {
+      "id": "odyo",
+      "t": {
+        "fr": "Licence audio / voix",
+        "ht": "Lisans odyo ak vwa",
+        "en": "Audio / voice licence",
+        "es": "Licencia de audio / voz"
+      },
+      "p": {
+        "fr": "Narrations, capsules, audiodescriptions, accueil vocal, QR codes.",
+        "ht": "Naransyon, ti kapsil, odyodeskripsyon, akey ak vwa, kòd QR.",
+        "en": "Narrations, capsules, audio description, voice welcome, QR codes.",
+        "es": "Narraciones, cápsulas, audiodescripción, acogida vocal, códigos QR."
+      }
+    },
+    {
+      "id": "milti",
+      "t": {
+        "fr": "Licence multisite",
+        "ht": "Lisans pou plizyè lokal",
+        "en": "Multi-site licence",
+        "es": "Licencia multisede"
+      },
+      "p": {
+        "fr": "Groupes hôteliers, réseaux d'agences, franchises, institutions implantées dans plusieurs lieux.",
+        "ht": "Gwoup otèl, rezo ajans, franchiz, enstitisyon ki gen plizyè kote.",
+        "en": "Hotel groups, agency networks, franchises, multi-location institutions.",
+        "es": "Grupos hoteleros, redes de agencias, franquicias, instituciones con varias sedes."
+      }
+    },
+    {
+      "id": "sezonye",
+      "t": {
+        "fr": "Licence saisonnière ou programmée",
+        "ht": "Lisans sezon oswa pwograme",
+        "en": "Seasonal or scheduled licence",
+        "es": "Licencia estacional o programada"
+      },
+      "p": {
+        "fr": "Renouvellements liés aux temps forts : fêtes, été, rentrée, événements annuels.",
+        "ht": "Renouvèlman ki mache ak gwo moman yo : fèt, ete, larantre, evenman chak ane.",
+        "en": "Renewals tied to key moments: holidays, summer, back-to-school, annual events.",
+        "es": "Renovaciones ligadas a momentos clave: fiestas, verano, vuelta a clases, eventos anuales."
+      }
+    },
+    {
+      "id": "reprezantasyon",
+      "t": {
+        "fr": "Licence de représentation / forum diaspora",
+        "ht": "Lisans reprezantasyon ak fowòm dyaspora",
+        "en": "Representation / diaspora forum licence",
+        "es": "Licencia de representación / foro diáspora"
+      },
+      "p": {
+        "fr": "Consulats, chambres de commerce, organisations professionnelles, sommets, rencontres de réseaux.",
+        "ht": "Konsila, chanm komès, òganizasyon pwofesyonèl, somè, rankont rezo.",
+        "en": "Consulates, chambers of commerce, professional bodies, summits, network meetings.",
+        "es": "Consulados, cámaras de comercio, organizaciones profesionales, cumbres, encuentros de redes."
+      }
+    }
+  ],
+  "diaspora": {
+    "segments": [
+      {
+        "id": "fanmi",
+        "t": {
+          "fr": "Familles et particuliers",
+          "ht": "Fanmi ak moun endividyèl",
+          "en": "Families and individuals",
+          "es": "Familias y particulares"
+        },
+        "d": {
+          "fr": "Vous soutenez déjà les vôtres au pays. L'art peut faire partie de ce lien, pas seulement l'argent.",
+          "ht": "Ou deja ap ede moun pa w yo nan peyi a. Atizana ka fè pati lyen sa a, se pa lajan sèlman.",
+          "en": "You already support your people back home. Art can be part of that bond, not only money.",
+          "es": "Ya apoya a los suyos en el país. El arte puede formar parte de ese vínculo, no solo el dinero."
+        },
+        "o": {
+          "fr": "Un cadeau qui arrive avec une voix, une histoire et une affiche imprimée près de la personne qui la reçoit — pas un colis qui met six semaines.",
+          "ht": "Yon kado ki rive ak yon vwa, yon istwa ak yon afich yo enprime toupre moun k ap resevwa l la — se pa yon pake ki pran sis semèn.",
+          "en": "A gift that arrives with a voice, a story and a poster printed near the person receiving it — not a parcel that takes six weeks.",
+          "es": "Un regalo que llega con una voz, una historia y un cartel impreso cerca de quien lo recibe, no un paquete que tarda seis semanas."
+        },
+        "b": [
+          "pak-dyaspora",
+          "pak-kay",
+          "dekouvet"
+        ],
+        "sec": [
+          0,
+          2,
+          3
+        ]
+      },
+      {
+        "id": "pwofesyonel",
+        "t": {
+          "fr": "Professionnels et cadres",
+          "ht": "Pwofesyonèl ak kad",
+          "en": "Professionals and executives",
+          "es": "Profesionales y directivos"
+        },
+        "d": {
+          "fr": "Vous représentez souvent votre origine dans des pièces où personne d'autre ne la porte.",
+          "ht": "Souvan se ou menm sèl ki pote orijin ou nan sal kote w ap travay yo.",
+          "en": "You are often the one carrying your origin into rooms where nobody else does.",
+          "es": "A menudo usted es quien lleva su origen a salas donde nadie más lo hace."
+        },
+        "o": {
+          "fr": "Une œuvre au mur du bureau, une carte de remerciement qui a du poids, un cadeau de fin d'année qui dit d'où vous venez sans un mot.",
+          "ht": "Yon zèv sou mi biwo w, yon kat remèsiman ki gen pwa, yon kado fen ane ki di ki kote w soti san w pa bezwen pale.",
+          "en": "A work on the office wall, a thank-you card with weight, a year-end gift that says where you come from without a word.",
+          "es": "Una obra en la pared de la oficina, una tarjeta de agradecimiento con peso, un regalo de fin de año que dice de dónde viene sin una palabra."
+        },
+        "b": [
+          "dyaspora-aktif",
+          "pak-kado",
+          "pak-kay"
+        ],
+        "sec": [
+          5,
+          6
+        ]
+      },
+      {
+        "id": "antreprene",
+        "t": {
+          "fr": "Entrepreneurs et investisseurs",
+          "ht": "Antreprenè ak envestisè",
+          "en": "Entrepreneurs and investors",
+          "es": "Emprendedores e inversores"
+        },
+        "d": {
+          "fr": "Vous investissez déjà, ou vous cherchez la bonne porte pour le faire.",
+          "ht": "Ou deja ap envesti, oswa w ap chèche bon pòt la pou w fè l.",
+          "en": "You already invest, or you are looking for the right door to do it.",
+          "es": "Ya invierte, o busca la puerta adecuada para hacerlo."
+        },
+        "o": {
+          "fr": "Des supports de relation : coffret pour un partenaire, habillage d'un espace, série pour un forum. L'art comme carte de visite crédible, pas comme décoration.",
+          "ht": "Bagay ki ede w bati relasyon : yon bwat kado pou yon patnè, yon abiyaj pou yon espas, yon seri pou yon fowòm. Atizana kòm yon kat vizit serye, se pa dekorasyon.",
+          "en": "Relationship tools: a boxed set for a partner, the dressing of a space, a series for a forum. Art as a credible calling card, not decoration.",
+          "es": "Herramientas de relación: un estuche para un socio, la ambientación de un espacio, una serie para un foro. El arte como tarjeta de visita creíble, no como decoración."
+        },
+        "b": [
+          "pak-dyaspora-strateji",
+          "pak-kado",
+          "pak-limite"
+        ],
+        "sec": [
+          3,
+          5,
+          6
+        ]
+      },
+      {
+        "id": "enstitisyon",
+        "t": {
+          "fr": "Institutions communautaires et consulaires",
+          "ht": "Enstitisyon kominotè ak konsila",
+          "en": "Community and consular institutions",
+          "es": "Instituciones comunitarias y consulares"
+        },
+        "d": {
+          "fr": "Vous organisez, vous représentez, vous accueillez — souvent avec peu de moyens visuels.",
+          "ht": "Se nou ki òganize, ki reprezante, ki resevwa moun — souvan ak ti mwayen vizyèl.",
+          "en": "You organise, you represent, you welcome — often with few visual means.",
+          "es": "Ustedes organizan, representan y acogen, a menudo con pocos medios visuales."
+        },
+        "o": {
+          "fr": "Édition institutionnelle, voix de médiation, impressions locales en volume, exposition virtuelle pour une communauté entière.",
+          "ht": "Edisyon pou enstitisyon, vwa medyasyon, enprime lokal an gwo kantite, ekspozisyon sou entènèt pou tout yon kominote.",
+          "en": "Institutional edition, mediation voice, local printing at volume, a virtual exhibition for a whole community.",
+          "es": "Edición institucional, voz de mediación, impresión local en volumen, exposición virtual para toda una comunidad."
+        },
+        "b": [
+          "pak-enstitisyon",
+          "pak-dyaspora-strateji",
+          "pak-evenman"
+        ],
+        "sec": [
+          0,
+          1,
+          6
+        ]
+      },
+      {
+        "id": "jenes",
+        "t": {
+          "fr": "Jeunesse et mentorat",
+          "ht": "Jèn yo ak mentora",
+          "en": "Youth and mentoring",
+          "es": "Juventud y mentoría"
+        },
+        "d": {
+          "fr": "Vous êtes entre deux langues, deux pays, deux façons de réussir.",
+          "ht": "Ou ant de lang, de peyi, de fason pou w reyisi.",
+          "en": "You live between two languages, two countries, two ways of succeeding.",
+          "es": "Vive entre dos lenguas, dos países, dos maneras de tener éxito."
+        },
+        "o": {
+          "fr": "Kits éducatifs, tokens d'appartenance à un programme, œuvres qui parlent de porter l'avenir sans renier d'où l'on vient.",
+          "ht": "Kit pou lekòl, jeton ki montre ou fè pati yon pwogram, zèv ki pale de pote lavni an san w pa vire do bay kote w soti.",
+          "en": "Education kits, programme belonging tokens, works about carrying the future without denying where you come from.",
+          "es": "Kits educativos, fichas de pertenencia a un programa, obras sobre llevar el futuro sin renegar del origen."
+        },
+        "b": [
+          "pak-enstitisyon",
+          "dekouvet",
+          "pak-evenman"
+        ],
+        "sec": [
+          0,
+          5
+        ]
+      },
+      {
+        "id": "rezo",
+        "t": {
+          "fr": "Réseaux culturels et de représentation",
+          "ht": "Rezo kiltirèl ak rezo reprezantasyon",
+          "en": "Cultural and representation networks",
+          "es": "Redes culturales y de representación"
+        },
+        "d": {
+          "fr": "Vous faites circuler la culture : festivals, médias, associations, diplomatie.",
+          "ht": "Se nou menm k ap fè kilti a sikile : festival, medya, asosyasyon, diplomasi.",
+          "en": "You keep culture circulating: festivals, media, associations, diplomacy.",
+          "es": "Ustedes hacen circular la cultura: festivales, medios, asociaciones, diplomacia."
+        },
+        "o": {
+          "fr": "Séries limitées, supports de forum, licences de représentation, clips prêts à diffuser dans quatre langues.",
+          "ht": "Seri limite, sipò pou fowòm, lisans reprezantasyon, ti videyo ki pare pou difize nan kat lang.",
+          "en": "Limited series, forum materials, representation licences, clips ready to broadcast in four languages.",
+          "es": "Series limitadas, soportes de foro, licencias de representación, clips listos para difundir en cuatro idiomas."
+        },
+        "b": [
+          "pak-dyaspora-strateji",
+          "pak-limite",
+          "pak-evenman"
+        ],
+        "sec": [
+          6
+        ]
+      }
+    ],
+    "secteurs": [
+      {
+        "t": {
+          "fr": "Éducation",
+          "ht": "Edikasyon",
+          "en": "Education",
+          "es": "Educación"
+        }
+      },
+      {
+        "t": {
+          "fr": "Santé",
+          "ht": "Sante",
+          "en": "Health",
+          "es": "Salud"
+        }
+      },
+      {
+        "t": {
+          "fr": "Logement et hospitalité",
+          "ht": "Lojman ak akey",
+          "en": "Housing and hospitality",
+          "es": "Vivienda y hospitalidad"
+        }
+      },
+      {
+        "t": {
+          "fr": "Transferts, services financiers et fintech",
+          "ht": "Transfè, sèvis finansye ak fintech",
+          "en": "Remittances, financial services and fintech",
+          "es": "Remesas, servicios financieros y fintech"
+        }
+      },
+      {
+        "t": {
+          "fr": "Télécoms et connectivité",
+          "ht": "Telekominikasyon ak koneksyon",
+          "en": "Telecoms and connectivity",
+          "es": "Telecomunicaciones y conectividad"
+        }
+      },
+      {
+        "t": {
+          "fr": "Formation, emploi et entrepreneuriat",
+          "ht": "Fòmasyon, travay ak antreprenarya",
+          "en": "Training, employment and entrepreneurship",
+          "es": "Formación, empleo y emprendimiento"
+        }
+      },
+      {
+        "t": {
+          "fr": "Culture, représentation et influence",
+          "ht": "Kilti, reprezantasyon ak enfliyans",
+          "en": "Culture, representation and influence",
+          "es": "Cultura, representación e influencia"
+        }
+      }
+    ]
+  },
+  "concepts": [
+    {
+      "id": "table-zanset",
+      "u": "memwa",
+      "t": "La Table des Ancêtres",
+      "tht": "Tab Zansèt yo",
+      "p": {
+        "fr": "La mémoire familiale devient une présence noble — et le signe du lien qui soutient les familles, ici comme ailleurs.",
+        "ht": "Memwa fanmi an tounen yon prezans ki gen valè — epi yon siy pou lyen k ap kenbe fanmi yo, isit la kou lòt bò.",
+        "en": "Family memory becomes a noble presence — and a sign of the bond that supports families, here and elsewhere.",
+        "es": "La memoria familiar se vuelve presencia noble y signo del vínculo que sostiene a las familias, aquí y allá."
+      },
+      "us": {
+        "fr": "Hall institutionnel, restaurant, maison d'hôtes, salle à manger, consulat, bibliothèque",
+        "ht": "Antre enstitisyon, restoran, kay dòmi, sal manje, konsila, bibliyotèk",
+        "en": "Institutional lobby, restaurant, guest house, dining room, consulate, library",
+        "es": "Vestíbulo institucional, restaurante, casa de huéspedes, comedor, consulado, biblioteca"
+      },
+      "d": [
+        "kat",
+        "jeton",
+        "videyo",
+        "vwa",
+        "afich",
+        "enprime",
+        "edisyon"
+      ]
+    },
+    {
+      "id": "men-transmet",
+      "u": "memwa",
+      "t": "Mains de Passage",
+      "tht": "Men ki transmèt",
+      "p": {
+        "fr": "L'élégance d'une culture qui se transmet par la main — et par la mise en circulation des compétences.",
+        "ht": "Bèlte yon kilti ki pase nan men moun — epi konesans ki ap sikile ant moun.",
+        "en": "The elegance of a culture passed on by hand — and by putting skills into circulation.",
+        "es": "La elegancia de una cultura que se transmite con la mano y por la circulación de competencias."
+      },
+      "us": {
+        "fr": "Bureaux, écoles techniques, ateliers, ONG, RSE, mentorat, formation",
+        "ht": "Biwo, lekòl teknik, atelye, ONG, RSE, mentora, fòmasyon",
+        "en": "Offices, technical schools, workshops, NGOs, CSR, mentoring, training",
+        "es": "Oficinas, escuelas técnicas, talleres, ONG, RSE, mentoría, formación"
+      },
+      "d": [
+        "kat",
+        "otokolan",
+        "jeton",
+        "manyet",
+        "afich",
+        "videyo",
+        "vwa",
+        "antrepriz"
+      ]
+    },
+    {
+      "id": "vwa-lakou",
+      "u": "memwa",
+      "t": "Voix dans la Cour",
+      "tht": "Vwa nan lakou a",
+      "p": {
+        "fr": "La chaleur des voix entre dans les lieux de vie — et montre comment la parole circule entre générations et continents.",
+        "ht": "Chalè vwa yo antre nan kote moun ap viv — epi li montre kijan pawòl la sikile ant jenerasyon ak ant kontinan.",
+        "en": "The warmth of voices enters living spaces — showing how speech travels between generations and continents.",
+        "es": "El calor de las voces entra en los lugares de vida y muestra cómo la palabra circula entre generaciones y continentes."
+      },
+      "us": {
+        "fr": "Écoles, médiathèques, centres communautaires, cafés culturels, maisons",
+        "ht": "Lekòl, medyatèk, sant kominotè, kafe kiltirèl, kay",
+        "en": "Schools, media libraries, community centres, cultural cafés, homes",
+        "es": "Escuelas, mediatecas, centros comunitarios, cafés culturales, casas"
+      },
+      "d": [
+        "kat",
+        "otokolan",
+        "manyet",
+        "jeton",
+        "afich",
+        "vwa",
+        "videyo",
+        "edisyon"
+      ]
+    },
+    {
+      "id": "mache-kanpe",
+      "u": "rezilyans",
+      "t": "Le Marché Debout",
+      "tht": "Mache kanpe",
+      "p": {
+        "fr": "Une économie vivante, fière et humaine, reliée à des réseaux diasporiques qui amplifient l'impact local.",
+        "ht": "Yon ekonomi vivan, ki gen fyète ak imanite, konekte ak rezo dyaspora ki fè enpak lokal la pi gwo.",
+        "en": "A living, proud, deeply human economy, connected to diaspora networks that amplify local impact.",
+        "es": "Una economía viva, orgullosa y humana, conectada a redes diaspóricas que amplifican el impacto local."
+      },
+      "us": {
+        "fr": "Banques, chambres de commerce, halls publics, fintech, forums économiques",
+        "ht": "Bank, chanm komès, antre piblik, fintech, fowòm ekonomik",
+        "en": "Banks, chambers of commerce, public halls, fintech, economic forums",
+        "es": "Bancos, cámaras de comercio, vestíbulos públicos, fintech, foros económicos"
+      },
+      "d": [
+        "kat",
+        "otokolan",
+        "manyet",
+        "jeton",
+        "afich",
+        "enprime",
+        "videyo",
+        "evenman"
+      ]
+    },
+    {
+      "id": "maten-kreyol",
+      "u": "rezilyans",
+      "t": "Matin Créole",
+      "tht": "Maten kreyòl",
+      "p": {
+        "fr": "L'énergie claire d'un commencement digne — et l'idée qu'un avenir mieux connecté change la journée réelle des familles.",
+        "ht": "Fòs klè yon konmansman ki gen diyite — ak lide ke yon lavni ki pi byen konekte chanje jounen fanmi yo toutbon.",
+        "en": "The clear energy of a dignified beginning — and the idea that a better-connected future changes families' actual day.",
+        "es": "La energía clara de un comienzo digno y la idea de que un futuro mejor conectado cambia el día real de las familias."
+      },
+      "us": {
+        "fr": "Bureaux, open spaces, hôtels, transports, RH, halls de service",
+        "ht": "Biwo, espas louvri, otèl, transpò, RH, antre sèvis",
+        "en": "Offices, open spaces, hotels, transport, HR, service halls",
+        "es": "Oficinas, espacios abiertos, hoteles, transporte, RR. HH., halls de servicio"
+      },
+      "d": [
+        "kat",
+        "otokolan",
+        "manyet",
+        "jeton",
+        "afich",
+        "enprime",
+        "videyo",
+        "vwa",
+        "antrepriz"
+      ]
+    },
+    {
+      "id": "pote-demen",
+      "u": "rezilyans",
+      "t": "Les Porteurs de Demain",
+      "tht": "Moun k ap pote demen",
+      "p": {
+        "fr": "Une icône de la jeunesse caribéenne qui avance avec lumière, vision et connexions capables de transformer l'avenir réel.",
+        "ht": "Yon icòn pou jèn karayibeyen k ap avanse ak limyè, ak vizyon, ak koneksyon ki ka chanje lavni an toutbon.",
+        "en": "An icon of Caribbean youth moving forward with light, vision and connections that can change the real future.",
+        "es": "Un ícono de la juventud caribeña que avanza con luz, visión y conexiones capaces de transformar el futuro real."
+      },
+      "us": {
+        "fr": "Écoles, universités, ONG, incubateurs, bourses, fondations, réseaux de mentorat",
+        "ht": "Lekòl, inivèsite, ONG, enkibatè, bous, fondasyon, rezo mentora",
+        "en": "Schools, universities, NGOs, incubators, scholarships, foundations, mentoring networks",
+        "es": "Escuelas, universidades, ONG, incubadoras, becas, fundaciones, redes de mentoría"
+      },
+      "d": [
+        "kat",
+        "jeton",
+        "videyo",
+        "vwa",
+        "afich",
+        "enprime",
+        "evenman"
+      ]
+    },
+    {
+      "id": "vey-limye",
+      "u": "espirit",
+      "t": "Veille de Lumière",
+      "tht": "Vèy limyè",
+      "p": {
+        "fr": "Une présence visuelle qui apporte calme et dignité aux espaces sensibles, et rend visible la solidarité qui traverse les distances.",
+        "ht": "Yon prezans ki bay kalm ak diyite nan kote ki sansib yo, epi ki fè moun wè solidarite k ap travèse distans lan.",
+        "en": "A visual presence bringing calm and dignity to sensitive spaces, making visible the solidarity that crosses distance.",
+        "es": "Una presencia visual que aporta calma y dignidad a los espacios sensibles y hace visible la solidaridad que cruza distancias."
+      },
+      "us": {
+        "fr": "Cliniques, salles d'attente, hôtels de caractère, spas, espaces de silence, lieux de mémoire",
+        "ht": "Klinik, sal datant, otèl ki gen karaktè, espa byennèt, kote pou moun rete an silans, kote memwa",
+        "en": "Clinics, waiting rooms, boutique hotels, spas, quiet spaces, memorial places",
+        "es": "Clínicas, salas de espera, hoteles con carácter, spas, espacios de silencio, lugares de memoria"
+      },
+      "d": [
+        "kat",
+        "jeton",
+        "videyo",
+        "vwa",
+        "afich",
+        "enprime",
+        "kay"
+      ]
+    },
+    {
+      "id": "lanme-traverse",
+      "u": "espirit",
+      "t": "Mer de Passage",
+      "tht": "Lanmè travèse",
+      "p": {
+        "fr": "Une mer qui relie les vies, les langues, les marchés et les horizons avec une force élégante.",
+        "ht": "Yon lanmè ki mare lavi moun, lang yo, mache yo ak orizon yo ak yon fòs ki bèl.",
+        "en": "A sea that links lives, languages, markets and horizons with elegant force.",
+        "es": "Un mar que une vidas, lenguas, mercados y horizontes con fuerza elegante."
+      },
+      "us": {
+        "fr": "Hôtels, aéroports, consulats, bureaux internationaux, diplomatie culturelle",
+        "ht": "Otèl, ayewopò, konsila, biwo entènasyonal, diplomasi kiltirèl",
+        "en": "Hotels, airports, consulates, international offices, cultural diplomacy",
+        "es": "Hoteles, aeropuertos, consulados, oficinas internacionales, diplomacia cultural"
+      },
+      "d": [
+        "kat",
+        "jeton",
+        "videyo",
+        "vwa",
+        "afich",
+        "enprime",
+        "edisyon"
+      ]
+    },
+    {
+      "id": "pyebwa-gadyen",
+      "u": "espirit",
+      "t": "Arbre Gardien",
+      "tht": "Pyebwa gadyen an",
+      "p": {
+        "fr": "Une œuvre-refuge qui donne aux lieux une force calme, enracinée et tournée vers la continuité active.",
+        "ht": "Yon zèv ki sèvi kach : li bay kote yo yon fòs trankil, ki gen rasin, ki vire tèt li nan direksyon kontinyite.",
+        "en": "A refuge-work that gives places a calm, rooted strength turned toward active continuity.",
+        "es": "Una obra-refugio que da a los lugares una fuerza calma, enraizada y orientada a la continuidad activa."
+      },
+      "us": {
+        "fr": "Santé, éducation, bureaux, hôtels, halls, maisons, leadership et transmission",
+        "ht": "Sante, edikasyon, biwo, otèl, antre, kay, lidèchip ak transmisyon",
+        "en": "Health, education, offices, hotels, lobbies, homes, leadership and transmission",
+        "es": "Salud, educación, oficinas, hoteles, vestíbulos, casas, liderazgo y transmisión"
+      },
+      "d": [
+        "kat",
+        "jeton",
+        "videyo",
+        "vwa",
+        "afich",
+        "enprime",
+        "antrepriz"
+      ]
+    },
+    {
+      "id": "chanm-louvri",
+      "u": "lakay",
+      "t": "La Chambre Ouverte",
+      "tht": "Chanm ki louvri a",
+      "p": {
+        "fr": "Transformer l'hospitalité en sensation culturelle de douceur, d'élégance et de confiance partagée.",
+        "ht": "Fè akey la tounen yon sansasyon kiltirèl ki dous, ki bèl, ki bay konfyans.",
+        "en": "Turning hospitality into a cultural sensation of softness, elegance and shared trust.",
+        "es": "Convertir la hospitalidad en una sensación cultural de suavidad, elegancia y confianza compartida."
+      },
+      "us": {
+        "fr": "Hôtels, maisons d'hôtes, cliniques privées, résidences, location haut de gamme",
+        "ht": "Otèl, kay dòmi, klinik prive, rezidans, lokasyon bon kalite",
+        "en": "Hotels, guest houses, private clinics, residences, high-end rentals",
+        "es": "Hoteles, casas de huéspedes, clínicas privadas, residencias, alquiler de alta gama"
+      },
+      "d": [
+        "kat",
+        "jeton",
+        "videyo",
+        "vwa",
+        "afich",
+        "enprime",
+        "kay"
+      ]
+    },
+    {
+      "id": "kizin-memwa",
+      "u": "lakay",
+      "t": "Cuisine du Souvenir",
+      "tht": "Kizin memwa",
+      "p": {
+        "fr": "La mémoire culinaire comme luxe émotionnel accessible — et langage vivant entre familles, territoires et diasporas.",
+        "ht": "Memwa manje a tounen yon liks pou kè moun ki rete abòdab — epi yon lang vivan ant fanmi, teritwa ak dyaspora.",
+        "en": "Culinary memory as accessible emotional luxury — a living language between families, territories and diasporas.",
+        "es": "La memoria culinaria como lujo emocional accesible y lenguaje vivo entre familias, territorios y diásporas."
+      },
+      "us": {
+        "fr": "Restaurants, écoles hôtelières, boutiques culinaires, festivals, gifting gourmand",
+        "ht": "Restoran, lekòl otelri, boutik manje, festival, kado gou",
+        "en": "Restaurants, hospitality schools, food shops, festivals, gourmet gifting",
+        "es": "Restaurantes, escuelas de hostelería, tiendas culinarias, festivales, regalos gourmet"
+      },
+      "d": [
+        "kat",
+        "manyet",
+        "jeton",
+        "afich",
+        "enprime",
+        "videyo",
+        "vwa",
+        "kado"
+      ]
+    },
+    {
+      "id": "galri-vwazen",
+      "u": "lakay",
+      "t": "La Galerie des Voisins",
+      "tht": "Galri vwazen yo",
+      "p": {
+        "fr": "Une forme contemporaine de la chaleur du lien social — et de la capacité des solidarités élargies à transformer un quartier.",
+        "ht": "Yon fòm modèn pou chalè lyen sosyal la — ak pouvwa solidarite ki laj pou chanje yon katye.",
+        "en": "A contemporary form of social warmth — and of how wider solidarity can transform a neighbourhood.",
+        "es": "Una forma contemporánea del calor del vínculo social y de cómo la solidaridad amplia transforma un barrio."
+      },
+      "us": {
+        "fr": "Mairies, programmes urbains, halls résidentiels, cafés, tiers-lieux, revitalisation",
+        "ht": "Meri, pwogram iben, antre rezidans, kafe, espas pataje, rekonstriksyon katye",
+        "en": "City halls, urban programmes, residential lobbies, cafés, third places, revitalisation",
+        "es": "Ayuntamientos, programas urbanos, vestíbulos residenciales, cafés, terceros lugares, revitalización"
+      },
+      "d": [
+        "kat",
+        "jeton",
+        "videyo",
+        "vwa",
+        "afich",
+        "enprime",
+        "evenman"
+      ]
+    },
+    {
+      "id": "valiz-vwa",
+      "u": "dyaspora",
+      "t": "Valise de Voix",
+      "tht": "Valiz vwa",
+      "p": {
+        "fr": "Une œuvre qui fait voyager la mémoire, les ressources et les possibilités sans jamais rompre le lien.",
+        "ht": "Yon zèv ki fè memwa, resous ak posiblite vwayaje san lyen an pa janm kase.",
+        "en": "A work that carries memory, resources and possibilities without ever breaking the link.",
+        "es": "Una obra que hace viajar la memoria, los recursos y las posibilidades sin romper el vínculo."
+      },
+      "us": {
+        "fr": "Consulats, aéroports, associations, centres culturels, expositions internationales, forums",
+        "ht": "Konsila, ayewopò, asosyasyon, sant kiltirèl, ekspozisyon entènasyonal, fowòm",
+        "en": "Consulates, airports, associations, cultural centres, international exhibitions, forums",
+        "es": "Consulados, aeropuertos, asociaciones, centros culturales, exposiciones internacionales, foros"
+      },
+      "d": [
+        "kat",
+        "jeton",
+        "videyo",
+        "vwa",
+        "afich",
+        "enprime",
+        "kado"
+      ]
+    },
+    {
+      "id": "kat-tounen",
+      "u": "dyaspora",
+      "t": "Cartographie du Retour",
+      "tht": "Kat pou tounen lakay",
+      "p": {
+        "fr": "Une géographie sensible pour celles et ceux qui portent plusieurs lieux en eux — et veulent transformer ce lien en action.",
+        "ht": "Yon jeyografi pou moun ki pote plizyè kote anndan yo — epi ki vle fè lyen sa a tounen aksyon.",
+        "en": "A sensitive geography for those who carry several places within them — and want to turn that bond into action.",
+        "es": "Una geografía sensible para quienes llevan varios lugares dentro y quieren convertir ese vínculo en acción."
+      },
+      "us": {
+        "fr": "Institutions internationales, hôtels, bureaux, forums d'investissement, diplomatie culturelle",
+        "ht": "Enstitisyon entènasyonal, otèl, biwo, fowòm envestisman, diplomasi kiltirèl",
+        "en": "International institutions, hotels, offices, investment forums, cultural diplomacy",
+        "es": "Instituciones internacionales, hoteles, oficinas, foros de inversión, diplomacia cultural"
+      },
+      "d": [
+        "kat",
+        "jeton",
+        "videyo",
+        "vwa",
+        "afich",
+        "enprime",
+        "edisyon"
+      ]
+    },
+    {
+      "id": "achipel-anndan",
+      "u": "dyaspora",
+      "t": "Archipel Intérieur",
+      "tht": "Achipèl anndan an",
+      "p": {
+        "fr": "L'expression la plus contemporaine d'une Caraïbe fière, raffinée, mondiale — capable d'activer sa diaspora comme force d'avenir.",
+        "ht": "Fason ki pi modèn pou montre yon Karayib ki gen fyète, ki rafine, ki nan lemonn — epi ki ka aktive dyaspora l kòm yon fòs pou lavni.",
+        "en": "The most contemporary expression of a proud, refined, global Caribbean — able to activate its diaspora as a force for the future.",
+        "es": "La expresión más contemporánea de un Caribe orgulloso, refinado y global, capaz de activar su diáspora como fuerza de futuro."
+      },
+      "us": {
+        "fr": "Sièges d'entreprise, banques, télécoms, ambassades, hôtels design, forums internationaux",
+        "ht": "Gwo biwo santral, bank, telekominikasyon, anbasad, otèl design, fowòm entènasyonal",
+        "en": "Corporate headquarters, banks, telecoms, embassies, design hotels, international forums",
+        "es": "Sedes corporativas, bancos, telecomunicaciones, embajadas, hoteles de diseño, foros internacionales"
+      },
+      "d": [
+        "kat",
+        "jeton",
+        "videyo",
+        "vwa",
+        "afich",
+        "enprime",
+        "seri",
+        "antrepriz"
+      ]
+    }
+  ],
+  "_prix_note": "Prix en dollars US, hors livraison et hors taxes. VALIDES par ATM le 30/07/2026. Le document de reference ne chiffrait pas volontairement : cette grille est la decision d Atmart, coherente avec les formules 01-05.",
+  "tarifs": [
+    {
+      "s": "kat",
+      "px": 6,
+      "n": {
+        "fr": "l'unité · set de 4 : 20 $",
+        "ht": "youn · sè 4 : 20 $",
+        "en": "each · set of 4: $20",
+        "es": "cada una · set de 4: 20 $"
+      }
+    },
+    {
+      "s": "otokolan",
+      "px": 4,
+      "n": {
+        "fr": "l'unité · lot de 3 : 10 $",
+        "ht": "youn · lo 3 : 10 $",
+        "en": "each · pack of 3: $10",
+        "es": "cada una · lote de 3: 10 $"
+      }
+    },
+    {
+      "s": "manyet",
+      "px": 9,
+      "n": {
+        "fr": "l'unité",
+        "ht": "youn",
+        "en": "each",
+        "es": "cada uno"
+      }
+    },
+    {
+      "s": "jeton",
+      "px": 12,
+      "n": {
+        "fr": "l'unité · série numérotée",
+        "ht": "youn · seri ak nimewo",
+        "en": "each · numbered series",
+        "es": "cada una · serie numerada"
+      }
+    },
+    {
+      "s": "espinè",
+      "px": 15,
+      "n": {
+        "fr": "l'unité · motif d'une œuvre",
+        "ht": "youn · yon motif ki soti nan yon zèv",
+        "en": "each · motif from a work",
+        "es": "cada uno · motivo de una obra"
+      }
+    },
+    {
+      "s": "afich",
+      "px": 25,
+      "n": {
+        "fr": "8,5 × 11 po · 12 × 18 po : 45 $ · 18 × 24 po : 75 $",
+        "ht": "8,5 × 11 po · 12 × 18 po : 45 $ · 18 × 24 po : 75 $",
+        "en": "8.5 × 11 in · 12 × 18 in: $45 · 18 × 24 in: $75",
+        "es": "8,5 × 11 in · 12 × 18 in: 45 $ · 18 × 24 in: 75 $"
+      }
+    },
+    {
+      "s": "seri",
+      "px": 180,
+      "n": {
+        "fr": "édition numérotée 18 × 24 po · 50 exemplaires",
+        "ht": "edisyon ak nimewo 18 × 24 po · 50 kopi",
+        "en": "numbered edition 18 × 24 in · 50 copies",
+        "es": "edición numerada 18 × 24 in · 50 ejemplares"
+      }
+    },
+    {
+      "s": "vwa",
+      "px": 0,
+      "n": {
+        "fr": "toujours gratuite à l'écoute",
+        "ht": "toujou gratis pou koute",
+        "en": "always free to listen to",
+        "es": "siempre gratis para escuchar"
+      }
+    }
+  ],
+  "calendrier": [
+    {
+      "m": "01",
+      "prep": 6,
+      "t": {
+        "fr": "1er janvier — Indépendance d'Haïti",
+        "ht": "1e janvye — Endepandans Ayiti",
+        "en": "1 January — Haitian Independence",
+        "es": "1 de enero — Independencia de Haití"
+      },
+      "pub": {
+        "fr": "Familles, réseaux communautaires",
+        "ht": "Fanmi, rezo kominotè",
+        "en": "Families, community networks",
+        "es": "Familias, redes comunitarias"
+      },
+      "off": {
+        "fr": "Bundle Diaspora, cartes-hommage, voix de la soupe joumou",
+        "ht": "Pakè Dyaspora, kat onè, vwa sou soup joumou an",
+        "en": "Diaspora bundle, tribute cards, soup joumou voice piece",
+        "es": "Pack Diáspora, tarjetas homenaje, voz sobre la sopa joumou"
+      },
+      "b": [
+        "pak-dyaspora",
+        "dekouvet"
+      ]
+    },
+    {
+      "m": "02",
+      "prep": 10,
+      "t": {
+        "fr": "Black History Month",
+        "ht": "Mwa istwa Nwa yo",
+        "en": "Black History Month",
+        "es": "Mes de la Historia Negra"
+      },
+      "pub": {
+        "fr": "Entreprises, écoles, institutions",
+        "ht": "Antrepriz, lekòl, enstitisyon",
+        "en": "Companies, schools, institutions",
+        "es": "Empresas, escuelas, instituciones"
+      },
+      "off": {
+        "fr": "Campagne personnalisée, Pack Institution, séries d'écrans",
+        "ht": "Kanpay sou mezi, Pak Enstitisyon, seri pou ekran",
+        "en": "Custom campaign, Institution pack, screen series",
+        "es": "Campaña personalizada, Pack Institución, series de pantallas"
+      },
+      "b": [
+        "pak-enstitisyon",
+        "pak-biwo"
+      ]
+    },
+    {
+      "m": "03",
+      "prep": 8,
+      "t": {
+        "fr": "8 mars — Journée internationale des femmes",
+        "ht": "8 mas — Jounen entènasyonal fanm yo",
+        "en": "8 March — International Women's Day",
+        "es": "8 de marzo — Día Internacional de la Mujer"
+      },
+      "pub": {
+        "fr": "Entreprises, institutions, RH",
+        "ht": "Antrepriz, enstitisyon, RH",
+        "en": "Companies, institutions, HR",
+        "es": "Empresas, instituciones, RR. HH."
+      },
+      "off": {
+        "fr": "Série Voix de femmes, cartes de reconnaissance, clip de campagne",
+        "ht": "Seri Vwa fanm, kat rekonesans, ti videyo kanpay",
+        "en": "Women's Voices series, recognition cards, campaign clip",
+        "es": "Serie Voces de mujeres, tarjetas de reconocimiento, clip de campaña"
+      },
+      "b": [
+        "pak-kado",
+        "pak-biwo"
+      ]
+    },
+    {
+      "m": "05",
+      "prep": 10,
+      "t": {
+        "fr": "Mois du patrimoine haïtien · 18 mai, jour du Drapeau",
+        "ht": "Mwa patrimwàn ayisyen · 18 me, jou Drapo a",
+        "en": "Haitian Heritage Month · 18 May, Flag Day",
+        "es": "Mes del patrimonio haitiano · 18 de mayo, Día de la Bandera"
+      },
+      "pub": {
+        "fr": "Tous publics — le temps fort de l'année",
+        "ht": "Tout moun — se gwo moman ane a",
+        "en": "Everyone — the peak moment of the year",
+        "es": "Todos los públicos: el momento fuerte del año"
+      },
+      "off": {
+        "fr": "Bundle Diaspora active, Pack Événement, séries limitées",
+        "ht": "Pakè Dyaspora aktif, Pak Evenman, seri limite",
+        "en": "Active diaspora bundle, Event pack, limited series",
+        "es": "Pack Diáspora activa, Pack Evento, series limitadas"
+      },
+      "b": [
+        "dyaspora-aktif",
+        "pak-evenman",
+        "pak-limite"
+      ]
+    },
+    {
+      "m": "06",
+      "prep": 8,
+      "t": {
+        "fr": "Mois du patrimoine caribéen-américain · graduations",
+        "ht": "Mwa patrimwàn karayibeyen-ameriken · gradyasyon",
+        "en": "Caribbean-American Heritage Month · graduations",
+        "es": "Mes del patrimonio caribeño-americano · graduaciones"
+      },
+      "pub": {
+        "fr": "Écoles, universités, familles, jeunesse",
+        "ht": "Lekòl, inivèsite, fanmi, jèn yo",
+        "en": "Schools, universities, families, youth",
+        "es": "Escuelas, universidades, familias, juventud"
+      },
+      "off": {
+        "fr": "Cartes de réussite, tokens de programme, kits jeunesse",
+        "ht": "Kat pou reyisit, jeton pwogram, kit pou jèn",
+        "en": "Achievement cards, programme tokens, youth kits",
+        "es": "Tarjetas de logro, fichas de programa, kits juveniles"
+      },
+      "b": [
+        "pak-enstitisyon",
+        "dekouvet"
+      ]
+    },
+    {
+      "m": "07",
+      "prep": 8,
+      "t": {
+        "fr": "Été — saison touristique et retours au pays",
+        "ht": "Ete — sezon touris ak moun k ap tounen lakay",
+        "en": "Summer — tourist season and trips home",
+        "es": "Verano — temporada turística y regresos al país"
+      },
+      "pub": {
+        "fr": "Hôtellerie, maisons d'hôtes, familles en voyage",
+        "ht": "Otelri, kay dòmi, fanmi k ap vwayaje",
+        "en": "Hospitality, guest houses, travelling families",
+        "es": "Hostelería, casas de huéspedes, familias de viaje"
+      },
+      "off": {
+        "fr": "Pack Accueil, magnets, affiches de chambre",
+        "ht": "Pak Akey, manyèt, afich pou chanm",
+        "en": "Welcome pack, magnets, room posters",
+        "es": "Pack Acogida, imanes, carteles de habitación"
+      },
+      "b": [
+        "pak-akey",
+        "pak-kay"
+      ]
+    },
+    {
+      "m": "09",
+      "prep": 8,
+      "t": {
+        "fr": "Rentrée scolaire",
+        "ht": "Larantre lekòl",
+        "en": "Back to school",
+        "es": "Vuelta a clases"
+      },
+      "pub": {
+        "fr": "Écoles, médiathèques, programmes jeunesse",
+        "ht": "Lekòl, medyatèk, pwogram pou jèn",
+        "en": "Schools, media libraries, youth programmes",
+        "es": "Escuelas, mediatecas, programas juveniles"
+      },
+      "off": {
+        "fr": "Kits éducatifs, Pack Institution, capsules voix pour les classes",
+        "ht": "Kit pou lekòl, Pak Enstitisyon, ti kapsil vwa pou klas yo",
+        "en": "Education kits, Institution pack, voice capsules for classrooms",
+        "es": "Kits educativos, Pack Institución, cápsulas de voz para las aulas"
+      },
+      "b": [
+        "pak-enstitisyon"
+      ]
+    },
+    {
+      "m": "10",
+      "prep": 8,
+      "t": {
+        "fr": "Santé mentale et bien-être au travail",
+        "ht": "Sante mantal ak byennèt nan travay",
+        "en": "Mental health and wellbeing at work",
+        "es": "Salud mental y bienestar laboral"
+      },
+      "pub": {
+        "fr": "Santé, RH, cliniques, espaces de soin",
+        "ht": "Sante, RH, klinik, kote yo bay swen",
+        "en": "Health, HR, clinics, care spaces",
+        "es": "Salud, RR. HH., clínicas, espacios de cuidado"
+      },
+      "off": {
+        "fr": "Écrans apaisants, voix douces, affiches pour salles d'attente",
+        "ht": "Ekran ki bay kalm, vwa dous, afich pou sal datant",
+        "en": "Calming screens, gentle voices, waiting-room posters",
+        "es": "Pantallas apaciguadoras, voces suaves, carteles para salas de espera"
+      },
+      "b": [
+        "pak-akey",
+        "pak-biwo"
+      ]
+    },
+    {
+      "m": "11",
+      "prep": 8,
+      "t": {
+        "fr": "Thanksgiving — la table pleine",
+        "ht": "Thanksgiving — tab la chaje",
+        "en": "Thanksgiving — the full table",
+        "es": "Acción de Gracias — la mesa llena"
+      },
+      "pub": {
+        "fr": "Entreprises (cadeaux), familles, restaurants",
+        "ht": "Antrepriz (kado), fanmi, restoran",
+        "en": "Companies (gifting), families, restaurants",
+        "es": "Empresas (regalos), familias, restaurantes"
+      },
+      "off": {
+        "fr": "« Gratitude / Rekonesans » en tête, Pack Cadeaux d'affaires",
+        "ht": "« Gratitude / Rekonesans » an tèt, Pak Kado biznis",
+        "en": "\"Gratitude / Rekonesans\" up front, Corporate gifts pack",
+        "es": "«Gratitude / Rekonesans» al frente, Pack Regalos de empresa"
+      },
+      "b": [
+        "pak-kado",
+        "pak-sezon"
+      ]
+    },
+    {
+      "m": "12",
+      "prep": 10,
+      "t": {
+        "fr": "Fêtes de fin d'année",
+        "ht": "Fèt fen ane",
+        "en": "Year-end holidays",
+        "es": "Fiestas de fin de año"
+      },
+      "pub": {
+        "fr": "Tous publics, cadeaux d'affaires, coffrets",
+        "ht": "Tout moun, kado biznis, bwat kado",
+        "en": "Everyone, corporate gifts, boxed sets",
+        "es": "Todos, regalos de empresa, estuches"
+      },
+      "off": {
+        "fr": "Bundle Saison, Collection limitée, coffrets prestige",
+        "ht": "Pakè Sezon, Koleksyon limite, bwat prestij",
+        "en": "Season bundle, Limited collection, prestige boxes",
+        "es": "Pack Temporada, Colección limitada, estuches de prestigio"
+      },
+      "b": [
+        "pak-sezon",
+        "pak-limite",
+        "pak-kado"
+      ]
+    }
+  ]
+}

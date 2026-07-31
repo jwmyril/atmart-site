@@ -1,0 +1,182 @@
+/* ===== Atelier ATM — galerie numérique (pages atelier.html, oeuvre.html,
+   atelier-institutions.html, impact.html). Fond plus profond que le reste du
+   site : l'œuvre doit être la seule source de couleur. ===== */
+
+body.art { background: #060c15; }
+body.art section { padding: 4rem 0; }
+.art-wide { max-width: 1320px; margin: 0 auto; padding: 0 1.25rem; }
+.art-lbl {
+  font-family: var(--font-head); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal);
+}
+.art-h { font-size: clamp(1.6rem, 3.2vw, 2.5rem); margin: 0.5rem 0 0.6rem; }
+.art-sub { color: var(--ink-dim); max-width: 62ch; }
+.art-sep { border: 0; border-top: 1px solid rgba(255,255,255,0.07); margin: 0; }
+
+/* ---- Hero cinématique ---- */
+.art-hero { position: relative; min-height: 82vh; display: flex; align-items: flex-end; overflow: hidden; }
+.art-hero-bg { position: absolute; inset: 0; }
+.art-hero-bg img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity 1.6s ease; transform: scale(1.06);
+}
+.art-hero-bg img.on { opacity: 1; }
+.art-hero::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(6,12,21,0.72) 0%, rgba(6,12,21,0.45) 40%, rgba(6,12,21,0.97) 100%);
+}
+.art-hero-in { position: relative; z-index: 2; width: 100%; padding: 3rem 0 3.5rem; }
+.art-hero h1 { font-size: clamp(2.1rem, 6vw, 4rem); line-height: 1.05; margin: 0.6rem 0 1rem; max-width: 16ch; }
+.art-hero h1 em { font-style: normal; color: var(--teal); }
+.art-hero p { color: #d7e3f0; max-width: 56ch; font-size: 1.05rem; }
+.art-hero .cta-row { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 1.6rem; }
+.art-hero-cred { position: absolute; right: 1.4rem; bottom: 1rem; z-index: 2; font-size: 0.72rem; color: rgba(255,255,255,0.55); }
+
+/* ---- Les trois entrées ---- */
+.paths { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.1rem; }
+.path {
+  display: block; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 16px; padding: 1.5rem 1.4rem; transition: border-color .2s, transform .2s, background .2s;
+}
+.path:hover { border-color: var(--teal); transform: translateY(-3px); background: rgba(46,196,182,0.06); }
+.path .ic { font-size: 1.6rem; display: block; margin-bottom: 0.6rem; }
+.path h3 { color: var(--ink); font-size: 1.15rem; margin-bottom: 0.4rem; }
+.path p { color: var(--ink-dim); font-size: 0.93rem; margin: 0; }
+.path .go { display: inline-block; margin-top: 0.9rem; color: var(--amber); font-size: 0.88rem; font-weight: 600; }
+.path.paid { border-color: rgba(244,162,97,0.4); background: rgba(244,162,97,0.06); }
+.path.paid:hover { border-color: var(--amber); }
+
+/* ---- Ambiances (collections) ---- */
+.moods { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; }
+.mood {
+  position: relative; border-radius: 14px; overflow: hidden; min-height: 150px;
+  display: flex; align-items: flex-end; border: 1px solid rgba(255,255,255,0.09);
+}
+.mood img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.mood:hover img { transform: scale(1.07); }
+.mood span.ov { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,12,21,0.15), rgba(6,12,21,0.88)); }
+.mood .txt { position: relative; z-index: 2; padding: 0.9rem 1rem; }
+.mood .txt b { display: block; font-family: var(--font-head); color: #fff; font-size: 1.02rem; }
+.mood .txt small { color: #b9c9da; font-size: 0.78rem; line-height: 1.35; display: block; }
+
+/* ---- Grille des œuvres ---- */
+.filters { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.4rem 0 1.8rem; }
+.filters button {
+  background: none; border: 1px solid rgba(255,255,255,0.16); color: var(--ink-dim);
+  font-family: var(--font-body); font-size: 0.84rem; font-weight: 600;
+  padding: 0.4rem 0.95rem; border-radius: 999px; cursor: pointer; transition: all .18s;
+}
+.filters button:hover { color: var(--ink); border-color: var(--ink-dim); }
+.filters button.on { background: var(--teal); border-color: var(--teal); color: #06121f; }
+
+.works { columns: 3 280px; column-gap: 1.1rem; }
+.work { break-inside: avoid; margin-bottom: 1.1rem; display: block; position: relative; border-radius: 12px; overflow: hidden; background: #0b1421; }
+.work img, .work video { width: 100%; display: block; user-select: none; -webkit-user-drag: none; transition: transform .5s, filter .4s; }
+.work:hover img { transform: scale(1.03); }
+.work .meta {
+  position: absolute; inset: auto 0 0 0; padding: 1.4rem 1rem 0.9rem;
+  background: linear-gradient(180deg, transparent, rgba(4,9,16,0.94));
+  opacity: 0; transform: translateY(8px); transition: opacity .3s, transform .3s;
+}
+.work:hover .meta, .work:focus-visible .meta { opacity: 1; transform: none; }
+.work .meta b { display: block; font-family: var(--font-head); color: #fff; font-size: 1.05rem; }
+.work .meta i { font-style: normal; color: var(--teal); font-size: 0.85rem; }
+.work .meta small { display: block; color: #a9bccf; font-size: 0.76rem; margin-top: 0.15rem; }
+@media (hover: none), (max-width: 700px) { .work .meta { opacity: 1; transform: none; } }
+
+/* ---- Bandes de présentation (image / texte) ---- */
+.strip { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4rem; align-items: center; }
+.strip.rev .s-media { order: 2; }
+.s-media img, .s-media video { width: 100%; border-radius: 14px; display: block; }
+.s-list { list-style: none; margin: 1.1rem 0 0; padding: 0; }
+.s-list li { color: var(--ink-dim); font-size: 0.94rem; padding: 0.3rem 0 0.3rem 1.5rem; position: relative; }
+.s-list li::before { content: "→"; position: absolute; left: 0; color: var(--teal); }
+
+/* ---- Ce qu'une œuvre devient ---- */
+.becomes { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.8rem; }
+.becomes div {
+  background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; padding: 0.95rem 1rem; font-size: 0.9rem; color: var(--ink);
+}
+.becomes div span { display: block; font-size: 1.3rem; margin-bottom: 0.3rem; }
+.becomes div small { display: block; color: var(--ink-dim); font-size: 0.78rem; }
+
+/* ---- Compteur d'impact ---- */
+.impact { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; text-align: center; }
+.impact div { background: rgba(46,196,182,0.07); border: 1px solid rgba(46,196,182,0.25); border-radius: 14px; padding: 1.2rem 1rem; }
+.impact b { display: block; font-family: var(--font-head); font-size: 2rem; color: var(--teal); line-height: 1.1; }
+.impact small { color: var(--ink-dim); font-size: 0.82rem; }
+
+/* ---- Offres institutionnelles ---- */
+.offers { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; align-items: stretch; }
+.offer {
+  background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px; padding: 1.6rem 1.4rem; display: flex; flex-direction: column;
+}
+.offer.feat { border-color: var(--teal); background: rgba(46,196,182,0.07); }
+.offer .tag { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); font-weight: 700; }
+.offer h3 { margin: 0.45rem 0 0.3rem; font-size: 1.2rem; color: var(--ink); }
+.offer .price { font-family: var(--font-head); font-size: 1.5rem; color: var(--teal); margin: 0.3rem 0 0.2rem; }
+.offer .price small { display: block; font-family: var(--font-body); font-size: 0.76rem; color: var(--ink-dim); font-weight: 400; }
+.offer ul { list-style: none; margin: 1rem 0 1.4rem; padding: 0; }
+.offer li { color: var(--ink-dim); font-size: 0.9rem; padding: 0.28rem 0 0.28rem 1.4rem; position: relative; }
+.offer li::before { content: "✓"; position: absolute; left: 0; color: var(--teal); }
+.offer .btn { margin-top: auto; text-align: center; }
+
+/* ---- Page d'une œuvre ---- */
+.work-top { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 2.6rem; align-items: start; }
+.work-fig { margin: 0; background: #0a1421; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); }
+.work-fig img, .work-fig video { width: 100%; display: block; user-select: none; -webkit-user-drag: none; }
+.work-info h1 { font-size: clamp(1.8rem, 4vw, 2.7rem); margin: 0.3rem 0 0.1rem; }
+.work-info .ht { color: var(--teal); font-size: 1.05rem; }
+.work-info .tech { color: var(--ink-dim); font-size: 0.88rem; margin-top: 0.5rem; }
+.work-quote {
+  border-left: 3px solid var(--amber); padding: 0.2rem 0 0.2rem 1rem; margin: 1.4rem 0;
+  font-size: 1.12rem; color: #fff; font-style: italic;
+}
+.work-story { color: #cfdcea; margin-bottom: 1.4rem; }
+.pal { display: flex; gap: 0.35rem; margin: 1rem 0 1.6rem; }
+.pal i { width: 30px; height: 30px; border-radius: 7px; display: block; border: 1px solid rgba(255,255,255,0.13); }
+.media-row { display: grid; gap: 0.7rem; margin-bottom: 1.6rem; }
+.media-btn {
+  display: flex; align-items: center; gap: 0.8rem; width: 100%; text-align: left;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px; padding: 0.85rem 1rem; color: var(--ink);
+  font-family: var(--font-body); font-size: 0.93rem; cursor: pointer;
+}
+.media-btn:hover { border-color: var(--teal); }
+.media-btn .ic { font-size: 1.25rem; }
+.media-btn small { display: block; color: var(--ink-dim); font-size: 0.78rem; }
+.media-btn[disabled] { opacity: 0.5; cursor: default; }
+.media-btn[disabled]:hover { border-color: rgba(255,255,255,0.1); }
+.work-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+.more-works { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.9rem; }
+.more-works a { display: block; border-radius: 10px; overflow: hidden; background: #0b1421; }
+.more-works img { width: 100%; height: 130px; object-fit: cover; display: block; }
+.more-works span { display: block; padding: 0.5rem 0.6rem; font-size: 0.82rem; color: var(--ink); }
+
+/* ---- Formulaires (impression / institution) ---- */
+.art-form { display: grid; gap: 0.85rem; max-width: 620px; }
+.art-form label { font-size: 0.84rem; color: var(--ink-dim); display: block; margin-bottom: 0.25rem; }
+.art-form input, .art-form select, .art-form textarea {
+  width: 100%; background: #0b1524; border: 1px solid var(--border); border-radius: 10px;
+  color: var(--ink); font-family: var(--font-body); font-size: 0.94rem; padding: 0.65rem 0.8rem;
+}
+.art-form input:focus, .art-form select:focus, .art-form textarea:focus { outline: none; border-color: var(--teal); }
+.art-form .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+.art-note { font-size: 0.8rem; color: var(--ink-dim); }
+
+/* ---- Visionneuse ---- */
+#art-lb { display: none; position: fixed; inset: 0; background: rgba(3,7,13,0.96); z-index: 999; align-items: center; justify-content: center; cursor: zoom-out; }
+#art-lb img { max-width: 93vw; max-height: 93vh; border-radius: 6px; user-select: none; }
+
+@media (max-width: 860px) {
+  .strip, .work-top { grid-template-columns: 1fr; gap: 1.6rem; }
+  .strip.rev .s-media { order: 0; }
+  .art-hero { min-height: 74vh; }
+  .art-form .two { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .art-hero-bg img { transition: none; }
+  .work img, .mood img { transition: none; }
+}

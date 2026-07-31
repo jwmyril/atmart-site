@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <title>La collection ATM — univers, gammes, bundles | Atelier ATM</title>
+  <meta name="description" content="La structure de la collection Atelier ATM : cinq univers, trois niveaux de gamme, les supports, les bundles B2C et B2B, les licences et la feuille de route des 15 œuvres à produire." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#060c15" />
+  <link rel="stylesheet" href="assets/style.css?v=31" />
+  <link rel="stylesheet" href="assets/atelier.css?v=2" />
+<script>/* langue auto : avant le 1er affichage, evite le clignotement */
+(function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
+s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
+var l=s&&S[s]?s:null;
+if(!l){var n=navigator.languages||[navigator.language||""];
+for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().split("-")[0];
+if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
+window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;
+if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove("i18n-wait")},1500)}})();
+</script>
+  <style>
+    .uni { border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:1.4rem 1.5rem; margin-bottom:1rem; background:rgba(255,255,255,0.03); }
+    .uni h3 { font-size:1.2rem; margin:0.3rem 0 0.4rem; color:#fff; }
+    .uni .num { font-family:var(--font-head); font-size:0.72rem; letter-spacing:0.2em; color:var(--teal); }
+    .uni .row { display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.9rem; }
+    .uni .row a, .uni .row span { font-size:0.82rem; padding:0.3rem 0.7rem; border-radius:999px; border:1px solid rgba(255,255,255,0.16); color:var(--ink-dim); }
+    .uni .row a:hover { border-color:var(--teal); color:#fff; }
+    .uni .row span.soon { border-style:dashed; opacity:0.75; }
+    .sup { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:0.7rem; }
+    .sup div { background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:0.8rem 0.9rem; }
+    .sup b { display:block; color:var(--ink); font-size:0.92rem; }
+    .sup small { color:var(--ink-dim); font-size:0.78rem; }
+    .cal { display:flex; gap:1.1rem; padding:1rem 0; border-top:1px solid rgba(255,255,255,0.08); }
+    .cal-m { font-family:var(--font-head); font-size:1.6rem; color:var(--teal); min-width:2.2rem; line-height:1; }
+    .cal b { display:block; color:#fff; font-size:1.02rem; }
+    .cal-pub { display:block; color:var(--amber); font-size:0.78rem; margin-bottom:0.35rem; }
+    .cal p { color:var(--ink-dim); font-size:0.9rem; margin:0; }
+    .cal-row { display:flex; gap:0.4rem; flex-wrap:wrap; margin-top:0.6rem; }
+    .cal-b { font-size:0.76rem; padding:0.22rem 0.6rem; border-radius:999px; border:1px solid rgba(46,196,182,0.4); color:var(--teal); }
+    .cal-prep { font-size:0.76rem; padding:0.22rem 0.6rem; border-radius:999px; border:1px dashed rgba(255,255,255,0.2); color:var(--ink-dim); }
+  </style>
+</head>
+<body class="art">
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="conseil-ia.html" data-i18n="nav.advisory">💼 Entreprises</a></li>
+      <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section style="padding-top:3rem">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="co.k"></p>
+    <h1 class="art-h" style="font-size:clamp(1.9rem,4.5vw,2.9rem)" data-s="co.h"></h1>
+    <p class="art-sub" style="font-size:1.03rem" data-s="co.p"></p>
+  </div>
+</section>
+
+<!-- UNIVERS -->
+<section style="padding-top:1rem">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="co.uk"></p>
+    <h2 class="art-h" data-s="co.uh"></h2>
+    <p class="art-note" style="margin-bottom:1.4rem" data-s="co.un"></p>
+    <div id="univers"></div>
+  </div>
+</section>
+
+<!-- GAMMES -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="co.gk"></p>
+    <h2 class="art-h" data-s="co.gh"></h2>
+    <div class="offers" id="gammes" style="margin-top:1.5rem"></div>
+  </div>
+</section>
+
+<!-- SUPPORTS -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="co.sk"></p>
+    <h2 class="art-h" data-s="co.sh"></h2>
+    <p class="art-sub" data-s="co.sp"></p>
+    <div class="sup" id="supports" style="margin-top:1.3rem"></div>
+  </div>
+</section>
+
+<!-- BUNDLES -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="co.bk"></p>
+    <h2 class="art-h" data-s="co.bh"></h2>
+    <h3 style="margin:1.4rem 0 0.8rem;font-size:1.05rem;color:var(--teal)" data-s="co.b2c"></h3>
+    <div class="offers" id="b2c"></div>
+    <h3 style="margin:2rem 0 0.8rem;font-size:1.05rem;color:var(--amber)" data-s="co.b2b"></h3>
+    <div class="offers" id="b2b"></div>
+  </div>
+</section>
+
+<!-- TARIFS -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="co.tk"></p>
+    <h2 class="art-h" data-s="co.th"></h2>
+    <p class="art-sub" data-s="co.tp"></p>
+    <div class="sup" id="tarifs" style="margin-top:1.3rem"></div>
+    <p class="art-note" style="margin-top:1rem;max-width:80ch" data-s="co.tn"></p>
+  </div>
+</section>
+
+<!-- CALENDRIER -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="co.ck"></p>
+    <h2 class="art-h" data-s="co.ch"></h2>
+    <p class="art-sub" data-s="co.cp"></p>
+    <div id="calendrier" style="margin-top:1.4rem"></div>
+  </div>
+</section>
+
+<!-- LICENCES -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="co.lk"></p>
+    <h2 class="art-h" data-s="co.lh"></h2>
+    <ul class="s-list" id="licences" style="margin-top:1rem;max-width:80ch"></ul>
+    <p class="art-note" style="margin-top:1rem;max-width:80ch" data-s="rig.p"></p>
+  </div>
+</section>
+
+<!-- DIASPORA -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="co.dk"></p>
+    <h2 class="art-h" data-s="co.dh"></h2>
+    <p class="art-sub" data-s="co.dp"></p>
+    <div class="strip" style="margin-top:1.4rem">
+      <div>
+        <p class="art-lbl" style="color:#9fb3c8" data-s="co.dseg"></p>
+        <ul class="s-list" id="segments"></ul>
+      </div>
+      <div>
+        <p class="art-lbl" style="color:#9fb3c8" data-s="co.dsec"></p>
+        <ul class="s-list" id="secteurs"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEUILLE DE ROUTE -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <div style="background:rgba(244,162,97,0.08);border:1px solid rgba(244,162,97,0.35);border-radius:16px;padding:1.8rem">
+      <p class="art-lbl" style="color:var(--amber)" data-s="co.rk"></p>
+      <h2 style="margin:0.4rem 0 0.6rem;font-size:1.35rem" data-s="co.rh"></h2>
+      <p style="color:#d7e3f0;max-width:70ch;font-size:0.95rem" data-s="co.rp"></p>
+      <ol class="s-list" id="priorites" style="margin-top:1rem"></ol>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
+        <ul>
+          <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+          <li><a href="atelier-business.html" data-s="nv.biz"></a></li>
+          <li><a href="atelier-artistes.html" data-s="nv.art"></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul><li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li></ul>
+      </div>
+    </div>
+    <p class="footer-note">© Atmart LLC — <span data-i18n="foot.rights">Tous droits réservés.</span></p>
+  </div>
+</footer>
+
+<script src="assets/script.js?v=2"></script>
+<script src="assets/i18n.js?v=10"></script>
+<script src="assets/atelier.js?v=3"></script>
+<script>
+(function () {
+  "use strict";
+  Object.assign(ATM.S, {
+    "co.k": { fr: "La collection", ht: "Koleksyon an", en: "The collection", es: "La colección" },
+    "co.h": { fr: "Comment la collection ATM est construite", ht: "Kijan koleksyon ATM la bati", en: "How the ATM collection is built", es: "Cómo está construida la colección ATM" },
+    "co.p": { fr: "Une œuvre n'est jamais un simple visuel : c'est un noyau qui devient une gamme, une collection, un bundle, une licence. Cette page montre la structure entière — ce qui existe aujourd'hui et ce qui reste à produire.", ht: "Yon zèv pa janm yon senp imaj : se yon nwayo ki tounen yon gam, yon koleksyon, yon pakè, yon lisans. Paj sa a montre tout estrikti a — sa ki egziste jodi a ak sa ki rete pou fèt.", en: "A work is never just an image: it is a core that becomes a range, a collection, a bundle, a licence. This page shows the whole structure — what exists today and what is still to be produced.", es: "Una obra nunca es solo una imagen: es un núcleo que se convierte en gama, colección, pack y licencia. Esta página muestra toda la estructura: lo que existe hoy y lo que falta producir." },
+
+    "co.uk": { fr: "Univers", ht: "Mond yo", en: "Universes", es: "Universos" },
+    "co.uh": { fr: "Cinq univers, trois œuvres chacun", ht: "Senk mond, twa zèv nan chak", en: "Five universes, three works each", es: "Cinco universos, tres obras cada uno" },
+    "co.un": { fr: "En plein : les œuvres d'ATM déjà disponibles. En pointillé : les œuvres du catalogue conceptuel, encore à produire — elles ne sont ni vendues ni promises.", ht: "Sa ki make an plen : zèv ATM ki deja disponib. Sa ki make ak ti tirè : zèv ki nan katalòg konsèp la, ki poko fèt — nou pa vann yo, nou pa pwomèt yo.", en: "Solid: ATM works already available. Dashed: works from the concept catalogue, still to be produced — neither sold nor promised.", es: "En sólido: obras de ATM ya disponibles. En punteado: obras del catálogo conceptual, aún por producir; ni se venden ni se prometen." },
+
+    "co.gk": { fr: "Gammes", ht: "Gam yo", en: "Ranges", es: "Gamas" },
+    "co.gh": { fr: "Trois niveaux, du geste simple au coffret", ht: "Twa nivo, depi yon ti bagay senp rive nan yon bwat prestij", en: "Three levels, from a simple gesture to a boxed set", es: "Tres niveles, del gesto simple al estuche" },
+
+    "co.sk": { fr: "Supports", ht: "Sipò yo", en: "Formats", es: "Soportes" },
+    "co.sh": { fr: "Ce qu'une œuvre peut devenir", ht: "Sa yon zèv ka tounen", en: "What a work can become", es: "En qué puede convertirse una obra" },
+    "co.sp": { fr: "Seize supports, une même grammaire visuelle. Une œuvre photographiée une fois alimente toute la colonne.", ht: "Sèz sipò, yon sèl gramè vizyèl. Yon zèv nou pran an foto yon fwa bay tout kolòn nan.", en: "Sixteen formats, one visual grammar. A work photographed once feeds the whole column.", es: "Dieciséis soportes, una misma gramática visual. Una obra fotografiada una vez alimenta toda la columna." },
+
+    "co.bk": { fr: "Bundles", ht: "Pakè", en: "Bundles", es: "Packs" },
+    "co.bh": { fr: "Des ensembles prêts, avant même la prospection", ht: "Pakè ki pare davans, anvan menm nou al chèche kliyan", en: "Ready-made sets, before any prospecting", es: "Conjuntos listos, antes incluso de prospectar" },
+    "co.b2c": { fr: "Pour les particuliers", ht: "Pou moun endividyèl", en: "For individuals", es: "Para particulares" },
+    "co.b2b": { fr: "Pour les organisations", ht: "Pou òganizasyon yo", en: "For organisations", es: "Para organizaciones" },
+
+    "co.tk": { fr: "Tarifs", ht: "Pri", en: "Prices", es: "Precios" },
+    "co.th": { fr: "L'entrée de gamme, à l'unité", ht: "Bagay ki pi abòdab yo, youn pa youn", en: "Entry level, per item", es: "La gama de entrada, por unidad" },
+    "co.tp": { fr: "Les prix qui rendent le reste lisible : ce qu'on achète sans réfléchir, et ce qui fait monter le panier.", ht: "Pri ki fè rès la klè : sa moun achte san yo pa kalkile, ak sa ki fè panye a monte.", en: "The prices that make the rest legible: what people buy without thinking, and what lifts the basket.", es: "Los precios que hacen legible el resto: lo que se compra sin pensar y lo que sube la cesta." },
+    "co.tn": { fr: "Prix en dollars US, hors livraison et hors taxes. Tarifs validés par ATM le 30 juillet 2026.", ht: "Pri an dola ameriken, san livrezon ak san taks. ATM valide pri sa yo 30 jiyè 2026.", en: "Prices in US dollars, excluding delivery and tax. Approved by ATM on 30 July 2026.", es: "Precios en dólares estadounidenses, sin envío ni impuestos. Tarifas validadas por ATM el 30 de julio de 2026." },
+    "co.gratis": { fr: "Gratuit", ht: "Gratis", en: "Free", es: "Gratis" },
+
+    "co.ck": { fr: "Calendrier commercial", ht: "Kalandriye komèsyal", en: "Commercial calendar", es: "Calendario comercial" },
+    "co.ch": { fr: "Dix rendez-vous par an, pas une vente au hasard", ht: "Dis randevou chak ane, se pa yon vant o aza", en: "Ten appointments a year, not random selling", es: "Diez citas al año, no una venta al azar" },
+    "co.cp": { fr: "Chaque temps fort a son public, son offre et son délai de préparation. Une campagne lancée trop tard ne se rattrape pas.", ht: "Chak gwo moman gen piblik pa l, òf pa l ak tan li mande pou prepare l. Yon kanpay ki kòmanse twò ta pa ka rattrape.", en: "Every key moment has its audience, its offer and its lead time. A campaign launched late cannot be caught up.", es: "Cada momento fuerte tiene su público, su oferta y su plazo de preparación. Una campaña lanzada tarde no se recupera." },
+    "co.prep": { fr: "préparer {n} semaines avant", ht: "kòmanse prepare l {n} semèn davans", en: "start {n} weeks ahead", es: "preparar {n} semanas antes" },
+
+    "co.lk": { fr: "Licences", ht: "Lisans", en: "Licences", es: "Licencias" },
+    "co.lh": { fr: "Sept façons d'autoriser un usage", ht: "Sèt fason pou bay dwa itilize yon zèv", en: "Seven ways to authorise a use", es: "Siete maneras de autorizar un uso" },
+
+    "co.dk": { fr: "Axe diaspora", ht: "Aks dyaspora", en: "Diaspora axis", es: "Eje diáspora" },
+    "co.dh": { fr: "La diaspora n'est pas un public nostalgique", ht: "Dyaspora a se pa yon piblik k ap kriye sou tan lontan", en: "The diaspora is not a nostalgic audience", es: "La diáspora no es un público nostálgico" },
+    "co.dp": { fr: "C'est une infrastructure : financement familial, circulation de compétences, ouverture de marchés, diffusion internationale, influence institutionnelle. Toute œuvre, tout argumentaire relie l'émotion à une capacité d'agir.", ht: "Se yon estrikti : lajan pou fanmi, konesans k ap sikile, mache k ap louvri, difizyon entènasyonal, enfliyans nan enstitisyon. Chak zèv, chak agiman mare emosyon ak kapasite pou aji.", en: "It is infrastructure: family financing, circulating skills, opening markets, international reach, institutional influence. Every work and every pitch ties emotion to the capacity to act.", es: "Es una infraestructura: financiación familiar, circulación de competencias, apertura de mercados, difusión internacional, influencia institucional. Cada obra y cada argumento une la emoción con la capacidad de actuar." },
+    "co.dseg": { fr: "Six segments, jamais un bloc", ht: "Sis segman, pa yon sèl blòk", en: "Six segments, never one block", es: "Seis segmentos, nunca un bloque" },
+    "co.dsec": { fr: "Sept secteurs où l'effet est concret", ht: "Sèt sektè kote enpak la reyèl", en: "Seven sectors with concrete effect", es: "Siete sectores con efecto concreto" },
+
+    "co.rk": { fr: "Feuille de route", ht: "Plan travay", en: "Roadmap", es: "Hoja de ruta" },
+    "co.rh": { fr: "L'ordre de construction, tel qu'il est écrit", ht: "Lòd travay la, jan yo ekri l la", en: "The build order, as written", es: "El orden de construcción, tal como está escrito" },
+    "co.rp": { fr: "Mieux vaut cinq à huit œuvres totalement déclinables que quinze œuvres mal exploitées. Cette page suivra l'avancement réel, pas les intentions.", ht: "Li pi bon pou gen senk rive uit zèv ki byen deklinen nèt pase kenz zèv ki mal itilize. Paj sa a ap swiv sa ki fèt toutbon, pa sa nou gen entansyon fè.", en: "Better five to eight works fully declined than fifteen works poorly exploited. This page will track real progress, not intentions.", es: "Mejor de cinco a ocho obras totalmente declinadas que quince mal explotadas. Esta página seguirá el avance real, no las intenciones." },
+    "co.r1": { fr: "Construire 5 à 8 œuvres vitrines avec gamme complète", ht: "Bati 5 rive 8 zèv vitrin ak tout gam yo konplè", en: "Build 5 to 8 flagship works with a complete range", es: "Construir de 5 a 8 obras escaparate con gama completa" },
+    "co.r2": { fr: "Installer 3 lignes lisibles : circulation · maison/cadeau · institution/entreprise", ht: "Mete 3 liy klè : sikilasyon · lakay/kado · enstitisyon/antrepriz", en: "Set up 3 clear lines: circulation · home/gift · institution/business", es: "Instalar 3 líneas claras: circulación · casa/regalo · institución/empresa" },
+    "co.r3": { fr: "Faire de la voix un marqueur systématique (une voix + un QR par œuvre)", ht: "Fè vwa a tounen yon mak sistematik (yon vwa + yon kòd QR pou chak zèv)", en: "Make the voice systematic (one voice + one QR per work)", es: "Hacer de la voz un marcador sistemático (una voz y un QR por obra)" },
+    "co.r4": { fr: "Préparer les bundles avant la prospection", ht: "Prepare pakè yo anvan nou al chèche kliyan", en: "Prepare the bundles before prospecting", es: "Preparar los packs antes de prospectar" },
+    "co.r5": { fr: "Organiser le calendrier : rentrée, fêtes, saison touristique, temps forts diaspora", ht: "Òganize kalandriye a : larantre, fèt, sezon touris, gwo moman dyaspora", en: "Organise the calendar: back-to-school, holidays, tourist season, diaspora moments", es: "Organizar el calendario: vuelta a clases, fiestas, temporada turística, momentos de la diáspora" },
+    "co.r6": { fr: "Segmenter la diaspora de manière exploitable", ht: "Separe dyaspora a an segman nou ka travay avè yo", en: "Segment the diaspora in a usable way", es: "Segmentar la diáspora de forma utilizable" },
+    "co.r7": { fr: "Activer les secteurs où l'effet sur le quotidien est immédiat", ht: "Aktive sektè kote enpak sou lavi chak jou a rive vit", en: "Activate the sectors with immediate everyday effect", es: "Activar los sectores con efecto inmediato en la vida diaria" },
+    "co.soon": { fr: "à produire", ht: "pou fèt", en: "to be produced", es: "por producir" }
+  });
+
+  function fill(D) {
+    var C = D.C, byId = {};
+    D.works.forEach(function (w) { byId[w.id] = w; });
+    var cpt = {}; C.concepts.forEach(function (c) { cpt[c.id] = c; });
+
+    document.getElementById("univers").innerHTML = C.univers.map(function (u) {
+      var real = u.works.map(function (id) {
+        var w = byId[id];
+        return w ? '<a href="oeuvre.html?o=' + w.id + '">' + w.t + "</a>" : "";
+      }).join("");
+      var conc = u.concepts.map(function (id) {
+        var c = cpt[id];
+        return c ? '<span class="soon">' + c.t + " · " + ATM.T("co.soon") + "</span>" : "";
+      }).join("");
+      return '<div class="uni"><span class="num">' + u.n + " · " + u.emo + "</span>" +
+        "<h3>" + ATM.V(u.t) + "</h3><p class=\"art-note\">" + ATM.V(u.d) + "</p>" +
+        '<div class="row">' + real + conc + "</div></div>";
+    }).join("");
+
+    document.getElementById("gammes").innerHTML = C.gammes.map(function (g, i) {
+      return '<div class="offer' + (i === 1 ? " feat" : "") + '"><span class="tag">0' + (i + 1) + "</span>" +
+        "<h3>" + ATM.V(g.t) + "</h3><p class=\"art-note\">" + ATM.V(g.d) + "</p><ul><li>" +
+        ATM.V(g.p) + "</li><li>" + ATM.V(g.k) + "</li></ul></div>";
+    }).join("");
+
+    document.getElementById("supports").innerHTML = C.supports.map(function (s) {
+      return "<div><b>" + s.emo + " " + ATM.V(s.t) + "</b><small>" + ATM.V(s.u) + "</small></div>";
+    }).join("");
+
+    var sup = {}; C.supports.forEach(function (s) { sup[s.id] = s; });
+    var bAll = {};
+    C.bundles.b2c.concat(C.bundles.b2b).forEach(function (b) { bAll[b.id] = b; });
+    function prix(b, apd) {
+      return '<p class="price">' + (apd ? '<small style="margin:0 0 0.1rem">' + ATM.V(C.bundles._apd) + "</small>" : "") +
+        b.px + " $<small>" + ATM.V(b.pxu) + "</small></p>";
+    }
+    function pack(b, feat, apd) {
+      return '<div class="offer' + (feat ? " feat" : "") + '"><h3>' + ATM.V(b.t) + "</h3>" +
+        prix(b, apd) +
+        "<ul>" + b.c.map(function (id) {
+          return "<li>" + (sup[id] ? ATM.V(sup[id].t) : id) + "</li>";
+        }).join("") + '</ul><p class="art-note">' + ATM.V(b.o) + "</p></div>";
+    }
+    document.getElementById("b2c").innerHTML = C.bundles.b2c.map(function (b, i) { return pack(b, i === 2, false); }).join("");
+    document.getElementById("b2b").innerHTML = C.bundles.b2b.map(function (b, i) { return pack(b, i === 6, true); }).join("");
+
+    document.getElementById("tarifs").innerHTML = C.tarifs.map(function (t) {
+      var s = sup[t.s];
+      return "<div><b>" + (s ? s.emo + " " + ATM.V(s.t) : t.s) + "</b>" +
+        '<span style="display:block;font-family:var(--font-head);color:var(--teal);font-size:1.15rem">' +
+        (t.px ? t.px + " $" : ATM.T("co.gratis")) + "</span><small>" + ATM.V(t.n) + "</small></div>";
+    }).join("");
+
+    document.getElementById("calendrier").innerHTML = C.calendrier.map(function (c) {
+      var packs = c.b.map(function (id) {
+        var b = bAll[id];
+        return b ? '<span class="cal-b">' + ATM.V(b.t) + " · " + b.px + " $</span>" : "";
+      }).join("");
+      return '<div class="cal"><span class="cal-m">' + c.m + "</span><div>" +
+        "<b>" + ATM.V(c.t) + "</b>" +
+        '<small class="cal-pub">' + ATM.V(c.pub) + "</small>" +
+        "<p>" + ATM.V(c.off) + "</p>" +
+        '<div class="cal-row">' + packs + '<span class="cal-prep">' +
+        ATM.T("co.prep").replace("{n}", c.prep) + "</span></div></div></div>";
+    }).join("");
+
+    document.getElementById("licences").innerHTML = C.licences.map(function (l) {
+      return "<li><b style=\"color:#fff\">" + ATM.V(l.t) + "</b> — " + ATM.V(l.p) + "</li>";
+    }).join("");
+
+    document.getElementById("segments").innerHTML = C.diaspora.segments.map(function (s) {
+      return "<li>" + ATM.V(s.t) + "</li>";
+    }).join("");
+    document.getElementById("secteurs").innerHTML = C.diaspora.secteurs.map(function (s) {
+      return "<li>" + ATM.V(s.t) + "</li>";
+    }).join("");
+
+    document.getElementById("priorites").innerHTML = ["co.r1", "co.r2", "co.r3", "co.r4", "co.r5", "co.r6", "co.r7"]
+      .map(function (k) { return "<li>" + ATM.T(k) + "</li>"; }).join("");
+  }
+
+  var D = null;
+  ATM.paint();
+  ATM.data().then(function (d) { D = d; fill(D); });
+  ATM.onLang(function () { if (D) fill(D); });
+})();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+<script src="assets/launcher.js?v=3"></script>
+</body>
+</html>

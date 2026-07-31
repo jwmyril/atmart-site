@@ -54,7 +54,18 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <li><a href="outils.html" data-i18n="foot.tools">Outils &amp; sources de données</a></li>
         </ul>
       </li>
-      <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+      <li class="nav-grp"><span data-i18n="nav.atelier">🎨 Atelier</span>
+        <ul class="nav-sub">
+          <li><a href="atelier.html"><span data-i18n="nav.a_gal">Galerie</span> <small data-i18n="nav.a_gal_s">les œuvres d'ATM</small></a></li>
+          <li><a href="atelier-collection.html"><span data-i18n="nav.a_col">La collection</span> <small data-i18n="nav.a_col_s">univers, gammes, bundles</small></a></li>
+          <li><a href="atelier-maison.html"><span data-i18n="nav.a_mez">Pour la maison</span> <small data-i18n="nav.a_mez_s">affiches, originaux, cadeaux</small></a></li>
+          <li><a href="atelier-business.html"><span data-i18n="nav.a_biz">Pour le business</span> <small data-i18n="nav.a_biz_s">écrans &amp; licences</small></a></li>
+          <li><a href="atelier-diaspora.html"><span data-i18n="nav.a_dya">Diaspora</span> <small data-i18n="nav.a_dya_s">une offre par segment</small></a></li>
+          <li><a href="atelier-institutions.html"><span data-i18n="nav.a_fin">Financer l'accès</span> <small data-i18n="nav.a_fin_s">parrainer une communauté</small></a></li>
+          <li><a href="impact.html"><span data-i18n="nav.a_imp">Recevoir une impression</span> <small data-i18n="nav.a_imp_s">programmes parrainés</small></a></li>
+          <li><a href="atelier-artistes.html"><span data-i18n="nav.a_art">Artistes</span> <small data-i18n="nav.a_art_s">rejoindre le programme</small></a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
 </header>
@@ -109,7 +120,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         <b>Formation360</b><span data-i18n="pg.fom">Du projet de formation à la preuve : séances, tests, rapport pour le bailleur.</span>
         <em data-i18n="pg.more">Découvrir →</em></a>
       <a class="prod-card" href="atelier.html"><span class="ic">🎨</span>
-        <b data-i18n="pg.art_t">Atelier ATM</b><span data-i18n="pg.art">Les œuvres originales d'ATM, artiste peintre diplômée de l'ENARTS.</span>
+        <b data-i18n="pg.art_t">Atelier ATM</b><span data-i18n="pg.art">L'art d'ATM en numérique : image, voix, clip et affiche — gratuit pour le public.</span>
         <em data-i18n="pg.more">Découvrir →</em></a>
       <a class="prod-card" href="datasets.html"><span class="ic">🗂</span>
         <b>Datasets</b><span data-i18n="pg.data">Des données rares, nettoyées et documentées, prêtes à l'analyse.</span>
@@ -304,9 +315,10 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         <img src="assets/atelier/oeuvre-10.jpg" alt="Gratitude — ATM" style="width:110px;height:110px;object-fit:cover;border-radius:10px" loading="lazy" />
       </div>
       <div style="flex:1;min-width:260px">
-        <h2 style="margin:0 0 0.4rem" data-i18n="at2.home_title">🎨 Atelier ATM — art original</h2>
-        <p style="color:#d7e3f0;margin:0 0 0.9rem" data-i18n="at2.home_desc">Les œuvres originales d'Andrelita T. Myril (ATM), artiste peintre diplômée de l'ENARTS — les couleurs d'Haïti et de la Caraïbe, pour votre maison ou votre bureau. Prix sur demande.</p>
+        <h2 style="margin:0 0 0.4rem" data-i18n="at2.home_title">🎨 Atelier ATM — l'art numérique, partout</h2>
+        <p style="color:#d7e3f0;margin:0 0 0.9rem" data-i18n="at2.home_desc">Les œuvres d'Andrelita T. Myril (ATM) deviennent des expériences numériques : image, voix, clip, affiche. Gratuit à voir et à écouter ; les institutions financent l'accès et les impressions pour une communauté. Originaux toujours disponibles, prix sur demande.</p>
         <a href="atelier.html" class="btn btn-primary" data-i18n="at2.home_cta">Visiter l'Atelier</a>
+        <a href="atelier-institutions.html" class="btn btn-outline" style="margin-left:0.5rem" data-i18n="at2.home_cta2">Financer l'accès</a>
       </div>
     </div>
   </div>

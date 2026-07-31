@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <title>L'art pour la maison — Atelier ATM | Atmart</title>
+  <meta name="description" content="L'art d'ATM chez vous : galerie et voix gratuites, votre téléviseur transformé en galerie, affiches imprimées près de chez vous, originaux signés et commandes personnalisées." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#060c15" />
+  <link rel="stylesheet" href="assets/style.css?v=31" />
+  <link rel="stylesheet" href="assets/atelier.css?v=2" />
+<script>/* langue auto : avant le 1er affichage, evite le clignotement */
+(function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
+s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
+var l=s&&S[s]?s:null;
+if(!l){var n=navigator.languages||[navigator.language||""];
+for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().split("-")[0];
+if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
+window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;
+if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove("i18n-wait")},1500)}})();
+</script>
+</head>
+<body class="art">
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="conseil-ia.html" data-i18n="nav.advisory">💼 Entreprises</a></li>
+      <li class="nav-grp"><span data-i18n="nav.atelier">🎨 Atelier</span>
+        <ul class="nav-sub">
+          <li><a href="atelier.html"><span data-i18n="nav.a_gal">Galerie</span> <small data-i18n="nav.a_gal_s">les œuvres d'ATM</small></a></li>
+          <li><a href="atelier-collection.html"><span data-i18n="nav.a_col">La collection</span> <small data-i18n="nav.a_col_s">univers, gammes, bundles</small></a></li>
+          <li><a href="atelier-maison.html"><span data-i18n="nav.a_mez">Pour la maison</span> <small data-i18n="nav.a_mez_s">affiches, originaux, cadeaux</small></a></li>
+          <li><a href="atelier-business.html"><span data-i18n="nav.a_biz">Pour le business</span> <small data-i18n="nav.a_biz_s">écrans &amp; licences</small></a></li>
+          <li><a href="atelier-diaspora.html"><span data-i18n="nav.a_dya">Diaspora</span> <small data-i18n="nav.a_dya_s">une offre par segment</small></a></li>
+          <li><a href="atelier-institutions.html"><span data-i18n="nav.a_fin">Financer l'accès</span> <small data-i18n="nav.a_fin_s">parrainer une communauté</small></a></li>
+          <li><a href="impact.html"><span data-i18n="nav.a_imp">Recevoir une impression</span> <small data-i18n="nav.a_imp_s">programmes parrainés</small></a></li>
+          <li><a href="atelier-artistes.html"><span data-i18n="nav.a_art">Artistes</span> <small data-i18n="nav.a_art_s">rejoindre le programme</small></a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<section class="art-hero" style="padding:0;min-height:56vh">
+  <div class="art-hero-bg" id="hero-bg"></div>
+  <div class="art-hero-in">
+    <div class="art-wide">
+      <p class="art-lbl" data-s="mz.k"></p>
+      <h1 style="max-width:20ch" data-s="mz.h"></h1>
+      <p data-s="mz.p"></p>
+      <div class="cta-row">
+        <a href="atelier.html#collection" class="btn btn-primary" data-s="a.free"></a>
+        <a href="#affiche" class="btn btn-outline" data-s="mz.b2"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRATUIT -->
+<section>
+  <div class="art-wide">
+    <p class="art-lbl" data-s="mz.gk"></p>
+    <h2 class="art-h" data-s="mz.gh"></h2>
+    <div class="becomes" style="margin-top:1.3rem">
+      <div><span>🖼</span><b data-s="mz.g1"></b><small data-s="mz.g1d"></small></div>
+      <div><span>🎙</span><b data-s="mz.g2"></b><small data-s="mz.g2d"></small></div>
+      <div><span>🎬</span><b data-s="mz.g3"></b><small data-s="mz.g3d"></small></div>
+      <div><span>💌</span><b data-s="mz.g4"></b><small data-s="mz.g4d"></small></div>
+    </div>
+    <p class="art-note" style="margin-top:1rem" data-s="mz.gn"></p>
+  </div>
+</section>
+
+<!-- TÉLÉVISEUR -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <div class="strip">
+      <div class="s-media"><img id="tv-img" alt="" /></div>
+      <div>
+        <p class="art-lbl" data-s="mz.tk"></p>
+        <h2 class="art-h" data-s="mz.th"></h2>
+        <p class="art-sub" data-s="mz.tp"></p>
+        <ul class="s-list">
+          <li data-s="mz.t1"></li>
+          <li data-s="mz.t2"></li>
+          <li data-s="mz.t3"></li>
+        </ul>
+        <p style="margin-top:1.3rem"><a href="atelier.html#collection" class="btn btn-outline" data-s="p1.go"></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AFFICHE -->
+<section id="affiche" style="padding-top:0">
+  <div class="art-wide">
+    <div class="strip rev">
+      <div class="s-media"><img id="pr-img" alt="" /></div>
+      <div>
+        <p class="art-lbl" data-s="mz.ak"></p>
+        <h2 class="art-h" data-s="mz.ah"></h2>
+        <p class="art-sub" data-s="mz.ap"></p>
+        <ul class="s-list">
+          <li data-s="mz.a1"></li>
+          <li data-s="mz.a2"></li>
+          <li data-s="mz.a3"></li>
+        </ul>
+        <p style="margin-top:1.3rem">
+          <a href="#demande" class="btn btn-primary" data-s="mz.ab"></a>
+          <a href="impact.html" style="margin-left:0.8rem;font-size:0.9rem" data-s="mz.ac"></a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORIGINAL & COMMANDE -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <div class="offers">
+      <div class="offer">
+        <span class="tag">01</span>
+        <h3 data-s="mz.o1"></h3>
+        <p class="price" data-s="mz.od"></p>
+        <ul>
+          <li data-s="mz.o1a"></li>
+          <li data-s="mz.o1b"></li>
+          <li data-s="mz.o1c"></li>
+        </ul>
+        <a class="btn btn-outline" href="atelier.html#collection" data-s="p1.go"></a>
+      </div>
+      <div class="offer feat">
+        <span class="tag">02</span>
+        <h3 data-s="mz.o2"></h3>
+        <p class="price" data-s="mz.od"></p>
+        <ul>
+          <li data-s="mz.o2a"></li>
+          <li data-s="mz.o2b"></li>
+          <li data-s="mz.o2c"></li>
+        </ul>
+        <a class="btn btn-primary" href="#demande" data-s="mz.o2b2"></a>
+      </div>
+      <div class="offer">
+        <span class="tag">03</span>
+        <h3 data-s="mz.o3"></h3>
+        <p class="price" data-s="mz.od"></p>
+        <ul>
+          <li data-s="mz.o3a"></li>
+          <li data-s="mz.o3b"></li>
+          <li data-s="mz.o3c"></li>
+        </ul>
+        <a class="btn btn-outline" href="#demande" data-s="mz.o3b2"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUNDLES -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="mz.pk"></p>
+    <h2 class="art-h" data-s="mz.ph"></h2>
+    <p class="art-sub" data-s="mz.pp"></p>
+    <div class="offers" id="bundles" style="margin-top:1.4rem"></div>
+    <p class="art-note" style="margin-top:1rem" data-s="dy.bn"></p>
+  </div>
+</section>
+
+<!-- DEMANDE -->
+<section id="demande" style="padding-top:0">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="mz.fk"></p>
+    <h2 class="art-h" data-s="mz.fh"></h2>
+    <form class="art-form" id="home-form" style="margin-top:1.3rem">
+      <div class="two">
+        <div><label data-s="mz.f1"></label>
+          <select name="objet" id="f-objet"></select>
+        </div>
+        <div><label data-s="im.f1"></label><input name="oeuvre" id="f-oeuvre" /></div>
+      </div>
+      <div class="two">
+        <div><label data-s="ct.f2"></label><input name="nom" required /></div>
+        <div><label data-s="ct.f3"></label><input name="email" type="email" required /></div>
+      </div>
+      <div><label data-s="mz.f2"></label><textarea name="msg" rows="4"></textarea></div>
+      <div><button class="btn btn-primary" type="submit" data-s="mz.fb"></button></div>
+      <p class="art-note" data-s="im.fn"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
+        <ul>
+          <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+          <li><a href="atelier-business.html" data-s="nv.biz"></a></li>
+          <li><a href="atelier-artistes.html" data-s="nv.art"></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-note">© Atmart LLC — <span data-i18n="foot.rights">Tous droits réservés.</span></p>
+  </div>
+</footer>
+
+<script src="assets/script.js?v=2"></script>
+<script src="assets/i18n.js?v=10"></script>
+<script src="assets/atelier.js?v=3"></script>
+<script>
+(function () {
+  "use strict";
+  Object.assign(ATM.S, {
+    "mz.k": { fr: "Pour la maison", ht: "Pou lakay ou", en: "For the home", es: "Para la casa" },
+    "mz.h": { fr: "De la couleur chez vous, sans passer par une galerie", ht: "Mete koulè lakay ou, san w pa bezwen pase nan yon galri", en: "Colour in your home, without going through a gallery", es: "Color en su casa, sin pasar por una galería" },
+    "mz.p": {
+      fr: "Regarder, écouter et partager ne coûte rien. Si vous voulez l'œuvre au mur, vous avez trois chemins : l'affiche imprimée près de chez vous, l'original signé, ou une toile peinte pour vous.",
+      ht: "Gade, koute ak pataje pa koute w anyen. Si w vle zèv la sou mi w, gen twa chemen : afich yo enprime toupre w, orijinal la ak siyati atis la, oswa yon tablo yo penn espesyalman pou ou.",
+      en: "Looking, listening and sharing costs nothing. If you want the work on your wall, there are three ways: a poster printed near you, the signed original, or a canvas painted for you.",
+      es: "Mirar, escuchar y compartir no cuesta nada. Si quiere la obra en su pared, hay tres caminos: el cartel impreso cerca de usted, el original firmado o un lienzo pintado para usted."
+    },
+    "mz.b2": { fr: "Voir les affiches", ht: "Gade afich yo", en: "See the posters", es: "Ver los carteles" },
+
+    "mz.gk": { fr: "Gratuit", ht: "Gratis", en: "Free", es: "Gratis" },
+    "mz.gh": { fr: "Ce que vous avez sans rien payer", ht: "Sa w genyen san w pa peye anyen", en: "What you get without paying", es: "Lo que tiene sin pagar nada" },
+    "mz.g1": { fr: "Toute la collection", ht: "Tout koleksyon an", en: "The whole collection", es: "Toda la colección" },
+    "mz.g1d": { fr: "12 œuvres en haute définition d'écran, sans compte.", ht: "12 zèv nan bon kalite pou ekran, san kont.", en: "12 works in screen quality, no account.", es: "12 obras en calidad de pantalla, sin cuenta." },
+    "mz.g2": { fr: "L'histoire de chaque toile", ht: "Istwa chak tablo", en: "The story of each canvas", es: "La historia de cada lienzo" },
+    "mz.g2d": { fr: "Le récit écrit, bientôt la voix d'ATM.", ht: "Istwa a ekri, epi talè konsa vwa ATM.", en: "The written story, soon ATM's voice.", es: "El relato escrito y pronto la voz de ATM." },
+    "mz.g3": { fr: "Les clips courts", ht: "Ti videyo yo", en: "Short clips", es: "Clips cortos" },
+    "mz.g3d": { fr: "Format téléphone, à envoyer sur WhatsApp.", ht: "Fòma telefòn, pou voye sou WhatsApp.", en: "Phone format, to send on WhatsApp.", es: "Formato teléfono, para enviar por WhatsApp." },
+    "mz.g4": { fr: "Une carte à offrir", ht: "Yon kat pou ofri", en: "A card to send", es: "Una tarjeta para regalar" },
+    "mz.g4d": { fr: "Une œuvre + une phrase, envoyée à quelqu'un.", ht: "Yon zèv + yon fraz, ou voye l bay yon moun.", en: "A work plus a line, sent to someone.", es: "Una obra y una frase, enviadas a alguien." },
+    "mz.gn": { fr: "Aucune inscription, aucune publicité, aucun suivi publicitaire. C'est le principe du programme : le revenu ne décide pas qui peut voir l'art.", ht: "Ou pa bezwen enskri, pa gen reklam, pa gen suiv. Se prensip pwogram nan : lajan yon moun genyen pa deside si l ka wè atizana.", en: "No sign-up, no ads, no ad tracking. That is the principle: income does not decide who gets to see art.", es: "Sin registro, sin publicidad, sin rastreo. Ese es el principio: los ingresos no deciden quién puede ver arte." },
+
+    "mz.tk": { fr: "Votre téléviseur", ht: "Televizyon w lan", en: "Your TV", es: "Su televisor" },
+    "mz.th": { fr: "Un mur qui change tous les jours", ht: "Yon mi ki chanje chak jou", en: "A wall that changes every day", es: "Una pared que cambia cada día" },
+    "mz.tp": {
+      fr: "Ouvrez la collection sur le navigateur de votre télé connectée, ou envoyez l'écran depuis votre téléphone. Les œuvres défilent en plein écran, sur fond sombre — l'écran éteint devient une toile.",
+      ht: "Louvri koleksyon an nan navigatè televizyon konekte w la, oswa voye ekran an soti sou telefòn ou. Zèv yo pase youn apre lòt sou tout ekran an, sou yon fon fonse — ekran ki te tenyen an tounen yon tablo.",
+      en: "Open the collection in your smart TV's browser, or cast it from your phone. The works play full screen on a dark background — the blank screen becomes a canvas.",
+      es: "Abra la colección en el navegador de su televisor, o transmítala desde el teléfono. Las obras pasan a pantalla completa sobre fondo oscuro: la pantalla apagada se vuelve un lienzo."
+    },
+    "mz.t1": { fr: "Rien à installer, rien à acheter", ht: "Pa gen anyen pou enstale, pa gen anyen pou achte", en: "Nothing to install, nothing to buy", es: "Nada que instalar, nada que comprar" },
+    "mz.t2": { fr: "Fonctionne sur tablette et ordinateur", ht: "Li mache sou tablèt ak sou òdinatè tou", en: "Works on tablet and computer too", es: "Funciona en tableta y computadora" },
+    "mz.t3": { fr: "Version salon avec voix et musique : en préparation", ht: "Vèsyon salon ak vwa e mizik : n ap prepare l", en: "Living-room version with voice and music: in preparation", es: "Versión de salón con voz y música: en preparación" },
+
+    "mz.ak": { fr: "L'affiche", ht: "Afich la", en: "The poster", es: "El cartel" },
+    "mz.ah": { fr: "Imprimée près de chez vous, pas expédiée d'ailleurs", ht: "Yo enprime l toupre w, yo pa voye l soti lòt kote", en: "Printed near you, not shipped from elsewhere", es: "Impresa cerca de usted, no enviada desde lejos" },
+    "mz.ap": {
+      fr: "Vous choisissez l'œuvre et le format ; nous passons la commande chez un imprimeur proche de votre adresse. Vous récupérez ou vous faites livrer, sans attendre un colis venu de l'étranger.",
+      ht: "Ou chwazi zèv la ak fòma a ; nou pase kòmand lan lakay yon enprimè ki toupre adrès ou. Ou pase pran l oswa yo livre w li, san w pa rete tann yon pake k ap soti lòt peyi.",
+      en: "You pick the work and the size; we place the order with a printer near your address. You collect it or have it delivered, with no parcel coming from abroad.",
+      es: "Usted elige la obra y el formato; hacemos el pedido en una imprenta cercana a su dirección. Lo recoge o se lo entregan, sin paquetes desde el extranjero."
+    },
+    "mz.a1": { fr: "Lettre 8,5 × 11 po · Affiche 12 × 18 po · Grand format 18 × 24 po", ht: "Lèt 8,5 × 11 po · Afich 12 × 18 po · Gwo fòma 18 × 24 po", en: "Letter 8.5 × 11 in · Poster 12 × 18 in · Large 18 × 24 in", es: "Carta 8,5 × 11 in · Cartel 12 × 18 in · Gran formato 18 × 24 in" },
+    "mz.a2": { fr: "Prix selon le format et l'imprimeur — nous vous le donnons avant de commander", ht: "Pri a depann de fòma a ak enprimè a — n ap di w li anvan nou kòmande", en: "Price depends on size and printer — we tell you before ordering", es: "El precio depende del formato y la imprenta; se lo decimos antes de pedir" },
+    "mz.a3": { fr: "Signature d'ATM et titre imprimés au bas de l'affiche", ht: "Siyati ATM ak tit la enprime anba afich la", en: "ATM's signature and the title printed at the bottom", es: "Firma de ATM y título impresos al pie" },
+    "mz.ab": { fr: "Demander une affiche", ht: "Mande yon afich", en: "Request a poster", es: "Solicitar un cartel" },
+    "mz.ac": { fr: "ou vérifier si votre communauté est parrainée →", ht: "oswa tcheke si gen yon patnè k ap sipòte kominote w la →", en: "or check whether your community is sponsored →", es: "o compruebe si su comunidad está apadrinada →" },
+
+    "mz.od": { fr: "Prix sur demande", ht: "Pri sou demann", en: "Price on request", es: "Precio a pedido" },
+    "mz.o1": { fr: "Une œuvre originale", ht: "Yon zèv orijinal", en: "An original work", es: "Una obra original" },
+    "mz.o1a": { fr: "Toile unique, signée par l'artiste", ht: "Yon sèl tablo, atis la siyen l", en: "Unique canvas, signed by the artist", es: "Lienzo único, firmado por la artista" },
+    "mz.o1b": { fr: "Certificat et histoire de l'œuvre fournis", ht: "Sètifika ak istwa zèv la ale avè l", en: "Certificate and story of the work included", es: "Certificado e historia de la obra incluidos" },
+    "mz.o1c": { fr: "Transport et encadrement étudiés avec vous", ht: "N ap wè ansanm pou transpò a ak ankadreman an", en: "Shipping and framing worked out with you", es: "Transporte y enmarcado acordados con usted" },
+    "mz.o2": { fr: "Une toile peinte pour vous", ht: "Yon tablo yo penn pou ou", en: "A canvas painted for you", es: "Un lienzo pintado para usted" },
+    "mz.o2a": { fr: "Portrait, paysage, sujet de famille", ht: "Pòtre, peyizaj, yon sijè sou fanmi w", en: "Portrait, landscape, family subject", es: "Retrato, paisaje, tema familiar" },
+    "mz.o2b": { fr: "Dimensions et couleurs choisies avec vous", ht: "N ap chwazi gwosè a ak koulè yo ansanm avè w", en: "Size and colours chosen with you", es: "Medidas y colores elegidos con usted" },
+    "mz.o2c": { fr: "Version numérique de l'œuvre offerte", ht: "N ap ba w vèsyon nimerik zèv la gratis", en: "Digital version of the work included", es: "Versión digital de la obra incluida" },
+    "mz.o2b2": { fr: "Décrire mon projet", ht: "Esplike pwojè m nan", en: "Describe my project", es: "Describir mi proyecto" },
+    "mz.o3": { fr: "Offrir une œuvre", ht: "Ofri yon zèv", en: "Give a work", es: "Regalar una obra" },
+    "mz.o3a": { fr: "Affiche ou original, avec un mot de votre part", ht: "Afich oswa orijinal, ak yon ti mo ou ekri", en: "Poster or original, with a note from you", es: "Cartel u original, con unas palabras suyas" },
+    "mz.o3b": { fr: "Carte numérique envoyée le jour que vous choisissez", ht: "Yon kat nimerik ki rive jou ou chwazi a", en: "Digital card delivered on the day you choose", es: "Tarjeta digital enviada el día que elija" },
+    "mz.o3c": { fr: "Mariage, naissance, départ à la retraite, remerciement", ht: "Maryaj, nesans, retrèt, yon mèsi", en: "Wedding, birth, retirement, a thank-you", es: "Boda, nacimiento, jubilación, un agradecimiento" },
+    "mz.o3b2": { fr: "Préparer un cadeau", ht: "Prepare yon kado", en: "Prepare a gift", es: "Preparar un regalo" },
+
+    "mz.fk": { fr: "Écrire à l'Atelier", ht: "Ekri Atelye a", en: "Write to the studio", es: "Escribir al taller" },
+    "mz.fh": { fr: "Dites-nous ce que vous cherchez", ht: "Di nou sa w ap chèche", en: "Tell us what you are looking for", es: "Díganos qué busca" },
+    "mz.f1": { fr: "Votre demande", ht: "Demann ou an", en: "Your request", es: "Su solicitud" },
+    "mz.f2": { fr: "Précisions (pièce, couleurs, occasion, budget)", ht: "Detay (nan ki pyès, ki koulè, ki okazyon, ki bidjè)", en: "Details (room, colours, occasion, budget)", es: "Detalles (habitación, colores, ocasión, presupuesto)" },
+    "mz.fb": { fr: "Envoyer", ht: "Voye l", en: "Send", es: "Enviar" },
+    "mz.op1": { fr: "Une affiche imprimée", ht: "Yon afich enprime", en: "A printed poster", es: "Un cartel impreso" },
+    "mz.op2": { fr: "Une œuvre originale", ht: "Yon zèv orijinal", en: "An original work", es: "Una obra original" },
+    "mz.op3": { fr: "Une toile peinte pour moi", ht: "Yon tablo yo penn pou mwen", en: "A canvas painted for me", es: "Un lienzo pintado para mí" },
+    "mz.op4": { fr: "Un cadeau", ht: "Yon kado", en: "A gift", es: "Un regalo" },
+
+    "nv.biz": { fr: "L'art pour le business", ht: "Atizana pou biznis", en: "Art for business", es: "Arte para empresas" },
+    "nv.art": { fr: "Artistes : rejoindre", ht: "Atis : vin jwenn nou", en: "Artists: join", es: "Artistas: unirse" },
+
+    "mz.pk": { fr: "Ensembles", ht: "Pakè", en: "Bundles", es: "Packs" },
+    "mz.ph": { fr: "Des ensembles déjà composés", ht: "Pakè ki deja pare", en: "Ready-made bundles", es: "Conjuntos ya compuestos" },
+    "mz.pp": { fr: "Commencer petit, compléter une série, offrir, monter en gamme quand vous voulez.", ht: "Kòmanse ak yon ti bagay, konplete yon seri, bay kado, monte nivo lè w vle.", en: "Start small, complete a series, give a gift, trade up when you want.", es: "Empezar pequeño, completar una serie, regalar, subir de gama cuando quiera." },
+    "dy.bn": { fr: "Prix en dollars US, hors livraison et hors taxes.", ht: "Pri an dola ameriken, san livrezon ak san taks.", en: "Prices in US dollars, excluding delivery and tax.", es: "Precios en dólares estadounidenses, sin envío ni impuestos." }
+  });
+
+  var D = null;
+
+  function bundles() {
+    var C = D.C, sup = {};
+    C.supports.forEach(function (s) { sup[s.id] = s; });
+    document.getElementById("bundles").innerHTML = C.bundles.b2c.map(function (b, i) {
+      return '<div class="offer' + (i === 1 ? " feat" : "") + '"><h3>' + ATM.V(b.t) + "</h3>" +
+        '<p class="price">' + b.px + " $<small>" + ATM.V(b.pxu) + "</small></p><ul>" +
+        b.c.map(function (s) { return "<li>" + (sup[s] ? ATM.V(sup[s].t) : s) + "</li>"; }).join("") +
+        '</ul><p class="art-note">' + ATM.V(b.o) + "</p>" +
+        '<a class="btn ' + (i === 1 ? "btn-primary" : "btn-outline") + '" href="#demande">' + ATM.T("mz.ab") + "</a></div>";
+    }).join("");
+  }
+
+  function fillSelect() {
+    var s = document.getElementById("f-objet");
+    s.innerHTML = ["mz.op1", "mz.op2", "mz.op3", "mz.op4"].map(function (k) {
+      return "<option>" + ATM.T(k) + "</option>";
+    }).join("");
+  }
+
+  ATM.paint();
+  fillSelect();
+  ATM.data().then(function (d) {
+    D = d;
+    bundles();
+    var pick = ["soley-an-damye", "liy-ble", "wout-andeyo"];
+    document.getElementById("hero-bg").innerHTML = pick.map(function (id, i) {
+      var w = d.works.filter(function (x) { return x.id === id; })[0];
+      return w ? '<img src="' + ATM.img(w) + '" alt="" class="' + (i ? "" : "on") + '" draggable="false" />' : "";
+    }).join("");
+    var imgs = document.querySelectorAll("#hero-bg img"), i = 0;
+    if (imgs.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setInterval(function () {
+        imgs[i].classList.remove("on"); i = (i + 1) % imgs.length; imgs[i].classList.add("on");
+      }, 6500);
+    }
+    var tv = d.works.filter(function (x) { return x.id === "fet-lannwit"; })[0];
+    var pr = d.works.filter(function (x) { return x.id === "rekonesans"; })[0];
+    if (tv) document.getElementById("tv-img").src = ATM.img(tv);
+    if (pr) document.getElementById("pr-img").src = ATM.img(pr);
+    var q = new URLSearchParams(location.search).get("o");
+    if (q) {
+      var w = d.works.filter(function (x) { return x.id === q; })[0];
+      if (w) document.getElementById("f-oeuvre").value = w.t + " / " + w.tht;
+    }
+  });
+  ATM.onLang(function () { fillSelect(); if (D) bundles(); });
+
+  document.getElementById("home-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = e.target, g = function (n) { return (f.elements[n].value || "—").trim(); };
+    location.href = ATM.mailto("Atelier ATM — " + g("objet"),
+      "Demande : " + g("objet") + "\nŒuvre : " + g("oeuvre") + "\nNom : " + g("nom") +
+      "\nCourriel : " + g("email") + "\n\n" + g("msg") + "\n");
+  });
+})();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+<script src="assets/launcher.js?v=3"></script>
+<script src="assets/share.js?v=3"></script>
+</body>
+</html>

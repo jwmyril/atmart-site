@@ -6,13 +6,17 @@
   <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
-  <title>Atelier ATM — Andrelita T. Myril, artiste peintre | Atmart</title>
-  <meta name="description" content="L'Atelier d'Atmart : les œuvres d'ATM (Andrelita T. Myril), artiste peintre et plasticienne diplômée de l'ENARTS (Haïti). Originaux signés, commandes personnalisées. Prix sur demande." />
+  <title>Atelier ATM — l'art numérique, partout | Atmart</title>
+  <meta name="description" content="Galerie numérique de l'Atelier ATM (Andrelita T. Myril, ENARTS Haïti) : chaque œuvre devient image, voix, clip et affiche. Gratuit pour le public, financé par les institutions." />
+  <meta property="og:title" content="Atelier ATM — l'art numérique, partout" />
+  <meta property="og:description" content="Chaque œuvre devient une expérience numérique : image, voix, mouvement, inspiration. Les institutions financent l'accès." />
+  <meta property="og:image" content="https://atmart.ltd/assets/atelier/clean/oeuvre-05.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <meta name="theme-color" content="#0e2240" />
+  <meta name="theme-color" content="#060c15" />
   <link rel="stylesheet" href="assets/style.css?v=31" />
+  <link rel="stylesheet" href="assets/atelier.css?v=2" />
 <script>/* langue auto : avant le 1er affichage, evite le clignotement */
 (function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
 s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
@@ -23,27 +27,8 @@ if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
 window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;
 if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove("i18n-wait")},1500)}})();
 </script>
-  <style>
-    /* ---- Atelier (page-scoped) ---- */
-    .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.3rem;margin-top:1.4rem}
-    .gal figure{margin:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-    .gal .imgwrap{display:block;aspect-ratio:4/3;overflow:hidden;background:#0b1a30;cursor:zoom-in}
-    .gal video{width:100%;height:100%;object-fit:cover;cursor:default}
-    .gal img,.gal video{user-select:none;-webkit-user-drag:none}
-    .gal img{width:100%;height:100%;object-fit:cover;transition:transform 0.35s}
-    .gal figure:hover img{transform:scale(1.04)}
-    .gal figcaption{padding:0.85rem 1rem 1rem;display:flex;flex-direction:column;gap:0.3rem;flex:1}
-    .gal .t-fr{font-family:"Space Grotesk",sans-serif;font-weight:700;color:#fff;font-size:1.02rem}
-    .gal .t-ht{color:#2ec4b6;font-size:0.85rem}
-    .gal .tech{color:#9db2c7;font-size:0.78rem}
-    .gal .buy{margin-top:auto;padding-top:0.5rem}
-    .gal .buy a{color:#f4a261;font-size:0.85rem;text-decoration:none;border-bottom:1px dashed rgba(244,162,97,0.5)}
-    .gal .buy a:hover{color:#fff}
-    .at-bio{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-left:4px solid #f4a261;border-radius:14px;padding:1.3rem 1.5rem;max-width:900px}
-    .at-mark{color:#f4a261;font-weight:600}
-  </style>
 </head>
-<body>
+<body class="art">
 
 <header>
   <nav class="nav">
@@ -71,40 +56,218 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <li><a href="outils.html" data-i18n="foot.tools">Outils &amp; sources de données</a></li>
         </ul>
       </li>
-      <li><a href="atelier.html" class="active" data-i18n="nav.atelier">🎨 Atelier</a></li>
+      <li class="nav-grp"><span data-i18n="nav.atelier">🎨 Atelier</span>
+        <ul class="nav-sub">
+          <li><a href="atelier.html"><span data-i18n="nav.a_gal">Galerie</span> <small data-i18n="nav.a_gal_s">les œuvres d'ATM</small></a></li>
+          <li><a href="atelier-collection.html"><span data-i18n="nav.a_col">La collection</span> <small data-i18n="nav.a_col_s">univers, gammes, bundles</small></a></li>
+          <li><a href="atelier-maison.html"><span data-i18n="nav.a_mez">Pour la maison</span> <small data-i18n="nav.a_mez_s">affiches, originaux, cadeaux</small></a></li>
+          <li><a href="atelier-business.html"><span data-i18n="nav.a_biz">Pour le business</span> <small data-i18n="nav.a_biz_s">écrans &amp; licences</small></a></li>
+          <li><a href="atelier-diaspora.html"><span data-i18n="nav.a_dya">Diaspora</span> <small data-i18n="nav.a_dya_s">une offre par segment</small></a></li>
+          <li><a href="atelier-institutions.html"><span data-i18n="nav.a_fin">Financer l'accès</span> <small data-i18n="nav.a_fin_s">parrainer une communauté</small></a></li>
+          <li><a href="impact.html"><span data-i18n="nav.a_imp">Recevoir une impression</span> <small data-i18n="nav.a_imp_s">programmes parrainés</small></a></li>
+          <li><a href="atelier-artistes.html"><span data-i18n="nav.a_art">Artistes</span> <small data-i18n="nav.a_art_s">rejoindre le programme</small></a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
 </header>
 
 <!-- HERO -->
-<section class="hero" style="padding-bottom:1rem">
-  <div class="container">
-    <p class="kreyol" data-i18n="at2.kicker">Couleur, mouvement, lumière — l'art et la créativité qui font respirer l'esprit.</p>
-    <h1>Atelier <em>ATM</em></h1>
-    <div class="at-bio">
-      <p style="margin:0 0 0.7rem" data-i18n="at2.bio">ATM — Andrelita T. Myril — est artiste peintre et plasticienne, diplômée de l'ENARTS, l'École Nationale des Arts d'Haïti, la plus renommée du pays. Sa démarche : mettre les outils de l'art entre toutes les mains — pour faire grandir la créativité de chacun, offrir à l'esprit l'évasion dont il a besoin et nourrir l'équilibre humain et mental. Ses toiles — couleurs franches, rythmes en mouvement, figures et abstractions — sont des fenêtres ouvertes sur la lumière d'Haïti et de la Caraïbe.</p>
-      <p style="margin:0" class="at-mark" data-i18n="at2.mark">Atmart porte son empreinte jusque dans son nom : ATM + art.</p>
+<section class="art-hero" style="padding:0">
+  <div class="art-hero-bg" id="hero-bg"></div>
+  <div class="art-hero-in">
+    <div class="art-wide">
+      <p class="art-lbl" data-s="hero.k"></p>
+      <h1><span data-s="hero.h1"></span> <em data-s="hero.h2"></em></h1>
+      <p data-s="hero.p"></p>
+      <div class="cta-row">
+        <a href="#collection" class="btn btn-primary" data-s="a.free"></a>
+        <a href="atelier-institutions.html" class="btn btn-outline" data-s="a.fund"></a>
+      </div>
     </div>
-    <p style="color:#9db2c7;font-size:0.88rem;margin-top:1rem" data-i18n="at2.note">Toutes les œuvres sont des originaux signés. Photos prises à l'atelier — les couleurs réelles sont légèrement plus vives. Dimensions et année sur demande.</p>
   </div>
+  <span class="art-hero-cred" data-s="hero.cred"></span>
 </section>
 
-<!-- GALERIE -->
-<section style="padding-top:0.5rem">
-  <div class="container">
-    <h2 data-i18n="at2.gal_title">🖼 Les œuvres</h2>
-    <div class="gal" id="at-gal"></div>
-  </div>
-</section>
-
-<!-- COMMANDES -->
+<!-- LES TROIS ENTRÉES -->
 <section>
-  <div class="container">
-    <div class="cta-band" style="background:rgba(244,162,97,0.08);border:1px solid rgba(244,162,97,0.35);border-radius:14px;padding:1.6rem;text-align:center">
-      <h2 style="margin-top:0" data-i18n="at2.com_title">🖌 Commandes personnalisées</h2>
-      <p style="color:#d7e3f0;max-width:640px;margin:0.5rem auto 1rem" data-i18n="at2.com_desc">Portraits, paysages, œuvres pour votre maison, votre bureau ou votre événement — parlez-nous de votre projet et ATM le mettra en couleurs.</p>
-      <a href="mailto:sales@atmart.ltd?subject=Atelier%20ATM%20-%20commande%20personnalis%C3%A9e" class="btn btn-primary" data-i18n="at2.com_cta">Écrire à l'Atelier</a>
+  <div class="art-wide">
+    <p class="art-lbl" data-s="p.k"></p>
+    <div class="paths" style="margin-top:1.2rem">
+      <a class="path" href="#collection">
+        <span class="ic">👀</span>
+        <h3 data-s="a.free"></h3>
+        <p data-s="p1.d"></p>
+        <span class="go" data-s="p1.go"></span>
+      </a>
+      <a class="path" href="atelier-maison.html">
+        <span class="ic">🏠</span>
+        <h3 data-s="nv.mez"></h3>
+        <p data-s="p4.d"></p>
+        <span class="go" data-s="p4.go"></span>
+      </a>
+      <a class="path" href="atelier-business.html">
+        <span class="ic">🏨</span>
+        <h3 data-s="nv.biz"></h3>
+        <p data-s="p5.d"></p>
+        <span class="go" data-s="p5.go"></span>
+      </a>
+      <a class="path paid" href="atelier-institutions.html">
+        <span class="ic">🏛</span>
+        <h3 data-s="a.fund"></h3>
+        <p data-s="p3.d"></p>
+        <span class="go" data-s="p3.go"></span>
+      </a>
     </div>
+  </div>
+</section>
+
+<!-- AMBIANCES -->
+<section style="padding-top:1rem">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="mood.k"></p>
+    <h2 class="art-h" data-s="mood.h"></h2>
+    <div class="moods" id="moods" style="margin-top:1.4rem"></div>
+    <p style="margin-top:1.2rem"><a href="atelier-collection.html" style="color:#f4a261;font-size:0.92rem" data-s="mood.b"></a></p>
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section id="collection">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="gal.k"></p>
+    <h2 class="art-h" data-s="gal.h"></h2>
+    <div class="filters" id="filters"></div>
+    <div class="works" id="works"></div>
+  </div>
+</section>
+
+<!-- L'ARTISTE -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <div class="at-bio" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-left:4px solid #f4a261;border-radius:14px;padding:1.3rem 1.5rem;max-width:900px">
+      <p style="margin:0 0 0.7rem" data-i18n="at2.bio">ATM — Andrelita T. Myril — est artiste peintre et plasticienne, diplômée de l'ENARTS, l'École Nationale des Arts d'Haïti, la plus renommée du pays. Sa démarche : mettre les outils de l'art entre toutes les mains — pour faire grandir la créativité de chacun, offrir à l'esprit l'évasion dont il a besoin et nourrir l'équilibre humain et mental. Ses toiles — couleurs franches, rythmes en mouvement, figures et abstractions — sont des fenêtres ouvertes sur la lumière d'Haïti et de la Caraïbe.</p>
+      <p style="margin:0;color:#f4a261;font-weight:600" data-i18n="at2.mark">Atmart porte son empreinte jusque dans son nom : ATM + art.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="art-sep" />
+
+<!-- CE QU'UNE ŒUVRE DEVIENT -->
+<section>
+  <div class="art-wide">
+    <p class="art-lbl" data-s="bec.k"></p>
+    <h2 class="art-h" data-s="bec.h"></h2>
+    <div class="becomes" style="margin-top:1.3rem">
+      <div><span>🖼</span><b data-s="bec1"></b></div>
+      <div><span>🎙</span><b data-s="bec2"></b></div>
+      <div><span>🎬</span><b data-s="bec3"></b></div>
+      <div><span>📺</span><b data-s="bec4"></b></div>
+      <div><span>🖨</span><b data-s="bec5"></b></div>
+      <div><span>💌</span><b data-s="bec6"></b></div>
+      <div><span>🎓</span><b data-s="bec7"></b></div>
+      <div><span>🌐</span><b data-s="bec8"></b></div>
+    </div>
+    <p class="art-note" style="margin-top:1rem" data-s="bec.n"></p>
+  </div>
+</section>
+
+<!-- ÉCRANS -->
+<section>
+  <div class="art-wide">
+    <div class="strip">
+      <div class="s-media">
+        <video src="assets/atelier/inspirasyon.mp4" controls controlsList="nodownload noremoteplayback"
+               disablepictureinpicture preload="metadata" playsinline muted loop></video>
+      </div>
+      <div>
+        <p class="art-lbl" data-s="scr.k"></p>
+        <h2 class="art-h" data-s="scr.h"></h2>
+        <p class="art-sub" data-s="scr.p"></p>
+        <ul class="s-list">
+          <li data-s="scr.l1"></li>
+          <li data-s="scr.l2"></li>
+          <li data-s="scr.l3"></li>
+          <li data-s="scr.l4"></li>
+        </ul>
+        <p style="margin-top:1.3rem"><a href="atelier-institutions.html" class="btn btn-primary" data-s="p3.go"></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOIX -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <div class="strip rev">
+      <div class="s-media"><img id="voi-img" alt="" /></div>
+      <div>
+        <p class="art-lbl" data-s="voi.k"></p>
+        <h2 class="art-h" data-s="voi.h"></h2>
+        <p class="art-sub" data-s="voi.p"></p>
+        <p class="art-note" style="margin-top:1rem;color:#f4a261" data-s="voi.s"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPRESSIONS -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <div class="strip">
+      <div class="s-media"><img id="pr-img" alt="" /></div>
+      <div>
+        <p class="art-lbl" data-s="pr.k"></p>
+        <h2 class="art-h" data-s="pr.h"></h2>
+        <p class="art-sub" data-s="pr.p"></p>
+        <ul class="s-list">
+          <li><span data-s="pr.f"></span> — 8,5 × 11 in · 12 × 18 in · 18 × 24 in</li>
+        </ul>
+        <p style="margin-top:1.3rem"><a href="impact.html" class="btn btn-outline" data-s="p2.go"></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section>
+  <div class="art-wide">
+    <p class="art-lbl" data-s="imp.k"></p>
+    <h2 class="art-h" data-s="imp.h"></h2>
+    <div id="impact-box" style="margin-top:1.2rem"></div>
+  </div>
+</section>
+
+<!-- BANDEAU INSTITUTIONS -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <div style="background:rgba(244,162,97,0.08);border:1px solid rgba(244,162,97,0.35);border-radius:16px;padding:2rem 1.8rem;text-align:center">
+      <h2 style="margin-top:0;font-size:clamp(1.3rem,2.6vw,1.9rem);max-width:24ch;margin-inline:auto" data-s="cta.h"></h2>
+      <p style="color:#d7e3f0;max-width:60ch;margin:0.9rem auto 1.4rem;font-size:0.95rem" data-s="cta.p"></p>
+      <a href="atelier-institutions.html#contact" class="btn btn-primary" data-s="cta.b"></a>
+    </div>
+  </div>
+</section>
+
+<!-- ARTISTES -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <div style="background:rgba(46,196,182,0.07);border:1px solid rgba(46,196,182,0.28);border-radius:16px;padding:2rem 1.8rem;display:flex;gap:1.6rem;align-items:center;flex-wrap:wrap">
+      <div style="flex:1;min-width:260px">
+        <h2 style="margin:0 0 0.5rem;font-size:1.4rem" data-s="ab.h"></h2>
+        <p style="color:#d7e3f0;margin:0;font-size:0.95rem" data-s="ab.p"></p>
+      </div>
+      <a href="atelier-artistes.html" class="btn btn-primary" data-s="ab.b"></a>
+    </div>
+  </div>
+</section>
+
+<!-- DROITS -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="rig.k"></p>
+    <p class="art-note" style="max-width:80ch;margin-top:0.7rem" data-s="rig.p"></p>
   </div>
 </section>
 
@@ -118,9 +281,10 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       <div>
         <h4 data-i18n="atm.foot_products">Produits</h4>
         <ul>
-          <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
-          <li><a href="karye360.html">Career360</a></li>
-          <li><a href="studio.html">Formation360</a></li>
+          <li><a href="atelier-maison.html" data-s="nv.mez"></a></li>
+          <li><a href="atelier-business.html" data-s="nv.biz"></a></li>
+          <li><a href="atelier-institutions.html" data-s="a.fund"></a></li>
+          <li><a href="atelier-artistes.html" data-s="nv.art"></a></li>
           <li><a href="datasets.html" data-i18n="nav.datasets">Datasets</a></li>
         </ul>
       </div>
@@ -142,96 +306,126 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   </div>
 </footer>
 
-<div id="at-lb" style="display:none;position:fixed;inset:0;background:rgba(3,9,18,0.95);z-index:999;align-items:center;justify-content:center;cursor:zoom-out">
-  <img id="at-lb-img" alt="" draggable="false" style="max-width:93vw;max-height:93vh;border-radius:8px;user-select:none" />
-</div>
+<div id="art-lb"><img alt="" draggable="false" /></div>
 
 <script src="assets/script.js?v=2"></script>
 <script src="assets/i18n.js?v=10"></script>
+<script src="assets/atelier.js?v=3"></script>
 <script>
 (function () {
   "use strict";
-  // Galerie — titres = noms propres des œuvres (français · kreyòl), identiques dans toutes les langues.
-  var WORKS = [
-    { f: "oeuvre-01.jpg",  fr: "Roue de Vie",        ht: "Wonn lavi",       tech: "Huile sur toile · 80 × 60 cm · 1998" },
-    { f: "oeuvre-02.jpg",  fr: "Louange",            ht: "Lwanj",           tech: "Acrylique · 40 × 60 cm · 2022" },
-    { f: "oeuvre-03.jpg",  fr: "Ligne Bleue",        ht: "Liy Ble",         tech: "Triptyque vertical · acrylique · 60 × 120 cm · 2024" },
-    { f: "oeuvre-04.jpg",  fr: "Fête nocturne",      ht: "Fèt lannwit",     tech: "Acrylique · panneaux multiples · 120 × 90 cm · 2021" },
-    { f: "oeuvre-05.jpg",  fr: "Soleil semé",        ht: "Solèy simen",     tech: "Triptyque · acrylique & feuilles d'or · 120 × 50 cm · 2024" },
-    { f: "oeuvre-06.jpg",  fr: "Chemin de campagne", ht: "Wout andeyò",     tech: "Huile sur toile · 60 × 50 cm · 2024" },
-    { f: "oeuvre-07.jpg",  fr: "Double face",        ht: "De fas",          tech: "Portrait — acrylique" },
-    { f: "oeuvre-08.jpg",  fr: "Souffle",            ht: "Souf",            tech: "Diptyque noir & blanc · acrylique · 100 × 160 cm (ensemble) · 2018" },
-    { f: "oeuvre-09.jpg",  fr: "Père et Fils",       ht: "Papa ak Pitit",   tech: "Acrylique · 40 × 30 cm · cadre bois noir inclus · 2024" },
-    { f: "oeuvre-10.jpg",  fr: "Gratitude",          ht: "Rekonesans",      tech: "Acrylique sur toile · 80 × 100 cm · 2024" },
-    { f: "oeuvre-11.jpg",  fr: "Le fidèle",          ht: "Fidèl la",        tech: "Huile sur toile · 80 × 80 cm · 2024" },
-    { f: "oeuvre-12.jpg",  fr: "Soleil en damier",   ht: "Solèy an damye",  tech: "Acrylique · 80 × 80 cm · 2024" }
-  ];
-  var VIDEOS = [
-    { f: "inspirasyon.mp4", fr: "Inspiration", ht: "Enspirasyon", tech: "Œuvre vidéo — édition numérique" }
-  ];
-  var PRICE = {
-    fr: { p: "Prix sur demande", a: "Demander le prix →" },
-    ht: { p: "Pri sou demann",   a: "Mande pri a →" },
-    en: { p: "Price on request", a: "Ask the price →" },
-    es: { p: "Precio a pedido",  a: "Pregunta el precio →" }
-  };
-  function lang() {
-    var l = document.documentElement.lang || localStorage.getItem("atmart_lang") || "fr";
-    return PRICE[l] ? l : "fr";
+  var HERO = ["soley-simen", "soley-an-damye", "fet-lannwit", "wout-andeyo"];
+  var D = null, filter = "all";
+
+  function byId(id) { return D.works.filter(function (w) { return w.id === id; })[0]; }
+
+  /* ---- hero : fondu enchaîné entre quelques œuvres ---- */
+  function hero() {
+    var box = document.getElementById("hero-bg");
+    box.innerHTML = HERO.map(function (id, i) {
+      var w = byId(id);
+      return w ? '<img src="' + ATM.img(w) + '" alt="" class="' + (i ? "" : "on") + '" draggable="false" />' : "";
+    }).join("");
+    var imgs = box.querySelectorAll("img"), i = 0;
+    if (!imgs.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    setInterval(function () {
+      imgs[i].classList.remove("on");
+      i = (i + 1) % imgs.length;
+      imgs[i].classList.add("on");
+    }, 6500);
   }
-  var gal = document.getElementById("at-gal");
-  var applied = "";
-  function render() {
-    var l = lang();
-    if (l === applied) return;
-    applied = l;
-    var P = PRICE[l];
-    gal.innerHTML = WORKS.map(function (w) {
-      var subject = encodeURIComponent("Atelier ATM — « " + w.fr + " / " + w.ht + " »");
-      return '<figure>' +
-        '<span class="imgwrap" data-full="assets/atelier/' + w.f + '">' +
-        '<img src="assets/atelier/' + w.f + '" alt="' + w.fr + ' — ' + w.ht + '" loading="lazy" draggable="false" /></span>' +
-        '<figcaption>' +
-        '<span class="t-fr">' + w.fr + '</span>' +
-        '<span class="t-ht">' + w.ht + '</span>' +
-        '<span class="tech">' + w.tech + ' · ' + P.p + '</span>' +
-        '<span class="buy"><a href="mailto:sales@atmart.ltd?subject=' + subject + '">' + P.a + '</a></span>' +
-        '</figcaption></figure>';
-    }).join("") + VIDEOS.map(function (v) {
-      var subject = encodeURIComponent("Atelier ATM — video « " + v.fr + " / " + v.ht + " »");
-      return '<figure>' +
-        '<span class="imgwrap">' +
-        '<video src="assets/atelier/' + v.f + '" controls controlsList="nodownload noremoteplayback" ' +
-        'disablepictureinpicture preload="metadata" playsinline></video></span>' +
-        '<figcaption>' +
-        '<span class="t-fr">🎬 ' + v.fr + '</span>' +
-        '<span class="t-ht">' + v.ht + '</span>' +
-        '<span class="tech">' + v.tech + ' · ' + P.p + '</span>' +
-        '<span class="buy"><a href="mailto:sales@atmart.ltd?subject=' + subject + '">' + P.a + '</a></span>' +
-        '</figcaption></figure>';
+
+  function cover(colId) {
+    var w = D.works.filter(function (x) { return x.col.indexOf(colId) >= 0; })[0];
+    return w ? ATM.img(w) : ATM.img(D.works[0]);
+  }
+
+  function moods() {
+    document.getElementById("moods").innerHTML = D.collections.map(function (c) {
+      return '<a class="mood" href="#collection" data-col="' + c.id + '">' +
+        '<img src="' + cover(c.id) + '" alt="" draggable="false" />' +
+        '<span class="ov"></span><span class="txt"><b>' + c.emo + " " + ATM.V(c.t) + "</b>" +
+        "<small>" + ATM.V(c.d) + "</small></span></a>";
     }).join("");
   }
-  render();
-  new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
 
-  // ---- visionneuse (pas de lien direct vers le fichier) ----
-  var lb = document.getElementById("at-lb");
-  var lbi = document.getElementById("at-lb-img");
-  gal.addEventListener("click", function (e) {
-    var w = e.target.closest(".imgwrap");
-    if (!w || !w.dataset.full) return;
-    lbi.src = w.dataset.full;
-    lb.style.display = "flex";
-  });
-  lb.addEventListener("click", function () { lb.style.display = "none"; lbi.removeAttribute("src"); });
+  function filters() {
+    var box = document.getElementById("filters");
+    box.innerHTML = '<button data-f="all" class="on">' + ATM.T("gal.all") + "</button>" +
+      D.collections.map(function (c) {
+        return '<button data-f="' + c.id + '">' + c.emo + " " + ATM.V(c.t) + "</button>";
+      }).join("");
+    box.querySelectorAll("button").forEach(function (b) {
+      b.classList.toggle("on", b.dataset.f === filter);
+    });
+  }
 
-  // ---- dissuasion copie : clic droit et glisser-deposer bloques sur la galerie ----
-  document.addEventListener("contextmenu", function (e) {
-    if (e.target.closest(".gal") || e.target.closest("#at-lb")) e.preventDefault();
+  function works() {
+    var list = D.works.filter(function (w) { return filter === "all" || w.col.indexOf(filter) >= 0; });
+    var html = list.map(function (w) {
+      return '<a class="work" href="oeuvre.html?o=' + w.id + '">' +
+        '<img src="' + ATM.img(w) + '" alt="' + w.t + " — " + w.tht + '" loading="lazy" draggable="false" />' +
+        '<span class="meta"><b>' + w.t + "</b><i>" + w.tht + "</i>" +
+        "<small>" + ATM.V(w.tech) + (w.an !== "—" ? " · " + w.an : "") + "</small></span></a>";
+    }).join("");
+    if (filter === "all") {
+      html += D.videos.map(function (v) {
+        return '<span class="work">' +
+          '<video src="assets/atelier/' + v.file + '" controls controlsList="nodownload noremoteplayback" ' +
+          'disablepictureinpicture preload="metadata" playsinline></video>' +
+          '<span class="meta" style="opacity:1;transform:none;position:static;background:none;padding:0.8rem 1rem 1rem">' +
+          "<b>🎬 " + v.t + "</b><i>" + v.tht + "</i><small>" + ATM.V(v.tech) + "</small></span></span>";
+      }).join("");
+    }
+    document.getElementById("works").innerHTML = html;
+  }
+
+  function impact() {
+    fetch("assets/atelier/impact.json", { cache: "no-cache" }).then(function (r) { return r.json(); }).then(function (I) {
+      var t = I.totaux, box = document.getElementById("impact-box");
+      var sum = t.experiences + t.impressions + t.communautes + t.partenaires;
+      if (!sum) {
+        box.innerHTML = '<p class="art-note" style="max-width:70ch">' + ATM.T("imp.0") + "</p>";
+        return;
+      }
+      box.className = "impact";
+      box.innerHTML =
+        "<div><b>" + t.experiences.toLocaleString() + "</b><small>" + ATM.T("imp.1") + "</small></div>" +
+        "<div><b>" + t.impressions.toLocaleString() + "</b><small>" + ATM.T("imp.2") + "</small></div>" +
+        "<div><b>" + t.communautes + "</b><small>" + ATM.T("imp.3") + "</small></div>" +
+        "<div><b>" + t.partenaires + "</b><small>" + ATM.T("imp.4") + "</small></div>";
+    });
+  }
+
+  function strips() {
+    var a = byId("lwanj"), b = byId("rekonesans");
+    if (a) document.getElementById("voi-img").src = ATM.img(a);
+    if (b) document.getElementById("pr-img").src = ATM.img(b);
+  }
+
+  function renderAll() { moods(); filters(); works(); impact(); }
+
+  ATM.paint();
+  ATM.data().then(function (d) {
+    D = d;
+    hero();
+    strips();
+    renderAll();
+    document.getElementById("filters").addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-f]");
+      if (!b) return;
+      filter = b.dataset.f;
+      filters(); works();
+    });
+    document.getElementById("moods").addEventListener("click", function (e) {
+      var m = e.target.closest("[data-col]");
+      if (!m) return;
+      filter = m.dataset.col;
+      filters(); works();
+    });
   });
-  document.addEventListener("dragstart", function (e) {
-    if (e.target.closest(".gal") || e.target.closest("#at-lb")) e.preventDefault();
-  });
+  ATM.onLang(function () { if (D) renderAll(); });
+  ATM.lightbox("#works, .s-media");
 })();
 </script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>

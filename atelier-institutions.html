@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <title>Financer l'accès à l'art — Atelier ATM pour les institutions | Atmart</title>
+  <meta name="description" content="Écrans artistiques, collections institutionnelles, communautés parrainées, campagnes numériques : les formules Atelier ATM pour entreprises, écoles, hôpitaux et fondations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#060c15" />
+  <link rel="stylesheet" href="assets/style.css?v=31" />
+  <link rel="stylesheet" href="assets/atelier.css?v=2" />
+<script>/* langue auto : avant le 1er affichage, evite le clignotement */
+(function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
+s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
+var l=s&&S[s]?s:null;
+if(!l){var n=navigator.languages||[navigator.language||""];
+for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().split("-")[0];
+if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
+window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;
+if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove("i18n-wait")},1500)}})();
+</script>
+</head>
+<body class="art">
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="conseil-ia.html" data-i18n="nav.advisory">💼 Entreprises</a></li>
+      <li class="nav-grp"><span data-i18n="nav.atelier">🎨 Atelier</span>
+        <ul class="nav-sub">
+          <li><a href="atelier.html"><span data-i18n="nav.a_gal">Galerie</span> <small data-i18n="nav.a_gal_s">les œuvres d'ATM</small></a></li>
+          <li><a href="atelier-collection.html"><span data-i18n="nav.a_col">La collection</span> <small data-i18n="nav.a_col_s">univers, gammes, bundles</small></a></li>
+          <li><a href="atelier-maison.html"><span data-i18n="nav.a_mez">Pour la maison</span> <small data-i18n="nav.a_mez_s">affiches, originaux, cadeaux</small></a></li>
+          <li><a href="atelier-business.html"><span data-i18n="nav.a_biz">Pour le business</span> <small data-i18n="nav.a_biz_s">écrans &amp; licences</small></a></li>
+          <li><a href="atelier-diaspora.html"><span data-i18n="nav.a_dya">Diaspora</span> <small data-i18n="nav.a_dya_s">une offre par segment</small></a></li>
+          <li><a href="atelier-institutions.html"><span data-i18n="nav.a_fin">Financer l'accès</span> <small data-i18n="nav.a_fin_s">parrainer une communauté</small></a></li>
+          <li><a href="impact.html"><span data-i18n="nav.a_imp">Recevoir une impression</span> <small data-i18n="nav.a_imp_s">programmes parrainés</small></a></li>
+          <li><a href="atelier-artistes.html"><span data-i18n="nav.a_art">Artistes</span> <small data-i18n="nav.a_art_s">rejoindre le programme</small></a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<section style="padding-top:3rem">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="in.k"></p>
+    <h1 class="art-h" style="font-size:clamp(1.9rem,4.5vw,3rem)" data-s="in.h"></h1>
+    <p class="art-sub" style="font-size:1.05rem" data-s="in.p"></p>
+    <div class="cta-row" style="display:flex;gap:0.9rem;flex-wrap:wrap;margin-top:1.5rem">
+      <a href="#offres" class="btn btn-primary" data-s="in.b1"></a>
+      <a href="#contact" class="btn btn-outline" data-s="cta.b"></a>
+    </div>
+  </div>
+</section>
+
+<!-- POURQUOI -->
+<section style="padding-top:1rem">
+  <div class="art-wide">
+    <div class="becomes">
+      <div><span>🎯</span><b data-s="in.w1"></b><small data-s="in.w1d"></small></div>
+      <div><span>📊</span><b data-s="in.w2"></b><small data-s="in.w2d"></small></div>
+      <div><span>🌍</span><b data-s="in.w3"></b><small data-s="in.w3d"></small></div>
+      <div><span>⚡</span><b data-s="in.w4"></b><small data-s="in.w4d"></small></div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFRES -->
+<section id="offres">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="of.k"></p>
+    <h2 class="art-h" data-s="of.h"></h2>
+    <div class="offers" style="margin-top:1.6rem">
+
+      <div class="offer feat">
+        <span class="tag">03</span>
+        <h3 data-s="of3.t"></h3>
+        <p class="price">5 000 – 25 000 $<small data-s="of3.u"></small></p>
+        <ul>
+          <li data-s="of3.a"></li>
+          <li data-s="of3.b"></li>
+          <li data-s="of3.c"></li>
+          <li data-s="of3.d"></li>
+        </ul>
+        <a class="btn btn-primary" href="#contact" data-s="of.cta"></a>
+      </div>
+
+      <div class="offer">
+        <span class="tag">04</span>
+        <h3 data-s="of4.t"></h3>
+        <p class="price">7 500 – 30 000 $<small data-s="of4.u"></small></p>
+        <ul>
+          <li data-s="of4.a"></li>
+          <li data-s="of4.b"></li>
+          <li data-s="of4.c"></li>
+          <li data-s="of4.d"></li>
+        </ul>
+        <a class="btn btn-outline" href="#contact" data-s="of.cta"></a>
+      </div>
+
+      <div class="offer">
+        <span class="tag">01 · 02 · 05</span>
+        <h3 data-s="in.biz_t"></h3>
+        <p class="price">99 $ – 10 000 $<small data-s="in.biz_u"></small></p>
+        <ul>
+          <li data-s="of1.t"></li>
+          <li data-s="of2.t"></li>
+          <li data-s="of5.t"></li>
+        </ul>
+        <a class="btn btn-outline" href="atelier-business.html#formules" data-s="in.biz_b"></a>
+      </div>
+
+    </div>
+    <p class="art-note" style="margin-top:1.2rem" data-s="of.n"></p>
+  </div>
+</section>
+
+<!-- DÉROULÉ -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="how.k"></p>
+    <h2 class="art-h" data-s="how.h"></h2>
+    <ul class="s-list" style="margin-top:1rem;max-width:70ch">
+      <li data-s="how.1"></li>
+      <li data-s="how.2"></li>
+      <li data-s="how.3"></li>
+      <li data-s="how.4"></li>
+      <li data-s="how.5"></li>
+    </ul>
+  </div>
+</section>
+
+<!-- RAPPORT D'IMPACT -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <div class="strip">
+      <div class="s-media"><img src="assets/atelier/clean/oeuvre-05.jpg" alt="" /></div>
+      <div>
+        <p class="art-lbl" data-s="rap.k"></p>
+        <h2 class="art-h" data-s="rap.h"></h2>
+        <p class="art-sub" data-s="rap.p"></p>
+        <ul class="s-list">
+          <li data-s="rap.1"></li>
+          <li data-s="rap.2"></li>
+          <li data-s="rap.3"></li>
+          <li data-s="rap.4"></li>
+        </ul>
+        <p class="art-note" style="margin-top:0.9rem" data-s="rap.n"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LICENCE -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="rig.k"></p>
+    <p class="art-note" style="max-width:80ch;margin-top:0.7rem" data-s="rig.p"></p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="ct.k"></p>
+    <h2 class="art-h" data-s="ct.h"></h2>
+    <p class="art-sub" data-s="ct.p"></p>
+    <form class="art-form" id="inst-form" style="margin-top:1.4rem">
+      <div class="two">
+        <div><label data-s="ct.f1"></label><input name="org" required /></div>
+        <div><label data-s="ct.f2"></label><input name="nom" required /></div>
+      </div>
+      <div class="two">
+        <div><label data-s="ct.f3"></label><input name="email" type="email" required /></div>
+        <div><label data-s="ct.f4"></label>
+          <select name="formule">
+            <option value="01">01 — Écran artistique</option>
+            <option value="02">02 — Collection institutionnelle</option>
+            <option value="03">03 — Communauté parrainée</option>
+            <option value="04">04 — Campagne personnalisée</option>
+            <option value="05">05 — Médiathèque sous licence</option>
+          </select>
+        </div>
+      </div>
+      <div class="two">
+        <div><label data-s="ct.f5"></label><input name="lieux" type="number" min="1" placeholder="1" /></div>
+        <div><label data-s="ct.f6"></label><input name="benef" type="number" min="0" placeholder="500" /></div>
+      </div>
+      <div><label data-s="ct.f7"></label><textarea name="msg" rows="4"></textarea></div>
+      <div><button type="submit" class="btn btn-primary" data-s="ct.send"></button></div>
+      <p class="art-note" data-s="ct.n"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
+        <ul>
+          <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+          <li><a href="impact.html" data-s="a.print"></a></li>
+          <li><a href="conseil-ia.html" data-i18n="nav.advisory">💼 Entreprises</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-note">© Atmart LLC — <span data-i18n="foot.rights">Tous droits réservés.</span></p>
+  </div>
+</footer>
+
+<script src="assets/script.js?v=2"></script>
+<script src="assets/i18n.js?v=10"></script>
+<script src="assets/atelier.js?v=3"></script>
+<script src="assets/atelier-offres.js?v=1"></script>
+<script>
+(function () {
+  "use strict";
+  ATM.offres();
+  Object.assign(ATM.S, {
+    "in.k": { fr: "Pour les institutions", ht: "Pou enstitisyon yo", en: "For institutions", es: "Para instituciones" },
+    "in.h": { fr: "Offrez l'art à une communauté — sans transporter une seule toile", ht: "Ofri atizana bay yon kominote — san nou pa deplase yon sèl tablo", en: "Give art to a community — without moving a single canvas", es: "Ofrezca arte a una comunidad, sin transportar un solo lienzo" },
+    "in.p": {
+      fr: "Vous financez l'accès : une collection numérique, des voix, des clips, des écrans et des impressions locales pour un public que vous choisissez. Atmart produit, diffuse, mesure et vous remet un rapport d'impact.",
+      ht: "Se nou menm ki finanse pou aksè a : yon koleksyon nimerik, vwa, ti videyo, ekran ak enprime lokal pou yon piblik nou chwazi. Atmart pwodui, gaye, mezire epi li remèt nou yon rapò enpak.",
+      en: "You fund the access: a digital collection, voices, clips, screens and local prints for an audience you choose. Atmart produces, distributes, measures and hands you an impact report.",
+      es: "Ustedes financian el acceso: una colección digital, voces, clips, pantallas e impresiones locales para un público que eligen. Atmart produce, difunde, mide y entrega un informe de impacto."
+    },
+    "in.biz_t": { fr: "Écrans & licences commerciales", ht: "Ekran ak lisans komèsyal", en: "Screens & commercial licences", es: "Pantallas y licencias comerciales" },
+    "in.biz_u": { fr: "abonnement ou licence annuelle", ht: "abònman oswa lisans chak ane", en: "subscription or annual licence", es: "suscripción o licencia anual" },
+    "in.biz_b": { fr: "Voir la page business →", ht: "Gade paj biznis la →", en: "See the business page →", es: "Ver la página de empresas →" },
+
+    "in.w1": { fr: "Une communauté précise", ht: "Yon kominote byen defini", en: "A specific community", es: "Una comunidad concreta" },
+    "in.w1d": { fr: "Vous choisissez le public : ville, école, quartier, service.", ht: "Se nou ki chwazi piblik la : vil, lekòl, katye, sèvis.", en: "You choose the audience: city, school, neighbourhood, department.", es: "Ustedes eligen el público: ciudad, escuela, barrio, servicio." },
+    "in.w2": { fr: "Des résultats mesurés", ht: "Rezilta yo mezire", en: "Measured results", es: "Resultados medidos" },
+    "in.w2d": { fr: "Vues, écoutes, partages, impressions commandées.", ht: "Konbyen moun gade, koute, pataje, konbyen enprime yo mande.", en: "Views, listens, shares, prints ordered.", es: "Vistas, escuchas, compartidos, impresiones pedidas." },
+    "in.w3": { fr: "Une identité culturelle réelle", ht: "Yon idantite kiltirèl toutbon", en: "A real cultural identity", es: "Una identidad cultural real" },
+    "in.w3d": { fr: "Créole, français, anglais — Haïti et la Caraïbe, sans décor de carte postale.", ht: "Kreyòl, fransè, anglè — Ayiti ak Karayib la, san dekò kat postal.", en: "Creole, French, English — Haiti and the Caribbean, no postcard clichés.", es: "Creole, francés, inglés: Haití y el Caribe, sin postales." },
+    "in.w4": { fr: "Zéro logistique", ht: "Zewo tèt chaje ak transpò", en: "Zero logistics", es: "Cero logística" },
+    "in.w4d": { fr: "Aucune assurance, aucun accrochage, aucun transport d'œuvre.", ht: "Pa gen asirans, pa gen tablo pou pandye, pa gen transpò.", en: "No insurance, no hanging, no artwork shipping.", es: "Sin seguros, sin montaje, sin transporte de obras." },
+
+    "of.h": { fr: "Deux façons de financer l'accès — et les licences business à côté", ht: "De fason pou peye pou aksè a — ak lisans biznis yo sou kote", en: "Two ways to fund access — with the business licences alongside", es: "Dos maneras de financiar el acceso, con las licencias business al lado" },
+
+    "of3.t": { fr: "Une communauté parrainée", ht: "Yon kominote yon patnè ap sipòte", en: "A sponsored community", es: "Una comunidad apadrinada" },
+    "of3.u": { fr: "par campagne", ht: "pou chak kanpay", en: "per campaign", es: "por campaña" },
+    "of3.a": { fr: "Accès gratuit à une collection dédiée", ht: "Aksè gratis pou yon koleksyon espesyal", en: "Free access to a dedicated collection", es: "Acceso gratuito a una colección dedicada" },
+    "of3.b": { fr: "50 à 500 impressions financées", ht: "50 rive 500 enprime yo peye davans", en: "50 to 500 funded prints", es: "De 50 a 500 impresiones financiadas" },
+    "of3.c": { fr: "Exposition virtuelle + rencontre en direct avec ATM", ht: "Ekspozisyon sou entènèt + yon rankont dirèk ak ATM", en: "Virtual exhibition + live meeting with ATM", es: "Exposición virtual + encuentro en vivo con ATM" },
+    "of3.d": { fr: "Rapport d'impact et mention du partenaire", ht: "Rapò enpak ak non patnè a", en: "Impact report and partner credit", es: "Informe de impacto y mención del socio" },
+
+    "of4.t": { fr: "Campagne numérique personnalisée", ht: "Kanpay nimerik sou mezi", en: "Custom digital campaign", es: "Campaña digital personalizada" },
+    "of4.u": { fr: "selon la création demandée", ht: "sa depann de kreyasyon yo mande a", en: "depending on the creative work", es: "según la creación solicitada" },
+    "of4.a": { fr: "Mois de l'histoire des Noirs, 8 mars, santé mentale, accueil des nouveaux arrivants…", ht: "Mwa istwa Nwa yo, 8 mas, sante mantal, akey moun ki fèk rive…", en: "Black History Month, March 8, mental health, welcoming newcomers…", es: "Mes de la Historia Negra, 8 de marzo, salud mental, acogida de recién llegados…" },
+    "of4.b": { fr: "Création artistique originale", ht: "Yon kreyasyon atistik orijinal", en: "Original artwork created for you", es: "Creación artística original" },
+    "of4.c": { fr: "Clips, voix et pages web dédiées", ht: "Ti videyo, vwa ak paj entènèt espesyal", en: "Clips, voices and dedicated web pages", es: "Clips, voces y páginas web dedicadas" },
+    "of4.d": { fr: "Licences de diffusion + activité communautaire", ht: "Lisans pou difize + yon aktivite nan kominote a", en: "Broadcast licences + community activity", es: "Licencias de difusión + actividad comunitaria" },
+
+    "how.k": { fr: "Déroulé", ht: "Kijan sa mache", en: "How it runs", es: "Desarrollo" },
+    "how.h": { fr: "D'un accord à la première œuvre affichée : environ trois semaines", ht: "Depi nou dakò rive lè premye zèv la parèt : anviwon twa semèn", en: "From agreement to first work on screen: about three weeks", es: "Del acuerdo a la primera obra en pantalla: unas tres semanas" },
+    "how.1": { fr: "Vous choisissez la communauté, la collection et le nombre de bénéficiaires.", ht: "Nou chwazi kominote a, koleksyon an ak konbyen moun k ap benefisye.", en: "You choose the community, the collection and the number of beneficiaries.", es: "Ustedes eligen la comunidad, la colección y el número de beneficiarios." },
+    "how.2": { fr: "Atmart prépare la page du programme, les codes d'accès et la liste de lecture.", ht: "Atmart prepare paj pwogram nan, kòd aksè yo ak lis lekti a.", en: "Atmart prepares the programme page, the access codes and the playlist.", es: "Atmart prepara la página del programa, los códigos de acceso y la lista." },
+    "how.3": { fr: "Les bénéficiaires reçoivent un code : ils voient, écoutent et commandent leur impression.", ht: "Moun yo resevwa yon kòd : yo gade, yo koute epi yo mande enprime yo a.", en: "Beneficiaries receive a code: they view, listen and order their print.", es: "Las personas reciben un código: ven, escuchan y piden su impresión." },
+    "how.4": { fr: "Les impressions partent chez un imprimeur proche du bénéficiaire.", ht: "Enprime yo fèt lakay yon enprimè ki toupre moun nan.", en: "Prints are produced by a printer close to the recipient.", es: "Las impresiones se producen en una imprenta cercana." },
+    "how.5": { fr: "Vous recevez le rapport d'impact et, si vous le souhaitez, un événement en direct avec ATM.", ht: "Nou resevwa rapò enpak la epi, si nou vle, yon aktivite dirèk ak ATM.", en: "You receive the impact report and, if you wish, a live event with ATM.", es: "Reciben el informe de impacto y, si lo desean, un evento en vivo con ATM." },
+
+    "rap.k": { fr: "Rapport d'impact", ht: "Rapò enpak", en: "Impact report", es: "Informe de impacto" },
+    "rap.h": { fr: "Des chiffres que vous pouvez présenter à votre conseil", ht: "Chif nou ka prezante devan konsèy nou an", en: "Numbers you can take to your board", es: "Cifras que pueden presentar a su consejo" },
+    "rap.p": { fr: "Nous ne comptons pas seulement les visites du site.", ht: "Nou pa konte sèlman konbyen moun vizite sit la.", en: "We do not just count website visits.", es: "No contamos solo las visitas al sitio." },
+    "rap.1": { fr: "Personnes ayant vu une œuvre · durée moyenne de contemplation", ht: "Konbyen moun ki gade yon zèv · konbyen tan yo pase ap gade l", en: "People who saw a work · average time spent looking", es: "Personas que vieron una obra · tiempo medio de contemplación" },
+    "rap.2": { fr: "Écoutes audio · vidéos regardées jusqu'au bout · partages", ht: "Konbyen moun koute odyo a · videyo yo gade jiska bout · pataj", en: "Audio listens · videos watched to the end · shares", es: "Escuchas de audio · vídeos vistos hasta el final · compartidos" },
+    "rap.3": { fr: "Impressions commandées · écoles et centres participants", ht: "Enprime yo mande · lekòl ak sant k ap patisipe", en: "Prints ordered · participating schools and centres", es: "Impresiones pedidas · escuelas y centros participantes" },
+    "rap.4": { fr: "Langues utilisées · satisfaction déclarée · retours des bénéficiaires", ht: "Ki lang moun yo itilize · si yo satisfè · sa moun yo di", en: "Languages used · reported satisfaction · beneficiary feedback", es: "Idiomas usados · satisfacción declarada · comentarios" },
+    "rap.n": { fr: "Le rapport ne contient aucune donnée personnelle : uniquement des résultats agrégés et anonymes.", ht: "Rapò a pa gen okenn done pèsonèl ladan l : se rezilta yo mete ansanm, san non pesonn.", en: "The report contains no personal data: aggregated, anonymous results only.", es: "El informe no contiene datos personales: solo resultados agregados y anónimos." },
+
+    "ct.h": { fr: "Demander un devis ou une présentation", ht: "Mande yon devi oswa yon prezantasyon", en: "Request a quote or a presentation", es: "Solicitar presupuesto o presentación" }
+  });
+
+  ATM.paint();
+  ATM.onLang();
+
+  document.getElementById("inst-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = e.target, g = function (n) { return (f.elements[n].value || "—").trim(); };
+    var body =
+      "Organisation : " + g("org") + "\n" +
+      "Contact : " + g("nom") + " · " + g("email") + "\n" +
+      "Formule : " + g("formule") + "\n" +
+      "Écrans / sites : " + g("lieux") + "\n" +
+      "Bénéficiaires visés : " + g("benef") + "\n\n" +
+      g("msg") + "\n";
+    location.href = ATM.mailto("Atelier ATM — demande institutionnelle (" + g("org") + ")", body);
+  });
+})();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+<script src="assets/launcher.js?v=3"></script>
+</body>
+</html>

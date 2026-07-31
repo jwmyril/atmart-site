@@ -1,0 +1,6 @@
+{
+  "_note": "Chiffres publiés sur atelier.html et impact.html. À ne remplir qu'avec des données réelles de campagne. Tant que tout est à 0, le site affiche le message imp.0 au lieu du compteur.",
+  "totaux": { "experiences": 0, "impressions": 0, "communautes": 0, "partenaires": 0 },
+  "maj": "2026-07-30",
+  "programmes": []
+}

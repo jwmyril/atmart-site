@@ -1,0 +1,514 @@
+{
+  "_images": "clean",
+  "_images_note": "\"clean\" = l'oeuvre seule (assets/atelier/clean/) ; \"fiches\" = les cartes de presentation d'origine avec le texte (assets/atelier/). Changer ce seul mot bascule tout le site.",
+  "_note": "Source unique de la collection numerique Atelier ATM. Les titres (fr/ht) sont des noms propres : identiques dans toutes les langues. audio/clip = null tant que le fichier n'existe pas ; l'interface s'adapte.",
+  "works": [
+    {
+      "id": "wonn-lavi",
+      "img": "oeuvre-01.jpg",
+      "an": "1998",
+      "dim": "80 × 60 cm",
+      "t": "Roue de Vie",
+      "tht": "Wonn lavi",
+      "col": [
+        "rezilyans"
+      ],
+      "pal": [
+        "#d4cc97",
+        "#cdae53",
+        "#caa230",
+        "#1e2023",
+        "#d3c46b"
+      ],
+      "tech": {
+        "fr": "Huile sur toile",
+        "ht": "Lwil sou twal",
+        "en": "Oil on canvas",
+        "es": "Óleo sobre lienzo"
+      },
+      "hist": {
+        "fr": "Chaque couleur est une étape, une énergie, une émotion. Les spirales s'enroulent autour d'un centre lumineux — l'unité, le renouveau. Une invitation à regarder son équilibre intérieur et les cycles qui reviennent.",
+        "ht": "Chak koulè se yon etap, yon fòs, yon santiman. Espiral yo vire alantou yon sant ki klere : se la tout bagay reyini pou rekòmanse. Tablo a mande w gade balans ki anndan w lan, ak sik lavi ki toujou tounen.",
+        "en": "Every colour is a stage, an energy, a feeling. The spirals turn around a luminous centre — unity, renewal. The painting invites you to look at your inner balance and at the cycles that keep coming back.",
+        "es": "Cada color es una etapa, una energía, una emoción. Las espirales giran alrededor de un centro luminoso: unidad y renovación. Una invitación a mirar el equilibrio interior y los ciclos que vuelven."
+      },
+      "insp": {
+        "fr": "Ce qui tourne ne repart jamais du même endroit.",
+        "ht": "Lavi a se yon wou : li vire, men li pa janm poze menm kote a.",
+        "en": "What turns never starts again from the same place.",
+        "es": "Lo que gira nunca vuelve a empezar en el mismo lugar."
+      },
+      "audio": null,
+      "clip": null,
+      "print": true,
+      "sponsor": null
+    },
+    {
+      "id": "lwanj",
+      "img": "oeuvre-02.jpg",
+      "an": "2022",
+      "dim": "40 × 60 cm",
+      "t": "Louange",
+      "tht": "Lwanj",
+      "col": [
+        "espirit"
+      ],
+      "pal": [
+        "#cd7133",
+        "#e69a54",
+        "#da912a",
+        "#af5c35",
+        "#cf6d4a"
+      ],
+      "tech": {
+        "fr": "Acrylique sur toile",
+        "ht": "Akrilik sou twal",
+        "en": "Acrylic on canvas",
+        "es": "Acrílico sobre lienzo"
+      },
+      "hist": {
+        "fr": "Trois silhouettes s'élèvent dans un même élan de joie, portées par une lumière qui vient du fond de la toile. La louange, ici, n'est pas un mot : c'est un mouvement de l'âme vers plus grand que soi.",
+        "ht": "Twa silwèt leve men yo ansanm nan yon sèl kè kontan, yon limyè k ap soti nan fon tablo a pote yo. Isit la, lwanj pa yon mo : se yon mouvman nanm nan fè pou l al jwenn yon bagay ki pi gwo pase l.",
+        "en": "Three figures rise in the same surge of joy, carried by a light that comes from deep within the canvas. Praise here is not a word: it is the soul moving toward something greater.",
+        "es": "Tres siluetas se elevan en un mismo impulso de alegría, sostenidas por una luz que viene del fondo del lienzo. Aquí la alabanza no es una palabra: es un movimiento del alma hacia algo más grande."
+      },
+      "insp": {
+        "fr": "Lève les mains : la lumière fait le reste.",
+        "ht": "Leve men w — limyè a ap fè rès la.",
+        "en": "Raise your hands; the light does the rest.",
+        "es": "Levanta las manos: la luz hace el resto."
+      },
+      "audio": null,
+      "clip": null,
+      "print": true,
+      "sponsor": null
+    },
+    {
+      "id": "liy-ble",
+      "img": "oeuvre-03.jpg",
+      "an": "2024",
+      "dim": "60 × 120 cm · triptyque",
+      "t": "Ligne Bleue",
+      "tht": "Liy Ble",
+      "col": [
+        "dyaspora"
+      ],
+      "pal": [
+        "#02b8cd",
+        "#0bc3d4",
+        "#ea6630",
+        "#a1d7d9",
+        "#d5e1e0"
+      ],
+      "tech": {
+        "fr": "Acrylique sur toile · triptyque vertical",
+        "ht": "Akrilik sou twal · triptik vètikal",
+        "en": "Acrylic on canvas · vertical triptych",
+        "es": "Acrílico sobre lienzo · tríptico vertical"
+      },
+      "hist": {
+        "fr": "L'horizon tropical réduit à l'essentiel : trois panneaux, du turquoise, une ligne d'orange. Le regard descend lentement du ciel à la mer, et la respiration suit.",
+        "ht": "Orizon peyi cho a rete sou sa k esansyèl la : twa panno, ble tirkwaz, yon liy zoranj. Je w desann dousman soti nan syèl la rive nan lanmè a, epi souf ou swiv.",
+        "en": "The tropical horizon reduced to essentials: three panels, turquoise, one orange line. The eye moves slowly from sky to sea, and the breath follows.",
+        "es": "El horizonte tropical reducido a lo esencial: tres paneles, turquesa y una línea naranja. La mirada baja lentamente del cielo al mar, y la respiración la sigue."
+      },
+      "insp": {
+        "fr": "Respire à la vitesse de la mer.",
+        "ht": "Respire tankou lanmè a : dousman, san prese.",
+        "en": "Breathe at the speed of the sea.",
+        "es": "Respira a la velocidad del mar."
+      },
+      "audio": null,
+      "clip": null,
+      "print": true,
+      "sponsor": null
+    },
+    {
+      "id": "fet-lannwit",
+      "img": "oeuvre-04.jpg",
+      "an": "2021",
+      "dim": "120 × 90 cm · panneaux multiples",
+      "t": "Fête nocturne",
+      "tht": "Fèt lannwit",
+      "col": [
+        "rezilyans"
+      ],
+      "pal": [
+        "#9e2f58",
+        "#5d2527",
+        "#985a95",
+        "#2a2b50",
+        "#f2f1ef"
+      ],
+      "tech": {
+        "fr": "Acrylique sur toile",
+        "ht": "Akrilik sou twal",
+        "en": "Acrylic on canvas",
+        "es": "Acrílico sobre lienzo"
+      },
+      "hist": {
+        "fr": "Des floraisons imaginaires éclatent dans un ciel de nuit rose, rouge et bleu. Les panneaux se répondent comme les temps d'une fête : ça éclate, ça retombe, ça repart.",
+        "ht": "Flè ki soti nan imajinasyon ap eklate nan yon syèl lannwit woz, wouj ak ble. Panno yo ap reponn youn lòt tankou moman nan yon fèt : sa eklate, sa poze, epi sa reprann ankò.",
+        "en": "Imaginary blossoms burst across a night sky of pink, red and blue. The panels answer one another like the beats of a celebration: it flares, it settles, it starts again.",
+        "es": "Floraciones imaginarias estallan en un cielo nocturno rosa, rojo y azul. Los paneles se responden como los tiempos de una fiesta: estalla, se calma y vuelve a empezar."
+      },
+      "insp": {
+        "fr": "La joie aussi a le droit d'être bruyante.",
+        "ht": "Kè kontan gen dwa fè bri li tou.",
+        "en": "Joy is allowed to be loud.",
+        "es": "La alegría también tiene derecho a hacer ruido."
+      },
+      "audio": null,
+      "clip": null,
+      "print": true,
+      "sponsor": null
+    },
+    {
+      "id": "soley-simen",
+      "img": "oeuvre-05.jpg",
+      "an": "2024",
+      "dim": "3 × (40 × 50 cm) — 120 × 50 cm",
+      "t": "Soleil semé",
+      "tht": "Solèy simen",
+      "col": [
+        "lakay"
+      ],
+      "pal": [
+        "#eec71b",
+        "#dba917",
+        "#a9591d",
+        "#dfd0a5",
+        "#e2ddd3"
+      ],
+      "tech": {
+        "fr": "Acrylique, texture et feuilles d'or sur toile · triptyque",
+        "ht": "Akrilik, teksti ak fèy lò sou twal · triptik",
+        "en": "Acrylic, texture and gold leaf on canvas · triptych",
+        "es": "Acrílico, textura y pan de oro sobre lienzo · tríptico"
+      },
+      "hist": {
+        "fr": "Une lumière qui se disperse pour donner naissance. Les éclats d'or sont des graines d'énergie — les idées, les élans qu'on sème chaque jour sans savoir lesquels vont pousser.",
+        "ht": "Yon limyè ki gaye tèt li pou l bay lavi. Ti moso lò yo se grenn kouraj : ide ak eslan nou simen chak jou san nou pa konnen kilès ki pral leve.",
+        "en": "A light that scatters in order to give birth. The flecks of gold are seeds of energy — the ideas and impulses we sow each day, never knowing which will grow.",
+        "es": "Una luz que se dispersa para dar vida. Los destellos dorados son semillas de energía: las ideas y los impulsos que sembramos cada día sin saber cuáles crecerán."
+      },
+      "insp": {
+        "fr": "Sème large. La lumière trie.",
+        "ht": "Simen laj : se limyè a k ap chwazi.",
+        "en": "Sow widely — the light will sort it out.",
+        "es": "Siembra amplio: la luz escoge."
+      },
+      "audio": null,
+      "clip": null,
+      "print": true,
+      "sponsor": null
+    },
+    {
+      "id": "wout-andeyo",
+      "img": "oeuvre-06.jpg",
+      "an": "2024",
+      "dim": "60 × 50 cm",
+      "t": "Chemin de campagne",
+      "tht": "Wout andeyò",
+      "col": [
+        "lakay",
+        "dyaspora"
+      ],
+      "pal": [
+        "#225428",
+        "#18281a",
+        "#556029",
+        "#9eadaa",
+        "#58291d"
+      ],
+      "tech": {
+        "fr": "Huile sur toile",
+        "ht": "Lwil sou twal",
+        "en": "Oil on canvas",
+        "es": "Óleo sobre lienzo"
+      },
+      "hist": {
+        "fr": "Un chemin de terre rouge monte vers les mornes, sous un ciel travaillé au couteau. Deux oiseaux sur un fil : le pays qu'on garde en tête quand on est loin.",
+        "ht": "Yon wout tè wouj ap monte nan mòn yo, anba yon syèl atis la travay ak kouto. De zwazo poze sou yon fil : se peyi a moun kenbe nan tèt yo lè yo lwen.",
+        "en": "A red dirt road climbs toward the hills under a knife-worked sky. Two birds on a wire: the country you carry in your head when you are far away.",
+        "es": "Un camino de tierra roja sube hacia las montañas bajo un cielo trabajado a espátula. Dos pájaros en un cable: el país que se lleva en la cabeza cuando se está lejos."
+      },
+      "insp": {
+        "fr": "On peut rentrer sans prendre l'avion.",
+        "ht": "Ou ka tounen lakay ou san ou pa pran avyon.",
+        "en": "You can go home without taking a plane.",
+        "es": "Se puede volver a casa sin tomar un avión."
+      },
+      "audio": null,
+      "clip": null,
+      "print": true,
+      "sponsor": null
+    },
+    {
+      "id": "de-fas",
+      "img": "oeuvre-07.jpg",
+      "an": "—",
+      "dim": "—",
+      "t": "Double face",
+      "tht": "De fas",
+      "col": [
+        "memwa"
+      ],
+      "pal": [
+        "#a9a8a2",
+        "#2c2f34",
+        "#5f5b57",
+        "#a39370",
+        "#363a43"
+      ],
+      "tech": {
+        "fr": "Portrait · acrylique",
+        "ht": "Pòtre · akrilik",
+        "en": "Portrait · acrylic",
+        "es": "Retrato · acrílico"
+      },
+      "hist": {
+        "fr": "Un visage sort de l'ombre grise ; autour de lui, une explosion de petites fleurs colorées. Ce qu'on montre est sobre, ce qu'on porte à l'intérieur ne l'est pas.",
+        "ht": "Yon figi ap soti nan lonbraj gri a ; toutotou li, yon pakèt ti flè plen koulè ap eklate. Sa moun montre a senp, men sa yo pote anndan yo a pa senp menm.",
+        "en": "A face emerges from grey shadow; around it, an explosion of small coloured flowers. What we show is plain — what we carry inside is not.",
+        "es": "Un rostro sale de la sombra gris; a su alrededor, una explosión de pequeñas flores de colores. Lo que mostramos es sobrio; lo que llevamos dentro no."
+      },
+      "insp": {
+        "fr": "Personne n'est d'une seule couleur.",
+        "ht": "Pa gen moun ki gen yon sèl koulè.",
+        "en": "Nobody is just one colour.",
+        "es": "Nadie tiene un solo color."
+      },
+      "audio": null,
+      "clip": null,
+      "print": true,
+      "sponsor": null
+    },
+    {
+      "id": "souf",
+      "img": "oeuvre-08.jpg",
+      "an": "2018",
+      "dim": "100 × 160 cm · diptyque",
+      "t": "Souffle",
+      "tht": "Souf",
+      "col": [
+        "espirit"
+      ],
+      "pal": [
+        "#11181d",
+        "#e1e1e1",
+        "#a4a7a8",
+        "#5d6164",
+        "#797d80"
+      ],
+      "tech": {
+        "fr": "Acrylique sur toile · diptyque noir & blanc",
+        "ht": "Akrilik sou twal · diptik nwa ak blan",
+        "en": "Acrylic on canvas · black & white diptych",
+        "es": "Acrílico sobre lienzo · díptico blanco y negro"
+      },
+      "hist": {
+        "fr": "Un profil en noir, et des courbes qui s'échappent : le souffle, le vent, la parole. Deux panneaux suffisent à montrer une force qu'on ne voit jamais.",
+        "ht": "Yon pwofil an nwa, ak liy k ap chape ale : souf, van, pawòl. De panno kont pou montre yon fòs je moun pa janm wè.",
+        "en": "A black profile, and curves escaping from it: breath, wind, speech. Two panels are enough to show a force no one ever sees.",
+        "es": "Un perfil en negro y curvas que escapan: el aliento, el viento, la palabra. Dos paneles bastan para mostrar una fuerza que nunca se ve."
+      },
+      "insp": {
+        "fr": "Ce qui sort de toi a une forme.",
+        "ht": "Sa k soti nan bouch ou gen yon fòm.",
+        "en": "What leaves you has a shape.",
+        "es": "Lo que sale de ti tiene forma."
+      },
+      "audio": null,
+      "clip": null,
+      "print": true,
+      "sponsor": null
+    },
+    {
+      "id": "papa-ak-pitit",
+      "img": "oeuvre-09.jpg",
+      "an": "2024",
+      "dim": "40 × 30 cm · cadre bois noir inclus",
+      "t": "Père et Fils",
+      "tht": "Papa ak Pitit",
+      "col": [
+        "memwa"
+      ],
+      "pal": [
+        "#4e5c27",
+        "#262617",
+        "#87956c",
+        "#394618",
+        "#606054"
+      ],
+      "tech": {
+        "fr": "Acrylique sur toile",
+        "ht": "Akrilik sou twal",
+        "en": "Acrylic on canvas",
+        "es": "Acrílico sobre lienzo"
+      },
+      "hist": {
+        "fr": "Deux silhouettes, un fond vert profond, presque rien d'autre. La grande protège, la petite tend la main : la transmission tient en un geste.",
+        "ht": "De silwèt, yon fon vèt fonse, prèske anyen ankò. Gran an ap pwoteje, piti a lonje men l : tout sa granmoun bay timoun rete nan yon sèl jès.",
+        "en": "Two figures, a deep green ground, almost nothing else. The tall one shelters, the small one reaches out: everything a father passes on holds in a single gesture.",
+        "es": "Dos siluetas, un fondo verde profundo, casi nada más. El grande protege, el pequeño tiende la mano: la transmisión cabe en un solo gesto."
+      },
+      "insp": {
+        "fr": "Tendre la main s'apprend en regardant.",
+        "ht": "Se lè timoun gade granmoun li aprann lonje men l.",
+        "en": "Reaching out is learned by watching.",
+        "es": "Tender la mano se aprende mirando."
+      },
+      "audio": null,
+      "clip": null,
+      "print": true,
+      "sponsor": null
+    },
+    {
+      "id": "rekonesans",
+      "img": "oeuvre-10.jpg",
+      "an": "2024",
+      "dim": "80 × 100 cm",
+      "t": "Gratitude",
+      "tht": "Rekonesans",
+      "col": [
+        "rezilyans",
+        "lakay"
+      ],
+      "pal": [
+        "#ac235a",
+        "#541725",
+        "#ce9755",
+        "#271c25",
+        "#ebe4e2"
+      ],
+      "tech": {
+        "fr": "Acrylique sur toile",
+        "ht": "Akrilik sou twal",
+        "en": "Acrylic on canvas",
+        "es": "Acrílico sobre lienzo"
+      },
+      "hist": {
+        "fr": "Un dindon déploie une queue faite de toutes les couleurs — le symbole du partage et de la table pleine. Une œuvre qui célèbre l'abondance ordinaire, celle qu'on oublie de remercier.",
+        "ht": "Yon kodenn louvri ke l plen tout koulè — se senbòl pataj ak tab ki chaje. Tablo a ap selebre bon bagay òdinè yo, sa nou konn bliye di mèsi pou yo.",
+        "en": "A turkey spreads a tail made of every colour — the symbol of sharing and of a full table. A celebration of ordinary abundance, the kind we forget to give thanks for.",
+        "es": "Un pavo despliega una cola hecha de todos los colores: símbolo de lo compartido y de la mesa llena. Una celebración de la abundancia cotidiana, la que olvidamos agradecer."
+      },
+      "insp": {
+        "fr": "Dis merci avant que ce soit fini.",
+        "ht": "Di mèsi anvan bagay la fini.",
+        "en": "Say thank you before it's over.",
+        "es": "Da las gracias antes de que se acabe."
+      },
+      "audio": null,
+      "clip": null,
+      "print": true,
+      "sponsor": null
+    },
+    {
+      "id": "fidel-la",
+      "img": "oeuvre-11.jpg",
+      "an": "2024",
+      "dim": "80 × 80 cm",
+      "t": "Le fidèle",
+      "tht": "Fidèl la",
+      "col": [
+        "memwa"
+      ],
+      "pal": [
+        "#ae8d6d",
+        "#563024",
+        "#d0b08e",
+        "#956e52",
+        "#30231f"
+      ],
+      "tech": {
+        "fr": "Huile sur toile",
+        "ht": "Lwil sou twal",
+        "en": "Oil on canvas",
+        "es": "Óleo sobre lienzo"
+      },
+      "hist": {
+        "fr": "Un cheval regarde droit devant, calme. Derrière lui, un mur qui s'effrite et une coulée rouge. La loyauté n'a pas besoin de mots pour tenir debout.",
+        "ht": "Yon chwal ap gade dwat devan l, san kè sote. Dèyè l, yon mi k ap tonbe an myèt ak yon koulè wouj k ap koule. Fidelite pa bezwen pale pou l kanpe.",
+        "en": "A horse looks straight ahead, calm. Behind it, a crumbling wall and a run of red. Loyalty needs no words to stand.",
+        "es": "Un caballo mira de frente, tranquilo. Detrás, un muro que se desmorona y un chorro rojo. La lealtad no necesita palabras para sostenerse."
+      },
+      "insp": {
+        "fr": "Rester, c'est déjà parler.",
+        "ht": "Lè w rete la, ou deja di anpil bagay.",
+        "en": "Staying is already speaking.",
+        "es": "Quedarse ya es hablar."
+      },
+      "audio": null,
+      "clip": null,
+      "print": true,
+      "sponsor": null
+    },
+    {
+      "id": "soley-an-damye",
+      "img": "oeuvre-12.jpg",
+      "an": "2024",
+      "dim": "80 × 80 cm",
+      "t": "Soleil en damier",
+      "tht": "Solèy an damye",
+      "col": [
+        "espirit",
+        "dyaspora"
+      ],
+      "pal": [
+        "#e2a661",
+        "#175268",
+        "#a6616a",
+        "#d1ac95",
+        "#14191f"
+      ],
+      "tech": {
+        "fr": "Acrylique sur toile",
+        "ht": "Akrilik sou twal",
+        "en": "Acrylic on canvas",
+        "es": "Acrílico sobre lienzo"
+      },
+      "hist": {
+        "fr": "Un soleil construit en damier rayonne au-dessus de la mer, entre deux mornes. La géométrie et le paysage se rencontrent : l'énergie prend une forme, et reste douce.",
+        "ht": "Yon solèy yo bati an damye ap klere anwo lanmè a, ant de mòn. Jeyometri ak peyizaj kontre : fòs solèy la vin gen yon fòm, men li rete dous.",
+        "en": "A sun built from checkers radiates above the sea between two headlands. Geometry meets landscape: the energy takes a shape and stays gentle.",
+        "es": "Un sol construido en damero irradia sobre el mar, entre dos cerros. La geometría se encuentra con el paisaje: la energía toma forma y sigue siendo suave."
+      },
+      "insp": {
+        "fr": "Même le soleil suit un ordre.",
+        "ht": "Menm solèy la gen yon lòd li swiv.",
+        "en": "Even the sun follows an order.",
+        "es": "Incluso el sol sigue un orden."
+      },
+      "audio": null,
+      "clip": null,
+      "print": true,
+      "sponsor": null
+    }
+  ],
+  "videos": [
+    {
+      "id": "enspirasyon",
+      "file": "inspirasyon.mp4",
+      "t": "Inspiration",
+      "tht": "Enspirasyon",
+      "col": [
+        "rezilyans"
+      ],
+      "tech": {
+        "fr": "Œuvre vidéo · édition numérique",
+        "ht": "Zèv videyo · edisyon nimerik",
+        "en": "Video work · digital edition",
+        "es": "Obra en vídeo · edición digital"
+      },
+      "hist": {
+        "fr": "Une œuvre pensée directement pour l'écran : la peinture se met en mouvement et devient une respiration.",
+        "ht": "Yon zèv ki fèt dirèkteman pou ekran : penti a pran mouvman epi li tounen yon souf.",
+        "en": "A work made directly for the screen: the painting starts to move and becomes a breath.",
+        "es": "Una obra pensada directamente para la pantalla: la pintura se pone en movimiento y se vuelve una respiración."
+      }
+    }
+  ],
+  "_univers": "Les 5 univers sont definis dans collection.json (source unique). Le champ col de chaque oeuvre y renvoie."
+}

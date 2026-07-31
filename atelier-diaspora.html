@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <title>Diaspora — Atelier ATM | Atmart</title>
+  <meta name="description" content="L'Atelier ATM pour la diaspora haïtienne et caribéenne : familles, professionnels, entrepreneurs, institutions, jeunesse, réseaux culturels. Une offre par segment, pas un bloc." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#060c15" />
+  <link rel="stylesheet" href="assets/style.css?v=31" />
+  <link rel="stylesheet" href="assets/atelier.css?v=2" />
+<script>/* langue auto : avant le 1er affichage, evite le clignotement */
+(function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
+s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
+var l=s&&S[s]?s:null;
+if(!l){var n=navigator.languages||[navigator.language||""];
+for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().split("-")[0];
+if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
+window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;
+if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove("i18n-wait")},1500)}})();
+</script>
+  <style>
+    .segs { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.1rem; }
+    .seg { display:block; background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.1);
+           border-radius:16px; padding:1.4rem 1.4rem; transition:border-color .2s, transform .2s; }
+    .seg:hover { border-color:var(--teal); transform:translateY(-3px); }
+    .seg .n { font-family:var(--font-head); font-size:0.72rem; letter-spacing:0.2em; color:var(--teal); }
+    .seg h3 { color:#fff; font-size:1.1rem; margin:0.35rem 0 0.4rem; }
+    .seg p { color:var(--ink-dim); font-size:0.9rem; margin:0; }
+    .seg .go { display:inline-block; margin-top:0.9rem; color:var(--amber); font-size:0.86rem; font-weight:600; }
+    .secs { display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:1rem; }
+    .secs span { font-size:0.8rem; padding:0.3rem 0.75rem; border-radius:999px;
+                 border:1px solid rgba(255,255,255,0.16); color:var(--ink-dim); }
+  </style>
+</head>
+<body class="art">
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="conseil-ia.html" data-i18n="nav.advisory">💼 Entreprises</a></li>
+      <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section style="padding-top:3rem">
+  <div class="art-wide">
+    <p id="back" style="display:none"><a href="atelier-diaspora.html" style="color:#9fb3c8;font-size:0.9rem" data-s="dy.back"></a></p>
+    <p class="art-lbl" data-s="dy.k"></p>
+    <h1 class="art-h" id="h1" style="font-size:clamp(1.9rem,4.5vw,2.9rem)"></h1>
+    <p class="art-sub" id="lead" style="font-size:1.03rem"></p>
+  </div>
+</section>
+
+<div id="hub">
+  <section style="padding-top:1rem">
+    <div class="art-wide">
+      <p class="art-lbl" data-s="dy.sk"></p>
+      <h2 class="art-h" data-s="dy.sh"></h2>
+      <p class="art-note" style="margin-bottom:1.4rem" data-s="dy.sn"></p>
+      <div class="segs" id="segs"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="art-wide">
+      <p class="art-lbl" data-s="dy.seck"></p>
+      <h2 class="art-h" data-s="dy.sech"></h2>
+      <p class="art-sub" data-s="dy.secp"></p>
+      <div class="secs" id="secs"></div>
+    </div>
+  </section>
+</div>
+
+<div id="detail" style="display:none">
+  <section style="padding-top:0">
+    <div class="art-wide">
+      <div class="strip">
+        <div class="s-media"><img id="seg-img" alt="" /></div>
+        <div>
+          <p class="art-lbl" data-s="dy.ok"></p>
+          <p style="color:#cfdcea;font-size:1.02rem" id="seg-offre"></p>
+          <div class="secs" id="seg-secs"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="art-wide">
+      <p class="art-lbl" data-s="dy.bk"></p>
+      <h2 class="art-h" data-s="dy.bh"></h2>
+      <div class="offers" id="seg-bundles" style="margin-top:1.4rem"></div>
+      <p class="art-note" style="margin-top:1rem" data-s="dy.bn"></p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="art-wide">
+      <div style="background:rgba(46,196,182,0.07);border:1px solid rgba(46,196,182,0.28);border-radius:16px;padding:1.8rem;text-align:center">
+        <h2 style="margin-top:0;font-size:1.3rem" data-s="dy.ctah"></h2>
+        <p style="color:#d7e3f0;max-width:60ch;margin:0.8rem auto 1.3rem;font-size:0.94rem" data-s="dy.ctap"></p>
+        <a class="btn btn-primary" id="seg-cta" href="#" data-s="dy.ctab"></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
+        <ul>
+          <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+          <li><a href="atelier-collection.html" data-s="nv.col"></a></li>
+          <li><a href="atelier-artistes.html" data-s="nv.art"></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul><li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li></ul>
+      </div>
+    </div>
+    <p class="footer-note">© Atmart LLC — <span data-i18n="foot.rights">Tous droits réservés.</span></p>
+  </div>
+</footer>
+
+<script src="assets/script.js?v=2"></script>
+<script src="assets/i18n.js?v=10"></script>
+<script src="assets/atelier.js?v=3"></script>
+<script>
+(function () {
+  "use strict";
+  Object.assign(ATM.S, {
+    "dy.k": { fr: "Diaspora", ht: "Dyaspora", en: "Diaspora", es: "Diáspora" },
+    "dy.h": { fr: "La diaspora n'est pas un public. C'est une infrastructure.", ht: "Dyaspora a se pa yon senp piblik. Se yon estrikti.", en: "The diaspora is not an audience. It is infrastructure.", es: "La diáspora no es un público. Es una infraestructura." },
+    "dy.p": { fr: "Financement familial, circulation des compétences, ouverture de marchés, diffusion internationale, influence institutionnelle. Six situations très différentes — et une offre pour chacune, jamais un message unique.", ht: "Lajan pou fanmi, konesans k ap sikile, mache k ap louvri, difizyon entènasyonal, enfliyans nan enstitisyon. Sis sitiyasyon ki byen diferan — ak yon òf pou chak, pa yon sèl mesaj pou tout moun.", en: "Family financing, circulating skills, opening markets, international reach, institutional influence. Six very different situations — one offer for each, never a single message.", es: "Financiación familiar, circulación de competencias, apertura de mercados, difusión internacional, influencia institucional. Seis situaciones muy distintas y una oferta para cada una, nunca un mensaje único." },
+    "dy.back": { fr: "← Tous les segments", ht: "← Tout segman yo", en: "← All segments", es: "← Todos los segmentos" },
+
+    "dy.sk": { fr: "Six segments", ht: "Sis segman", en: "Six segments", es: "Seis segmentos" },
+    "dy.sh": { fr: "Où vous situez-vous ?", ht: "Kote ou ye nan sa a ?", en: "Where do you fit?", es: "¿Dónde se sitúa usted?" },
+    "dy.sn": { fr: "Parler à « la diaspora » en bloc, c'est ne parler à personne. Chaque situation a ses occasions d'achat, son budget et ses raisons.", ht: "Pale ak « dyaspora a » an blòk, se pa pale ak pesonn. Chak sitiyasyon gen okazyon acha pa l, bidjè pa l ak rezon pa l.", en: "Addressing \"the diaspora\" as one block is addressing nobody. Each situation has its own buying moments, budget and reasons.", es: "Hablarle a «la diáspora» en bloque es no hablarle a nadie. Cada situación tiene sus ocasiones de compra, su presupuesto y sus razones." },
+
+    "dy.seck": { fr: "Secteurs", ht: "Sektè", en: "Sectors", es: "Sectores" },
+    "dy.sech": { fr: "Là où la contribution est immédiatement crédible", ht: "Kote kontribisyon an kredib touswit", en: "Where the contribution is immediately credible", es: "Donde la contribución es creíble de inmediato" },
+    "dy.secp": { fr: "Ce sont les secteurs à démarcher en premier : l'effet sur le quotidien y est visible sans démonstration.", ht: "Se sektè sa yo pou nou kontakte an premye : moun wè enpak la sou lavi chak jou san nou pa bezwen esplike.", en: "These are the sectors to approach first: the everyday effect is visible without explanation.", es: "Son los sectores que hay que abordar primero: el efecto cotidiano se ve sin explicación." },
+
+    "dy.ok": { fr: "Ce que nous proposons", ht: "Sa nou pwopoze", en: "What we offer", es: "Lo que proponemos" },
+    "dy.bk": { fr: "Bundles", ht: "Pakè", en: "Bundles", es: "Packs" },
+    "dy.bh": { fr: "Les ensembles adaptés à votre situation", ht: "Pakè ki bon pou sitiyasyon w lan", en: "The sets that fit your situation", es: "Los conjuntos adaptados a su situación" },
+    "dy.bn": { fr: "Prix en dollars US, hors livraison et hors taxes.", ht: "Pri an dola ameriken, san livrezon ak san taks.", en: "Prices in US dollars, excluding delivery and tax.", es: "Precios en dólares estadounidenses, sin envío ni impuestos." },
+    "dy.ctah": { fr: "Dites-nous ce que vous préparez", ht: "Di nou sa w ap prepare", en: "Tell us what you are planning", es: "Cuéntenos qué está preparando" },
+    "dy.ctap": { fr: "Un cadeau, un événement, une campagne, un espace à habiller : nous répondons sous deux jours ouvrables avec une proposition chiffrée.", ht: "Yon kado, yon evenman, yon kanpay, yon espas pou abiye : n ap reponn nan de jou travay ak yon pwopozisyon ki gen pri ladan l.", en: "A gift, an event, a campaign, a space to dress: we reply within two business days with a costed proposal.", es: "Un regalo, un evento, una campaña, un espacio que vestir: respondemos en dos días hábiles con una propuesta con precios." },
+    "dy.ctab": { fr: "Écrire à l'Atelier", ht: "Ekri Atelye a", en: "Write to the studio", es: "Escribir al taller" },
+    "nv.col": { fr: "La collection", ht: "Koleksyon an", en: "The collection", es: "La colección" }
+  });
+
+  var IMG = { fanmi: "papa-ak-pitit", pwofesyonel: "de-fas", antreprene: "rekonesans",
+              enstitisyon: "soley-simen", jenes: "wonn-lavi", rezo: "liy-ble" };
+  var id = new URLSearchParams(location.search).get("s");
+  var D = null;
+
+  function render() {
+    var C = D.C, segs = C.diaspora.segments, secs = C.diaspora.secteurs;
+    var seg = segs.filter(function (s) { return s.id === id; })[0] || null;
+    var bAll = {};
+    C.bundles.b2c.concat(C.bundles.b2b).forEach(function (b) { bAll[b.id] = b; });
+    var sup = {}; C.supports.forEach(function (s) { sup[s.id] = s; });
+
+    document.getElementById("hub").style.display = seg ? "none" : "";
+    document.getElementById("detail").style.display = seg ? "" : "none";
+    document.getElementById("back").style.display = seg ? "" : "none";
+
+    if (!seg) {
+      document.getElementById("h1").textContent = ATM.T("dy.h");
+      document.getElementById("lead").textContent = ATM.T("dy.p");
+      document.getElementById("segs").innerHTML = segs.map(function (s, i) {
+        return '<a class="seg" href="atelier-diaspora.html?s=' + s.id + '">' +
+          '<span class="n">0' + (i + 1) + "</span><h3>" + ATM.V(s.t) + "</h3>" +
+          "<p>" + ATM.V(s.d) + '</p><span class="go">' + ATM.T("p1.go") + " →</span></a>";
+      }).join("");
+      document.getElementById("secs").innerHTML = secs.map(function (s) {
+        return "<span>" + ATM.V(s.t) + "</span>";
+      }).join("");
+      document.title = "Diaspora — Atelier ATM | Atmart";
+      return;
+    }
+
+    document.getElementById("h1").textContent = ATM.V(seg.t);
+    document.getElementById("lead").textContent = ATM.V(seg.d);
+    document.getElementById("seg-offre").textContent = ATM.V(seg.o);
+    document.getElementById("seg-secs").innerHTML = (seg.sec || []).map(function (i) {
+      return secs[i] ? "<span>" + ATM.V(secs[i].t) + "</span>" : "";
+    }).join("");
+
+    var w = D.works.filter(function (x) { return x.id === IMG[seg.id]; })[0];
+    if (w) document.getElementById("seg-img").src = ATM.img(w);
+
+    document.getElementById("seg-bundles").innerHTML = seg.b.map(function (bid, i) {
+      var b = bAll[bid];
+      if (!b) return "";
+      var apd = C.bundles.b2b.indexOf(b) >= 0;
+      return '<div class="offer' + (i === 0 ? " feat" : "") + '"><h3>' + ATM.V(b.t) + "</h3>" +
+        '<p class="price">' + (apd ? '<small style="margin:0 0 0.1rem">' + ATM.V(C.bundles._apd) + "</small>" : "") +
+        b.px + " $<small>" + ATM.V(b.pxu) + "</small></p><ul>" +
+        b.c.map(function (s) { return "<li>" + (sup[s] ? ATM.V(sup[s].t) : s) + "</li>"; }).join("") +
+        '</ul><p class="art-note">' + ATM.V(b.o) + "</p></div>";
+    }).join("");
+
+    document.getElementById("seg-cta").href = ATM.mailto(
+      "Atelier ATM — diaspora : " + ATM.V(seg.t),
+      "Segment : " + ATM.V(seg.t) + "\nCe que je prépare :\n\nBudget approximatif :\nÉchéance :\n");
+    document.title = ATM.V(seg.t) + " — Diaspora | Atelier ATM";
+  }
+
+  ATM.paint();
+  ATM.data().then(function (d) { D = d; render(); });
+  ATM.onLang(function () { if (D) render(); });
+})();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+<script src="assets/launcher.js?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <title>Recevoir une impression — Atelier ATM | Atmart</title>
+  <meta name="description" content="Programmes parrainés de l'Atelier ATM : si un partenaire soutient votre communauté, choisissez une œuvre et recevez votre affiche, imprimée près de chez vous." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#060c15" />
+  <link rel="stylesheet" href="assets/style.css?v=31" />
+  <link rel="stylesheet" href="assets/atelier.css?v=2" />
+<script>/* langue auto : avant le 1er affichage, evite le clignotement */
+(function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
+s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
+var l=s&&S[s]?s:null;
+if(!l){var n=navigator.languages||[navigator.language||""];
+for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().split("-")[0];
+if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
+window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;
+if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove("i18n-wait")},1500)}})();
+</script>
+</head>
+<body class="art">
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li class="nav-grp"><span data-i18n="nav.atelier">🎨 Atelier</span>
+        <ul class="nav-sub">
+          <li><a href="atelier.html"><span data-i18n="nav.a_gal">Galerie</span> <small data-i18n="nav.a_gal_s">les œuvres d'ATM</small></a></li>
+          <li><a href="atelier-collection.html"><span data-i18n="nav.a_col">La collection</span> <small data-i18n="nav.a_col_s">univers, gammes, bundles</small></a></li>
+          <li><a href="atelier-maison.html"><span data-i18n="nav.a_mez">Pour la maison</span> <small data-i18n="nav.a_mez_s">affiches, originaux, cadeaux</small></a></li>
+          <li><a href="atelier-business.html"><span data-i18n="nav.a_biz">Pour le business</span> <small data-i18n="nav.a_biz_s">écrans &amp; licences</small></a></li>
+          <li><a href="atelier-diaspora.html"><span data-i18n="nav.a_dya">Diaspora</span> <small data-i18n="nav.a_dya_s">une offre par segment</small></a></li>
+          <li><a href="atelier-institutions.html"><span data-i18n="nav.a_fin">Financer l'accès</span> <small data-i18n="nav.a_fin_s">parrainer une communauté</small></a></li>
+          <li><a href="impact.html"><span data-i18n="nav.a_imp">Recevoir une impression</span> <small data-i18n="nav.a_imp_s">programmes parrainés</small></a></li>
+          <li><a href="atelier-artistes.html"><span data-i18n="nav.a_art">Artistes</span> <small data-i18n="nav.a_art_s">rejoindre le programme</small></a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<section style="padding-top:3rem">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="im.k"></p>
+    <h1 class="art-h" style="font-size:clamp(1.9rem,4.5vw,2.9rem)" data-s="im.h"></h1>
+    <p class="art-sub" style="font-size:1.03rem" data-s="im.p"></p>
+  </div>
+</section>
+
+<!-- VÉRIFIER SON ACCÈS -->
+<section style="padding-top:1rem">
+  <div class="art-wide">
+    <div style="background:rgba(46,196,182,0.07);border:1px solid rgba(46,196,182,0.28);border-radius:16px;padding:1.7rem 1.5rem;max-width:680px">
+      <p class="art-lbl" data-s="im.ck"></p>
+      <h2 style="font-size:1.25rem;margin:0.4rem 0 0.6rem" data-s="im.ch"></h2>
+      <p class="art-note" style="margin-bottom:1rem" data-s="im.cp"></p>
+      <form class="art-form" id="code-form" style="gap:0.7rem">
+        <div class="two" style="grid-template-columns:1fr auto;align-items:end">
+          <div>
+            <label data-s="im.cf"></label>
+            <input name="code" placeholder="ATM-BOSTON-2026" autocomplete="off" />
+          </div>
+          <div><button class="btn btn-primary" type="submit" data-s="im.cb"></button></div>
+        </div>
+      </form>
+      <div id="code-out" style="margin-top:1rem"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMMES EN COURS -->
+<section>
+  <div class="art-wide">
+    <p class="art-lbl" data-s="im.pk"></p>
+    <h2 class="art-h" data-s="im.ph"></h2>
+    <div id="progs" style="margin-top:1.2rem"></div>
+  </div>
+</section>
+
+<!-- CHOISIR UNE ŒUVRE -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="im.wk"></p>
+    <h2 class="art-h" data-s="im.wh"></h2>
+    <p class="art-sub" data-s="im.wp"></p>
+    <div class="more-works" id="pick" style="margin-top:1.2rem"></div>
+
+    <form class="art-form" id="print-form" style="margin-top:2rem">
+      <div class="two">
+        <div><label data-s="im.f1"></label><input name="oeuvre" id="f-oeuvre" required /></div>
+        <div><label data-s="im.f2"></label>
+          <select name="format">
+            <option>8,5 × 11 in</option>
+            <option>12 × 18 in</option>
+            <option>18 × 24 in</option>
+          </select>
+        </div>
+      </div>
+      <div class="two">
+        <div><label data-s="im.f3"></label><input name="nom" required /></div>
+        <div><label data-s="im.f4"></label><input name="email" type="email" required /></div>
+      </div>
+      <div class="two">
+        <div><label data-s="im.f5"></label><input name="code" id="f-code" placeholder="ATM-…" /></div>
+        <div><label data-s="im.f6"></label><input name="ville" placeholder="Fitchburg, MA" /></div>
+      </div>
+      <div><button class="btn btn-primary" type="submit" data-s="im.fb"></button></div>
+      <p class="art-note" data-s="im.fn"></p>
+    </form>
+  </div>
+</section>
+
+<!-- SUGGÉRER UN PARRAIN -->
+<section style="padding-top:0">
+  <div class="art-wide">
+    <div style="background:rgba(244,162,97,0.08);border:1px solid rgba(244,162,97,0.35);border-radius:16px;padding:1.8rem;text-align:center">
+      <h2 style="margin-top:0;font-size:1.35rem" data-s="im.sg"></h2>
+      <p style="color:#d7e3f0;max-width:60ch;margin:0.8rem auto 1.3rem;font-size:0.94rem" data-s="im.sgp"></p>
+      <a class="btn btn-primary" id="sg-btn" href="#" data-s="im.sgb"></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
+        <ul>
+          <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+          <li><a href="atelier-institutions.html" data-s="a.fund"></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-note">© Atmart LLC — <span data-i18n="foot.rights">Tous droits réservés.</span></p>
+  </div>
+</footer>
+
+<script src="assets/script.js?v=2"></script>
+<script src="assets/i18n.js?v=10"></script>
+<script src="assets/atelier.js?v=3"></script>
+<script>
+(function () {
+  "use strict";
+  Object.assign(ATM.S, {
+    "im.k": { fr: "Accès financé", ht: "Aksè yon patnè peye", en: "Funded access", es: "Acceso financiado" },
+    "im.h": { fr: "Recevoir une impression, sans rien payer", ht: "Jwenn yon kopi enprime, san w pa peye anyen", en: "Get a print, without paying", es: "Recibir una impresión, sin pagar nada" },
+    "im.p": {
+      fr: "Une institution finance un nombre d'impressions pour une communauté. Si la vôtre est parrainée, vous choisissez une œuvre, et l'affiche est imprimée chez un imprimeur proche de chez vous. Vous ne payez rien — au maximum la livraison, si le programme ne la couvre pas.",
+      ht: "Yon enstitisyon peye pou yon kantite enprime pou yon kominote. Si gen yon patnè k ap sipòte pa w la, ou chwazi yon zèv epi yo enprime afich la lakay yon enprimè ki toupre w. Ou pa peye anyen — sèl bagay ki ka rete se livrezon an, si pwogram nan pa kouvri l.",
+      en: "An institution funds a number of prints for a community. If yours is sponsored, you pick a work and the poster is printed by a printer near you. You pay nothing — at most the delivery, if the programme does not cover it.",
+      es: "Una institución financia una cantidad de impresiones para una comunidad. Si la suya está apadrinada, elige una obra y el cartel se imprime en una imprenta cercana. Usted no paga nada, salvo el envío si el programa no lo cubre."
+    },
+    "im.ck": { fr: "Vérifier", ht: "Tcheke", en: "Check", es: "Comprobar" },
+    "im.ch": { fr: "Avez-vous un code d'accès ?", ht: "Èske w gen yon kòd aksè ?", en: "Do you have an access code?", es: "¿Tiene un código de acceso?" },
+    "im.cp": { fr: "Le code vous est remis par l'organisation qui parraine votre communauté (école, employeur, centre, association).", ht: "Se òganizasyon k ap sipòte kominote w la ki ba w kòd la (lekòl, patwon, sant, asosyasyon).", en: "The code comes from the organisation sponsoring your community (school, employer, centre, association).", es: "El código lo entrega la organización que apadrina su comunidad (escuela, empleador, centro, asociación)." },
+    "im.cf": { fr: "Code d'accès", ht: "Kòd aksè", en: "Access code", es: "Código de acceso" },
+    "im.cb": { fr: "Vérifier", ht: "Tcheke", en: "Check", es: "Comprobar" },
+    "im.ok": { fr: "Code reconnu ✓ — choisissez votre œuvre plus bas.", ht: "Kòd la bon ✓ — chwazi zèv ou a anba a.", en: "Code recognised ✓ — pick your work below.", es: "Código reconocido ✓: elija su obra abajo." },
+    "im.no": { fr: "Ce code n'est pas actif. Vérifiez auprès de l'organisation qui vous l'a donné — ou demandez-lui de parrainer votre communauté.", ht: "Kòd sa a pa aktif. Tcheke ak òganizasyon ki ba w li a — oswa mande l pou l sipòte kominote w la.", en: "That code is not active. Check with the organisation that gave it to you — or ask them to sponsor your community.", es: "Ese código no está activo. Consulte con la organización que se lo dio o pídale que apadrine su comunidad." },
+
+    "im.pk": { fr: "Programmes", ht: "Pwogram yo", en: "Programmes", es: "Programas" },
+    "im.ph": { fr: "Communautés parrainées en ce moment", ht: "Kominote ki gen sipò kounye a", en: "Communities sponsored right now", es: "Comunidades apadrinadas ahora" },
+    "im.pn": { fr: "Aucun programme n'est encore ouvert. Le premier démarre avec la collection pilote — et il peut être financé par votre employeur, votre école ou votre paroisse.", ht: "Poko gen okenn pwogram ki louvri. Premye a ap kòmanse ak koleksyon pilòt la — epi se patwon w, lekòl ou oswa legliz ou ki ka peye pou li.", en: "No programme is open yet. The first one starts with the pilot collection — and it can be funded by your employer, your school or your parish.", es: "Todavía no hay ningún programa abierto. El primero comienza con la colección piloto, y puede financiarlo su empleador, su escuela o su parroquia." },
+
+    "im.wk": { fr: "Choisir", ht: "Chwazi", en: "Choose", es: "Elegir" },
+    "im.wh": { fr: "Quelle œuvre voulez-vous chez vous ?", ht: "Ki zèv ou vle lakay ou ?", en: "Which work do you want at home?", es: "¿Qué obra quiere en su casa?" },
+    "im.wp": { fr: "Cliquez sur une œuvre pour la choisir, puis remplissez la demande. Sans code, la demande est enregistrée : vous serez prévenu dès qu'un programme couvre votre communauté.", ht: "Klike sou yon zèv pou w chwazi l, apre sa ranpli demann nan. Si w pa gen kòd, n ap kenbe demann ou an : n ap fè w konnen kou yon pwogram kouvri kominote w la.", en: "Click a work to select it, then fill in the request. Without a code, your request is kept on file: we will tell you as soon as a programme covers your community.", es: "Haga clic en una obra para elegirla y complete la solicitud. Sin código, guardamos su solicitud: le avisaremos en cuanto un programa cubra su comunidad." },
+    "im.f1": { fr: "Œuvre choisie", ht: "Zèv ou chwazi a", en: "Chosen work", es: "Obra elegida" },
+    "im.f2": { fr: "Format", ht: "Fòma", en: "Size", es: "Formato" },
+    "im.f3": { fr: "Votre nom", ht: "Non ou", en: "Your name", es: "Su nombre" },
+    "im.f4": { fr: "Courriel", ht: "Imèl", en: "Email", es: "Correo" },
+    "im.f5": { fr: "Code d'accès (si vous en avez un)", ht: "Kòd aksè (si w genyen)", en: "Access code (if you have one)", es: "Código de acceso (si tiene)" },
+    "im.f6": { fr: "Ville", ht: "Vil kote w ye", en: "City", es: "Ciudad" },
+    "im.fb": { fr: "Envoyer ma demande", ht: "Voye demann mwen an", en: "Send my request", es: "Enviar mi solicitud" },
+    "im.fn": { fr: "Le bouton ouvre votre messagerie avec la demande déjà rédigée. Aucune donnée n'est stockée sur ce site.", ht: "Bouton an louvri bwat imèl ou a ak demann nan deja ekri. Sit sa a pa kenbe okenn done sou ou.", en: "The button opens your mail app with the request already written. This site stores no data.", es: "El botón abre su correo con la solicitud ya redactada. Este sitio no almacena datos." },
+
+    "im.sg": { fr: "Personne ne parraine encore votre communauté ?", ht: "Poko gen moun k ap sipòte kominote w la ?", en: "Nobody sponsoring your community yet?", es: "¿Nadie apadrina todavía a su comunidad?" },
+    "im.sgp": { fr: "Envoyez-nous le nom d'une entreprise, d'une école, d'un hôpital ou d'une fondation près de chez vous. Nous leur présentons le programme — vous n'avez rien à faire de plus.", ht: "Voye ban nou non yon antrepriz, yon lekòl, yon lopital oswa yon fondasyon ki toupre w. N ap prezante yo pwogram nan — ou pa gen anyen ankò pou w fè.", en: "Send us the name of a company, school, hospital or foundation near you. We will present the programme to them — nothing more for you to do.", es: "Envíenos el nombre de una empresa, escuela, hospital o fundación cerca de usted. Nosotros les presentamos el programa; usted no tiene que hacer nada más." },
+    "im.sgb": { fr: "Suggérer une organisation", ht: "Pwopoze yon òganizasyon", en: "Suggest an organisation", es: "Sugerir una organización" }
+  });
+
+  var D = null, I = null, chosen = null;
+
+  function progs() {
+    var box = document.getElementById("progs");
+    if (!I || !I.programmes.length) {
+      box.innerHTML = '<p class="art-note" style="max-width:70ch">' + ATM.T("im.pn") + "</p>";
+      return;
+    }
+    box.className = "offers";
+    box.innerHTML = I.programmes.map(function (p) {
+      return '<div class="offer"><span class="tag">' + p.code + "</span><h3>" + ATM.V(p.nom) + "</h3>" +
+        "<p class=\"art-note\">" + ATM.V(p.desc) + "</p><ul><li>" + p.impressions_restantes + " " +
+        ATM.T("imp.2") + "</li><li>" + ATM.V(p.partenaire) + "</li></ul></div>";
+    }).join("");
+  }
+
+  function pick() {
+    document.getElementById("pick").innerHTML = D.works.map(function (w) {
+      return '<a href="#print-form" data-w="' + w.id + '"><img src="' + ATM.img(w) + '" alt="" loading="lazy" draggable="false" />' +
+        "<span>" + w.t + "</span></a>";
+    }).join("");
+  }
+
+  function setWork(id) {
+    var w = D.works.filter(function (x) { return x.id === id; })[0];
+    if (!w) return;
+    chosen = w;
+    document.getElementById("f-oeuvre").value = w.t + " / " + w.tht;
+  }
+
+  document.getElementById("pick").addEventListener("click", function (e) {
+    var a = e.target.closest("[data-w]");
+    if (a) setWork(a.dataset.w);
+  });
+
+  document.getElementById("code-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var code = (e.target.elements.code.value || "").trim().toUpperCase();
+    var ok = I && I.programmes.some(function (p) { return p.code.toUpperCase() === code && p.actif; });
+    var out = document.getElementById("code-out");
+    out.innerHTML = '<p class="art-note" style="color:' + (ok ? "#2ec4b6" : "#f4a261") + '">' +
+      ATM.T(ok ? "im.ok" : "im.no") + "</p>";
+    if (ok) document.getElementById("f-code").value = code;
+  });
+
+  document.getElementById("print-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = e.target, g = function (n) { return (f.elements[n].value || "—").trim(); };
+    var body =
+      "Œuvre : " + g("oeuvre") + "\n" +
+      "Format : " + g("format") + "\n" +
+      "Nom : " + g("nom") + "\n" +
+      "Courriel : " + g("email") + "\n" +
+      "Code d'accès : " + g("code") + "\n" +
+      "Ville : " + g("ville") + "\n";
+    location.href = ATM.mailto("Atelier ATM — demande d'impression", body);
+  });
+
+  document.getElementById("sg-btn").addEventListener("click", function (e) {
+    e.preventDefault();
+    location.href = ATM.mailto("Atelier ATM — suggestion de parrain",
+      "Organisation suggérée :\nVille :\nPourquoi elle pourrait parrainer :\n\nMon nom :\nMa communauté :\n");
+  });
+
+  ATM.paint();
+  ATM.data().then(function (d) {
+    D = d;
+    pick();
+    var q = new URLSearchParams(location.search);
+    if (q.get("o")) setWork(q.get("o"));
+    if (q.get("p")) { document.getElementById("code-form").elements.code.value = q.get("p"); }
+  });
+  fetch("assets/atelier/impact.json", { cache: "no-cache" }).then(function (r) { return r.json(); })
+    .then(function (i) { I = i; progs(); });
+  ATM.onLang(function () { if (D) { pick(); if (chosen) setWork(chosen.id); } progs(); });
+})();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+<script src="assets/launcher.js?v=3"></script>
+</body>
+</html>
