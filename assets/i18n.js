@@ -37,16 +37,30 @@
     document.querySelectorAll("[data-i18n-ph]").forEach((el) => { el.setAttribute("placeholder", val(el.dataset.i18nPh, orig.get(el))); });
     document.querySelectorAll("[data-i18n-aria]").forEach((el) => { el.setAttribute("aria-label", val(el.dataset.i18nAria, orig.get(el))); });
     document.documentElement.lang = lang;
+    relierExplorateur(lang);
     // Si la page a ramene la langue au francais faute de traduction complete,
     // on ne touche pas au choix memorise : sinon visiter cette page effacerait
     // la preference de l'utilisateur pour tout le site.
-    if (lang === demande) localStorage.setItem("atmart_lang", lang);
+    if (lang === demande && !window.ATM_LANG_FORCE) {
+      localStorage.setItem("atmart_lang", lang);
+    }
     // Les pages qui fabriquent leur contenu en JS (Explorateur) ne peuvent pas
     // etre traduites par attributs : on les previent pour qu'elles redessinent.
     document.dispatchEvent(new CustomEvent("atmart:lang", { detail: lang }));
     document.querySelectorAll(".lang-opt").forEach((b) => b.classList.toggle("active", b.dataset.lang === lang));
     const cur = document.querySelector(".lang-current");
     if (cur) cur.textContent = "🌐 " + lang.toUpperCase();
+  }
+
+  // L'Explorateur a une URL par langue. Partout ailleurs sur le site, le lien
+  // pointe vers la version francaise : on le reecrit pour que le lecteur reste
+  // dans sa langue au lieu d'en changer sans l'avoir demande.
+  const EXPL = "donnees-explorateur.html";
+  function relierExplorateur(lang) {
+    document.querySelectorAll('a[href$="' + EXPL + '"]').forEach((a) => {
+      const q = a.getAttribute("href").split(EXPL)[1] || "";
+      a.setAttribute("href", (lang === DEFAULT ? "/" : "/" + lang + "/") + EXPL + q);
+    });
   }
 
   function buildSelector() {

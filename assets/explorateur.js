@@ -116,6 +116,25 @@
   }
 
   /* Un champ du dictionnaire, dans la langue courante, francais par defaut. */
+  /* Le nom d'un territoire suit la langue quand la source en fournit un :
+     Pòtoprens en kreyol, Port-au-Prince ailleurs. L'anglais et l'espagnol
+     n'ont pas de toponymie propre pour Haiti — ils gardent la forme
+     francaise, qui est celle du referentiel officiel.
+     Les identifiants et les p-codes ne changent JAMAIS : c'est par eux
+     qu'on rejoint les fichiers, quelle que soit la langue affichee. */
+  function nomT(e) {
+    if (!e) return "";
+    if (LANG === "ht" && e.nom_ht) return e.nom_ht;
+    return e.nom_fr || "";
+  }
+  /* L'autre graphie, quand elle differe : on la montre en second pour que
+     l'utilisateur reconnaisse le territoire sous ses deux noms. */
+  function nomSecond(e) {
+    if (!e) return "";
+    var a = nomT(e), b = LANG === "ht" ? e.nom_fr : e.nom_ht;
+    return b && b !== a ? b : "";
+  }
+
   function libelle(indId, nom) {
     if (LANG !== "fr") {
       var v = LIB[indId + "|" + LANG + "|" + nom];
@@ -210,7 +229,7 @@
         return TF(s.nAbsents > 1
           ? T("Profil administratif de {n}. {phrase} Les données disponibles couvrent {themes}. {absents} indicateurs restent à documenter sur cette commune.")
           : T("Profil administratif de {n}. {phrase} Les données disponibles couvrent {themes}. {absents} indicateur reste à documenter sur cette commune."),
-          { n: esc(r.nom_fr), phrase: s.phrase, themes: s.themes, absents: s.absents });
+          { n: esc(nomT(r)), phrase: s.phrase, themes: s.themes, absents: s.absents });
       },
       actions: [[T("Comparer aux communes voisines"), "#comparer"],
                 [T("Voir ce qui reste à documenter"), "#lacunes"],
@@ -221,7 +240,7 @@
       ordre: ["Santé", "Éducation", "Marchés", "Territoire", "Qualité"],
       resume: function (r, s) {
         return TF("Avant d'intervenir sur {n} : {phrase} Le score de complétude vous dit d'avance sur quoi votre diagnostic reposera — et sur quoi il ne reposera pas.",
-          { n: esc(r.nom_fr), phrase: s.phrase });
+          { n: esc(nomT(r)), phrase: s.phrase });
       },
       actions: [[T("Voir ce qui reste à documenter"), "#lacunes"],
                 [T("Référentiel géographique complet"), "donnees-pack-geo-haiti.html"],
@@ -232,7 +251,7 @@
       ordre: ["Qualité", "Territoire", "Santé", "Éducation", "Marchés"],
       resume: function (r, s) {
         return TF("Chaque valeur affichée pour {n} porte son année de référence, sa source et sa méthode de calcul — de quoi les reprendre dans une méthodologie. {phrase}",
-          { n: esc(r.nom_fr), phrase: s.phrase });
+          { n: esc(nomT(r)), phrase: s.phrase });
       },
       actions: [[T("Définitions et méthodes"), "donnees-backbone.html#indicateurs"],
                 [T("Accès Campus pour un mémoire"), "donnees-campus.html"],
@@ -243,7 +262,7 @@
       ordre: ["Territoire", "Éducation", "Santé", "Marchés", "Qualité"],
       resume: function (r, s) {
         return TF("Ce que l'on sait publiquement de {n} : {phrase} Tout ceci est libre et téléchargeable.",
-          { n: esc(r.nom_fr), phrase: s.phrase });
+          { n: esc(nomT(r)), phrase: s.phrase });
       },
       actions: [[T("Télécharger les données libres"), "datasets.html#shelf-free"],
                 [T("Comment ces chiffres sont établis"), "donnees-backbone.html"]]
@@ -346,7 +365,7 @@
   }
   function carteResultat(r) {
     return '<button class="x-res" role="option" data-id="' + esc(r.atmart_geo_id) + '"><b>' +
-      esc(r.nom_fr) + "</b>" + (r.nom_ht && r.nom_ht !== r.nom_fr ? " <i>" + esc(r.nom_ht) + "</i>" : "") +
+      esc(nomT(r)) + "</b>" + (nomSecond(r) ? " <i>" + esc(nomSecond(r)) + "</i>" : "") +
       "<small>" + (T(NIVEAU[r.niveau_admin]) || esc(r.type_entite)) + " · " +
       esc(r.pcode || r.source_geo_id) + "</small></button>";
   }
@@ -367,8 +386,8 @@
     var ch = [], cur = parId[r.parent_atmart_geo_id], g = 0;
     while (cur && g++ < 6) { ch.unshift(cur); cur = parId[cur.parent_atmart_geo_id]; }
     return ch.map(function (p) {
-      return '<button class="x-lien" data-id="' + esc(p.atmart_geo_id) + '">' + esc(p.nom_fr) + "</button>";
-    }).join(" › ") + (ch.length ? " › " : "") + "<span>" + esc(r.nom_fr) + "</span>";
+      return '<button class="x-lien" data-id="' + esc(p.atmart_geo_id) + '">' + esc(nomT(p)) + "</button>";
+    }).join(" › ") + (ch.length ? " › " : "") + "<span>" + esc(nomT(r)) + "</span>";
   }
 
   function situe(r) {
@@ -381,12 +400,12 @@
     var t = T(NIVEAU[r.niveau_admin]) || r.type_entite;
     if (dep && arr && r.niveau_admin === "3") {
       return TF("{niveau} du département {dep_de}, arrondissement {arr_de}",
-        { niveau: t, dep: dep.nom_fr, dep_de: deNom(dep.nom_fr),
-          arr: arr.nom_fr, arr_de: deNom(arr.nom_fr) });
+        { niveau: t, dep: nomT(dep), dep_de: deNom(dep.nom_fr),
+          arr: nomT(arr), arr_de: deNom(arr.nom_fr) });
     }
     if (dep) {
       return TF("{niveau} du département {dep_de}",
-        { niveau: t, dep: dep.nom_fr, dep_de: deNom(dep.nom_fr) });
+        { niveau: t, dep: nomT(dep), dep_de: deNom(dep.nom_fr) });
     }
     return t;
   }
@@ -426,8 +445,8 @@
     var s = synthese(r);
     var maj = vals[0] || {};
     var h = ['<div class="x-tete"><p class="x-fil">' + fil(r) + "</p>",
-      "<h2>" + esc(r.nom_fr) + (r.nom_ht && r.nom_ht !== r.nom_fr ?
-        " <em>" + esc(r.nom_ht) + "</em>" : "") + "</h2>",
+      "<h2>" + esc(nomT(r)) + (nomSecond(r) ?
+        " <em>" + esc(nomSecond(r)) + "</em>" : "") + "</h2>",
       '<p class="x-situe">' + esc(situe(r)) + "</p>"];
 
     if (r.niveau_admin === "3") {
@@ -435,7 +454,7 @@
       h.push('<button class="btn btn-primary x-btn-export" data-export="' + esc(r.pcode) + '">' +
              TN({ one: "Télécharger l'indicateur de {nom} (CSV)",
                   other: "Télécharger les {n} indicateurs de {nom} (CSV)" },
-                s.nConnus, { n: s.nConnus, nom: esc(r.nom_fr) }) + "</button>");
+                s.nConnus, { n: s.nConnus, nom: esc(nomT(r)) }) + "</button>");
       h.push('<button class="btn btn-outline x-btn-lien">' +
              T("Copier le lien de cette fiche") + "</button>");
       h.push('<a class="btn btn-outline" href="#lacunes">' +
@@ -509,7 +528,7 @@
       return '<circle class="x-pt' + (sel ? " x-pt-sel" : pro ? " x-pt-pro" : "") + '" r="' +
         (sel ? 7 : pro ? 4.5 : 3) + '" cx="' + px(+x.longitude).toFixed(1) + '" cy="' +
         py(+x.latitude).toFixed(1) + '" data-id="' + esc(x.atmart_geo_id) + '"><title>' +
-        esc(x.nom_fr) + "</title></circle>";
+        esc(nomT(x)) + "</title></circle>";
     }).join("");
 
     var cible = r.niveau_admin === "3" ? r :
@@ -529,15 +548,15 @@
        assemblage — un lecteur d'écran lit une phrase, pas des morceaux. */
     var alt = commune
       ? TF("{nom} est située sur la carte d'Haïti, avec {famille}.",
-           { nom: r.nom_fr, famille: libFam, n: nFam })
+           { nom: nomT(r), famille: libFam, n: nFam })
       : TF("{nom} sur la carte d'Haïti : {famille} sont mises en évidence.",
-           { nom: r.nom_fr, famille: libFam, n: nFam });
+           { nom: nomT(r), famille: libFam, n: nFam });
 
     return '<div class="x-carte"><svg viewBox="0 0 ' + L + " " + H + '" role="img" ' +
       'aria-label="' + esc(alt) + '" preserveAspectRatio="xMidYMid meet">' +
       '<path class="x-terre" d="' + chemins + '" />' + repere + pts + "</svg>" +
       '<p class="x-legende">' +
-      (commune ? '<span class="x-l-sel"></span> ' + esc(r.nom_fr) + "  " : "") +
+      (commune ? '<span class="x-l-sel"></span> ' + esc(nomT(r)) + "  " : "") +
       '<span class="x-l-pro"></span> ' + esc(libFam) +
       '  <span class="x-l-autre"></span> ' + T("autres communes du pays") +
       ' — <a href="donnees-pack-geo-haiti.html">' +
@@ -663,9 +682,9 @@
     if (voisins.length) {
       h.push('<p class="x-note" style="margin-top:0">' +
              TF("Les autres communes de l'arrondissement {arr_de} :",
-                { arr: esc(parent.nom_fr), arr_de: deNom(esc(parent.nom_fr)) }) + "</p>");
+                { arr: esc(nomT(parent)), arr_de: deNom(esc(parent.nom_fr)) }) + "</p>");
       h.push('<div class="x-puces">' + voisins.map(function (v) {
-        return '<button class="x-puce" data-id="' + esc(v.atmart_geo_id) + '">' + esc(v.nom_fr) + "</button>";
+        return '<button class="x-puce" data-id="' + esc(v.atmart_geo_id) + '">' + esc(nomT(v)) + "</button>";
       }).join("") + "</div>");
     }
     var nCom = terr.filter(function (x) { return x.niveau_admin === "3"; }).length;
@@ -740,7 +759,7 @@
     }[r.niveau_admin] || { one: "{n} entité", other: "{n} entités" };
     var h = ['<h3 class="x-h3">' + TN(titre, enf.length, { n: enf.length }) + "</h3>",
              '<div class="x-puces">' + enf.slice(0, 120).map(function (e) {
-               return '<button class="x-puce" data-id="' + esc(e.atmart_geo_id) + '">' + esc(e.nom_fr) + "</button>";
+               return '<button class="x-puce" data-id="' + esc(e.atmart_geo_id) + '">' + esc(nomT(e)) + "</button>";
              }).join("") + "</div>"];
     if (enf.length > 120) {
       h.push('<p class="x-note">' + TF("{n} autres — affinez par la recherche.",
@@ -873,9 +892,9 @@
     $("#x-fiche").innerHTML = h.join("");
     $("#x-fiche").hidden = false;
     var t = $("#x-titre-fiche");
-    if (t) t.textContent = r.nom_fr;
+    if (t) t.textContent = nomT(r);
     majURL();
-    annoncer(TF("Fiche de {nom} affichée.", { nom: r.nom_fr }));
+    annoncer(TF("Fiche de {nom} affichée.", { nom: nomT(r) }));
   }
 
   function majURL() {
@@ -964,9 +983,9 @@
       choix.innerHTML = comparees.length
         ? comparees.map(function (id) {
             var e = parId[id];
-            return '<span class="x-jeton">' + esc(e ? e.nom_fr : id) +
+            return '<span class="x-jeton">' + esc(e ? nomT(e) : id) +
               '<button class="x-jeton-x" data-retirer="' + esc(id) + '" aria-label="' +
-              esc(TF("Retirer {nom} de la comparaison", { nom: e ? e.nom_fr : id })) +
+              esc(TF("Retirer {nom} de la comparaison", { nom: e ? nomT(e) : id })) +
               '">\u00d7</button></span>';
           }).join("")
         : '<span class="x-note">' + T("Aucun territoire sélectionné.") + "</span>";
@@ -996,7 +1015,7 @@
     h.push('<div class="x-tabwrap"><table class="x-tab x-comp"><thead><tr><th>' +
            T("Indicateur") + "</th>");
     ents.forEach(function (e) {
-      h.push("<th>" + esc(e.nom_fr) + "<small>" + (T(NIVEAU[e.niveau_admin]) || "") + "</small></th>");
+      h.push("<th>" + esc(nomT(e)) + "<small>" + (T(NIVEAU[e.niveau_admin]) || "") + "</small></th>");
     });
     h.push("</tr></thead><tbody>");
     var alertes = 0;
@@ -1048,7 +1067,8 @@
     Object.keys(ids).sort().forEach(function (k) {
       ents.forEach(function (e, i) {
         var v = jeux[i][k] || {};
-        lignes.push([e.atmart_geo_id, e.pcode || "", e.nom_fr, T(NIVEAU[e.niveau_admin]) || "",
+        lignes.push([e.atmart_geo_id, e.pcode || "", e.nom_fr, e.nom_ht || "",
+                     T(NIVEAU[e.niveau_admin]) || "",
                      k, libelle(k, "nom"), v.valeur === undefined ? "" : v.valeur,
                      uniteL(v.unite || ""), v.annee_reference || "",
                      v.statut_valeur || "N", v.methode || ""]);
@@ -1056,8 +1076,9 @@
     });
     telecharger("atmart_comparaison_" +
       ents.map(function (e) { return e.pcode || e.atmart_geo_id; }).join("_") + ".csv",
-      ["atmart_geo_id", "pcode", "territoire", "niveau", "indicateur_id", "indicateur",
-       "valeur", "unite", "annee_reference", "statut_valeur", "methode"].concat(enTeteMeta()),
+      ["atmart_geo_id", "pcode", "territoire_fr", "territoire_ht", "niveau",
+       "indicateur_id", "indicateur", "valeur", "unite", "annee_reference",
+       "statut_valeur", "methode"].concat(enTeteMeta()),
       lignes.map(function (l) { return l.concat(ligneMeta()); }));
   }
 
@@ -1112,13 +1133,13 @@
         var cur = parId[l.e.parent_atmart_geo_id], dep = null, g = 0;
         while (cur && g++ < 5) { if (cur.niveau_admin === "1") { dep = cur; break; }
                                  cur = parId[cur.parent_atmart_geo_id]; }
-        contexte = (dep || {}).nom_fr || "\u2014";
+        contexte = dep ? nomT(dep) : "\u2014";
       } else {
         contexte = TN({ one: "{n} commune documentée", other: "{n} communes documentées" },
                       l.brut.couvertes || 0, { n: l.brut.couvertes || 0 });
       }
       h.push("<tr><td>" + (i + 1) + '</td><td><button class="x-lien" data-id="' +
-        esc(l.e.atmart_geo_id) + '">' + esc(l.e.nom_fr) + "</button></td><td>" +
+        esc(l.e.atmart_geo_id) + '">' + esc(nomT(l.e)) + "</button></td><td>" +
         fmt(l.aff, l.unite) + "</td><td>" + esc(contexte) +
         '</td><td><button class="x-mini" data-comparer="' + esc(l.e.atmart_geo_id) +
         '" title="' + esc(T("Ajouter à la comparaison")) + '">+</button></td></tr>');
@@ -1131,7 +1152,7 @@
         other: "{titre} — non couverts par la source de cet indicateur, donc absents du classement plutôt que placés en bas : {liste}."
       }, sans.length, {
         titre: "<b>" + TN(sansValeur, sans.length, { n: sans.length }) + "</b>",
-        liste: sans.map(function (e) { return esc(e.nom_fr); }).sort().join(", ")
+        liste: sans.map(function (e) { return esc(nomT(e)); }).sort().join(", ")
       }) + "</p>");
     }
     h.push('<div class="x-actions"><button class="btn btn-outline x-btn-export-cl">' +
@@ -1299,11 +1320,12 @@
         var ent = parId[ba.dataset.agg];
         var agg = agreger(ent, communesDe(ent));
         telecharger("atmart_" + (ent.pcode || ent.atmart_geo_id) + "_agregat.csv",
-          ["atmart_geo_id", "territoire", "niveau", "indicateur_id", "indicateur", "valeur",
-           "unite", "annee_reference", "regle_agregation",
+          ["atmart_geo_id", "territoire_fr", "territoire_ht", "niveau", "indicateur_id",
+           "indicateur", "valeur", "unite", "annee_reference", "regle_agregation",
            "communes_couvertes"].concat(enTeteMeta()),
           Object.keys(agg).map(function (k) {
-            return [ent.atmart_geo_id, ent.nom_fr, T(NIVEAU[ent.niveau_admin]), k,
+            return [ent.atmart_geo_id, ent.nom_fr, ent.nom_ht || "",
+                    T(NIVEAU[ent.niveau_admin]), k,
                     libelle(k, "nom"), agg[k].valeur, uniteL(agg[k].unite), agg[k].annee,
                     (dico[k] || {}).regle_agregation,
                     agg[k].couvertes].concat(ligneMeta()); }));
@@ -1342,11 +1364,12 @@
       var d = dico[sel.value] || {};
       var niv = niveauComp === "1" ? "departements" : niveauComp === "2" ? "arrondissements" : "communes";
       telecharger("atmart_" + sel.value + "_" + niv + "_" + normalisation + ".csv",
-        ["rang", "atmart_geo_id", "pcode", "territoire", "niveau", "indicateur_id", "indicateur",
+        ["rang", "atmart_geo_id", "pcode", "territoire_fr", "territoire_ht", "niveau",
+         "indicateur_id", "indicateur",
          "valeur_affichee", "unite_affichee", "valeur_brute", "unite_brute", "annee_reference",
          "statut_valeur", "regle_agregation"].concat(enTeteMeta()),
         l.map(function (x, i) {
-          return [i + 1, x.e.atmart_geo_id, x.e.pcode || "", x.e.nom_fr,
+          return [i + 1, x.e.atmart_geo_id, x.e.pcode || "", x.e.nom_fr, x.e.nom_ht || "",
                   T(NIVEAU[x.e.niveau_admin]), sel.value, libelle(sel.value, "nom"),
                   x.aff, uniteL(x.unite), x.brut.valeur, uniteL(x.brut.unite), x.brut.annee,
                   x.brut.statut, d.regle_agregation || ""].concat(ligneMeta()); }));
