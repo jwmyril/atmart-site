@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <title>Le Backbone — comment Atmart reconstruit les données d'Haïti | Atmart Data</title>
+  <meta name="description" content="L'Atmart Data Backbone : quatre référentiels maîtres (territoire, temps, organisations, indicateurs), cinq niveaux de valeur, un schéma commun, des statuts de qualité et une matrice juridique. Le socle qui relie tous les produits Atmart sur Haïti." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#0e2240" />
+  <link rel="stylesheet" href="assets/style.css?v=31" />
+  <link rel="stylesheet" href="assets/data.css?v=2" />
+<script>/* langue auto : avant le 1er affichage, evite le clignotement */
+(function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
+s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
+var l=s&&S[s]?s:null;
+if(!l){var n=navigator.languages||[navigator.language||""];
+for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().split("-")[0];
+if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
+window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;
+if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove("i18n-wait")},1500)}})();
+</script>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="conseil-ia.html" data-i18n="nav.advisory">💼 Entreprises</a></li>
+      <li class="nav-grp"><span data-i18n="nav.g_win">🎯 Réussir</span>
+        <ul class="nav-sub">
+          <li><a href="entevyou360.html">Interview360 <small data-i18n="nav.s_ent">l'entretien d'embauche</small></a></li>
+          <li><a href="chofe360.html">Driver360 <small data-i18n="nav.s_cho">permis &amp; conduite (MA)</small></a></li>
+          <li><a href="karye360.html">Career360 <small data-i18n="nav.s_kar">votre coach de carrière</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.g_learn">🎓 Se former</span>
+        <ul class="nav-sub">
+          <li><a href="studio.html">Formation360 <small data-i18n="nav.s_fom">formation pour les entreprises, ONG &amp; Écoles</small></a></li>
+          <li><a href="https://lojik360.atmart.ltd">Lojik360 <small data-i18n="nav.s_loj">tutoriels gratuits</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.g_data">🗂 Données</span>
+        <ul class="nav-sub">
+          <li><a href="donnees.html"><span data-i18n="nav.d_hub">Atmart Data</span> <small data-i18n="nav.d_hub_s">la plateforme</small></a></li>
+          <li><a href="donnees-backbone.html" class="active"><span data-i18n="nav.d_bb">Le Backbone</span> <small data-i18n="nav.d_bb_s">référentiels &amp; méthode</small></a></li>
+          <li><a href="datasets.html"><span data-i18n="nav.d_cat">Catalogue</span> <small data-i18n="nav.d_cat_s">jeux de données &amp; guides</small></a></li>
+          <li><a href="donnees-solutions.html"><span data-i18n="nav.d_sol">Solutions &amp; licences</span> <small data-i18n="nav.d_sol_s">entreprises, ONG, administrations</small></a></li>
+          <li><a href="donnees-campus.html"><span data-i18n="nav.d_cam">Atmart Campus</span> <small data-i18n="nav.d_cam_s">étudiants &amp; chercheurs</small></a></li>
+          <li><a href="donnees-parrainage.html"><span data-i18n="nav.d_par">Parrainer un dataset</span> <small data-i18n="nav.d_par_s">institutions &amp; entreprises</small></a></li>
+          <li><a href="donnees-confiance.html"><span data-i18n="nav.d_con">Confiance &amp; méthode</span> <small data-i18n="nav.d_con_s">sources, qualité, licences</small></a></li>
+          <li><a href="outils.html" data-i18n="foot.tools">Outils &amp; sources de données</a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.atelier">🎨 Atelier</span>
+        <ul class="nav-sub">
+          <li><a href="atelier.html"><span data-i18n="nav.a_gal">Galerie</span> <small data-i18n="nav.a_gal_s">les œuvres d'ATM</small></a></li>
+          <li><a href="atelier-collection.html"><span data-i18n="nav.a_col">La collection</span> <small data-i18n="nav.a_col_s">univers, gammes, bundles</small></a></li>
+          <li><a href="atelier-maison.html"><span data-i18n="nav.a_mez">Pour la maison</span> <small data-i18n="nav.a_mez_s">affiches, originaux, cadeaux</small></a></li>
+          <li><a href="atelier-business.html"><span data-i18n="nav.a_biz">Pour le business</span> <small data-i18n="nav.a_biz_s">écrans &amp; licences</small></a></li>
+          <li><a href="atelier-diaspora.html"><span data-i18n="nav.a_dya">Diaspora</span> <small data-i18n="nav.a_dya_s">une offre par segment</small></a></li>
+          <li><a href="atelier-institutions.html"><span data-i18n="nav.a_fin">Financer l'accès</span> <small data-i18n="nav.a_fin_s">parrainer une communauté</small></a></li>
+          <li><a href="impact.html"><span data-i18n="nav.a_imp">Recevoir une impression</span> <small data-i18n="nav.a_imp_s">programmes parrainés</small></a></li>
+          <li><a href="atelier-artistes.html"><span data-i18n="nav.a_art">Artistes</span> <small data-i18n="nav.a_art_s">rejoindre le programme</small></a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding:3.2rem 0 1.8rem">
+  <div class="container">
+    <p class="kreyol">Nou pa reponn fichye : nou bati yon zo rèl do.</p>
+    <h1>Le <em>Backbone</em></h1>
+    <p class="lead">
+      Republier un fichier public n'apporte rien à personne. Ce qui manque en Haïti, ce sont des
+      <strong>identifiants communs</strong> : de quoi relier une école, un marché, une clinique, un prix et
+      un budget à la même commune, à la même population de référence et à la même période.
+      Le Backbone est ce socle. Chaque nouveau jeu de données s'y raccroche — et augmente la valeur de tous les autres.
+    </p>
+    <div class="d-proof">
+      <div><b>11 707</b><small>entités territoriales identifiées, du département à la localité</small></div>
+      <div><b>5 niveaux</b><small>département › arrondissement › commune › section › localité</small></div>
+      <div><b>23 champs</b><small>le même schéma pour tous les produits Atmart</small></div>
+      <div><b>192</b><small>entités publiées en accès libre dès aujourd'hui</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- LES 5 NIVEAUX DE VALEUR -->
+<section class="d-sec" style="padding-top:1rem">
+  <div class="container">
+    <p class="d-lbl">La chaîne de valeur</p>
+    <h2 class="d-h">Cinq niveaux, du PDF illisible à la décision</h2>
+    <p class="d-sub" style="margin-bottom:1.2rem">
+      La valeur commerciale devient réelle à partir du niveau 3. En dessous, on rend service ;
+      au-dessus, on rend une décision possible.
+    </p>
+    <ol class="d-steps">
+      <li><b>Reconstruction.</b> Transformer PDF, tableaux HTML, API instables et Excel mal structurés en tables propres. Quinze ans de bulletins BRH, des tableaux MENFP, des listes d'établissements année par année.</li>
+      <li><b>Harmonisation historique.</b> Rendre une série comparable malgré les changements de nomenclature : mêmes définitions, mêmes unités, mêmes identifiants, ruptures signalées, versions antérieures conservées.</li>
+      <li><b>Croisement.</b> Relier des sources qui ne se parlent pas : école + population scolaire + routes ; marché + prix + carburant + taux de change ; commune + agriculture + climat + risques.</li>
+      <li><b>Indicateurs dérivés.</b> Produire ce qui n'est publié nulle part : écoles pour 10 000 enfants, temps moyen d'accès à un service, volatilité des prix par marché, score de complétude administrative.</li>
+      <li><b>Produit décisionnel.</b> Livrer CSV, Excel, GeoJSON, dictionnaire, fichier Power BI, note méthodologique et synthèse des décisions possibles.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- LES 4 RÉFÉRENTIELS -->
+<section class="d-sec" id="referentiels">
+  <div class="container">
+    <p class="d-lbl">Le socle</p>
+    <h2 class="d-h">Quatre référentiels maîtres</h2>
+    <div class="d-doors" style="margin-top:1.1rem">
+      <a class="d-door" href="#territoire">
+        <h3>🗺 Territoire <span class="d-pill live">v1 publié</span></h3>
+        <p>Département › arrondissement › commune › section communale › localité. Identifiant Atmart
+          immuable, p-code OCHA, noms français et kreyòl, géométrie, parent, dates de validité.</p>
+        <span class="go">Voir le référentiel →</span>
+      </a>
+      <div class="d-door" style="cursor:default">
+        <h3>📅 Temps <span class="d-pill soon">à construire</span></h3>
+        <p>Période standardisée, date de publication, date de validité, millésime, fréquence,
+          date de révision, statut de fraîcheur. Ce qui permet d'aligner du mensuel sur de l'annuel.</p>
+      </div>
+      <div class="d-door" style="cursor:default">
+        <h3>🏫 Organisations &amp; infrastructures <span class="d-pill soon">à construire</span></h3>
+        <p>Écoles, établissements sanitaires, marchés, institutions, projets. Identifiant stable, nom
+          normalisé et variantes, catégorie, géocodage, territoire de rattachement, degré de vérification.</p>
+      </div>
+      <div class="d-door" style="cursor:default">
+        <h3>📊 Indicateurs <span class="d-pill soon">à construire</span></h3>
+        <p>Définition, unité, méthode, source primaire, niveau territorial, fréquence, comparabilité
+          dans le temps, limites connues. Le dictionnaire qui empêche deux chiffres de se contredire.</p>
+      </div>
+    </div>
+    <div class="d-box" style="margin-top:1.4rem">
+      <h3>Pourquoi cet ordre</h3>
+      <p>
+        Le territoire d'abord, parce qu'il conditionne tout le reste : sans clé spatiale commune, aucune
+        source ne se croise. Une fois ce référentiel stable, chaque verticale suivante coûte moins cher à
+        construire que la précédente. C'est ce qui fait qu'un catalogue devient une infrastructure.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- LE RÉFÉRENTIEL TERRITOIRE -->
+<section class="d-sec" id="territoire">
+  <div class="container">
+    <p class="d-lbl">Référentiel territoire · v1.2026.07</p>
+    <h2 class="d-h">11 707 entités, une seule table</h2>
+    <p class="d-sub" style="margin-bottom:1.2rem">
+      Reconstruit à partir des données <strong>CNIGS</strong> diffusées par OCHA et de GeoNames.
+      Une ligne par entité, tous niveaux confondus, chacune rattachée à son parent.
+    </p>
+    <div class="d-tab-wrap">
+      <table class="d-tab">
+        <thead><tr><th>Niveau</th><th>Entités</th><th>Identifiant Atmart</th><th>Provenance</th></tr></thead>
+        <tbody>
+          <tr><td>1 · Département</td><td>10</td><td><code>HTD-01</code></td><td>CNIGS — couche officielle</td></tr>
+          <tr><td>2 · Arrondissement</td><td>42</td><td><code>HTA-011</code></td><td><strong>Dérivé Atmart</strong> — voir ci-dessous</td></tr>
+          <tr><td>3 · Commune</td><td>140</td><td><code>HTC-0111</code></td><td>CNIGS — couche officielle</td></tr>
+          <tr><td>4 · Section communale</td><td>570</td><td><code>HTS-0111-01</code></td><td>CNIGS ; noms kreyòl normalisés Atmart</td></tr>
+          <tr><td>5 · Localité</td><td>10 945</td><td><code>HTL-3715776</code></td><td>GeoNames ; rattachement calculé par Atmart</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="d-box amber" style="margin-top:1.4rem">
+      <h3>L'arrondissement : un niveau qui n'existait dans aucune couche</h3>
+      <p>
+        Le COD-AB du CNIGS ne publie que trois niveaux : département, commune, section communale.
+        L'arrondissement — pourtant au cœur de l'organisation administrative haïtienne — n'y figure pas.
+      </p>
+      <p>
+        Il est en réalité <strong>encodé dans le p-code OCHA lui-même</strong> :
+        <code>HT</code> + 2 chiffres de département + <strong>1 chiffre d'arrondissement</strong> + 1 chiffre de commune.
+        <code>HT0152</code> se lit ainsi : Ouest, 5<sup>e</sup> arrondissement (La Gonâve), 2<sup>e</sup> commune —
+        Pointe-à-Raquette. La reconstitution restitue exactement <strong>42 arrondissements</strong>, le compte
+        officiel, et chacun possède bien une commune en « …1 » qui en est le chef-lieu.
+      </p>
+      <p>
+        C'est une <strong>dérivation, pas une donnée source</strong> : le statut de valeur du niveau 2 est
+        <code>A</code> (dérivé par Atmart) et son niveau de qualité <code>B</code>. Les noms restent à
+        confronter à un référentiel IHSI. Nous le disons plutôt que de le laisser croire.
+      </p>
+    </div>
+
+    <div class="d-box" style="margin-top:1.2rem">
+      <h3>140 communes, et non 145</h3>
+      <p>
+        On lit souvent 144, 145 ou 146 communes pour Haïti. Le référentiel officiel en vigueur —
+        découpage CNIGS validé au 29 novembre 2018, republié par OCHA le 26 janvier 2026 — en compte
+        <strong>140</strong>. Tant qu'un référentiel plus récent n'est pas publié, le backbone s'en tient
+        à ce que la source atteste. Les créations postérieures seront intégrées avec leurs dates de
+        validité, sans réécrire l'historique.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SCHÉMA MAÎTRE -->
+<section class="d-sec" id="schema">
+  <div class="container">
+    <p class="d-lbl">Schéma maître</p>
+    <h2 class="d-h">Les mêmes champs dans tous les produits</h2>
+    <p class="d-sub" style="margin-bottom:1.2rem">
+      Un jeu de données Atmart n'invente pas ses colonnes. Il reprend ce socle, qui rend deux produits
+      joignables sans retraitement.
+    </p>
+    <div class="d-tab-wrap">
+      <table class="d-tab">
+        <thead><tr><th>Champ</th><th>Rôle</th></tr></thead>
+        <tbody>
+          <tr><td><code>atmart_geo_id</code></td><td>Identifiant Atmart immuable — ne change jamais, même si la source renumérote</td></tr>
+          <tr><td><code>pcode</code> · <code>source_geo_id</code></td><td>Code officiel OCHA et identifiant dans la source d'origine</td></tr>
+          <tr><td><code>nom_fr</code> · <code>nom_ht</code></td><td>Nom en français et en kreyòl</td></tr>
+          <tr><td><code>niveau_admin</code> · <code>parent_atmart_geo_id</code></td><td>Position dans la hiérarchie et rattachement</td></tr>
+          <tr><td><code>periode</code> · <code>date_validite_debut/fin</code></td><td>À quoi et à quand la valeur se rapporte</td></tr>
+          <tr><td><code>indicateur_id</code> · <code>valeur</code> · <code>unite</code></td><td>La mesure elle-même, définie dans le référentiel indicateurs</td></tr>
+          <tr><td><code>source</code> · <code>date_source</code> · <code>date_extraction</code></td><td>D'où vient le chiffre, quand il a été publié, quand nous l'avons pris</td></tr>
+          <tr><td><code>statut_valeur</code> · <code>methode</code></td><td>Observé, dérivé, harmonisé, estimé… et comment</td></tr>
+          <tr><td><code>niveau_qualite</code> · <code>version</code></td><td>Degré de confiance et millésime du produit</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- STATUTS DE VALEUR -->
+<section class="d-sec" id="statuts">
+  <div class="container">
+    <p class="d-lbl">Modèle de qualité</p>
+    <h2 class="d-h">Chaque valeur porte son statut</h2>
+    <p class="d-sub" style="margin-bottom:1.2rem">
+      Remplir silencieusement une valeur manquante est la faute la plus coûteuse qu'un producteur de
+      données puisse commettre. Signaler l'incertitude est en soi un produit.
+    </p>
+    <div class="d-tab-wrap">
+      <table class="d-tab">
+        <thead><tr><th>Statut</th><th>Ce qu'il signifie</th><th>Dans le référentiel territoire</th></tr></thead>
+        <tbody>
+          <tr><td>O — Observée</td><td>Reprise directement de la source, sans transformation</td><td>10 958 entités</td></tr>
+          <tr><td>H — Harmonisée</td><td>Normalisée par Atmart pour être comparable</td><td>570 sections (noms kreyòl)</td></tr>
+          <tr><td>A — Agrégée / dérivée</td><td>Calculée par Atmart à partir d'autres valeurs</td><td>179 entités (42 arrondissements + 137 rattachements)</td></tr>
+          <tr><td>I — Interpolée</td><td>Comblée entre deux points connus</td><td>aucune</td></tr>
+          <tr><td>M — Modélisée</td><td>Issue d'un modèle, pas d'une observation</td><td>aucune</td></tr>
+          <tr><td>E — Estimée</td><td>Approximation documentée</td><td>aucune</td></tr>
+          <tr><td>N — Non disponible</td><td>Absente, et déclarée absente</td><td>population : 10 831 entités</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- MATRICE JURIDIQUE -->
+<section class="d-sec" id="juridique">
+  <div class="container">
+    <p class="d-lbl">Matrice juridique</p>
+    <h2 class="d-h">Accessible en ligne ne veut pas dire revendable</h2>
+    <p class="d-sub" style="margin-bottom:1.2rem">
+      Chaque source entrant au backbone est classée avant tout travail de reconstruction. C'est ce
+      classement qui détermine ce qui peut être publié, agrégé, ou seulement consulté.
+    </p>
+    <div class="d-tab-wrap">
+      <table class="d-tab">
+        <thead><tr><th>Classe</th><th>Ce qui est permis</th><th>Exemples au registre</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td>Redistribution autorisée, avec attribution</td><td>CNIGS/OCHA COD-AB, GeoNames</td></tr>
+          <tr><td>B</td><td>Agrégats et transformations autorisés, pas la source brute</td><td>BRH, CNSA, IHSI (à confirmer)</td></tr>
+          <tr><td>C</td><td>Accès sur inscription, redistribution interdite</td><td>DHS/EMMUS, SPA, SIGEEE</td></tr>
+          <tr><td>D</td><td>Convention institutionnelle nécessaire</td><td>AGD/ASYCUDA, registres DGI</td></tr>
+          <tr><td>E</td><td>Données personnelles ou sensibles — jamais diffusées</td><td>ONI, dossiers individuels, listes de déplacés</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="d-note" style="margin-top:0.9rem">
+      Le registre des sources est public : <a href="data/atmart_registre_sources.csv" download>le télécharger (CSV)</a>.
+      Il porte, pour chaque source, l'organisme, l'URL, la licence, la classe juridique, la couverture,
+      la fréquence et la date de dernière vérification.
+    </p>
+  </div>
+</section>
+
+<!-- COUCHE OUVERTE -->
+<section class="d-sec" id="ouvert">
+  <div class="container">
+    <p class="d-lbl">Couche ouverte</p>
+    <h2 class="d-h">Le référentiel de base est gratuit, et le restera</h2>
+    <p class="d-sub">
+      Un référentiel n'a de valeur que s'il est adopté. Les 192 entités des trois premiers niveaux —
+      10 départements, 42 arrondissements, 140 communes — sont publiées librement, avec leurs
+      identifiants Atmart, leurs p-codes, leurs noms en français et en kreyòl et leurs superficies.
+      Utilisez-les comme clé de jointure dans vos propres bases.
+    </p>
+    <div class="grid grid-2" style="margin-top:1.3rem">
+      <div class="card">
+        <span class="tag">Gratuit · CC BY 4.0</span>
+        <h3>Référentiel territorial Haïti — base</h3>
+        <p>10 départements + 42 arrondissements + 140 communes, avec identifiants Atmart, p-codes OCHA,
+          noms FR/kreyòl, chefs-lieux, superficies et coordonnées.</p>
+        <p class="price">0 $ <small>CSV • 192 lignes • 23 colonnes</small></p>
+        <a href="data/atmart_referentiel_territoire_base_HT.csv" download class="btn btn-primary">Télécharger le référentiel</a>
+      </div>
+      <div class="card">
+        <span class="tag amber">Premium</span>
+        <h3>Référentiel complet + géométries</h3>
+        <p>Les 11 707 entités jusqu'à la localité, les 570 sections communales, les 10 945 lieux habités
+          rattachés, et les polygones des trois niveaux administratifs.</p>
+        <p class="price">29 $ <small>inclus dans le Pack Géo Haïti</small></p>
+        <a href="donnees-pack-geo-haiti.html" class="btn btn-outline">Voir le Pack Géo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTEFEUILLE -->
+<section class="d-sec" id="portefeuille">
+  <div class="container">
+    <p class="d-lbl">Portefeuille</p>
+    <h2 class="d-h">Ce qui se construit au-dessus du socle</h2>
+    <p class="d-sub" style="margin-bottom:1.2rem">
+      L'ordre n'est pas négociable : chaque couche a besoin de la précédente. Publier un registre
+      scolaire avant d'avoir stabilisé le territoire, c'est se condamner à le refaire.
+    </p>
+    <div class="d-tab-wrap">
+      <table class="d-tab">
+        <thead><tr><th>Couche</th><th>Contenu</th><th>État</th></tr></thead>
+        <tbody>
+          <tr><td>1 · Fondations communes</td><td>Référentiel territoire, temps, indicateurs, règles de version, standards de fiche</td><td><span class="d-pill live">Territoire publié</span></td></tr>
+          <tr><td>2 · Registres nationaux géocodés</td><td>Registre scolaire, registre sanitaire, répertoire des marchés, infrastructures</td><td><span class="d-pill spons">Parrainable</span></td></tr>
+          <tr><td>3 · Séries historiques harmonisées</td><td>Prix, macroéconomie, budget, statistiques scolaires et sanitaires, séries agricoles</td><td><span class="d-pill spons">Parrainable</span></td></tr>
+          <tr><td>4 · Croisements multi-sources</td><td>Accessibilité aux services, couverture territoriale, prix–change–carburant–climat, profils communaux</td><td><span class="d-pill soon">Après les couches 2 et 3</span></td></tr>
+          <tr><td>5 · Produits décisionnels</td><td>Observatoires, packs sectoriels, tableaux de bord, licences institutionnelles, API</td><td><span class="d-pill soon">12–24 mois</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="d-note" style="margin-top:0.9rem">
+      Le prochain produit visé est le <strong>Profil des 140 communes</strong> : identité territoriale,
+      population, superficie, localités, équipements et indicateurs de qualité — le premier produit qui
+      exploite le backbone de bout en bout, et qui révèle immédiatement où sont les trous de données.
+      <a href="donnees-parrainage.html">Il est parrainable →</a>
+    </p>
+  </div>
+</section>
+
+<!-- LES 12 PACKS -->
+<section class="d-sec" id="packs">
+  <div class="container">
+    <p class="d-lbl">Feuille de route</p>
+    <h2 class="d-h">Les douze produits à reconstruire, dans l'ordre</h2>
+    <p class="d-sub" style="margin-bottom:1.2rem">
+      Chacun a été évalué sur deux axes seulement : la difficulté de reconstruction et la valeur pour
+      celui qui décide. Aucun n'existe aujourd'hui sous une forme directement utilisable.
+    </p>
+    <div class="d-tab-wrap">
+      <table class="d-tab">
+        <thead><tr><th>#</th><th>Produit</th><th>Ce qu'il rend possible</th><th>Difficulté</th><th>Valeur</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Profil des 140 communes</td><td>Une fiche complète par commune, transversale à tous les publics</td><td>Moyenne</td><td class="p">Très forte</td></tr>
+          <tr><td>2</td><td>Écoles Haïti 360</td><td>Registre scolaire géocodé, historisé, avec effectifs et résultats</td><td>Moyenne</td><td class="p">Très forte</td></tr>
+          <tr><td>3</td><td>Prix &amp; Marchés Haïti</td><td>Panel mensuel harmonisé : produit, marché, unité, prix réel, volatilité</td><td>Moyenne</td><td class="p">Très forte</td></tr>
+          <tr><td>4</td><td>Santé Haïti 360</td><td>Registre sanitaire géocodé + capacité + population desservie</td><td>Élevée</td><td class="p">Très forte</td></tr>
+          <tr><td>5</td><td>Macro Haïti mensuel</td><td>Change, IPC, monnaie, balance des paiements, en une seule base</td><td>Moyenne</td><td class="p">Forte</td></tr>
+          <tr><td>6</td><td>Population 1971–2024</td><td>Séries démographiques territoriales harmonisées entre recensements</td><td>Élevée</td><td class="p">Très forte</td></tr>
+          <tr><td>7</td><td>Accessibilité aux services</td><td>Temps de trajet jusqu'à l'école, la clinique, le marché, la route</td><td>Élevée</td><td class="p">Très forte</td></tr>
+          <tr><td>8</td><td>Agriculture &amp; sécurité alimentaire</td><td>Production, exploitations, chocs, phases IPC par territoire</td><td>Élevée</td><td class="p">Forte</td></tr>
+          <tr><td>9</td><td>Budget ouvert Haïti</td><td>Budget voté, exécuté, par ministère, par fonction, par habitant</td><td>Moyenne</td><td class="p">Forte</td></tr>
+          <tr><td>10</td><td>Commerce extérieur par produit</td><td>Import/export par produit et partenaire, dépendance, concentration</td><td>Élevée</td><td class="p">Très forte</td></tr>
+          <tr><td>11</td><td>Risques naturels par localité</td><td>Exposition inondation, séisme, cyclone croisée à la population</td><td>Élevée</td><td class="p">Forte</td></tr>
+          <tr><td>12</td><td>Atlas santé EMMUS 1994–2017</td><td>Agrégats harmonisés sur 23 ans de vagues d'enquêtes</td><td>Moyenne</td><td class="p">Forte</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="d-note" style="margin-top:0.9rem">
+      Certains de ces produits dépendent de sources en classe C ou D — accès sur inscription ou convention
+      institutionnelle. Dans ce cas, Atmart publie des agrégats et des scripts reproductibles, jamais les
+      microdonnées. <a href="#juridique">Voir la matrice juridique →</a>
+    </p>
+  </div>
+</section>
+
+<!-- DATA AS A SERVICE -->
+<section class="d-sec" style="padding-bottom:3rem">
+  <div class="container">
+    <div class="banner">
+      <h2>Vos données, reliées au backbone</h2>
+      <p>
+        Vous avez des PDF, des Excel dispersés et des bases qui ne se parlent pas ? Nous les relions au
+        référentiel territorial Atmart et nous vous rendons un système de données cohérent, documenté
+        et maintenable — le même travail que celui décrit sur cette page, appliqué à vos fichiers.
+      </p>
+      <div style="display:flex;gap:0.8rem;flex-wrap:wrap;justify-content:center">
+        <a href="donnees-solutions.html#contact" class="btn btn-primary">Décrire mes fichiers</a>
+        <a href="donnees-confiance.html" class="btn btn-outline">Notre charte de méthode</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_data">Atmart Data</h4>
+        <ul>
+          <li><a href="donnees.html">Atmart Data</a></li>
+          <li><a href="datasets.html">Catalogue</a></li>
+          <li><a href="donnees-solutions.html">Solutions &amp; licences</a></li>
+          <li><a href="donnees-campus.html">Atmart Campus</a></li>
+          <li><a href="donnees-confiance.html">Confiance &amp; méthode</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom" data-i18n="foot.bottom">© 2026 Atmart LLC — Marché de la technologie et des données. Lojik360 est une marque d'Atmart LLC.</div>
+  </div>
+</footer>
+
+<script src="assets/script.js?v=2"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+<script src="assets/i18n.js?v=10"></script>
+<script src="assets/launcher.js?v=3"></script>
+<script src="assets/share.js?v=3"></script>
+</body>
+</html>

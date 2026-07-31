@@ -50,6 +50,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       <li class="nav-grp"><span data-i18n="nav.g_data">🗂 Données</span>
         <ul class="nav-sub">
           <li><a href="donnees.html"><span data-i18n="nav.d_hub">Atmart Data</span> <small data-i18n="nav.d_hub_s">la plateforme</small></a></li>
+          <li><a href="donnees-backbone.html"><span data-i18n="nav.d_bb">Le Backbone</span> <small data-i18n="nav.d_bb_s">référentiels &amp; méthode</small></a></li>
           <li><a href="datasets.html" class="active"><span data-i18n="nav.d_cat">Catalogue</span> <small data-i18n="nav.d_cat_s">jeux de données &amp; guides</small></a></li>
           <li><a href="donnees-solutions.html"><span data-i18n="nav.d_sol">Solutions &amp; licences</span> <small data-i18n="nav.d_sol_s">entreprises, ONG, administrations</small></a></li>
           <li><a href="donnees-campus.html"><span data-i18n="nav.d_cam">Atmart Campus</span> <small data-i18n="nav.d_cam_s">étudiants &amp; chercheurs</small></a></li>
@@ -143,6 +144,24 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <a href="data/ECHANTILLON_haiti_sections_gps.csv" download class="btn btn-primary" data-i18n="ds.dl">Télécharger gratuitement</a>
         </div>
 
+        <div class="card" data-cat="geo gratuit">
+          <span class="tag" data-i18n="ds.t_free">Gratuit</span>
+          <h3 data-i18n-html="ds.c13_h">Référentiel territorial Haïti — base <span class="badge-new">NOUVO</span></h3>
+          <p data-i18n="ds.c13_p">Les 10 départements, 42 arrondissements et 140 communes d'Haïti avec identifiant Atmart stable, p-code OCHA, noms en français et en kreyòl, chef-lieu, superficie et coordonnées. La clé de jointure à mettre dans vos propres bases.</p>
+          <p class="price" data-i18n-html="ds.c13_pr">0 $ <small>CSV • 192 lignes • 23 colonnes</small></p>
+          <p class="meta" data-i18n-html="ds.c13_meta">🗺 Géographie • Couche ouverte du <a href="donnees-backbone.html">Backbone</a> • Source : CNIGS via OCHA</p>
+          <a href="data/atmart_referentiel_territoire_base_HT.csv" download class="btn btn-primary" data-i18n="ds.dl">Télécharger gratuitement</a>
+        </div>
+
+        <div class="card" data-cat="guide gratuit">
+          <span class="tag" data-i18n="ds.t_free">Gratuit</span>
+          <h3 data-i18n="ds.c14_h">Registre des sources Atmart</h3>
+          <p data-i18n="ds.c14_p">Pour chaque source que nous exploitons : organisme, URL, licence, classe juridique, couverture, fréquence et date de dernière vérification. Ce que nous avons le droit de publier, et ce que nous n'avons pas le droit de publier.</p>
+          <p class="price" data-i18n-html="ds.c14_pr">0 $ <small>CSV • mis à jour en continu</small></p>
+          <p class="meta" data-i18n-html="ds.c14_meta">📘 Méthode • <a href="donnees-backbone.html#juridique">la matrice juridique A→E</a></p>
+          <a href="data/atmart_registre_sources.csv" download class="btn btn-primary" data-i18n="ds.dl">Télécharger gratuitement</a>
+        </div>
+
       </div>
     </div>
 
@@ -224,6 +243,15 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         </p>
       </div>
       <div class="grid grid-3" id="data-grid-soon">
+
+        <div class="card" data-cat="geo social economie">
+          <span class="d-pill spons" data-i18n="ds.pill_spons">Parrainable</span>
+          <h3 data-i18n-html="ds.s0_h">Profil des 140 communes d'Haïti <span class="badge-new">PRIORITÉ 1</span></h3>
+          <p data-i18n="ds.s0_p">Une fiche standardisée par commune : identité territoriale, population, superficie, localités, écoles, établissements sanitaires, marchés, routes, exposition aux risques, dix indicateurs socio-économiques — chacun avec sa source et son score de qualité. Le premier produit qui exploite le Backbone de bout en bout.</p>
+          <p class="price" data-i18n-html="ds.s0_pr">≈ 6 000 $ <small>coût de construction · Excel + GeoJSON + Power BI + fiches PDF</small></p>
+          <p class="meta" data-i18n-html="ds.s0_meta">🗺 Transversal • S'appuie sur le <a href="donnees-backbone.html">référentiel territoire</a> déjà publié</p>
+          <a href="donnees-parrainage.html#catalogue" class="btn btn-outline" data-i18n="ds.spons_cta">Parrainer ce jeu</a>
+        </div>
 
         <div class="card" data-cat="economie">
           <span class="d-pill spons" data-i18n="ds.pill_spons">Parrainable</span>

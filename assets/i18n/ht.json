@@ -752,5 +752,19 @@
   "ds.s7_h": "Pakè Analis Karayib — abònman chak ane",
   "ds.s7_p": "Tout jeu premium yo, sa ki genyen jodi a ak sa k ap vini, pandan yon ane, ak mizajò yo. L ap louvri lè twa jeu premium fin pibliye.",
   "ds.s7_pr": "79 $/an <small>pri nou vize</small>",
-  "ds.s7_meta": "⭐ Pou abonnen yo — <a href=\"mailto:sales@atmart.ltd?subject=Pack%20Analyste%20Cara%C3%AFbe%20-%20me%20pr%C3%A9venir\">fè m konnen lè l soti</a>"
+  "ds.s7_meta": "⭐ Pou abonnen yo — <a href=\"mailto:sales@atmart.ltd?subject=Pack%20Analyste%20Cara%C3%AFbe%20-%20me%20pr%C3%A9venir\">fè m konnen lè l soti</a>",
+  "nav.d_bb": "Zo rèl do a",
+  "nav.d_bb_s": "referans ak metòd",
+  "ds.c13_h": "Referans tèritoryal Ayiti — baz <span class=\"badge-new\">NOUVO</span>",
+  "ds.c13_p": "10 depatman, 42 awondisman ak 140 komin Ayiti yo ak yon idantifyan Atmart ki pa janm chanje, p-kòd OCHA, non an français ak an kreyòl, chèflye, sipèfisi ak kowòdone. Se kle a pou w mete nan pwòp baz done pa w.",
+  "ds.c13_pr": "0 $ <small>CSV • 192 liy • 23 kolòn</small>",
+  "ds.c13_meta": "🗺 Jeyografi • Kouch louvri <a href=\"donnees-backbone.html\">Zo rèl do a</a> • Sous : CNIGS atravè OCHA",
+  "ds.c14_h": "Rejis sous Atmart yo",
+  "ds.c14_p": "Pou chak sous nou sèvi avè l : ki òganis, URL, lisans, klas jiridik, ki sa li kouvri, ki lè li parèt ak dat dènye fwa nou tcheke l. Sa nou gen dwa pibliye, ak sa nou pa gen dwa pibliye.",
+  "ds.c14_pr": "0 $ <small>CSV • n ap kenbe l ajou</small>",
+  "ds.c14_meta": "📘 Metòd • <a href=\"donnees-backbone.html#juridique\">matris jiridik A→E a</a>",
+  "ds.s0_h": "Pwofil 140 komin Ayiti yo <span class=\"badge-new\">PRIYORITE 1</span>",
+  "ds.s0_p": "Yon fich estanda pou chak komin : idantite tèritoryal, popilasyon, sipèfisi, lokalite, lekòl, sant sante, mache, wout, ekspozisyon ak risk, dis endikatè sosyo-ekonomik — chak ak sous li ak nòt kalite li. Se premye pwodui ki sèvi ak Zo rèl do a depi nan konmansman jiska nan bout.",
+  "ds.s0_pr": "≈ 6 000 $ <small>pou konstwi l · Excel + GeoJSON + Power BI + fich PDF</small>",
+  "ds.s0_meta": "🗺 Transvèsal • Chita sou <a href=\"donnees-backbone.html\">referans tèritwa a</a> ki deja pibliye"
 }

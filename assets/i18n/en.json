@@ -752,5 +752,19 @@
   "ds.s7_h": "Caribbean Analyst Pack — annual subscription",
   "ds.s7_p": "Every premium dataset, current and future, for one year, with updates. Opens once three premium datasets are published.",
   "ds.s7_pr": "79 $/yr <small>target price</small>",
-  "ds.s7_meta": "⭐ Subscribers only — <a href=\"mailto:sales@atmart.ltd?subject=Pack%20Analyste%20Cara%C3%AFbe%20-%20me%20pr%C3%A9venir\">tell me when it launches</a>"
+  "ds.s7_meta": "⭐ Subscribers only — <a href=\"mailto:sales@atmart.ltd?subject=Pack%20Analyste%20Cara%C3%AFbe%20-%20me%20pr%C3%A9venir\">tell me when it launches</a>",
+  "nav.d_bb": "The Backbone",
+  "nav.d_bb_s": "reference data & method",
+  "ds.c13_h": "Haiti territorial reference set — base <span class=\"badge-new\">NEW</span>",
+  "ds.c13_p": "Haiti's 10 departments, 42 arrondissements and 140 communes with a stable Atmart identifier, OCHA p-code, French and Haitian Creole names, chief town, area and coordinates. The join key to drop into your own databases.",
+  "ds.c13_pr": "0 $ <small>CSV • 192 rows • 23 columns</small>",
+  "ds.c13_meta": "🗺 Geography • Open layer of the <a href=\"donnees-backbone.html\">Backbone</a> • Source: CNIGS via OCHA",
+  "ds.c14_h": "Atmart source register",
+  "ds.c14_p": "For every source we use: organisation, URL, licence, legal class, coverage, frequency and last verification date. What we are allowed to publish, and what we are not.",
+  "ds.c14_pr": "0 $ <small>CSV • continuously updated</small>",
+  "ds.c14_meta": "📘 Method • <a href=\"donnees-backbone.html#juridique\">the A→E legal matrix</a>",
+  "ds.s0_h": "Profile of Haiti's 140 communes <span class=\"badge-new\">PRIORITY 1</span>",
+  "ds.s0_p": "A standardised sheet per commune: territorial identity, population, area, localities, schools, health facilities, markets, roads, risk exposure, ten socio-economic indicators — each with its source and quality score. The first product that uses the Backbone end to end.",
+  "ds.s0_pr": "≈ 6,000 $ <small>build cost · Excel + GeoJSON + Power BI + PDF sheets</small>",
+  "ds.s0_meta": "🗺 Cross-cutting • Built on the <a href=\"donnees-backbone.html\">territorial reference set</a> already published"
 }

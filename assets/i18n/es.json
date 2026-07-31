@@ -752,5 +752,19 @@
   "ds.s7_h": "Pack Analista Caribe — suscripción anual",
   "ds.s7_p": "Todos los conjuntos premium, actuales y futuros, durante un año, con actualizaciones. Se abrirá cuando haya tres conjuntos premium publicados.",
   "ds.s7_pr": "79 $/año <small>precio objetivo</small>",
-  "ds.s7_meta": "⭐ Solo para suscriptores — <a href=\"mailto:sales@atmart.ltd?subject=Pack%20Analyste%20Cara%C3%AFbe%20-%20me%20pr%C3%A9venir\">avisarme en el lanzamiento</a>"
+  "ds.s7_meta": "⭐ Solo para suscriptores — <a href=\"mailto:sales@atmart.ltd?subject=Pack%20Analyste%20Cara%C3%AFbe%20-%20me%20pr%C3%A9venir\">avisarme en el lanzamiento</a>",
+  "nav.d_bb": "El Backbone",
+  "nav.d_bb_s": "referenciales y método",
+  "ds.c13_h": "Referencial territorial Haití — base <span class=\"badge-new\">NUEVO</span>",
+  "ds.c13_p": "Los 10 departamentos, 42 distritos y 140 comunas de Haití con un identificador Atmart estable, p-code de OCHA, nombres en francés y criollo haitiano, cabecera, superficie y coordenadas. La clave de unión para sus propias bases.",
+  "ds.c13_pr": "0 $ <small>CSV • 192 filas • 23 columnas</small>",
+  "ds.c13_meta": "🗺 Geografía • Capa abierta del <a href=\"donnees-backbone.html\">Backbone</a> • Fuente: CNIGS vía OCHA",
+  "ds.c14_h": "Registro de fuentes Atmart",
+  "ds.c14_p": "Para cada fuente que utilizamos: organismo, URL, licencia, clase jurídica, cobertura, frecuencia y fecha de última verificación. Lo que tenemos derecho a publicar, y lo que no.",
+  "ds.c14_pr": "0 $ <small>CSV • actualizado continuamente</small>",
+  "ds.c14_meta": "📘 Método • <a href=\"donnees-backbone.html#juridique\">la matriz jurídica A→E</a>",
+  "ds.s0_h": "Perfil de las 140 comunas de Haití <span class=\"badge-new\">PRIORIDAD 1</span>",
+  "ds.s0_p": "Una ficha estandarizada por comuna: identidad territorial, población, superficie, localidades, escuelas, centros de salud, mercados, carreteras, exposición a riesgos, diez indicadores socioeconómicos — cada uno con su fuente y su puntuación de calidad. El primer producto que utiliza el Backbone de principio a fin.",
+  "ds.s0_pr": "≈ 6 000 $ <small>coste de construcción · Excel + GeoJSON + Power BI + fichas PDF</small>",
+  "ds.s0_meta": "🗺 Transversal • Basado en el <a href=\"donnees-backbone.html\">referencial territorial</a> ya publicado"
 }

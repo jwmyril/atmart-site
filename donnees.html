@@ -50,6 +50,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       <li class="nav-grp"><span data-i18n="nav.g_data">🗂 Données</span>
         <ul class="nav-sub">
           <li><a href="donnees.html" class="active"><span data-i18n="nav.d_hub">Atmart Data</span> <small data-i18n="nav.d_hub_s">la plateforme</small></a></li>
+          <li><a href="donnees-backbone.html"><span data-i18n="nav.d_bb">Le Backbone</span> <small data-i18n="nav.d_bb_s">référentiels &amp; méthode</small></a></li>
           <li><a href="datasets.html"><span data-i18n="nav.d_cat">Catalogue</span> <small data-i18n="nav.d_cat_s">jeux de données &amp; guides</small></a></li>
           <li><a href="donnees-solutions.html"><span data-i18n="nav.d_sol">Solutions &amp; licences</span> <small data-i18n="nav.d_sol_s">entreprises, ONG, administrations</small></a></li>
           <li><a href="donnees-campus.html"><span data-i18n="nav.d_cam">Atmart Campus</span> <small data-i18n="nav.d_cam_s">étudiants &amp; chercheurs</small></a></li>
@@ -80,18 +81,19 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     <p class="kreyol">Done ki pare pou pran desizyon.</p>
     <h1>Atmart <em>Data</em></h1>
     <p class="lead">
-      La plateforme de données décisionnelles sur Haïti — puis sur la Caraïbe et l'Afrique francophone.
-      Nous ne vendons pas des fichiers : nous livrons des jeux de données <strong>sourcés, nettoyés,
-      documentés et datés</strong>, avec ce qu'il faut pour décider sans repartir de zéro.
+      La plateforme de <strong>données reconstituées</strong> sur Haïti — puis sur la Caraïbe et l'Afrique
+      francophone. Nous ne republions pas des fichiers publics : nous fabriquons des jeux de données qui
+      n'existent pas encore, en reliant des sources dispersées à des identifiants communs, à un historique
+      et à une documentation qui tiennent devant un comité.
     </p>
     <div class="cta-row" style="display:flex;gap:0.9rem;flex-wrap:wrap;margin-top:1.5rem">
       <a href="datasets.html" class="btn btn-primary">Voir le catalogue</a>
-      <a href="donnees-solutions.html" class="btn btn-outline">Solutions pour organisations</a>
+      <a href="donnees-backbone.html" class="btn btn-outline">Comment nous reconstruisons</a>
     </div>
     <div class="d-proof">
-      <div><b>11 655</b><small>lieux d'Haïti géolocalisés (sections, villes, localités)</small></div>
+      <div><b>11 707</b><small>entités territoriales identifiées, du département à la localité</small></div>
+      <div><b>5 niveaux</b><small>département › arrondissement › commune › section › localité</small></div>
       <div><b>8 pays · 26 ans</b><small>séries de transferts de la diaspora, en accès libre</small></div>
-      <div><b>4 langues</b><small>documentation FR · Kreyòl · EN · ES</small></div>
       <div><b>1 standard</b><small>la Fèy Done Atmart, appliquée à chaque jeu de données</small></div>
     </div>
   </div>
@@ -112,6 +114,31 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       <div><span class="ico">❓</span><b>Incertitude méthodologique</b><p>D'où vient le chiffre ? De quand date-t-il ? Que ne couvre-t-il pas ? Sans réponse, il est indéfendable.</p></div>
       <div><span class="ico">⏱</span><b>Temps de nettoyage</b><p>Deux à trois jours de préparation par série. C'est ce coût que nous supprimons, pas les chiffres, qui sont souvent publics.</p></div>
     </div>
+  </div>
+</section>
+
+<!-- LE BACKBONE -->
+<section class="d-sec">
+  <div class="container">
+    <p class="d-lbl">Notre réponse</p>
+    <h2 class="d-h">Un backbone, pas un entrepôt de fichiers</h2>
+    <p class="d-sub">
+      Le vrai manque en Haïti n'est pas la donnée : ce sont les <strong>identifiants communs</strong>.
+      Sans clé partagée, une école, un marché, une clinique, un prix et un budget ne peuvent pas être
+      rapportés à la même commune ni à la même période. Le Backbone est ce socle — et chaque nouveau
+      jeu de données qui s'y raccroche augmente la valeur de tous les précédents.
+    </p>
+    <div class="d-tiles" style="margin-top:1.2rem">
+      <div><span class="ico">1️⃣</span><b>Reconstruction</b><p>PDF, tableaux HTML, API instables et Excel mal structurés deviennent des tables propres.</p></div>
+      <div><span class="ico">2️⃣</span><b>Harmonisation</b><p>Une série redevient comparable malgré les changements de nomenclature et de méthode.</p></div>
+      <div><span class="ico">3️⃣</span><b>Croisement</b><p>Des sources qui ne se parlent pas sont reliées par la même clé territoriale et temporelle.</p></div>
+      <div><span class="ico">4️⃣</span><b>Indicateurs dérivés</b><p>Des mesures publiées nulle part : accès aux services, volatilité des prix, couverture réelle.</p></div>
+      <div><span class="ico">5️⃣</span><b>Produit décisionnel</b><p>CSV, Excel, GeoJSON, Power BI, dictionnaire, note méthodologique et lecture de départ.</p></div>
+    </div>
+    <p class="d-note" style="margin-top:1rem">
+      Le référentiel territoire est publié : <strong>11 707 entités</strong>, du département à la localité,
+      arrondissements compris. <a href="donnees-backbone.html">Voir le Backbone et sa méthode →</a>
+    </p>
   </div>
 </section>
 
@@ -271,9 +298,9 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         un bouton « Acheter » sur un fichier qui n'existe pas encore.
       </p>
       <p>
-        Au 30 juillet 2026 : <strong>3 jeux disponibles</strong> (Pack Géo Haïti, Guide Pensée critique 4 langues,
-        Districts scolaires du Massachusetts), <strong>2 ressources gratuites</strong> et
-        <strong>6 jeux en préparation</strong>, tous parrainables.
+        Au 31 juillet 2026 : <strong>3 jeux disponibles</strong> (Pack Géo Haïti, Guide Pensée critique 4 langues,
+        Districts scolaires du Massachusetts), <strong>4 ressources gratuites</strong> — dont le référentiel
+        territorial de base et le registre des sources — et <strong>6 jeux en préparation</strong>, tous parrainables.
       </p>
     </div>
   </div>
@@ -289,10 +316,14 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       sur un terrain difficile.
     </p>
     <ol class="d-steps">
-      <li><b>Phase 1 — le socle (0–6 mois).</b> Catalogue restructuré, fiches produit standardisées, aperçus avant achat, grille de licences, cadre d'accès académique, programme de parrainage prêt.</li>
-      <li><b>Phase 2 — la traction (6–12 mois).</b> Packs décisionnels, premières licences institutionnelles, packs mémoire, premières cohortes parrainées, premier observatoire, assistant de découverte en test.</li>
-      <li><b>Phase 3 — la récurrence (12–24 mois).</b> Licences universitaires élargies, parrainage industrialisé, générateur de packs, partenariats dans la Caraïbe, premières verticales en Afrique francophone.</li>
+      <li><b>Phase 1 — poser le backbone (0–6 mois).</b> Référentiel territoire stabilisé ✓, référentiels temps et indicateurs, standards de fiche et règles de version, registre des sources et matrice juridique ✓, cadre d'accès académique ✓, offres parrainables ✓.</li>
+      <li><b>Phase 2 — les produits piliers (6–12 mois).</b> Profil des 140 communes, premier registre scolaire géocodé, premier registre sanitaire versionné, panel mensuel des marchés, base macrofinancière harmonisée, premières licences et premiers parrainages.</li>
+      <li><b>Phase 3 — industrialiser et étendre (12–24 mois).</b> Croisements multi-sources, accessibilité aux services, packs sectoriels, conventions universitaires, réplication de la méthode dans la Caraïbe puis en Afrique francophone.</li>
     </ol>
+    <p class="d-note" style="margin-top:0.9rem">
+      L'ordre n'est pas décoratif : publier un registre scolaire avant d'avoir stabilisé le territoire,
+      c'est se condamner à le refaire. <a href="donnees-backbone.html#portefeuille">Le portefeuille en 5 couches →</a>
+    </p>
   </div>
 </section>
 
