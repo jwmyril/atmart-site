@@ -6,13 +6,14 @@
   <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
-  <title>Datasets — Atmart</title>
-  <meta name="description" content="Datasets économiques, géographiques, sociaux et financiers sur Haïti, la Caraïbe et l'Afrique francophone — nettoyés, documentés, prêts à l'analyse." />
+  <title>Catalogue des jeux de données — Atmart Data</title>
+  <meta name="description" content="Jeux de données économiques, géographiques, sociaux et financiers sur Haïti, la Caraïbe et l'Afrique francophone — sourcés, nettoyés, documentés, avec leur fiche de données et leur licence." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0e2240" />
   <link rel="stylesheet" href="assets/style.css?v=31" />
+  <link rel="stylesheet" href="assets/data.css?v=2" />
 <script>/* langue auto : avant le 1er affichage, evite le clignotement */
 (function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
 s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
@@ -48,7 +49,12 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       </li>
       <li class="nav-grp"><span data-i18n="nav.g_data">🗂 Données</span>
         <ul class="nav-sub">
-          <li><a href="datasets.html" class="active" data-i18n="nav.datasets">Datasets</a></li>
+          <li><a href="donnees.html"><span data-i18n="nav.d_hub">Atmart Data</span> <small data-i18n="nav.d_hub_s">la plateforme</small></a></li>
+          <li><a href="datasets.html" class="active"><span data-i18n="nav.d_cat">Catalogue</span> <small data-i18n="nav.d_cat_s">jeux de données &amp; guides</small></a></li>
+          <li><a href="donnees-solutions.html"><span data-i18n="nav.d_sol">Solutions &amp; licences</span> <small data-i18n="nav.d_sol_s">entreprises, ONG, administrations</small></a></li>
+          <li><a href="donnees-campus.html"><span data-i18n="nav.d_cam">Atmart Campus</span> <small data-i18n="nav.d_cam_s">étudiants &amp; chercheurs</small></a></li>
+          <li><a href="donnees-parrainage.html"><span data-i18n="nav.d_par">Parrainer un dataset</span> <small data-i18n="nav.d_par_s">institutions &amp; entreprises</small></a></li>
+          <li><a href="donnees-confiance.html"><span data-i18n="nav.d_con">Confiance &amp; méthode</span> <small data-i18n="nav.d_con_s">sources, qualité, licences</small></a></li>
           <li><a href="outils.html" data-i18n="foot.tools">Outils &amp; sources de données</a></li>
         </ul>
       </li>
@@ -68,20 +74,28 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   </nav>
 </header>
 
-<section class="hero" style="padding:3.5rem 0 2.5rem">
+<section class="hero" style="padding:3.2rem 0 2rem">
   <div class="container">
-    <p class="kreyol" data-i18n="ds.kicker">Des données propres, documentées, prêtes à l'analyse.</p>
-    <h1 data-i18n-html="ds.title">La boutique <em>Datasets</em></h1>
-    <p class="lead" data-i18n="ds.lead">
-      Des jeux de données introuvables ailleurs : Haïti, Caraïbe francophone et Afrique,
-      collectés, nettoyés et documentés (dictionnaire de variables + sources). Formats CSV, Excel et Power BI (.pbix).
+    <p class="kreyol" data-i18n="ds.kicker">Done ki pwòp, dokimante, pare pou analiz.</p>
+    <h1 data-i18n-html="ds.title">Le <em>catalogue</em></h1>
+    <p class="lead" data-i18n-html="ds.lead">
+      Chaque jeu de données arrive avec sa source, sa date, son dictionnaire de variables, ses limites
+      connues et sa licence. Trois états, affichés sans détour :
+      <span class="d-pill live">Disponible</span> ·
+      <span class="d-pill spons">Parrainable</span> ·
+      <span class="d-pill soon">En préparation</span>.
+      Nous ne mettons pas de bouton « Acheter » sur un fichier qui n'existe pas encore.
+    </p>
+    <p class="d-note" style="margin-top:0.8rem" data-i18n-html="ds.hero_note">
+      Vous cherchez plutôt une solution complète pour votre organisation ?
+      <a href="donnees-solutions.html">Voir les packs décisionnels et les licences →</a>
     </p>
   </div>
 </section>
 
 <section style="padding-top:0">
   <div class="container">
-    <div class="filters" data-target="#data-grid-free,#data-grid-paid">
+    <div class="filters" data-target="#data-grid-free,#data-grid-paid,#data-grid-soon">
       <button class="filter-btn active" data-filter="all" data-i18n="ds.f_all">Tout</button>
       <button class="filter-btn" data-filter="economie" data-i18n="ds.f_eco">💰 Économie</button>
       <button class="filter-btn" data-filter="geo" data-i18n="ds.f_geo">🗺 Géographie</button>
@@ -91,54 +105,52 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       <button class="filter-btn" data-filter="art" data-i18n="ds.f_art">🎨 Data art</button>
     </div>
 
-        <div class="shelf" id="shelf-free">
+    <!-- ===== GRATUITS ===== -->
+    <div class="shelf" id="shelf-free">
       <div class="shelf-head">
         <h2 data-i18n="ds.free_h">🎁 Gratuits — servez-vous</h2>
-        <p data-i18n="ds.free_p">Téléchargement immédiat, sans compte et sans e-mail. Chaque fichier arrive avec sa documentation.</p>
+        <p data-i18n="ds.free_p">Téléchargement immédiat, sans compte et sans e-mail. Chaque fichier arrive avec sa documentation. Licence CC BY 4.0 : citez la source, et c'est à vous.</p>
       </div>
       <div class="grid grid-3" id="data-grid-free">
-      <div class="card art-card" data-cat="art gratuit">
-        <span class="tag" data-i18n="ds.t_art">Data art</span>
-        <a href="assets/art/liy-lavi.svg" target="_blank" rel="noopener" class="art-thumb">
-          <img src="assets/art/liy-lavi.svg" alt="Liy Lavi — Atmart" width="1000" height="1500" />
-        </a>
-        <h3 data-i18n-html="ds.art_h">Liy Lavi — l'œuvre de données <span class="badge-new">NOUVO</span></h3>
-        <p data-i18n="ds.art_p">Huit courbes, huit diasporas. La hauteur de chaque ligne est la part du PIB que les siens renvoient au pays, année après année depuis 2000. Aucun chiffre inventé : l'œuvre est tracée directement depuis notre dataset gratuit des transferts.</p>
-        <p class="price" data-i18n-html="ds.art_pr">0 $ <small>affiche SVG · impression illimitée</small></p>
-        <p class="meta" data-i18n-html="ds.art_meta">🎨 Data art • Source : Banque mondiale (WDI) • <a href="data/transferts_diaspora_2000_2025.csv" download>le dataset qui l'a produite</a></p>
-        <a href="assets/art/liy-lavi.svg" download class="btn btn-primary" data-i18n="ds.art_cta">Télécharger l'affiche</a>
+
+        <div class="card art-card" data-cat="art gratuit">
+          <span class="tag" data-i18n="ds.t_art">Data art</span>
+          <a href="assets/art/liy-lavi.svg" target="_blank" rel="noopener" class="art-thumb">
+            <img src="assets/art/liy-lavi.svg" alt="Liy Lavi — Atmart" width="1000" height="1500" />
+          </a>
+          <h3 data-i18n-html="ds.art_h">Liy Lavi — l'œuvre de données <span class="badge-new">NOUVO</span></h3>
+          <p data-i18n="ds.art_p">Huit courbes, huit diasporas. La hauteur de chaque ligne est la part du PIB que les siens renvoient au pays, année après année depuis 2000. Aucun chiffre inventé : l'œuvre est tracée directement depuis notre dataset gratuit des transferts.</p>
+          <p class="price" data-i18n-html="ds.art_pr">0 $ <small>affiche SVG · impression illimitée</small></p>
+          <p class="meta" data-i18n-html="ds.art_meta">🎨 Data art • Source : Banque mondiale (WDI) • <a href="data/transferts_diaspora_2000_2025.csv" download>le dataset qui l'a produite</a></p>
+          <a href="assets/art/liy-lavi.svg" download class="btn btn-primary" data-i18n="ds.art_cta">Télécharger l'affiche</a>
+        </div>
+
+        <div class="card" data-cat="economie gratuit">
+          <span class="tag" data-i18n="ds.t_free">Gratuit</span>
+          <h3 data-i18n="ds.c2_h">Transferts de la diaspora (2000–2025) — Haïti + 7 pays</h3>
+          <p data-i18n="ds.c2_p">Transferts reçus en USD et en % du PIB : Haïti, Rép. dominicaine, Jamaïque, Sénégal, Côte d'Ivoire, Mali, Cameroun, Togo. Données réelles, documentées. Source : Banque mondiale.</p>
+          <p class="price" data-i18n-html="ds.c2_pr">0 $ <small>CSV • 208 lignes</small></p>
+          <p class="meta" data-i18n-html="ds.c2_meta">💰 Économie • 26 ans • Niveau de confiance A • <a href="data/LISEZMOI_transferts_diaspora.md">documentation</a></p>
+          <a href="data/transferts_diaspora_2000_2025.csv" download class="btn btn-primary" data-i18n="ds.dl">Télécharger gratuitement</a>
+        </div>
+
+        <div class="card" data-cat="geo gratuit">
+          <span class="tag" data-i18n="ds.t_free">Gratuit</span>
+          <h3 data-i18n="ds.c11_h">Échantillon — sections communales d'Haïti</h3>
+          <p data-i18n="ds.c11_p">Dix sections communales avec p-codes OCHA, superficie et coordonnées GPS : exactement la structure du Pack Géo, pour juger avant d'acheter.</p>
+          <p class="price" data-i18n-html="ds.c11_pr">0 $ <small>CSV • 10 lignes • 12 colonnes</small></p>
+          <p class="meta" data-i18n-html="ds.c11_meta">🗺 Géographie • Extrait du <a href="donnees-pack-geo-haiti.html">Pack Géo Haïti</a></p>
+          <a href="data/ECHANTILLON_haiti_sections_gps.csv" download class="btn btn-primary" data-i18n="ds.dl">Télécharger gratuitement</a>
+        </div>
+
       </div>
-      <div class="card" data-cat="economie gratuit">
-        <span class="tag" data-i18n="ds.t_free">Gratuit</span>
-        <h3 data-i18n="ds.c2_h">Transferts de la diaspora (2000–2025) — Haïti + 7 pays</h3>
-        <p data-i18n="ds.c2_p">Transferts reçus en USD et en % du PIB : Haïti, Rép. dominicaine, Jamaïque, Sénégal, Côte d'Ivoire, Mali, Cameroun, Togo. Données réelles, documentées. Source : Banque mondiale.</p>
-        <p class="price" data-i18n-html="ds.c2_pr">0 $ <small>CSV • 208 lignes</small></p>
-        <p class="meta" data-i18n-html="ds.c2_meta">💰 Économie • 26 ans • Utilisé dans l'épisode #01 • <a href="data/LISEZMOI_transferts_diaspora.md">documentation</a></p>
-        <a href="data/transferts_diaspora_2000_2025.csv" download class="btn btn-primary" data-i18n="ds.dl">Télécharger gratuitement</a>
-      </div>
-      <div class="card" data-cat="social gratuit">
-        <span class="tag" data-i18n="ds.t_free">Gratuit</span>
-        <h3 data-i18n="ds.c5_h">Éducation en Haïti : indicateurs clés</h3>
-        <p data-i18n="ds.c5_p">Taux de scolarisation, alphabétisation et dépenses par département. Idéal pour s'exercer aux tableaux de bord.</p>
-        <p class="price" data-i18n-html="ds.c5_pr">0 $ <small>CSV</small></p>
-        <p class="meta" data-i18n="ds.c5_meta">👥 Social • Utilisé dans les tutoriels Excel</p>
-        <a href="#" class="btn btn-primary" data-i18n="ds.dl">Télécharger gratuitement</a>
-      </div>
-      <div class="card" data-cat="geo gratuit">
-        <span class="tag" data-i18n="ds.t_free">Gratuit</span>
-        <h3 data-i18n="ds.c9_h">Villes principales — Haïti, Caraïbe, Afrique de l'Ouest</h3>
-        <p data-i18n="ds.c9_p">120 villes avec population et coordonnées GPS. Parfait pour votre première carte de données.</p>
-        <p class="price" data-i18n-html="ds.c9_pr">0 $ <small>CSV</small></p>
-        <p class="meta" data-i18n="ds.c9_meta">🗺 Géographie • Utilisé dans le tutoriel Power BI</p>
-        <a href="#" class="btn btn-primary" data-i18n="ds.dl">Télécharger gratuitement</a>
-      </div>
-    </div>
     </div>
 
+    <!-- ===== EN VENTE ===== -->
     <div class="shelf" id="shelf-paid">
       <div class="shelf-head">
-        <h2 data-i18n="ds.paid_h">🛒 En vente</h2>
-        <p data-i18n="ds.paid_p">Des jeux de données introuvables ailleurs — collectés, nettoyés et documentés à la main. Paiement unique, téléchargement immédiat.</p>
+        <h2 data-i18n="ds.paid_h">🛒 En vente — livrables aujourd'hui</h2>
+        <p data-i18n="ds.paid_p">Collectés, nettoyés et documentés à la main. Paiement unique, téléchargement immédiat, licence écrite.</p>
       </div>
       <div class="why">
         <p class="why-lead" data-i18n="ds.why_lead">Le gratuit sert à apprendre. Le payant sert à livrer.</p>
@@ -149,10 +161,10 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <tbody>
             <tr><td data-i18n="ds.why_r1">Ce que vous ouvrez</td>
               <td data-i18n="ds.why_r1f">Un CSV brut</td>
-              <td data-i18n="ds.why_r1p">CSV + Excel + un fichier Power BI déjà monté</td></tr>
+              <td data-i18n="ds.why_r1p">Plusieurs fichiers assemblés, prêts pour Excel, Power BI et QGIS</td></tr>
             <tr><td data-i18n="ds.why_r2">Portée</td>
               <td data-i18n="ds.why_r2f">Un indicateur, pour s'exercer</td>
-              <td data-i18n="ds.why_r2p">Séries complètes : jusqu'à 12 pays et 25 ans</td></tr>
+              <td data-i18n="ds.why_r2p">Séries et référentiels complets, jusqu'à 11 655 lignes géolocalisées</td></tr>
             <tr><td data-i18n="ds.why_r3">Comprendre les colonnes</td>
               <td data-i18n="ds.why_r3f">Un fichier LISEZMOI</td>
               <td data-i18n="ds.why_r3p">Dictionnaire de variables : chaque colonne, son unité, sa source</td></tr>
@@ -161,84 +173,161 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
               <td data-i18n="ds.why_r4p">GeoJSON prêt pour Power BI et QGIS, p-codes officiels OCHA</td></tr>
             <tr><td data-i18n="ds.why_r5">Le travail déjà fait</td>
               <td data-i18n="ds.why_r5f">À vous de nettoyer et de croiser</td>
-              <td data-i18n="ds.why_r5p">Sources croisées, unités harmonisées, années manquantes signalées</td></tr>
+              <td data-i18n="ds.why_r5p">Sources croisées, unités harmonisées, limites connues écrites</td></tr>
             <tr><td data-i18n="ds.why_r6">Usage</td>
               <td data-i18n="ds.why_r6f">Apprentissage, tutoriels</td>
               <td data-i18n="ds.why_r6p">Licence d'utilisation : mémoire, rapport client, publication</td></tr>
           </tbody>
         </table>
-        <p class="why-note" data-i18n="ds.why_note">Le calcul est simple : nettoyer et documenter une de ces séries à la main prend deux à trois jours de travail. C'est ce que vous achetez — pas les chiffres, qui sont publics, mais le temps.</p>
+        <p class="why-note" data-i18n="ds.why_note">Le calcul est simple : nettoyer et documenter une de ces séries à la main prend deux à trois jours de travail. C'est ce que vous achetez — pas les chiffres, qui sont souvent publics, mais le temps.</p>
       </div>
       <div class="grid grid-3" id="data-grid-paid">
-      <div class="card" data-cat="guide">
-        <span class="tag amber" data-i18n="ds.t_guide">Guide • 4 langues</span>
-        <h3 data-i18n-html="ds.c1_h">Guide complet : Pensée critique <span class="badge-new">NOUVO</span></h3>
-        <p data-i18n-html="ds.c1_p">Le module détaillé Lojik360 University : <strong>6 modules</strong> (fondations, arguments, preuves, biais, résolution de problèmes, pratique) avec exercices, capstone, grille d'évaluation et invites de réflexion. En <strong>français, créole, anglais et espagnol</strong> (4 fichiers Word).</p>
-        <p class="price" data-i18n-html="ds.c1_pr">15 $ <small>les 4 guides (FR · HT · EN · ES)</small></p>
-        <p class="meta" data-i18n-html="ds.c1_meta">📘 Guide pédagogique • idéal formateurs, écoles &amp; ateliers • <a href="https://lojik360.atmart.ltd/tutoriels/pensee-critique.html">aperçu : le tutoriel gratuit</a></p>
-        <a href="mailto:sales@atmart.ltd?subject=Commande%20-%20Guide%20Pens%C3%A9e%20critique%20(4%20langues)" class="btn btn-primary" data-i18n="ds.c1_cta">Commander le guide</a>
+
+        <div class="card" data-cat="geo">
+          <span class="tag amber" data-i18n="ds.t_prem">Premium</span>
+          <h3 data-i18n-html="ds.c4_h">Pack Géo Haïti — toutes les coordonnées GPS</h3>
+          <p data-i18n-html="ds.c4_p"><strong>570 sections communales</strong> + <strong>140 villes chefs-lieux</strong> + <strong>10 945 lieux habités</strong>, avec p-codes officiels OCHA, superficies et coordonnées WGS84. GeoJSON des départements, communes et sections inclus pour vos cartes Power BI/QGIS.</p>
+          <p class="price" data-i18n-html="ds.c4_pr">29 $ <small>3 CSV + 3 GeoJSON + documentation</small></p>
+          <p class="meta" data-i18n-html="ds.c4_meta">🗺 Géographie • Niveau A • Sources : OCHA/CNIGS + GeoNames • <a href="donnees-pack-geo-haiti.html">fiche complète et limites connues</a></p>
+          <a href="donnees-pack-geo-haiti.html" class="btn btn-primary" data-i18n="ds.c4_cta">Voir la fiche &amp; acheter</a>
+        </div>
+
+        <div class="card" data-cat="guide">
+          <span class="tag amber" data-i18n="ds.t_guide">Guide • 4 langues</span>
+          <h3 data-i18n-html="ds.c1_h">Guide complet : Pensée critique <span class="badge-new">NOUVO</span></h3>
+          <p data-i18n-html="ds.c1_p">Le module détaillé Lojik360 University : <strong>6 modules</strong> (fondations, arguments, preuves, biais, résolution de problèmes, pratique) avec exercices, capstone, grille d'évaluation et invites de réflexion. En <strong>français, créole, anglais et espagnol</strong> (4 fichiers Word).</p>
+          <p class="price" data-i18n-html="ds.c1_pr">15 $ <small>les 4 guides (FR · HT · EN · ES)</small></p>
+          <p class="meta" data-i18n-html="ds.c1_meta">📘 Guide pédagogique • idéal formateurs, écoles &amp; ateliers • <a href="https://lojik360.atmart.ltd/tutoriels/pensee-critique.html">aperçu : le tutoriel gratuit</a></p>
+          <a href="mailto:sales@atmart.ltd?subject=Commande%20-%20Guide%20Pens%C3%A9e%20critique%20(4%20langues)" class="btn btn-primary" data-i18n="ds.c1_cta">Commander le guide</a>
+        </div>
+
+        <div class="card" data-cat="social">
+          <span class="tag amber" data-i18n="ds.t_prem">Premium</span>
+          <h3 data-i18n-html="ds.c12_h">Districts scolaires du Massachusetts <span class="badge-new">NOUVO</span></h3>
+          <p data-i18n-html="ds.c12_p"><strong>517 districts</strong> avec le contact de direction : nom, fonction, e-mail professionnel, téléphone, ville et comté. Compilé depuis les annuaires publics de l'État, dédoublonné et vérifié. Pour la prospection B2B légitime — formation, transport scolaire, services éducatifs.</p>
+          <p class="price" data-i18n-html="ds.c12_pr">sur devis <small>Excel • dictionnaire + fiche de données inclus</small></p>
+          <p class="meta" data-i18n-html="ds.c12_meta">👥 Social • États-Unis (MA) • v2026.07 • Coordonnées professionnelles publiques — <a href="donnees-confiance.html#personnelles">règles d'usage</a></p>
+          <a href="mailto:sales@atmart.ltd?subject=Districts%20scolaires%20du%20Massachusetts%20-%20demande" class="btn btn-primary" data-i18n="ds.c12_cta">Demander le pack</a>
+        </div>
+
       </div>
-      <div class="card" data-cat="economie">
-        <span class="tag amber" data-i18n="ds.t_prem">Premium</span>
-        <h3 data-i18n="ds.c3_h">Indicateurs économiques Haïti — pack complet</h3>
-        <p data-i18n="ds.c3_p">PIB, inflation, taux de change gourde/USD (mensuel), importations/exportations, 2000–2025. Nettoyé et harmonisé.</p>
-        <p class="price" data-i18n-html="ds.c3_pr">19 $ <small>CSV + Excel + PBIX</small></p>
-        <p class="meta" data-i18n="ds.c3_meta">💰 Économie • 25 ans • Dictionnaire de variables inclus</p>
-        <a href="#" class="btn btn-primary" data-i18n="ds.buy">Acheter</a>
-      </div>
-      <div class="card" data-cat="geo">
-        <span class="tag amber" data-i18n="ds.t_prem">Premium</span>
-        <h3 data-i18n-html="ds.c4_h">Pack Géo Haïti — toutes les coordonnées GPS <span class="badge-new">NOUVO</span></h3>
-        <p data-i18n-html="ds.c4_p"><strong>570 sections communales</strong> + <strong>140 villes chefs-lieux</strong> + <strong>10 945 lieux habités</strong>, avec noms en français ET en kreyòl, p-codes officiels OCHA, superficies et coordonnées WGS84. GeoJSON des départements, communes et sections inclus pour vos cartes Power BI/QGIS.</p>
-        <p class="price" data-i18n-html="ds.c4_pr">29 $ <small>3 CSV + 3 GeoJSON + documentation</small></p>
-        <p class="meta" data-i18n-html="ds.c4_meta">🗺 Géographie • Sources : OCHA/CNIGS + GeoNames • <a href="data/ECHANTILLON_haiti_sections_gps.csv" download>échantillon gratuit (10 lignes)</a></p>
-        <a href="https://payhip.com/b/Ufn2x" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="ds.c4_cta">Acheter — 29 $</a>
-      </div>
-      <div class="card" data-cat="social">
-        <span class="tag amber" data-i18n="ds.t_prem">Premium</span>
-        <h3 data-i18n="ds.c6_h">Démographie Caraïbe francophone</h3>
-        <p data-i18n="ds.c6_p">Haïti, Guadeloupe, Martinique, Guyane : pyramides des âges, migration, urbanisation, 1990–2025.</p>
-        <p class="price" data-i18n-html="ds.c6_pr">29 $ <small>CSV + Excel + PBIX</small></p>
-        <p class="meta" data-i18n="ds.c6_meta">👥 Social • 4 territoires • 35 ans</p>
-        <a href="#" class="btn btn-primary" data-i18n="ds.buy">Acheter</a>
-      </div>
-      <div class="card" data-cat="finance">
-        <span class="tag amber" data-i18n="ds.t_prem">Premium</span>
-        <h3 data-i18n="ds.c7_h">Inclusion financière &amp; mobile money — Afrique francophone</h3>
-        <p data-i18n="ds.c7_p">Taux de bancarisation, adoption du mobile money et microfinance dans 12 pays, 2015–2025.</p>
-        <p class="price" data-i18n-html="ds.c7_pr">34 $ <small>CSV + Excel</small></p>
-        <p class="meta" data-i18n="ds.c7_meta">📈 Finance • 12 pays • Sources : GSMA, Banque mondiale</p>
-        <a href="#" class="btn btn-primary" data-i18n="ds.buy">Acheter</a>
-      </div>
-      <div class="card" data-cat="economie finance">
-        <span class="tag red" data-i18n="ds.t_pack">Pack Pro</span>
-        <h3 data-i18n="ds.c8_h">Pack Analyste Caraïbe — tout inclus</h3>
-        <p data-i18n="ds.c8_p">Tous les datasets premium actuels et futurs pendant 1 an + mises à jour trimestrielles + accès prioritaire.</p>
-        <p class="price" data-i18n-html="ds.c8_pr">79 $/an <small>tous formats</small></p>
-        <p class="meta" data-i18n="ds.c8_meta">⭐ Meilleure valeur pour étudiants et chercheurs</p>
-        <a href="#" class="btn btn-primary" data-i18n="ds.sub">S'abonner</a>
-      </div>
-      <div class="card" data-cat="economie">
-        <span class="tag amber" data-i18n="ds.t_prem">Premium</span>
-        <h3 data-i18n="ds.c10_h">Prix des produits de base — marchés haïtiens</h3>
-        <p data-i18n="ds.c10_p">Riz, haricots, huile, carburant : relevés de prix par marché et par mois, 2018–2025. Sources : CNSA, FEWS NET.</p>
-        <p class="price" data-i18n-html="ds.c10_pr">19 $ <small>CSV + Excel</small></p>
-        <p class="meta" data-i18n="ds.c10_meta">💰 Économie • Séries mensuelles • 7 ans</p>
-        <a href="#" class="btn btn-primary" data-i18n="ds.buy">Acheter</a>
-      </div>
-    </div>
     </div>
 
+    <!-- ===== EN PRÉPARATION ===== -->
+    <div class="shelf" id="shelf-soon">
+      <div class="shelf-head">
+        <h2 data-i18n="ds.soon_h">🧭 En préparation — et parrainables</h2>
+        <p data-i18n-html="ds.soon_p">
+          Sources identifiées, méthode écrite : il manque le financement du travail de préparation.
+          Une institution peut <a href="donnees-parrainage.html">parrainer l'ouverture</a> d'un de ces jeux —
+          il devient alors accessible gratuitement à toute une cohorte d'étudiants et de chercheurs.
+        </p>
+      </div>
+      <div class="grid grid-3" id="data-grid-soon">
+
+        <div class="card" data-cat="economie">
+          <span class="d-pill spons" data-i18n="ds.pill_spons">Parrainable</span>
+          <h3 data-i18n="ds.s1_h">Prix des produits de base — marchés haïtiens (2018–2025)</h3>
+          <p data-i18n="ds.s1_p">Riz, haricots, maïs, huile, carburant : relevés de prix par marché et par mois. La base d'une analyse sérieuse de l'inflation alimentaire.</p>
+          <p class="price" data-i18n-html="ds.s1_pr">≈ 2 500 $ <small>coût d'ouverture · + 1 200 $/an de mise à jour</small></p>
+          <p class="meta" data-i18n-html="ds.s1_meta">💰 Économie • Sources identifiées : CNSA, FEWS NET</p>
+          <a href="donnees-parrainage.html#catalogue" class="btn btn-outline" data-i18n="ds.spons_cta">Parrainer ce jeu</a>
+        </div>
+
+        <div class="card" data-cat="economie finance">
+          <span class="d-pill spons" data-i18n="ds.pill_spons">Parrainable</span>
+          <h3 data-i18n="ds.s2_h">Indicateurs économiques Haïti (2000–2025)</h3>
+          <p data-i18n="ds.s2_p">PIB, inflation, taux de change gourde/USD, importations et exportations sur 25 ans, harmonisés entre sources.</p>
+          <p class="price" data-i18n-html="ds.s2_pr">≈ 2 000 $ <small>coût d'ouverture</small></p>
+          <p class="meta" data-i18n-html="ds.s2_meta">💰 Économie • Sources identifiées : Banque mondiale, FMI, BRH</p>
+          <a href="donnees-parrainage.html#catalogue" class="btn btn-outline" data-i18n="ds.spons_cta">Parrainer ce jeu</a>
+        </div>
+
+        <div class="card" data-cat="social">
+          <span class="d-pill spons" data-i18n="ds.pill_spons">Parrainable</span>
+          <h3 data-i18n="ds.s3_h">Éducation en Haïti — indicateurs par département</h3>
+          <p data-i18n="ds.s3_p">Scolarisation, alphabétisation et dépenses publiques par département : le socle des mémoires en sciences de l'éducation.</p>
+          <p class="price" data-i18n-html="ds.s3_pr">≈ 2 500 $ <small>coût d'ouverture</small></p>
+          <p class="meta" data-i18n-html="ds.s3_meta">👥 Social • Sources identifiées : MENFP, UNESCO UIS, Banque mondiale</p>
+          <a href="donnees-parrainage.html#catalogue" class="btn btn-outline" data-i18n="ds.spons_cta">Parrainer ce jeu</a>
+        </div>
+
+        <div class="card" data-cat="social">
+          <span class="d-pill spons" data-i18n="ds.pill_spons">Parrainable</span>
+          <h3 data-i18n="ds.s4_h">Santé publique — indicateurs par département</h3>
+          <p data-i18n="ds.s4_p">Couverture, mortalité, personnel et infrastructures de santé, avec les dénominateurs de population correspondants.</p>
+          <p class="price" data-i18n-html="ds.s4_pr">≈ 3 000 $ <small>coût d'ouverture</small></p>
+          <p class="meta" data-i18n-html="ds.s4_meta">👥 Social • Sources identifiées : MSPP, OMS/OPS, EMMUS</p>
+          <a href="donnees-parrainage.html#catalogue" class="btn btn-outline" data-i18n="ds.spons_cta">Parrainer ce jeu</a>
+        </div>
+
+        <div class="card" data-cat="social">
+          <span class="d-pill spons" data-i18n="ds.pill_spons">Parrainable</span>
+          <h3 data-i18n="ds.s5_h">Démographie de la Caraïbe francophone (1990–2025)</h3>
+          <p data-i18n="ds.s5_p">Haïti, Guadeloupe, Martinique, Guyane : structure par âge, migration, urbanisation sur 35 ans.</p>
+          <p class="price" data-i18n-html="ds.s5_pr">≈ 2 500 $ <small>coût d'ouverture</small></p>
+          <p class="meta" data-i18n-html="ds.s5_meta">👥 Social • Sources identifiées : ONU DAES, INSEE, IHSI</p>
+          <a href="donnees-parrainage.html#catalogue" class="btn btn-outline" data-i18n="ds.spons_cta">Parrainer ce jeu</a>
+        </div>
+
+        <div class="card" data-cat="finance">
+          <span class="d-pill spons" data-i18n="ds.pill_spons">Parrainable</span>
+          <h3 data-i18n="ds.s6_h">Inclusion financière &amp; mobile money — Afrique francophone</h3>
+          <p data-i18n="ds.s6_p">Bancarisation, adoption du mobile money et microfinance dans 12 pays, 2015–2025.</p>
+          <p class="price" data-i18n-html="ds.s6_pr">≈ 3 000 $ <small>coût d'ouverture</small></p>
+          <p class="meta" data-i18n-html="ds.s6_meta">📈 Finance • Sources identifiées : Global Findex, GSMA, banques centrales</p>
+          <a href="donnees-parrainage.html#catalogue" class="btn btn-outline" data-i18n="ds.spons_cta">Parrainer ce jeu</a>
+        </div>
+
+        <div class="card" data-cat="economie finance">
+          <span class="d-pill soon" data-i18n="ds.pill_soon">En préparation</span>
+          <h3 data-i18n="ds.s7_h">Pack Analyste Caraïbe — abonnement annuel</h3>
+          <p data-i18n="ds.s7_p">Tous les jeux premium, actuels et futurs, pendant un an, avec mises à jour. Ouvrira dès que trois jeux premium seront publiés.</p>
+          <p class="price" data-i18n-html="ds.s7_pr">79 $/an <small>prix cible</small></p>
+          <p class="meta" data-i18n-html="ds.s7_meta">⭐ Réservé aux abonnés — <a href="mailto:sales@atmart.ltd?subject=Pack%20Analyste%20Cara%C3%AFbe%20-%20me%20pr%C3%A9venir">être prévenu au lancement</a></p>
+          <span class="soon-btn" data-i18n="ds.soon_btn">Bientôt</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COMMENT ÇA MARCHE -->
     <div class="banner" style="margin-top:3rem">
       <h2 data-i18n="ds.how_h">Comment ça marche ?</h2>
-      <p data-i18n-html="ds.how_p">Paiement sécurisé par carte ou PayPal via Payhip — téléchargement immédiat. Chaque dataset inclut sa documentation (sources, dictionnaire de variables, licence d'utilisation). Étudiants : écrivez-nous pour une réduction. <strong>En Haïti, sans carte bancaire ?</strong> Écrivez-nous pour payer par MonCash : <a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a>.</p>
-      <a href="mailto:contact@atmartllc.com" class="btn btn-outline" data-i18n="ds.how_cta">Demander un dataset sur mesure</a>
+      <p data-i18n-html="ds.how_p">Paiement sécurisé par carte ou PayPal via Payhip — téléchargement immédiat. Chaque jeu inclut sa documentation (sources, dictionnaire de variables, limites connues, licence). <strong>En Haïti, sans carte bancaire ?</strong> Écrivez-nous pour payer par MonCash : <a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a>.</p>
+      <div style="display:flex;gap:0.8rem;flex-wrap:wrap;justify-content:center">
+        <a href="donnees-confiance.html" class="btn btn-outline" data-i18n="ds.how_b1">Comment nous garantissons la qualité</a>
+        <a href="donnees-campus.html" class="btn btn-outline" data-i18n="ds.how_b2">Étudiant ou chercheur : accès gratuit</a>
+        <a href="mailto:sales@atmart.ltd?subject=Demande%20de%20dataset%20sur%20mesure" class="btn btn-outline" data-i18n="ds.how_cta">Demander un dataset sur mesure</a>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_data">Atmart Data</h4>
+        <ul>
+          <li><a href="donnees.html">Atmart Data</a></li>
+          <li><a href="donnees-solutions.html">Solutions &amp; licences</a></li>
+          <li><a href="donnees-campus.html">Atmart Campus</a></li>
+          <li><a href="donnees-parrainage.html">Parrainer un dataset</a></li>
+          <li><a href="donnees-confiance.html">Confiance &amp; méthode</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li>
+        </ul>
+      </div>
+    </div>
     <div class="footer-bottom" data-i18n="foot.bottom">© 2026 Atmart LLC — Marché de la technologie et des données. Lojik360 est une marque d'Atmart LLC.</div>
   </div>
 </footer>

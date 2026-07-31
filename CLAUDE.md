@@ -27,7 +27,9 @@ Tu es le développeur du site **atmart.ltd** (Atmart LLC). Ce fichier est ta sou
 
 - `index.html` — accueil « tutorial-first » (format W3Schools : sections matières colorées + cartes d'exemple « Eseye li »)
 - `tutoriels.html` + `tutoriels/*.html` — bibliothèque et articles (filtres par data-cat, recherche via ?q=)
-- `podcast.html` — épisodes Lojik360 ; `datasets.html` — boutique ; `formations.html` — 3 parcours ; `outils.html` — outils + sources de données
+- `podcast.html` — épisodes Lojik360 ; `formations.html` — 3 parcours ; `outils.html` — outils + sources de données
+- **Section Atmart Data** (6 pages + `assets/data.css`) : `donnees.html` (hub, positionnement « données prêtes à décider ») ; `datasets.html` (catalogue, 3 étagères) ; `donnees-solutions.html` (B2B/B2G/ONG : packs décisionnels, 6 licences) ; `donnees-campus.html` (accès académique) ; `donnees-parrainage.html` (sponsoring de datasets) ; `donnees-confiance.html` (charte sourcing/qualité/licences) ; `donnees-pack-geo-haiti.html` (**gabarit de fiche produit** — à répliquer pour chaque nouveau jeu).
+  **Règle du catalogue :** trois états seulement — `Disponible` (fichier livrable aujourd'hui), `Parrainable`, `En préparation`. Jamais de bouton « Acheter » sur un fichier qui n'existe pas ; un jeu non construit va dans l'étagère parrainable, pas dans « en vente ».
 - `assets/` — style.css (design system, variables CSS), script.js (nav, filtres, recherche), i18n.js (FR/HT/EN), logo.svg
 - `data/` — datasets GRATUITS + documentation LISEZMOI
 - `content/` — scripts d'épisodes (non liés dans la nav)
