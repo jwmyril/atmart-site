@@ -13,7 +13,7 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0e2240" />
   <link rel="stylesheet" href="assets/style.css?v=31" />
-  <link rel="stylesheet" href="assets/data.css?v=3" />
+  <link rel="stylesheet" href="assets/data.css?v=4" />
 <script>/* langue auto : avant le 1er affichage, evite le clignotement */
 (function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
 s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
@@ -49,6 +49,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       </li>
       <li class="nav-grp"><span data-i18n="nav.g_data">🗂 Données</span>
         <ul class="nav-sub">
+          <li><a href="donnees-explorateur.html"><span data-i18n="nav.d_exp">Explorateur Haïti</span> <small data-i18n="nav.d_exp_s">chercher une commune</small></a></li>
           <li><a href="donnees.html" class="active"><span data-i18n="nav.d_hub">Atmart Data</span> <small data-i18n="nav.d_hub_s">la plateforme</small></a></li>
           <li><a href="donnees-systeme.html"><span data-i18n="nav.d_sys">La carte du système</span> <small data-i18n="nav.d_sys_s">tout sur une page</small></a></li>
           <li><a href="donnees-backbone.html"><span data-i18n="nav.d_bb">Le Backbone</span> <small data-i18n="nav.d_bb_s">référentiels &amp; méthode</small></a></li>
@@ -89,14 +90,14 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       Haïti</strong> — un seul pays, traité en profondeur, plutôt que dix survolés.
     </p>
     <div class="cta-row" style="display:flex;gap:0.9rem;flex-wrap:wrap;margin-top:1.5rem">
-      <a href="donnees-systeme.html" class="btn btn-primary">Voir tout le système sur une page</a>
+      <a href="donnees-explorateur.html" class="btn btn-primary">Explorer les 140 communes</a>
       <a href="datasets.html" class="btn btn-outline">Le catalogue</a>
-      <a href="donnees-backbone.html" class="btn btn-outline">La méthode</a>
+      <a href="donnees-systeme.html" class="btn btn-outline">Comment c’est fait</a>
     </div>
     <div class="d-proof">
       <div><b>11 707</b><small>entités territoriales identifiées, du département à la localité</small></div>
       <div><b>5 niveaux</b><small>département › arrondissement › commune › section › localité</small></div>
-      <div><b>8 pays · 26 ans</b><small>séries de transferts de la diaspora, en accès libre</small></div>
+      <div><b>1 197</b><small>valeurs d’indicateurs calculées sur les 140 communes</small></div>
       <div><b>1 standard</b><small>la Fèy Done Atmart, appliquée à chaque jeu de données</small></div>
     </div>
   </div>

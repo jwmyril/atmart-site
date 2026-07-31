@@ -776,5 +776,7 @@
   "ds.c16_pr": "0 $ <small>2 CSV • 1 197 valores • 17 definiciones</small>",
   "ds.c16_meta": "📊 4º referencial maestro del <a href=\"donnees-backbone.html#indicateurs\">Backbone</a> • 217 valores declarados no disponibles en lugar de puestos a cero",
   "nav.d_sys": "El mapa del sistema",
-  "nav.d_sys_s": "todo en una página"
+  "nav.d_sys_s": "todo en una página",
+  "nav.d_exp": "Explorador Haití",
+  "nav.d_exp_s": "buscar una comuna"
 }

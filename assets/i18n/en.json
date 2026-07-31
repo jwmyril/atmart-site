@@ -776,5 +776,7 @@
   "ds.c16_pr": "0 $ <small>2 CSV • 1,197 values • 17 definitions</small>",
   "ds.c16_meta": "📊 4th master reference set of the <a href=\"donnees-backbone.html#indicateurs\">Backbone</a> • 217 values declared unavailable rather than set to zero",
   "nav.d_sys": "The system map",
-  "nav.d_sys_s": "everything on one page"
+  "nav.d_sys_s": "everything on one page",
+  "nav.d_exp": "Haiti Explorer",
+  "nav.d_exp_s": "search a commune"
 }
