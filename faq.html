@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <title>Questions fréquentes — ATM+ Art | Atmart</title>
+  <meta name="description" content="Ce qui est disponible aujourd'hui, ce qui ne l'est pas encore, comment sont faites les œuvres, comment fonctionnent les licences et les impressions locales." />
+  <link rel="canonical" href="https://atmart.ltd/faq" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#060c15" />
+  <link rel="stylesheet" href="assets/style.css?v=31" />
+  <link rel="stylesheet" href="assets/atelier.css?v=2" />
+<script>/* langue auto : avant le 1er affichage, evite le clignotement */
+(function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
+s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
+var l=s&&S[s]?s:null;
+if(!l){var n=navigator.languages||[navigator.language||""];
+for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().split("-")[0];
+if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
+window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;
+if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove("i18n-wait")},1500)}})();
+</script>
+  <style>
+    .qa { border-top:1px solid rgba(255,255,255,0.08); padding:1.2rem 0; max-width:80ch; }
+    .qa b { display:block; color:#fff; font-size:1.02rem; margin-bottom:0.35rem; }
+    .qa p { color:var(--ink-dim); font-size:0.94rem; margin:0; }
+    .qa a { color:var(--amber); }
+  </style>
+</head>
+<body class="art">
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+      <li><a href="processus-creation.html" data-s="nv.proc"></a></li>
+    </ul>
+  </nav>
+</header>
+
+<section style="padding-top:3rem">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="fq.k"></p>
+    <h1 class="art-h" style="font-size:clamp(1.9rem,4.5vw,2.8rem)" data-s="fq.h"></h1>
+    <p class="art-sub" style="font-size:1.02rem;max-width:75ch" data-s="fq.p"></p>
+  </div>
+</section>
+
+<section style="padding-top:1rem">
+  <div class="art-wide" id="qa"></div>
+</section>
+
+<section style="padding-top:0">
+  <div class="art-wide">
+    <div style="background:rgba(244,162,97,0.08);border:1px solid rgba(244,162,97,0.35);border-radius:16px;padding:1.6rem;max-width:80ch">
+      <p style="margin:0;color:#d7e3f0;font-size:0.95rem" data-s="fq.fin"></p>
+      <p style="margin:0.9rem 0 0"><a class="btn btn-primary" href="mailto:sales@atmart.ltd" data-s="fq.btn"></a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
+        <ul>
+          <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+          <li><a href="atelier-collection.html" data-s="nv.col"></a></li>
+          <li><a href="conditions-vente.html" data-s="nv.cgv"></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul><li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li></ul>
+      </div>
+    </div>
+    <p class="footer-note">© Atmart LLC — <span data-i18n="foot.rights">Tous droits réservés.</span></p>
+  </div>
+</footer>
+
+<script src="assets/script.js?v=2"></script>
+<script src="assets/i18n.js?v=14"></script>
+<script src="assets/atelier.js?v=4"></script>
+<script>
+(function () {
+  "use strict";
+  Object.assign(ATM.S, {
+    "nv.proc": { fr: "Notre processus", ht: "Kijan nou travay", en: "Our process", es: "Nuestro proceso" },
+    "nv.col": { fr: "La collection", ht: "Koleksyon an", en: "The collection", es: "La colección" },
+    "nv.cgv": { fr: "Conditions de vente", ht: "Kondisyon vant", en: "Terms of sale", es: "Condiciones de venta" },
+
+    "fq.k": { fr: "Questions fréquentes", ht: "Kesyon moun poze souvan", en: "Frequent questions", es: "Preguntas frecuentes" },
+    "fq.h": { fr: "Ce qui est vrai aujourd'hui", ht: "Sa ki vre jodi a", en: "What is true today", es: "Lo que es cierto hoy" },
+    "fq.p": { fr: "Nous préférons dire « pas encore » plutôt que laisser croire. Cette page dit où en est réellement chaque chose.", ht: "Nou pito di « poko » pase kite moun kwè yon bagay ki pa vre. Paj sa a di kote chak bagay ye toutbon.", en: "We would rather say \"not yet\" than let you believe otherwise. This page says where each thing actually stands.", es: "Preferimos decir «todavía no» antes que dejar creer. Esta página dice dónde está realmente cada cosa." },
+
+    "fq.q1": { fr: "Puis-je acheter une œuvre maintenant ?", ht: "Èske m ka achte yon zèv kounye a ?", en: "Can I buy a work right now?", es: "¿Puedo comprar una obra ahora?" },
+    "fq.a1": { fr: "Non. Aucune vente n'est ouverte à ce jour : il n'y a ni panier, ni paiement, ni livraison actifs. Vous pouvez demander à être informé de l'ouverture, ou demander un devis pour un projet institutionnel.", ht: "Non. Pa gen vant ki louvri jodi a : pa gen panye, pa gen peman, pa gen livrezon. Ou ka mande pou nou fè w konnen lè l louvri, oswa mande yon devi pou yon pwojè enstitisyonèl.", en: "No. No sales are open today: there is no cart, no payment, no delivery. You can ask to be told when it opens, or request a quote for an institutional project.", es: "No. No hay ventas abiertas hoy: no hay carrito, ni pago, ni envío. Puede pedir que le avisemos de la apertura o solicitar un presupuesto institucional." },
+    "fq.q2": { fr: "Pourquoi tant de mentions « En préparation » ?", ht: "Poukisa gen anpil « N ap prepare l » konsa ?", en: "Why so many \"In preparation\" labels?", es: "¿Por qué tantas menciones «En preparación»?" },
+    "fq.a2": { fr: "Parce qu'annoncer un format testé, un délai ferme ou un prix qui n'existe pas abîme la confiance bien plus qu'un aveu d'attente. Tant qu'une chose n'est ni validée, ni produite, ni testée, ni tarifée, elle est marquée ainsi.", ht: "Paske si nou anonse yon fòma nou teste, yon dat fiks oswa yon pri ki pa egziste, sa kraze konfyans plis pase si nou di n ap tann. Toutotan yon bagay poko valide, poko fèt, poko teste, poko gen pri, se konsa nou make l.", en: "Because announcing a tested format, a firm lead time or a price that does not exist damages trust far more than admitting a wait. As long as something is not validated, produced, tested or priced, it is labelled that way.", es: "Porque anunciar un formato probado, un plazo firme o un precio inexistente daña la confianza mucho más que admitir la espera. Mientras algo no esté validado, producido, probado o tarifado, se marca así." },
+    "fq.q3": { fr: "L'intelligence artificielle intervient-elle dans les œuvres ?", ht: "Èske entèlijans atifisyèl antre nan zèv yo ?", en: "Is artificial intelligence involved in the works?", es: "¿Interviene la inteligencia artificial en las obras?" },
+    "fq.a3": { fr: "Oui, sur certaines œuvres et à certaines étapes. Chaque fiche porte un bloc « Procédé de création » qui l'indique. La direction artistique, la sélection, les transformations et la validation restent humaines et documentées. <a href=\"processus-creation.html\">Voir notre processus</a>.", ht: "Wi, sou kèk zèv epi nan kèk etap. Chak fich gen yon blòk « Kijan zèv la fèt » ki di sa. Direksyon atistik la, chwa a, chanjman yo ak validasyon an rete nan men moun, epi nou dokimante yo. <a href=\"processus-creation.html\">Gade kijan nou travay</a>.", en: "Yes, on some works and at some stages. Every sheet carries a \"Creation process\" block stating it. Artistic direction, selection, transformations and validation remain human and documented. <a href=\"processus-creation.html\">See our process</a>.", es: "Sí, en algunas obras y en algunas etapas. Cada ficha lleva un bloque «Proceso de creación» que lo indica. La dirección artística, la selección, las transformaciones y la validación siguen siendo humanas y documentadas. <a href=\"processus-creation.html\">Ver nuestro proceso</a>." },
+    "fq.q4": { fr: "Les prix affichés sur la collection sont-ils fermes ?", ht: "Èske pri ki sou paj koleksyon an fiks ?", en: "Are the prices shown on the collection firm?", es: "¿Los precios de la colección son firmes?" },
+    "fq.a4": { fr: "Les prix des bundles et de l'entrée de gamme ont été validés par ATM et servent de référence. Les offres institutionnelles, multisites et haut de gamme restent « Sur devis » : elles dépendent du volume, des licences et de la personnalisation.", ht: "Pri pakè yo ak pri bagay ki pi abòdab yo, ATM valide yo epi yo sèvi kòm referans. Òf pou enstitisyon, pou plizyè lokal ak gam wo a rete « Sou devi » : sa depann de kantite, lisans ak pèsonalizasyon.", en: "Bundle and entry-level prices have been approved by ATM and serve as reference. Institutional, multi-site and high-end offers stay \"On quote\": they depend on volume, licences and customisation.", es: "Los precios de los packs y de la gama de entrada han sido validados por ATM y sirven de referencia. Las ofertas institucionales, multisede y de gama alta siguen «Presupuesto a medida»: dependen del volumen, las licencias y la personalización." },
+    "fq.q5": { fr: "Comment fonctionne l'impression locale ?", ht: "Kijan enprime lokal la mache ?", en: "How does local printing work?", es: "¿Cómo funciona la impresión local?" },
+    "fq.a5": { fr: "Le principe : produire au plus près de la personne qui reçoit, plutôt qu'expédier depuis l'étranger. La validation colorimétrique et le réseau d'imprimeurs sont en préparation — aucun format n'est encore déclaré testé.", ht: "Prensip la : enprime toupre moun k ap resevwa a, olye pou nou voye l soti lòt peyi. Validasyon koulè yo ak rezo enprimè yo ap prepare — nou poko di okenn fòma teste.", en: "The principle: produce as close as possible to the recipient rather than shipping from abroad. Colour validation and the printer network are in preparation — no format is declared tested yet.", es: "El principio: producir lo más cerca posible de quien recibe, en vez de enviar desde el extranjero. La validación de color y la red de imprentas están en preparación; ningún formato se declara probado todavía." },
+    "fq.q6": { fr: "Qui possède les œuvres ? Que puis-je en faire ?", ht: "Kilès ki mèt zèv yo ? Kisa m ka fè avèk yo ?", en: "Who owns the works? What may I do with them?", es: "¿Quién posee las obras? ¿Qué puedo hacer con ellas?" },
+    "fq.a6": { fr: "Les œuvres restent la propriété d'ATM. Un acheteur ou un partenaire obtient une licence d'usage — personnelle, commerciale sur écran, ou institutionnelle et multisite — dont la portée est écrite noir sur blanc. L'entraînement d'une intelligence artificielle avec les œuvres est interdit.", ht: "Zèv yo rete pwopriyete ATM. Yon moun ki achte oswa yon patnè jwenn yon lisans pou itilize l — pèsonèl, komèsyal sou ekran, oswa enstitisyonèl ak plizyè lokal — epi nou ekri klè jiskaki nivo. Nou entèdi antrene yon entèlijans atifisyèl ak zèv yo.", en: "The works remain ATM's property. A buyer or partner receives a licence of use — personal, commercial on screen, or institutional and multi-site — whose scope is written down. Training an artificial intelligence with the works is forbidden.", es: "Las obras siguen siendo propiedad de ATM. Un comprador o socio obtiene una licencia de uso —personal, comercial en pantalla o institucional y multisede— cuyo alcance consta por escrito. Está prohibido entrenar una inteligencia artificial con las obras." },
+    "fq.q7": { fr: "Le site est-il vraiment en quatre langues ?", ht: "Èske sit la vrèman nan kat lang ?", en: "Is the site really in four languages?", es: "¿El sitio está realmente en cuatro idiomas?" },
+    "fq.a7": { fr: "Oui : français, kreyòl ayisyen, anglais, espagnol — y compris les fiches d'œuvre, les statuts et les conditions. Le kreyòl est relu par un locuteur natif, pas seulement traduit.", ht: "Wi : fransè, kreyòl ayisyen, anglè, panyòl — ata fich zèv yo, estati yo ak kondisyon yo. Yon moun ki pale kreyòl natif natal relè tèks kreyòl yo, se pa yon senp tradiksyon.", en: "Yes: French, Haitian Creole, English, Spanish — including artwork sheets, statuses and terms. The Creole is proofread by a native speaker, not merely translated.", es: "Sí: francés, creole haitiano, inglés y español, incluidas las fichas, los estados y las condiciones. El creole lo revisa un hablante nativo, no es solo traducción." },
+    "fq.q8": { fr: "Comment une communauté peut-elle être parrainée ?", ht: "Kijan yon kominote ka jwenn yon patnè ki sipòte l ?", en: "How can a community be sponsored?", es: "¿Cómo se puede apadrinar una comunidad?" },
+    "fq.a8": { fr: "Une institution finance un nombre d'accès et d'impressions pour un public qu'elle choisit. Les bénéficiaires reçoivent un code privé — jamais public — et commandent sans payer. Le rapport remis au partenaire est agrégé et anonyme.", ht: "Yon enstitisyon peye pou yon kantite aksè ak enprime pou yon piblik li chwazi. Moun k ap benefisye yo resevwa yon kòd prive — nou pa janm mete l an piblik — epi yo kòmande san yo pa peye. Rapò nou bay patnè a se chif ansanm, san non pesonn.", en: "An institution funds a number of accesses and prints for an audience it chooses. Beneficiaries receive a private code — never public — and order without paying. The report given to the partner is aggregated and anonymous.", es: "Una institución financia un número de accesos e impresiones para un público que elige. Las personas beneficiarias reciben un código privado —nunca público— y piden sin pagar. El informe al socio es agregado y anónimo." },
+
+    "fq.fin": { fr: "Une question qui n'est pas là ? Écrivez-nous : nous répondons sous deux jours ouvrables, et si la réponse est « pas encore », nous le dirons ainsi.", ht: "Gen yon kesyon ki pa la ? Ekri nou : n ap reponn nan de jou travay, epi si repons lan se « poko », se konsa n ap di l.", en: "A question that is not here? Write to us: we reply within two business days, and if the answer is \"not yet\", we will say so.", es: "¿Una pregunta que no está aquí? Escríbanos: respondemos en dos días hábiles, y si la respuesta es «todavía no», lo diremos así." },
+    "fq.btn": { fr: "Écrire à Atmart", ht: "Ekri Atmart", en: "Write to Atmart", es: "Escribir a Atmart" }
+  });
+
+  function fill() {
+    document.getElementById("qa").innerHTML = [1, 2, 3, 4, 5, 6, 7, 8].map(function (n) {
+      return '<div class="qa"><b>' + ATM.T("fq.q" + n) + "</b><p>" + ATM.T("fq.a" + n) + "</p></div>";
+    }).join("");
+  }
+
+  ATM.paint();
+  fill();
+  ATM.onLang(fill);
+})();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+<script src="assets/launcher.js?v=3"></script>
+</body>
+</html>

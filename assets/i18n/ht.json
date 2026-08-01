@@ -825,5 +825,9 @@
  "xpl.tab.fiche.court": "Fich",
  "xpl.tab.rank": "Klasman komin yo",
  "xpl.tab.rank.court": "Klasman",
- "xpl.tabs": "Fason pou gade eksploratè a"
+ "xpl.tabs": "Fason pou gade eksploratè a",
+ "nav.a_proc": "Kijan nou travay",
+ "nav.a_proc_s": "kijan yon zèv fèt",
+ "foot.faq": "Kesyon moun poze souvan",
+ "foot.cgv": "Kondisyon vant"
 }

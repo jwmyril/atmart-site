@@ -9,6 +9,11 @@ window.ATM = (function () {
   var LANGS = { fr: 1, ht: 1, en: 1, es: 1 };
   var MAIL = "sales@atmart.ltd";
 
+  /* Prefixe vers la racine du site : les fiches vivent dans /oeuvres/, les
+     autres pages a la racine. Sans ca, /oeuvres/x irait chercher
+     /oeuvres/assets/... et n'afficherait rien. */
+  var ROOT = new Array(location.pathname.split("/").length - 1).join("../");
+
   var S = {
     /* --- actions communes --- */
     "a.free":   { fr: "Découvrir gratuitement", ht: "Dekouvri gratis", en: "Explore for free", es: "Descubrir gratis" },
@@ -201,7 +206,7 @@ window.ATM = (function () {
           return new Promise(function (ok) { setTimeout(ok, 700); }).then(get);
         });
       };
-      _data = Promise.all([j("assets/atelier/oeuvres.json"), j("assets/atelier/collection.json")])
+      _data = Promise.all([j(ROOT + "assets/atelier/oeuvres.json"), j(ROOT + "assets/atelier/collection.json")])
         .then(function (r) {
           var d = r[0], c = r[1];
           _dir = d._images === "fiches" ? "" : "clean/";
@@ -215,7 +220,7 @@ window.ATM = (function () {
 
   /* clean/ = l'œuvre seule ; racine = les fiches de présentation d'origine.
      Le choix se fait dans oeuvres.json (_images). */
-  function img(w) { return "assets/atelier/" + _dir + w.img; }
+  function img(w) { return ROOT + "assets/atelier/" + _dir + w.img; }
 
   function mailto(subject, body) {
     return "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) +
@@ -258,5 +263,5 @@ window.ATM = (function () {
     });
   }
 
-  return { S: S, T: T, V: V, lang: lang, paint: paint, data: data, img: img, mailto: mailto, onLang: onLang, lightbox: lightbox, MAIL: MAIL };
+  return { S: S, T: T, V: V, lang: lang, paint: paint, data: data, img: img, mailto: mailto, onLang: onLang, lightbox: lightbox, MAIL: MAIL, ROOT: ROOT };
 })();

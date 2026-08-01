@@ -24,7 +24,7 @@ Règle de non-fiction commerciale : aucune fonctionnalité, aucun prix, aucun te
 • Validation ATM de la voix : En préparation
 • Validation ATM des droits : En préparation
 ## 1.2 URL lisible
-• URL canonique lisible : https://memoirevivante.art/oeuvres/table-ancetres
+• URL canonique lisible : https://atmart.ltd/oeuvres/table-ancetres
 • URL courte de référence : En préparation
 • URL de partage institutionnel : En préparation
 • Page partenaire diaspora : En préparation
@@ -49,7 +49,7 @@ Contrainte absolue : la fiche publique doit être disponible en quatre langues.
 • activation institutionnelle
 ## 1.6 Source créative documentée
 Œuvre-source de référence (URL technique fournie) :
-https://videocdn.pollo.ai/web-cdn/pollo/production/cm8whkg6000a5xs0klzhdr83p/ori/1785520126606-a8dfe831-9642-4242-9c0a-6889fa220498.png
+[URL technique du generateur retiree le 31/07/2026 - le fichier maitre est conserve par ATM : assets/atelier/table-ancetres/source-master.png]
 Nature de la source : image source commerciale documentée comme base créative.
 Texte présent dans l’image : aucun.
 Logos dans l’image : aucun prévu.

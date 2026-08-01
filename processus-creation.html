@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <title>Notre processus de création — ATM+ Art | Atmart</title>
+  <meta name="description" content="Comment une œuvre ATM+ Art est faite : direction artistique humaine documentée, production ou génération assistée, sélection, validation culturelle, voix et déclinaisons, vérification des droits, publication." />
+  <link rel="canonical" href="https://atmart.ltd/processus-creation" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://atmart.ltd/processus-creation" />
+  <meta property="og:title" content="Notre processus de création — ATM+ Art" />
+  <meta property="og:description" content="Direction artistique humaine documentée, outils numériques assumés, validation culturelle : les sept étapes d'une œuvre ATM+ Art." />
+  <meta property="og:image" content="https://atmart.ltd/assets/atelier/table-ancetres/source.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#060c15" />
+  <link rel="stylesheet" href="assets/style.css?v=31" />
+  <link rel="stylesheet" href="assets/atelier.css?v=2" />
+<script>/* langue auto : avant le 1er affichage, evite le clignotement */
+(function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
+s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
+var l=s&&S[s]?s:null;
+if(!l){var n=navigator.languages||[navigator.language||""];
+for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().split("-")[0];
+if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
+window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;
+if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove("i18n-wait")},1500)}})();
+</script>
+  <style>
+    .etape { display:flex; gap:1.2rem; padding:1.2rem 0; border-top:1px solid rgba(255,255,255,0.08); }
+    .etape .n { font-family:var(--font-head); font-size:1.5rem; color:var(--teal); min-width:2rem; line-height:1; }
+    .etape b { display:block; color:#fff; font-size:1.05rem; margin-bottom:0.25rem; }
+    .etape p { color:var(--ink-dim); font-size:0.93rem; margin:0; max-width:70ch; }
+  </style>
+</head>
+<body class="art">
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+      <li><a href="atelier-artistes.html" data-s="nv.art"></a></li>
+    </ul>
+  </nav>
+</header>
+
+<section style="padding-top:3rem">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="pc.k"></p>
+    <h1 class="art-h" style="font-size:clamp(1.9rem,4.5vw,2.8rem)" data-s="pc.h"></h1>
+    <p class="art-sub" style="font-size:1.03rem;max-width:75ch" data-s="pc.p"></p>
+  </div>
+</section>
+
+<section style="padding-top:0.5rem">
+  <div class="art-wide">
+    <div style="background:rgba(46,196,182,0.07);border:1px solid rgba(46,196,182,0.28);border-radius:16px;padding:1.6rem 1.5rem;max-width:82ch">
+      <p class="art-lbl" data-s="pc.pol_k"></p>
+      <p style="color:#cfdcea;margin:0.6rem 0 0" data-s="pc.pol"></p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:1.5rem">
+  <div class="art-wide" id="etapes"></div>
+</section>
+
+<section style="padding-top:0">
+  <div class="art-wide">
+    <p class="art-lbl" data-s="pc.q_k"></p>
+    <h2 class="art-h" data-s="pc.q_h"></h2>
+    <div id="faq" style="max-width:80ch;margin-top:1rem"></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="art-wide">
+    <div style="background:rgba(244,162,97,0.08);border:1px solid rgba(244,162,97,0.35);border-radius:16px;padding:1.8rem;text-align:center">
+      <h2 style="margin-top:0;font-size:1.3rem" data-s="pc.cta_h"></h2>
+      <p style="color:#d7e3f0;max-width:62ch;margin:0.8rem auto 1.3rem;font-size:0.94rem" data-s="pc.cta_p"></p>
+      <a class="btn btn-primary" href="atelier-collection.html" data-s="pc.cta_b"></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
+        <ul>
+          <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
+          <li><a href="atelier-collection.html" data-s="nv.col"></a></li>
+          <li><a href="atelier-artistes.html" data-s="nv.art"></a></li>
+                  <li><a href="faq.html" data-i18n="foot.faq">Questions fréquentes</a></li>
+          <li><a href="conditions-vente.html" data-i18n="foot.cgv">Conditions de vente</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul><li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li></ul>
+      </div>
+    </div>
+    <p class="footer-note">© Atmart LLC — <span data-i18n="foot.rights">Tous droits réservés.</span></p>
+  </div>
+</footer>
+
+<script src="assets/script.js?v=2"></script>
+<script src="assets/i18n.js?v=14"></script>
+<script src="assets/atelier.js?v=4"></script>
+<script>
+(function () {
+  "use strict";
+  Object.assign(ATM.S, {
+    "pc.k": { fr: "Transparence", ht: "Transparans", en: "Transparency", es: "Transparencia" },
+    "pc.h": { fr: "Notre processus de création", ht: "Kijan nou fè yon zèv", en: "Our creation process", es: "Nuestro proceso de creación" },
+    "pc.p": { fr: "Une œuvre ATM+ Art n'apparaît pas toute seule. Voici les sept étapes qu'elle traverse, y compris celles où des outils numériques interviennent.", ht: "Yon zèv ATM+ Art pa parèt pou kont li. Men sèt etap li pase, ata etap kote zouti nimerik yo antre ladan.", en: "An ATM+ Art work does not appear on its own. Here are the seven stages it goes through, including those where digital tools take part.", es: "Una obra de ATM+ Art no aparece sola. Estas son las siete etapas que atraviesa, incluidas aquellas en las que intervienen herramientas digitales." },
+
+    "pc.pol_k": { fr: "Notre position", ht: "Pozisyon nou", en: "Our position", es: "Nuestra posición" },
+    "pc.pol": {
+      fr: "Chaque œuvre ATM+ Art repose sur une direction artistique humaine documentée. Des outils numériques, y compris des outils d'intelligence artificielle, peuvent être utilisés à certaines étapes de la création, de l'enrichissement ou de la production. L'artiste ou le directeur artistique demeure responsable du concept, des choix visuels, de la sélection finale, des transformations apportées et de la validation de l'œuvre. ATM+ Art indique avec transparence le procédé utilisé pour chaque création.",
+      ht: "Chak zèv ATM+ Art chita sou yon direksyon atistik yon moun bay, epi ki dokimante. Nou ka sèvi ak zouti nimerik, menm zouti entèlijans atifisyèl, nan kèk etap nan kreyasyon an, nan anrichisman an oswa nan pwodiksyon an. Se atis la oswa direktè atistik la ki responsab konsèp la, chwa vizyèl yo, seleksyon final la, chanjman yo fè yo ak validasyon zèv la. ATM+ Art di klè ki jan chak kreyasyon fèt.",
+      en: "Every ATM+ Art work rests on a documented human artistic direction. Digital tools, including artificial intelligence tools, may be used at certain stages of creation, enrichment or production. The artist or artistic director remains responsible for the concept, the visual choices, the final selection, the transformations made and the validation of the work. ATM+ Art states transparently the process used for each creation.",
+      es: "Cada obra de ATM+ Art se basa en una dirección artística humana documentada. Pueden emplearse herramientas digitales, incluidas herramientas de inteligencia artificial, en ciertas etapas de la creación, el enriquecimiento o la producción. El artista o el director artístico sigue siendo responsable del concepto, las decisiones visuales, la selección final, las transformaciones realizadas y la validación de la obra. ATM+ Art indica con transparencia el proceso utilizado en cada creación."
+    },
+
+    "pc.1t": { fr: "L'idée et la direction artistique", ht: "Lide a ak direksyon atistik la", en: "The idea and the artistic direction", es: "La idea y la dirección artística" },
+    "pc.1d": { fr: "Un sujet, un univers, une intention. Cette étape est humaine, toujours : elle décide de ce que l'œuvre doit dire et de ce qu'elle ne dira pas.", ht: "Yon sijè, yon mond, yon entansyon. Etap sa a se yon moun ki fè l, toujou : se la nou deside sa zèv la dwe di ak sa li p ap di.", en: "A subject, a world, an intention. This stage is human, always: it decides what the work must say and what it will not say.", es: "Un tema, un universo, una intención. Esta etapa es humana, siempre: decide qué debe decir la obra y qué no dirá." },
+    "pc.2t": { fr: "La production ou la génération assistée", ht: "Pwodiksyon an oswa jenerasyon zouti ede fè a", en: "Production or assisted generation", es: "La producción o la generación asistida" },
+    "pc.2d": { fr: "Peinture, photographie, dessin — ou génération visuelle encadrée par la direction artistique. L'outil exécute ; il ne décide pas.", ht: "Penti, foto, desen — oswa yon jenerasyon vizyèl direksyon atistik la ankadre. Zouti a egzekite ; se pa li ki deside.", en: "Painting, photography, drawing — or visual generation framed by the artistic direction. The tool executes; it does not decide.", es: "Pintura, fotografía, dibujo o generación visual enmarcada por la dirección artística. La herramienta ejecuta; no decide." },
+    "pc.3t": { fr: "La sélection et la transformation", ht: "Chwa a ak chanjman yo", en: "Selection and transformation", es: "La selección y la transformación" },
+    "pc.3d": { fr: "Sur dix propositions, une seule est retenue, puis retravaillée : cadrage, couleurs, matière, détails. C'est là que l'œuvre devient une œuvre.", ht: "Sou dis pwopozisyon, se yon sèl nou kenbe, epi nou retravay li : kadraj, koulè, matyè, ti detay. Se la zèv la vin yon zèv.", en: "Out of ten proposals, one is kept and reworked: framing, colours, matter, details. This is where the work becomes a work.", es: "De diez propuestas, se conserva una y se retrabaja: encuadre, colores, materia, detalles. Ahí la obra se vuelve obra." },
+    "pc.4t": { fr: "La validation culturelle et éditoriale", ht: "Validasyon kiltirèl ak editoryal la", en: "Cultural and editorial validation", es: "La validación cultural y editorial" },
+    "pc.4d": { fr: "Pas de folklore touristique, pas de visages stéréotypés, pas de symbole religieux ajouté sans accord, jamais la diaspora réduite à la nostalgie. Une œuvre qui échoue ici ne sort pas.", ht: "Pa gen foklò pou touris, pa gen figi tou fèt, pa gen senbòl relijye nou ajoute san akò, epi nou pa janm fè dyaspora a tounen senp nostalji. Yon zèv ki pa pase etap sa a p ap soti.", en: "No touristic folklore, no stereotyped faces, no religious symbol added without agreement, and never the diaspora reduced to nostalgia. A work that fails here does not ship.", es: "Sin folclore turístico, sin rostros estereotipados, sin símbolos religiosos añadidos sin acuerdo, y nunca la diáspora reducida a la nostalgia. Una obra que falla aquí no sale." },
+    "pc.5t": { fr: "Les voix, les mouvements et les déclinaisons", ht: "Vwa yo, mouvman yo ak deklinezon yo", en: "Voices, movement and derivatives", es: "Voces, movimientos y declinaciones" },
+    "pc.5d": { fr: "Narration en créole, français, anglais et espagnol ; clips courts ; affiches, cartes, éditions. Chaque support garde l'œuvre reconnaissable et ne lui ajoute jamais de texte à l'intérieur de l'image.", ht: "Vwa an kreyòl, fransè, anglè ak panyòl ; ti videyo ; afich, kat, edisyon. Chak sipò kite zèv la rekonesab epi li pa janm mete tèks anndan imaj la.", en: "Narration in Creole, French, English and Spanish; short clips; posters, cards, editions. Every format keeps the work recognisable and never adds text inside the image.", es: "Narración en creole, francés, inglés y español; clips cortos; carteles, tarjetas, ediciones. Cada soporte mantiene la obra reconocible y nunca añade texto dentro de la imagen." },
+    "pc.6t": { fr: "La vérification des droits", ht: "Verifikasyon dwa yo", en: "Rights verification", es: "La verificación de los derechos" },
+    "pc.6d": { fr: "Qui possède quoi, pour combien de temps, sur quel territoire, avec quel usage permis. Tant que ce n'est pas écrit, l'œuvre reste en préparation.", ht: "Kilès ki mèt kisa, pou konbyen tan, nan ki peyi, ak ki itilizasyon yo gen dwa fè. Toutotan sa pa ekri, zèv la rete nan preparasyon.", en: "Who owns what, for how long, in which territory, with which permitted use. Until it is written down, the work stays in preparation.", es: "Quién posee qué, por cuánto tiempo, en qué territorio y con qué uso permitido. Mientras no esté escrito, la obra sigue en preparación." },
+    "pc.7t": { fr: "La publication et la commercialisation", ht: "Piblikasyon an ak vant lan", en: "Publication and commercialisation", es: "La publicación y la comercialización" },
+    "pc.7d": { fr: "La fiche paraît avec ses statuts réels. Rien n'est annoncé comme disponible, testé ou tarifé tant que ce n'est pas vrai — et le procédé de création est indiqué sur chaque fiche.", ht: "Fich la parèt ak vrè estati li yo. Nou pa anonse anyen kòm disponib, teste oswa tarife toutotan se pa vre — epi nou di sou chak fich kijan zèv la fèt.", en: "The sheet is published with its real statuses. Nothing is announced as available, tested or priced until it is true — and the creation process is stated on every sheet.", es: "La ficha se publica con sus estados reales. Nada se anuncia como disponible, probado o tarifado mientras no sea cierto, y el proceso de creación consta en cada ficha." },
+
+    "pc.q_k": { fr: "Questions directes", ht: "Kesyon dirèk", en: "Direct questions", es: "Preguntas directas" },
+    "pc.q_h": { fr: "Ce que vous êtes en droit de demander", ht: "Sa ou gen dwa mande", en: "What you are entitled to ask", es: "Lo que tiene derecho a preguntar" },
+    "pc.q1": { fr: "Une œuvre générée par IA est-elle encore une œuvre ?", ht: "Èske yon zèv IA ede fè se yon zèv toujou ?", en: "Is an AI-assisted work still a work?", es: "¿Una obra asistida por IA sigue siendo una obra?" },
+    "pc.a1": { fr: "L'outil ne remplace ni le regard, ni le choix, ni la responsabilité. Ce qui fait l'œuvre, c'est la direction, la sélection et la transformation — et elles restent humaines. Nous ne prétendons jamais l'inverse.", ht: "Zouti a pa ranplase ni je moun nan, ni chwa li, ni responsablite li. Sa ki fè zèv la se direksyon an, chwa a ak chanjman yo — epi se moun ki fè yo. Nou pa janm di lekontrè.", en: "The tool replaces neither the eye, nor the choice, nor the responsibility. What makes the work is the direction, the selection and the transformation — and those stay human. We never claim otherwise.", es: "La herramienta no sustituye la mirada, ni la elección, ni la responsabilidad. Lo que hace la obra es la dirección, la selección y la transformación, y siguen siendo humanas. Nunca afirmamos lo contrario." },
+    "pc.q2": { fr: "Comment savoir ce qui a servi pour une œuvre donnée ?", ht: "Kijan pou m konnen ki sa yo sèvi pou yon zèv ?", en: "How do I know what was used for a given work?", es: "¿Cómo saber qué se usó en una obra?" },
+    "pc.a2": { fr: "Chaque fiche d'œuvre porte un bloc « Procédé de création » : direction artistique, conception, outils, intervention humaine, source visuelle, dates, droits et statut de commercialisation.", ht: "Chak fich zèv gen yon blòk « Kijan zèv la fèt » : direksyon atistik, konsepsyon, zouti, sa moun nan fè, sous vizyèl la, dat yo, dwa yo ak estati vant lan.", en: "Every artwork sheet carries a \"Creation process\" block: artistic direction, conception, tools, human intervention, visual source, dates, rights and commercialisation status.", es: "Cada ficha lleva un bloque «Proceso de creación»: dirección artística, concepción, herramientas, intervención humana, fuente visual, fechas, derechos y estado de comercialización." },
+    "pc.q3": { fr: "Et pour les artistes qui rejoignent le programme ?", ht: "E pou atis k ap vin jwenn pwogram nan ?", en: "And for artists joining the programme?", es: "¿Y para los artistas que se unen al programa?" },
+    "pc.a3": { fr: "La même règle : les outils sont permis, la direction artistique humaine doit être documentée, et le procédé est déclaré. Personne ne signe une œuvre dont il n'a pas dirigé les choix.", ht: "Menm règ la : zouti yo pèmi, direksyon atistik la dwe dokimante, epi nou deklare kijan zèv la fèt. Pesonn pa siyen yon zèv li pa t dirije chwa yo.", en: "The same rule: tools are allowed, the human artistic direction must be documented, and the process is declared. Nobody signs a work whose choices they did not direct.", es: "La misma regla: las herramientas se permiten, la dirección artística humana debe documentarse y el proceso se declara. Nadie firma una obra cuyas decisiones no dirigió." },
+
+    "pc.cta_h": { fr: "Voir comment cela s'applique", ht: "Gade kijan sa aplike", en: "See how it applies", es: "Vea cómo se aplica" },
+    "pc.cta_p": { fr: "Chaque fiche d'œuvre publie son procédé et ses statuts réels. La collection montre l'ensemble : univers, gammes, supports, licences.", ht: "Chak fich zèv pibliye kijan li fèt ak vrè estati li yo. Koleksyon an montre tout bagay : mond, gam, sipò, lisans.", en: "Every artwork sheet publishes its process and its real statuses. The collection shows the whole: universes, ranges, formats, licences.", es: "Cada ficha publica su proceso y sus estados reales. La colección muestra el conjunto: universos, gamas, soportes, licencias." },
+    "pc.cta_b": { fr: "La collection", ht: "Koleksyon an", en: "The collection", es: "La colección" },
+    "nv.col": { fr: "La collection", ht: "Koleksyon an", en: "The collection", es: "La colección" }
+  });
+
+  function fill() {
+    document.getElementById("etapes").innerHTML = [1, 2, 3, 4, 5, 6, 7].map(function (n) {
+      return '<div class="etape"><span class="n">' + n + "</span><div><b>" +
+        ATM.T("pc." + n + "t") + "</b><p>" + ATM.T("pc." + n + "d") + "</p></div></div>";
+    }).join("");
+    document.getElementById("faq").innerHTML = [1, 2, 3].map(function (n) {
+      return '<p style="color:#fff;font-weight:600;margin-bottom:0.2rem">' + ATM.T("pc.q" + n) +
+        '</p><p class="art-note" style="margin-bottom:1.1rem">' + ATM.T("pc.a" + n) + "</p>";
+    }).join("");
+  }
+
+  ATM.paint();
+  fill();
+  ATM.onLang(fill);
+})();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+<script src="assets/launcher.js?v=3"></script>
+</body>
+</html>

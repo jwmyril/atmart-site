@@ -8,6 +8,7 @@
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
   <title>Artistes : rejoindre le programme — Atelier ATM | Atmart</title>
   <meta name="description" content="Le programme Atelier ATM ouvre aux artistes d'Haïti, de la Caraïbe et de la diaspora : numérisation, textes en 4 langues, voix, clips, diffusion sur écrans, licences et impression locale. Vous gardez vos droits." />
+  <link rel="canonical" href="https://atmart.ltd/atelier-artistes" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -43,6 +44,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <li><a href="atelier-diaspora.html"><span data-i18n="nav.a_dya">Diaspora</span> <small data-i18n="nav.a_dya_s">une offre par segment</small></a></li>
           <li><a href="atelier-institutions.html"><span data-i18n="nav.a_fin">Financer l'accès</span> <small data-i18n="nav.a_fin_s">parrainer une communauté</small></a></li>
           <li><a href="impact.html"><span data-i18n="nav.a_imp">Recevoir une impression</span> <small data-i18n="nav.a_imp_s">programmes parrainés</small></a></li>
+          <li><a href="processus-creation.html"><span data-i18n="nav.a_proc">Notre processus</span> <small data-i18n="nav.a_proc_s">comment une œuvre est faite</small></a></li>
           <li><a href="atelier-artistes.html"><span data-i18n="nav.a_art">Artistes</span> <small data-i18n="nav.a_art_s">rejoindre le programme</small></a></li>
         </ul>
       </li>
@@ -76,6 +78,12 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       <li data-s="ar.q2"></li>
       <li data-s="ar.q3"></li>
     </ul>
+
+    <div style="background:rgba(46,196,182,0.07);border:1px solid rgba(46,196,182,0.28);border-radius:16px;padding:1.6rem 1.5rem;max-width:82ch;margin-top:1.6rem">
+      <p class="art-lbl" data-s="ar.ia_k"></p>
+      <p style="color:#cfdcea;margin:0.6rem 0 0.9rem" data-s="ar.ia"></p>
+      <a href="processus-creation.html" style="color:#f4a261;font-size:0.9rem;font-weight:600" data-s="ar.ia_l"></a>
+    </div>
   </div>
 </section>
 
@@ -197,6 +205,8 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <li><a href="atelier.html" data-i18n="nav.atelier">🎨 Atelier</a></li>
           <li><a href="atelier-business.html" data-s="nv.biz"></a></li>
           <li><a href="atelier-institutions.html" data-s="a.fund"></a></li>
+                  <li><a href="faq.html" data-i18n="foot.faq">Questions fréquentes</a></li>
+          <li><a href="conditions-vente.html" data-i18n="foot.cgv">Conditions de vente</a></li>
         </ul>
       </div>
       <div>
@@ -212,7 +222,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 
 <script src="assets/script.js?v=2"></script>
 <script src="assets/i18n.js?v=14"></script>
-<script src="assets/atelier.js?v=3"></script>
+<script src="assets/atelier.js?v=4"></script>
 <script>
 (function () {
   "use strict";
@@ -233,7 +243,16 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     "ar.qp": { fr: "Vous n'avez pas besoin d'être connu, ni d'avoir un diplôme, ni de vivre au pays. Vous avez besoin d'un travail à vous et d'œuvres qu'on peut photographier proprement.", ht: "Ou pa bezwen se yon moun tout moun konnen, ou pa bezwen gen diplòm, ou pa bezwen ap viv nan peyi a. Sa w bezwen se yon travay ki pa w epi kèk zèv nou ka fè bon foto ak yo.", en: "You do not need to be famous, to hold a degree, or to live in the country. You need work of your own and pieces that can be photographed properly.", es: "No necesita ser conocido, ni tener un título, ni vivir en el país. Necesita un trabajo propio y obras que se puedan fotografiar bien." },
     "ar.q1": { fr: "Peinture, dessin, collage, art textile, photographie, art numérique", ht: "Penti, desen, kolaj, atizana ak twal, foto, atizana nimerik", en: "Painting, drawing, collage, textile art, photography, digital art", es: "Pintura, dibujo, collage, arte textil, fotografía, arte digital" },
     "ar.q2": { fr: "Sculpture et céramique : acceptées si vous disposez de bonnes photographies", ht: "Eskilti ak seramik : nou aksepte yo si w gen bon foto", en: "Sculpture and ceramics: accepted if you have good photographs", es: "Escultura y cerámica: aceptadas si tiene buenas fotografías" },
-    "ar.q3": { fr: "Œuvres générées par une intelligence artificielle : non — le programme repose sur un geste humain", ht: "Zèv yon entèlijans atifisyèl fè : non — pwogram nan chita sou travay men yon moun", en: "AI-generated works: no — the programme rests on a human hand", es: "Obras generadas por inteligencia artificial: no; el programa se basa en la mano humana" },
+    "ar.q3": { fr: "Outils numériques et IA : autorisés, à condition que la direction artistique humaine soit documentée", ht: "Zouti nimerik ak IA : nou aksepte yo, depi gen yon direksyon atistik yon moun ki dokimante", en: "Digital tools and AI: allowed, provided the human artistic direction is documented", es: "Herramientas digitales e IA: permitidas, siempre que la dirección artística humana esté documentada" },
+
+    "ar.ia_k": { fr: "Notre position sur l'IA", ht: "Pozisyon nou sou IA", en: "Our position on AI", es: "Nuestra posición sobre la IA" },
+    "ar.ia": {
+      fr: "Chaque œuvre ATM+ Art repose sur une direction artistique humaine documentée. Des outils numériques, y compris des outils d'intelligence artificielle, peuvent être utilisés à certaines étapes de la création, de l'enrichissement ou de la production. L'artiste ou le directeur artistique demeure responsable du concept, des choix visuels, de la sélection finale, des transformations apportées et de la validation de l'œuvre. ATM+ Art indique avec transparence le procédé utilisé pour chaque création.",
+      ht: "Chak zèv ATM+ Art chita sou yon direksyon atistik yon moun bay, epi ki dokimante. Nou ka sèvi ak zouti nimerik, menm zouti entèlijans atifisyèl, nan kèk etap nan kreyasyon an, nan anrichisman an oswa nan pwodiksyon an. Se atis la oswa direktè atistik la ki responsab konsèp la, chwa vizyèl yo, seleksyon final la, chanjman yo fè yo ak validasyon zèv la. ATM+ Art di klè ki jan chak kreyasyon fèt.",
+      en: "Every ATM+ Art work rests on a documented human artistic direction. Digital tools, including artificial intelligence tools, may be used at certain stages of creation, enrichment or production. The artist or artistic director remains responsible for the concept, the visual choices, the final selection, the transformations made and the validation of the work. ATM+ Art states transparently the process used for each creation.",
+      es: "Cada obra de ATM+ Art se basa en una dirección artística humana documentada. Pueden emplearse herramientas digitales, incluidas herramientas de inteligencia artificial, en ciertas etapas de la creación, el enriquecimiento o la producción. El artista o el director artístico sigue siendo responsable del concepto, las decisiones visuales, la selección final, las transformaciones realizadas y la validación de la obra. ATM+ Art indica con transparencia el proceso utilizado en cada creación."
+    },
+    "ar.ia_l": { fr: "Voir notre processus de création →", ht: "Gade kijan nou travay →", en: "See our creation process →", es: "Ver nuestro proceso de creación →" },
 
     "ar.fk": { fr: "Notre part du travail", ht: "Pati travay pa nou", en: "Our side of the work", es: "Nuestra parte del trabajo" },
     "ar.fh": { fr: "Vous peignez. Nous faisons le reste.", ht: "Ou penn. Nou fè rès la.", en: "You paint. We do the rest.", es: "Usted pinta. Nosotros hacemos el resto." },

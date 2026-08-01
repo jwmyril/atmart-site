@@ -825,5 +825,9 @@
  "xpl.tab.fiche.court": "Ficha",
  "xpl.tab.rank": "Ranking de comunas",
  "xpl.tab.rank.court": "Ranking",
- "xpl.tabs": "Vistas del explorador"
+ "xpl.tabs": "Vistas del explorador",
+ "nav.a_proc": "Nuestro proceso",
+ "nav.a_proc_s": "cómo se hace una obra",
+ "foot.faq": "Preguntas frecuentes",
+ "foot.cgv": "Condiciones de venta"
 }
