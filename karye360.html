@@ -56,6 +56,10 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     .ky-feat p{margin:0;font-size:0.87rem;color:#9db2c7;line-height:1.55}
     .ky-formhead{font-family:"Space Grotesk",sans-serif;font-size:1.15rem;color:#fff;margin:0 0 0.3rem}
     .ky-formsub{font-size:0.85rem;color:#9db2c7;margin:0 0 1.2rem;line-height:1.5}
+    /* ---- vwa : mikwo + lekti koach la ---- */
+    .ky-mic{background:#2ec4b6;color:#06283d;border:1px solid #2ec4b6;border-radius:8px;padding:0 0.95rem;font-size:1.15rem;cursor:pointer;font-weight:700}
+    .ky-mic.rec{background:#e63946;color:#fff;border-color:#e63946;animation:kypulse 1.1s ease-in-out infinite}
+    @keyframes kypulse{0%,100%{box-shadow:0 0 0 0 rgba(230,57,70,0.5)}50%{box-shadow:0 0 0 8px rgba(230,57,70,0)}}
   </style>
 </head>
 <body>
@@ -146,6 +150,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         <p class="ky-formsub" id="ky-fs">Votre code est votre compte : aucun nom, aucun e-mail. Trois questions et votre coach vous connaît.</p>
         <label for="ky-code" id="L-code">🔑 Votre code Career360<small>Le code reçu à l'achat (KOACH-XXXX-XXXX). Pas encore de code ? <a href="index.html#karye360" style="color:#2ec4b6">Voir les plans</a></small></label>
         <input type="text" id="ky-code" maxlength="24" autocomplete="off" placeholder="KOACH-XXXX-XXXX" />
+        <p style="font-size:0.83rem;margin-top:0.45rem"><button type="button" id="ky-trial" style="background:none;border:none;color:#2ec4b6;font:inherit;cursor:pointer;text-decoration:underline;padding:0">🎁 Pas de code ? Essayez gratuitement pendant 7 jours</button></p>
         <label for="ky-role" id="L-role">1. Votre métier / travail actuel</label>
         <input type="text" id="ky-role" maxlength="140" placeholder="Ex. : aide-soignante, chauffeur, comptable…" />
         <label for="ky-sit" id="L-sit">2. Votre situation aujourd'hui</label>
@@ -165,10 +170,12 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         <div class="ky-msgs" id="ky-msgs"></div>
         <div class="ky-inputrow">
           <textarea id="ky-input" maxlength="4000" placeholder="Écrivez à votre coach…"></textarea>
+          <button class="ky-mic" id="ky-mic" type="button" title="Répondre à voix haute">🎙</button>
           <button class="btn btn-primary" id="ky-send" type="button">Envoyer</button>
         </div>
         <p class="ky-status" id="ky-status2"></p>
         <div class="ky-tools">
+          <button type="button" id="ky-tts">🔊 Voix du coach : activée</button>
           <span id="ky-privacy">🔒 Dossier anonyme lié à votre code — effaçable à tout moment.</span>
           <button type="button" id="ky-erase">Effacer mon dossier</button>
         </div>
@@ -239,7 +246,15 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       invalid: "Code invalide. Vérifiez-le, ou voyez les plans sur la page d'accueil.",
       expired: "Abonnement expiré. Renouvelez-le pour continuer avec votre coach — sales@atmart.ltd.",
       limit: "Vous avez beaucoup travaillé aujourd'hui 💪 Le coach revient demain (30 messages/jour).",
-      err: "Petit souci technique. Réessayez dans un instant.",bg1:"🗣 4 langues",bg2:"🧠 Il se souvient de vous",bg3:"📅 Une séance par semaine",bg4:"🔒 Dossier anonyme",f1t:"Vos 90 premiers jours",f1d:"Nouveau poste : observer, livrer une première victoire, ouvrir le dialogue avec votre superviseur.",f2t:"Trouver le prochain emploi",f2d:"Cibler les postes, bâtir vos preuves, activer votre réseau humain — et préparer chaque entretien.",f3t:"Grandir dans votre poste",f3d:"Déléguer à l'IA, superviser, renforcer l'humain — et rendre vos résultats visibles.",fh:"Commencer",fs:"Votre code est votre compte : aucun nom, aucun e-mail. Trois questions et votre coach vous connaît."
+      err: "Petit souci technique. Réessayez dans un instant.",
+      mic: "Répondre à voix haute", micRec: "On vous écoute… appuyez de nouveau sur 🎙 quand vous avez fini.",
+      micTrans: "Transcription de votre réponse…", micErr: "Micro inaccessible. Vérifiez la permission du navigateur.",
+      sttErr: "Transcription impossible. Réessayez : parlez plus fort, plus lentement.",
+      vwaLimit: "Quota vocal du jour atteint — revenez demain ! 🙂",
+      ttsOn: "🔊 Voix du coach : activée", ttsOff: "🔇 Voix du coach : coupée",
+      trial: "🎁 Pas de code ? Essayez gratuitement pendant 7 jours",
+      trialOk: "Votre code d'essai : {code} — valable jusqu'au {exp}. Il est déjà rempli : cliquez « Commencer avec mon coach ».",
+      trialUsed: "L'essai gratuit a déjà été utilisé ici. Choisissez un plan pour continuer — 14,99 $/mois.",bg1:"🗣 4 langues",bg2:"🧠 Il se souvient de vous",bg3:"📅 Une séance par semaine",bg4:"🔒 Dossier anonyme",f1t:"Vos 90 premiers jours",f1d:"Nouveau poste : observer, livrer une première victoire, ouvrir le dialogue avec votre superviseur.",f2t:"Trouver le prochain emploi",f2d:"Cibler les postes, bâtir vos preuves, activer votre réseau humain — et préparer chaque entretien.",f3t:"Grandir dans votre poste",f3d:"Déléguer à l'IA, superviser, renforcer l'humain — et rendre vos résultats visibles.",fh:"Commencer",fs:"Votre code est votre compte : aucun nom, aucun e-mail. Trois questions et votre coach vous connaît."
     },
     ht: {
       kicker: "Yon kout men chak semèn — pou karyè ou grandi nan epòk IA a.",
@@ -260,7 +275,15 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       invalid: "Kòd la pa bon. Verifye l, oswa gade plan yo sou paj akèy la.",
       expired: "Abònman an fini. Renouvle l pou kontinye ak coach ou — sales@atmart.ltd.",
       limit: "Ou travay anpil jodi a 💪 Coach la ap tounen demen (30 mesaj pa jou).",
-      err: "Yon ti pwoblèm teknik. Eseye ankò talè.",bg1:"🗣 4 lang",bg2:"🧠 Li sonje w",bg3:"📅 Yon seyans chak semèn",bg4:"🔒 Dosye anonim",f1t:"90 premye jou ou yo",f1d:"Nouvo djòb : obsève, bay yon premye viktwa, louvri dyalòg ak sipèvizè w.",f2t:"Jwenn pwochen djòb la",f2d:"Vize bon pòs yo, bati prèv ou yo, aktive rezo moun ou — epi prepare chak entèvyou.",f3t:"Grandi nan pòs ou",f3d:"Delege bay IA, sipèvize, ranfòse sa ki imen — epi fè rezilta ou yo parèt.",fh:"Kòmanse",fs:"Kòd ou se kont ou : okenn non, okenn imèl. Twa kesyon epi coach la konnen w."
+      err: "Yon ti pwoblèm teknik. Eseye ankò talè.",
+      mic: "Reponn ak vwa ou", micRec: "N ap koute w… peze 🎙 ankò lè ou fini.",
+      micTrans: "N ap ekri sa ou di a…", micErr: "Nou pa ka jwenn mikwo a. Tcheke pèmisyon navigatè a.",
+      sttErr: "Nou pa t rive ekri sa ou di a. Eseye ankò : pale pi fò, pi dousman.",
+      vwaLimit: "Ou sèvi ak tout vwa ou pou jodi a — tounen demen ! 🙂",
+      ttsOn: "🔊 Vwa koach la : limen", ttsOff: "🔇 Vwa koach la : etenn",
+      trial: "🎁 Pa gen kòd ? Eseye l gratis pandan 7 jou",
+      trialOk: "Men kòd esè ou : {code} — li bon jiska {exp}. Nou deja ranpli l pou ou : klike « Kòmanse ak coach mwen ».",
+      trialUsed: "Esè gratis la deja sèvi isit la. Pran yon plan pou kontinye — 14,99 $ pa mwa.",bg1:"🗣 4 lang",bg2:"🧠 Li sonje w",bg3:"📅 Yon seyans chak semèn",bg4:"🔒 Dosye anonim",f1t:"90 premye jou ou yo",f1d:"Nouvo djòb : obsève, bay yon premye viktwa, louvri dyalòg ak sipèvizè w.",f2t:"Jwenn pwochen djòb la",f2d:"Vize bon pòs yo, bati prèv ou yo, aktive rezo moun ou — epi prepare chak entèvyou.",f3t:"Grandi nan pòs ou",f3d:"Delege bay IA, sipèvize, ranfòse sa ki imen — epi fè rezilta ou yo parèt.",fh:"Kòmanse",fs:"Kòd ou se kont ou : okenn non, okenn imèl. Twa kesyon epi coach la konnen w."
     },
     en: {
       kicker: "A helping hand every week — to grow your career in the AI era.",
@@ -281,7 +304,15 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       invalid: "Invalid code. Check it, or see the plans on the home page.",
       expired: "Subscription expired. Renew it to continue with your coach — sales@atmart.ltd.",
       limit: "You worked hard today 💪 The coach is back tomorrow (30 messages/day).",
-      err: "Small technical issue. Try again in a moment.",bg1:"🗣 4 languages",bg2:"🧠 It remembers you",bg3:"📅 One session a week",bg4:"🔒 Anonymous file",f1t:"Your first 90 days",f1d:"New job: observe, deliver an early win, open the conversation with your supervisor.",f2t:"Land the next job",f2d:"Target the roles, build your proof, activate your human network — and prepare every interview.",f3t:"Grow in your role",f3d:"Delegate to AI, supervise it, strengthen what is human — and make your results visible.",fh:"Get started",fs:"Your code is your account: no name, no email. Three questions and your coach knows you."
+      err: "Small technical issue. Try again in a moment.",
+      mic: "Answer out loud", micRec: "We're listening… press 🎙 again when you're done.",
+      micTrans: "Transcribing your answer…", micErr: "Can't access the microphone. Check the browser permission.",
+      sttErr: "Couldn't transcribe. Try again: speak louder and slower.",
+      vwaLimit: "Today's voice quota is used up — come back tomorrow! 🙂",
+      ttsOn: "🔊 Coach voice: on", ttsOff: "🔇 Coach voice: off",
+      trial: "🎁 No code? Try it free for 7 days",
+      trialOk: "Your trial code: {code} — valid until {exp}. It's already filled in: click “Start with my coach”.",
+      trialUsed: "The free trial was already used here. Pick a plan to continue — $14.99/month.",bg1:"🗣 4 languages",bg2:"🧠 It remembers you",bg3:"📅 One session a week",bg4:"🔒 Anonymous file",f1t:"Your first 90 days",f1d:"New job: observe, deliver an early win, open the conversation with your supervisor.",f2t:"Land the next job",f2d:"Target the roles, build your proof, activate your human network — and prepare every interview.",f3t:"Grow in your role",f3d:"Delegate to AI, supervise it, strengthen what is human — and make your results visible.",fh:"Get started",fs:"Your code is your account: no name, no email. Three questions and your coach knows you."
     },
     es: {
       kicker: "Una mano cada semana — para hacer crecer tu carrera en la era de la IA.",
@@ -302,7 +333,15 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       invalid: "Código inválido. Verifícalo, o mira los planes en la página de inicio.",
       expired: "Suscripción vencida. Renuévala para seguir con tu coach — sales@atmart.ltd.",
       limit: "Hoy trabajaste mucho 💪 El coach vuelve mañana (30 mensajes/día).",
-      err: "Pequeño problema técnico. Inténtalo de nuevo en un momento.",bg1:"🗣 4 idiomas",bg2:"🧠 Se acuerda de ti",bg3:"📅 Una sesión por semana",bg4:"🔒 Expediente anónimo",f1t:"Tus primeros 90 días",f1d:"Nuevo puesto: observar, lograr una primera victoria, abrir el diálogo con tu supervisor.",f2t:"Conseguir el próximo empleo",f2d:"Apuntar a los puestos, construir tus pruebas, activar tu red humana — y preparar cada entrevista.",f3t:"Crecer en tu puesto",f3d:"Delegar en la IA, supervisarla, reforzar lo humano — y hacer visibles tus resultados.",fh:"Empezar",fs:"Tu código es tu cuenta: sin nombre, sin correo. Tres preguntas y tu coach te conoce."
+      err: "Pequeño problema técnico. Inténtalo de nuevo en un momento.",
+      mic: "Responder en voz alta", micRec: "Te escuchamos… pulsa 🎙 otra vez al terminar.",
+      micTrans: "Transcribiendo tu respuesta…", micErr: "No se puede acceder al micrófono. Verifica el permiso del navegador.",
+      sttErr: "No se pudo transcribir. Habla más fuerte y despacio.",
+      vwaLimit: "Cuota de voz de hoy agotada — ¡vuelve mañana! 🙂",
+      ttsOn: "🔊 Voz del coach: activada", ttsOff: "🔇 Voz del coach: apagada",
+      trial: "🎁 ¿Sin código? Pruébalo gratis por 7 días",
+      trialOk: "Tu código de prueba: {code} — válido hasta {exp}. Ya está rellenado: haz clic en «Empezar con mi coach».",
+      trialUsed: "La prueba gratis ya se usó aquí. Elige un plan para continuar — $14.99/mes.",bg1:"🗣 4 idiomas",bg2:"🧠 Se acuerda de ti",bg3:"📅 Una sesión por semana",bg4:"🔒 Expediente anónimo",f1t:"Tus primeros 90 días",f1d:"Nuevo puesto: observar, lograr una primera victoria, abrir el diálogo con tu supervisor.",f2t:"Conseguir el próximo empleo",f2d:"Apuntar a los puestos, construir tus pruebas, activar tu red humana — y preparar cada entrevista.",f3t:"Crecer en tu puesto",f3d:"Delegar en la IA, supervisarla, reforzar lo humano — y hacer visibles tus resultados.",fh:"Empezar",fs:"Tu código es tu cuenta: sin nombre, sin correo. Tres preguntas y tu coach te conoce."
     }
   };
 
@@ -336,6 +375,8 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     setTxt("ky-privacy", t.privacy); setTxt("ky-erase", t.erase);
     ["bg1","bg2","bg3","bg4","f1t","f1d","f2t","f2d","f3t","f3d","fh","fs"].forEach(function(k){
       setTxt("ky-"+k,t[k]);});
+    setTxt("ky-trial", t.trial);
+    kvSync();
   }
   applyLang();
   new MutationObserver(applyLang).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
@@ -372,6 +413,26 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     }).then(function (r) { return r.json().then(function (b) { return { ok: r.ok, body: b }; }); });
   }
 
+  // ---------- essai gratuit 7 jours ----------
+  document.getElementById("ky-trial").addEventListener("click", function () {
+    if (busy) return;
+    var t = T();
+    busy = true;
+    st1.innerHTML = '<span class="ky-spin"></span>';
+    post({ action: "trial" }).then(function (res) {
+      busy = false;
+      if (res.ok && res.body && res.body.code) {
+        codeEl.value = res.body.code;
+        try { localStorage.setItem("karye360_code", res.body.code); } catch (e) {}
+        st1.textContent = t.trialOk.replace("{code}", res.body.code).replace("{exp}", res.body.exp);
+      } else if (res.body && res.body.error === "trial_used") {
+        st1.textContent = t.trialUsed;
+      } else {
+        st1.textContent = t.err;
+      }
+    }).catch(function () { busy = false; st1.textContent = t.err; });
+  });
+
   // ---------- écran 1 : démarrage ----------
   document.getElementById("ky-start").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -392,9 +453,145 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       document.getElementById("ky-start").style.display = "none";
       document.getElementById("ky-chatbox").style.display = "block";
       addMsg("coach", res.body.resume ? t.helloBack : t.hello);
+      speakReply(res.body.resume ? t.helloBack : t.hello);
       input.focus();
     }).catch(function () { busy = false; st1.textContent = t.err; });
   });
+
+  // ---------- vwa : mikwo (Web Speech / Whisper) + lekti repons koach la ----------
+  var VWA_EP = "https://atmart-chat.atmartllc.workers.dev/vwa";
+  var SRCls = window.SpeechRecognition || window.webkitSpeechRecognition;
+  var SPEECH_LANG = { fr: "fr-FR", en: "en-US", es: "es-ES" };
+  var micB = document.getElementById("ky-mic");
+  var ttsB = document.getElementById("ky-tts");
+  var recOn = false, sr = null, mrec = null, chunks = [], recTimer = null;
+  var ttsOn = localStorage.getItem("karye360_tts") !== "off";
+
+  function canTTS() { return siteLang() !== "ht" && "speechSynthesis" in window; }
+  function kvSync() {
+    var t = L[siteLang()];
+    var m = document.getElementById("ky-mic"), b = document.getElementById("ky-tts");
+    if (!m || !b) return;
+    m.title = t.mic;
+    b.style.display = canTTS() ? "" : "none";
+    b.textContent = (typeof ttsOn === "undefined" || ttsOn) ? t.ttsOn : t.ttsOff;
+  }
+  function speakReply(txt) {
+    if (!ttsOn || !canTTS() || !txt) return;
+    try {
+      speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(String(txt).replace(/\*\*/g, "").replace(/\s+/g, " ").trim());
+      var lg = SPEECH_LANG[siteLang()] || "fr-FR";
+      u.lang = lg; u.rate = 0.97;
+      var vs = speechSynthesis.getVoices() || [];
+      for (var i = 0; i < vs.length; i++) {
+        if ((vs[i].lang || "").replace("_", "-").slice(0, 2) === lg.slice(0, 2)) { u.voice = vs[i]; break; }
+      }
+      speechSynthesis.speak(u);
+    } catch (e) {}
+  }
+  if ("speechSynthesis" in window) {
+    try { speechSynthesis.onvoiceschanged = function () {}; speechSynthesis.getVoices(); } catch (e) {}
+  }
+  ttsB.addEventListener("click", function () {
+    ttsOn = !ttsOn;
+    try { localStorage.setItem("karye360_tts", ttsOn ? "on" : "off"); } catch (e) {}
+    if (!ttsOn && "speechSynthesis" in window) { try { speechSynthesis.cancel(); } catch (e) {} }
+    kvSync();
+  });
+
+  function endRecUi() {
+    recOn = false;
+    micB.classList.remove("rec");
+    if (st2.textContent === T().micRec) st2.textContent = "";
+  }
+  function stopRec() {
+    if (sr) { try { sr.stop(); } catch (e) {} sr = null; }
+    if (recTimer) { clearTimeout(recTimer); recTimer = null; }
+    if (mrec && mrec.state !== "inactive") { try { mrec.stop(); } catch (e) {} }
+    mrec = null;
+    endRecUi();
+  }
+  micB.addEventListener("click", function () {
+    if (recOn) { stopRec(); return; }
+    if ("speechSynthesis" in window) { try { speechSynthesis.cancel(); } catch (e) {} }
+    var t = T();
+    recOn = true;
+    micB.classList.add("rec");
+    st2.textContent = t.micRec;
+    if (siteLang() !== "ht" && SRCls) startSR(); else startMedia();
+  });
+  function startSR() {
+    try {
+      sr = new SRCls();
+      sr.lang = SPEECH_LANG[siteLang()] || "fr-FR";
+      sr.continuous = true;
+      sr.interimResults = true;
+      var base = input.value ? input.value.trim() + " " : "", fin = "";
+      sr.onresult = function (ev) {
+        var interim = "";
+        for (var i = ev.resultIndex; i < ev.results.length; i++) {
+          if (ev.results[i].isFinal) fin += ev.results[i][0].transcript + " ";
+          else interim += ev.results[i][0].transcript;
+        }
+        input.value = (base + fin + interim).trim();
+      };
+      sr.onerror = function (ev) {
+        var denied = ev && (ev.error === "not-allowed" || ev.error === "service-not-allowed");
+        endRecUi();
+        if (denied) st2.textContent = T().micErr;
+      };
+      sr.onend = function () { endRecUi(); };
+      sr.start();
+    } catch (e) { endRecUi(); st2.textContent = T().micErr; }
+  }
+  function startMedia() {
+    if (!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder)) {
+      endRecUi(); st2.textContent = T().micErr; return;
+    }
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+      if (!recOn) { stream.getTracks().forEach(function (tr) { tr.stop(); }); return; }
+      var mime = "";
+      if (MediaRecorder.isTypeSupported) {
+        if (MediaRecorder.isTypeSupported("audio/webm;codecs=opus")) mime = "audio/webm;codecs=opus";
+        else if (MediaRecorder.isTypeSupported("audio/mp4")) mime = "audio/mp4";
+      }
+      chunks = [];
+      var rec = mime ? new MediaRecorder(stream, { mimeType: mime }) : new MediaRecorder(stream);
+      mrec = rec;
+      rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
+      rec.onstop = function () {
+        stream.getTracks().forEach(function (tr) { tr.stop(); });
+        var blob = new Blob(chunks, { type: (rec.mimeType || "audio/webm").split(";")[0] });
+        if (blob.size > 200) transcribe(blob);
+      };
+      rec.start();
+      recTimer = setTimeout(function () { if (recOn) stopRec(); }, 90000);
+    }).catch(function () { endRecUi(); st2.textContent = T().micErr; });
+  }
+  function transcribe(blob) {
+    var t = T();
+    st2.innerHTML = '<span class="ky-spin"></span>' + t.micTrans;
+    var fr = new FileReader();
+    fr.onload = function () {
+      var b64 = String(fr.result).split(",")[1] || "";
+      fetch(VWA_EP, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ audio: b64, language: siteLang() }) })
+        .then(function (r) { return r.json().then(function (b) { return { ok: r.ok, body: b }; }); })
+        .then(function (res) {
+          if (res.ok && res.body && typeof res.body.text === "string" && res.body.text.trim()) {
+            input.value = (input.value ? input.value.trim() + " " : "") + res.body.text.trim();
+            st2.textContent = "";
+            input.focus();
+          } else if (res.body && res.body.error === "rate_limited") {
+            st2.textContent = t.vwaLimit;
+          } else {
+            st2.textContent = t.sttErr;
+          }
+        })
+        .catch(function () { st2.textContent = t.err; });
+    };
+    fr.readAsDataURL(blob);
+  }
 
   // ---------- chat ----------
   function send() {
@@ -402,6 +599,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     var text = input.value.trim();
     if (!text) return;
     var t = T();
+    if (recOn) stopRec();
     busy = true;
     addMsg("user", text);
     input.value = "";
@@ -411,6 +609,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       st2.textContent = "";
       if (!res.ok) { st2.textContent = errMsg(res.body && res.body.error); return; }
       addMsg("coach", res.body.reply);
+      speakReply(res.body.reply);
     }).catch(function () { busy = false; st2.textContent = t.err; });
   }
   document.getElementById("ky-send").addEventListener("click", send);
