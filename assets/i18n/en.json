@@ -563,7 +563,7 @@
   "p36.e1_l4": "Your first step (7 days)",
   "p36.e1_l5": "Shareable WhatsApp card",
   "p36.e1_l6": "🎤 3 questions they may ask you in the interview — free",
-  "p36.e2_cta": "Get Pro — $9.99",
+  "p36.e2_cta": "Get Pro Kit — $9.99",
   "p36.e2_l1": "Everything in free Interview360",
   "p36.e2_l2": "Full personalized PDF report",
   "p36.e2_l3": "<strong>The questions YOU will be asked</strong> — with answers built on YOUR proof",
@@ -831,5 +831,11 @@
   "foot.faq": "Frequent questions",
   "foot.cgv": "Terms of sale",
   "k36.s_buy": "Get Solo — $14.99/month",
-  "p36.e2_l6": "📄 Competency résumé (ATS-ready)"
+  "p36.e2_l6": "📄 Competency résumé (ATS-ready)",
+  "p36.e3_rib": "🔁 THE WHOLE SEARCH",
+  "p36.e3_mo": "/ 90 days · unlimited",
+  "p36.e3_l1": "Everything in Pro Kit, unlimited for 90 days (up to 8 generations/day)",
+  "p36.e3_l2": "📄 A résumé tailored to EVERY posting — photo/PDF of the ad accepted",
+  "p36.e3_l3": "🎙 Voice practice for every interview",
+  "p36.e3_cta": "Get Pro 90 days — $19.99"
 }
