@@ -1,4 +1,5 @@
 {
+ "/ 10 000 hab.": "/ 10 000 hab.",
  "Accès Campus pour un mémoire": "Acceso Campus para una tesina",
  "Agrégat Atmart": "Agregado Atmart",
  "Agrégat sur {n} communes": {
@@ -72,7 +73,6 @@
  "Indicateur": "Indicador",
  "Indicateurs documentés": "Indicadores documentados",
  "Informations techniques": "Información técnica",
- "La population communale n'est pas encore intégrée : aucune des 192 entités n'en porte. Cet indicateur attend les estimations IHSI.": "La población por comuna aún no está integrada: ninguna de las 192 entidades la tiene. Esta lectura espera las estimaciones del IHSI.",
  "Le référentiel administratif en vigueur — CNIGS, publié par OCHA — compte {decompte}. D'autres référentiels haïtiens, dont les estimations démographiques récentes de l'IHSI, en dénombrent davantage.": "El referencial administrativo vigente — CNIGS, publicado por OCHA — cuenta {decompte}. Otros referenciales haitianos, incluidas las estimaciones demográficas recientes del IHSI, cuentan más.",
  "Le {lien} permet de situer n'importe quel territoire sur un indicateur, et d'exporter le tableau.": "El {lien} permite situar cualquier territorio en un indicador y exportar la tabla.",
  "Lecture :": "Lectura:",
@@ -100,7 +100,8 @@
  "Packs décisionnels": "Paquetes de decisión",
  "Part du total national": "Proporción del total nacional",
  "Planifier les services publics": "Planificar los servicios públicos",
- "Pour 10 000 habitants — indisponible": "Por 10 000 habitantes — no disponible",
+ "Population : projection 2024 (UNFPA, base IHSI/CNIGS) — une estimation, statut E, pas un dénombrement.": "Población: proyección 2024 (UNFPA, base IHSI/CNIGS) — una estimación, estado E, no un conteo.",
+ "Pour 10 000 habitants": "Por 10 000 habitantes",
  "Pour 100 km²": "Por 100 km²",
  "Pourquoi ce nombre varie-t-il ?": "¿Por qué varía esta cifra?",
  "Pourquoi il manque": "Por qué falta",
@@ -250,6 +251,7 @@
  "À quoi il sert": "Para qué sirve",
  "🎓 Éducation": "🎓 Educación",
  "🏥 Santé": "🏥 Salud",
+ "👥 Démographie": "👥 Demografía",
  "📋 Qualité de la donnée": "📋 Calidad del dato",
  "🗺 Territoire": "🗺 Territorio",
  "🛒 Marchés": "🛒 Mercados"

@@ -400,21 +400,21 @@ IND-PRX-001,es,unite,coeficiente de variación (%)
 IND-PRX-001,es,sens_interpretation,"Alto = mercado inestable, señal de alerta alimentaria."
 IND-POP-001,ht,nom,Popilasyon
 IND-POP-001,ht,definition,Popilasyon ki estime ap viv nan antite teritoryal la.
-IND-POP-001,ht,methode_calcul,"Nou pran estimasyon ofisyèl yo ; si pa genyen, yon pwojeksyon dokimante depi dènye resansman an."
+IND-POP-001,ht,methode_calcul,"Pwojeksyon demografik 2024 pa sèks ak laj (COD-PS, UNFPA), bati sou dekoupaj COD-AB CNIGS 2018 — se yon estimasyon, se pa yon kontaj : dènye resansman an date 2003."
 IND-POP-001,ht,comparabilite,Gen anpil chans metòd la kase ant resansman 2003 la ak dènye estimasyon yo — fòk nou make sa.
 IND-POP-001,ht,limites_connues,"Pa gen senkyèm resansman : nenpòt valè resan se yon estimasyon, estati E, li pa janm O."
 IND-POP-001,ht,unite,moun
 IND-POP-001,ht,sens_interpretation,Se denominatè pifò lòt endikatè yo : kalite pa l la deside kalite pa yo.
 IND-POP-001,en,nom,Population
 IND-POP-001,en,definition,Estimated resident population of the territorial entity.
-IND-POP-001,en,methode_calcul,"Official estimates are taken up; failing that, a documented projection from the last census."
+IND-POP-001,en,methode_calcul,"2024 demographic projection by sex and age (COD-PS, UNFPA), built on the COD-AB CNIGS 2018 boundaries — an estimate, not a count: the last census dates from 2003."
 IND-POP-001,en,comparabilite,A methodological break is likely between the 2003 census and recent estimates — to be flagged.
 IND-POP-001,en,limites_connues,"No fifth census: any recent value is an estimate, status E, never O."
 IND-POP-001,en,unite,inhabitants
 IND-POP-001,en,sens_interpretation,Denominator of most other indicators: its quality conditions theirs.
 IND-POP-001,es,nom,Población
 IND-POP-001,es,definition,Población residente estimada de la entidad territorial.
-IND-POP-001,es,methode_calcul,"Se retoman las estimaciones oficiales; en su defecto, una proyección documentada desde el último censo."
+IND-POP-001,es,methode_calcul,"Proyección demográfica 2024 por sexo y edad (COD-PS, UNFPA), construida sobre la división COD-AB CNIGS 2018 — una estimación, no un conteo: el último censo data de 2003."
 IND-POP-001,es,comparabilite,Es probable una ruptura metodológica entre el censo de 2003 y las estimaciones recientes — debe señalarse.
 IND-POP-001,es,limites_connues,"No hay quinto censo: todo valor reciente es una estimación, estado E, nunca O."
 IND-POP-001,es,unite,habitantes

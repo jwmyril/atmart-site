@@ -1,4 +1,5 @@
 {
+ "/ 10 000 hab.": "/ 10 000 moun",
  "Accès Campus pour un mémoire": "Aksè Campus pou yon memwa",
  "Agrégat Atmart": "Chif ansanm Atmart",
  "Agrégat sur {n} communes": "Chif ansanm sou {n} komin",
@@ -60,7 +61,6 @@
  "Indicateur": "Endikatè",
  "Indicateurs documentés": "Endikatè ki dokimante",
  "Informations techniques": "Enfòmasyon teknik",
- "La population communale n'est pas encore intégrée : aucune des 192 entités n'en porte. Cet indicateur attend les estimations IHSI.": "Nou poko antre popilasyon chak komin : okenn nan 192 antite yo pa gen chif sa a. N ap tann estimasyon IHSI yo.",
  "Le référentiel administratif en vigueur — CNIGS, publié par OCHA — compte {decompte}. D'autres référentiels haïtiens, dont les estimations démographiques récentes de l'IHSI, en dénombrent davantage.": "Baz referans administratif ki an vigè a — CNIGS, OCHA pibliye l — konte {decompte}. Gen lòt baz referans ayisyen, tankou dènye estimasyon popilasyon IHSI yo, ki konte plis.",
  "Le {lien} permet de situer n'importe quel territoire sur un indicateur, et d'exporter le tableau.": "{lien} pèmèt ou wè kote nenpòt teritwa chita sou yon endikatè, epi ekspòte tablo a.",
  "Lecture :": "Ki jan pou li l :",
@@ -88,7 +88,8 @@
  "Packs décisionnels": "Pakè pou pran desizyon",
  "Part du total national": "Pòsyon nan total peyi a",
  "Planifier les services publics": "Planifye sèvis piblik yo",
- "Pour 10 000 habitants — indisponible": "Pou chak 10 000 moun — nou poko genyen l",
+ "Population : projection 2024 (UNFPA, base IHSI/CNIGS) — une estimation, statut E, pas un dénombrement.": "Popilasyon : pwojeksyon 2024 (UNFPA, baz IHSI/CNIGS) — se yon estimasyon, estati E, se pa yon kontaj.",
+ "Pour 10 000 habitants": "Pou chak 10 000 moun",
  "Pour 100 km²": "Pou chak 100 km²",
  "Pourquoi ce nombre varie-t-il ?": "Poukisa chif sa a chanje ?",
  "Pourquoi il manque": "Poukisa l manke",
@@ -187,6 +188,7 @@
  "À quoi il sert": "Pou ki sa l sèvi",
  "🎓 Éducation": "🎓 Edikasyon",
  "🏥 Santé": "🏥 Sante",
+ "👥 Démographie": "👥 Demografi",
  "📋 Qualité de la donnée": "📋 Kalite done yo",
  "🗺 Territoire": "🗺 Teritwa",
  "🛒 Marchés": "🛒 Mache"

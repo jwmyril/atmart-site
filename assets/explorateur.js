@@ -12,7 +12,7 @@
   /* Version des donnees. A incrementer des qu'un fichier de data/ est
      regenere : sinon le cache du navigateur sert l'ancien fichier et
      l'interface affiche du perime sans le savoir. */
-  var DV = "?d=2026-07-31b";
+  var DV = "?d=2026-07-31c";
   var F = {
     terr: DIR + (ADMIN ? "atmart_referentiel_territoire_HT.csv"
                        : "atmart_referentiel_territoire_base_HT.csv"),
@@ -144,7 +144,7 @@
   }
   function uniteL(u) {
     if (LANG === "fr" || !u) return u;
-    return UNITES[u + "|" + LANG] || u;
+    return UNITES[u + "|" + LANG] || T(u);
   }
 
   function chargerLangue(l) {
@@ -201,7 +201,8 @@
   var NIVEAU = { "1": "Département", "2": "Arrondissement", "3": "Commune",
                  "4": "Section communale", "5": "Localité" };
   var THEME = { Territoire: "🗺 Territoire", Santé: "🏥 Santé", Éducation: "🎓 Éducation",
-                Marchés: "🛒 Marchés", Qualité: "📋 Qualité de la donnée" };
+                Marchés: "🛒 Marchés", Qualité: "📋 Qualité de la donnée",
+                Démographie: "👥 Démographie" };
   /* Les codes du modèle de qualité, en clair pour l'utilisateur.
      Les codes eux-mêmes restent dans les exports et le bloc technique. */
   var STATUT = { O: "Valeur observée", A: "Valeur agrégée par Atmart", H: "Valeur harmonisée",
@@ -278,8 +279,8 @@
     total: { nom: "Valeur brute", suffixe: "", possible: true },
     km2: { nom: "Pour 100 km\u00b2", suffixe: " / 100 km\u00b2", possible: true },
     part: { nom: "Part du total national", suffixe: " %", possible: true },
-    habitant: { nom: "Pour 10 000 habitants \u2014 indisponible", suffixe: "", possible: false,
-                raison: "La population communale n'est pas encore int\u00e9gr\u00e9e : aucune des 192 entit\u00e9s n'en porte. Cet indicateur attend les estimations IHSI." }
+    habitant: { nom: "Pour 10 000 habitants", suffixe: " / 10 000 hab.", possible: true,
+                note: "Population : projection 2024 (UNFPA, base IHSI/CNIGS) \u2014 une estimation, statut E, pas un d\u00e9nombrement." }
   };
 
   /* La normalisation n'a de sens que sur un comptage : normaliser un
@@ -299,6 +300,12 @@
     if (normalisation === "part") {
       if (!totalNational) return { v: null, u: "" };
       return { v: valeur / totalNational * 100, u: "%" };
+    }
+    if (normalisation === "habitant") {
+      if (indId === "IND-POP-001") return { v: valeur, u: (dico[indId] || {}).unite };
+      var pop = populationDe(entite);
+      if (!pop) return { v: null, u: "" };
+      return { v: valeur / pop * 10000, u: "/ 10 000 hab." };
     }
     return { v: valeur, u: (dico[indId] || {}).unite };
   }
@@ -926,6 +933,14 @@
     return terr.filter(function (e) { return e.niveau_admin === niv; });
   }
 
+  /* La population d'une entite : la valeur communale, ou la somme
+     precalculee pour un departement ou un arrondissement. Nulle si absente —
+     jamais zero. */
+  function populationDe(entite) {
+    var v = valeurBrute(entite, "IND-POP-001");
+    return v && v.valeur ? v.valeur : null;
+  }
+
   function valeurBrute(entite, indId) {
     if (entite.niveau_admin === "3") {
       var v = vals.filter(function (x) {
@@ -1109,6 +1124,8 @@
              (an ? " <b>" + TF("Millésime {an}.", { an: esc(an) }) + "</b>" : "") +
              (normalisation !== "total"
                ? " <b>" + T("Lecture :") + "</b> " + esc(T(normInfo.nom)) + "." : "") +
+             (normalisation === "habitant" && normInfo.note
+               ? " " + esc(T(normInfo.note)) : "") +
              (d.limites_connues ? " <b>" + T("Limite :") + "</b> " +
                esc(libelle(indId, "limites_connues")) : "") +
              "</p>"];

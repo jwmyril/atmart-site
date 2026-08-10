@@ -27,7 +27,7 @@ const DATA = [
   "/datasets.html", "/donnees-solutions.html", "/donnees-campus.html",
   "/donnees-parrainage.html", "/donnees-confiance.html",
   "/donnees-pack-geo-haiti.html",
-  "/assets/data.css?v=11", "/assets/explorateur.js?v=19",
+  "/assets/data.css?v=11", "/assets/explorateur.js?v=20",
   "/data/atmart_referentiel_territoire_base_HT.csv",
   "/data/atmart_indicateurs_communes_HT.csv",
   "/data/atmart_referentiel_indicateurs.csv", "/data/atmart_referentiel_indicateurs_i18n.csv",
