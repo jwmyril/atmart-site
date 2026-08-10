@@ -838,5 +838,14 @@
  "xpl.tab.rank": "Ranking de comunas",
  "xpl.tab.rank.court": "Ranking",
  "xpl.tabs": "Vistas del explorador",
- "bia.scope": "💡 <strong>Los precios indicados son para una microorganización — hasta 25 empleados.</strong> Por encima de eso, el alcance y el número de equipos cambian la carga de trabajo: emitimos un presupuesto tras el encuadre, con el mismo método."
+ "bia.scope": "💡 <strong>Los precios indicados son para una microorganización — hasta 25 empleados.</strong> Por encima de eso, el alcance y el número de equipos cambian la carga de trabajo: emitimos un presupuesto tras el encuadre, con el mismo método.",
+ "bia.vid_t": "Ver concretamente lo que pasa",
+ "bia.vid_d": "Tres vídeos cortos siguen un caso tipo — una ONG de 12 personas — desde el diagnóstico hasta el tercer mes de acompañamiento. Verás qué tareas concretas se automatizan, cuáles quedan supervisadas y cuáles no se tocan.",
+ "bia.vid_note": "⚠️ Son <strong>simulaciones pedagógicas</strong>, no resultados de un cliente real: las tareas y los órdenes de magnitud son representativos del sector y no constituyen ninguna promesa.",
+ "bia.vid1_t": "1 · El diagnóstico",
+ "bia.vid1_d": "Medimos el trabajo real y luego cada tarea recibe una decisión: delegar, supervisar o mantener humana.",
+ "bia.vid2_t": "2 · La implementación",
+ "bia.vid2_d": "Una sola tarea llevada hasta el final: criterios escritos, control humano, pruebas, medición. La IA nunca firma.",
+ "bia.vid3_t": "3 · El seguimiento",
+ "bia.vid3_d": "Mes 3: pruebas repetidas, desvío detectado y corregido, un nuevo caso de uso, el equipo que mejora."
 }

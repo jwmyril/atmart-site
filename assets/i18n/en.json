@@ -838,5 +838,14 @@
  "xpl.tab.rank": "Commune ranking",
  "xpl.tab.rank.court": "Ranking",
  "xpl.tabs": "Explorer views",
- "bia.scope": "💡 <strong>The prices shown apply to a micro-organisation — up to 25 employees.</strong> Beyond that, scope and the number of teams change the workload: we issue a quote after scoping, using the same method."
+ "bia.scope": "💡 <strong>The prices shown apply to a micro-organisation — up to 25 employees.</strong> Beyond that, scope and the number of teams change the workload: we issue a quote after scoping, using the same method.",
+ "bia.vid_t": "See concretely what happens",
+ "bia.vid_d": "Three short videos follow a typical case — a 12-person NGO — from the diagnostic to the third month of support. You will see which precise tasks get automated, which stay supervised, and which do not move at all.",
+ "bia.vid_note": "⚠️ These are <strong>teaching simulations</strong>, not results from a real client: the tasks and orders of magnitude are representative of the sector and constitute no quantified promise.",
+ "bia.vid1_t": "1 · The diagnostic",
+ "bia.vid1_d": "We measure the real work, then every task gets a decision: delegate, supervise, or keep human.",
+ "bia.vid2_t": "2 · The implementation",
+ "bia.vid2_d": "One single task taken all the way: written criteria, human control, tests, measurement. The AI never signs.",
+ "bia.vid3_t": "3 · The follow-up",
+ "bia.vid3_d": "Month 3: tests replayed, drift caught and fixed, one new use case, the team growing its skills."
 }

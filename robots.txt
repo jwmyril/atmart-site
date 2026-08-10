@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-# Les URL courtes ne sont la que pour les supports imprimes.
-Disallow: /o/
+
 Sitemap: https://atmart.ltd/sitemap.xml

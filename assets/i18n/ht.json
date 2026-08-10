@@ -838,5 +838,14 @@
  "xpl.tab.rank": "Klasman komin yo",
  "xpl.tab.rank.court": "Klasman",
  "xpl.tabs": "Fason pou gade eksploratè a",
- "bia.scope": "💡 <strong>Pri sa yo se pou yon ti òganizasyon — jiska 25 anplwaye.</strong> Si li pi gwo, kantite ekip ak gwosè travay la chanje : n ap fè yon devi apre kadraj la, ak menm metòd la."
+ "bia.scope": "💡 <strong>Pri sa yo se pou yon ti òganizasyon — jiska 25 anplwaye.</strong> Si li pi gwo, kantite ekip ak gwosè travay la chanje : n ap fè yon devi apre kadraj la, ak menm metòd la.",
+ "bia.vid_t": "Gade konkrètman sa k ap pase",
+ "bia.vid_d": "Twa ti videyo swiv yon ka tip — yon ONG 12 moun — depi dyagnostik la jiska twazyèm mwa akonpayman an. W ap wè ki travay egzakteman ki otomatize, kilès ki rete anba sipevizyon, ak kilès ki pa bouje menm.",
+ "bia.vid_note": "⚠️ Se <strong>similasyon pou anseye</strong>, se pa rezilta yon vrè kliyan : travay yo ak chif yo reprezante sektè a, yo pa yon pwòmès.",
+ "bia.vid1_t": "1 · Dyagnostik la",
+ "bia.vid1_d": "Nou mezire vrè travay la, apre sa chak travay jwenn yon desizyon : delege, sipèvize, oswa kenbe l nan men moun.",
+ "bia.vid2_t": "2 · Mizanplas la",
+ "bia.vid2_d": "Yon sèl travay mennen jiska bout : kritè ekri, kontwòl moun, tès, mezi. IA a pa janm siyen.",
+ "bia.vid3_t": "3 · Swivi a",
+ "bia.vid3_d": "Mwa 3 : tès yo rejwe, yon devÿè detekte epi korije, yon nouvo travay otomatize, ekip la k ap vin pi fò."
 }
