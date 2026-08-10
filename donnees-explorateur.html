@@ -25,11 +25,6 @@ window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;
 if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove("i18n-wait")},1500)}})();
 </script>
   <link rel="canonical" href="https://atmart.ltd/donnees-explorateur.html" />
-  <link rel="alternate" hreflang="fr" href="https://atmart.ltd/donnees-explorateur.html" />
-  <link rel="alternate" hreflang="ht" href="https://atmart.ltd/ht/donnees-explorateur.html" />
-  <link rel="alternate" hreflang="en" href="https://atmart.ltd/en/donnees-explorateur.html" />
-  <link rel="alternate" hreflang="es" href="https://atmart.ltd/es/donnees-explorateur.html" />
-  <link rel="alternate" hreflang="x-default" href="https://atmart.ltd/donnees-explorateur.html" />
 </head>
 <body>
 
@@ -216,12 +211,11 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 </footer>
 
 <script>
-  /* Chaque langue a son URL : le selecteur navigue au lieu de traduire
-     sur place, sinon un moteur de recherche ne verrait jamais que le
-     francais et les trois autres langues resteraient invisibles. */
-  window.ATM_LANGUES = ["fr", "ht", "en", "es"];
-  window.ATM_LANG_URLS = {fr: "/donnees-explorateur.html", ht: "/ht/donnees-explorateur.html", en: "/en/donnees-explorateur.html", es: "/es/donnees-explorateur.html"};
-  window.ATM_LANG_FORCE = "fr";
+  /* Multilingue EN PAUSE (decision du 10/08/2026) : le francais seul pendant
+     la finalisation de l'Explorateur. Les traductions reviendront d'un bloc
+     une fois la version finale atteinte — jamais de page a moitie traduite.
+     Le moteur i18n et les dictionnaires restent en place. */
+  window.ATM_LANGUES = ["fr"];
 </script>
 <script src="assets/script.js?v=2"></script>
 <script src="assets/explorateur.js?v=20"></script>
