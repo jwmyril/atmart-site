@@ -47,14 +47,20 @@ exports CSV traçés (source, millésime, méthode, langue des libellés) · blo
 | Site public + Explorateur | `Power_BI_Claude/Atmart_website/` | **oui** — `jwmyril/atmart-site`, branche `main` |
 | Données publiées | `Atmart_website/data/*.csv` | oui |
 | Tests + préproduction + générateurs | `Atmart_website/tests/` | **non** — exclu par `.gitignore` (fixtures synthétiques marquées « ne pas publier ») |
-| Scripts de construction, backbone, Pack Géo, Pack Potentialités | `Power_BI_Claude/Atmart_premium_datasets/` | **NON — nulle part ailleurs que sur cette machine** (82 Mo) |
+| Scripts de construction, backbone, Pack Potentialités | `Power_BI_Claude/Atmart_premium_datasets/` | **oui** — `jwmyril/atmart-datasets`, **privé**, branche `main` (11 Mo versionnés sur 82) |
 | Mémoire de travail | `~/.claude/projects/C--Users-USUARIO-.../memory/` | non — locale (60 fiches) |
 | Transcrits des sessions | même dossier, `*.jsonl` | non — locaux (27 sessions, 364 Mo) |
 
-> **Risque à traiter.** `Atmart_premium_datasets/` contient tous les scripts
-> reproductibles (`build_backbone_*.py`, `build_population.py`, le Pack
-> Potentialités avec ses empreintes SHA-256) et n'existe **qu'ici**. Une panne
-> de disque efface la chaîne de production. Un dépôt privé réglerait ça.
+> **Risque traité le 10/08/2026.** La chaîne de production est désormais dans
+> `jwmyril/atmart-datasets` (privé) : 78 fichiers, 11 Mo — les 14 scripts, les
+> 7 référentiels du backbone, les registres et la documentation. Ce qui n'y est
+> pas (sources brutes 31 Mo, livrables régénérables, PDF) est documenté dans
+> `SOURCES-EXTERNES.md` du même dépôt, avec URLs et ordre de reconstruction.
+>
+> **Reste non sauvegardé** : `_codes/` — les codes d'accès **vendus** aux
+> clients (Chofè360, Entèvyou360, Karye360). Volontairement hors dépôt : un
+> dépôt se clone et se restaure, un code vendu ne doit exister qu'une fois. Ils
+> attendent une sauvegarde chiffrée séparée.
 
 ---
 
@@ -129,8 +135,9 @@ compte. Conséquences :
 - **Même machine, autre compte** → rien à faire. Transcrits, mémoire, fichiers
   et dépôt sont au même endroit ; le compte ne change que la facturation et
   l'accès aux modèles.
-- **Autre machine** → `git clone` du dépôt suffit pour le site, mais il faut
-  copier à la main : `Atmart_premium_datasets/` (82 Mo), le dossier `memory/`,
-  et `Atmart_website/tests/` si l'on veut pouvoir tester.
+- **Autre machine** → deux `git clone` suffisent pour l'essentiel :
+  `jwmyril/atmart-site` (le site) et `jwmyril/atmart-datasets` (la chaîne de
+  production, privé). Restent à copier à la main : le dossier `memory/`,
+  `Atmart_website/tests/` (exclu du dépôt) et `_codes/` (jamais versionné).
 
 Dans tous les cas, ce document est le point d'entrée : il est dans le dépôt.
