@@ -4,7 +4,7 @@
 suit le code partout : autre compte Claude, autre machine, autre session.
 À lire en premier pour reprendre le chantier.
 
-Dernière mise à jour : **2026-08-10**
+Dernière mise à jour : **2026-08-11**
 
 ---
 
@@ -18,7 +18,8 @@ Dernière mise à jour : **2026-08-10**
 | Moteur | `assets/explorateur.js?v=20` — un seul fichier, deux éditions (publique / admin) |
 | Données | 3 CSV publics + 1 GeoJSON, chargés dans le navigateur — aucun serveur, aucun compte, aucun traceur |
 | Territoires | 192 entités (10 départements, 42 arrondissements, 140 communes), CNIGS/OCHA COD-AB 2018 |
-| Observations | 1 414 valeurs sourcées, dont **140 populations 2024** (ajout du 10/08) |
+| Observations | **3 094 valeurs sourcées** dans `data/` — 1 414 + 140 densités (11/08) + 1 540 âge et sexe (11/08) |
+| En attente d'affichage | la **pyramide des âges** (`atmart_pyramide_ages_HT.csv`, 7 140 lignes) est produite mais l'Explorateur ne la lit pas encore — voir §5 |
 | Tests | `tests/explorateur-tests.html` — **32 assertions, toutes vertes** |
 
 ### Ce que l'Explorateur sait faire
@@ -70,6 +71,12 @@ exports CSV traçés (source, millésime, méthode, langue des libellés) · blo
 # Reconstruire la population communale depuis la zone source (empreintes vérifiées)
 python Atmart_premium_datasets/build_population.py
 
+# Densité communale (IND-POP-002) — dérivée, aucune source nouvelle
+python Atmart_premium_datasets/build_densite.py
+
+# Pyramide des âges : satellite 7 140 lignes + 11 indicateurs dérivés (IND-POP-003..013)
+python Atmart_premium_datasets/build_pyramide.py
+
 # Régénérer sitemap.xml + robots.txt depuis le contenu réel du dossier
 python Atmart_website/tests/generer-sitemap.py
 
@@ -98,6 +105,15 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 - **Population = statut E.** Projection 2024 (UNFPA COD-PS, CC BY-IGO,
   11 899 555 habitants, jointure p-code 140/140). Une estimation, jamais un
   dénombrement : le dernier recensement date de 2003.
+- **Âge scolaire = 5-19 ans, pas 5-18 (11/08/2026).** Le COD-PS est quinquennal :
+  découper la tranche 15-19 exigerait d'inventer une répartition à l'intérieur
+  d'une tranche. Même motif pour l'âge médian, non publié. `IND-EDU-010` sera
+  donc « écoles pour 10 000 jeunes de 5 à 19 ans ».
+- **La pyramide vit dans un satellite**, `atmart_pyramide_ages_HT.csv`
+  (140 communes × 17 tranches × F/M/T). Une distribution ne rentre pas dans une
+  table d'indicateurs à une valeur par ligne ; les onze lectures agrégées
+  (IND-POP-003..013), elles, sont dans la table d'indicateurs, seule source du
+  classement, de la comparaison et des exports.
 - **ODbL écartée** des produits propriétaires (OpenStreetMap, réseau routier) —
   le partage à l'identique est incompatible avec une licence Atmart.
 - **Pack Potentialités abandonné** (IRPCH + PCD). Motif : péremption
@@ -111,9 +127,16 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 
 **Court terme, par ordre de rapport qualité/effort**
 
-1. **Densité de population** — population ÷ superficie, les deux valeurs sont déjà en base. ~1 h.
-2. **Population 5-18 ans** — les tranches d'âge sont dans le fichier COD-PS déjà téléchargé ; débloquerait `IND-EDU-010` (écoles pour 10 000 enfants), aujourd'hui vide.
-3. **Établissements de santé HDX 2021** — à confronter aux données 2023 pour élargir au-delà des 14 communes, ou documenter pourquoi on garde l'existant.
+1. ~~**Densité de population**~~ — fait le 11/08 (`IND-POP-002`, `build_densite.py`).
+2. ~~**Population par âge**~~ — fait le 11/08 (`build_pyramide.py`) : satellite + `IND-POP-003..013`.
+3. **Afficher la pyramide dans l'Explorateur** — lire le 4e CSV (1,1 Mo : à charger
+   seulement à l'ouverture d'une fiche), dessiner la pyramide SVG comme la carte
+   de situation, tests + `?v=` + nom du cache dans `sw.js`. Les 11 indicateurs
+   dérivés, eux, apparaîtront **sans toucher au code** : `explorateur.js` lit le
+   dictionnaire et honore déjà `facteur_ratio` — à vérifier au premier chargement.
+4. **Remplir `IND-EDU-010`** — écoles ÷ population 5-19 ans × 10 000, calculable
+   depuis `IND-POP-007` ; ne couvrira que les 49 communes du registre scolaire.
+5. **Établissements de santé HDX 2021** — à confronter aux données 2023 pour élargir au-delà des 14 communes, ou documenter pourquoi on garde l'existant.
 4. **Audit final** — mobile, accessibilité, parcours complet.
 
 **Puis, avant réouverture du multilingue**
