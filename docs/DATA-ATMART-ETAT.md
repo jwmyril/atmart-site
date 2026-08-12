@@ -4,7 +4,7 @@
 suit le code partout : autre compte Claude, autre machine, autre session.
 À lire en premier pour reprendre le chantier.
 
-Dernière mise à jour : **2026-08-11**
+Dernière mise à jour : **2026-08-12**
 
 ---
 
@@ -15,12 +15,12 @@ Dernière mise à jour : **2026-08-11**
 | | état |
 |---|---|
 | Langue | **français seul** — multilingue en pause assumée (voir §4) |
-| Moteur | `assets/explorateur.js?v=20` — un seul fichier, deux éditions (publique / admin) |
-| Données | 3 CSV publics + 1 GeoJSON, chargés dans le navigateur — aucun serveur, aucun compte, aucun traceur |
+| Moteur | `assets/explorateur.js?v=22` — un seul fichier, deux éditions (publique / admin) |
+| Données | 4 CSV publics + 1 GeoJSON, chargés dans le navigateur — aucun serveur, aucun compte, aucun traceur |
 | Territoires | 192 entités (10 départements, 42 arrondissements, 140 communes), CNIGS/OCHA COD-AB 2018 |
-| Observations | **3 094 valeurs sourcées** dans `data/` — 1 414 + 140 densités (11/08) + 1 540 âge et sexe (11/08) |
-| En attente d'affichage | la **pyramide des âges** (`atmart_pyramide_ages_HT.csv`, 7 140 lignes) est produite mais l'Explorateur ne la lit pas encore — voir §5 |
-| Tests | `tests/explorateur-tests.html` — **32 assertions, toutes vertes** |
+| Observations | **3 094 valeurs sourcées** — 1 414 + 140 densités (11/08) + 1 540 âge et sexe (11/08) |
+| Pyramide des âges | `atmart_pyramide_ages_HT.csv`, 7 140 lignes — **dessinée sur chaque fiche**, aux 3 niveaux, chargée seulement quand la section approche de l'écran (1,1 Mo) |
+| Tests | `tests/explorateur-tests.html` — **44 assertions, toutes vertes** |
 
 ### Ce que l'Explorateur sait faire
 
@@ -28,8 +28,10 @@ Fiche territoriale par commune / arrondissement / département · comparaison de
 2 à 4 territoires avec **alerte quand les millésimes diffèrent** · classement
 aux 3 niveaux avec 4 lectures (brute, pour 100 km², part du total national,
 **pour 10 000 habitants**) · carte de situation SVG sans dépendance externe ·
-exports CSV traçés (source, millésime, méthode, langue des libellés) · bloc
-« Ce qui reste à documenter » · liens partageables restaurant l'état complet.
+**pyramide des âges SVG** (17 tranches × F/M, effectifs exacts dépliables,
+export CSV par territoire) · exports CSV traçés (source, millésime, méthode,
+langue des libellés) · bloc « Ce qui reste à documenter » · liens partageables
+restaurant l'état complet.
 
 ### Les règles qui gouvernent le produit
 
@@ -109,6 +111,14 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
   découper la tranche 15-19 exigerait d'inventer une répartition à l'intérieur
   d'une tranche. Même motif pour l'âge médian, non publié. `IND-EDU-010` sera
   donc « écoles pour 10 000 jeunes de 5 à 19 ans ».
+- **La pyramide se charge à l'approche de l'écran (12/08/2026)**, pas à
+  l'ouverture de la fiche : l'Explorateur ouvre toujours une fiche d'accueil
+  (Port-au-Prince), et 1,1 Mo imposés à chaque visite seraient payés d'abord par
+  les connexions les plus faibles. Même motif pour son absence de la liste de
+  précache du service worker — qui s'installe sur **toute** page du site,
+  atelier compris. Le fichier est mis en cache dès la première consultation, et
+  reste alors disponible hors connexion. Le bouton « Imprimer / PDF » l'attend
+  avant d'ouvrir la boîte d'impression, sinon le PDF sortirait amputé.
 - **La pyramide vit dans un satellite**, `atmart_pyramide_ages_HT.csv`
   (140 communes × 17 tranches × F/M/T). Une distribution ne rentre pas dans une
   table d'indicateurs à une valeur par ligne ; les onze lectures agrégées
@@ -129,21 +139,21 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 
 1. ~~**Densité de population**~~ — fait le 11/08 (`IND-POP-002`, `build_densite.py`).
 2. ~~**Population par âge**~~ — fait le 11/08 (`build_pyramide.py`) : satellite + `IND-POP-003..013`.
-3. **Afficher la pyramide dans l'Explorateur** — lire le 4e CSV (1,1 Mo : à charger
-   seulement à l'ouverture d'une fiche), dessiner la pyramide SVG comme la carte
-   de situation, tests + `?v=` + nom du cache dans `sw.js`. Les 11 indicateurs
-   dérivés, eux, apparaîtront **sans toucher au code** : `explorateur.js` lit le
-   dictionnaire et honore déjà `facteur_ratio` — à vérifier au premier chargement.
+3. ~~**Afficher la pyramide dans l'Explorateur**~~ — fait le 12/08 (`explorateur.js?v=22`) :
+   SVG aux 3 niveaux, effectifs dépliables, export par territoire, 9 assertions.
 4. **Remplir `IND-EDU-010`** — écoles ÷ population 5-19 ans × 10 000, calculable
    depuis `IND-POP-007` ; ne couvrira que les 49 communes du registre scolaire.
 5. **Établissements de santé HDX 2021** — à confronter aux données 2023 pour élargir au-delà des 14 communes, ou documenter pourquoi on garde l'existant.
-4. **Audit final** — mobile, accessibilité, parcours complet.
+6. **Audit final** — mobile, accessibilité, parcours complet.
 
 **Puis, avant réouverture du multilingue**
 
-5. Relecture humaine du kreyòl (préproduction prête).
-6. Traduire les chaînes ajoutées pendant la pause (comparaison des dictionnaires).
-7. `generer-pages-localisees.py` + réactiver les alternates dans `generer-sitemap.py` (blocs marqués « EN PAUSE »).
+7. Relecture humaine du kreyòl (préproduction prête).
+8. Traduire les chaînes ajoutées pendant la pause (comparaison des dictionnaires)
+   — **dont les ~20 chaînes de la pyramide**, aujourd'hui en français seul dans
+   `explorateur.*.json` ; les sept champs traduits des 11 indicateurs, eux, sont
+   déjà dans `atmart_referentiel_indicateurs_i18n.csv`.
+9. `generer-pages-localisees.py` + réactiver les alternates dans `generer-sitemap.py` (blocs marqués « EN PAUSE »).
 
 **Sources identifiées, non ouvertes** : ISPAN (patrimoine, mandat officiel),
 RGA 2008-2009 MARNDR/FAO (agriculture, recensement), DINEPA (eau), BME (mines).

@@ -463,6 +463,34 @@ select:focus-visible, input:focus-visible {
 .x-l-autre { background: #7d92a8; opacity: 0.55; }
 @media (max-width: 640px) { .x-carte svg { max-height: 38vh; } }
 
+/* ===== Pyramide des âges =====
+   Deux couleurs de la charte, pas le rose et le bleu : le côté du graphique
+   distingue déjà les deux séries, et chaque barre porte son intitulé. */
+.x-pyr { margin: 1.6rem 0 0; }
+.x-pyr-fig svg {
+  width: 100%; height: auto; display: block;
+  background: rgba(46,196,182,.04); border: 1px solid var(--border); border-radius: var(--radius);
+}
+.x-pyr-f { fill: var(--amber); opacity: 0.85; }
+.x-pyr-m { fill: var(--teal); opacity: 0.85; }
+.x-pyr-f:hover, .x-pyr-m:hover { opacity: 1; }
+.x-pyr-grille { stroke: var(--border); stroke-width: 1; opacity: 0.55; }
+.x-pyr-axe { fill: var(--ink-dim); font-size: 11px; font-family: var(--font-body); }
+.x-pyr-lab { fill: var(--ink-dim); font-size: 11px; font-family: var(--font-body); }
+.x-pyr-tete {
+  fill: var(--ink); font-size: 12px; font-family: var(--font-head); letter-spacing: 0.04em;
+}
+.x-l-f { background: var(--amber); }
+.x-l-m { background: var(--teal); }
+.x-pyr-lect { color: var(--ink); font-size: 0.88rem; margin: 0.5rem 0 0; line-height: 1.7; }
+.x-pyr-tab { min-width: 420px; font-size: 0.86rem; }
+.x-pyr-tab td { text-align: right; }
+.x-pyr-tab tbody tr:last-child th, .x-pyr-tab tbody tr:last-child td { font-weight: 600; color: var(--ink); }
+/* Le cadre étroit est deux fois moins large : ses unités SVG valent presque un
+   pixel écran, les intitulés doivent grossir d'autant. */
+.x-pyr-etroit .x-pyr-axe, .x-pyr-etroit .x-pyr-lab { font-size: 15px; }
+.x-pyr-etroit .x-pyr-tete { font-size: 16px; }
+
 /* ===== Comparaison ===== */
 .x-jetons { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0 0 1rem; align-items: center; }
 .x-jeton {
@@ -492,11 +520,19 @@ select:focus-visible, input:focus-visible {
   .hero { padding: 0 !important; }
   h1, h2, h3, .x-tete h2, .x-h3, .x-theme { color: #111 !important; }
   .x-note, .x-situe, .x-meta, .x-confiance, .x-mesure span, .x-detail p { color: #333 !important; }
-  .x-mesure, .x-tab, .x-carte svg, details.x-tech {
+  .x-mesure, .x-tab, .x-carte svg, .x-pyr-fig svg, details.x-tech {
     border-color: #bbb !important; background: #fff !important; break-inside: avoid;
   }
   .x-mesure b, .x-legende span { color: #111 !important; }
   .x-terre { fill: #eee !important; stroke: #888 !important; }
+  /* Imprimée en noir et blanc, la pyramide doit rester lisible : le côté
+     distingue les séries, le remplissage donne le contraste. */
+  .x-pyr-f { fill: #999 !important; opacity: 1 !important; }
+  .x-pyr-m { fill: #333 !important; opacity: 1 !important; }
+  .x-pyr-axe, .x-pyr-lab { fill: #333 !important; }
+  .x-pyr-tete { fill: #111 !important; }
+  .x-pyr-grille { stroke: #ddd !important; }
+  .x-pyr, .x-pyr-fig { break-inside: avoid; }
   .x-pt { fill: #bbb !important; } .x-pt-pro { fill: #666 !important; } .x-pt-sel { fill: #111 !important; }
   details.x-mesure summary::after { content: "" !important; }
   details[open] .x-detail, .x-detail { display: block !important; }

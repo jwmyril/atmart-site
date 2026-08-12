@@ -12,13 +12,15 @@
   /* Version des donnees. A incrementer des qu'un fichier de data/ est
      regenere : sinon le cache du navigateur sert l'ancien fichier et
      l'interface affiche du perime sans le savoir. */
-  var DV = "?d=2026-08-11a";
+  var DV = "?d=2026-08-11b";
   var F = {
     terr: DIR + (ADMIN ? "atmart_referentiel_territoire_HT.csv"
                        : "atmart_referentiel_territoire_base_HT.csv"),
     vals: DIR + "atmart_indicateurs_communes_HT.csv",
     dico: DIR + "atmart_referentiel_indicateurs.csv",
-    orgs: ADMIN ? DIR + "atmart_referentiel_organisations_HT.csv" : null
+    orgs: ADMIN ? DIR + "atmart_referentiel_organisations_HT.csv" : null,
+    /* Chargé à la demande, pas au démarrage : voir « pyramide des âges ». */
+    pyr: DIR + "atmart_pyramide_ages_HT.csv"
   };
 
   var terr = [], vals = [], orgs = [], dico = {}, contour = null;
@@ -573,6 +575,234 @@
       "</p></div>";
   }
 
+  /* ------------------------------------------------------ pyramide des âges
+     Le fichier de structure par âge pèse 1,1 Mo — plus que tous les autres
+     réunis. Il n'est donc pas chargé au démarrage mais à la première fiche
+     ouverte, et une seule fois : la plupart des visites ne le demandent
+     jamais. S'il manque — hors connexion, cache incomplet — la fiche s'affiche
+     sans pyramide et le dit, comme elle s'affiche sans carte quand le contour
+     manque. Les grands groupes d'âge, eux, restent dans les indicateurs. */
+  var pyrIdx = null, pyrPromesse = null, pyrTranches = [], pyrMeta = {};
+
+  function chargerPyramide() {
+    if (pyrPromesse) return pyrPromesse;
+    pyrPromesse = charger(F.pyr, 1).then(function (t) {
+      var idx = {}, tr = {};
+      parseCSV(t).forEach(function (l) {
+        var rg = +l.rang_tranche;
+        if (!rg || !l.pcode_commune) return;
+        tr[rg] = { rang: rg, min: +l.borne_min,
+                   max: l.borne_max === "" ? null : +l.borne_max };
+        var c = idx[l.pcode_commune] || (idx[l.pcode_commune] = { F: [], M: [], T: [] });
+        if (c[l.sexe]) c[l.sexe][rg - 1] = nb(l.effectif) || 0;
+        pyrMeta = { annee: l.annee_reference, source: l.source, statut: l.statut_valeur,
+                    qualite: l.niveau_qualite, extraction: l.date_extraction,
+                    version: l.version };
+      });
+      pyrTranches = Object.keys(tr).map(Number).sort(function (a, b) { return a - b; })
+                          .map(function (k) { return tr[k]; });
+      pyrIdx = pyrTranches.length ? idx : null;
+      return pyrIdx;
+    }).catch(function () { pyrIdx = null; return null; });
+    return pyrPromesse;
+  }
+
+  /* « 0-4 », « 80+ » : des chiffres, lisibles dans les quatre langues. */
+  function libTranche(t) { return t.max === null ? t.min + "+" : t.min + "-" + t.max; }
+
+  /* Une commune lit ses propres lignes ; un arrondissement ou un département
+     somme celles de ses communes — la structure par âge s'additionne, c'est la
+     règle « somme » du dictionnaire, pas une moyenne. */
+  function pyramideDe(r) {
+    if (!pyrIdx) return null;
+    var communes = r.niveau_admin === "3" ? [r] : communesDe(r);
+    var n = pyrTranches.length, out = { F: [], M: [], T: [], communes: 0 }, i;
+    for (i = 0; i < n; i++) { out.F[i] = 0; out.M[i] = 0; out.T[i] = 0; }
+    communes.forEach(function (c) {
+      var d = pyrIdx[c.pcode];
+      if (!d) return;
+      out.communes++;
+      for (var j = 0; j < n; j++) {
+        out.F[j] += d.F[j] || 0; out.M[j] += d.M[j] || 0; out.T[j] += d.T[j] || 0;
+      }
+    });
+    if (!out.communes) return null;
+    out.total = out.T.reduce(function (a, b) { return a + b; }, 0);
+    if (!out.total) return null;
+    /* Les trois grands groupes se déduisent des bornes, jamais d'un rang écrit
+       en dur : si la source changeait de découpage, le calcul suivrait. */
+    out.jeunes = out.actifs = out.aines = 0;
+    pyrTranches.forEach(function (t, k) {
+      if (t.max !== null && t.max < 15) out.jeunes += out.T[k];
+      else if (t.min >= 65) out.aines += out.T[k];
+      else out.actifs += out.T[k];
+    });
+    out.femmes = out.F.reduce(function (a, b) { return a + b; }, 0);
+    out.hommes = out.M.reduce(function (a, b) { return a + b; }, 0);
+    return out;
+  }
+
+  function pct(x, total) { return Math.round(x / total * 1000) / 10; }
+
+  /* Échelle « ronde » : un axe qui s'arrête à 6,37 % ne se lit pas. */
+  function pasAxe(max) {
+    return max <= 2 ? 0.5 : max <= 5 ? 1 : max <= 12 ? 2 : 5;
+  }
+
+  function svgPyramide(p, r) {
+    /* MARGE : la graduation extrême est centrée sur le bord de la grille — sans
+       marge, la moitié de « 6 % » sort du cadre, des deux côtés.
+       Sur un écran étroit, le même dessin réduit de moitié rendrait les 17
+       intitulés illisibles : le cadre devient vertical, et seules les
+       graduations extrêmes restent écrites. */
+    var etroit = (window.innerWidth || 1024) < 720;
+    var L = etroit ? 420 : 760, H = etroit ? 520 : 430;
+    var HAUT = 26, BAS = 40, GOUT = etroit ? 50 : 54, MARGE = etroit ? 20 : 26;
+    var n = pyrTranches.length, i;
+    var hb = (H - HAUT - BAS) / n, demi = (L - GOUT - 2 * MARGE) / 2;
+    var gauche = MARGE + demi, droite = MARGE + demi + GOUT;
+    var max = 0;
+    for (i = 0; i < n; i++) {
+      max = Math.max(max, p.F[i] / p.total * 100, p.M[i] / p.total * 100);
+    }
+    var pas = pasAxe(max), axe = Math.ceil(max / pas) * pas || pas;
+    var lg = function (v) { return v / axe * demi; };
+    var y = function (k) { return HAUT + (n - 1 - k) * hb; };   // 0-4 en bas
+    var out = [], t;
+
+    /* grille et graduations, symétriques */
+    for (var g = 0; g <= axe + 1e-9; g += pas) {
+      var d = lg(g);
+      out.push('<line class="x-pyr-grille" x1="' + (gauche - d).toFixed(1) + '" x2="' +
+        (gauche - d).toFixed(1) + '" y1="' + HAUT + '" y2="' + (H - BAS) + '" />');
+      out.push('<line class="x-pyr-grille" x1="' + (droite + d).toFixed(1) + '" x2="' +
+        (droite + d).toFixed(1) + '" y1="' + HAUT + '" y2="' + (H - BAS) + '" />');
+      if (etroit && g > 0 && Math.abs(g - axe) > 1e-9) continue;
+      var et = fmt(g, "%");
+      out.push('<text class="x-pyr-axe" x="' + (gauche - d).toFixed(1) + '" y="' + (H - BAS + 15) +
+        '" text-anchor="middle">' + esc(et) + "</text>");
+      out.push('<text class="x-pyr-axe" x="' + (droite + d).toFixed(1) + '" y="' +
+        (H - BAS + 15) + '" text-anchor="middle">' + esc(et) + "</text>");
+    }
+
+    for (i = 0; i < n; i++) {
+      t = pyrTranches[i];
+      var hf = Math.max(hb - 2.5, 2);
+      [["F", p.F[i]], ["M", p.M[i]]].forEach(function (s) {
+        var w = lg(s[1] / p.total * 100), femme = s[0] === "F";
+        out.push('<rect class="x-pyr-' + (femme ? "f" : "m") + '" x="' +
+          (femme ? gauche - w : droite).toFixed(1) + '" y="' + y(i).toFixed(1) +
+          '" width="' + Math.max(w, 0.4).toFixed(1) + '" height="' + hf.toFixed(1) +
+          '" rx="1.5"><title>' + esc(TF(
+            femme ? "{tranche} ans, femmes : {n} ({pct} %)"
+                  : "{tranche} ans, hommes : {n} ({pct} %)",
+            { tranche: libTranche(t), n: fmt(s[1]), pct: fmt(pct(s[1], p.total)) })) +
+          "</title></rect>");
+      });
+      out.push('<text class="x-pyr-lab" x="' + ((gauche + droite) / 2).toFixed(1) + '" y="' +
+        (y(i) + hb / 2 + 0.5).toFixed(1) + '" text-anchor="middle" dominant-baseline="middle">' +
+        esc(libTranche(t)) + "</text>");
+    }
+
+    out.push('<text class="x-pyr-tete" x="' + (gauche - lg(axe)).toFixed(1) + '" y="' + (HAUT - 10) +
+      '" text-anchor="start">' + esc(T("Femmes")) + "</text>");
+    out.push('<text class="x-pyr-tete" x="' + (droite + lg(axe)).toFixed(1) + '" y="' +
+      (HAUT - 10) + '" text-anchor="end">' + esc(T("Hommes")) + "</text>");
+
+    var alt = TF("Pyramide des âges {de} : {n} habitants répartis en {b} tranches d'âge de cinq ans, femmes à gauche et hommes à droite. {jeunes} % ont moins de 15 ans, {aines} % ont 65 ans ou plus. Les effectifs exacts sont dans le tableau qui suit.",
+      { de: deNom(nomT(r)), n: fmt(p.total), b: n,
+        jeunes: fmt(pct(p.jeunes, p.total)), aines: fmt(pct(p.aines, p.total)) });
+    return '<svg class="' + (etroit ? "x-pyr-etroit" : "x-pyr-large") +
+      '" viewBox="0 0 ' + L + " " + H + '" role="img" aria-label="' + esc(alt) +
+      '" preserveAspectRatio="xMidYMid meet">' + out.join("") + "</svg>";
+  }
+
+  function tablePyramide(p) {
+    var h = ['<div class="x-tabwrap"><table class="x-tab x-pyr-tab"><thead><tr><th>' +
+             T("Tranche d'âge") + "</th><th>" + T("Femmes") + "</th><th>" + T("Hommes") +
+             "</th><th>" + T("Ensemble") + "</th><th>" + T("Part") + "</th></tr></thead><tbody>"];
+    for (var i = pyrTranches.length - 1; i >= 0; i--) {
+      h.push("<tr><th>" + esc(libTranche(pyrTranches[i])) + "</th><td>" + fmt(p.F[i]) +
+        "</td><td>" + fmt(p.M[i]) + "</td><td>" + fmt(p.T[i]) + "</td><td>" +
+        fmt(pct(p.T[i], p.total), "%") + "</td></tr>");
+    }
+    h.push("<tr><th>" + T("Ensemble") + "</th><td>" + fmt(p.femmes) + "</td><td>" +
+      fmt(p.hommes) + "</td><td>" + fmt(p.total) + "</td><td>" + fmt(100, "%") +
+      "</td></tr></tbody></table></div>");
+    return h.join("");
+  }
+
+  function blocPyramide(r) {
+    /* Le conteneur est posé tout de suite, rempli quand le fichier arrive :
+       la fiche ne doit pas attendre 1,1 Mo pour s'afficher. */
+    return '<div id="x-pyramide" class="x-pyr"></div>';
+  }
+
+  /* Le déclencheur n'est pas l'ouverture de la fiche mais son approche à
+     l'écran. L'Explorateur ouvre toujours une fiche au démarrage — Port-au-
+     Prince par défaut : charger 1,1 Mo à ce moment-là ferait payer le
+     graphique à tout visiteur, y compris à celui qui vient pour le classement
+     et ne descendra jamais jusqu'ici. */
+  function observerPyramide(r) {
+    var b = $("#x-pyramide");
+    if (!b) return;
+    if (!window.IntersectionObserver) return remplirPyramide(r);
+    var io = new IntersectionObserver(function (entrees) {
+      if (!entrees.some(function (e) { return e.isIntersecting; })) return;
+      io.disconnect();
+      remplirPyramide(r);
+    }, { rootMargin: "300px" });
+    io.observe(b);
+  }
+
+  function remplirPyramide(r) {
+    var boite = $("#x-pyramide");
+    if (!boite) return Promise.resolve();
+    return chargerPyramide().then(function () {
+      /* L'utilisateur a pu ouvrir une autre fiche entre-temps. */
+      if (!courant || courant.atmart_geo_id !== r.atmart_geo_id) return;
+      var b = $("#x-pyramide");
+      if (!b) return;
+      var p = pyramideDe(r);
+      if (!p) {
+        b.innerHTML = '<h3 class="x-h3" id="pyramide">' + T("Pyramide des âges") +
+          '</h3><p class="x-note" style="margin-top:0">' +
+          T("La structure par âge n'a pas pu être chargée — connexion interrompue, ou fichier absent du cache hors connexion. Les grands groupes d'âge restent affichés dans les indicateurs ci-dessus.") +
+          "</p>";
+        return;
+      }
+      var lect = [
+        TF("{pct} % ont moins de 15 ans", { pct: fmt(pct(p.jeunes, p.total)) }),
+        TF("{pct} % ont 65 ans ou plus", { pct: fmt(pct(p.aines, p.total)) }),
+        TF("{n} dépendants pour 100 personnes de 15 à 64 ans",
+           { n: fmt(Math.round((p.jeunes + p.aines) / p.actifs * 1000) / 10) }),
+        TF("{n} hommes pour 100 femmes",
+           { n: fmt(Math.round(p.hommes / p.femmes * 1000) / 10) })
+      ];
+      var couv = r.niveau_admin === "3" ? "" :
+        TN({ one: "somme sur {n} commune", other: "somme sur {n} communes" },
+           p.communes, { n: p.communes });
+      b.innerHTML = '<h3 class="x-h3" id="pyramide">' + T("Pyramide des âges") + "</h3>" +
+        '<p class="x-note" style="margin-top:0">' +
+        T("Femmes à gauche, hommes à droite ; chaque barre est la part de la population totale du territoire. Les effectifs exacts sont sous le graphique.") +
+        (couv ? " " + esc(couv) + "." : "") + "</p>" +
+        '<div class="x-pyr-fig">' + svgPyramide(p, r) + "</div>" +
+        '<p class="x-legende"><span class="x-l-f"></span> ' + T("Femmes") +
+        '  <span class="x-l-m"></span> ' + T("Hommes") + "</p>" +
+        '<p class="x-pyr-lect">' + lect.map(esc).join(" · ") + "</p>" +
+        '<details class="x-tech"><summary>' + T("Voir les effectifs") + "</summary>" +
+        tablePyramide(p) + '<p class="x-note">' + TF(
+          "{src} · millésime {an} · {statut} · relevé par Atmart le {date}",
+          { src: esc(pyrMeta.source || ""), an: esc(pyrMeta.annee || ""),
+            statut: esc(T(STATUT[pyrMeta.statut]) || pyrMeta.statut || ""),
+            date: jour(pyrMeta.extraction) }) + "</p></details>" +
+        '<p class="x-note">' +
+        T("Projection, pas un dénombrement : la structure par âge d'une seule commune se lit avec prudence — le rapport de masculinité à 0-4 ans, stable au niveau national, varie de 89 à 116 selon la commune.") +
+        ' <button class="x-lien x-btn-pyr">' + T("Télécharger cette pyramide (CSV)") +
+        "</button></p>";
+    });
+  }
+
   function blocObjectif(r) {
     if (ADMIN || r.niveau_admin !== "3") return "";
     var o = OBJECTIFS[objectif];
@@ -907,11 +1137,12 @@
     courant = r;
     var h = [blocResume(r), blocCarte(r)];
     if (r.niveau_admin === "3") {
-      h.push(blocObjectif(r), blocIndicateurs(r), blocComparer(r), blocLacunes(r));
-    } else h.push(agregat(r));
+      h.push(blocObjectif(r), blocIndicateurs(r), blocPyramide(r), blocComparer(r), blocLacunes(r));
+    } else h.push(agregat(r), blocPyramide(r));
     h.push(blocOrganisations(r), blocEnfants(r), blocVerrou(r), blocTechnique(r));
     $("#x-fiche").innerHTML = h.join("");
     $("#x-fiche").hidden = false;
+    observerPyramide(r);
     var t = $("#x-titre-fiche");
     if (t) t.textContent = nomT(r);
     majURL();
@@ -1325,6 +1556,26 @@
           }));
         return;
       }
+      /* La pyramide s'exporte avec ses effectifs exacts, pas avec les parts
+         arrondies du graphique — et avec la ligne de traçabilité commune. */
+      if (e.target.closest(".x-btn-pyr") && courant) {
+        var p = pyramideDe(courant);
+        if (!p) return;
+        var lignes = [];
+        pyrTranches.forEach(function (t, i) {
+          ["F", "M", "T"].forEach(function (s) {
+            lignes.push([courant.pcode || "", nomT(courant), pyrMeta.annee || "",
+              s, libTranche(t), t.min, t.max === null ? "" : t.max, p[s][i],
+              pct(p[s][i], p.total), pyrMeta.statut || "", pyrMeta.qualite || "",
+              pyrMeta.source || ""].concat(ligneMeta()));
+          });
+        });
+        telecharger("atmart_" + (courant.pcode || courant.atmart_geo_id) + "_pyramide_ages.csv",
+          ["pcode", "territoire", "annee_reference", "sexe", "tranche_age", "borne_min",
+           "borne_max", "effectif", "part_population", "statut_valeur", "niveau_qualite",
+           "source"].concat(enTeteMeta()), lignes);
+        return;
+      }
       if (e.target.closest(".x-btn-lien")) {
         var u = location.href;
         if (navigator.clipboard) navigator.clipboard.writeText(u);
@@ -1347,7 +1598,14 @@
         rendreComparaison(); majURL(); return;
       }
       if (e.target.closest(".x-btn-export-comp")) { exporterComparaison(); return; }
-      if (e.target.closest(".x-btn-print")) { window.print(); return; }
+      /* Imprimer une fiche dont la pyramide n'a pas encore été atteinte à
+         l'écran produirait un PDF amputé : on l'attend, puis on imprime. */
+      if (e.target.closest(".x-btn-print")) {
+        if (courant && $("#x-pyramide") && !$("#x-pyramide").innerHTML) {
+          remplirPyramide(courant).then(function () { window.print(); });
+        } else window.print();
+        return;
+      }
       var ba = e.target.closest("[data-agg]");
       if (ba) {
         var ent = parId[ba.dataset.agg];

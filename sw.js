@@ -1,5 +1,5 @@
 // Atmart PWA — cache statique (les appels IA passent toujours par le reseau)
-const CACHE = "atmart-v60";
+const CACHE = "atmart-v61";
 
 // Le noyau du site : navigation et identite visuelle.
 const CORE = ["/", "/index.html", "/chofe360.html", "/karye360.html", "/studio.html", "/atelier.html",
@@ -27,7 +27,7 @@ const DATA = [
   "/datasets.html", "/donnees-solutions.html", "/donnees-campus.html",
   "/donnees-parrainage.html", "/donnees-confiance.html",
   "/donnees-pack-geo-haiti.html",
-  "/assets/data.css?v=11", "/assets/explorateur.js?v=21",
+  "/assets/data.css?v=12", "/assets/explorateur.js?v=22",
   "/data/atmart_referentiel_territoire_base_HT.csv",
   "/data/atmart_indicateurs_communes_HT.csv",
   "/data/atmart_referentiel_indicateurs.csv", "/data/atmart_referentiel_indicateurs_i18n.csv",
@@ -36,6 +36,13 @@ const DATA = [
   "/data/haiti_contour_simplifie.geojson", "/data/atmart_millesimes_territoriaux.csv",
   "/hors-connexion.html"
 ];
+// Volontairement absent de cette liste : /data/atmart_pyramide_ages_HT.csv
+// (1,1 Mo, plus lourd que tout le reste reuni). Le service worker s'installe
+// sur n'importe quelle page du site, atelier compris : imposer ce
+// telechargement a chaque visiteur, pour une section que peu ouvriront, serait
+// paye d'abord par ceux qui ont la connexion la plus faible. La strategie
+// reseau-puis-cache ci-dessous le met en cache des la premiere fiche
+// consultee ; il est alors disponible hors connexion comme les autres.
 
 self.addEventListener("install", (e) => {
   e.waitUntil(
