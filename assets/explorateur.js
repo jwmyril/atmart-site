@@ -12,7 +12,7 @@
   /* Version des donnees. A incrementer des qu'un fichier de data/ est
      regenere : sinon le cache du navigateur sert l'ancien fichier et
      l'interface affiche du perime sans le savoir. */
-  var DV = "?d=2026-07-31c";
+  var DV = "?d=2026-08-11a";
   var F = {
     terr: DIR + (ADMIN ? "atmart_referentiel_territoire_HT.csv"
                        : "atmart_referentiel_territoire_base_HT.csv"),
@@ -271,10 +271,10 @@
   };
 
   /* --------------------------------------------------------- normalisation
-     Rapporter une valeur a une base commune. « par habitant » manque a l'appel :
-     la population communale n'est pas encore integree (aucune des 192 entites
-     n'en porte). Le proposer griserait une promesse qu'on ne tient pas, alors
-     on l'affiche indisponible, avec sa raison. */
+     Rapporter une valeur a une base commune. Les quatre lectures sont ouvertes
+     depuis que la population communale est integree : « par habitant » repose
+     sur une projection 2024 (statut E), ce que la note dit a l'utilisateur au
+     lieu de le laisser croire a un denombrement. */
   var NORMALISATIONS = {
     total: { nom: "Valeur brute", suffixe: "", possible: true },
     km2: { nom: "Pour 100 km\u00b2", suffixe: " / 100 km\u00b2", possible: true },
@@ -789,6 +789,20 @@
   /* Agregation : la regle vient du dictionnaire, plus d'une liste ecrite ici.
      Un pourcentage se recalcule sur les totaux ; le moyenner entre communes
      donnerait le meme poids a une commune de 3 000 habitants qu'a la capitale. */
+
+  /* Deux ratios ne se recalculent pas sur la meme echelle : un pourcentage et
+     « pour 100 km² » se multiplient par 100, une densite au km² par 1. Le
+     dictionnaire porte ce facteur depuis v1.2026.08. S'il vient d'un fichier
+     anterieur — un cache hors connexion, par exemple — on le relit dans le
+     denominateur de l'unite plutot que de rendre un ordre de grandeur faux. */
+  function facteurRatio(d) {
+    var f = nb(d.facteur_ratio);
+    if (f) return f;
+    if (d.unite === "%") return 100;
+    var chiffres = String(d.unite || "").split("/")[1] || "";
+    return +chiffres.replace(/[^\d]/g, "") || 1;
+  }
+
   function communesDe(r) {
     var out = [];
     terr.forEach(function (x) {
@@ -833,7 +847,7 @@
         var num = d.numerateur === "IND-GEO-001" ? nb(r.superficie_km2) : sommes[d.numerateur];
         var den = d.denominateur === "IND-GEO-001" ? nb(r.superficie_km2) : sommes[d.denominateur];
         if (num == null || den == null || !den) return;
-        val = (d.unite === "%") ? num / den * 100 : num / den * 100;
+        val = num / den * facteurRatio(d);
         note = T("recalculé sur les totaux, pas moyenné entre communes");
       } else if (regle === "moyenne_simple") {
         if (compte[k] === undefined) return;
@@ -1122,7 +1136,9 @@
     var normInfo = NORMALISATIONS[normalisation];
     var h = ['<p class="x-note">' + esc(libelle(indId, "definition")) +
              (an ? " <b>" + TF("Millésime {an}.", { an: esc(an) }) + "</b>" : "") +
-             (normalisation !== "total"
+             /* Annoncer « Lecture : pour 100 km² » au-dessus de valeurs brutes
+                contredirait l'avertissement affiche juste en dessous. */
+             (normalisation !== "total" && normalisable(indId)
                ? " <b>" + T("Lecture :") + "</b> " + esc(T(normInfo.nom)) + "." : "") +
              (normalisation === "habitant" && normInfo.note
                ? " " + esc(T(normInfo.note)) : "") +

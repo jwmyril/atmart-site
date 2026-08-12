@@ -57,5 +57,6 @@ Thème sombre. Couleurs : navy #0a1a2f, teal #2ec4b6, ambre #f4a261, rouge #e639
 ## Vérification avant push
 
 1. Servir localement (`python -m http.server 8360 --directory .`) et vérifier la page modifiée.
+   **Sauf pour l'Explorateur** : il lance quatre requêtes de données en parallèle et `python -m http.server` en coupe une sur deux (`ERR_CONNECTION_RESET`) — la page reste bloquée sur « Chargement des référentiels… » alors que le code est bon. Servir avec un serveur statique qui tient les connexions parallèles (un `node:http` de vingt lignes suffit) avant de conclure à une régression.
 2. Zéro erreur console ; liens internes valides ; le sélecteur de langue fonctionne sur les nouvelles pages (inclure script.js + i18n.js).
 3. `git add` ciblé, message de commit en français, push sur main.
