@@ -19,8 +19,9 @@
     vals: DIR + "atmart_indicateurs_communes_HT.csv",
     dico: DIR + "atmart_referentiel_indicateurs.csv",
     orgs: ADMIN ? DIR + "atmart_referentiel_organisations_HT.csv" : null,
-    /* Chargé à la demande, pas au démarrage : voir « pyramide des âges ». */
-    pyr: DIR + "atmart_pyramide_ages_HT.csv"
+    /* Chargés à la demande, pas au démarrage : voir « pyramide des âges ». */
+    pyr: DIR + "atmart_pyramide_ages_HT.csv",
+    prix: DIR + "atmart_prix_marches_HT.csv"
   };
 
   var terr = [], vals = [], orgs = [], dico = {}, contour = null;
@@ -878,14 +879,20 @@
      Prince par défaut : charger 1,1 Mo à ce moment-là ferait payer le
      graphique à tout visiteur, y compris à celui qui vient pour le classement
      et ne descendra jamais jusqu'ici. */
-  function observerPyramide(r) {
-    var b = $("#x-pyramide");
+  function observerPyramide(r) { aLApproche("#x-pyramide", remplirPyramide, r); }
+
+  /* Deux sections lourdes suivent la même règle : le fichier ne part que si la
+     section approche de l'écran. La pyramide pèse 7 140 lignes à analyser, la
+     série de prix 14 140 — sur un téléphone bas de gamme, c'est ce coût-là qui
+     se voit, pas le téléchargement. */
+  function aLApproche(selecteur, remplir, r) {
+    var b = $(selecteur);
     if (!b) return;
-    if (!window.IntersectionObserver) return remplirPyramide(r);
+    if (!window.IntersectionObserver) return remplir(r);
     var io = new IntersectionObserver(function (entrees) {
       if (!entrees.some(function (e) { return e.isIntersecting; })) return;
       io.disconnect();
-      remplirPyramide(r);
+      remplir(r);
     }, { rootMargin: "300px" });
     io.observe(b);
   }
@@ -1020,6 +1027,136 @@
         partiels, { n: partiels }));
     }
     return a;
+  }
+
+  /* --------------------------------------------------- prix des marchés
+     La première série temporelle du produit. Elle se lit un produit à la fois :
+     du maïs à 60 gourdes la marmite et de l'huile à 500 gourdes le gallon sur
+     le même axe ne se compareraient pas, et tout indexer sur 100 masquerait le
+     prix réel. Un produit, son unité, ses gourdes. */
+  var prixIdx = null, prixPromesse = null, prixMeta = {}, prixProduit = null;
+  var FENETRE = 60;   /* mois affichés : cinq ans ; la série entière est en CSV */
+
+  function chargerPrix() {
+    if (prixPromesse) return prixPromesse;
+    prixPromesse = charger(F.prix, 1).then(function (txt) {
+      var idx = {};
+      parseCSV(txt).forEach(function (l) {
+        if (!l.pcode_commune || !l.prix) return;
+        var c = idx[l.pcode_commune] || (idx[l.pcode_commune] = {});
+        var k = l.produit + " · " + l.marche;
+        var s = c[k] || (c[k] = { produit: l.produit, marche: l.marche,
+                                  unite: l.unite_mesure, points: [] });
+        s.points.push({ mois: l.mois, prix: nb(l.prix) });
+        prixMeta = { source: l.source, statut: l.statut_valeur,
+                     extraction: l.date_extraction };
+      });
+      Object.keys(idx).forEach(function (pc) {
+        Object.keys(idx[pc]).forEach(function (k) {
+          idx[pc][k].points.sort(function (a, b) { return a.mois < b.mois ? -1 : 1; });
+        });
+      });
+      prixIdx = idx;
+      return idx;
+    }).catch(function () { prixIdx = null; return null; });
+    return prixPromesse;
+  }
+
+  /* Un axe qui s'arrête à 137,4 gourdes ne se lit pas : on arrondit vers le haut
+     à un pas rond. Et l'axe part de zéro — tronquer l'origine d'un graphique de
+     prix exagère visuellement la moindre variation. */
+  function pasRond(max) {
+    var p = Math.pow(10, Math.floor(Math.log(max) / Math.LN10) - 1);
+    var c = [1, 2, 2.5, 5, 10].map(function (m) { return m * p; })
+              .filter(function (x) { return max / x <= 8; });
+    return c.length ? c[0] : p * 10;
+  }
+
+  function svgSerie(s, etroit) {
+    var pts = s.points.slice(-FENETRE);
+    var L = etroit ? 420 : 760, H = etroit ? 260 : 300;
+    var G = etroit ? 48 : 56, BAS = 28, HAUT = 14;
+    var max = Math.max.apply(null, pts.map(function (p) { return p.prix; }));
+    var pas = pasRond(max), axe = Math.ceil(max / pas) * pas;
+    var x = function (i) { return G + i * (L - G - 10) / Math.max(pts.length - 1, 1); };
+    var y = function (v) { return HAUT + (1 - v / axe) * (H - HAUT - BAS); };
+    var out = [], g;
+    for (g = 0; g <= axe + 1e-9; g += pas) {
+      out.push('<line class="x-pyr-grille" x1="' + G + '" x2="' + (L - 10) +
+        '" y1="' + y(g).toFixed(1) + '" y2="' + y(g).toFixed(1) + '" />');
+      out.push('<text class="x-pyr-axe" x="' + (G - 6) + '" y="' + (y(g) + 4).toFixed(1) +
+        '" text-anchor="end">' + esc(fmt(g)) + "</text>");
+    }
+    /* Une étiquette par année — mais pas deux collées : une série qui commence
+       en septembre place 2019 et 2020 à quatre mois d'écart, illisibles côte à
+       côte sur un écran étroit. */
+    var an = "", dernierX = -1e9, ecart = etroit ? 46 : 58;
+    pts.forEach(function (p, i) {
+      if (p.mois.slice(0, 4) === an) return;
+      an = p.mois.slice(0, 4);
+      if (x(i) - dernierX < ecart) return;
+      dernierX = x(i);
+      out.push('<text class="x-pyr-axe" x="' + x(i).toFixed(1) + '" y="' + (H - 8) +
+        '" text-anchor="middle">' + an + "</text>");
+    });
+    out.push('<path class="x-serie" d="M' + pts.map(function (p, i) {
+      return x(i).toFixed(1) + " " + y(p.prix).toFixed(1); }).join("L") + '" />');
+    pts.forEach(function (p, i) {
+      out.push('<circle class="x-serie-pt" cx="' + x(i).toFixed(1) + '" cy="' +
+        y(p.prix).toFixed(1) + '" r="' + (etroit ? 3.4 : 2.6) + '"><title>' +
+        esc(p.mois + " · " + fmt(p.prix) + " HTG / " + s.unite) + "</title></circle>");
+    });
+    var dernier = pts[pts.length - 1], premier = pts[0];
+    var alt = TF("Prix de {produit} au marché de {marche}, de {debut} à {fin} : {n} relevés mensuels, de {min} à {max} gourdes par {unite}. Dernier relevé connu, {dernier} gourdes.",
+      { produit: s.produit, marche: s.marche, debut: premier.mois, fin: dernier.mois,
+        n: pts.length, unite: s.unite,
+        min: fmt(Math.min.apply(null, pts.map(function (p) { return p.prix; }))),
+        max: fmt(max), dernier: fmt(dernier.prix) });
+    return '<svg class="' + (etroit ? "x-pyr-etroit" : "x-pyr-large") +
+      '" viewBox="0 0 ' + L + " " + H + '" role="img" aria-label="' + esc(alt) +
+      '" preserveAspectRatio="xMidYMid meet">' + out.join("") + "</svg>";
+  }
+
+  function blocPrix(r) { return '<div id="x-prix" class="x-pyr"></div>'; }
+
+  function remplirPrix(r) {
+    if (!$("#x-prix")) return Promise.resolve();
+    return chargerPrix().then(function () {
+      if (!courant || courant.atmart_geo_id !== r.atmart_geo_id) return;
+      var b = $("#x-prix");
+      if (!b) return;
+      var com = prixIdx && prixIdx[r.pcode];
+      /* Pas de série ici : la commune n'est pas sur le réseau du PAM. Inutile de
+         le répéter — l'absence est déjà documentée dans « ce qui reste à
+         documenter », avec son motif. */
+      if (!com) { b.innerHTML = ""; return; }
+      var cles = Object.keys(com).sort(function (a, b2) {
+        return com[b2].points.length - com[a].points.length; });
+      if (cles.indexOf(prixProduit) < 0) prixProduit = cles[0];
+      var s = com[prixProduit];
+      var pts = s.points.slice(-FENETRE);
+      var opts = cles.map(function (k) {
+        return '<option value="' + esc(k) + '"' + (k === prixProduit ? " selected" : "") +
+               ">" + esc(com[k].produit + " — " + com[k].marche) +
+               " (" + com[k].points.length + ")</option>";
+      }).join("");
+      b.innerHTML = '<h3 class="x-h3" id="prix">' + T("Prix sur le marché") + "</h3>" +
+        '<p class="x-note" style="margin-top:0">' +
+        T("La première série mensuelle du backbone. Un produit à la fois, dans son unité et en gourdes courantes : des prix d'unités différentes sur un même axe ne se compareraient pas.") +
+        "</p>" +
+        '<div class="x-adapter"><label for="x-prix-produit">' + T("Produit suivi") +
+        '</label><select id="x-prix-produit">' + opts + "</select></div>" +
+        '<div class="x-pyr-fig">' + svgSerie(s, (window.innerWidth || 1024) < 720) + "</div>" +
+        '<p class="x-pyr-lect">' + esc(TF(
+          "{n} relevés affichés, de {debut} à {fin} · dernier prix connu {prix} gourdes la {unite} · {total} relevés dans la série complète",
+          { n: pts.length, debut: pts[0].mois, fin: pts[pts.length - 1].mois,
+            prix: fmt(pts[pts.length - 1].prix), unite: s.unite,
+            total: s.points.length })) + "</p>" +
+        '<p class="x-note">' +
+        T("Prix de détail nominaux en gourdes, non déflatés : une partie de la hausse visible est de l'inflation. Le PAM relève sur un marché urbain principal par département — ce ne sont pas des prix ruraux.") +
+        ' <a href="data/atmart_prix_marches_HT.csv" download>' +
+        T("Série complète (CSV)") + "</a></p>";
+    });
   }
 
   function blocObjectif(r) {
@@ -1470,12 +1607,14 @@
     courant = r;
     var h = [montrerAccueil ? blocAccueil(r) : "", blocResume(r), blocCarte(r)];
     if (r.niveau_admin === "3") {
-      h.push(blocObjectif(r), blocIndicateurs(r), blocPyramide(r), blocComparer(r), blocLacunes(r));
+      h.push(blocObjectif(r), blocIndicateurs(r), blocPyramide(r), blocPrix(r),
+             blocComparer(r), blocLacunes(r));
     } else h.push(agregat(r), blocPyramide(r));
     h.push(blocOrganisations(r), blocEnfants(r), blocVerrou(r), blocTechnique(r));
     $("#x-fiche").innerHTML = h.join("");
     $("#x-fiche").hidden = false;
     observerPyramide(r);
+    aLApproche("#x-prix", remplirPrix, r);
     var t = $("#x-titre-fiche");
     if (t) t.textContent = nomT(r);
     majURL();
@@ -2136,6 +2275,14 @@
       if (e.target.closest("#x-pourquoi")) {
         var d = $("#x-millesimes"); if (d) { d.open = true; d.scrollIntoView({ behavior: "smooth" }); }
       }
+    });
+
+    /* Le sélecteur de produit vit dans une section réécrite à chaque rendu :
+       l'écoute se fait donc sur le document, pas sur l'élément. */
+    document.addEventListener("change", function (e) {
+      if (!e.target || e.target.id !== "x-prix-produit" || !courant) return;
+      prixProduit = e.target.value;
+      remplirPrix(courant);
     });
 
     var selObj = $("#x-objectif");

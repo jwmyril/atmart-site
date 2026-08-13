@@ -587,6 +587,8 @@ select:focus-visible, input:focus-visible {
   /* Imprimée en noir et blanc, la pyramide doit rester lisible : le côté
      distingue les séries, le remplissage donne le contraste. */
   .x-pyr-f { fill: #999 !important; opacity: 1 !important; }
+  .x-serie { stroke: #111 !important; }
+  .x-serie-pt { fill: #333 !important; }
   .x-pyr-m { fill: #333 !important; opacity: 1 !important; }
   .x-pyr-axe, .x-pyr-lab { fill: #333 !important; }
   .x-pyr-tete { fill: #111 !important; }
@@ -635,3 +637,10 @@ select:focus-visible, input:focus-visible {
 .x-couv th[scope="row"] { text-align: left; font-weight: 600; color: var(--ink); }
 .x-couv-nul { color: var(--ink-dim); opacity: 0.5; }
 .x-couv-part { color: var(--amber); }
+
+/* ===== Série de prix =====
+   L'axe part de zéro : tronquer l'origine exagérerait la moindre variation. */
+.x-serie { fill: none; stroke: var(--teal); stroke-width: 2; stroke-linejoin: round; }
+.x-serie-pt { fill: var(--teal); opacity: 0.75; }
+.x-serie-pt:hover { fill: var(--amber); opacity: 1; }
+#x-prix .x-adapter { margin: 0.9rem 0; }
