@@ -104,27 +104,27 @@ IND-EDU-003,es,comparabilite,Mismas limitaciones de cobertura que las escuelas r
 IND-EDU-003,es,limites_connues,Hereda la cobertura parcial del censo escolar.
 IND-EDU-003,es,unite,número
 IND-EDU-003,es,sens_interpretation,Numerador de la proporción de escuelas públicas.
-IND-EDU-010,ht,nom,Lekòl pou chak 10 000 timoun
-IND-EDU-010,ht,definition,Kantite lekòl rapòte ak popilasyon ki nan laj lekòl la.
-IND-EDU-010,ht,methode_calcul,IND-EDU-001 ÷ popilasyon 5-18 an × 10 000.
-IND-EDU-010,ht,comparabilite,Pa konparab toutotan rejis lekòl la rete pasyèl.
-IND-EDU-010,ht,limites_connues,Li kimile kouvèti pasyèl lekòl yo ak absans popilasyon pa laj.
-IND-EDU-010,ht,unite,lekòl / 10 000 timoun
-IND-EDU-010,ht,sens_interpretation,Wo = òf lekòl la dans.
-IND-EDU-010,en,nom,"Schools per 10,000 children"
-IND-EDU-010,en,definition,Number of schools related to the school-age population.
-IND-EDU-010,en,methode_calcul,"IND-EDU-001 ÷ population aged 5-18 × 10,000."
-IND-EDU-010,en,comparabilite,Not comparable while the school register remains partial.
-IND-EDU-010,en,limites_connues,Compounds the partial coverage of schools and the absence of population by age.
-IND-EDU-010,en,unite,"schools / 10,000 children"
-IND-EDU-010,en,sens_interpretation,High = dense school provision.
-IND-EDU-010,es,nom,Escuelas por 10 000 niños
-IND-EDU-010,es,definition,Número de escuelas en relación con la población en edad escolar.
-IND-EDU-010,es,methode_calcul,IND-EDU-001 ÷ población de 5 a 18 años × 10 000.
-IND-EDU-010,es,comparabilite,No comparable mientras el registro escolar siga siendo parcial.
-IND-EDU-010,es,limites_connues,Acumula la cobertura parcial de las escuelas y la ausencia de población por edad.
-IND-EDU-010,es,unite,escuelas / 10 000 niños
-IND-EDU-010,es,sens_interpretation,Alto = oferta escolar densa.
+IND-EDU-010,ht,nom,Lekòl pou chak 10 000 jèn 5 a 19 an
+IND-EDU-010,ht,definition,Kantite lekòl ki anrejistre divize pa popilasyon jèn ki nan laj pou al lekòl nan komin nan.
+IND-EDU-010,ht,methode_calcul,"IND-EDU-001 ÷ IND-POP-007 × 10 000. Bòn anwo denominatè a se 19 an, se pa 18 : COD-PS bay laj yo pa gwoup senk ane, koupe tranch 15-19 la ta vle di envante yon chif."
+IND-EDU-010,ht,comparabilite,"Konparab ant 49 komin kat lekòl 2022 la kouvri yo, epi sèlman ant yo menm. Lòt 91 yo pa gen yon rapò ki ba : yo pa gen kontaj ditou."
+IND-EDU-010,ht,limites_connues,"Nimeratè a kouvri sèlman 49 komin sou 140 : rapò a dekri lekòl yo anrejistre yo, se pa lekòl ki egziste yo. Denominatè a se yon pwojeksyon (COD-PS 2024, estati E), e de milezim yo pa menm — 2022 pou lekòl, 2024 pou popilasyon. Yon lekòl ki anrejistre pa vle di yon lekòl ki louvri, ni yon plas ki disponib : endikatè a konte etablisman, li pa konte kapasite. Eka nou wè ant 49 komin ki kouvri yo ale depi 1,71 rive 154,28 : yon diferans konsa montre dabò ke resansman an pa t fèt menm jan toupatou, li pa montre òf la."
+IND-EDU-010,ht,unite,lekòl / 10 000 jèn
+IND-EDU-010,ht,sens_interpretation,"Wo = anpil etablisman anrejistre parapò ak jèn 5 a 19 an yo. Li pa di anyen sou gwosè lekòl yo, sou eta yo, ni sou distans pou rive."
+IND-EDU-010,en,nom,"Schools per 10,000 young people aged 5 to 19"
+IND-EDU-010,en,definition,Number of recorded schools per school-age population of the commune.
+IND-EDU-010,en,methode_calcul,"IND-EDU-001 ÷ IND-POP-007 × 10,000. The upper bound of the denominator is 19, not 18: the COD-PS is five-year banded, and splitting the 15-19 band would mean inventing a distribution."
+IND-EDU-010,en,comparabilite,"Comparable across the 49 communes covered by the 2022 school mapping, and among those only. The other 91 do not have a low ratio: they have no count at all."
+IND-EDU-010,en,limites_connues,"The numerator covers only 49 of 140 communes: the ratio describes recorded schools, not existing ones. The denominator is a projection (COD-PS 2024, status E), and the reference years differ — 2022 for schools, 2024 for population. A recorded school is not an open school, nor an available seat: the indicator counts establishments, not capacity. Across the 49 covered communes the values range from 1.71 to 154.28: such a spread reflects the uneven completeness of the count first, not the actual provision."
+IND-EDU-010,en,unite,"schools / 10,000 young people"
+IND-EDU-010,en,sens_interpretation,"High = many recorded establishments relative to 5-19 year-olds. It says nothing about school size, condition, or travel distance."
+IND-EDU-010,es,nom,Escuelas por 10 000 jóvenes de 5 a 19 años
+IND-EDU-010,es,definition,Número de escuelas registradas por población en edad escolar de la comuna.
+IND-EDU-010,es,methode_calcul,"IND-EDU-001 ÷ IND-POP-007 × 10 000. El límite superior del denominador es 19 años y no 18: el COD-PS es quinquenal, y dividir el grupo 15-19 exigiría inventar un reparto."
+IND-EDU-010,es,comparabilite,"Comparable entre las 49 comunas cubiertas por el mapeo escolar de 2022, y solo entre ellas. Las otras 91 no tienen una razón baja: no tienen conteo alguno."
+IND-EDU-010,es,limites_connues,"El numerador cubre solo 49 de 140 comunas: la razón describe las escuelas registradas, no las existentes. El denominador es una proyección (COD-PS 2024, estado E), y los años difieren — 2022 para las escuelas, 2024 para la población. Una escuela registrada no es una escuela abierta ni una plaza disponible: el indicador cuenta establecimientos, no capacidad. Entre las 49 comunas cubiertas los valores van de 1,71 a 154,28: una diferencia así refleja ante todo la desigual exhaustividad del censo, no la oferta real."
+IND-EDU-010,es,unite,escuelas / 10 000 jóvenes
+IND-EDU-010,es,sens_interpretation,"Alto = muchos establecimientos registrados en relación con los jóvenes de 5 a 19 años. No dice nada del tamaño de las escuelas, de su estado ni de la distancia a recorrer."
 IND-GEO-001,ht,nom,Sipèfisi
 IND-GEO-001,ht,definition,Sipèfisi antite teritoryal la.
 IND-GEO-001,ht,methode_calcul,Total sipèfisi seksyon kominal yo (CNIGS).
@@ -651,23 +651,23 @@ IND-SAN-005,es,limites_connues,"Mide la calidad de la fuente, no la del sistema 
 IND-SAN-005,es,unite,número
 IND-SAN-005,es,sens_interpretation,Numerador de la completitud de la geocodificación.
 IND-SAN-010,ht,nom,Etablisman sante pou chak 10 000 moun
-IND-SAN-010,ht,definition,Kantite etablisman sante rapòte ak popilasyon an.
-IND-SAN-010,ht,methode_calcul,IND-SAN-001 ÷ popilasyon × 10 000.
-IND-SAN-010,ht,comparabilite,L ap konparab ant komin lè popilasyon an fin antre.
-IND-SAN-010,ht,limites_connues,Se denominatè a ki deside tout : yon popilasyon estime bay yon endikatè estime (estati E).
+IND-SAN-010,ht,definition,Kantite etablisman sante ki anrejistre divize pa popilasyon komin nan.
+IND-SAN-010,ht,methode_calcul,IND-SAN-001 ÷ IND-POP-001 × 10 000.
+IND-SAN-010,ht,comparabilite,"Konparab ant 14 komin sous OCHA 2023 la kouvri yo, epi sèlman ant yo menm."
+IND-SAN-010,ht,limites_connues,"Nimeratè a kouvri sèlman 14 komin sou 140 : rapò a dekri etablisman yo anrejistre yo, se pa òf swen an. Denominatè a se yon pwojeksyon (COD-PS 2024, estati E), e milezim yo pa menm — 2023 pou etablisman, 2024 pou popilasyon. Yon dispansè ak yon lopital konte chak pou youn : endikatè a pa mezire ni kapasite, ni materyèl, ni pèsonèl. Eka nou wè ant 14 komin ki kouvri yo ale depi 0,61 rive 7,12 : yon diferans konsa montre dabò ke resansman an pa t fèt menm jan toupatou, li pa montre òf la."
 IND-SAN-010,ht,unite,etablisman / 10 000 moun
-IND-SAN-010,ht,sens_interpretation,Wo = òf la dans parapò ak popilasyon an.
+IND-SAN-010,ht,sens_interpretation,"Wo = anpil etablisman anrejistre parapò ak popilasyon an. Li li ansanm ak tan pou rive, yon rapò kominal pa ka kenbe sa."
 IND-SAN-010,en,nom,"Health facilities per 10,000 inhabitants"
-IND-SAN-010,en,definition,Number of health facilities related to the population.
-IND-SAN-010,en,methode_calcul,"IND-SAN-001 ÷ population × 10,000."
-IND-SAN-010,en,comparabilite,Will be comparable between communes once population is integrated.
-IND-SAN-010,en,limites_connues,The denominator determines everything: an estimated population produces an estimated indicator (status E).
+IND-SAN-010,en,definition,Number of recorded health facilities per inhabitant of the commune.
+IND-SAN-010,en,methode_calcul,"IND-SAN-001 ÷ IND-POP-001 × 10,000."
+IND-SAN-010,en,comparabilite,"Comparable across the 14 communes covered by the 2023 OCHA source, and among those only."
+IND-SAN-010,en,limites_connues,"The numerator covers only 14 of 140 communes: the ratio describes recorded facilities, not the supply of care. The denominator is a projection (COD-PS 2024, status E), and the reference years differ — 2023 for facilities, 2024 for population. A health post and a hospital each count as one: the indicator measures neither capacity, nor equipment, nor staff. Across the 14 covered communes the values range from 0.61 to 7.12: such a spread reflects the uneven completeness of the count first, not the actual provision."
 IND-SAN-010,en,unite,"facilities / 10,000 inhab."
-IND-SAN-010,en,sens_interpretation,High = dense provision relative to the population.
+IND-SAN-010,en,sens_interpretation,"High = many recorded facilities relative to population. Read alongside travel time, which a communal ratio cannot capture."
 IND-SAN-010,es,nom,Establecimientos de salud por 10 000 habitantes
-IND-SAN-010,es,definition,Número de establecimientos de salud en relación con la población.
-IND-SAN-010,es,methode_calcul,IND-SAN-001 ÷ población × 10 000.
-IND-SAN-010,es,comparabilite,Será comparable entre comunas una vez integrada la población.
-IND-SAN-010,es,limites_connues,El denominador lo determina todo: una población estimada produce un indicador estimado (estado E).
+IND-SAN-010,es,definition,Número de establecimientos de salud registrados por habitante de la comuna.
+IND-SAN-010,es,methode_calcul,IND-SAN-001 ÷ IND-POP-001 × 10 000.
+IND-SAN-010,es,comparabilite,"Comparable entre las 14 comunas cubiertas por la fuente OCHA 2023, y solo entre ellas."
+IND-SAN-010,es,limites_connues,"El numerador cubre solo 14 de 140 comunas: la razón describe los establecimientos registrados, no la oferta de atención. El denominador es una proyección (COD-PS 2024, estado E), y los años difieren — 2023 para los establecimientos, 2024 para la población. Un dispensario y un hospital cuentan cada uno por uno: el indicador no mide ni capacidad, ni equipamiento, ni personal. Entre las 14 comunas cubiertas los valores van de 0,61 a 7,12: una diferencia así refleja ante todo la desigual exhaustividad del censo, no la oferta real."
 IND-SAN-010,es,unite,establecimientos / 10 000 hab.
-IND-SAN-010,es,sens_interpretation,Alto = oferta densa en relación con la población.
+IND-SAN-010,es,sens_interpretation,"Alto = muchos establecimientos registrados en relación con la población. Léase junto con el tiempo de acceso, que una razón comunal no capta."

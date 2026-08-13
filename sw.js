@@ -1,5 +1,5 @@
 // Atmart PWA — cache statique (les appels IA passent toujours par le reseau)
-const CACHE = "atmart-v64";
+const CACHE = "atmart-v65";
 
 // Le noyau du site : navigation et identite visuelle.
 const CORE = ["/", "/index.html", "/chofe360.html", "/karye360.html", "/studio.html", "/atelier.html",
@@ -27,22 +27,24 @@ const DATA = [
   "/datasets.html", "/donnees-solutions.html", "/donnees-campus.html",
   "/donnees-parrainage.html", "/donnees-confiance.html",
   "/donnees-pack-geo-haiti.html",
-  "/assets/data.css?v=14", "/assets/explorateur.js?v=25",
+  "/assets/data.css?v=15", "/assets/explorateur.js?v=26",
   "/data/atmart_referentiel_territoire_base_HT.csv",
   "/data/atmart_indicateurs_communes_HT.csv",
   "/data/atmart_referentiel_indicateurs.csv", "/data/atmart_referentiel_indicateurs_i18n.csv",
   "/data/atmart_registre_sources.csv",
   "/data/atmart_referentiel_temps_HT.csv",
   "/data/haiti_contour_simplifie.geojson", "/data/atmart_millesimes_territoriaux.csv",
+  "/data/atmart_pyramide_ages_HT.csv",
   "/hors-connexion.html"
 ];
-// Volontairement absent de cette liste : /data/atmart_pyramide_ages_HT.csv
-// (1,1 Mo, plus lourd que tout le reste reuni). Le service worker s'installe
-// sur n'importe quelle page du site, atelier compris : imposer ce
-// telechargement a chaque visiteur, pour une section que peu ouvriront, serait
-// paye d'abord par ceux qui ont la connexion la plus faible. La strategie
-// reseau-puis-cache ci-dessous le met en cache des la premiere fiche
-// consultee ; il est alors disponible hors connexion comme les autres.
+// La pyramide avait ete ecartee de cette liste au motif de « 1,1 Mo imposes a
+// chaque visiteur ». L'audit du 12/08 a montre que le chiffre etait faux : le
+// serveur sert en gzip, et le fichier pese 72 Ko sur le reseau — moins que
+// style.css. Le motif ne tenait plus, la promesse hors connexion si : en Haiti,
+// une connexion intermittente ne doit pas priver d'une section de la fiche.
+// Elle est donc precachee. Son affichage, lui, reste differe jusqu'a ce que la
+// section approche de l'ecran : ce qui coute sur un telephone bas de gamme,
+// c'est l'analyse des 7 140 lignes, pas leur telechargement.
 
 self.addEventListener("install", (e) => {
   e.waitUntil(

@@ -12,7 +12,7 @@
   /* Version des donnees. A incrementer des qu'un fichier de data/ est
      regenere : sinon le cache du navigateur sert l'ancien fichier et
      l'interface affiche du perime sans le savoir. */
-  var DV = "?d=2026-08-13a";
+  var DV = "?d=2026-08-13b";
   var F = {
     terr: DIR + (ADMIN ? "atmart_referentiel_territoire_HT.csv"
                        : "atmart_referentiel_territoire_base_HT.csv"),
@@ -832,15 +832,19 @@
   }
 
   function tablePyramide(p) {
-    var h = ['<div class="x-tabwrap"><table class="x-tab x-pyr-tab"><thead><tr><th>' +
-             T("Tranche d'âge") + "</th><th>" + T("Femmes") + "</th><th>" + T("Hommes") +
-             "</th><th>" + T("Ensemble") + "</th><th>" + T("Part") + "</th></tr></thead><tbody>"];
+    /* `scope` sur chaque en-tête : sans lui, un lecteur d'écran annonce une
+       cellule sans dire de quelle colonne ni de quelle ligne elle vient. */
+    var h = ['<div class="x-tabwrap"><table class="x-tab x-pyr-tab"><thead><tr><th scope="col">' +
+             T("Tranche d'âge") + '</th><th scope="col">' + T("Femmes") +
+             '</th><th scope="col">' + T("Hommes") + '</th><th scope="col">' +
+             T("Ensemble") + '</th><th scope="col">' + T("Part") +
+             "</th></tr></thead><tbody>"];
     for (var i = pyrTranches.length - 1; i >= 0; i--) {
-      h.push("<tr><th>" + esc(libTranche(pyrTranches[i])) + "</th><td>" + fmt(p.F[i]) +
+      h.push('<tr><th scope="row">' + esc(libTranche(pyrTranches[i])) + "</th><td>" + fmt(p.F[i]) +
         "</td><td>" + fmt(p.M[i]) + "</td><td>" + fmt(p.T[i]) + "</td><td>" +
         fmt(pct(p.T[i], p.total), "%") + "</td></tr>");
     }
-    h.push("<tr><th>" + T("Ensemble") + "</th><td>" + fmt(p.femmes) + "</td><td>" +
+    h.push('<tr><th scope="row">' + T("Ensemble") + "</th><td>" + fmt(p.femmes) + "</td><td>" +
       fmt(p.hommes) + "</td><td>" + fmt(p.total) + "</td><td>" + fmt(100, "%") +
       "</td></tr></tbody></table></div>");
     return h.join("");
@@ -1183,9 +1187,9 @@
     h.push('<p class="x-note" style="margin-top:0">' +
            T("Une case vide n'est pas un zéro. Chaque ligne indique pourquoi la donnée manque et ce qui la débloquerait.") +
            "</p>");
-    h.push('<div class="x-tabwrap"><table class="x-tab x-lacunes"><thead><tr><th>' +
-           T("Indicateur") + "</th><th>" + T("À quoi il sert") + "</th><th>" +
-           T("Pourquoi il manque") + "</th><th>" + T("Ce qui le débloquerait") +
+    h.push('<div class="x-tabwrap"><table class="x-tab x-lacunes"><thead><tr><th scope="col">' +
+           T("Indicateur") + '</th><th scope="col">' + T("À quoi il sert") + '</th><th scope="col">' +
+           T("Pourquoi il manque") + '</th><th scope="col">' + T("Ce qui le débloquerait") +
            "</th></tr></thead><tbody>");
     absents.forEach(function (v) {
       var d = dico[v.indicateur_id] || {};
@@ -1255,7 +1259,7 @@
     return '<details class="x-tech"><summary>' + T("Informations techniques") + "</summary>" +
       '<p class="x-note">' + T("Deux identifiants coexistent : le p-code est le code officiel OCHA/CNIGS, utilisé par les acteurs humanitaires ; l'identifiant Atmart ne change jamais, même si la source renumérote, ce qui permet de suivre une entité dans le temps.") + "</p>" +
       '<table class="x-tab">' + l.map(function (x) {
-        return "<tr><th>" + esc(x[0]) + "</th><td>" + esc(x[1]) + "</td></tr>"; }).join("") +
+        return '<tr><th scope="row">' + esc(x[0]) + "</th><td>" + esc(x[1]) + "</td></tr>"; }).join("") +
       "</table></details>";
   }
 
@@ -1273,9 +1277,9 @@
     Object.keys(parCat).forEach(function (cat) {
       var g = parCat[cat];
       h.push('<p class="x-theme">' + (T(THEME[cat]) || esc(cat)) + " — " + g.length + "</p>");
-      h.push('<div class="x-tabwrap"><table class="x-tab x-orgs"><thead><tr><th>' +
-             T("Nom") + "</th><th>" + T("Type") + "</th><th>" + T("Statut") + "</th><th>" +
-             T("Géo") + "</th><th>" + T("Identifiant") + "</th></tr></thead><tbody>");
+      h.push('<div class="x-tabwrap"><table class="x-tab x-orgs"><thead><tr><th scope="col">' +
+             T("Nom") + '</th><th scope="col">' + T("Type") + '</th><th scope="col">' + T("Statut") + '</th><th scope="col">' +
+             T("Géo") + '</th><th scope="col">' + T("Identifiant") + "</th></tr></thead><tbody>");
       g.slice(0, 60).forEach(function (o) {
         h.push("<tr><td>" + esc(o.nom) + "</td><td>" + esc(o.sous_categorie) + "</td><td>" +
           (esc(o.statut) || "—") + "</td><td>" + (o.geocode === "Oui" ? "✓" : "—") +
@@ -1464,7 +1468,12 @@
             (ongletActif !== "fiche" ? "&onglet=" + ongletActif : "") +
             (niveauComp !== "3" ? "&niveau=" + niveauComp : "") +
             (normalisation !== "total" ? "&norm=" + normalisation : "") +
-            (ficheComplete ? "&complet=1" : "");
+            (ficheComplete ? "&complet=1" : "") +
+            /* Neuvième paramètre d'état. Sans lui, un lien copié depuis une
+               fiche en kreyòl se rouvrait en français chez le destinataire :
+               tout l'état était partageable sauf la langue dans laquelle on
+               avait lu. */
+            (LANG !== "fr" ? "&lang=" + LANG : "");
     var si = $("#x-indicateur");
     if (si && si.value && si.value !== "IND-QUA-001") q += "&ind=" + si.value;
     try { history.replaceState(null, "", q); } catch (e) {}
@@ -1580,10 +1589,10 @@
         { km2: "<b>" + T(NORMALISATIONS.km2.nom) + "</b>",
           part: "<b>" + T(NORMALISATIONS.part.nom) + "</b>" }) + "</p>");
     }
-    h.push('<div class="x-tabwrap"><table class="x-tab x-comp"><thead><tr><th>' +
+    h.push('<div class="x-tabwrap"><table class="x-tab x-comp"><thead><tr><th scope="col">' +
            T("Indicateur") + "</th>");
     ents.forEach(function (e) {
-      h.push("<th>" + esc(nomT(e)) + "<small>" + (T(NIVEAU[e.niveau_admin]) || "") + "</small></th>");
+      h.push('<th scope="col">' + esc(nomT(e)) + "<small>" + (T(NIVEAU[e.niveau_admin]) || "") + "</small></th>");
     });
     h.push("</tr></thead><tbody>");
     var alertes = 0;
@@ -1692,12 +1701,12 @@
     }
 
     var colTerr = T(NIVEAU[niveauComp]);
-    h.push('<div class="x-tabwrap"><table class="x-tab x-classement"><thead><tr><th>#</th><th>' +
-           esc(colTerr) + "</th><th>" + esc(libelle(indId, "nom") || indId) +
+    h.push('<div class="x-tabwrap"><table class="x-tab x-classement"><thead><tr><th scope="col">#</th><th scope="col">' +
+           esc(colTerr) + '</th><th scope="col">' + esc(libelle(indId, "nom") || indId) +
            (normalisation !== "total" && normalisable(indId)
              ? " <small>" + esc(T(normInfo.nom)) + "</small>" : "") +
-           "</th><th>" + (niveauComp === "3" ? esc(T(NIVEAU["1"])) : T("Couverture")) +
-           "</th><th></th></tr></thead><tbody>");
+           '</th><th scope="col">' + (niveauComp === "3" ? esc(T(NIVEAU["1"])) : T("Couverture")) +
+           '</th><th scope="col"><span class="x-sr">' + T("Comparer") + "</span></th></tr></thead><tbody>");
 
     lignes.forEach(function (l, i) {
       var contexte;
@@ -2108,7 +2117,12 @@
       .then(function () {
         var l = "fr";
         try { l = localStorage.getItem("atmart_lang") || "fr"; } catch (e) {}
-        if (window.ATM_LANG_FORCE) l = window.ATM_LANG_FORCE;   // URL de langue
+        /* Un lien partagé dit dans quelle langue il a été écrit : il passe
+           avant la préférence mémorisée du lecteur, mais après la langue de
+           la page elle-même — sur /ht/, le HTML est déjà en kreyòl. */
+        var lu = (location.search.match(/[?&]lang=([a-z]{2})/) || [])[1];
+        if (lu && LOCALE[lu]) l = lu;
+        if (window.ATM_LANG_FORCE) l = window.ATM_LANG_FORCE;   // page localisée
         /* La page peut restreindre les langues offertes : un visiteur venu
            d'une page en kreyol ne doit pas voir le moteur basculer seul
            pendant que le HTML de la page reste en francais. */
