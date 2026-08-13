@@ -12,7 +12,7 @@
   /* Version des donnees. A incrementer des qu'un fichier de data/ est
      regenere : sinon le cache du navigateur sert l'ancien fichier et
      l'interface affiche du perime sans le savoir. */
-  var DV = "?d=2026-08-11b";
+  var DV = "?d=2026-08-12a";
   var F = {
     terr: DIR + (ADMIN ? "atmart_referentiel_territoire_HT.csv"
                        : "atmart_referentiel_territoire_base_HT.csv"),
@@ -26,6 +26,10 @@
   var terr = [], vals = [], orgs = [], dico = {}, contour = null;
   var parId = {}, parPcode = {}, enfantsDe = {}, orgsCom = {}, orgsSec = {};
   var parIndicateur = {}, courant = null, objectif = "tout", comparees = [];
+  /* Couverture reelle : combien de communes du socle portent une valeur pour
+     chaque indicateur. Comptee au demarrage, jamais ecrite en dur — c'est ce
+     qui distingue « 140 communes au socle » de « 14 communes couvertes ». */
+  var couverture = {}, nCommunes = 0, indBloques = [];
   var niveauComp = "3", normalisation = "total", ongletActif = "fiche";
   var aggEntite = {};   /* agregats precalcules des departements et arrondissements */
   var $ = function (s) { return document.querySelector(s); };
@@ -390,6 +394,24 @@
              pct: Math.round((1 - idx / (l.length - 1 || 1)) * 100) };
   }
 
+  /* Couverture d'un indicateur : combien de communes du socle portent une
+     valeur. Le nombre est compté au démarrage ; la phrase le dit avec son
+     dénominateur — un pourcentage dont le dénominateur n'est pas nommé est une
+     affirmation qu'on ne peut pas vérifier. */
+  function libCouverture(indId) {
+    var c = couverture[indId];
+    if (!c || !nCommunes) return null;
+    return {
+      court: TF("{n}/{t} communes", { n: c.avec, t: nCommunes }),
+      phrase: c.avec >= nCommunes
+        ? TF("les {t} communes du socle CNIGS 2018 portent une valeur.",
+             { t: nCommunes })
+        : TF("{n} communes sur {t} portent une valeur, soit {pct} % du socle CNIGS 2018. Les {r} autres sont documentées comme absentes, jamais comme des zéros.",
+             { n: c.avec, t: nCommunes, r: nCommunes - c.avec,
+               pct: Math.round(c.avec / nCommunes * 100) })
+    };
+  }
+
   /* ----------------------------------------------------------------- blocs */
   function fil(r) {
     var ch = [], cur = parId[r.parent_atmart_geo_id], g = 0;
@@ -435,6 +457,13 @@
     var comp = (m.filter(function (v) { return v.indicateur_id === "IND-QUA-001"; })[0] || {}).valeur;
     return {
       nConnus: connus.length, nAbsents: absents.length, absents: absents.length,
+      /* Ce qui reste à documenter, c'est la somme de deux choses de nature
+         différente : les absences constatées sur ce territoire, et les
+         indicateurs que personne ne peut encore calculer nulle part. Les
+         compter séparément faisait afficher « 0 » à Port-au-Prince au-dessus
+         d'un tableau qui listait cinq manques. */
+      nManques: absents.length + indBloques.length,
+      nBloques: indBloques.length,
       nSources: Object.keys(sources).length,
       completude: comp,
       annees: annees.length ? [Math.min.apply(null, annees), Math.max.apply(null, annees)] : null,
@@ -452,7 +481,11 @@
 
   function blocResume(r) {
     var s = synthese(r);
-    var maj = vals[0] || {};
+    /* La date de mise à jour est la plus récente des relevés, pas celle de la
+       première ligne du fichier : l'ordre des lignes n'est pas une chronologie,
+       et un tri de fichier ferait rajeunir ou vieillir la fiche sans raison. */
+    var maj = { date_extraction: vals.reduce(function (d, v) {
+      return v.date_extraction > d ? v.date_extraction : d; }, "") };
     var h = ['<div class="x-tete"><p class="x-fil">' + fil(r) + "</p>",
       "<h2>" + esc(nomT(r)) + (nomSecond(r) ?
         " <em>" + esc(nomSecond(r)) + "</em>" : "") + "</h2>",
@@ -467,7 +500,7 @@
       h.push('<button class="btn btn-outline x-btn-lien">' +
              T("Copier le lien de cette fiche") + "</button>");
       h.push('<a class="btn btn-outline" href="#lacunes">' +
-             TF("Ce qui reste à documenter ({n})", { n: s.nAbsents }) + "</a>");
+             TF("Ce qui reste à documenter ({n})", { n: s.nManques }) + "</a>");
       h.push('<button class="btn btn-outline x-btn-comp" data-comparer="' + esc(r.atmart_geo_id) +
              '">' + T("Ajouter à la comparaison") + "</button>");
       h.push('<button class="btn btn-outline x-btn-print">' + T("Imprimer / PDF") + "</button>");
@@ -478,7 +511,15 @@
         TF("Fiche {version}", { version: esc(r.version) }),
         TN({ one: "{n} source", other: "{n} sources" }, s.nSources, { n: s.nSources })
       ];
-      if (s.completude) seg.push(TF("complétude {pct} %", { pct: s.completude }));
+      /* « complétude 100 % » ne disait pas complétude de quoi. Le score porte
+         sur cinq dimensions du socle — pas sur les 32 indicateurs, pas sur les
+         sources. Le dénominateur est nommé dans le libellé, et la méthode
+         complète s'affiche au survol : elle vient du dictionnaire, pas d'ici. */
+      if (s.completude) {
+        seg.push('<span title="' + esc(libelle("IND-QUA-001", "methode_calcul")) + '">' +
+                 TF("profil de base {pct} % des dimensions du socle",
+                    { pct: s.completude }) + "</span>");
+      }
       if (s.annees) seg.push(TF("données de {a} à {b}", { a: s.annees[0], b: s.annees[1] }));
       seg.push(TF("mise à jour Atmart le {date}", { date: jour(maj.date_extraction) }));
       h.push('<p class="x-confiance">' + seg.join(" · ") +
@@ -710,7 +751,9 @@
       (HAUT - 10) + '" text-anchor="end">' + esc(T("Hommes")) + "</text>");
 
     var alt = TF("Pyramide des âges {de} : {n} habitants répartis en {b} tranches d'âge de cinq ans, femmes à gauche et hommes à droite. {jeunes} % ont moins de 15 ans, {aines} % ont 65 ans ou plus. Les effectifs exacts sont dans le tableau qui suit.",
-      { de: deNom(nomT(r)), n: fmt(p.total), b: n,
+      /* Le nom brut ET sa forme élidée française : « de l'Ouest » est une règle
+         française, les autres langues composent leur propre tournure. */
+      { nom: nomT(r), de: deNom(nomT(r)), n: fmt(p.total), b: n,
         jeunes: fmt(pct(p.jeunes, p.total)), aines: fmt(pct(p.aines, p.total)) });
     return '<svg class="' + (etroit ? "x-pyr-etroit" : "x-pyr-large") +
       '" viewBox="0 0 ' + L + " " + H + '" role="img" aria-label="' + esc(alt) +
@@ -837,12 +880,14 @@
       h.push('<p class="x-theme">' + (T(THEME[cat]) || esc(cat)) + "</p>");
       h.push('<div class="x-mesures">' + groupes[cat].map(function (p) {
         var v = p[0], d = p[1], rg = rang(v.indicateur_id, r.pcode);
+        var couv = libCouverture(v.indicateur_id);
         return '<details class="x-mesure"><summary>' +
           "<b>" + fmt(v.valeur, v.unite) + "</b>" +
           "<span>" + esc(libelle(v.indicateur_id, "nom") || v.indicateur_id) + "</span>" +
           '<small class="x-mill">' +
           (v.annee_reference ? TF("Millésime {an}", { an: esc(v.annee_reference) }) + " · " : "") +
-          esc((d.source_primaire || v.source).split(" — ")[0]) + "</small>" +
+          esc((d.source_primaire || v.source).split(" — ")[0]) +
+          (couv ? " · " + esc(couv.court) : "") + "</small>" +
           (rg ? '<small class="x-rang">' +
                 TF("{rang} sur {total} communes documentées",
                    { rang: ordinal(rg.rang), total: rg.total }) + "</small>" : "") + "</summary>" +
@@ -851,8 +896,19 @@
             esc(libelle(v.indicateur_id, "definition")) + "</p>" : "") +
           (d.methode_calcul ? "<p><b>" + T("Méthode.") + "</b> " +
             esc(libelle(v.indicateur_id, "methode_calcul")) + "</p>" : "") +
+          /* La couverture est la première question à poser à un indicateur :
+             une valeur juste sur 14 communes ne dit rien des 126 autres. */
+          (couv ? '<p class="x-couv"><b>' + T("Couverture.") + "</b> " +
+            esc(couv.phrase) + "</p>" : "") +
           "<p><b>" + T("Statut.") + "</b> " + esc(T(STATUT[v.statut_valeur]) || v.statut_valeur) + " · " +
-          esc(T(QUALITE[v.niveau_qualite]) || v.niveau_qualite) + "</p>" +
+          esc(T(QUALITE[v.niveau_qualite]) || v.niveau_qualite) +
+          (d.niveau_territorial_min ? " · " +
+            TF("niveau minimal : {niv}", { niv: esc(T(d.niveau_territorial_min) || d.niveau_territorial_min) }) : "") +
+          (d.regle_agregation ? " · " +
+            TF("agrégation : {regle}", { regle: esc(T(REGLE[d.regle_agregation]) || d.regle_agregation) }) : "") +
+          (v.periode ? " · " + TF("période {p}", { p: esc(v.periode) }) : "") + "</p>" +
+          (d.comparabilite ? "<p><b>" + T("Comparabilité.") + "</b> " +
+            esc(libelle(v.indicateur_id, "comparabilite")) + "</p>" : "") +
           "<p><b>" + T("Source.") + "</b> " +
           (v.date_source
             ? TF("{src}, publiée le {date}", { src: esc(v.source), date: jour(v.date_source) })
@@ -871,7 +927,9 @@
   function blocLacunes(r) {
     var m = vals.filter(function (v) { return v.pcode_commune === r.pcode; });
     var absents = m.filter(function (v) { return v.statut_valeur === "N"; });
-    var bloques = Object.keys(dico).filter(function (k) { return dico[k].statut !== "Disponible"; });
+    /* Même liste que celle comptée par le bouton « Ce qui reste à documenter » :
+       deux calculs séparés finiraient par diverger. */
+    var bloques = indBloques;
     var h = ['<h3 class="x-h3" id="lacunes">' + T("Ce qui reste à documenter") + "</h3>"];
     h.push('<p class="x-note" style="margin-top:0">' +
            T("Une case vide n'est pas un zéro. Chaque ligne indique pourquoi la donnée manque et ce qui la débloquerait.") +
@@ -1472,17 +1530,35 @@
       parIndicateur[k].sort(function (a, b) { return nb(b.valeur) - nb(a.valeur); });
     });
 
+    /* Couverture par indicateur, et liste des indicateurs encore a construire.
+       Les deux repondent a la meme question posee autrement : « sur quoi ce
+       territoire est-il documente, et sur quoi ne l'est-il pas ». */
+    nCommunes = terr.filter(function (r) { return r.niveau_admin === "3"; }).length;
+    vals.forEach(function (v) {
+      var c = couverture[v.indicateur_id] ||
+              (couverture[v.indicateur_id] = { avec: 0, sans: 0 });
+      if (v.statut_valeur === "N" || nb(v.valeur) === null) c.sans++; else c.avec++;
+    });
+    indBloques = Object.keys(dico).filter(function (k) {
+      return dico[k].statut !== "Disponible";
+    });
+
     /* compteurs : comptés, jamais écrits en dur */
     var nDep = terr.filter(function (r) { return r.niveau_admin === "1"; }).length;
     var nArr = terr.filter(function (r) { return r.niveau_admin === "2"; }).length;
     var nCom = terr.filter(function (r) { return r.niveau_admin === "3"; }).length;
     var nObs = vals.filter(function (v) { return v.statut_valeur !== "N"; }).length;
+    var nAbs = vals.length - nObs;
     function compteurs() {
       var el = $("#x-compte");
       if (!el) return;
-      el.innerHTML = TF("{t} territoires référencés · {c} communes documentées · {o} observations sourcées",
+      /* « communes documentées » laissait entendre que les 140 le sont sur tout.
+         Le socle territorial et la couverture d'un indicateur sont deux choses :
+         la seconde se lit indicateur par indicateur, et va ici de 10 % à 100 %. */
+      el.innerHTML = TF("{t} territoires au socle CNIGS 2018 · {c} communes · {o} valeurs sourcées · {a} absences documentées",
         { t: terr.length.toLocaleString(LOCALE[LANG]), c: nCom,
-          o: nObs.toLocaleString(LOCALE[LANG]) }) +
+          o: nObs.toLocaleString(LOCALE[LANG]),
+          a: nAbs.toLocaleString(LOCALE[LANG]) }) +
         (ADMIN ? " · " + TF("{n} organisations",
           { n: orgs.length.toLocaleString(LOCALE[LANG]) }) : "");
     }
@@ -1490,7 +1566,11 @@
     var cv = $("#x-couverture");
     if (cv) {
       cv.innerHTML = TF(
-        "Le référentiel administratif en vigueur — CNIGS, publié par OCHA — compte {decompte}. D'autres référentiels haïtiens, dont les estimations démographiques récentes de l'IHSI, en dénombrent davantage.",
+        /* « en vigueur » laissait entendre que le millésime 2018 est le
+           découpage légal d'aujourd'hui. Il est le référentiel que cette
+           édition retient, parce qu'il est le seul à fournir des codes de
+           jointure et des géométries — ce n'est pas la même affirmation. */
+        "Le référentiel territorial CNIGS 2018 retenu pour cette édition compte {decompte}. D'autres référentiels haïtiens, dont les estimations démographiques récentes de l'IHSI, en dénombrent davantage.",
         { decompte: "<b>" + TF("{dep} départements, {arr} arrondissements et {com} communes",
             { dep: nDep, arr: nArr, com: nCom }) + "</b>" }) +
         ' <button class="x-lien" id="x-pourquoi">' +

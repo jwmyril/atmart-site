@@ -33,8 +33,13 @@ https://atmart.ltd/donnees-explorateur.html le 12/08/2026.
    (COD-AB, republié par OCHA le 26/01/2026). Les deux chiffres sont vrais dans
    leur propre référentiel : des communes créées après 2018 existent, mais ne
    sont pas dans ce millésime. `atmart_millesimes_territoriaux.csv` porte déjà
-   la note qui le dit, sur les 192 lignes. **Cette note n'est visible nulle part
-   dans l'interface** — voir P0-1.
+   la note qui le dit, sur les 192 lignes, et le bloc dépliable « Pourquoi le
+   nombre de communes varie-t-il selon les sources ? » l'explique dans la page,
+   avec une « formulation exacte » irréprochable. **Le défaut n'est donc pas
+   l'absence d'explication, mais sa contradiction par deux phrases visibles sans
+   déplier** : le compteur de couverture (« le référentiel administratif **en
+   vigueur** ») et la puce CNIGS du même bloc (« le découpage administratif **en
+   vigueur**, valide au 29 novembre 2018 ») — voir P0-1.
 2. Le brief de mission mentionne « complétude 100 % » et « Ce qui reste à
    documenter : 0 ». Vérifié : ces deux affichages ne se produisent que sur
    **une commune sur 140 — Port-au-Prince**, qui se trouve être la **fiche
