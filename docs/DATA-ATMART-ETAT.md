@@ -82,6 +82,9 @@ python Atmart_premium_datasets/build_densite.py
 # Pyramide des âges : satellite 7 140 lignes + 11 indicateurs dérivés (IND-POP-003..013)
 python Atmart_premium_datasets/build_pyramide.py
 
+# Absences documentées : aucune case vide silencieuse sur un indicateur Disponible
+python Atmart_premium_datasets/build_absences.py
+
 # Régénérer sitemap.xml + robots.txt depuis le contenu réel du dossier
 python Atmart_website/tests/generer-sitemap.py
 
@@ -93,7 +96,7 @@ python Atmart_website/tests/generer-pages-localisees.py
 ```
 
 **Routine avant toute publication** : `node --check assets/explorateur.js` →
-ouvrir `tests/explorateur-tests.html` → 32/32 → `python tests/verif-versions.py`
+ouvrir `tests/explorateur-tests.html` → 51/51 → `python tests/verif-versions.py`
 → commit + push. Le service worker sert des copies figées : **toujours** monter
 le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 
@@ -116,12 +119,15 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
   donc « écoles pour 10 000 jeunes de 5 à 19 ans ».
 - **La pyramide se charge à l'approche de l'écran (12/08/2026)**, pas à
   l'ouverture de la fiche : l'Explorateur ouvre toujours une fiche d'accueil
-  (Port-au-Prince), et 1,1 Mo imposés à chaque visite seraient payés d'abord par
-  les connexions les plus faibles. Même motif pour son absence de la liste de
-  précache du service worker — qui s'installe sur **toute** page du site,
-  atelier compris. Le fichier est mis en cache dès la première consultation, et
-  reste alors disponible hors connexion. Le bouton « Imprimer / PDF » l'attend
-  avant d'ouvrir la boîte d'impression, sinon le PDF sortirait amputé.
+  (Port-au-Prince), et le fichier fait 7 140 lignes à analyser — un coût réel
+  sur téléphone bas de gamme, pour une section que peu de visites atteignent.
+  Le bouton « Imprimer / PDF » l'attend avant d'ouvrir la boîte d'impression,
+  sinon le PDF sortirait amputé.
+  > **Correction du 12/08 (audit).** Cette décision et l'exclusion du précache
+  > avaient été argumentées sur « 1,1 Mo imposés à chaque visiteur ». Le serveur
+  > sert en gzip : le coût réseau réel est de **72 Ko**. Le chargement différé
+  > reste justifié par l'analyse des 7 140 lignes ; l'exclusion du précache du
+  > service worker, non — elle est rouverte en P1-6 du backlog.
 - **La pyramide vit dans un satellite**, `atmart_pyramide_ages_HT.csv`
   (140 communes × 17 tranches × F/M/T). Une distribution ne rentre pas dans une
   table d'indicateurs à une valeur par ligne ; les onze lectures agrégées
