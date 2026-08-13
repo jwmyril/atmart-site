@@ -625,3 +625,13 @@ select:focus-visible, input:focus-visible {
   }
   .x-classement td, .x-comp td { padding-top: 0.2rem; padding-bottom: 0.2rem; }
 }
+
+/* ===== Matrice de couverture des sources =====
+   Une case vide n'est pas un zéro : elle est marquée comme telle, et une
+   couverture partielle se distingue d'une couverture complète au premier
+   regard — c'est tout l'objet du tableau. */
+.x-couv { min-width: 760px; font-size: 0.84rem; }
+.x-couv td { text-align: center; }
+.x-couv th[scope="row"] { text-align: left; font-weight: 600; color: var(--ink); }
+.x-couv-nul { color: var(--ink-dim); opacity: 0.5; }
+.x-couv-part { color: var(--amber); }

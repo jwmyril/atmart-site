@@ -15,14 +15,14 @@ Dernière mise à jour : **2026-08-12** (lot P0)
 | | état |
 |---|---|
 | Langue | **français seul** — multilingue en pause assumée (voir §4) |
-| Moteur | `assets/explorateur.js?v=26` — un seul fichier, deux éditions (publique / admin) |
+| Moteur | `assets/explorateur.js?v=27` — un seul fichier, deux éditions (publique / admin) |
 | Données | 4 CSV publics + 1 GeoJSON, chargés dans le navigateur — aucun serveur, aucun compte, aucun traceur |
 | Territoires | 192 entités (10 départements, 42 arrondissements, 140 communes), millésime CNIGS/OCHA COD-AB 2018 **retenu pour cette édition** |
 | Observations | **4 060 lignes** — 2 940 valeurs sourcées et **1 120 absences documentées** |
 | Couverture | de **10 %** (santé, 14 communes) à **100 %** (territoire, démographie) — affichée indicateur par indicateur depuis le 12/08 |
 | Pyramide des âges | `atmart_pyramide_ages_HT.csv`, 7 140 lignes — **dessinée sur chaque fiche**, aux 3 niveaux, chargée quand la section approche de l'écran (72 Ko transférés, 1,1 Mo bruts) |
 | Multilingue | dictionnaires ht/en/es **complets** (214 entrées, 0 chaîne sans traduction) — publication toujours en pause (voir §4) |
-| Tests | `tests/explorateur-tests.html` — **72 assertions, toutes vertes** |
+| Tests | `tests/explorateur-tests.html` — **78 assertions, toutes vertes** |
 | Backbone | 4 référentiels documentés — [SCHEMAS-BACKBONE.md](../../Atmart_premium_datasets/backbone/SCHEMAS-BACKBONE.md) (dépôt privé) · registre : **22 sources**, 6 intégrées |
 | Audit | [AUDIT-EXPLORATEUR-2026-08-12.md](AUDIT-EXPLORATEUR-2026-08-12.md) — état des lieux, matrice stratégique, backlog P0/P1/P2/P3 |
 
@@ -39,7 +39,10 @@ fiche territoriale par commune / arrondissement / département · comparaison de
 aux 3 niveaux avec 4 lectures (brute, pour 100 km², part du total national,
 **pour 10 000 habitants**) · carte de situation SVG sans dépendance externe ·
 **pyramide des âges SVG** (17 tranches × F/M, effectifs exacts dépliables,
-export CSV par territoire) · exports CSV traçés (source, millésime, méthode,
+export CSV par territoire) · **matrice de couverture des sources** (source ×
+département, les angles morts visibles) · **situation** de chaque valeur face à
+son département et au pays, avec qualification des totaux partiels · **appels à
+l'action contextuels** qui préremplissent la demande de parrainage · exports CSV traçés (source, millésime, méthode,
 langue des libellés) · bloc « Ce qui reste à documenter » · liens partageables
 restaurant l'état complet.
 
@@ -106,7 +109,7 @@ python Atmart_website/tests/generer-pages-localisees.py
 ```
 
 **Routine avant toute publication** : `node --check assets/explorateur.js` →
-ouvrir `tests/explorateur-tests.html` → 72/72 → `python tests/verif-versions.py`
+ouvrir `tests/explorateur-tests.html` → 78/78 → `python tests/verif-versions.py`
 → commit + push. Le service worker sert des copies figées : **toujours** monter
 le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 
@@ -156,6 +159,10 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 
 **Court terme, par ordre de rapport qualité/effort**
 
+0qui. ~~**Lot P2**~~ — fait le 13/08 : matrice de couverture, situation
+   départementale et nationale, appels à l'action contextuels. **P2-2 (mesure
+   d'usage) spécifié mais non implémenté** — il contredirait la promesse
+   « aucun traceur » affichée sur la page : décision requise.
 0qua. ~~**Lot P1 rendement**~~ — fait le 13/08 : IND-EDU-010 et IND-SAN-010
    calculés, langue dans l'URL, pyramide au précache, en-têtes de tableau
    associés, boutons-liens à 24 px.

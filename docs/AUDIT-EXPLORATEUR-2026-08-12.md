@@ -349,7 +349,71 @@ Lecture des deux documents stratégiques, confrontée à ce qui est déployé.
 | **Haïti d'abord, méthode exportable** | toute la chaîne est paramétrée par pays dans les noms de fichiers | Aucun écart à ce stade | — |
 | **Enquêtes (LAPOP, Banque mondiale, DHS, SPA, RGA, Findex)** | seul DHS est au registre (SRC-008) | 6 familles de sources absentes du registre | P1-12 |
 
-## 12. Suites données à cet audit
+## 12. P2-2 — mesure d'usage : spécification, et pourquoi elle n'est pas implémentée
+
+**Décision requise avant toute ligne de code.** La page de l'Explorateur affirme,
+dans son propre corps de texte :
+
+> Tout tourne dans votre navigateur : quatre fichiers publics et un contour
+> cartographique, **aucun serveur, aucun compte, aucun traceur**.
+
+Toute mesure qui remonte jusqu'à Atmart contredit cette phrase telle qu'elle est
+écrite. Poser un traceur sur une page qui promet de ne pas en poser n'est pas un
+arbitrage technique : c'est revenir sur une promesse publiée. Quatre voies, avec
+leur conséquence exacte :
+
+| Voie | Ce qu'Atmart obtient | Conséquence sur la promesse |
+|---|---|---|
+| **A — ne rien mesurer** | rien | intacte |
+| **B — mesure locale** : compteurs dans `localStorage`, affichés au visiteur, effaçables par lui, jamais transmis | rien — sauf si le visiteur envoie son relevé volontairement | intacte à la lettre |
+| **C — mesure d'audience anonyme** : événements agrégés, sans cookie ni identifiant, sans adresse IP conservée | l'essentiel de ce que le brief demande | **la phrase doit être réécrite** — « aucun traceur publicitaire, une mesure d'audience anonyme » |
+| **D — journaux serveur** | pages vues seulement | sans objet : GitHub Pages n'expose pas de journaux |
+
+**Ce qui serait mesuré, si la voie C était retenue** — et rien d'autre :
+recherches lancées · territoires consultés · changements d'usage · comparaisons
+lancées · exports CSV · impressions · indicateurs dépliés · clics vers le Pack
+Géo · demandes de financement ouvertes · demandes de licence.
+
+**Ce qui ne serait jamais collecté** : adresse IP conservée, identifiant
+persistant, empreinte de navigateur, contenu de recherche libre, aucune donnée
+permettant de retrouver une personne.
+
+**Conservation** : agrégats à 12 mois, événements bruts à 30 jours, purge
+automatique, tableau de bord interne et politique publiée sur la page de
+confiance.
+
+Tant que cette décision n'est pas prise, **rien n'est instrumenté** : ni script,
+ni requête, ni identifiant. L'Explorateur reste conforme à ce qu'il annonce.
+
+---
+
+## 13. P3 — les couches sectorielles, et ce qui les empêche
+
+Les trois couches suivantes du portefeuille sont bloquées, pour deux raisons
+distinctes qu'il vaut mieux ne pas confondre.
+
+| Couche | Source | Empêchement | Levée |
+|---|---|---|---|
+| **Registre scolaire géocodé** | SRC-004 — MENFP / SIGEEE | licence **« À vérifier »**, redistribution non confirmée | P1-13, démarche externe |
+| **Registre sanitaire versionné** | SRC-005 — MSPP | licence **« À vérifier »**, redistribution non confirmée | P1-13, démarche externe |
+| **Marchés et prix** | SRC-011 — PAM, **classe A, CC BY-IGO** | juridiquement clair. Mais seul le **registre des 182 marchés** est en zone source ; la série de prix n'y est pas, et HDX refuse les requêtes automatisées (**403** le 13/08) | un téléchargement depuis un navigateur |
+
+Autrement dit : **les deux couches prioritaires attendent une autorisation, la
+troisième attend un fichier.** La couche des prix est celle qui peut démarrer le
+plus vite — il manque une seule chose, le CSV des prix alimentaires d'Haïti
+depuis HDX, à déposer dans une zone source horodatée avec son manifeste
+SHA-256. La chaîne saura le traiter : le référentiel des marchés est déjà
+géocodé et rattaché aux communes, le référentiel temps porte les 720 périodes
+mensuelles nécessaires, et le dictionnaire attend déjà `IND-PRX-001`
+(volatilité des prix par marché).
+
+Ce qui a été fait pour préparer ces couches, et qui tient : les organisations
+portent désormais un millésime et des dates de validité — sans quoi une seconde
+photographie d'un registre écraserait la première au lieu de la versionner.
+
+---
+
+## 14. Suites données à cet audit
 
 | Date | Lot | Contenu |
 |---|---|---|
@@ -357,10 +421,11 @@ Lecture des deux documents stratégiques, confrontée à ce qui est déployé.
 | 12/08 | **P1 expérience** (P1-1 à P1-4) | accueil, résumé décisionnel calculé, fiche réduite, six vues métier |
 | 13/08 | **P1 backbone** (P1-7 à P1-9, P1-12) | nature de la période et échéance de révision, 8 champs au dictionnaire, millésime et validité des organisations, 9 enquêtes au registre, schéma des quatre référentiels |
 | 13/08 | **P1 rendement** (P1-5, P1-6, P1-10, P1-11, P1-14) | deux ratios d'offre calculés, langue dans l'URL, précache rouvert, en-têtes associés et cibles à 24 px |
+| 13/08 | **P2** (P2-1, P2-3, P2-4, P2-5) | appels à l'action contextuels, situation départementale et nationale, matrice de couverture des sources. **P2-2 spécifié, non implémenté** — voir §12 |
 
 Restent ouverts : **P1-13** (bloqué hors du dépôt) et **P1-15** (multilingue : 39 orphelines, `hreflang`, sitemap, relecture kreyòl), puis P2 et P3. Les treize autres lignes du P1 sont fermées.
 
-## 13. Ce que cet audit ne couvre pas
+## 15. Ce que cet audit ne couvre pas
 
 - **Contraste des couleurs** : non mesuré automatiquement, à vérifier à l'outil.
 - **Navigation clavier réelle** et lecteurs d'écran : les attributs ARIA sont

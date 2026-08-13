@@ -39,6 +39,7 @@
      affichée est alors une démonstration, et doit le dire. */
   var montrerAccueil = false;
   var aggEntite = {};   /* agregats precalcules des departements et arrondissements */
+  var aggNational = null;   /* le meme calcul, sur les 140 communes */
   var $ = function (s) { return document.querySelector(s); };
 
   /* ------------------------------------------------------------------ langue
@@ -481,6 +482,22 @@
     return p < auj
       ? { texte: TF("Révision attendue depuis le {date}", { date: jour(p) }), retard: true }
       : { texte: TF("Prochaine révision prévue le {date}", { date: jour(p) }), retard: false };
+  }
+
+  /* Un lien « financer une donnée manquante » qui n'emporte ni l'indicateur ni
+     le territoire oblige le visiteur à réécrire ce qu'il vient de lire. Le lien
+     porte donc le contexte, et la page de parrainage préremplit son formulaire.
+     Rien de personnel n'y transite : un nom d'indicateur et un nom de commune. */
+  function lienParrainage(indId, r) {
+    var q = [];
+    if (indId) {
+      q.push("jeu=" + encodeURIComponent(libelle(indId, "nom") || indId));
+      var d = dico[indId] || {};
+      if (d.dependance) q.push("src=" + encodeURIComponent(d.dependance));
+      else if (d.source_primaire) q.push("src=" + encodeURIComponent(d.source_primaire));
+    }
+    if (r) q.push("terr=" + encodeURIComponent(nomT(r)));
+    return "donnees-parrainage.html?" + q.join("&") + "#spo-form";
   }
 
   /* ----------------------------------------------------------------- blocs */
@@ -966,11 +983,12 @@
     var out = [];
     vals.forEach(function (v) {
       if (v.pcode_commune !== r.pcode || v.statut_valeur !== "N") return;
-      out.push({ nom: libelle(v.indicateur_id, "nom") || v.indicateur_id,
+      out.push({ id: v.indicateur_id,
+                 nom: libelle(v.indicateur_id, "nom") || v.indicateur_id,
                  motif: v.methode });
     });
     indBloques.forEach(function (k) {
-      out.push({ nom: libelle(k, "nom") || k,
+      out.push({ id: k, nom: libelle(k, "nom") || k,
                  motif: (T(STATUT_IND[dico[k].statut]) || dico[k].statut) +
                         (dico[k].dependance ? " — " + dico[k].dependance : "") });
     });
@@ -1048,7 +1066,8 @@
     /* Les actions de l'usage choisi, plus les deux qui valent pour tous. */
     var actions = (o.actions || []).concat([
       [T("Ce qui reste à documenter"), "#lacunes"],
-      [T("Financer une donnée manquante"), "donnees-parrainage.html#catalogue"]]);
+      [T("Financer une donnée manquante"),
+       lienParrainage((manques[0] || {}).id, r)]]);
     var vues = {};
     h.push('<div class="x-actions x-actions-sec">' + actions.filter(function (a) {
       if (vues[a[1]]) return false;
@@ -1116,6 +1135,7 @@
       h.push('<div class="x-mesures">' + groupes[cat].map(function (p) {
         var v = p[0], d = p[1], rg = rang(v.indicateur_id, r.pcode);
         var couv = libCouverture(v.indicateur_id), fraich = libFraicheur(d);
+        var situ = situation(r, v.indicateur_id, nb(v.valeur));
         return '<details class="x-mesure"><summary>' +
           "<b>" + fmt(v.valeur, v.unite) + "</b>" +
           "<span>" + esc(libelle(v.indicateur_id, "nom") || v.indicateur_id) + "</span>" +
@@ -1151,6 +1171,7 @@
               (fraich ? ' <span class="' + (fraich.retard ? "x-perime" : "") + '">' +
                         esc(fraich.texte) + ".</span>" : "") + "</p>"
             : "") +
+          (situ ? "<p><b>" + T("Situation.") + "</b> " + situ + "</p>" : "") +
           (d.comparabilite ? "<p><b>" + T("Comparabilité.") + "</b> " +
             esc(libelle(v.indicateur_id, "comparabilite")) + "</p>" : "") +
           "<p><b>" + T("Source.") + "</b> " +
@@ -1198,7 +1219,8 @@
         esc(libelle(v.indicateur_id, "sens_interpretation") ||
             libelle(v.indicateur_id, "definition") || "—") + "</td><td>" + esc(v.methode) +
         "</td><td>" + TF("Compléter le registre national — {lien}",
-          { lien: '<a href="donnees-parrainage.html#catalogue">' + T("parrainable") + "</a>" }) +
+          { lien: '<a href="' + esc(lienParrainage(v.indicateur_id, r)) + '">' +
+                  T("parrainable") + "</a>" }) +
         "</td></tr>");
     });
     bloques.forEach(function (k) {
@@ -1206,7 +1228,7 @@
       h.push("<tr><td><b>" + esc(libelle(k, "nom")) + "</b></td><td>" +
         esc(libelle(k, "sens_interpretation") || libelle(k, "definition")) +
         "</td><td>" + esc(T(STATUT_IND[d.statut] || d.statut)) + " — " + esc(d.dependance) +
-        '</td><td><a href="donnees-parrainage.html#catalogue">' +
+        '</td><td><a href="' + esc(lienParrainage(k, r)) + '">' +
         T("Financer la source manquante") + "</a></td></tr>");
     });
     if (!absents.length && !bloques.length) {
@@ -1489,6 +1511,134 @@
         aggEntite[e.atmart_geo_id] = agreger(e, communesDe(e));
       }
     });
+    /* Le national suit exactement les mêmes règles que les départements : une
+       somme se somme, un ratio se recalcule sur les totaux. Le calculer
+       autrement ferait mentir la comparaison qu'on va afficher juste à côté. */
+    aggNational = agreger({}, entitesDuNiveau("3"));
+  }
+
+  /* Où se situe une valeur communale par rapport à son département et au pays.
+     Pour un ratio, on compare des ratios recalculés sur les totaux. Pour un
+     effectif, comparer un nombre à une somme n'aurait aucun sens : on affiche
+     la part que la commune y prend. */
+  function situation(r, indId, valeur) {
+    var d = dico[indId] || {};
+    if (r.niveau_admin !== "3" || valeur === null) return null;
+    var dep = null, cur = parId[r.parent_atmart_geo_id], g = 0;
+    while (cur && g++ < 6) {
+      if (cur.niveau_admin === "1") { dep = cur; break; }
+      cur = parId[cur.parent_atmart_geo_id];
+    }
+    var aD = dep ? (aggEntite[dep.atmart_geo_id] || {})[indId] : null;
+    var aN = (aggNational || {})[indId];
+    if (!aN) return null;
+    if (d.regle_agregation === "somme") {
+      var pD = aD && aD.valeur ? valeur / aD.valeur * 100 : null;
+      var pN = aN.valeur ? valeur / aN.valeur * 100 : null;
+      if (pN === null) return null;
+      var txt = dep && pD !== null
+        ? TF("{pctD} % du total {dep_de}, {pctN} % du total national.",
+             { pctD: fmt(Math.round(pD * 10) / 10), dep: nomT(dep),
+               dep_de: deNom(dep.nom_fr), pctN: fmt(Math.round(pN * 10) / 10) })
+        : TF("{pctN} % du total national.", { pctN: fmt(Math.round(pN * 10) / 10) });
+      /* Une part de 100 % d'un total partiel ne dit pas ce qu'elle a l'air de
+         dire : sur un indicateur couvert par une seule commune du département,
+         « 100 % du total » signifie « seule commune documentée », pas « toutes
+         les écoles du département ». Le total est donc qualifié dès qu'il ne
+         repose pas sur l'ensemble des communes. */
+      var nDep = dep ? communesDe(dep).length : 0;
+      if (dep && aD && aD.couvertes < nDep) {
+        txt += " " + TN({ one: "Ce total départemental ne repose que sur {n} commune documentée sur {t}.",
+                          other: "Ce total départemental ne repose que sur {n} communes documentées sur {t}." },
+                        aD.couvertes, { n: aD.couvertes, t: nDep });
+      }
+      if (aN.couvertes < nCommunes) {
+        txt += " " + TF("Le total national en couvre {n} sur {t}.",
+                        { n: aN.couvertes, t: nCommunes });
+      }
+      return txt;
+    }
+    if (d.regle_agregation !== "ratio_recalcule") return null;
+    return dep && aD
+      ? TF("{dep} : {vD} · Haïti : {vN} — recalculés sur les totaux, jamais moyennés.",
+           { dep: esc(nomT(dep)), vD: fmt(aD.valeur, aD.unite),
+             vN: fmt(aN.valeur, aN.unite) })
+      : TF("Haïti : {vN} — recalculé sur les totaux, jamais moyenné.",
+           { vN: fmt(aN.valeur, aN.unite) });
+  }
+
+  /* ------------------------------------------------- matrice de couverture
+     Le trou de ce produit n'est pas la valeur qu'il affiche, c'est celle qu'il
+     n'a pas. Une source par ligne, un département par colonne, et le compte des
+     communes couvertes dans chaque case : on voit d'un coup d'œil que la santé
+     s'arrête à quatre départements, et lesquels. Tout est compté, rien n'est
+     écrit. */
+  function matriceCouverture() {
+    var deps = entitesDuNiveau("1").sort(function (a, b) {
+      return a.pcode < b.pcode ? -1 : 1; });
+    var dansDep = {};
+    deps.forEach(function (d) {
+      communesDe(d).forEach(function (c) { dansDep[c.pcode] = d.atmart_geo_id; });
+    });
+    var nDep = {};
+    deps.forEach(function (d) { nDep[d.atmart_geo_id] = communesDe(d).length; });
+
+    /* Une source peut alimenter plusieurs indicateurs : on la compte une fois,
+       sur l'union des communes qu'elle documente. */
+    var srcs = {};
+    vals.forEach(function (v) {
+      if (v.statut_valeur === "N" || nb(v.valeur) === null) return;
+      /* La clé est la source entière, pas l'organisme : « OCHA Haïti » publie
+         la cartographie scolaire de 2022 ET la liste sanitaire de 2023, qui ne
+         couvrent ni le même nombre de communes ni les mêmes. Les confondre sur
+         une ligne effacerait précisément ce que ce tableau doit montrer. */
+      var nom = (v.source || "—").trim();
+      var s = srcs[nom] || (srcs[nom] = { communes: {}, annees: {}, inds: {} });
+      s.communes[v.pcode_commune] = 1;
+      s.inds[v.indicateur_id] = 1;
+      if (v.annee_reference) s.annees[v.annee_reference] = 1;
+    });
+
+    var noms = Object.keys(srcs).sort(function (a, b) {
+      return Object.keys(srcs[b].communes).length - Object.keys(srcs[a].communes).length; });
+    var h = ['<p class="x-note" style="margin-top:0">' +
+      T("Chaque case donne le nombre de communes du département que la source documente. Une case vide n'est pas un zéro : c'est un territoire que la source ne couvre pas.") +
+      '</p><div class="x-tabwrap"><table class="x-tab x-couv"><thead><tr><th scope="col">' +
+      T("Source") + '</th><th scope="col">' + T("Millésimes") +
+      '</th><th scope="col">' + T("Indicateurs") + '</th>'];
+    /* « Nord », « Nord-Est » et « Nord-Ouest » tronqués à quatre lettres
+       donnent trois fois « Nord ». Un nom composé se réduit à ses initiales. */
+    var court = function (n) {
+      return n.indexOf("-") > -1
+        ? n.split("-").map(function (m) { return m.charAt(0).toUpperCase(); }).join("-")
+        : n.slice(0, 4);
+    };
+    deps.forEach(function (d) {
+      h.push('<th scope="col" title="' + esc(nomT(d)) + '">' +
+             esc(court(nomT(d))) + "</th>");
+    });
+    h.push('<th scope="col">' + T("Total") + "</th></tr></thead><tbody>");
+
+    noms.forEach(function (nom) {
+      var s = srcs[nom], parDep = {};
+      Object.keys(s.communes).forEach(function (pc) {
+        var g = dansDep[pc];
+        if (g) parDep[g] = (parDep[g] || 0) + 1;
+      });
+      var tot = Object.keys(s.communes).length;
+      h.push('<tr><th scope="row">' + esc(nom) + "</th><td>" +
+        esc(Object.keys(s.annees).sort().join(", ")) + "</td><td>" +
+        Object.keys(s.inds).length + "</td>");
+      deps.forEach(function (d) {
+        var n = parDep[d.atmart_geo_id] || 0, t = nDep[d.atmart_geo_id];
+        h.push('<td class="' + (n === 0 ? "x-couv-nul" : n < t ? "x-couv-part" : "") +
+               '">' + (n === 0 ? "—" : n === t ? String(n) : n + "/" + t) + "</td>");
+      });
+      h.push("<td><b>" + tot + "/" + nCommunes + "</b></td></tr>");
+    });
+    h.push("</tbody></table></div>");
+    h.push('<p class="x-note">' + T("Une source qui couvre les 140 communes affiche son nombre sans dénominateur. Toute autre case porte le rapport, parce que c'est le rapport qui compte.") + "</p>");
+    return h.join("");
   }
 
   function entitesDuNiveau(niv) {
@@ -1822,6 +1972,8 @@
           { n: orgs.length.toLocaleString(LOCALE[LANG]) }) : "");
     }
     compteurs();
+    var mc = $("#x-couv-corps");
+    if (mc) mc.innerHTML = matriceCouverture();
     var cv = $("#x-couverture");
     if (cv) {
       cv.innerHTML = TF(

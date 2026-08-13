@@ -13,7 +13,7 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0e2240" />
   <link rel="stylesheet" href="assets/style.css?v=31" />
-  <link rel="stylesheet" href="assets/data.css?v=15" />
+  <link rel="stylesheet" href="assets/data.css?v=16" />
 <script>/* langue auto : avant le 1er affichage, evite le clignotement */
 (function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
 s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
@@ -118,6 +118,11 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       <p class="x-note" data-i18n-html="xpl.mill.silence">Nous ne choisissons pas un chiffre en silence : l’explorateur compte ce que contient le référentiel qu’il charge, et le nomme. Les communes créées après 2018 seront intégrées avec leurs dates de validité dès qu’un référentiel officiel les publiera avec leurs codes, sans réécrire l’historique. <a href="donnees-backbone.html#territoire">La construction du référentiel territoire →</a></p>
     </details>
 
+    <details class="x-tech" id="x-couv-sources">
+      <summary data-i18n="xpl.couv.summary">Quelle source couvre quel territoire&nbsp;?</summary>
+      <div id="x-couv-corps"></div>
+    </details>
+
     <div id="x-chargement"><p class="x-note" style="text-align:center" data-i18n="xpl.loading">Chargement des référentiels…</p></div>
 
     <div id="x-app" hidden>
@@ -177,7 +182,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 
     <div class="d-box" style="margin-top:2.6rem">
       <h3 data-i18n="xpl.box.h3">Ce que cet explorateur fait — et ce qu’il ne fait pas</h3>
-      <p data-i18n-html="xpl.box.p1">Il affiche <b>les informations actuellement documentées par Atmart Data</b> — pas tout ce qui existe sur une commune. Tout tourne dans votre navigateur : trois fichiers publics, aucun serveur, aucun compte, aucun traceur. Ce que vous voyez, vous pouvez le télécharger tel quel depuis le <a href="datasets.html">catalogue</a> et le recalculer vous-même.</p>
+      <p data-i18n-html="xpl.box.p1">Il affiche <b>les informations actuellement documentées par Atmart Data</b> — pas tout ce qui existe sur une commune. Tout tourne dans votre navigateur : quatre fichiers publics et un contour cartographique, aucun serveur, aucun compte, aucun traceur. Ce que vous voyez, vous pouvez le télécharger tel quel depuis le <a href="datasets.html">catalogue</a> et le recalculer vous-même.</p>
       <p data-i18n-html="xpl.box.p2">La <b>commune est le niveau territorial le plus détaillé de l’édition publique</b>. Les sections communales, les localités et les polygones détaillés sont disponibles dans le <a href="donnees-pack-geo-haiti.html">Pack Géo Haïti</a>. Les définitions, méthodes et statuts de qualité sont exposés sur la page <a href="donnees-backbone.html#statuts">Backbone</a>.</p>
     </div>
   </div>
@@ -219,7 +224,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   window.ATM_LANGUES = ["fr"];
 </script>
 <script src="assets/script.js?v=2"></script>
-<script src="assets/explorateur.js?v=26"></script>
+<script src="assets/explorateur.js?v=27"></script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
 <script src="assets/i18n.js?v=14"></script>
 <script src="assets/launcher.js?v=3"></script>

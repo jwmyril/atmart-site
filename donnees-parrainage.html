@@ -13,7 +13,7 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0e2240" />
   <link rel="stylesheet" href="assets/style.css?v=31" />
-  <link rel="stylesheet" href="assets/data.css?v=15" />
+  <link rel="stylesheet" href="assets/data.css?v=16" />
 <script>/* langue auto : avant le 1er affichage, evite le clignotement */
 (function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
 s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
@@ -353,6 +353,38 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       encodeURIComponent("Parrainage de dataset — " + g("org")) +
       "&body=" + encodeURIComponent(body);
   });
+
+  /* Contexte apporté par l'Explorateur : l'indicateur manquant, le territoire
+     où il manque, et la source qui le débloquerait. Le visiteur arrive avec sa
+     demande déjà écrite au lieu de la retaper. Rien de personnel ne transite —
+     un nom d'indicateur et un nom de commune, dans l'URL, côté navigateur. */
+  var SAUT = String.fromCharCode(10);
+  var p = new URLSearchParams(location.search);
+  var jeu = p.get("jeu"), terr = p.get("terr"), src = p.get("src");
+  if (jeu || terr) {
+    var champJeu = document.getElementById("s-jeu");
+    if (champJeu && jeu) champJeu.value = jeu;
+    var msg = document.getElementById("s-msg");
+    if (msg && !msg.value) {
+      msg.value = (jeu ? "Ouvrir « " + jeu + " »" : "Ouvrir une donnée manquante") +
+        (terr ? ", constatée manquante sur " + terr : "") + "." +
+        (src ? SAUT + "Source à mobiliser : " + src : "") +
+        SAUT + SAUT + "Résultat public attendu : la donnée devient consultable et " +
+        "téléchargeable dans l'Explorateur, pour tous les territoires que la " +
+        "source couvre, avec mention du parrain.";
+    }
+    var enc = document.querySelector(".d-form");
+    if (enc) {
+      var note = document.createElement("p");
+      note.className = "d-note";
+      note.style.marginBottom = "0.8rem";
+      note.innerHTML = "Demande préremplie depuis l'Explorateur" +
+        (terr ? " — territoire : <b>" + terr.replace(/[<>&]/g, "") + "</b>" : "") +
+        (jeu ? ", indicateur : <b>" + jeu.replace(/[<>&]/g, "") + "</b>" : "") +
+        ". Vous pouvez la modifier avant l'envoi.";
+      enc.parentNode.insertBefore(note, enc);
+    }
+  }
 })();
 </script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
