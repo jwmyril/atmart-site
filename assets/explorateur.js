@@ -9,6 +9,11 @@
   var CFG = window.ATM_EXPLORATEUR || {};
   var ADMIN = !!CFG.admin;
   var DIR = CFG.dir || "data/";
+  /* Racine du site Atmart pour les liens editoriaux (catalogue, backbone,
+     Pack Geo, parrainage). Vide sur atmart.ltd ; le site autonome
+     explorateur.atmart.ltd passe CFG.site="https://atmart.ltd/" pour que
+     ces liens traversent les domaines au lieu de casser en 404. */
+  var SITE = CFG.site || "";
   /* Version des donnees. A incrementer des qu'un fichier de data/ est
      regenere : sinon le cache du navigateur sert l'ancien fichier et
      l'interface affiche du perime sans le savoir. */
@@ -498,7 +503,7 @@
       else if (d.source_primaire) q.push("src=" + encodeURIComponent(d.source_primaire));
     }
     if (r) q.push("terr=" + encodeURIComponent(nomT(r)));
-    return "donnees-parrainage.html?" + q.join("&") + "#spo-form";
+    return SITE + "donnees-parrainage.html?" + q.join("&") + "#spo-form";
   }
 
   /* ----------------------------------------------------------------- blocs */
@@ -612,7 +617,7 @@
       if (s.annees) seg.push(TF("données de {a} à {b}", { a: s.annees[0], b: s.annees[1] }));
       seg.push(TF("mise à jour Atmart le {date}", { date: jour(maj.date_extraction) }));
       h.push('<p class="x-confiance">' + seg.join(" · ") +
-             ' · <a href="donnees-backbone.html#statuts">' + T("méthodologie") + "</a></p>");
+             ' · <a href="' + SITE + 'donnees-backbone.html#statuts">' + T("méthodologie") + "</a></p>");
     }
     h.push("</div>");
     return h.join("");
@@ -698,7 +703,7 @@
       (commune ? '<span class="x-l-sel"></span> ' + esc(nomT(r)) + "  " : "") +
       '<span class="x-l-pro"></span> ' + esc(libFam) +
       '  <span class="x-l-autre"></span> ' + T("autres communes du pays") +
-      ' — <a href="donnees-pack-geo-haiti.html">' +
+      ' — <a href="' + SITE + 'donnees-pack-geo-haiti.html">' +
       T("limites détaillées et polygones") + "</a></p>" +
       '<p class="x-note">' +
       T("Carte de situation : contour national du CNIGS simplifié, centres officiels des communes. Cliquez un point pour ouvrir sa fiche.") +
@@ -1211,8 +1216,10 @@
       vues[a[1]] = 1;
       return true;
     }).map(function (a) {
-      return '<a class="btn btn-outline" href="' + a[1] + '">' + esc(T(a[0])) +
-             (a[1].charAt(0) === "#" ? "" : " →") + "</a>";
+      var cible = a[1];
+      if (cible.charAt(0) !== "#" && cible.indexOf("data/") !== 0) cible = SITE + cible;
+      return '<a class="btn btn-outline" href="' + cible + '">' + esc(T(a[0])) +
+             (cible.charAt(0) === "#" ? "" : " →") + "</a>";
     }).join("") + "</div></div>");
     return h.join("");
   }
@@ -1482,7 +1489,7 @@
       T("Les sections communales, les localités et quartiers et les polygones existent dans le référentiel, mais l'édition publique s'arrête à la commune. Ils sont livrés avec le Pack Géo Haïti.") +
       "</p><p>" +
       T("Les écoles, centres de santé et marchés nommés sont identifiés et rattachés à leur territoire ; leur couverture reste partielle, ils seront ouverts quand les registres nationaux seront complets.") +
-      '</p></div><a class="btn btn-primary" href="donnees-pack-geo-haiti.html">' +
+      '</p></div><a class="btn btn-primary" href="' + SITE + 'donnees-pack-geo-haiti.html">' +
       T("Voir le Pack Géo") + "</a></div>";
   }
 
@@ -2442,6 +2449,6 @@
     $("#x-chargement").innerHTML = '<p class="x-vide">' +
       TF("Les données n'ont pas pu être chargées ({err}). Les fichiers restent téléchargeables depuis le {lien}.",
         { err: esc(e.message),
-          lien: '<a href="datasets.html">' + T("catalogue") + "</a>" }) + "</p>";
+          lien: '<a href="' + SITE + 'datasets.html">' + T("catalogue") + "</a>" }) + "</p>";
   });
 })();
