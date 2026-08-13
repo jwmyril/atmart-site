@@ -36,7 +36,10 @@
      bascule sur le chemin 2 : le message reste affiche et copiable, donc
      aucune demande n'est perdue.
      ----------------------------------------------------------------------- */
-  var ENDPOINT = "";
+  /* Notre propre Worker (atmart-chat), route /demande : e-mail immediat a
+     sales@atmart.ltd via Resend — la clef reste cote serveur —, copie en KV,
+     5 envois/jour/IP. Aucun service tiers : les demandes restent chez Atmart. */
+  var ENDPOINT = "https://atmart-chat.atmartllc.workers.dev/demande";
   var ADRESSE = "sales@atmart.ltd";
 
   var cfg = window.ATM_FORM;
