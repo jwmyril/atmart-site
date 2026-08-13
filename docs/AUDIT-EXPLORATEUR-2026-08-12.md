@@ -295,10 +295,10 @@ Effort : **S** ≤ 2 h · **M** ½ à 1 j · **L** 2 à 4 j · **XL** > 1 semain
 
 | # | Action | Effort | Dépendances |
 |---|---|---|---|
-| P1-1 | Écran d'accueil : proposition de valeur, recherche, 3 exemples, niveaux disponibles — au lieu de la fiche de Port-au-Prince imposée | M | — |
-| P1-2 | Résumé décisionnel calculé (3 traits distinctifs, 3 déficits, couverture, ancienneté, avertissements, actions) | L | P0-2, P0-5 |
-| P1-3 | Fiche réduite par défaut (5 à 8 indicateurs clés) + « Voir tous les indicateurs » | M | P1-2 |
-| P1-4 | Vraies vues métier pour les 5 objectifs | L | P1-2 |
+| ~~P1-1~~ | ~~Écran d'accueil~~ — **fait le 12/08** : bloc d'accueil, niveaux comptés, fiche présentée comme exemple | M | — |
+| ~~P1-2~~ | ~~Résumé décisionnel calculé~~ — **fait le 12/08** : 3 constats classés, 3 manques motivés, état, avertissements, actions | L | P0-2, P0-5 |
+| ~~P1-3~~ | ~~Fiche réduite + « Voir tous »~~ — **fait le 12/08**, état mémorisé dans l'URL | M | P1-2 |
+| ~~P1-4~~ | ~~Vraies vues métier~~ — **fait le 12/08** : 6 vues (une ajoutée, implantation économique), chacune avec ses indicateurs, son ordre, sa lecture et ses actions | L | P1-2 |
 | P1-5 | Langue mémorisée dans l'URL (9ᵉ paramètre d'état) | S | — |
 | P1-6 | Rouvrir la décision de précache du service worker à la lumière des 72 Ko réels | S | — |
 | P1-7 | Référentiel temps : porter dans la donnée la distinction date d'observation / publication / extraction, et le statut de fraîcheur | M | — |
@@ -309,7 +309,7 @@ Effort : **S** ≤ 2 h · **M** ½ à 1 j · **L** 2 à 4 j · **XL** > 1 semain
 | P1-12 | Inscrire au registre les sources d'enquêtes : LAPOP/Vanderbilt (un seul produit, deux entrées à ne pas créer), Banque mondiale (WDI, Microdata, Enterprise Surveys, ECVMAS, haute fréquence, Findex), EMMUS/DHS, SPA, recensements IHSI, RGA | M | matrice juridique |
 | P1-13 | Lever les 3 licences « À vérifier » (IHSI, MENFP, MSPP) | M | démarche externe — **bloqué hors du dépôt** |
 | P1-14 | `scope` sur les 42 `<th>` ; `.x-lien` à 24 px minimum | S | — |
-| P1-15 | Multilingue : 18 chaînes, 31 orphelines, `hreflang`, sitemap, relecture kreyòl | L | relecture humaine — **décision requise** |
+| P1-15 | Multilingue : ~~chaînes sans traduction~~ (0 restante au 12/08), 36 orphelines à nettoyer, `hreflang`, sitemap, relecture kreyòl | L | relecture humaine — **décision requise** |
 
 ### P2 — produit et mesure
 
@@ -349,7 +349,16 @@ Lecture des deux documents stratégiques, confrontée à ce qui est déployé.
 | **Haïti d'abord, méthode exportable** | toute la chaîne est paramétrée par pays dans les noms de fichiers | Aucun écart à ce stade | — |
 | **Enquêtes (LAPOP, Banque mondiale, DHS, SPA, RGA, Findex)** | seul DHS est au registre (SRC-008) | 6 familles de sources absentes du registre | P1-12 |
 
-## 12. Ce que cet audit ne couvre pas
+## 12. Suites données à cet audit
+
+| Date | Lot | Contenu |
+|---|---|---|
+| 12/08 | **P0** (6/6) | sémantique du référentiel, couverture par indicateur, score de complétude, compteur, 686 absences documentées |
+| 12/08 | **P1 expérience** (P1-1 à P1-4) | accueil, résumé décisionnel calculé, fiche réduite, six vues métier |
+
+Restent ouverts : P1-5 à P1-15 (dont P1-13 bloqué hors du dépôt), P2, P3.
+
+## 13. Ce que cet audit ne couvre pas
 
 - **Contraste des couleurs** : non mesuré automatiquement, à vérifier à l'outil.
 - **Navigation clavier réelle** et lecteurs d'écran : les attributs ARIA sont

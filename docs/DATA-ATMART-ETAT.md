@@ -15,19 +15,25 @@ Dernière mise à jour : **2026-08-12** (lot P0)
 | | état |
 |---|---|
 | Langue | **français seul** — multilingue en pause assumée (voir §4) |
-| Moteur | `assets/explorateur.js?v=23` — un seul fichier, deux éditions (publique / admin) |
+| Moteur | `assets/explorateur.js?v=24` — un seul fichier, deux éditions (publique / admin) |
 | Données | 4 CSV publics + 1 GeoJSON, chargés dans le navigateur — aucun serveur, aucun compte, aucun traceur |
 | Territoires | 192 entités (10 départements, 42 arrondissements, 140 communes), millésime CNIGS/OCHA COD-AB 2018 **retenu pour cette édition** |
 | Observations | **3 780 lignes** — 2 877 valeurs sourcées et **903 absences documentées** |
 | Couverture | de **10 %** (santé, 14 communes) à **100 %** (territoire, démographie) — affichée indicateur par indicateur depuis le 12/08 |
 | Pyramide des âges | `atmart_pyramide_ages_HT.csv`, 7 140 lignes — **dessinée sur chaque fiche**, aux 3 niveaux, chargée quand la section approche de l'écran (72 Ko transférés, 1,1 Mo bruts) |
 | Multilingue | dictionnaires ht/en/es **complets** (214 entrées, 0 chaîne sans traduction) — publication toujours en pause (voir §4) |
-| Tests | `tests/explorateur-tests.html` — **51 assertions, toutes vertes** |
+| Tests | `tests/explorateur-tests.html` — **58 assertions, toutes vertes** |
 | Audit | [AUDIT-EXPLORATEUR-2026-08-12.md](AUDIT-EXPLORATEUR-2026-08-12.md) — état des lieux, matrice stratégique, backlog P0/P1/P2/P3 |
 
 ### Ce que l'Explorateur sait faire
 
-Fiche territoriale par commune / arrondissement / département · comparaison de
+**Écran d'accueil** présentant la fiche d'exemple comme telle · **résumé
+décisionnel calculé** (trois constats classés, trois manques motivés, état de la
+documentation, avertissements) · **fiche réduite aux indicateurs de l'usage
+choisi**, dépliable et mémorisée dans l'URL · **six vues métier** — vue
+d'ensemble, services publics, projet, recherche, implantation économique, ma
+commune — chacune avec ses indicateurs, son ordre et ses actions ·
+fiche territoriale par commune / arrondissement / département · comparaison de
 2 à 4 territoires avec **alerte quand les millésimes diffèrent** · classement
 aux 3 niveaux avec 4 lectures (brute, pour 100 km², part du total national,
 **pour 10 000 habitants**) · carte de situation SVG sans dépendance externe ·
@@ -96,7 +102,7 @@ python Atmart_website/tests/generer-pages-localisees.py
 ```
 
 **Routine avant toute publication** : `node --check assets/explorateur.js` →
-ouvrir `tests/explorateur-tests.html` → 51/51 → `python tests/verif-versions.py`
+ouvrir `tests/explorateur-tests.html` → 58/58 → `python tests/verif-versions.py`
 → commit + push. Le service worker sert des copies figées : **toujours** monter
 le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 
@@ -146,6 +152,8 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 
 **Court terme, par ordre de rapport qualité/effort**
 
+0bis. ~~**Lot P1 expérience**~~ — fait le 12/08 : accueil, résumé décisionnel,
+   fiche réduite, six vues métier. Suite du backlog : P1-5 à P1-15, P2, P3.
 0. ~~**Audit et lot P0**~~ — fait le 12/08 : couverture affichée par indicateur,
    686 absences rendues visibles, formulations du référentiel et du score de
    complétude corrigées. Suite du backlog dans
