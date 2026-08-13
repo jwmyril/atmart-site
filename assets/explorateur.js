@@ -12,7 +12,7 @@
   /* Version des donnees. A incrementer des qu'un fichier de data/ est
      regenere : sinon le cache du navigateur sert l'ancien fichier et
      l'interface affiche du perime sans le savoir. */
-  var DV = "?d=2026-08-13c";
+  var DV = "?d=2026-08-13d";
   var F = {
     terr: DIR + (ADMIN ? "atmart_referentiel_territoire_HT.csv"
                        : "atmart_referentiel_territoire_base_HT.csv"),
@@ -1641,7 +1641,7 @@
     /* La série de prix ne se lit pas dans ce tableau : elle est mensuelle, pas
        territoriale. Elle se télécharge, en attendant qu'un graphique la lise. */
     h.push('<p class="x-note">' + TF(
-      "Une série historique est publiée à part : {lien} — 14 140 relevés de prix de détail, 240 mois de janvier 2005 à juillet 2025, sur 12 marchés de 9 communes. C'est la première série temporelle du backbone, et la seule donnée publiée en statut « observée ».",
+      "Une série historique est publiée à part : {lien} — 14 140 relevés de prix de détail, 240 mois de janvier 2005 à juillet 2025. Le PAM n'y tire pas un échantillon de communes : il tient un réseau sentinelle d'un marché urbain principal par département, dans 9 départements sur 10. Ce sont des prix de ville, et la première série temporelle du backbone.",
       { lien: '<a href="data/atmart_prix_marches_HT.csv" download>' +
               T("prix des marchés (CSV)") + "</a>" }) + "</p>");
     return h.join("");
