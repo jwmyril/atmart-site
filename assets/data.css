@@ -437,6 +437,8 @@ details.x-mesure summary:hover { background: rgba(46,196,182,.05); }
 .x-detail p { color: var(--ink-dim); font-size: 0.8rem; line-height: 1.6; margin-top: 0.6rem; }
 .x-detail b { color: var(--ink); }
 .x-detail .x-limite b { color: var(--amber); }
+/* Une révision en retard se voit : c'est une valeur qui a dépassé sa date. */
+.x-perime { color: var(--amber); font-weight: 600; }
 .x-mesure.x-statique { padding: 0.85rem 0.9rem; }
 
 .x-lacunes { font-size: 0.84rem; min-width: 620px; }

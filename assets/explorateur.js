@@ -12,7 +12,7 @@
   /* Version des donnees. A incrementer des qu'un fichier de data/ est
      regenere : sinon le cache du navigateur sert l'ancien fichier et
      l'interface affiche du perime sans le savoir. */
-  var DV = "?d=2026-08-12b";
+  var DV = "?d=2026-08-13a";
   var F = {
     terr: DIR + (ADMIN ? "atmart_referentiel_territoire_HT.csv"
                        : "atmart_referentiel_territoire_base_HT.csv"),
@@ -457,6 +457,30 @@
              { n: c.avec, t: nCommunes, r: nCommunes - c.avec,
                pct: Math.round(c.avec / nCommunes * 100) })
     };
+  }
+
+  /* Ce que l'année de référence désigne. Le dictionnaire le porte depuis le
+     12/08 : sans lui, « millésime 2026 » ne disait pas si le phénomène s'est
+     produit cette année-là ou s'il y a seulement été relevé. */
+  var NATURE_PERIODE = {
+    "observation": "l'année décrit le phénomène lui-même",
+    "relevé": "l'année est celle du relevé, le phénomène étant continu",
+    "millésime": "l'année est celle du découpage de référence"
+  };
+
+  /* Fraîcheur : la date de prochaine révision vit dans le dictionnaire, le
+     retard se calcule à l'affichage. Une date écrite dans un fichier vieillit
+     en silence ; une comparaison faite au moment où on lit, non. */
+  function libFraicheur(d) {
+    var p = d.date_prochaine_revision;
+    if (!p) return null;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(p)) {
+      return { texte: TF("Révision {quand}", { quand: p }), retard: false };
+    }
+    var auj = new Date().toISOString().slice(0, 10);
+    return p < auj
+      ? { texte: TF("Révision attendue depuis le {date}", { date: jour(p) }), retard: true }
+      : { texte: TF("Prochaine révision prévue le {date}", { date: jour(p) }), retard: false };
   }
 
   /* ----------------------------------------------------------------- blocs */
@@ -1087,7 +1111,7 @@
       h.push('<p class="x-theme">' + (T(THEME[cat]) || esc(cat)) + "</p>");
       h.push('<div class="x-mesures">' + groupes[cat].map(function (p) {
         var v = p[0], d = p[1], rg = rang(v.indicateur_id, r.pcode);
-        var couv = libCouverture(v.indicateur_id);
+        var couv = libCouverture(v.indicateur_id), fraich = libFraicheur(d);
         return '<details class="x-mesure"><summary>' +
           "<b>" + fmt(v.valeur, v.unite) + "</b>" +
           "<span>" + esc(libelle(v.indicateur_id, "nom") || v.indicateur_id) + "</span>" +
@@ -1114,6 +1138,15 @@
           (d.regle_agregation ? " · " +
             TF("agrégation : {regle}", { regle: esc(T(REGLE[d.regle_agregation]) || d.regle_agregation) }) : "") +
           (v.periode ? " · " + TF("période {p}", { p: esc(v.periode) }) : "") + "</p>" +
+          /* Le millésime et sa nature, puis l'échéance de révision : trois
+             informations que le dictionnaire porte et que la fiche taisait. */
+          (v.annee_reference && NATURE_PERIODE[d.nature_periode]
+            ? "<p><b>" + T("Millésime.") + "</b> " +
+              TF("{an} — {nature}.", { an: esc(v.annee_reference),
+                 nature: esc(T(NATURE_PERIODE[d.nature_periode])) }) +
+              (fraich ? ' <span class="' + (fraich.retard ? "x-perime" : "") + '">' +
+                        esc(fraich.texte) + ".</span>" : "") + "</p>"
+            : "") +
           (d.comparabilite ? "<p><b>" + T("Comparabilité.") + "</b> " +
             esc(libelle(v.indicateur_id, "comparabilite")) + "</p>" : "") +
           "<p><b>" + T("Source.") + "</b> " +
