@@ -4,7 +4,7 @@
 suit le code partout : autre compte Claude, autre machine, autre session.
 À lire en premier pour reprendre le chantier.
 
-Dernière mise à jour : **2026-08-12**
+Dernière mise à jour : **2026-08-12** (lot P0)
 
 ---
 
@@ -15,12 +15,15 @@ Dernière mise à jour : **2026-08-12**
 | | état |
 |---|---|
 | Langue | **français seul** — multilingue en pause assumée (voir §4) |
-| Moteur | `assets/explorateur.js?v=22` — un seul fichier, deux éditions (publique / admin) |
+| Moteur | `assets/explorateur.js?v=23` — un seul fichier, deux éditions (publique / admin) |
 | Données | 4 CSV publics + 1 GeoJSON, chargés dans le navigateur — aucun serveur, aucun compte, aucun traceur |
-| Territoires | 192 entités (10 départements, 42 arrondissements, 140 communes), CNIGS/OCHA COD-AB 2018 |
-| Observations | **3 094 valeurs sourcées** — 1 414 + 140 densités (11/08) + 1 540 âge et sexe (11/08) |
-| Pyramide des âges | `atmart_pyramide_ages_HT.csv`, 7 140 lignes — **dessinée sur chaque fiche**, aux 3 niveaux, chargée seulement quand la section approche de l'écran (1,1 Mo) |
-| Tests | `tests/explorateur-tests.html` — **44 assertions, toutes vertes** |
+| Territoires | 192 entités (10 départements, 42 arrondissements, 140 communes), millésime CNIGS/OCHA COD-AB 2018 **retenu pour cette édition** |
+| Observations | **3 780 lignes** — 2 877 valeurs sourcées et **903 absences documentées** |
+| Couverture | de **10 %** (santé, 14 communes) à **100 %** (territoire, démographie) — affichée indicateur par indicateur depuis le 12/08 |
+| Pyramide des âges | `atmart_pyramide_ages_HT.csv`, 7 140 lignes — **dessinée sur chaque fiche**, aux 3 niveaux, chargée quand la section approche de l'écran (72 Ko transférés, 1,1 Mo bruts) |
+| Multilingue | dictionnaires ht/en/es **complets** (214 entrées, 0 chaîne sans traduction) — publication toujours en pause (voir §4) |
+| Tests | `tests/explorateur-tests.html` — **51 assertions, toutes vertes** |
+| Audit | [AUDIT-EXPLORATEUR-2026-08-12.md](AUDIT-EXPLORATEUR-2026-08-12.md) — état des lieux, matrice stratégique, backlog P0/P1/P2/P3 |
 
 ### Ce que l'Explorateur sait faire
 
@@ -137,6 +140,11 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 
 **Court terme, par ordre de rapport qualité/effort**
 
+0. ~~**Audit et lot P0**~~ — fait le 12/08 : couverture affichée par indicateur,
+   686 absences rendues visibles, formulations du référentiel et du score de
+   complétude corrigées. Suite du backlog dans
+   [AUDIT-EXPLORATEUR-2026-08-12.md](AUDIT-EXPLORATEUR-2026-08-12.md) — **P1-1 à
+   P1-15 en attente d'arbitrage**.
 1. ~~**Densité de population**~~ — fait le 11/08 (`IND-POP-002`, `build_densite.py`).
 2. ~~**Population par âge**~~ — fait le 11/08 (`build_pyramide.py`) : satellite + `IND-POP-003..013`.
 3. ~~**Afficher la pyramide dans l'Explorateur**~~ — fait le 12/08 (`explorateur.js?v=22`) :
@@ -149,10 +157,10 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 **Puis, avant réouverture du multilingue**
 
 7. Relecture humaine du kreyòl (préproduction prête).
-8. Traduire les chaînes ajoutées pendant la pause (comparaison des dictionnaires)
-   — **dont les ~20 chaînes de la pyramide**, aujourd'hui en français seul dans
-   `explorateur.*.json` ; les sept champs traduits des 11 indicateurs, eux, sont
-   déjà dans `atmart_referentiel_indicateurs_i18n.csv`.
+8. ~~Traduire les chaînes ajoutées pendant la pause~~ — fait le 12/08 : les 27
+   chaînes manquantes (18 de la pyramide, 9 du lot P0) sont traduites, il n'en
+   reste aucune. Restent 34 entrées orphelines à nettoyer, `hreflang` et le
+   sitemap multilingue.
 9. `generer-pages-localisees.py` + réactiver les alternates dans `generer-sitemap.py` (blocs marqués « EN PAUSE »).
 
 **Sources identifiées, non ouvertes** : ISPAN (patrimoine, mandat officiel),
