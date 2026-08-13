@@ -370,6 +370,56 @@ a.sys-card:hover { transform: translateY(-2px); border-color: var(--teal); }
 .x-objectif p { color: var(--ink-dim); font-size: 0.92rem; margin: 0; line-height: 1.65; }
 .x-objectif .x-theme { margin: 0 0 0.4rem; color: var(--teal); }
 
+/* ===== Résumé décisionnel =====
+   Deux colonnes de même poids : ce que la donnée dit, ce qu'elle ne dit pas.
+   Les mettre côte à côte est le propos — l'une ne se lit pas sans l'autre. */
+.x-dec-cols {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem 1.6rem; margin: 0.9rem 0 0.2rem;
+}
+.x-dec-t {
+  font-family: var(--font-head); font-size: 0.78rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink) !important; margin: 0 0 0.4rem !important;
+}
+.x-dec-cols ul { list-style: none; margin: 0; padding: 0; }
+.x-dec-cols li {
+  color: var(--ink-dim); font-size: 0.88rem; line-height: 1.5;
+  padding: 0.35rem 0 0.35rem 0.9rem; position: relative; border-bottom: 1px solid var(--border);
+}
+.x-dec-cols li:last-child { border-bottom: 0; }
+.x-dec-cols li::before { content: "·"; position: absolute; left: 0; color: var(--teal); }
+.x-dec-cols li b { color: var(--ink); font-weight: 600; }
+.x-dec-cols li small { display: block; color: var(--ink-dim); opacity: 0.85; font-size: 0.79rem; }
+.x-dec-plus::before { content: "" !important; }
+.x-dec-etat {
+  margin: 0.8rem 0 0 !important; font-size: 0.84rem !important; color: var(--ink-dim) !important;
+}
+.x-dec-avert { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+.x-dec-avert li {
+  color: var(--amber); font-size: 0.84rem; line-height: 1.55;
+  padding: 0.2rem 0 0.2rem 1.2rem; position: relative;
+}
+.x-dec-avert li::before { content: "⚠"; position: absolute; left: 0; font-size: 0.8rem; }
+
+/* ===== Accueil : la fiche montrée d'emblée est un exemple ===== */
+.x-accueil { margin: 0 0 1.4rem; }
+.x-accueil-vp {
+  font-size: 1.02rem; color: var(--ink); line-height: 1.6; margin: 0 0 0.5rem; max-width: 76ch;
+}
+.x-accueil-ex {
+  color: var(--amber); font-size: 0.88rem; margin: 0.6rem 0 0;
+  border-left: 3px solid var(--amber); padding-left: 0.7rem;
+}
+
+/* Le sélecteur d'usage était un libellé gris au-dessus d'une liste : il change
+   ce que la fiche montre, il doit se voir. */
+.x-adapter {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 0.7rem 0.9rem;
+}
+.x-adapter label { color: var(--ink) !important; font-weight: 600; }
+.x-adapter select { border-color: rgba(46,196,182,.45); }
+
 details.x-mesure { padding: 0; }
 details.x-mesure summary {
   list-style: none; cursor: pointer; padding: 0.85rem 0.9rem; border-radius: 12px;

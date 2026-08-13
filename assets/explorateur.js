@@ -12,7 +12,7 @@
   /* Version des donnees. A incrementer des qu'un fichier de data/ est
      regenere : sinon le cache du navigateur sert l'ancien fichier et
      l'interface affiche du perime sans le savoir. */
-  var DV = "?d=2026-08-12a";
+  var DV = "?d=2026-08-12b";
   var F = {
     terr: DIR + (ADMIN ? "atmart_referentiel_territoire_HT.csv"
                        : "atmart_referentiel_territoire_base_HT.csv"),
@@ -31,6 +31,13 @@
      qui distingue « 140 communes au socle » de « 14 communes couvertes ». */
   var couverture = {}, nCommunes = 0, indBloques = [];
   var niveauComp = "3", normalisation = "total", ongletActif = "fiche";
+  /* La fiche s'ouvre réduite aux indicateurs de l'usage choisi ; l'utilisateur
+     déplie une fois et l'état suit dans l'URL, sinon un lien partagé rouvrirait
+     replié la fiche que l'on voulait montrer entière. */
+  var ficheComplete = false;
+  /* Vrai tant que l'utilisateur n'a pas choisi de territoire : la fiche
+     affichée est alors une démonstration, et doit le dire. */
+  var montrerAccueil = false;
   var aggEntite = {};   /* agregats precalcules des departements et arrondissements */
   var $ = function (s) { return document.querySelector(s); };
 
@@ -225,13 +232,30 @@
                      "Définition prête, donnée absente": "Définition prête, donnée absente",
                      "À construire": "À construire" };
 
-  /* Quatre objectifs plutôt que sept profils : chacun réordonne les thèmes,
-     change le résumé et propose des actions différentes. */
+  /* Six usages plutôt que sept profils : chacun réordonne les thèmes, choisit
+     les indicateurs qu'il met en premier, change le résumé et propose des
+     actions différentes.
+
+     « cles » est le seul champ éditorial de ce fichier : quels indicateurs
+     répondent d'abord à cet usage. Il ne pouvait pas être calculé — aucune
+     donnée ne dit qu'un urbaniste regarde la densité avant le rapport de
+     masculinité — et il ne pouvait pas non plus vivre dans le dictionnaire sans
+     y ajouter une matrice de 6 colonnes × 32 lignes. Il est donc ici, court et
+     relisible. Tout le reste de la fiche continue d'être compté, jamais écrit.
+     La vue complète, elle, n'en a pas : elle montre tout, c'est son objet. */
   var OBJECTIFS = {
-    tout: { nom: T("Vue complète"), ordre: null },
+    tout: {
+      nom: T("Vue d'ensemble"), ordre: null,
+      cles: ["IND-POP-001", "IND-GEO-001", "IND-POP-002", "IND-POP-010",
+             "IND-GEO-002", "IND-EDU-001", "IND-SAN-001", "IND-MAR-001"],
+      lecture: T("Les huit repères que l'on regarde en premier, quel que soit l'usage.")
+    },
     planifier: {
       nom: T("Planifier les services publics"),
       ordre: ["Territoire", "Santé", "Éducation", "Marchés", "Qualité"],
+      cles: ["IND-POP-001", "IND-POP-002", "IND-POP-007", "IND-POP-012",
+             "IND-GEO-002", "IND-EDU-001", "IND-SAN-001"],
+      lecture: T("Combien de personnes à servir, où elles vivent, et quels équipements sont recensés en face."),
       resume: function (r, s) {
         return TF(s.nAbsents > 1
           ? T("Profil administratif de {n}. {phrase} Les données disponibles couvrent {themes}. {absents} indicateurs restent à documenter sur cette commune.")
@@ -245,6 +269,9 @@
     projet: {
       nom: T("Préparer un projet ou une intervention"),
       ordre: ["Santé", "Éducation", "Marchés", "Territoire", "Qualité"],
+      cles: ["IND-POP-001", "IND-POP-003", "IND-POP-011", "IND-SAN-001",
+             "IND-EDU-001", "IND-MAR-001", "IND-QUA-001"],
+      lecture: T("Les publics, les services recensés, et l'état de la documentation sur laquelle reposera le diagnostic."),
       resume: function (r, s) {
         return TF("Avant d'intervenir sur {n} : {phrase} Le score de complétude vous dit d'avance sur quoi votre diagnostic reposera — et sur quoi il ne reposera pas.",
           { n: esc(nomT(r)), phrase: s.phrase });
@@ -256,6 +283,9 @@
     recherche: {
       nom: T("Réaliser une recherche"),
       ordre: ["Qualité", "Territoire", "Santé", "Éducation", "Marchés"],
+      cles: ["IND-QUA-001", "IND-POP-001", "IND-POP-012", "IND-POP-013",
+             "IND-GEO-001", "IND-GEO-003", "IND-SAN-003"],
+      lecture: T("Les mesures dont la méthode et les limites sont écrites, et les indicateurs de qualité qui disent ce qu'elles valent."),
       resume: function (r, s) {
         return TF("Chaque valeur affichée pour {n} porte son année de référence, sa source et sa méthode de calcul — de quoi les reprendre dans une méthodologie. {phrase}",
           { n: esc(nomT(r)), phrase: s.phrase });
@@ -264,9 +294,26 @@
                 [T("Accès Campus pour un mémoire"), "donnees-campus.html"],
                 [T("Registre des sources"), "data/atmart_registre_sources.csv"]]
     },
+    implantation: {
+      nom: T("Étudier une implantation économique"),
+      ordre: ["Marchés", "Territoire", "Santé", "Éducation", "Qualité"],
+      cles: ["IND-POP-001", "IND-POP-002", "IND-POP-004", "IND-MAR-001",
+             "IND-GEO-001", "IND-GEO-004"],
+      lecture: T("La taille du bassin, sa concentration, la population en âge de travailler et les marchés suivis."),
+      resume: function (r, s) {
+        return TF("Ce que la donnée publique dit du bassin de {n} : {phrase} Elle décrit une population et des équipements recensés — elle ne mesure ni la demande, ni le pouvoir d'achat, ni la concurrence.",
+          { n: esc(nomT(r)), phrase: s.phrase });
+      },
+      actions: [[T("Comparer aux communes voisines"), "#comparer"],
+                [T("Packs décisionnels"), "donnees-solutions.html#packs"],
+                [T("Référentiel géographique complet"), "donnees-pack-geo-haiti.html"]]
+    },
     macommune: {
       nom: "Explorer ma commune",
       ordre: ["Territoire", "Éducation", "Santé", "Marchés", "Qualité"],
+      cles: ["IND-POP-001", "IND-POP-002", "IND-GEO-002", "IND-GEO-003",
+             "IND-EDU-001", "IND-SAN-001", "IND-MAR-001"],
+      lecture: T("Ce qui se voit depuis la commune : combien on est, sur quelle étendue, et quels services sont recensés."),
       resume: function (r, s) {
         return TF("Ce que l'on sait publiquement de {n} : {phrase} Tout ceci est libre et téléchargeable.",
           { n: esc(nomT(r)), phrase: s.phrase });
@@ -846,34 +893,194 @@
     });
   }
 
+  /* --------------------------------------------------- résumé décisionnel
+     Trois constats, trois manques, l'état de la documentation, les
+     avertissements, les actions. Tout est calculé sur les valeurs publiées, et
+     rien n'y est interprété : un rang est un rang, pas une performance. Dire
+     qu'une commune est première pour la densité est un fait ; dire qu'elle est
+     « en difficulté » serait une lecture que la donnée ne porte pas. */
+
+  /* Ce qui distingue un territoire : les indicateurs où son rang est le plus
+     extrême, une seule fois par famille — sans quoi les onze indicateurs
+     démographiques rempliraient les trois lignes à eux seuls. Un rang établi
+     sur moins de vingt communes ne distingue rien : il est ignoré. */
+  function traitsDistinctifs(r) {
+    if (r.niveau_admin !== "3") return [];
+    var cand = [];
+    Object.keys(parIndicateur).forEach(function (k) {
+      var d = dico[k] || {};
+      if (d.categorie === "Qualité") return;
+      var rg = rang(k, r.pcode), v = valeurBrute(r, k);
+      if (!rg || !v || v.valeur === null || rg.total < 20) return;
+      cand.push({ id: k, rg: rg, v: v, famille: k.slice(0, 7),
+                  ecart: Math.max(rg.pct, 100 - rg.pct) });
+    });
+    /* À écart égal — être premier sur deux indicateurs arrive souvent — on
+       garde celui dont le classement porte sur le plus de communes : un rang
+       sur 140 dit davantage qu'un rang sur 14. */
+    cand.sort(function (a, b) {
+      return (b.ecart - a.ecart) || (b.rg.total - a.rg.total);
+    });
+    var vues = {}, tri = [];
+    cand.forEach(function (t) {
+      if (vues[t.famille] || tri.length >= 3) return;
+      vues[t.famille] = 1;
+      tri.push(t);
+    });
+    return tri;
+  }
+
+  /* Ce que la donnée ne dit pas : d'abord les absences constatées sur ce
+     territoire, avec leur motif tel qu'il est écrit dans la donnée ; puis, s'il
+     en reste de la place, les indicateurs que personne ne peut encore calculer
+     nulle part. */
+  function lacunesLisibles(r) {
+    var out = [];
+    vals.forEach(function (v) {
+      if (v.pcode_commune !== r.pcode || v.statut_valeur !== "N") return;
+      out.push({ nom: libelle(v.indicateur_id, "nom") || v.indicateur_id,
+                 motif: v.methode });
+    });
+    indBloques.forEach(function (k) {
+      out.push({ nom: libelle(k, "nom") || k,
+                 motif: (T(STATUT_IND[dico[k].statut]) || dico[k].statut) +
+                        (dico[k].dependance ? " — " + dico[k].dependance : "") });
+    });
+    return out;
+  }
+
+  function avertissements(r) {
+    var m = vals.filter(function (v) {
+      return v.pcode_commune === r.pcode && v.statut_valeur !== "N"; });
+    var a = [], statuts = {}, annees = [], partiels = 0;
+    m.forEach(function (v) {
+      statuts[v.statut_valeur] = 1;
+      if (v.annee_reference) annees.push(+v.annee_reference);
+      var c = couverture[v.indicateur_id];
+      if (c && c.avec < nCommunes) partiels++;
+    });
+    if (!statuts.O) {
+      a.push(T("Aucune valeur n'est observée directement : tout est agrégé par Atmart ou estimé à partir d'une projection."));
+    }
+    if (annees.length && Math.max.apply(null, annees) - Math.min.apply(null, annees) > 1) {
+      a.push(TF("Les millésimes vont de {a} à {b} : cette fiche n'est pas un instantané.",
+        { a: Math.min.apply(null, annees), b: Math.max.apply(null, annees) }));
+    }
+    if (partiels) {
+      /* Le compte porte sur les indicateurs documentés de ce territoire, pas
+         sur les seules cartes visibles : la phrase doit le dire ainsi. */
+      a.push(TN({ one: "{n} indicateur documenté ici ne couvre pas tout le pays : son rang se lit sur les communes documentées, pas sur 140.",
+                  other: "{n} indicateurs documentés ici ne couvrent pas tout le pays : leur rang se lit sur les communes documentées, pas sur 140." },
+        partiels, { n: partiels }));
+    }
+    return a;
+  }
+
   function blocObjectif(r) {
     if (ADMIN || r.niveau_admin !== "3") return "";
-    var o = OBJECTIFS[objectif];
-    if (!o || !o.resume) return "";
-    var s = synthese(r);
-    return '<div class="x-objectif"><p class="x-theme">' + esc(T(o.nom)) + "</p><p>" + o.resume(r, s) + "</p>" +
-      '<div class="x-actions x-actions-sec">' + (o.actions || []).map(function (a) {
-        return a[1].charAt(0) === "#"
-          ? '<a class="btn btn-outline" href="' + a[1] + '">' + esc(T(a[0])) + "</a>"
-          : '<a class="btn btn-outline" href="' + a[1] + '">' + esc(T(a[0])) + " →</a>";
-      }).join("") + "</div></div>";
+    var o = OBJECTIFS[objectif] || {};
+    var s = synthese(r), h = [];
+    var traits = traitsDistinctifs(r), manques = lacunesLisibles(r), av = avertissements(r);
+
+    h.push('<div class="x-objectif x-decision"><p class="x-theme">' +
+           esc(T(o.nom) || "") + "</p>");
+    if (o.resume) h.push("<p>" + o.resume(r, s) + "</p>");
+
+    h.push('<div class="x-dec-cols">');
+    if (traits.length) {
+      h.push('<div><p class="x-dec-t">' + T("Ce qui situe ce territoire") + "</p><ul>" +
+        traits.map(function (t) {
+          return "<li><b>" + esc(libelle(t.id, "nom") || t.id) + "</b> " +
+            esc(fmt(t.v.valeur, t.v.unite)) + " <small>" +
+            TF("{rang} sur {total} communes documentées",
+               { rang: ordinal(t.rg.rang), total: t.rg.total }) + "</small></li>";
+        }).join("") + "</ul></div>");
+    }
+    if (manques.length) {
+      h.push('<div><p class="x-dec-t">' + T("Ce que la donnée ne dit pas encore") +
+        "</p><ul>" + manques.slice(0, 3).map(function (l) {
+          return "<li><b>" + esc(l.nom) + "</b> <small>" + esc(l.motif) + "</small></li>";
+        }).join("") +
+        (manques.length > 3
+          ? '<li class="x-dec-plus"><a href="#lacunes">' +
+            TF("et {n} autres", { n: manques.length - 3 }) + "</a></li>"
+          : "") + "</ul></div>");
+    }
+    h.push("</div>");
+
+    var etat = [TF("{n} indicateurs documentés sur {t} au dictionnaire",
+                   { n: s.nConnus, t: s.nConnus + s.nManques })];
+    if (s.annees) etat.push(TF("données de {a} à {b}", { a: s.annees[0], b: s.annees[1] }));
+    h.push('<p class="x-dec-etat">' + etat.join(" · ") + "</p>");
+    if (av.length) {
+      h.push('<ul class="x-dec-avert">' + av.map(function (t) {
+        return "<li>" + esc(t) + "</li>"; }).join("") + "</ul>");
+    }
+
+    /* Les actions de l'usage choisi, plus les deux qui valent pour tous. */
+    var actions = (o.actions || []).concat([
+      [T("Ce qui reste à documenter"), "#lacunes"],
+      [T("Financer une donnée manquante"), "donnees-parrainage.html#catalogue"]]);
+    var vues = {};
+    h.push('<div class="x-actions x-actions-sec">' + actions.filter(function (a) {
+      if (vues[a[1]]) return false;
+      vues[a[1]] = 1;
+      return true;
+    }).map(function (a) {
+      return '<a class="btn btn-outline" href="' + a[1] + '">' + esc(T(a[0])) +
+             (a[1].charAt(0) === "#" ? "" : " →") + "</a>";
+    }).join("") + "</div></div>");
+    return h.join("");
+  }
+
+  /* Première visite : l'Explorateur ouvre une fiche d'exemple. Sans un mot pour
+     le dire, l'utilisateur croit lire son territoire. */
+  function blocAccueil(r) {
+    var n = {};
+    terr.forEach(function (t) { n[t.niveau_admin] = (n[t.niveau_admin] || 0) + 1; });
+    return '<div class="x-accueil"><p class="x-accueil-vp">' +
+      T("Chaque territoire d'Haïti a ici sa fiche : les chiffres documentés avec leur source, leur millésime et leur méthode — et, à côté, ce qui n'est pas documenté, dit comme tel.") +
+      '</p><p class="x-note">' +
+      TF("Trois niveaux : {dep} départements, {arr} arrondissements, {com} communes. Comparez-en deux à quatre, ou classez-les toutes, par les onglets ci-dessus.",
+         { dep: n["1"] || 0, arr: n["2"] || 0, com: n["3"] || 0 }) +
+      '</p><p class="x-accueil-ex">' +
+      TF("Ci-dessous, {nom} en exemple — cherchez votre territoire dans la barre de recherche.",
+         { nom: esc(nomT(r)) }) + "</p></div>";
   }
 
   function blocIndicateurs(r) {
     var m = vals.filter(function (v) { return v.pcode_commune === r.pcode; });
     if (!m.length) return "";
     var connus = m.filter(function (v) { return v.statut_valeur !== "N"; });
+    var o = OBJECTIFS[objectif] || {};
+
+    /* Vingt-sept cartes d'un coup, personne ne les lit : la fiche s'ouvre sur
+       les indicateurs que l'usage choisi met en premier, et le reste est à un
+       clic. Si l'usage ne retient rien de documenté ici — une commune sans
+       école ni centre de santé recensés, par exemple — on montre tout plutôt
+       qu'une fiche vide. */
+    var retenus = connus, masques = 0;
+    if (o.cles && !ficheComplete) {
+      var garde = {};
+      o.cles.forEach(function (k) { garde[k] = 1; });
+      var reduits = connus.filter(function (v) { return garde[v.indicateur_id]; });
+      if (reduits.length) { masques = connus.length - reduits.length; retenus = reduits; }
+    }
+
     var groupes = {};
-    connus.forEach(function (v) {
+    retenus.forEach(function (v) {
       var d = dico[v.indicateur_id] || {};
       (groupes[d.categorie || "Autres"] = groupes[d.categorie || "Autres"] || []).push([v, d]);
     });
-    var ordre = (OBJECTIFS[objectif] || {}).ordre ||
-                ["Territoire", "Santé", "Éducation", "Marchés", "Qualité"];
+    var ordre = o.ordre || ["Territoire", "Santé", "Éducation", "Marchés", "Qualité"];
     var cles = ordre.filter(function (c) { return groupes[c]; })
                     .concat(Object.keys(groupes).filter(function (c) { return ordre.indexOf(c) < 0; }));
-    var h = ['<h3 class="x-h3" id="indicateurs">' + T("Indicateurs documentés") + "</h3>",
+    var h = ['<h3 class="x-h3" id="indicateurs">' +
+             (masques ? TF("Indicateurs documentés — {n} sur {t}",
+                           { n: retenus.length, t: connus.length })
+                      : TF("Indicateurs documentés — {t}", { t: connus.length })) + "</h3>",
              '<p class="x-note" style="margin-top:0">' +
+             (o.lecture ? esc(T(o.lecture)) + " " : "") +
              T("Chaque chiffre porte son année de référence, sa source et son statut. Dépliez une carte pour la définition et la méthode.") +
              "</p>"];
     cles.forEach(function (cat) {
@@ -921,6 +1128,15 @@
           "</div></details>";
       }).join("") + "</div>");
     });
+    if (masques) {
+      h.push('<p class="x-note"><button class="btn btn-outline x-btn-tout">' +
+             TF("Voir tous les indicateurs ({t})", { t: connus.length }) +
+             "</button></p>");
+    } else if (ficheComplete && o.cles) {
+      h.push('<p class="x-note"><button class="btn btn-outline x-btn-tout">' +
+             TF("Revenir aux {n} indicateurs de cette vue", { n: o.cles.length }) +
+             "</button></p>");
+    }
     return h.join("");
   }
 
@@ -1193,7 +1409,7 @@
     var r = parId[id];
     if (!r) return;
     courant = r;
-    var h = [blocResume(r), blocCarte(r)];
+    var h = [montrerAccueil ? blocAccueil(r) : "", blocResume(r), blocCarte(r)];
     if (r.niveau_admin === "3") {
       h.push(blocObjectif(r), blocIndicateurs(r), blocPyramide(r), blocComparer(r), blocLacunes(r));
     } else h.push(agregat(r), blocPyramide(r));
@@ -1214,7 +1430,8 @@
             (comparees.length ? "&comparer=" + comparees.join(",") : "") +
             (ongletActif !== "fiche" ? "&onglet=" + ongletActif : "") +
             (niveauComp !== "3" ? "&niveau=" + niveauComp : "") +
-            (normalisation !== "total" ? "&norm=" + normalisation : "");
+            (normalisation !== "total" ? "&norm=" + normalisation : "") +
+            (ficheComplete ? "&complet=1" : "");
     var si = $("#x-indicateur");
     if (si && si.value && si.value !== "IND-QUA-001") q += "&ind=" + si.value;
     try { history.replaceState(null, "", q); } catch (e) {}
@@ -1616,6 +1833,8 @@
     document.addEventListener("click", function (e) {
       var b = e.target.closest("[data-id]");
       if (b) {
+        /* L'utilisateur a choisi un territoire : la fiche n'est plus un exemple. */
+        montrerAccueil = false;
         fiche(b.dataset.id);
         $("#x-resultats").hidden = true; champ.value = "";
         var of = document.querySelector('[data-onglet="fiche"]');
@@ -1678,6 +1897,13 @@
         rendreComparaison(); majURL(); return;
       }
       if (e.target.closest(".x-btn-export-comp")) { exporterComparaison(); return; }
+      if (e.target.closest(".x-btn-tout") && courant) {
+        ficheComplete = !ficheComplete;
+        fiche(courant.atmart_geo_id);
+        var anc = $("#indicateurs");
+        if (anc) anc.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
       /* Imprimer une fiche dont la pyramide n'a pas encore été atteinte à
          l'écran produirait un PDF amputé : on l'attend, puis on imprime. */
       if (e.target.closest(".x-btn-print")) {
@@ -1791,7 +2017,10 @@
     }
     var ob = (location.search.match(/objectif=([a-z]+)/) || [])[1];
     if (OBJECTIFS[ob]) { objectif = ob; if (selObj) selObj.value = ob; }
+    ficheComplete = /[?&]complet=1/.test(location.search);
     var id = (location.search.match(/id=([A-Z0-9-]+)/) || [])[1];
+    /* Sans territoire demandé, la fiche ouverte est un exemple : on le dit. */
+    montrerAccueil = !parId[id];
     fiche(parId[id] ? id : "HTC-0111");
 
     /* Changement de langue. L'etat de l'application — territoire courant,
