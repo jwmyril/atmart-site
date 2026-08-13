@@ -503,27 +503,27 @@ IND-POP-013,es,comparabilite,"Comparable entre las 140 comunas del referencial C
 IND-POP-013,es,limites_connues,"Todos estos valores derivan de una proyección (COD-PS 2024), no de un conteo: estado E, nunca O — el último censo data de 2003. La fuente es quinquenal: no se extrae de ella ningún límite de edad intermedio (5-18 años, edad mediana), pues repartir un grupo exigiría inventar. El último grupo es abierto (80 años y más). Anomalía conocida de la fuente: COD-PS 2024 atribuye 3 987 habitantes a Gressier (HT0116), fuera de proporción con sus vecinas; sus efectivos por edad heredan la anomalía y no deben leerse. Por último, la desagregación comunal es más frágil que el total: la razón de masculinidad al nacer es biológicamente estable (101,8 hombres por 100 mujeres a escala nacional en el grupo 0-4), pero varía de 89 a 116 según la comuna. Una estructura por edad y sexo debe leerse con cautela a nivel comunal, y la diferencia de un solo grupo no significa nada por sí sola."
 IND-POP-013,es,unite,hombres / 100 mujeres
 IND-POP-013,es,sens_interpretation,Cercana a 95-100 en una población sin movimientos marcados. Una brecha clara señala migración selectiva — o un límite de la proyección.
-IND-PRX-001,ht,nom,Volatilite pri yo pa mache
-IND-PRX-001,ht,definition,Dispèsyon pri reyèl yon pwodui sou yon mache.
-IND-PRX-001,ht,methode_calcul,"Ekatip ÷ mwayèn pri reyèl mansyèl la sou 12 mwa k ap woule, apre korije enflasyon."
-IND-PRX-001,ht,comparabilite,Konparab ant mache si inite yo mete daplon.
-IND-PRX-001,ht,limites_connues,"Inite mezi lokal yo (mamit, gòdè) chanje de yon mache a yon lòt : san yo pa mete daplon, endikatè a fo."
-IND-PRX-001,ht,unite,koyefisyan varyasyon (%)
-IND-PRX-001,ht,sens_interpretation,"Wo = mache a pa estab, se yon siyal alèt sou manje."
-IND-PRX-001,en,nom,Price volatility by market
-IND-PRX-001,en,definition,Dispersion of the real price of a product on a given market.
-IND-PRX-001,en,methode_calcul,"Standard deviation ÷ mean of the monthly real price over a rolling 12 months, after correcting for inflation."
-IND-PRX-001,en,comparabilite,Comparable between markets if the units are harmonised.
-IND-PRX-001,en,limites_connues,"Local units of measure (marmite, gode) vary from one market to another: without harmonisation, the indicator is wrong."
+IND-PRX-001,ht,nom,Enstabilite pri nan mache yo
+IND-PRX-001,ht,definition,Konbyen pri yo deplase yon mwa apre lòt nan mache komin nan pandan ane 2024.
+IND-PRX-001,ht,methode_calcul,"Koefisyan varyasyon pri detay yo an goud pou ane 2024 : pou chak koup (mache, pwodui) ki gen omwen 6 mwa releve, ekatip divize pa mwayèn fwa 100 ; valè komin nan se medyàn koefisyan sa yo. Medyàn, pa mwayèn : yon sèl pwodui ki fè dezòd pa dwe antrene tout komin nan."
+IND-PRX-001,ht,comparabilite,"Konparab ant nèf komin PAM nan swiv yo, epi sèlman ant yo menm."
+IND-PRX-001,ht,limites_connues,"Nèf komin sou 140 : PAM swiv pri sèlman nan douz mache, se pa nan 182 mache rejis la genyen yo. Pri yo an goud, yo pa korije pou enflasyon — yon pati nan varyasyon an se enflasyon, se pa dezòd mache. Ane 2024 gen onz mwa, pa douz : septanm manke nan sous la. Seri nèf mache istorik yo kanpe 15 desanm 2024 ; sèl releve 2025 la se twa mache Jeremie ki louvri an jiyè, yo twò nèf pou mezire, nou pa mete yo nan kalkil la. Yon koefisyan varyasyon pa di si pri yo monte ou desann : li di konbyen yo deplase."
+IND-PRX-001,ht,unite,koefisyan varyasyon (%)
+IND-PRX-001,ht,sens_interpretation,"Wo = pri yo pa estab yon mwa apre lòt, sa peze sou fanmi yo menm lè nivo mwayèn nan pa chanje. Li li ansanm ak kantite pwodui yo swiv : yon enstabilite ki kalkile sou twa pwodui pa gen menm pwa ak youn ki kalkile sou dis."
+IND-PRX-001,en,nom,Price volatility in markets
+IND-PRX-001,en,definition,How much retail prices moved from month to month in the commune's markets during 2024.
+IND-PRX-001,en,methode_calcul,"Coefficient of variation of nominal retail prices in gourdes over 2024: for each (market, commodity) pair recorded at least 6 months, standard deviation ÷ mean × 100; the communal value is the median of those coefficients. Median, not mean: a single erratic commodity must not carry the commune."
+IND-PRX-001,en,comparabilite,"Comparable across the nine communes the WFP monitors, and among those only."
+IND-PRX-001,en,limites_connues,"Nine communes out of 140: the WFP monitors prices in twelve markets, not in the 182 of the register. Prices are nominal, in gourdes, not deflated — part of the observed variation is inflation, not market instability. 2024 has eleven months, not twelve: September is missing from the source. The nine historic markets stop on 15 December 2024; the only 2025 reading covers three Jérémie markets opened in July, too recent to measure, and is excluded. A coefficient of variation does not say whether prices rose or fell: it says how much they moved."
 IND-PRX-001,en,unite,coefficient of variation (%)
-IND-PRX-001,en,sens_interpretation,"High = unstable market, a food-security warning signal."
-IND-PRX-001,es,nom,Volatilidad de precios por mercado
-IND-PRX-001,es,definition,Dispersión del precio real de un producto en un mercado dado.
-IND-PRX-001,es,methode_calcul,"Desviación típica ÷ media del precio real mensual sobre 12 meses móviles, tras corregir la inflación."
-IND-PRX-001,es,comparabilite,Comparable entre mercados si las unidades están armonizadas.
-IND-PRX-001,es,limites_connues,"Las unidades de medida locales (marmite, gode) varían de un mercado a otro: sin armonización, el indicador es falso."
+IND-PRX-001,en,sens_interpretation,"High = prices unstable from month to month, which weighs on households even when the average level does not change. Read alongside the number of commodities monitored: volatility computed on three does not carry the weight of one computed on ten."
+IND-PRX-001,es,nom,Volatilidad de los precios en los mercados
+IND-PRX-001,es,definition,Cuánto se movieron los precios minoristas de un mes a otro en los mercados de la comuna durante 2024.
+IND-PRX-001,es,methode_calcul,"Coeficiente de variación de los precios minoristas nominales en gourdes durante 2024: para cada par (mercado, producto) con al menos 6 meses registrados, desviación típica ÷ media × 100; el valor comunal es la mediana de esos coeficientes. Mediana y no media: un solo producto errático no debe arrastrar la comuna."
+IND-PRX-001,es,comparabilite,"Comparable entre las nueve comunas que el PMA monitorea, y solo entre ellas."
+IND-PRX-001,es,limites_connues,"Nueve comunas de 140: el PMA sigue los precios en doce mercados, no en los 182 del registro. Los precios son nominales, en gourdes, sin deflactar — parte de la variación observada es inflación, no inestabilidad del mercado. 2024 tiene once meses y no doce: septiembre falta en la fuente. La serie de los nueve mercados históricos se detiene el 15 de diciembre de 2024; el único registro de 2025 cubre tres mercados de Jérémie abiertos en julio, demasiado recientes para medirse, y queda excluido. Un coeficiente de variación no dice si los precios subieron o bajaron: dice cuánto se movieron."
 IND-PRX-001,es,unite,coeficiente de variación (%)
-IND-PRX-001,es,sens_interpretation,"Alto = mercado inestable, señal de alerta alimentaria."
+IND-PRX-001,es,sens_interpretation,"Alto = precios inestables de un mes a otro, lo que pesa sobre los hogares aunque el nivel medio no cambie. Léase junto con el número de productos seguidos: una volatilidad calculada sobre tres no tiene el peso de una calculada sobre diez."
 IND-QUA-001,ht,nom,Nòt konplè administratif
 IND-QUA-001,ht,definition,Pòsyon dimansyon backbone yo ki dokimante pou komin nan.
 IND-QUA-001,ht,methode_calcul,"Senk dimansyon teste : sipèfisi konnen, lokalite resanse, omwen yon etablisman sante resanse, omwen yon lekòl resanse, omwen yon mache swiv. Nòt = dimansyon ki ranpli ÷ 5 × 100."

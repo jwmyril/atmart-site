@@ -15,14 +15,15 @@ Dernière mise à jour : **2026-08-12** (lot P0)
 | | état |
 |---|---|
 | Langue | **français seul** — multilingue en pause assumée (voir §4) |
-| Moteur | `assets/explorateur.js?v=27` — un seul fichier, deux éditions (publique / admin) |
+| Moteur | `assets/explorateur.js?v=28` — un seul fichier, deux éditions (publique / admin) |
 | Données | 4 CSV publics + 1 GeoJSON, chargés dans le navigateur — aucun serveur, aucun compte, aucun traceur |
 | Territoires | 192 entités (10 départements, 42 arrondissements, 140 communes), millésime CNIGS/OCHA COD-AB 2018 **retenu pour cette édition** |
-| Observations | **4 060 lignes** — 2 940 valeurs sourcées et **1 120 absences documentées** |
+| Observations | **4 200 lignes** — 2 949 valeurs sourcées et **1 251 absences documentées** |
+| Série de prix | `atmart_prix_marches_HT.csv` — **14 140 relevés, 240 mois (2005-2025), 12 marchés, 9 communes**. Première série temporelle et première donnée en statut `O` |
 | Couverture | de **10 %** (santé, 14 communes) à **100 %** (territoire, démographie) — affichée indicateur par indicateur depuis le 12/08 |
 | Pyramide des âges | `atmart_pyramide_ages_HT.csv`, 7 140 lignes — **dessinée sur chaque fiche**, aux 3 niveaux, chargée quand la section approche de l'écran (72 Ko transférés, 1,1 Mo bruts) |
 | Multilingue | dictionnaires ht/en/es **complets** (214 entrées, 0 chaîne sans traduction) — publication toujours en pause (voir §4) |
-| Tests | `tests/explorateur-tests.html` — **78 assertions, toutes vertes** |
+| Tests | `tests/explorateur-tests.html` — **82 assertions, toutes vertes** |
 | Backbone | 4 référentiels documentés — [SCHEMAS-BACKBONE.md](../../Atmart_premium_datasets/backbone/SCHEMAS-BACKBONE.md) (dépôt privé) · registre : **22 sources**, 6 intégrées |
 | Audit | [AUDIT-EXPLORATEUR-2026-08-12.md](AUDIT-EXPLORATEUR-2026-08-12.md) — état des lieux, matrice stratégique, backlog P0/P1/P2/P3 |
 
@@ -98,6 +99,9 @@ python Atmart_premium_datasets/build_absences.py
 # Ratios d'offre de service : IND-EDU-010 et IND-SAN-010
 python Atmart_premium_datasets/build_ratios_service.py
 
+# Prix des marchés : série 2005-2025 + IND-PRX-001 (empreintes vérifiées)
+python Atmart_premium_datasets/build_prix_marches.py
+
 # Régénérer sitemap.xml + robots.txt depuis le contenu réel du dossier
 python Atmart_website/tests/generer-sitemap.py
 
@@ -109,7 +113,7 @@ python Atmart_website/tests/generer-pages-localisees.py
 ```
 
 **Routine avant toute publication** : `node --check assets/explorateur.js` →
-ouvrir `tests/explorateur-tests.html` → 78/78 → `python tests/verif-versions.py`
+ouvrir `tests/explorateur-tests.html` → 82/82 → `python tests/verif-versions.py`
 → commit + push. Le service worker sert des copies figées : **toujours** monter
 le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 
@@ -159,6 +163,9 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 
 **Court terme, par ordre de rapport qualité/effort**
 
+0sex. ~~**Prix des marchés**~~ — fait le 13/08 : série historique téléchargée,
+   horodatée et intégrée ; `IND-PRX-001` calculé sur 9 communes. Première couche
+   sectorielle du P3. Reste à lui donner un graphique.
 0qui. ~~**Lot P2**~~ — fait le 13/08 : matrice de couverture, situation
    départementale et nationale, appels à l'action contextuels. **P2-2 (mesure
    d'usage) spécifié mais non implémenté** — il contredirait la promesse

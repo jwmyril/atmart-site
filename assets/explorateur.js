@@ -12,7 +12,7 @@
   /* Version des donnees. A incrementer des qu'un fichier de data/ est
      regenere : sinon le cache du navigateur sert l'ancien fichier et
      l'interface affiche du perime sans le savoir. */
-  var DV = "?d=2026-08-13b";
+  var DV = "?d=2026-08-13c";
   var F = {
     terr: DIR + (ADMIN ? "atmart_referentiel_territoire_HT.csv"
                        : "atmart_referentiel_territoire_base_HT.csv"),
@@ -1638,6 +1638,12 @@
     });
     h.push("</tbody></table></div>");
     h.push('<p class="x-note">' + T("Une source qui couvre les 140 communes affiche son nombre sans dénominateur. Toute autre case porte le rapport, parce que c'est le rapport qui compte.") + "</p>");
+    /* La série de prix ne se lit pas dans ce tableau : elle est mensuelle, pas
+       territoriale. Elle se télécharge, en attendant qu'un graphique la lise. */
+    h.push('<p class="x-note">' + TF(
+      "Une série historique est publiée à part : {lien} — 14 140 relevés de prix de détail, 240 mois de janvier 2005 à juillet 2025, sur 12 marchés de 9 communes. C'est la première série temporelle du backbone, et la seule donnée publiée en statut « observée ».",
+      { lien: '<a href="data/atmart_prix_marches_HT.csv" download>' +
+              T("prix des marchés (CSV)") + "</a>" }) + "</p>");
     return h.join("");
   }
 

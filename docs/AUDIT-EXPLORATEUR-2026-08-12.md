@@ -117,7 +117,7 @@ existent », et il ne parle ni des 32 indicateurs, ni des 5 indicateurs
 | `E` estimée | 1 820 | projections COD-PS 2024 (population et structure par âge) |
 | `A` agrégée par Atmart | 1 057 | comptages sur le backbone |
 | `N` non documentée | 217 | absence explicite |
-| `O` observée | **0** | aucune observation directe publiée à ce jour |
+| `O` observée | **14 140** | série de prix des marchés, intégrée le 13/08 — voir §13 |
 
 | Niveau de qualité | Lignes |
 |---|---:|
@@ -396,16 +396,32 @@ distinctes qu'il vaut mieux ne pas confondre.
 |---|---|---|---|
 | **Registre scolaire géocodé** | SRC-004 — MENFP / SIGEEE | licence **« À vérifier »**, redistribution non confirmée | P1-13, démarche externe |
 | **Registre sanitaire versionné** | SRC-005 — MSPP | licence **« À vérifier »**, redistribution non confirmée | P1-13, démarche externe |
-| **Marchés et prix** | SRC-011 — PAM, **classe A, CC BY-IGO** | juridiquement clair. Mais seul le **registre des 182 marchés** est en zone source ; la série de prix n'y est pas, et HDX refuse les requêtes automatisées (**403** le 13/08) | un téléchargement depuis un navigateur |
+| ~~**Marchés et prix**~~ | SRC-011 — PAM, classe A, CC BY-IGO | ~~fichier absent~~ — **fait le 13/08** : le 403 venait du récupérateur de pages, pas de HDX. L'API CKAN répond à une requête portant un en-tête de navigateur ; la série est téléchargée, horodatée et intégrée | — |
 
-Autrement dit : **les deux couches prioritaires attendent une autorisation, la
-troisième attend un fichier.** La couche des prix est celle qui peut démarrer le
-plus vite — il manque une seule chose, le CSV des prix alimentaires d'Haïti
-depuis HDX, à déposer dans une zone source horodatée avec son manifeste
-SHA-256. La chaîne saura le traiter : le référentiel des marchés est déjà
-géocodé et rattaché aux communes, le référentiel temps porte les 720 périodes
-mensuelles nécessaires, et le dictionnaire attend déjà `IND-PRX-001`
-(volatilité des prix par marché).
+Autrement dit : **les deux couches prioritaires attendent une autorisation. La
+troisième est ouverte.**
+
+### Ce que la couche des prix a révélé
+
+J'avais conclu trop vite qu'HDX refusait les requêtes automatisées : le 403
+venait de mon récupérateur de pages, pas du serveur. L'API CKAN répond
+normalement à une requête portant un en-tête de navigateur — le fichier était à
+un appel de distance.
+
+Ce qu'il contient, vérifié avant tout calcul : **14 140 relevés de prix de
+détail, 240 mois de janvier 2005 à juillet 2025** — et **12 marchés seulement,
+dans 9 communes sur 140**, pas les 182 du registre. Deux ruptures que la donnée
+impose de dire : les neuf marchés historiques s'arrêtent au **15 décembre 2024**
+(le seul relevé de 2025 porte sur trois marchés de Jérémie ouverts en juillet),
+et **septembre 2024 manque** à la source.
+
+C'est la **première série temporelle** du backbone, et la **première donnée en
+statut `O`** : un relevé de prix sur un marché est une observation directe. Le
+tableau des statuts du §4 est donc à relire — « aucune observation directe
+publiée » n'est plus vrai depuis le 13/08.
+
+Elle rend aussi possible ce que P2-3 ne pouvait pas faire : une évolution
+temporelle. Il faudra un graphique pour la lire ; le fichier, lui, est publié.
 
 Ce qui a été fait pour préparer ces couches, et qui tient : les organisations
 portent désormais un millésime et des dates de validité — sans quoi une seconde
