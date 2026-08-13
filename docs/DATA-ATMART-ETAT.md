@@ -220,3 +220,21 @@ compte. Conséquences :
   `Atmart_website/tests/` (exclu du dépôt) et `_codes/` (jamais versionné).
 
 Dans tous les cas, ce document est le point d'entrée : il est dans le dépôt.
+
+---
+
+## 7. Site autonome — explorateur.atmart.ltd (13/08/2026, en attente DNS)
+
+Décision du propriétaire : l'Explorateur devient indépendant, modèle
+Suite360/Arpentaj. Dossier `Power_BI_Claude/Explorateur_site/` (dépôt local
+prêt, 25 fichiers) → futur dépôt `jwmyril/explorateur-site` (public, GitHub
+Pages, CNAME `explorateur.atmart.ltd`).
+
+- **Un seul moteur, deux sites** : `CFG.site` fait traverser les liens
+  éditoriaux vers atmart.ltd ; vide = comportement intégré identique.
+- **Synchronisation** : `Explorateur_site/tests/sync-donnees.py` tire données
+  + moteur depuis `Atmart_website` (source de vérité) et aligne le DV du SW.
+- **Après mise en ligne du DNS** : basculer `atmart.ltd/donnees-explorateur.html`
+  en renvoi (comme les pages /ht/), mettre à jour les liens du site et le
+  sitemap. NE PAS le faire avant que le sous-domaine réponde.
+- Tests du site autonome : 15 assertions, `Explorateur_site/tests/`.
