@@ -299,16 +299,16 @@ Effort : **S** ≤ 2 h · **M** ½ à 1 j · **L** 2 à 4 j · **XL** > 1 semain
 | ~~P1-2~~ | ~~Résumé décisionnel calculé~~ — **fait le 12/08** : 3 constats classés, 3 manques motivés, état, avertissements, actions | L | P0-2, P0-5 |
 | ~~P1-3~~ | ~~Fiche réduite + « Voir tous »~~ — **fait le 12/08**, état mémorisé dans l'URL | M | P1-2 |
 | ~~P1-4~~ | ~~Vraies vues métier~~ — **fait le 12/08** : 6 vues (une ajoutée, implantation économique), chacune avec ses indicateurs, son ordre, sa lecture et ses actions | L | P1-2 |
-| P1-5 | Langue mémorisée dans l'URL (9ᵉ paramètre d'état) | S | — |
-| P1-6 | Rouvrir la décision de précache du service worker à la lumière des 72 Ko réels | S | — |
+| ~~P1-5~~ | ~~Langue dans l'URL~~ — **fait le 13/08**, priorité page localisée > lien > préférence mémorisée | S | — |
+| ~~P1-6~~ | ~~Précache rouvert~~ — **fait le 13/08** : la pyramide y entre, l'affichage reste différé | S | — |
 | ~~P1-7~~ | ~~Nature de la période et fraîcheur~~ — **fait le 13/08** : `nature_periode` (observation / relevé / millésime) et `date_prochaine_revision`, retard calculé à l'affichage | M | — |
 | ~~P1-8~~ | ~~Huit champs au dictionnaire~~ — **fait le 13/08** : type, dimensions, population de référence, confidentialité, diffusion, responsable, révision | M | — |
 | ~~P1-9~~ | ~~Schéma maître des organisations~~ — **fait le 13/08** : millésime, dates de validité, 4 029 variantes de nom conservées ; schéma documenté | L | — |
-| P1-10 | Remplir `IND-EDU-010` (écoles ÷ population 5-19 ans × 10 000) | S | fait côté données : `IND-POP-007` |
-| P1-11 | Remplir `IND-SAN-010` (établissements pour 10 000 habitants) | S | `IND-POP-001` disponible |
+| ~~P1-10~~ | ~~`IND-EDU-010` rempli~~ — **fait le 13/08** : 49 communes, 91 absences documentées, écart mesuré écrit dans les limites | S | — |
+| ~~P1-11~~ | ~~`IND-SAN-010` rempli~~ — **fait le 13/08** : 14 communes, 126 absences documentées | S | — |
 | ~~P1-12~~ | ~~Enquêtes au registre~~ — **fait le 13/08** : 22 sources, 6 intégrées et 16 identifiées ; 4 licences vérifiées, 11 marquées « À vérifier » sans date | M | matrice juridique |
 | P1-13 | Lever les 3 licences « À vérifier » (IHSI, MENFP, MSPP) | M | démarche externe — **bloqué hors du dépôt** |
-| P1-14 | `scope` sur les 42 `<th>` ; `.x-lien` à 24 px minimum | S | — |
+| ~~P1-14~~ | ~~`scope` et cibles tactiles~~ — **fait le 13/08** : 42/42 en-têtes associés, boutons-liens à 24 px. Reste hors périmètre : le bouton de fermeture du tiroir de partage (22 px, `style.css` l. 614, asset site-wide) | S | — |
 | P1-15 | Multilingue : ~~chaînes sans traduction~~ (0 restante au 12/08), 36 orphelines à nettoyer, `hreflang`, sitemap, relecture kreyòl | L | relecture humaine — **décision requise** |
 
 ### P2 — produit et mesure
@@ -356,8 +356,9 @@ Lecture des deux documents stratégiques, confrontée à ce qui est déployé.
 | 12/08 | **P0** (6/6) | sémantique du référentiel, couverture par indicateur, score de complétude, compteur, 686 absences documentées |
 | 12/08 | **P1 expérience** (P1-1 à P1-4) | accueil, résumé décisionnel calculé, fiche réduite, six vues métier |
 | 13/08 | **P1 backbone** (P1-7 à P1-9, P1-12) | nature de la période et échéance de révision, 8 champs au dictionnaire, millésime et validité des organisations, 9 enquêtes au registre, schéma des quatre référentiels |
+| 13/08 | **P1 rendement** (P1-5, P1-6, P1-10, P1-11, P1-14) | deux ratios d'offre calculés, langue dans l'URL, précache rouvert, en-têtes associés et cibles à 24 px |
 
-Restent ouverts : P1-5, P1-6, P1-10, P1-11, P1-13 (bloqué hors du dépôt), P1-14, P1-15, puis P2 et P3.
+Restent ouverts : **P1-13** (bloqué hors du dépôt) et **P1-15** (multilingue : 39 orphelines, `hreflang`, sitemap, relecture kreyòl), puis P2 et P3. Les treize autres lignes du P1 sont fermées.
 
 ## 13. Ce que cet audit ne couvre pas
 

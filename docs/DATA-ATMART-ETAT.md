@@ -15,14 +15,14 @@ Dernière mise à jour : **2026-08-12** (lot P0)
 | | état |
 |---|---|
 | Langue | **français seul** — multilingue en pause assumée (voir §4) |
-| Moteur | `assets/explorateur.js?v=25` — un seul fichier, deux éditions (publique / admin) |
+| Moteur | `assets/explorateur.js?v=26` — un seul fichier, deux éditions (publique / admin) |
 | Données | 4 CSV publics + 1 GeoJSON, chargés dans le navigateur — aucun serveur, aucun compte, aucun traceur |
 | Territoires | 192 entités (10 départements, 42 arrondissements, 140 communes), millésime CNIGS/OCHA COD-AB 2018 **retenu pour cette édition** |
-| Observations | **3 780 lignes** — 2 877 valeurs sourcées et **903 absences documentées** |
+| Observations | **4 060 lignes** — 2 940 valeurs sourcées et **1 120 absences documentées** |
 | Couverture | de **10 %** (santé, 14 communes) à **100 %** (territoire, démographie) — affichée indicateur par indicateur depuis le 12/08 |
 | Pyramide des âges | `atmart_pyramide_ages_HT.csv`, 7 140 lignes — **dessinée sur chaque fiche**, aux 3 niveaux, chargée quand la section approche de l'écran (72 Ko transférés, 1,1 Mo bruts) |
 | Multilingue | dictionnaires ht/en/es **complets** (214 entrées, 0 chaîne sans traduction) — publication toujours en pause (voir §4) |
-| Tests | `tests/explorateur-tests.html` — **64 assertions, toutes vertes** |
+| Tests | `tests/explorateur-tests.html` — **72 assertions, toutes vertes** |
 | Backbone | 4 référentiels documentés — [SCHEMAS-BACKBONE.md](../../Atmart_premium_datasets/backbone/SCHEMAS-BACKBONE.md) (dépôt privé) · registre : **22 sources**, 6 intégrées |
 | Audit | [AUDIT-EXPLORATEUR-2026-08-12.md](AUDIT-EXPLORATEUR-2026-08-12.md) — état des lieux, matrice stratégique, backlog P0/P1/P2/P3 |
 
@@ -92,6 +92,9 @@ python Atmart_premium_datasets/build_pyramide.py
 # Absences documentées : aucune case vide silencieuse sur un indicateur Disponible
 python Atmart_premium_datasets/build_absences.py
 
+# Ratios d'offre de service : IND-EDU-010 et IND-SAN-010
+python Atmart_premium_datasets/build_ratios_service.py
+
 # Régénérer sitemap.xml + robots.txt depuis le contenu réel du dossier
 python Atmart_website/tests/generer-sitemap.py
 
@@ -103,7 +106,7 @@ python Atmart_website/tests/generer-pages-localisees.py
 ```
 
 **Routine avant toute publication** : `node --check assets/explorateur.js` →
-ouvrir `tests/explorateur-tests.html` → 64/64 → `python tests/verif-versions.py`
+ouvrir `tests/explorateur-tests.html` → 72/72 → `python tests/verif-versions.py`
 → commit + push. Le service worker sert des copies figées : **toujours** monter
 le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 
@@ -153,6 +156,9 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 
 **Court terme, par ordre de rapport qualité/effort**
 
+0qua. ~~**Lot P1 rendement**~~ — fait le 13/08 : IND-EDU-010 et IND-SAN-010
+   calculés, langue dans l'URL, pyramide au précache, en-têtes de tableau
+   associés, boutons-liens à 24 px.
 0ter. ~~**Lot P1 backbone**~~ — fait le 13/08 : nature de la période et échéance
    de révision, 8 champs au dictionnaire, millésime et validité des organisations,
    9 enquêtes au registre (LAPOP, Banque mondiale, DHS/SPA, IHSI, RGA).
