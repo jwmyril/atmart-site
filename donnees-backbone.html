@@ -85,7 +85,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       Le Backbone est ce socle. Chaque nouveau jeu de données s'y raccroche — et augmente la valeur de tous les autres.
     </p>
     <div class="d-proof">
-      <div><b>11 707</b><small>entités territoriales identifiées, du département à la localité</small></div>
+      <div><b><span data-mf="nombre_entites_territoriales">11 707</span></b><small>entités territoriales identifiées, du département à la localité</small></div>
       <div><b>5 niveaux</b><small>département › arrondissement › commune › section › localité</small></div>
       <div><b>5 029</b><small>écoles, centres de santé et marchés identifiés</small></div>
       <div><b>1 201</b><small>périodes alignées, exercice fiscal haïtien compris</small></div>
@@ -138,7 +138,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       </a>
       <a class="d-door" href="#indicateurs">
         <h3>📊 Indicateurs <span class="d-pill live">v1 publié</span></h3>
-        <p>21 définitions et 1 554 valeurs calculées sur les 140 communes. Le dictionnaire qui empêche
+        <p><span data-mf="nombre_indicateurs_definis">32</span> définitions et <span data-mf="nombre_valeurs_sourcees">2 949</span> valeurs calculées sur les 140 communes. Le dictionnaire qui empêche
           deux produits de calculer la même notion de deux façons.</p>
         <span class="go">Voir le dictionnaire →</span>
       </a>
@@ -158,7 +158,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 <section class="d-sec" id="territoire">
   <div class="container">
     <p class="d-lbl">Référentiel territoire · v1.2026.07</p>
-    <h2 class="d-h">11 707 entités, une seule table</h2>
+    <h2 class="d-h"><span data-mf="nombre_entites_territoriales">11 707</span> entités, une seule table</h2>
     <p class="d-sub" style="margin-bottom:1.2rem">
       Reconstruit à partir des données <strong>CNIGS</strong> diffusées par OCHA et de GeoNames.
       Une ligne par entité, tous niveaux confondus, chacune rattachée à son parent.
@@ -170,8 +170,8 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <tr><td>1 · Département</td><td>10</td><td><code>HTD-01</code></td><td>CNIGS — couche officielle</td></tr>
           <tr><td>2 · Arrondissement</td><td>42</td><td><code>HTA-011</code></td><td><strong>Dérivé Atmart</strong> — voir ci-dessous</td></tr>
           <tr><td>3 · Commune</td><td>140</td><td><code>HTC-0111</code></td><td>CNIGS — couche officielle</td></tr>
-          <tr><td>4 · Section communale</td><td>570</td><td><code>HTS-0111-01</code></td><td>CNIGS ; noms kreyòl normalisés Atmart</td></tr>
-          <tr><td>5 · Localité</td><td>10 945</td><td><code>HTL-3715776</code></td><td>GeoNames ; rattachement calculé par Atmart</td></tr>
+          <tr><td>4 · Section communale</td><td><span data-mf="nombre_sections_communales">570</span></td><td><code>HTS-0111-01</code></td><td>CNIGS ; noms kreyòl normalisés Atmart</td></tr>
+          <tr><td>5 · Localité</td><td><span data-mf="nombre_localites">10 945</span></td><td><code>HTL-3715776</code></td><td>GeoNames ; rattachement calculé par Atmart</td></tr>
         </tbody>
       </table>
     </div>
@@ -347,7 +347,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 <section class="d-sec" id="indicateurs">
   <div class="container">
     <p class="d-lbl">Référentiel indicateurs · v1.2026.07</p>
-    <h2 class="d-h">21 définitions, 1 554 valeurs — et 217 absences déclarées</h2>
+    <h2 class="d-h"><span data-mf="nombre_indicateurs_definis">32</span> définitions, <span data-mf="nombre_valeurs_sourcees">2 949</span> valeurs — et <span data-mf="nombre_absences_documentees">1 251</span> absences déclarées</h2>
     <p class="d-sub" style="margin-bottom:1.2rem">
       Les trois premiers référentiels disent où, quand et qui. Celui-ci dit <em>ce que l'on mesure</em>,
       et comment — pour que deux produits Atmart ne calculent jamais la même notion de deux façons.
@@ -385,9 +385,9 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       <div class="card">
         <span class="tag">Gratuit · CC BY 4.0</span>
         <h3>Indicateurs communaux + dictionnaire</h3>
-        <p>1 554 valeurs sur les 140 communes, au format long du schéma maître, avec les 21 définitions
+        <p><span data-mf="nombre_valeurs_sourcees">2 949</span> valeurs sur les 140 communes, au format long du schéma maître, avec les <span data-mf="nombre_indicateurs_definis">32</span> définitions
           complètes : méthode de calcul, comparabilité, limites, sens d'interprétation.</p>
-        <p class="price">0 $ <small>2 CSV • 1 554 valeurs • 21 définitions</small></p>
+        <p class="price">0 $ <small>2 CSV • <span data-mf="nombre_valeurs_sourcees">2 949</span> valeurs • <span data-mf="nombre_indicateurs_definis">32</span> définitions</small></p>
         <a href="data/atmart_indicateurs_communes_HT.csv" download class="btn btn-primary">Télécharger les valeurs</a>
         <p class="meta" style="margin-top:0.7rem"><a href="data/atmart_referentiel_indicateurs.csv" download>Télécharger le dictionnaire</a></p>
       </div>
@@ -445,7 +445,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         <thead><tr><th>Statut</th><th>Ce qu'il signifie</th><th>Dans le référentiel territoire</th></tr></thead>
         <tbody>
           <tr><td>O — Observée</td><td>Reprise directement de la source, sans transformation</td><td>10 958 entités</td></tr>
-          <tr><td>H — Harmonisée</td><td>Normalisée par Atmart pour être comparable</td><td>570 sections (noms kreyòl)</td></tr>
+          <tr><td>H — Harmonisée</td><td>Normalisée par Atmart pour être comparable</td><td><span data-mf="nombre_sections_communales">570</span> sections (noms kreyòl)</td></tr>
           <tr><td>A — Agrégée / dérivée</td><td>Calculée par Atmart à partir d'autres valeurs</td><td>179 entités (42 arrondissements + 137 rattachements)</td></tr>
           <tr><td>I — Interpolée</td><td>Comblée entre deux points connus</td><td>aucune</td></tr>
           <tr><td>M — Modélisée</td><td>Issue d'un modèle, pas d'une observation</td><td>aucune</td></tr>
@@ -510,7 +510,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       <div class="card">
         <span class="tag amber">Premium</span>
         <h3>Référentiel complet + géométries</h3>
-        <p>Les 11 707 entités jusqu'à la localité, les 570 sections communales, les 10 945 lieux habités
+        <p>Les <span data-mf="nombre_entites_territoriales">11 707</span> entités jusqu'à la localité, les <span data-mf="nombre_sections_communales">570</span> sections communales, les <span data-mf="nombre_localites">10 945</span> lieux habités
           rattachés, et les polygones des trois niveaux administratifs.</p>
         <p class="price">29 $ <small>inclus dans le Pack Géo Haïti</small></p>
         <a href="donnees-pack-geo-haiti.html" class="btn btn-outline">Voir le Pack Géo</a>

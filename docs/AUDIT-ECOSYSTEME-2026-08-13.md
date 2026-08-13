@@ -217,11 +217,30 @@ La différence entre les deux n'est pas graphique. Elle tient à un point unique
 
 | Réf. | Action | État | Dépendance |
 |---|---|---|---|
-| **P0-1** | Comptes calculés : `catalogue_manifest.json` + mode `--verifier` | **Mécanisme livré** ; les 17 comptes des pages restent à brancher | aucune |
+| **P0-1** | Comptes calculés : `catalogue_manifest.json`, écriture `--ecrire`, contrôle bloquant `--verifier` | **Fait** — 45 repères `data-mf` dans 4 pages et 3 langues ; `--verifier` sort en 0 | aucune |
 | **P0-2** | Remplacer les 3 formulaires `mailto:` par des formulaires réels | à faire | **décision Atmart sur le service** |
 | **P0-3** | Lever la contradiction « téléchargement immédiat » / MonCash manuel | à faire | aucune |
 | **P0-4** | Vérifier que chaque produit annoncé disponible a un livrable réel | à faire | aucune |
 | **P0-5** | Décider de la langue de l'Explorateur : verrouillage assumé et expliqué, ou ouverture après audit complet des clés | à faire | audit des clés |
+
+> **Addendum du 13 août, après implémentation de P0-1.** Le branchement a fait
+> apparaître deux défauts que l'audit initial n'avait pas vus, parce qu'ils
+> n'étaient pas visibles en français :
+>
+> 1. **Les mêmes chiffres faux vivaient aussi dans `en/es/ht.json`.** Corriger
+>    le HTML seul aurait laissé « 1,554 » en anglais. Les repères sont donc
+>    posés dans les quatre langues, et le contrôle compare chaque traduction au
+>    **français, clef par clef** — comparer les traductions entre elles ne sert
+>    à rien quand elles sont toutes fausses au même endroit, ce qui était le cas
+>    pour `ds.c16_p`.
+> 2. **La matrice juridique annonçait « 7 + 6 + 8 + 1 » — soit 22 sources pour
+>    un registre qui en compte 23.** L'entrée de SRC-023 en classe C n'avait pas
+>    été répercutée. La classe C est à 9, pas à 8. Ce compte était hors du
+>    balayage initial : il ne contient pas le mot « sources ».
+>
+> Ces deux défauts confirment le diagnostic plutôt qu'ils ne le contredisent :
+> un compte écrit à la main se périme sans bruit, et il se périme d'abord là
+> où personne ne regarde.
 
 ### P1
 
