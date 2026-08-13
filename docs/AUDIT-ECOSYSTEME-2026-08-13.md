@@ -165,6 +165,19 @@ Les onze champs demandés, page par page.
 
 ### 3.6 `donnees-explorateur.html` — le produit
 
+> **Correction du 13 août.** Le constat ci-dessous parle d'un verrouillage
+> « alors que le reste du site suit le navigateur ». C'était une lecture fautive
+> de ma part : j'avais lu `ATM_LANGUES = ["fr"]` sans lire le commentaire qui le
+> précède de trois lignes. Il s'agit d'une **décision datée du 10/08/2026** —
+> *« le français seul pendant la finalisation de l'Explorateur ; les traductions
+> reviendront d'un bloc, jamais de page à moitié traduite »*. Le parcours
+> anglophone est d'ailleurs cohérent : depuis une page en anglais, le lien mène
+> à `/en/donnees-explorateur.html`, qui explique la situation en anglais.
+> Mesure faite depuis : les 95 clés de la page et les clés du moteur sont
+> couvertes à 100 % en `en`, `es` et `ht`. La condition technique de levée est
+> donc atteinte ; la décision reste à Atmart, et le kreyòl est marqué provisoire
+> tant qu'il n'a pas été relu.
+
 | | |
 |---|---|
 | **Objectif principal** | Démontrer la valeur en donnant un chiffre utile immédiatement |
@@ -218,10 +231,10 @@ La différence entre les deux n'est pas graphique. Elle tient à un point unique
 | Réf. | Action | État | Dépendance |
 |---|---|---|---|
 | **P0-1** | Comptes calculés : `catalogue_manifest.json`, écriture `--ecrire`, contrôle bloquant `--verifier` | **Fait** — 45 repères `data-mf` dans 4 pages et 3 langues ; `--verifier` sort en 0 | aucune |
-| **P0-2** | Remplacer les 3 formulaires `mailto:` par des formulaires réels | à faire | **décision Atmart sur le service** |
-| **P0-3** | Lever la contradiction « téléchargement immédiat » / MonCash manuel | à faire | aucune |
-| **P0-4** | Vérifier que chaque produit annoncé disponible a un livrable réel | à faire | aucune |
-| **P0-5** | Décider de la langue de l'Explorateur : verrouillage assumé et expliqué, ou ouverture après audit complet des clés | à faire | audit des clés |
+| **P0-2** | Remplacer les 3 formulaires `mailto:` par un envoi réel | **Fait** — composant `assets/formulaire.js`, panneau de retour à 3 états, message copiable sans messagerie. L'envoi automatique s'active en renseignant `ENDPOINT` | **il reste à choisir le service de réception** |
+| **P0-3** | Lever la contradiction « téléchargement immédiat » / MonCash manuel | **Fait** — le téléchargement immédiat est rattaché à la carte et à PayPal ; MonCash annonce 24 h, l'engagement qu'Atmart tient déjà sur Entèvyou360 | aucune |
+| **P0-4** | Vérifier que chaque produit annoncé disponible a un livrable réel | **Fait** — 16 fichiers servis, 7 produits, 6 composants du pack payant : tout conforme. Figé par `verif_livrables.py` | aucune |
+| **P0-5** | Décider de la langue de l'Explorateur | **Mesuré ; la décision reste à Atmart.** Ce n'était pas un défaut : une décision datée du 10/08/2026 met le multilingue en pause. Couverture portée à 100 % dans les 3 langues | relecture du kreyòl |
 
 > **Addendum du 13 août, après implémentation de P0-1.** Le branchement a fait
 > apparaître deux défauts que l'audit initial n'avait pas vus, parce qu'ils

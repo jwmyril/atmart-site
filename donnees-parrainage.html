@@ -13,7 +13,7 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0e2240" />
   <link rel="stylesheet" href="assets/style.css?v=31" />
-  <link rel="stylesheet" href="assets/data.css?v=17" />
+  <link rel="stylesheet" href="assets/data.css?v=18" />
 <script>/* langue auto : avant le 1er affichage, evite le clignotement */
 (function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
 s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
@@ -303,6 +303,19 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         immatriculée aux États-Unis ; la convention et la facturation se font en dollars.
       </p>
     </form>
+      <div class="d-envoi" id="spo-envoi" hidden>
+        <p class="x-etat" tabindex="-1" role="status">
+          <span class="x-si-envoye" data-i18n="form.ok">Votre demande a été transmise à Atmart.</span>
+          <span class="x-si-pret" data-i18n="form.pret">Votre demande est prête. Copiez-la et envoyez-la à sales@atmart.ltd — aucune messagerie n'est nécessaire.</span>
+          <span class="x-si-erreur" data-i18n="form.echec">L'envoi automatique n'a pas abouti. Votre demande est intacte ci-dessous : copiez-la et envoyez-la à sales@atmart.ltd.</span>
+        </p>
+        <textarea class="x-msg" rows="10" readonly data-i18n-aria="form.aria" aria-label="Votre demande, prête à être copiée"></textarea>
+        <div class="x-actions">
+          <button type="button" class="btn btn-outline x-copier" data-i18n="form.copier">Copier la demande</button>
+          <a class="btn btn-outline x-mailto" href="mailto:sales@atmart.ltd" data-i18n="form.messagerie">Ouvrir ma messagerie</a>
+        </div>
+        <p class="x-fait" data-i18n="form.copie">Copié. Il ne reste qu'à le coller dans un courriel à sales@atmart.ltd.</p>
+      </div>
   </div>
 </section>
 
@@ -338,21 +351,6 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 <script>
 (function () {
   "use strict";
-  var f = document.getElementById("spo-form");
-  f.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var g = function (n) { return (f.elements[n].value || "—").trim(); };
-    var body =
-      "Organisation : " + g("org") + "\n" +
-      "Contact : " + g("nom") + " · " + g("email") + "\n" +
-      "Formule : " + g("formule") + "\n" +
-      "Jeu / thème visé : " + g("jeu") + "\n" +
-      "Enveloppe : " + g("budget") + "\n\n" +
-      "Objectif :\n" + g("msg") + "\n";
-    location.href = "mailto:sales@atmart.ltd?subject=" +
-      encodeURIComponent("Parrainage de dataset — " + g("org")) +
-      "&body=" + encodeURIComponent(body);
-  });
 
   /* Contexte apporté par l'Explorateur : l'indicateur manquant, le territoire
      où il manque, et la source qui le débloquerait. Le visiteur arrive avec sa
@@ -388,6 +386,16 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 })();
 </script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+<script>
+  /* Les champs sont declares ici et non dans le composant : chaque page a les
+     siens, et le libelle envoye a Atmart doit rester lisible par un humain. */
+  window.ATM_FORM = {
+    form: "spo-form", panneau: "spo-envoi",
+    sujet: "Parrainage de dataset — {org}",
+    champs: [["Organisation", "org"], ["Contact", "nom"], ["Courriel", "email"], ["Formule", "formule"], ["Jeu / thème visé", "jeu"], ["Enveloppe", "budget"], ["Objectif", "msg"]]
+  };
+</script>
+<script src="assets/formulaire.js?v=1"></script>
 <script src="assets/i18n.js?v=14"></script>
 <script src="assets/launcher.js?v=3"></script>
 <script src="assets/share.js?v=3"></script>
