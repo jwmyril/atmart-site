@@ -219,6 +219,31 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 **Sources identifiées, non ouvertes** : ISPAN (patrimoine, mandat officiel),
 RGA 2008-2009 MARNDR/FAO (agriculture, recensement), DINEPA (eau), BME (mines).
 
+**Avancement du 14/08/2026 (soir) — trois familles publiées :**
+1. **Notaires et arpenteurs** (SRC-025, classe C) : 712 fiches contemporaines
+   du classeur Perplexity remis par le propriétaire, scellé dans
+   `atmart-datasets/source_annuaire/`. 77 % rattachées à une commune ;
+   fiabilité par fiche affichée ; `build_annuaire_professionnels.py` →
+   `data/atmart_annuaire_professionnels_HT.csv`. Recoupement MJSP à faire —
+   les démarches recommandées sont en fin du DOCX source.
+2. **ONG, agences ONU, bailleurs — présence par commune** (SRC-026, classe A,
+   CC BY) : 3W OCHA juin 2026, 1 457 déclarations, 126 organisations, les
+   140 communes couvertes ; `build_presence_3w.py` →
+   `data/atmart_presence_organisations_HT.csv`.
+3. **ONG au registre légal** (SRC-027, classe B) : registre MPCE/UCAONG
+   capturé le 14/08 (site sans export), 680 ONG, 470 territorialisées par
+   extraction des zones déclarées ; `build_registre_ong.py` →
+   `data/atmart_registre_ong_HT.csv`.
+
+Recherche du 14/08 sur le reste : BRH publie la liste des 9 banques (sièges
+seulement) + une « Cartographie des points de services financiers » à
+explorer ; CONATEL liste les opérateurs nationaux (Digicel, Natcom, Access
+Haïti, ACN, Haïnet, HDN) sans territorialisation ; MENFP/DESRS publie la
+liste des 199 IES reconnues (PDF de presse, à structurer). Prochaine
+intégration recommandée : les IES (adresses communales) puis la cartographie
+BRH. L'affichage de ces familles dans l'Explorateur (fiche par territoire)
+reste à câbler — décision d'interface à prendre avec le bloc organisations.
+
 **Chantier spécifié le 14/08/2026 — annuaire des services par territoire.**
 Demande du propriétaire : pouvoir chercher, territoire par territoire, les
 services suivants. Le socle existe déjà : le référentiel des organisations
