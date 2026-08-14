@@ -219,6 +219,22 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 **Sources identifiées, non ouvertes** : ISPAN (patrimoine, mandat officiel),
 RGA 2008-2009 MARNDR/FAO (agriculture, recensement), DINEPA (eau), BME (mines).
 
+**Infrastructures par commune (14/08 soir, moteur v39)** — section
+« Infrastructures » du bloc services, depuis
+`data/atmart_infrastructures_communes_HT.csv` (140/140 communes) :
+points d'eau WPdx avec statut fonctionnel (SRC-029, CC BY-SA, couverture
+Nord/Centre dite), eau potable + stations-service + banques/transferts +
+lieux habités OSM (SRC-028, ODbL, extraits HOT 06/08/2026), routes en km
+par type (45 029 km — tronçon affecté à la commune de son sommet médian,
+~100 m de tolérance), électricité OSM (SRC-030 : 74 objets dans tout le
+pays — le comptage dit ce qui n'est pas cartographié). **Couverture
+mobile : SRC-031 identifiée, AUCUNE donnée intégrée — déblocage = créer
+un compte OpenCelliD gratuit (CC BY-SA) et lancer l'extraction MCC 372.**
+Suite dédiée `Explorateur_site/tests/services-tests.html` (13 assertions,
+sur disque — tests/ hors dépôt) ; la suite générale a été refondue par la
+session carte (87 assertions), les assertions fiche Pays/services vivent
+désormais dans la suite dédiée.
+
 **Avancement du 14/08/2026 (soir) — trois familles publiées :**
 1. **Notaires et arpenteurs** (SRC-025, classe C) : 712 fiches contemporaines
    du classeur Perplexity remis par le propriétaire, scellé dans
