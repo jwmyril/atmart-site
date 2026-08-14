@@ -37,9 +37,9 @@
  "communes_couvertes_ecoles": 49,
  "communes_couvertes_sante": 14,
  "communes_couvertes_marches": 136,
- "nombre_produits": 20,
+ "nombre_produits": 23,
  "nombre_produits_gratuits": 14,
- "nombre_produits_payants": 1,
+ "nombre_produits_payants": 4,
  "nombre_produits_parrainables": 5,
  "source_comptes_produits": "backbone/atmart_catalogue_produits.csv",
  "prd_001_lignes": 26,
@@ -58,7 +58,7 @@
  "prd_007_colonnes": 18,
  "prd_008_lignes": 14140,
  "prd_008_colonnes": 23,
- "prd_009_lignes": 5029,
+ "prd_009_lignes": 182,
  "prd_009_colonnes": 30,
  "prd_010_lignes": 2,
  "prd_010_colonnes": 18,
@@ -70,5 +70,5 @@
  "prd_013_colonnes": 9,
  "prd_014_lignes": 1899,
  "prd_014_colonnes": 8,
- "empreinte": "776b07ce80c13470"
+ "empreinte": "2d4d24bf5485e555"
 }
