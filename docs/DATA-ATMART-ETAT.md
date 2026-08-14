@@ -212,6 +212,33 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 **Sources identifiées, non ouvertes** : ISPAN (patrimoine, mandat officiel),
 RGA 2008-2009 MARNDR/FAO (agriculture, recensement), DINEPA (eau), BME (mines).
 
+**Chantier spécifié le 14/08/2026 — annuaire des services par territoire.**
+Demande du propriétaire : pouvoir chercher, territoire par territoire, les
+services suivants. Le socle existe déjà : le référentiel des organisations
+(5 029 entités rattachées aux p-codes — santé 730, éducation 4 117,
+marchés 182, publié le 14/08). Les familles restantes, avec leur source
+candidate — règle absolue : **jamais d'annuaire inventé**, une famille
+n'ouvre que lorsqu'un registre réel est intégré, sinon elle s'affiche
+« à construire » avec sa source nommée :
+
+| Famille demandée | Source candidate | Ventilation territoriale |
+|---|---|---|
+| Professionnels de santé (médecins, infirmières…) | MSPP (comptes nationaux RH santé) ; ordres professionnels | incertaine — souvent national seulement |
+| Notaires, avocats | barreaux (Fédération des Barreaux d'Haïti), min. Justice | par juridiction, à vérifier |
+| Banques, assurances | BRH — liste des banques agréées et succursales | par commune (succursales), à extraire |
+| Télécoms | CONATEL — opérateurs licenciés | nationale ; couverture réseau éventuelle |
+| Entreprises locales/régionales, distribution, immobilier, logistique, énergie | registre du commerce (MCI) | non publié en accès ouvert à ce jour |
+| Cabinets de conseil et analystes | aucune source publique connue | — |
+| ONG nationales et internationales | MPCE/UCAONG — registre officiel des ONG | siège et zones d'intervention déclarées |
+| Bailleurs et agences de développement | OCHA 3W (« who-what-where ») Haïti | **par commune — meilleur candidat, format HDX** |
+| Administrations et organismes parapublics | OMRH / annuaire de l'État | par ministère ; délégations départementales |
+| Universités et centres de recherche | MENFP/DESRS — institutions reconnues | par commune (adresses), à structurer |
+
+L'OCHA 3W est le prochain candidat concret : déjà territorialisé, déjà sur
+HDX, même famille de licence que les sources intégrées. Chaque famille
+intégrée rejoint le référentiel des organisations (mêmes colonnes, mêmes
+degrés de vérification) — pas un fichier à part par famille.
+
 ---
 
 ## 6. Reprendre dans un autre compte Claude
