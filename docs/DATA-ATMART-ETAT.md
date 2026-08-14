@@ -315,6 +315,26 @@ essence, banques, sites de déplacés), une couche à la fois, avec la légende
 qui porte source/licence/millésime comme partout. À concevoir AVEC la
 session carte — ne pas ouvrir ce chantier à deux en parallèle.
 
+**14/08 (nuit) — P2 fermé et produits d'assemblage écrits :**
+- **P2-2 mesure d'usage : VOIE C choisie par le propriétaire et implémentée.**
+  13 compteurs agrégés (`xpl_*`) sur la route `/ev` du Worker (celle du
+  tableau de bord Suite360 — uniques du jour par empreinte salée, jamais
+  d'IP conservée). `assets/mesure.js` découplé du moteur (délégation DOM,
+  supprimable sans rien casser, le texte tapé ne part jamais). La promesse
+  est RÉÉCRITE (index + pieds de page) et la politique complète publiée sur
+  donnees-confiance.html#mesure. Les compteurs arrivent dans le bilan
+  quotidien existant.
+- **hreflang** : fr + x-default sur les 12 pages du site autonome ;
+  ht/en/es s'ajouteront à la réouverture du multilingue.
+- **Extraction sur mesure — 150 $ fixe** : offre d'entrée en tête de la
+  grille Solutions EXISTANTE (la règle « jamais deux grilles » du tri
+  commercial est respectée).
+- **Modèles Power BI (PBIP/TMDL) et QGIS (.qgs)** : écrits dans
+  `atmart-datasets/modeles/` — 7 tables reliées par p-codes / 7 couches
+  distantes. **v0.1 NON VALIDÉE : à ouvrir dans Power BI Desktop et QGIS
+  avant toute fiche catalogue** (LISEZMOI du dossier). La session catalogue
+  a publié en parallèle le Classeur des 140 profils communaux (25 $).
+
 **Chantier spécifié le 14/08/2026 — annuaire des services par territoire.**
 Demande du propriétaire : pouvoir chercher, territoire par territoire, les
 services suivants. Le socle existe déjà : le référentiel des organisations
