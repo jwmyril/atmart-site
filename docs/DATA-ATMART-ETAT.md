@@ -278,6 +278,29 @@ intégration recommandée : les IES (adresses communales) puis la cartographie
 BRH. L'affichage de ces familles dans l'Explorateur (fiche par territoire)
 reste à câbler — décision d'interface à prendre avec le bloc organisations.
 
+**Chantier « couches géographiques d'utilité publique » (demande du 14/08
+soir) — phase 1 : faire exister les données ; phase 2 : les visualiser.**
+État des six groupes demandés :
+
+| Groupe | Phase 1 (données) | Sources |
+|---|---|---|
+| Population et territoire | ✅ EXISTE (COD-PS par commune, densité, pyramide) | SRC intégrées |
+| Services et infrastructures | ✅ EXISTE (bloc v38-v40 : eau, essence, routes, banques, électricité, mobile, écoles/santé/marchés au référentiel organisations) | SRC-028…031 |
+| Professions (notaires/arpenteurs) | ✅ dénombrement par commune (les noms attendent le recoupement MJSP — décision du 14/08) | SRC-025 |
+| Conjoncturel | ✅ INTÉGRÉ le 14/08 soir : déplacés OIM (dernière ronde par commune), phases IPC (mars 2026 + projections), conflits ACLED (commune × mois, 2018→08/2026, 7 929 événements) ; prix PAM déjà en place | SRC-032/033/034 |
+| Eau et bassins versants | ⬜ à construire — MARNDR/CNIGS via HaitiData (géoportail à sonder : disponibilité intermittente) ; 30 bassins, réseau hydro, couverture forestière | à sceller |
+| Aléas et risques | ⬜ à construire — inondation 5/25/100 ans 10 m (Banque mondiale, CC BY : rasters lourds → % de commune en zone inondable à calculer), sismique USGS, UNOSAT 2016 identifié | à sceller |
+| Économie et foncier | ⬜ à construire — usage du sol CNIGS/CIAT, aires protégées, périmètres irrigués (HaitiData) | à sceller |
+
+**Phase 2 — visualisation** : une page dédiée (« Couches » / kat jeyografik)
+plutôt que d'alourdir l'accueil, comme demandé. La brique carte existe déjà :
+le moteur trace depuis le 14/08 les polygones des départements et des
+communes (chantier de la session carte). Architecture proposée : la page
+Couches réutilise ces polygones + les points des zones sources (eau,
+essence, banques, sites de déplacés), une couche à la fois, avec la légende
+qui porte source/licence/millésime comme partout. À concevoir AVEC la
+session carte — ne pas ouvrir ce chantier à deux en parallèle.
+
 **Chantier spécifié le 14/08/2026 — annuaire des services par territoire.**
 Demande du propriétaire : pouvoir chercher, territoire par territoire, les
 services suivants. Le socle existe déjà : le référentiel des organisations
