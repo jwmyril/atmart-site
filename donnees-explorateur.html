@@ -24,7 +24,19 @@ if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
 window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;
 if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove("i18n-wait")},1500)}})();
 </script>
-  <link rel="canonical" href="https://atmart.ltd/donnees-explorateur.html" />
+  <link rel="canonical" href="https://explorateur.atmart.ltd/" />
+  <meta name="robots" content="noindex" />
+<script>
+/* L'Explorateur vit desormais sur son propre site (bascule du 13/08/2026).
+   On y envoie les visiteurs en conservant l'etat partage (?id=..., onglet...).
+   Sur localhost, PAS de renvoi : cette page reste le banc de developpement du
+   moteur et l'hote de la suite de tests. */
+(function(){
+  if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+    location.replace("https://explorateur.atmart.ltd/" + location.search + location.hash);
+  }
+})();
+</script>
 </head>
 <body>
 
