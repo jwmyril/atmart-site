@@ -292,7 +292,21 @@ soir) — phase 1 : faire exister les données ; phase 2 : les visualiser.**
 | Aléas et risques | ⬜ à construire — inondation 5/25/100 ans 10 m (Banque mondiale, CC BY : rasters lourds → % de commune en zone inondable à calculer), sismique USGS, UNOSAT 2016 identifié | à sceller |
 | Économie et foncier | ⬜ à construire — usage du sol CNIGS/CIAT, aires protégées, périmètres irrigués (HaitiData) | à sceller |
 
-**Phase 2 — visualisation** : une page dédiée (« Couches » / kat jeyografik)
+**Phase 2 — FAITE le 14/08 soir : couches.html est en ligne.**
+Page autonome (`assets/couches.js` — aucun contact avec explorateur.js,
+les deux chantiers carte ne peuvent pas se marcher dessus). 7 couches :
+conflits ACLED 12 mois et déplacés OIM en choroplèthe communale, phases
+IPC en aplat départemental (phase majoritaire en population, dit en
+légende), points d'eau WPdx (vert/rouge par statut), stations-service,
+banques/transferts (5 types), km de routes. Fond : polygones simplifiés
+de la session carte. Clic commune → fiche. Entrée « Couches » au menu de
+toutes les pages, sitemap, SW v21, ?couche= dans l'URL. Les couches de
+points sont republiées en GeoJSON citables seuls (licence/millésime/
+limite en membres racine) par build_couches_points.py.
+Restent à visualiser quand leurs données existeront : bassins versants,
+aléas, usage du sol (voir tableau ci-dessus).
+
+**Plan initial (avant réalisation)** : une page dédiée (« Couches » / kat jeyografik)
 plutôt que d'alourdir l'accueil, comme demandé. La brique carte existe déjà :
 le moteur trace depuis le 14/08 les polygones des départements et des
 communes (chantier de la session carte). Architecture proposée : la page
