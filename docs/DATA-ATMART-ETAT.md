@@ -163,6 +163,14 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 
 **Court terme, par ordre de rapport qualité/effort**
 
+0sep. ~~**Repère budgétaire national**~~ — fait le 14/08 : SRC-024 (MEF/DGB,
+   budget.gouv.ht) exploité par `Atmart_premium_datasets/build_budget_national.py`
+   (PDF scellés SHA-256, assertions internes). Publie
+   `data/atmart_indicateurs_national_HT.csv` chez les DEUX sites : dépenses
+   autorisées 186,4 Mds HTG au 30/06/2026 (9 mois, 51,75 %), ≈ 15 670 HTG/hab,
+   TOFE base caisse 176,0 Mds en divergence documentée. Bloc « Repère national »
+   sur `Explorateur_site/donnees.html` (SW bumpé v13). L'indicateur COMMUNAL
+   IND-BUD-001 reste à construire : aucune ventilation territoriale publiée.
 0sex. ~~**Prix des marchés**~~ — fait le 13/08 : série historique téléchargée,
    horodatée et intégrée ; `IND-PRX-001` calculé sur 9 communes. Première couche
    sectorielle du P3. Reste à lui donner un graphique.
