@@ -242,10 +242,14 @@ désormais dans la suite dédiée.
 **Avancement du 14/08/2026 (soir) — trois familles publiées :**
 1. **Notaires et arpenteurs** (SRC-025, classe C) : 712 fiches contemporaines
    du classeur Perplexity remis par le propriétaire, scellé dans
-   `atmart-datasets/source_annuaire/`. 77 % rattachées à une commune ;
-   fiabilité par fiche affichée ; `build_annuaire_professionnels.py` →
-   `data/atmart_annuaire_professionnels_HT.csv`. Recoupement MJSP à faire —
-   les démarches recommandées sont en fin du DOCX source.
+   `atmart-datasets/source_annuaire/`. **RÉVISÉ le 14/08 après-midi —
+   dénombrement, pas annuaire** : les noms, adresses et téléphones de
+   personnes physiques ne se publient pas ; `build_professions_communes.py`
+   → `data/atmart_professions_communes_HT.csv` (effectifs sur 55 communes,
+   un zéro = « aucun dans nos sources »). L'ancien
+   `build_annuaire_professionnels.py` est VERROUILLÉ (le relancer
+   republierait les noms). Le classeur nominatif complet reste scellé en
+   zone source privée pour le recoupement MJSP à venir.
 2. **ONG, agences ONU, bailleurs — présence par commune** (SRC-026, classe A,
    CC BY) : 3W OCHA juin 2026, 1 457 déclarations, 126 organisations, les
    140 communes couvertes ; `build_presence_3w.py` →
