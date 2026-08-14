@@ -331,8 +331,10 @@ session carte — ne pas ouvrir ce chantier à deux en parallèle.
   commercial est respectée).
 - **Modèles Power BI (PBIP/TMDL) et QGIS (.qgs)** : écrits dans
   `atmart-datasets/modeles/` — 7 tables reliées par p-codes / 7 couches
-  distantes. **v0.1 NON VALIDÉE : à ouvrir dans Power BI Desktop et QGIS
-  avant toute fiche catalogue** (LISEZMOI du dossier). La session catalogue
+  distantes. **VALIDÉS le 14/08 après-midi** : Power BI construit en direct
+  dans Desktop (7 tables actualisées, chiffres vérifiés par requête,
+  PBIP enregistré par le propriétaire) ; QGIS chargé par script dans
+  QGIS 4.2.1 et enregistré en .qgz. Reste la fiche catalogue (prix). La session catalogue
   a publié en parallèle le Classeur des 140 profils communaux (25 $).
 
 **Chantier spécifié le 14/08/2026 — annuaire des services par territoire.**
