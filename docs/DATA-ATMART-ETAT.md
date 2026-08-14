@@ -223,7 +223,7 @@ Dans tous les cas, ce document est le point d'entrée : il est dans le dépôt.
 
 ---
 
-## 7. Site autonome — explorateur.atmart.ltd (13/08/2026, en attente DNS)
+## 7. Site autonome — explorateur.atmart.ltd (EN LIGNE depuis le 13/08/2026)
 
 Décision du propriétaire : l'Explorateur devient indépendant, modèle
 Suite360/Arpentaj. Dossier `Power_BI_Claude/Explorateur_site/` (dépôt local
@@ -234,7 +234,11 @@ Pages, CNAME `explorateur.atmart.ltd`).
   éditoriaux vers atmart.ltd ; vide = comportement intégré identique.
 - **Synchronisation** : `Explorateur_site/tests/sync-donnees.py` tire données
   + moteur depuis `Atmart_website` (source de vérité) et aligne le DV du SW.
-- **Après mise en ligne du DNS** : basculer `atmart.ltd/donnees-explorateur.html`
-  en renvoi (comme les pages /ht/), mettre à jour les liens du site et le
-  sitemap. NE PAS le faire avant que le sous-domaine réponde.
+- **Bascule FAITE (13/08 soir)** : l'ancienne URL renvoie vers le sous-domaine
+  en conservant `?id`/`onglet`/etc. Renvoi **conditionnel au domaine** : sur
+  localhost la page reste entière — c'est l'hôte de la suite de tests (82
+  assertions). Les visiteurs partent, le banc de développement reste.
+  21 pages re-liées, sitemap purgé (noindex + canonical vers le sous-domaine).
+- **Vérifié en production** : ancien lien avec paramètres → même fiche au
+  nouvel endroit ; 140 communes sur carte ; zéro erreur console ; SW actif.
 - Tests du site autonome : 15 assertions, `Explorateur_site/tests/`.
