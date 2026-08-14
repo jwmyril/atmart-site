@@ -227,9 +227,13 @@ Nord/Centre dite), eau potable + stations-service + banques/transferts +
 lieux habités OSM (SRC-028, ODbL, extraits HOT 06/08/2026), routes en km
 par type (45 029 km — tronçon affecté à la commune de son sommet médian,
 ~100 m de tolérance), électricité OSM (SRC-030 : 74 objets dans tout le
-pays — le comptage dit ce qui n'est pas cartographié). **Couverture
-mobile : SRC-031 identifiée, AUCUNE donnée intégrée — déblocage = créer
-un compte OpenCelliD gratuit (CC BY-SA) et lancer l'extraction MCC 372.**
+pays — le comptage dit ce qui n'est pas cartographié). **Couverture mobile (débloquée le 14/08 midi, moteur v40)** : le
+propriétaire a créé le compte OpenCelliD et fourni son jeton (jamais
+stocké) — l'extrait MCC 372 ne contient que **7 antennes** dans tout le
+pays : la base participative est quasi vide pour Haïti. Publié avec la
+limite en clair (« mesure la participation, pas le réseau »). Pour une
+vraie couverture : tuiles ouvertes Ookla (piste suivante) ou cartes
+opérateurs (fermées).
 Suite dédiée `Explorateur_site/tests/services-tests.html` (13 assertions,
 sur disque — tests/ hors dépôt) ; la suite générale a été refondue par la
 session carte (87 assertions), les assertions fiche Pays/services vivent
