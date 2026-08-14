@@ -235,6 +235,16 @@ RGA 2008-2009 MARNDR/FAO (agriculture, recensement), DINEPA (eau), BME (mines).
    extraction des zones déclarées ; `build_registre_ong.py` →
    `data/atmart_registre_ong_HT.csv`.
 
+**Câblé à l'interface le 14/08 (moteur v38)** : bloc « Services et
+organisations » sur chaque fiche communale — professionnels (fiabilité par
+fiche + note MJSP), présence 3W (org × secteurs), ONG du registre (jetons),
+chargé à l'approche, sections vides honnêtes, liens de téléchargement.
+29 assertions au banc du site autonome. Note de banc : sur localhost:8362,
+une inspection HTTP du poste tronque atmart_presence_organisations_HT.csv
+à 456 960 octets (déterministe, contenu banal — artefact antivirus local) ;
+Chromium rejette le corps tronqué, le moteur montre alors son repli. La
+production HTTPS sert le fichier complet, vérifié ligne à ligne.
+
 Recherche du 14/08 sur le reste : BRH publie la liste des 9 banques (sièges
 seulement) + une « Cartographie des points de services financiers » à
 explorer ; CONATEL liste les opérateurs nationaux (Digicel, Natcom, Access
