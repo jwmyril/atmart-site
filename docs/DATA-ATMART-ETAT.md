@@ -288,9 +288,9 @@ soir) — phase 1 : faire exister les données ; phase 2 : les visualiser.**
 | Services et infrastructures | ✅ EXISTE (bloc v38-v40 : eau, essence, routes, banques, électricité, mobile, écoles/santé/marchés au référentiel organisations) | SRC-028…031 |
 | Professions (notaires/arpenteurs) | ✅ dénombrement par commune (les noms attendent le recoupement MJSP — décision du 14/08) | SRC-025 |
 | Conjoncturel | ✅ INTÉGRÉ le 14/08 soir : déplacés OIM (dernière ronde par commune), phases IPC (mars 2026 + projections), conflits ACLED (commune × mois, 2018→08/2026, 7 929 événements) ; prix PAM déjà en place | SRC-032/033/034 |
-| Eau et bassins versants | ⬜ à construire — MARNDR/CNIGS via HaitiData (géoportail à sonder : disponibilité intermittente) ; 30 bassins, réseau hydro, couverture forestière | à sceller |
-| Aléas et risques | ⬜ à construire — inondation 5/25/100 ans 10 m (Banque mondiale, CC BY : rasters lourds → % de commune en zone inondable à calculer), sismique USGS, UNOSAT 2016 identifié | à sceller |
-| Économie et foncier | ⬜ à construire — usage du sol CNIGS/CIAT, aires protégées, périmètres irrigués (HaitiData) | à sceller |
+| Eau et bassins versants | ✅ INTÉGRÉ le 14/08 nuit (SRC-035 : le WFS de haitidata.org est VIVANT) — 31 bassins SRTM 2014 en couche nommée ; sous-bassins et réseau hydro scellés, pas encore affichés | SRC-035 |
+| Aléas et risques | ✅ partiel le 14/08 nuit : % de commune en zone inondable (CNIGS, échantillonnage ~330 m — Torbeck 62 %, Cité Soleil ~99 %) + polygones. PAS un aléa probabiliste : les rasters WB 5/25/100 ans et l'USGS restent l'amélioration attendue | SRC-035 |
+| Économie et foncier | ✅ partiel le 14/08 nuit : occupation du sol 1998 (% par classe et par commune, millésime dit partout) ; aires protégées et périmètres irrigués à sonder sur le même WFS | SRC-035 |
 
 **Phase 2 — FAITE le 14/08 soir : couches.html est en ligne.**
 Page autonome (`assets/couches.js` — aucun contact avec explorateur.js,
