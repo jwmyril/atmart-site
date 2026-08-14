@@ -163,6 +163,13 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 
 **Court terme, par ordre de rapport qualité/effort**
 
+0oct. ~~**Fiche Pays**~~ — fait le 14/08 (moteur v37) : « Haïti », « pays »,
+   « peyi », « national » ouvrent une fiche nationale — agrégat des 140
+   communes (mêmes règles que les départements), 10 départements cliquables,
+   pyramide, repères budgétaires SRC-024 chargés à l'approche. Entité
+   synthétique injectée dans pret(), exclue du compte du socle (192). Le fil
+   d'Ariane de toutes les fiches remonte désormais à « Haïti ». 25 assertions
+   au banc du site autonome (tests/ hors dépôt, sur disque seulement).
 0sep. ~~**Repère budgétaire national**~~ — fait le 14/08 : SRC-024 (MEF/DGB,
    budget.gouv.ht) exploité par `Atmart_premium_datasets/build_budget_national.py`
    (PDF scellés SHA-256, assertions internes). Publie
