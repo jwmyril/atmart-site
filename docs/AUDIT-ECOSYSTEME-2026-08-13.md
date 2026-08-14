@@ -255,6 +255,27 @@ La différence entre les deux n'est pas graphique. Elle tient à un point unique
 > un compte écrit à la main se périme sans bruit, et il se périme d'abord là
 > où personne ne regarde.
 
+> **Correction du 14 août — deux constats de cet audit étaient faux.**
+>
+> J'avais écrit que Solutions n'affichait « aucun prix, aucun délai » et que la
+> contrepartie du Parrainage n'était pas explicitée. Les deux sont inexacts, et
+> je les avais déduits des résumés de cartes au lieu de lire les pages.
+>
+> **Solutions** porte un tableau de six offres avec leurs fourchettes —
+> 250–900 $, 400–1 200 $, 600–1 500 $ — la question à laquelle chacune répond
+> et ce qui est livré. Les délais de 15 et 30 jours y figurent aussi.
+>
+> **Parrainage** porte une grille de cinq formules avec leur ordre de
+> contribution (de « à partir de 500 $ » à « à partir de 10 000 $ »), une
+> section « ce que le parrain reçoit » — mention permanente, rapport annuel
+> d'usage, liste des travaux — et surtout une section « ce qu'il n'achète
+> pas » : ni le contenu des conclusions, ni un droit de veto, ni l'exclusivité
+> sur une donnée ouverte. C'est mieux traité que ce que je recommandais.
+>
+> **Un seul manque subsiste, et c'est une décision** : rien ne dit ce qu'il
+> advient si un parrainage n'atteint pas son montant. Ni remboursement, ni
+> report, ni ouverture partielle. Zéro mention sur la page.
+
 ### P1
 
 `th scope` sur les 29 en-têtes des cinq pages · cibles portées à 24 px · trois
