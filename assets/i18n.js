@@ -21,6 +21,11 @@
     document.querySelectorAll("[data-i18n-html]").forEach((el) => orig.set(el, el.innerHTML));
     document.querySelectorAll("[data-i18n-ph]").forEach((el) => orig.set(el, el.getAttribute("placeholder")));
     document.querySelectorAll("[data-i18n-aria]").forEach((el) => orig.set(el, el.getAttribute("aria-label")));
+    /* Le titre de l'onglet et la description de la page vivent dans <head> et
+       ne sont pas du texte visible : sans ce cas, une page « traduite »
+       gardait son titre francais dans l'onglet et dans les resultats de
+       recherche. */
+    document.querySelectorAll("[data-i18n-content]").forEach((el) => orig.set(el, el.getAttribute("content")));
   }
 
   async function apply(lang) {
@@ -36,6 +41,7 @@
     document.querySelectorAll("[data-i18n-html]").forEach((el) => { el.innerHTML = val(el.dataset.i18nHtml, orig.get(el)); });
     document.querySelectorAll("[data-i18n-ph]").forEach((el) => { el.setAttribute("placeholder", val(el.dataset.i18nPh, orig.get(el))); });
     document.querySelectorAll("[data-i18n-aria]").forEach((el) => { el.setAttribute("aria-label", val(el.dataset.i18nAria, orig.get(el))); });
+    document.querySelectorAll("[data-i18n-content]").forEach((el) => { el.setAttribute("content", val(el.dataset.i18nContent, orig.get(el))); });
     document.documentElement.lang = lang;
     relierExplorateur(lang);
     // Si la page a ramene la langue au francais faute de traduction complete,
