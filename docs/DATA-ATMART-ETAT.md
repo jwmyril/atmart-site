@@ -4,27 +4,27 @@
 suit le code partout : autre compte Claude, autre machine, autre session.
 À lire en premier pour reprendre le chantier.
 
-Dernière mise à jour : **2026-08-12** (lot P0)
+Dernière mise à jour : **2026-08-14 soir** (journée : budget national, fiche Pays, annuaire des services, infrastructures, page Couches, mesure d'usage voie C, modèles Power BI/QGIS validés, chrome factorisé)
 
 ---
 
 ## 1. Où en est l'Explorateur Haïti
 
-**En ligne** : https://atmart.ltd/donnees-explorateur.html
+**En ligne** : https://explorateur.atmart.ltd/ (site autonome — l'ancienne URL atmart.ltd renvoie ici)
 
 | | état |
 |---|---|
 | Langue | **français seul** — multilingue en pause assumée (voir §4) |
-| Moteur | `assets/explorateur.js?v=28` — un seul fichier, deux éditions (publique / admin) |
+| Moteur | `assets/explorateur.js` v41+ (?v=11 sur le site autonome) — un seul fichier, deux éditions ; fiche Pays, bloc services, repères nationaux |
 | Données | 4 CSV publics + 1 GeoJSON, chargés dans le navigateur — aucun serveur, aucun compte, aucun traceur |
-| Territoires | 192 entités (10 départements, 42 arrondissements, 140 communes), millésime CNIGS/OCHA COD-AB 2018 **retenu pour cette édition** |
+| Territoires | 192 entités CNIGS 2018 + l'entité synthétique « Haïti » cherchable (pays/peyi) — polygones départements et communes tracés |
 | Observations | **4 200 lignes** — 2 949 valeurs sourcées et **1 251 absences documentées** |
 | Série de prix | `atmart_prix_marches_HT.csv` — **14 140 relevés, 240 mois (2005-2025), 12 marchés, 9 communes**. Première série temporelle et première donnée en statut `O` |
 | Couverture | de **10 %** (santé, 14 communes) à **100 %** (territoire, démographie) — affichée indicateur par indicateur depuis le 12/08 |
 | Pyramide des âges | `atmart_pyramide_ages_HT.csv`, 7 140 lignes — **dessinée sur chaque fiche**, aux 3 niveaux, chargée quand la section approche de l'écran (72 Ko transférés, 1,1 Mo bruts) |
 | Multilingue | dictionnaires ht/en/es **complets** (214 entrées, 0 chaîne sans traduction) — publication toujours en pause (voir §4) |
-| Tests | `tests/explorateur-tests.html` — **82 assertions, toutes vertes** |
-| Backbone | 4 référentiels documentés — [SCHEMAS-BACKBONE.md](../../Atmart_premium_datasets/backbone/SCHEMAS-BACKBONE.md) (dépôt privé) · registre : **22 sources**, 6 intégrées |
+| Tests | suite générale 87 assertions + suite services 15 (`Explorateur_site/tests/`) ; banc local perturbé par une inspection HTTP du poste — la validation finale se fait en production |
+| Backbone | 4 référentiels + organisations (5 029) — registre : **35 sources**, dont MEF/DGB, MPCE, OCHA 3W, HOT/OSM, WPdx, OpenCelliD, CNIGS/HaitiData |
 | Audit | [AUDIT-EXPLORATEUR-2026-08-12.md](AUDIT-EXPLORATEUR-2026-08-12.md) — état des lieux, matrice stratégique, backlog P0/P1/P2/P3 |
 
 ### Ce que l'Explorateur sait faire
