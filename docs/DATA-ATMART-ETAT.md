@@ -110,6 +110,10 @@ python Atmart_website/tests/verif-versions.py
 
 # Régénérer les pages localisées — à relancer le jour de la réouverture du multilingue
 python Atmart_website/tests/generer-pages-localisees.py
+
+# Site autonome (Explorateur_site/tests/, hors depot) : chrome unique + liens
+python Explorateur_site/tests/generer-chrome.py    # a relancer apres tout ajout de page/menu
+python Explorateur_site/tests/verifier-liens.py    # garde-fou 404 interne avant publication
 ```
 
 **Routine avant toute publication** : `node --check assets/explorateur.js` →
