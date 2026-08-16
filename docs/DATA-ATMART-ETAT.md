@@ -128,6 +128,13 @@ python Atmart_premium_datasets/build_csp.py        # APRES tout script qui reecr
 #   pour qu'une tache planifiee le signale au lieu de reussir en silence.
 python Atmart_premium_datasets/build_fraicheur.py --bloquant
 
+# ARCHIVES — a relancer avant chaque publication de donnees. Materialise
+# chaque version distincte des fichiers publies sous archives/, avec son
+# empreinte, et engendre archives.html. Une archive publiee n'est JAMAIS
+# reecrite : le script s'arrete s'il trouve une empreinte qui a bouge.
+#   --verifier : controle sans rien produire.
+python Atmart_premium_datasets/build_archives.py
+
 # Porter la vitrine vers le site des donnees — DERNIER maillon de la chaine.
 # Deplace dans l'atelier le 15/08/2026 : il porte la LISTE des fichiers a
 # publier, un etat qui n'avait aucun historique tant qu'il vivait hors depot.
