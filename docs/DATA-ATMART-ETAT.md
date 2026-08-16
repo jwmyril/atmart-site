@@ -256,6 +256,24 @@ moteur en modules, journal d'archives).
 une modification de fichier chaud vit dans un patch rejouable
 (`patch_vues_fiche.py`), et se commite dans la foulée immédiate.
 
+## 4 quater. ALERTE DE COORDINATION — deux sessions sur un même fichier
+
+**15/08/2026, constat répété trois fois.** `assets/modules/explorateur.js`
+est régénéré par la session voisine. Trois modifications y ont été perdues
+entre l'édition et le `git add` — dont une dont le **message de commit
+décrivait un changement absent du commit** (77e95b3). Un historique qui
+ment est pire qu'un oubli : il fait croire le travail fait.
+
+**Règle adoptée** : toute modification de ce fichier passe par un patch
+rejouable dans l'atelier, jamais par une édition directe —
+`patch_vues_fiche.py`, `patch_chargement_parallele.py`. Un patch se relance
+en une commande, refuse de s'appliquer si la zone a changé, et se vérifie.
+
+**Décision à prendre par Atmart** : soit les deux sessions se répartissent
+les fichiers explicitement (l'une le moteur, l'autre les pages), soit le
+moteur cesse d'être régénéré et devient une source éditée. Tant que les
+deux écrivent, il faut passer par des patchs — c'est un coût réel.
+
 ## 5. Ce qui reste à faire
 
 **Court terme, par ordre de rapport qualité/effort**
