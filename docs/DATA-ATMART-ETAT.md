@@ -163,6 +163,31 @@ le `?v=` d'un asset modifié *et* le nom du cache dans `sw.js`.
 
 ---
 
+## 4 bis. Décision du 15/08/2026 — assistant IA : reporté, pas refusé
+
+Question posée : un assistant IA sur l'Explorateur, y compris sur les
+données en attente de droits, avec abonnement après 2-3 questions.
+Décision (propriétaire, 15/08) :
+
+- **Pas maintenant.** La mesure d'audience anonyme vient d'être branchée
+  (14/08) : on ne sait pas encore ce que les visiteurs font. Laisser tourner
+  2-3 semaines, puis lire les compteurs `xpl_*` (recherches, comparaisons,
+  exports, indicateurs dépliés). Si les visiteurs creusent et croisent →
+  l'assistant a un public ; si visites courtes d'une fiche → l'argent va
+  aux couches manquantes (bassins, aléas probabilistes).
+- **Jamais sur les données en attente de droits** (SRC-023 FNE, classe C) :
+  faire répondre un assistant payant à partir de fichiers non redistribuables
+  EST une redistribution commerciale — le cas exact que le registre interdit.
+  Le jour où le FNE répond oui, ils entrent en dix minutes ; avant, non.
+- **Le jour où il se construit** : réponses ancrées dans la fiche ouverte
+  (valeurs, sources, statuts N cités), jamais depuis la mémoire du modèle ;
+  la vraie valeur = croisements que l'interface ne fait pas + médiation
+  (« ma commune est-elle bien équipée ? ») + kreyòl ; 3 questions/jour
+  gratuites en local puis forfait Payhip par code (pas d'abonnement : site
+  statique sans compte) ; une ligne à la politique de confiance (première
+  fois qu'un texte tapé quitterait le navigateur). Briques prêtes : Worker
+  atmart-chat (Haiku, KREYOL_RULES, KV, codes Payhip). ~1 journée.
+
 ## 5. Ce qui reste à faire
 
 **Court terme, par ordre de rapport qualité/effort**
