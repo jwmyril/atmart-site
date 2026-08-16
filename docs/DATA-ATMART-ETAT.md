@@ -119,9 +119,13 @@ python Atmart_website/tests/generer-pages-localisees.py
 python Atmart_premium_datasets/build_chrome.py
 python Atmart_premium_datasets/build_csp.py        # APRES tout script qui reecrit du HTML
 
+# Porter la vitrine vers le site des donnees — DERNIER maillon de la chaine.
+# Deplace dans l'atelier le 15/08/2026 : il porte la LISTE des fichiers a
+# publier, un etat qui n'avait aucun historique tant qu'il vivait hors depot.
+python Atmart_premium_datasets/sync_donnees.py
+
 # Site autonome (Explorateur_site/tests/, hors depot)
 python Explorateur_site/tests/verifier-liens.py    # garde-fou 404 interne avant publication
-python Explorateur_site/tests/sync-donnees.py      # atelier -> vitrine -> site des donnees
 ```
 
 **Routine avant toute publication** : `node --check assets/explorateur.js` →
