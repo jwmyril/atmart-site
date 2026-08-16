@@ -1,5 +1,5 @@
 // Atmart PWA — cache statique (les appels IA passent toujours par le reseau)
-const CACHE = "atmart-v86";
+const CACHE = "atmart-v87";
 
 // Le noyau du site : navigation et identite visuelle.
 const CORE = ["/", "/index.html", "/chofe360.html", "/karye360.html", "/studio.html", "/atelier.html",
@@ -27,7 +27,13 @@ const DATA = [
   "/datasets.html", "/donnees-solutions.html", "/donnees-campus.html",
   "/donnees-parrainage.html", "/donnees-confiance.html",
   "/donnees-pack-geo-haiti.html",
-  "/assets/data.css?v=19", "/assets/explorateur.js?v=41",
+  "/assets/data.css?v=19", "/assets/modules/explorateur.js?v=1",
+  "/assets/modules/etat.js?v=1",
+  "/assets/modules/explorateur-i18n.js?v=1",
+  "/assets/modules/explorateur-carte.js?v=1",
+  "/assets/modules/explorateur-fiche.js?v=1",
+  "/assets/modules/explorateur-recherche.js?v=1",
+  "/assets/modules/explorateur-comparaison.js?v=1",
   "/data/atmart_referentiel_territoire_base_HT.csv",
   "/data/atmart_indicateurs_communes_HT.csv",
   "/data/atmart_referentiel_indicateurs.csv", "/data/atmart_referentiel_indicateurs_i18n.csv",
