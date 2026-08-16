@@ -216,6 +216,46 @@ Décision (propriétaire, 15/08) :
   fois qu'un texte tapé quitterait le navigateur). Briques prêtes : Worker
   atmart-chat (Haiku, KREYOL_RULES, KV, codes Payhip). ~1 journée.
 
+## 4 ter. Journée du 15/08/2026 — quatre chantiers de fond
+
+Demandés après la question « si vous refaisiez l'Explorateur, que
+changeriez-vous ? ». Trois des quatre réponses ont été mises en œuvre le
+jour même ; la session voisine a traité les deux autres (découpage du
+moteur en modules, journal d'archives).
+
+1. **Édition légère — `fiche.html`.** L'Explorateur charge ~1,55 Mo pour
+   afficher trente valeurs ; sur un mobile bas de gamme en 3G, c'est une
+   minute et souvent un échec. Les fiches sont désormais PRÉ-CALCULÉES
+   (`build_fiches_legeres.py` → `data/leger/`) : page 9 Ko + index 10 Ko +
+   fiche 5 Ko = **24 Ko, soixante-quatre fois moins**. Aucune police, aucune
+   feuille externe, deux reprises par requête. Même doctrine : sources,
+   millésimes, couverture, absence ≠ zéro.
+
+2. **La vitrine se génère — `build_vitrine.py`.** Les cartes de
+   `datasets.html` viennent de l'inventaire CSV (présence, rayon, prix,
+   lien) ; la prose vit dans `vitrine_textes.json`. Effet immédiat :
+   **15 produits publiés n'avaient AUCUNE carte** — dont les dix jeux du
+   14/08 — ils sont visibles. Un prix se change à un seul endroit.
+   Piège retenu : les bornes de grille se trouvent en comptant la
+   profondeur des balises, jamais par un `rfind()` — le premier essai a
+   mangé la moitié de la page (restaurée depuis une copie prise avant).
+
+3. **Une seule suite, en ligne de commande — `verif_site_public.js`.**
+   `node verif_site_public.js` : **42 assertions** contre la PRODUCTION
+   (pages, chrome, CSP, 13 jeux et leurs sources, couverture 140 communes,
+   budget de l'édition légère, prix du catalogue, promesse de mesure,
+   déploiement des trois longueurs). Les bancs HTML restent pour le rendu
+   JS, qui demande un navigateur — c'est écrit dans son en-tête.
+
+4. **Fiche à trois longueurs.** Court / Moyen (défaut) / Complet, mémorisé,
+   partageable par lien, et la longueur active DIT ce qu'elle montre.
+
+**Incident à retenir (15/08)** : la première pose des trois longueurs a été
+**écrasée** par une régénération de la session voisine entre l'édition et le
+`git add` — le commit a capturé les bumps sans le code. Leçon appliquée :
+une modification de fichier chaud vit dans un patch rejouable
+(`patch_vues_fiche.py`), et se commite dans la foulée immédiate.
+
 ## 5. Ce qui reste à faire
 
 **Court terme, par ordre de rapport qualité/effort**
