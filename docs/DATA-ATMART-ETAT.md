@@ -111,9 +111,17 @@ python Atmart_website/tests/verif-versions.py
 # Régénérer les pages localisées — à relancer le jour de la réouverture du multilingue
 python Atmart_website/tests/generer-pages-localisees.py
 
-# Site autonome (Explorateur_site/tests/, hors depot) : chrome unique + liens
-python Explorateur_site/tests/generer-chrome.py    # a relancer apres tout ajout de page/menu
+# Chrome unique des 12 pages du site des donnees — a relancer apres tout ajout
+# de page ou d'entree de menu. Deplace dans l'atelier le 15/08/2026 : il vit
+# desormais dans un depot versionne, et il trouve le site quel que soit le
+# dossier d'ou on l'appelle (l'ancien travaillait sur le dossier courant et
+# pouvait ne rien faire en le disant bien).
+python Atmart_premium_datasets/build_chrome.py
+python Atmart_premium_datasets/build_csp.py        # APRES tout script qui reecrit du HTML
+
+# Site autonome (Explorateur_site/tests/, hors depot)
 python Explorateur_site/tests/verifier-liens.py    # garde-fou 404 interne avant publication
+python Explorateur_site/tests/sync-donnees.py      # atelier -> vitrine -> site des donnees
 ```
 
 **Routine avant toute publication** : `node --check assets/explorateur.js` →
