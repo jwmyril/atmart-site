@@ -89,7 +89,7 @@ géomatique lourde. Le terrain est l'information territoriale **expliquée**.
 | # | Problème | Conséquence | État | Effort |
 |---|---|---|---|---|
 | P1-1 | 4 langues non indexables | traduction invisible des moteurs | ✅ **corrigé ce jour** | fait |
-| P1-2 | 1,55 Mo pour une fiche | public 3G exclu | ✅ **corrigé** (24 Ko) | fait |
+| P1-2 | 1,55 Mo bruts pour une fiche (≈200 Ko compressés — voir §7) | public 3G mal servi | ✅ **corrigé** (24 Ko, dont 15 de données) | fait |
 | P1-3 | Fiche trop longue | lecteur perdu | ✅ **corrigé** (3 longueurs) | fait |
 | P1-4 | Catalogue à la main | prix divergents | ✅ **corrigé** (généré) | fait |
 | P1-5 | 11 pages non traduites (bandeau) | expérience inégale | ⬜ ouvert | 2 j |
@@ -169,6 +169,27 @@ sa conséquence et une recommandation.
 **Non atteint à ce jour** : LCP < 2,5 s à froid (mesuré 3,5 s sur l'accueil
 complet — l'édition légère répond en 0,1 s), et parcours institutionnel
 (dépend de la décision « comptes »).
+
+### Correction d'un constat de cet audit (même jour)
+
+La première rédaction attribuait le LCP au **poids** des données. Vérification
+faite avec `curl -H "Accept-Encoding: gzip"` : **GitHub Pages compresse déjà**.
+Le CSV des indicateurs pèse 1 030 Ko sur le disque mais **58 Ko sur le fil** ;
+les polygones communaux, 226 Ko bruts pour **65 Ko**. Le transfert complet de
+l'accueil est d'environ **200 Ko compressés**, pas 1,5 Mo.
+
+Le coût réel se répartit autrement :
+1. **l'attente en série** — les données partaient en trois vagues, chacune
+   attendant la précédente : deux allers-retours purs, ~1 s sur une liaison
+   à 300 ms. **Corrigé le 15/08** : tout part ensemble ;
+2. **l'analyse du CSV** en JavaScript, caractère par caractère, sur un
+   mégaoctet — c'est le poste dominant restant sur un mobile bas de gamme ;
+3. le rendu.
+
+L'édition légère garde donc tout son sens, mais pour une raison plus juste
+que celle écrite d'abord : elle évite **l'analyse** de 4 200 lignes, pas
+seulement leur téléchargement. C'est aussi pourquoi ses fiches sont
+pré-calculées plutôt que filtrées à la volée.
 
 ---
 
