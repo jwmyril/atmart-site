@@ -119,6 +119,15 @@ python Atmart_website/tests/generer-pages-localisees.py
 python Atmart_premium_datasets/build_chrome.py
 python Atmart_premium_datasets/build_csp.py        # APRES tout script qui reecrit du HTML
 
+# FRAICHEUR — une fois par mois, sans lien avec une publication. Interroge
+# l'API HDX pour les 12 sources qui y vivent, compare a nos dates de
+# verification, et ecrit rapports/fraicheur_sources.csv. Les 24 autres sources
+# y figurent aussi, avec l'age de notre verification : un rapport qui n'en
+# couvrirait que 12 aurait l'air complet en ne disant qu'un tiers.
+#   --bloquant : sort en erreur s'il y a au moins une source a rafraichir,
+#   pour qu'une tache planifiee le signale au lieu de reussir en silence.
+python Atmart_premium_datasets/build_fraicheur.py --bloquant
+
 # Porter la vitrine vers le site des donnees — DERNIER maillon de la chaine.
 # Deplace dans l'atelier le 15/08/2026 : il porte la LISTE des fichiers a
 # publier, un etat qui n'avait aucun historique tant qu'il vivait hors depot.
