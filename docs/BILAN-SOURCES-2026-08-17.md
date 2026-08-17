@@ -8,11 +8,15 @@ sources.
 
 ## 1. En une ligne
 
-**20 sources ont un passeport juridique** dont la licence a été lue sur sa
-page officielle. **17 sont publiables gratuitement** sur l'Explorateur,
-**14 sont utilisables même dans une prestation facturée**. **Quatre sources
-sont désormais en ligne** sur les 140 fiches communales, avec leurs
-contrôles.
+**20 sources ont un passeport juridique** dont la licence a été lue à sa
+source. **19 sont publiables gratuitement** sur l'Explorateur, **18 sont
+utilisables même dans une prestation facturée**, et **plus aucune n'est en
+« licence non documentée »**. **Quatre sources sont en ligne** sur les 140
+fiches communales, avec leurs contrôles.
+
+*Ces chiffres sont ceux d'après la révision du soir (§7) : quatre sources
+avaient été classées bloquées faute d'avoir été lues, pas parce qu'un texte
+les restreignait.*
 
 ---
 
@@ -78,15 +82,20 @@ fait sortir :
 | PSP-024 | OSM / Geofabrik | **ODbL** — partage à l'identique sur toute base dérivée publiée |
 | PSP-028 | IBTrACS — cyclones | accès ouvert, mais l'usage **commercial** renvoie à la Résolution 40 de l'OMM |
 
-### À vérifier avant emploi (P2)
+### Ouvertes après le réexamen du soir (§7)
 
-| Passeport | Source | Ce qui manque |
+| Passeport | Source | Licence établie |
 |---|---|---|
-| PSP-032 | HydroSHEDS / HydroATLAS | **contradiction non résolue** : la page produit annonce l'usage commercial libre, les conditions du site l'interdisent |
-| PSP-034 | Banque mondiale — projets | licence annoncée CC BY 4.0, **non lue** |
-| PSP-035 | IATI Datastore | chaque organisation publiante porte **sa propre** licence |
-| PSP-036 | Global Solar Atlas | des tiers annoncent CC BY 4.0, **la page officielle n'était pas lisible** |
-| PSP-041 | ESA WorldCereal | licence CC BY 4.0 confirmée, mais **qualité locale en Haïti non évaluée** |
+| PSP-032 | HydroSHEDS / HydroATLAS | **CC BY 4.0** (v2) ; v1 « scientific, educational and commercial use » — ne pas redistribuer le fichier tel quel |
+| PSP-034 | Banque mondiale — projets | **CC BY 4.0**, texte exact de la page officielle |
+| PSP-035 | IATI Datastore | **licence ouverte obligatoire**, déclarée par publiant — à lire à l'ingestion, activité par activité |
+| PSP-036 | Global Solar Atlas | **CC BY 4.0** — attestée par trois sources concordantes, page officielle non lisible |
+
+### Utilisable, avec une réserve technique
+
+| Passeport | Source | Réserve |
+|---|---|---|
+| PSP-041 | ESA WorldCereal | licence CC BY 4.0 confirmée, mais **qualité locale en Haïti non évaluée** — une carte de cultures fausse sur un territoire est pire qu'absente |
 
 ### Sous convention (P3)
 
@@ -101,7 +110,6 @@ fait sortir :
 En retirant la vente de données, **la plupart des verrous sont tombés** :
 ils portaient sur l'usage commercial, pas sur l'usage.
 
-- **HydroSHEDS** : ses conditions autorisent explicitement le non-commercial.
 - **IBTrACS** : la Résolution 40 vise le commerce ; l'accès ouvert s'applique.
 - **ODbL** : l'obligation de partage à l'identique cesse d'être une
   contrainte pour devenir un alignement, si les produits Atmart sont ouverts.
@@ -131,8 +139,8 @@ facturable si son droit commercial n'est pas acquis.
 1. **Open Buildings : CC BY 4.0 ou ODbL ?** — recommandation : CC BY 4.0.
 2. **Régime ODbL des indicateurs OSM** — à arbitrer indicateur par
    indicateur, et à faire relire avant toute prestation facturée.
-3. **Écrire à NOAA/NCEI, à HydroSHEDS, à LAPOP** — trois courriels qui
-   lèvent trois ambiguïtés.
+3. **Écrire à NOAA/NCEI et à LAPOP** — deux courriels qui lèvent les deux
+   dernières ambiguïtés. HydroSHEDS n'en a plus besoin.
 4. **Moteur de routage auto-hébergé** — sans lui, aucun temps de trajet.
 5. **Déclarer la licence des produits Atmart** — recommandation CC BY 4.0 ;
    c'est le préalable au statut de bien public numérique.
