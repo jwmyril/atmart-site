@@ -263,3 +263,93 @@ la correction porte sur les bordures, pas sur le fond.
 | **OSRM auto-hébergé** | le seul chantier lourd — sans lui, aucun temps de trajet |
 
 Et le **rapport PDF** décidé le 16/08 n'est toujours pas construit.
+
+---
+
+# Troisième vague — les sources « impossibles »
+
+Trois chantiers réputés bloqués. Deux se sont ouverts, un reste fermé.
+
+## HydroSHEDS : deux croyances, aucun obstacle réel
+
+**« Le fichier n'est plus accessible »** — il l'était. Le CDN répond **403 à
+l'agent par défaut de curl et 200 au MÊME octet** demandé avec un agent de
+navigateur. Le code de statut ne parlait pas du fichier, il parlait du client.
+
+**« Le shapefile est illisible sans GDAL »** — il ne l'est pas. Le format est
+publié depuis 1998 : un en-tête de 100 octets, des enregistrements préfixés
+de leur longueur, une table dBase III à côté. `lire_shapefile.py` le lit en
+Python nu et a chargé **22 533 bassins en 4,3 secondes**.
+
+Les deux croyances menaient au même endroit : conclure à l'indisponibilité et
+aller chercher ailleurs une source moins bonne. **C'est ainsi qu'on fabrique
+une donnée fausse sans jamais mentir.**
+
+*Test de vérité* : les cinq communes au plus grand bassin amont — Mirebalais,
+Saut d'Eau, La Chapelle, Petite Rivière de l'Artibonite, Grande Saline —
+portent toutes exactement **8 886,8 km²**, le maximum national. Ce sont les
+communes de l'Artibonite. Rien ne guidait ce résultat : il valide d'un coup
+le lecteur écrit à la main, le décalage des enregistrements et l'attribution
+point-dans-polygone.
+
+## Le plus gros trou de l'Explorateur, comblé
+
+| Couche | Avant | Après |
+|---|---|---|
+| **Santé** | 14 communes sur 140 | **139** — 2 234 établissements |
+| **Écoles** | 49 communes sur 140 | **132** — 7 362 établissements |
+
+Extrait HOT/OSM du 6 août 2026, ODbL. Croix-des-Bouquets en tête des deux :
+185 établissements de santé, 989 écoles.
+
+**Ce que cela ne comble pas**, et qui s'affiche avant les chiffres : OSM est
+une base **contributive**. Sa couverture suit les cartographes, pas le
+terrain. Une commune peu cartographiée paraît sous-équipée — défaut de la
+carte, pas du territoire. C'est l'inverse exact du défaut d'un registre
+administratif, qui liste ce qui est **déclaré** même quand la porte est
+fermée depuis trois ans. Les deux se contredisent parfois, et cette
+contradiction est une information.
+
+## Dynamic World : licence ouverte, accès fermé
+
+CC BY 4.0 confirmée, mais le jeu **ne vit que dans Google Earth Engine** —
+aucun miroir (testé : 403 sur storage.googleapis.com, 404 sur Source
+Cooperative). L'employer supposerait un compte, une authentification et un
+export vers un stockage tiers : trois dépendances qui contredisent
+l'architecture statique de l'Explorateur.
+
+**Ce que cela coûte, en pratique : peu.** WorldCover donne déjà l'occupation
+du sol à 10 m et GHSL la dynamique du bâti sur quatre millésimes. Dynamic
+World apporterait le quasi-temps-réel — utile pour suivre un lendemain de
+cyclone, pas pour décrire un territoire. **À rouvrir si Atmart ouvre un
+compte Earth Engine** : il est gratuit pour l'usage non commercial, soit
+exactement le cadre retenu depuis le pivot.
+
+## Les institutions haïtiennes : un obstacle d'accès, pas de droit
+
+| Site | État au 17/08 |
+|---|---|
+| MENFP, IHSI, MEF, FNE | **répondent** |
+| MSPP, eduhaiti | injoignables |
+
+Le droit est réglé — décret du 12/10/2005, article 5. Reste un travail
+d'extraction PDF, que les agents lancés dessus n'ont pas pu mener à terme
+(coupures réseau). **Les données HOT/OSM comblent l'urgence** ; les registres
+ministériels restent le complément à obtenir, pour la raison dite plus haut :
+ils listent autre chose.
+
+## État final de la journée
+
+| | |
+|---|---|
+| Couches en ligne | **13** |
+| Suites de contrôle | **25** |
+| Passeports juridiques | **25** |
+| Sources brutes scellées | **1,9 Go** |
+| Commits poussés | **45** — 18 site, 17 atelier, 10 documentation |
+
+Deux corrections de finition, faites parce qu'on a **regardé les pages** :
+« 381,1 km² d'eau » pour une commune de 380,5 km² (mauvais champ), et
+« 26 hôpitals » (pluriel naïf). Aucun contrôle automatique ne les aurait
+attrapées — le premier chiffre était exact mais mal nommé, le second était
+une faute de français dans une phrase juste.
