@@ -256,6 +256,56 @@ moteur en modules, journal d'archives).
 une modification de fichier chaud vit dans un patch rejouable
 (`patch_vues_fiche.py`), et se commite dans la foulée immédiate.
 
+## 4 sexies. 17/08/2026 — pivot bien public et premiers pipelines de sources
+
+**Décision d'Atmart** : l'Explorateur sert d'abord l'accès à l'information en
+Haïti, pas la vente de données. La rentabilisation se cherchera par le
+parrainage de jeux, les services d'analyse et les financements dédiés aux
+données ouvertes — voir `PIVOT-BIEN-PUBLIC-2026-08-17.md`.
+
+**Conséquence juridique, plus large qu'attendu.** La plupart des verrous
+portaient sur l'usage COMMERCIAL, pas sur l'usage. HydroSHEDS se débloque
+(ses conditions autorisent explicitement le non-commercial), IBTrACS aussi
+(la Résolution 40 de l'OMM vise le commerce), et l'obligation de partage à
+l'identique d'ODbL cesse d'être une contrainte pour devenir un alignement.
+**9 → 12 sources exploitables**, puis 20 passeports après vérification.
+
+**Livrés ce jour**
+
+| | |
+|---|---|
+| Registre juridique | `backbone/atmart_passeports_sources.csv` — 20 passeports, licences LUES sur les pages officielles |
+| Matrice | `backbone/atmart_matrice_source_indicateur.csv` — 20 indicateurs, niveau publiable, incertitude, blocage |
+| Contrôles | `verif_passeports.py` · `verif_matrice.py` · `verif_evenements.py` |
+| Socle | `telecharge_source.py` — empreinte SHA-256 par fichier brut, refus d'écraser, alerte au changement de source |
+| Pipeline 1 | `build_evenements_seismes.py` — 445 séismes, 15 423 liens, historique sur les 140 fiches EN LIGNE |
+| Pipeline 2 | `build_pluie_chirps.py` — CHIRPS mensuel 1981-2026, extrait Caraïbes |
+
+**Trois pièges de cache démontés le même jour** — tous invisibles depuis le
+serveur, tous vécus par de vrais lecteurs :
+
+1. les **pages HTML** étaient servies cache-first alors qu'elles ne portent
+   aucun numéro de version : des lecteurs restaient figés sur une version
+   ancienne. Passées en réseau-d'abord ;
+2. les **sous-modules du moteur** n'avaient pas non plus de numéro de
+   version, et le service worker en a figé une version périmée pendant la
+   fenêtre de propagation du CDN. Désormais `?v=` sur les imports comme dans
+   le précache — `patch_version_modules.py` rejoue l'opération ;
+3. le **précache concurrent** faisait payer au nouveau venu l'avance faite
+   pour ses visites suivantes : DOM prêt à 8,0 s. Les données attendent
+   maintenant que la page soit affichée. **1,1 s.**
+
+**Leçons de méthode, apprises à leurs dépens.** Un fichier de référence ne
+s'écrit plus à la main (`ajout_passeports.py` : csv.writer échappe, relecture,
+puis remplacement) — trois lignes du registre portaient une virgule non
+protégée qui décalait les colonnes en silence. Et un patch rejouable porte un
+marqueur qui n'existe QU'UNE FOIS POSÉ : deux fois le même piège, un bloc
+défini et jamais appelé.
+
+**Reste à faire** : CHIRPS (téléchargement en cours), ESA WorldCover, Open
+Buildings, moteur de routage OSRM auto-hébergé. Et les six décisions du §5 de
+l'inventaire juridique.
+
 ## 4 quinquies. 16/08/2026 — l'application est installable, et utile hors ligne
 
 Le manifeste était complet depuis des semaines — nom, portée, affichage
