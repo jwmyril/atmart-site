@@ -178,3 +178,51 @@ reconstructibles depuis leurs manifestes.
 3. **Un contrôle contre une source indépendante vaut dix contrôles
    internes.** La superficie CNIGS a révélé une erreur de facteur 123 que
    les pourcentages ne montraient pas.
+
+---
+
+## 7. Révision du 17/08 au soir — quatre sources débloquées
+
+Atmart a contesté le classement d'HydroSHEDS, et avait raison. Le
+réexamen qui a suivi a montré que **la même erreur de méthode avait été
+commise quatre fois** : j'avais classé « licence non documentée » des
+sources que je n'avais pas lues, au lieu de sources dont le texte serait
+restrictif. Ce n'est pas la même chose. La première formulation appelle un
+quart d'heure de travail ; la seconde bloque un chantier.
+
+| Source | Avant | Après lecture |
+|---|---|---|
+| **HydroSHEDS / HydroATLAS** | contradiction bloquante | **CC BY 4.0 pour la v2** ; v1 « freely available for scientific, educational and commercial use » |
+| **Banque mondiale — projets** | licence supposée | **CC BY 4.0**, texte exact sur la page |
+| **IATI** | statut inconnu | **licence ouverte obligatoire**, déclarée par publiant dans les métadonnées |
+| **Global Solar Atlas** | non lue | **CC BY 4.0**, trois sources concordantes |
+
+**Le cas HydroSHEDS mérite d'être retenu.** J'avais opposé les conditions
+générales du SITE (« personal, non-commercial use ») à la page produit
+(« freely available for scientific, educational and commercial use ») et
+conclu à une contradiction. Les deux textes portent sur deux objets
+différents — et HydroSHEDS l'écrit lui-même : « All data products come
+with specific license terms, specified on the product pages and technical
+documentation. » La seule restriction réelle est précise : ne pas
+redistribuer le fichier **tel quel comme produit autonome**. Les œuvres
+dérivées sont explicitement distribuables, et l'Explorateur ne produit que
+cela.
+
+**Nouveau bilan : plus aucune source en `LICENCE_NON_DOCUMENTEE`.**
+18 sources sur 20 sont utilisables même dans un produit payant. Une seule
+reste sous convention — LAPOP, dont la restriction porte sur la
+redistribution des fichiers d'enquête et survit à tout pivot.
+
+**Une nuance de preuve, conservée :** pour Global Solar Atlas, la page
+officielle est une application JavaScript que l'outil de lecture ne rend
+pas. La licence est attestée par trois sources indépendantes concordantes,
+dont le rapport technique de la Banque mondiale — suffisant pour publier
+gratuitement, à confirmer avant toute prestation facturée. Le passeport le
+dit, plutôt que de faire passer un recoupement pour une lecture.
+
+### La règle qui en sort
+
+> Une clause restrictive trouvée sur un site ne s'applique pas forcément à
+> ce qu'on croit. Lire le document que le producteur **désigne** comme
+> faisant foi, pas le premier texte juridique rencontré. Une prudence mal
+> placée bloque un travail utile aussi sûrement qu'une imprudence l'expose.
