@@ -8,7 +8,7 @@ sources.
 
 ## 1. En une ligne
 
-**20 sources ont un passeport juridique** dont la licence a été lue à sa
+**25 sources ont un passeport juridique** dont la licence a été lue à sa
 source. **Les 20 sont publiables gratuitement** sur l'Explorateur, **18 sont
 utilisables même dans une prestation facturée**, et **plus aucune n'est
 bloquée** — ni par une licence non documentée, ni par une autorisation
@@ -272,3 +272,70 @@ Les deux signalements d'Atmart — HydroSHEDS, puis LAPOP — ont porté sur des
 sources où il avait une connaissance directe. C'est le rappel que le registre
 juridique n'est pas un exercice documentaire : il décrit des usages que
 quelqu'un pratique déjà.
+
+---
+
+## 8. Examen de fond des restrictions restantes (17/08, tard)
+
+À la demande d'Atmart : « regardez en profondeur là où vous mettez des
+restrictions, car l'Explorateur ne vend pas, et nous nous faisons un honneur
+de citer les sources ». Trois familles examinées, trois résultats.
+
+### Le droit haïtien règle la question des sources publiques nationales
+
+Le **décret du 12 octobre 2005 sur le droit d'auteur** exclut de la
+protection, à son **article 5** :
+
+- alinéa 1 — « les textes officiels de nature législative, **administrative**
+  ou judiciaire, ni à leurs traductions officielles » ;
+- alinéa 3 — « idées, procédés, systèmes, méthodes de fonctionnement,
+  concepts, principes, découvertes ou **simples données** ».
+
+Le nombre d'écoles de Léogâne, la population d'une commune, le budget exécuté
+d'un ministère **ne sont protégés par personne**. Ce sont des faits. Ce qui
+reste protégeable est la *forme* d'un rapport — sa rédaction, ses cartes, sa
+mise en page — jamais les chiffres qu'il porte.
+
+| Institution | Ancien statut | Statut réel |
+|---|---|---|
+| **MSPP** — santé | « à vérifier » | données réutilisables, **obstacle = PDF sans API** |
+| **MENFP / SIGEEE** — écoles | « à vérifier » | idem |
+| **IHSI** — statistique | « à vérifier » | idem ; la vraie limite est que le dernier recensement date de **2003** |
+| **MEF / DGB** — budget | déjà exploité | confirmé |
+| **FNE** — éducation | « aucune licence ouverte » | **confusion entre absence de licence et interdiction** |
+
+**L'obstacle n'est pas juridique, il est d'ingénierie** : PDF scannés, aucune
+API, publications irrégulières. Il faut cesser de le classer au mauvais
+rayon — chaque passeport le nomme désormais à sa place.
+
+### IBTrACS : la Résolution 40 dit le contraire de ce que je supposais
+
+Je l'avais citée sans la lire. Son texte :
+
+> *« Members should provide to the research and education communities, for
+> their **non-commercial activities**, **free and unrestricted access** to all
+> data and products exchanged under the auspices of WMO. »*
+
+La page NCEI parle par ailleurs d'un *« full and open access »*, ne pose
+**aucune** interdiction de redistribution, et l'enregistrement y est
+explicitement **optionnel**. L'Explorateur, qui ne vend pas, relève de
+l'accès libre sans réserve.
+
+### Bilan des restrictions réelles
+
+**25 passeports. 24 utilisables même dans un produit payant.** Il ne reste
+qu'**une seule restriction véritable** dans tout le registre :
+
+> **LAPOP** — les *fichiers* d'enquête ne se transmettent pas à un tiers,
+> même à une revue. L'analyse et la publication, elles, sont encouragées.
+
+Et une seule contrainte méthodologique, qui ne relève d'aucune licence :
+**on ne communalise pas une enquête nationale.**
+
+### La réserve que je maintiens
+
+Ceci est une lecture des textes, **pas un avis juridique**. Elle est
+concordante avec la Convention de Berne, qui exclut de la même façon les
+simples informations. Mais pour une prestation facturée d'ampleur, un juriste
+haïtien reste l'interlocuteur — et cette réserve-là est de méthode, pas de
+timidité.
