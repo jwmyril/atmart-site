@@ -353,3 +353,104 @@ Deux corrections de finition, faites parce qu'on a **regardé les pages** :
 « 26 hôpitals » (pluriel naïf). Aucun contrôle automatique ne les aurait
 attrapées — le premier chiffre était exact mais mal nommé, le second était
 une faute de français dans une phrase juste.
+
+---
+
+# Troisième vague — les deux couches calculées sans être visibles
+
+Deux chantiers lourds étaient terminés côté données et n'atteignaient aucun
+lecteur. Un fichier produit que personne ne lit ne vaut pas mieux qu'un
+fichier absent : ils sont branchés.
+
+## Temps d'accès par la route
+
+Dijkstra sur le graphe OpenStreetMap, **1,33 million de nœuds**, calculé chez
+Atmart — aucune API de routage commerciale interrogée. Le barème de vitesses
+est publié dans le produit, parce que c'est lui qui commande tous les
+résultats : qui le juge mauvais peut refaire le calcul.
+
+**Le bloc affiche DEUX mesures, et leur écart est l'information.** Depuis le
+bourg, tout est proche : c'est mécanique, le bourg est l'endroit même où les
+établissements sont installés. Depuis les sections, en pesant chaque habitant
+là où le satellite le voit vivre, la distance réelle apparaît.
+
+| Léogâne | un point de santé |
+|---|---|
+| depuis le bourg | **0,1 min** |
+| pour la moitié des habitants | 1,3 min |
+| 7e Section Parques | **46,4 min** |
+
+La médiane retenue est la médiane **pondérée par la population**, jamais la
+médiane par section : celle-ci compte pour un une section de 300 habitants et
+une de 30 000, ce qui décrit la géographie et non les gens.
+
+**38 sections et 97 659 habitants (0,9 %) ne sont atteints par aucune route
+cartographiée à moins de deux kilomètres.** Le bloc dit que leur accès est
+INCONNU, pas mauvais, et ne les range dans aucun seuil : les compter au-delà
+de deux heures serait inventer une mesure qu'on n'a pas faite.
+
+Les temps valent en **conditions normales**. L'état de la chaussée, la saison
+des pluies, les barrages et l'insécurité n'entrent pas dans le calcul : c'est
+un plancher optimiste, jamais une prévision de trajet.
+
+## Écoles déclarées contre écoles vues
+
+**17 827 codes CIE distincts** dépouillés des dix registres MENFP 2024-2025.
+643 lignes d'établissement étaient matériellement répétées dans les PDF du
+ministère — des blocs de pages entières réimprimés — et ont été écartées ; le
+comptage porte sur des codes distincts, pas sur des lignes.
+
+Face à eux, **7 251 écoles visibles sur OpenStreetMap**.
+
+Les deux chiffres sont publiés parce qu'**aucun n'est la vérité** : le
+registre garde une école fermée mais non radiée, la carte ignore ce
+qu'aucun contributeur n'a relevé. À l'échelle du pays, **41 %** — la moitié
+des écoles d'Haïti n'apparaît sur aucune carte. Ce n'est pas un fait sur les
+écoles, c'est un fait sur l'information disponible, et c'est cela que le bloc
+donne à lire.
+
+Huit communes ont un registre et **pas une seule** école cartographiée : la
+fiche y écrit « non documenté », jamais « aucune école ».
+
+## Trois dérives silencieuses, corrigées au passage
+
+- **Les pages traduites servaient un moteur de l'avant-veille.** `ht/`, `en/`
+  et `es/` demandaient `explorateur.js?v=23` quand le français était à v=25.
+  L'URL ne changeant plus, le cache d'un lecteur kreyòl ne se serait jamais
+  rafraîchi. `data.css` existait de son côté en trois versions pour un seul
+  fichier. Tout est réaligné, et le service worker précharge désormais ce que
+  les pages demandent réellement.
+- **Les pages `ht/` et `es/` étaient inertes en production** : leurs scripts
+  en ligne n'avaient pas d'empreinte dans la politique de sécurité, donc le
+  navigateur les bloquait. `build_csp.py` rejoué, 39 pages protégées.
+- **`verif_copies.py` accusait à tort.** Il ne connaissait qu'un producteur et
+  déclarait orphelins seize fichiers parfaitement tenus. Une alerte qui crie à
+  tort finit par ne plus être lue du tout.
+
+## Le banc de tests ne ment plus sur lui-même
+
+La série s'arrêtait sur « délai dépassé », à un endroit différent à chaque
+passage. Cela ressemblait vingt minutes durant à un bogue de l'Explorateur.
+Ce n'en était pas un : les sections différées reposent sur
+`IntersectionObserver`, que le navigateur ne déclenche **qu'en dessinant une
+image**. Fenêtre masquée, le cadre ne dessine pas, l'observateur reste muet.
+
+Le banc mesure maintenant l'état du cadre et écrit « **NON JOUÉ ICI** » avec
+la raison et le remède, au lieu d'accuser le produit. Un test qu'on n'a pas
+pu jouer ne doit ni passer en silence, ni compter comme un échec du site.
+
+## Et un blanc que rien n'expliquait
+
+Le bloc « projets » laissait sur **125 fiches** un paragraphe vide — invisible
+mais porteur de sa marge — produit par un `T("")`, une clé de traduction vide.
+Repéré en production sur Léogâne, en comptant les blocs remplis un par un
+plutôt qu'en regardant la page.
+
+## État après la troisième vague
+
+| | |
+|---|---|
+| Couches sur les 140 fiches | **16** |
+| Vérifié en production | Léogâne : **15 blocs remplis, 1 masqué à bon droit** |
+| Moteur | `explorateur.js?v=26`, cache `explorateur-v72` |
+| Quatre langues | même moteur, même version, mêmes données |
