@@ -454,3 +454,143 @@ plutôt qu'en regardant la page.
 | Vérifié en production | Léogâne : **15 blocs remplis, 1 masqué à bon droit** |
 | Moteur | `explorateur.js?v=26`, cache `explorateur-v72` |
 | Quatre langues | même moteur, même version, mêmes données |
+
+---
+
+# Quatrième vague — les deux « impossibles », et un rapport qui sortait anonyme
+
+## Le MEF : un constat exact, une conclusion fausse
+
+« Ventilation départementale irrécupérable par OCR » décrivait bien la page 73
+des annexes du budget : la couche de texte du PDF officiel y est détruite —
+« ARTIBONI~T---=---- », « 34s,s10,ooo,001 ». Lue mot à mot, elle est
+inexploitable.
+
+Mais un tableau budgétaire porte ses propres preuves.
+
+- **Sa géométrie survit à l'OCR**, qui déplace des caractères et jamais des
+  colonnes. On lit donc par position — ce qui évite l'erreur silencieuse
+  parfaite : les deux dernières colonnes de la page portent une population et
+  une densité, et les prendre pour de l'argent aurait donné un résultat
+  plausible et faux.
+- **Son arithmétique est redondante** : fonctionnement + investissement =
+  total, sur chacune des onze lignes.
+- **Ce que l'OCR laisse d'un montant détruit reste une contrainte.** Le
+  fragment « 3796626 » ne vaut rien comme valeur — le prendre pour un montant
+  diviserait un budget par mille — mais il dit que le vrai nombre finit par
+  ces sept chiffres.
+
+Deux valeurs sont reconstruites plutôt que lues, et le produit le dit ligne par
+ligne. L'Artibonite par soustraction, confirmée par son fragment. Le Centre par
+recherche sous contrainte : **un seul couple** satisfait à la fois le total de
+sa ligne, le suffixe survivant du premier terme, le fragment du second et le
+solde des colonnes — à **8 gourdes**, quand le candidat suivant est à **dix
+millions**. Les colonnes retombent sur les enveloppes votées à **9 gourdes sur
+345 milliards** : c'est l'arrondi du Moniteur lui-même, publié et non corrigé.
+
+| | crédits votés 2025-2026 |
+|---|---|
+| Ouest | **64,8 %** |
+| non ventilé sur aucun territoire | **25,3 %** |
+| les neuf autres départements | **9,9 %**, pour 10,7 millions d'habitants |
+
+Le bloc paraît sur la fiche du département — l'échelon auquel le budget est
+réellement voté — et sur celles de ses communes en disant que le chiffre est
+celui du département. Le descendre au prorata de la population fabriquerait une
+donnée que le Moniteur ne publie pas. Et ce sont des **crédits votés**, jamais
+de la dépense exécutée.
+
+## Le MSPP : un site injoignable n'est pas une donnée absente
+
+mspp.gouv.ht accepte la connexion puis la coupe en **70 millisecondes** — port
+ouvert, réponse remise à zéro. Le constat « MSPP injoignable » était exact au
+pied de la lettre.
+
+Le ministère publie sa **Carte sanitaire** sur un autre domaine, qui répond
+normalement et sert la liste complète par son propre point d'entrée public :
+**1 033 établissements géolocalisés**, avec catégorie, statut et commune. Sans
+inscription, sans clé, sans contourner quoi que ce soit.
+
+Le registre porte ses accents **déjà perdus dans la base du producteur** :
+« Limb! » pour « Limbé ». On ne répare pas la source, on la lit sans deviner —
+le « ! » devient un joker accepté seulement s'il désigne UNE commune, complété
+d'une table d'alias de quatorze entrées, explicite parce qu'elle est
+contestable. Un rapprochement « au plus ressemblant » aurait rangé les cinq
+établissements de « Cayes » à Cayes-Jacmel plutôt qu'aux Cayes, à soixante
+kilomètres — et personne ne l'aurait vu. **1 033 rattachés, 139 communes sur
+140** ; Plaisance du Sud est la seule absente du registre.
+
+Même geste que pour les écoles, **résultat inverse** : la carte montrait 41 %
+des écoles déclarées, elle montre **144 %** des établissements de santé. Elle
+voit des cabinets que le registre n'enregistre pas ; le registre garde des
+établissements que personne n'a relevés. Aucun des deux n'est la vérité.
+
+## Le rapport imprimé sortait sans en-tête
+
+Il était construit depuis le 16/08 et n'avait jamais été éprouvé sur papier.
+La feuille d'impression du site masque son chrome par
+`header, footer { display: none !important }` — et le rapport construit SON
+PROPRE en-tête, qui est un `<header>`. Le document sortait donc **sans nom de
+commune, sans p-code, sans superficie, sans date d'édition et sans
+l'avertissement qui dit ce qu'il est** : exactement le document anonyme que ce
+rapport a été écrit pour ne pas être. La règle vise désormais `body > header`.
+
+Trouvé en basculant les règles `@media print` en « screen » par le CSSOM, pour
+VOIR la mise en page au lieu de la déduire de la feuille de style. La même
+mesure donne le reste : **sept pages A4**, dont près de trois pour la page des
+sources, et **aucun bloc plus haut qu'une page** — rien ne sera coupé de force.
+L'infobulle annonçait « 4 à 5 pages » ; elle annonce maintenant ce qui sort de
+l'imprimante.
+
+Le rapport a aussi révélé une contradiction : la section 1 imprimait
+« Population officielle » pour la projection UNFPA/OCHA, statut E, pendant que
+le bloc des trois sources appelle « statistique officielle » le chiffre de
+l'IHSI. Sur Gressier, la même feuille aurait annoncé 3 987 et 36 541 habitants
+sous le même adjectif. C'est « **Population projetée** » désormais.
+
+## Sept cartes de plus sur la page Couches
+
+Servies par un seul fichier de **12 Ko** extrait des quatre produits détaillés
+plutôt que par leurs 377 Ko : accès à un point de santé, accès à un hôpital,
+part des écoles déclarées que la carte montre, désaccord entre les trois
+sources de population, couvert arboré 2021, croissance du bâti 1990-2020,
+potentiel solaire. « Occupation du sol récente » quitte les couches annoncées :
+elle existe.
+
+Chaque couche déclare sa rampe de couleur. Le rouge n'est pas neutre sur une
+carte — il se lit « attention » — et l'employer pour une forêt dense ou un bon
+ensoleillement ferait dire à la teinte le contraire de la donnée. La légende
+compte aussi les communes en gris : sans ce comptage, une carte incomplète se
+lit comme une carte complète où tout va bien.
+
+Les sept étaient d'ailleurs **déclarées et absentes du sélecteur**, qui est une
+liste explicite — chargeables et invisibles, la panne la plus silencieuse
+possible. Un garde-fou signale désormais toute couche qu'aucun groupe ne montre.
+
+## Les contrôles savent échouer
+
+`verif_mef_departements.py` refait les deux reconstructions **sans réemployer
+une ligne** du script de construction : deux codes qui se trompent de la même
+façon en partant de contraintes différentes, cela n'arrive pas. Dix-neuf tests,
+dont quatre tests de vérité indépendants de notre chaîne. Trois sabotages
+délibérés — **un chiffre changé d'une seule gourde**, l'Ouest ramené au rang
+des autres, le non-ventilé mis à zéro — font tous virer les contrôles au rouge.
+
+## Et un faux bogue qui a coûté une demi-heure
+
+La fiche restait vide, la console annonçait « Failed to fetch dynamically
+imported module ». Le module était intact : `python -m http.server` livrait
+**130 560 des 140 840 octets** une fois sur deux, sans erreur côté serveur. Il a
+fallu comparer l'octet reçu à l'octet attendu, trois fois de suite, pour voir
+que le transport était fautif et non le code. Le banc a désormais son serveur,
+qui écrit le corps par blocs au lieu de déléguer à `sendfile`.
+
+## État après la quatrième vague
+
+| | |
+|---|---|
+| Couches sur les fiches | **18** |
+| Cartes sur la page Couches | **19** |
+| Passeports juridiques | **27** — PSP-047 (MEF) et PSP-048 (MSPP) |
+| Moteur | `explorateur.js?v=29`, cache `explorateur-v75` |
+| Sources institutionnelles restantes | aucune : IHSI, MENFP, MEF, FNE et MSPP sont intégrés |
