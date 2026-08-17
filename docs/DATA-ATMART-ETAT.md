@@ -292,6 +292,15 @@ lecture faite depuis le cache sans réseau. La suite unique compte désormais
 **65 assertions vertes**, dont une section 9 qui mesure les icônes elles-mêmes
 (en-tête PNG) au lieu de croire leur déclaration.
 
+**16/08/2026 — la règle se durcit, parce que je l'ai enfreinte.** Un
+`git add -A` fait dans ce dépôt a publié une version du moteur d'où les trois
+longueurs de fiche avaient disparu : la session voisine les avait retirées
+localement, mon commit les a emportées en ligne, et c'est le lecteur qui l'a
+signalé (« ma commune n'existe plus »). La suite l'a confirmé en trois
+assertions rouges, `patch_vues_fiche.py` l'a réparé d'un trait.
+**Sur ce dépôt, on stage les fichiers un par un — jamais `-A`, jamais `.`** ;
+et on relance `node verif_site_public.js` APRÈS le déploiement, pas avant.
+
 ## 4 quater. ALERTE DE COORDINATION — deux sessions sur un même fichier
 
 **15/08/2026, constat répété trois fois.** `assets/modules/explorateur.js`
