@@ -256,6 +256,42 @@ moteur en modules, journal d'archives).
 une modification de fichier chaud vit dans un patch rejouable
 (`patch_vues_fiche.py`), et se commite dans la foulée immédiate.
 
+## 4 quinquies. 16/08/2026 — l'application est installable, et utile hors ligne
+
+Le manifeste était complet depuis des semaines — nom, portée, affichage
+autonome, couleurs, raccourcis — mais ne déclarait que **32 et 180 pixels**.
+Android et Chrome exigent **192 et 512** : l'Explorateur n'était donc
+installable nulle part, et rien dans l'interface ne le signalait. C'est le
+genre de panne qu'un audit de papier ne voit pas : la case « PWA » était
+cochée, la fonction n'existait pas.
+
+- `build_pwa_icones.py` fabrique les quatre icônes manquantes depuis le logo,
+  dont deux **maskable** (marge de 12 %) que les lanceurs Android recadrent
+  en cercle ou en goutte sans amputer le dessin.
+- **Hors ligne, on peut désormais chercher et lire, pas seulement constater
+  la panne.** Le service worker garde d'avance l'index des 140 communes de
+  l'édition légère (10 Ko) et sert `fiche.html` quand une navigation sans
+  réseau visait une commune. `hors-connexion.html` y mène aussi.
+- `assets/pwa.js` : invite d'installation et bandeau de connexion, quatre
+  langues. L'invite arrive **après un signe d'intérêt** (recherche, clic sur
+  un résultat, ou trente secondes), jamais à l'arrivée ; refusée, elle ne
+  revient pas de la session. Fichier facultatif : le retirer n'enlève que ça.
+- L'édition légère **propose** de garder les 140 fiches sur l'appareil
+  (≈ 700 Ko, poids annoncé, téléchargement reprenable, quatre de front).
+  Précacher d'office aurait alourdi la première visite de tout le monde pour
+  un besoin qui n'est pas celui de tout le monde.
+
+**Piège corrigé avant mise en ligne** : ces fiches vivent dans un cache à
+part, `explorateur-communes`, que le service worker ne purge **jamais** au
+changement de version. Écrites dans le cache ordinaire, elles auraient été
+effacées à chaque déploiement — 700 Ko souvent payés au forfait compté à
+l'octet, perdus sans un mot.
+
+Vérifié en production : cache `explorateur-v42` actif, 140 fiches gardées,
+lecture faite depuis le cache sans réseau. La suite unique compte désormais
+**65 assertions vertes**, dont une section 9 qui mesure les icônes elles-mêmes
+(en-tête PNG) au lieu de croire leur déclaration.
+
 ## 4 quater. ALERTE DE COORDINATION — deux sessions sur un même fichier
 
 **15/08/2026, constat répété trois fois.** `assets/modules/explorateur.js`
