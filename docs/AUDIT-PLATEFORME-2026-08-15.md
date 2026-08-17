@@ -201,3 +201,40 @@ catalogue de couches filtrable.
 **v3.0** (à décider) : comptes, API, alertes — seulement si les compteurs
 d'usage montrent une demande, et si Atmart accepte le coût d'exploitation
 d'un service avec état.
+
+---
+
+## 8. État au 16/08/2026 — ce qui a bougé depuis l'audit
+
+**Livré depuis le 15/08**
+
+| | |
+|---|---|
+| Application installable | icônes 192/512 + maskable ; le manifeste était complet mais ces deux tailles manquaient, donc **rien n'était installable nulle part** |
+| Hors ligne utile | l'index des 140 communes est précaché ; une navigation sans réseau vers une commune ouvre l'édition légère au lieu d'une page d'excuse |
+| Garder les 140 communes | proposé à la demande (≈ 700 Ko annoncés), dans un cache que les mises en ligne ne purgent jamais |
+| Pages en réseau d'abord | **régression corrigée** : le cache d'abord figeait des lecteurs sur une version ancienne, panne invisible depuis le serveur |
+| Première visite | **DOM prêt 8,0 s → 1,1 s** : le service worker préchargeait ses vingt fichiers pendant que la page s'affichait ; les données attendent maintenant que la page soit rendue |
+| Suite | 49 → **66 assertions**, dont la mesure des icônes dans leur en-tête PNG |
+
+**Incident du 16/08, et sa règle.** Un `git add -A` a publié une version du
+moteur d'où les trois longueurs de fiche avaient disparu. Le lecteur l'a vu
+avant les tests (« ma commune n'existe plus ») ; `patch_vues_fiche.py` l'a
+réparé. Sur ce dépôt partagé entre deux sessions : **staging fichier par
+fichier, et la suite se relance APRÈS le déploiement.**
+
+**Reste du brief — état franc**
+
+| Rang | Fait | Ouvert |
+|---|---|---|
+| P0 confiance | 4 / 4 | — |
+| P1 usage | 4 / 7 | 11 pages non traduites · rapport PDF · couches filtrables |
+| P2 commercial | 0 / 5 | PDF pro · favoris · intégrable · API · alertes |
+| P3 innovation | 0 / 5 | tous en attente de décision ou de géométries fines |
+
+Les critères d'acceptation sont **12 sur 14**. Les deux qui manquent :
+le LCP à froid — nettement amélioré mais non mesuré sur un vrai mobile 3G —
+et le parcours institutionnel, qui dépend de la décision « comptes » (§4).
+
+**La mission n'est donc pas finie : elle est à son palier v2.0.** La suite
+n'est pas bloquée par du code mais par les cinq décisions du §4.
