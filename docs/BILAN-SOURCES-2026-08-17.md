@@ -9,9 +9,10 @@ sources.
 ## 1. En une ligne
 
 **20 sources ont un passeport juridique** dont la licence a été lue à sa
-source. **19 sont publiables gratuitement** sur l'Explorateur, **18 sont
-utilisables même dans une prestation facturée**, et **plus aucune n'est en
-« licence non documentée »**. **Quatre sources sont en ligne** sur les 140
+source. **Les 20 sont publiables gratuitement** sur l'Explorateur, **18 sont
+utilisables même dans une prestation facturée**, et **plus aucune n'est
+bloquée** — ni par une licence non documentée, ni par une autorisation
+manquante. **Quatre sources sont en ligne** sur les 140
 fiches communales, avec leurs contrôles.
 
 *Ces chiffres sont ceux d'après la révision du soir (§7) : quatre sources
@@ -97,11 +98,12 @@ fait sortir :
 |---|---|---|
 | PSP-041 | ESA WorldCereal | licence CC BY 4.0 confirmée, mais **qualité locale en Haïti non évaluée** — une carte de cultures fausse sur un territoire est pire qu'absente |
 
-### Sous convention (P3)
+### Analyse et publication libres, fichiers non redistribuables
 
 | Passeport | Source | Règle |
 |---|---|---|
-| PSP-033 | LAPOP AmericasBarometer | fichiers en zone restreinte, **jamais** redistribués ni exposés par API ; résultats agrégés seulement ; **jamais de valeur communale** |
+| PSP-028 | IBTrACS — cyclones | indicateurs dérivés vendables ; fichier non redistribué tant que la Résolution 40 de l'OMM n'est pas tranchée |
+| PSP-033 | LAPOP AmericasBarometer | **accès libre mondial** ; analyse et publication **encouragées** ; ne jamais transmettre les fichiers, même à une revue — fournir le code de réplication et un lien. **Jamais d'estimation communale** : contrainte méthodologique, pas juridique |
 
 ---
 
@@ -234,3 +236,39 @@ dit, plutôt que de faire passer un recoupement pour une lecture.
 > ce qu'on croit. Lire le document que le producteur **désigne** comme
 > faisant foi, pas le premier texte juridique rencontré. Une prudence mal
 > placée bloque un travail utile aussi sûrement qu'une imprudence l'expose.
+
+### Correction du soir, deuxième signalement d'Atmart
+
+**LAPOP n'était pas une source restreinte.** Je l'avais classée
+`AUTORISATION_REQUISE`, en P3, avec « fichiers en zone restreinte ». C'était
+faux, et Atmart l'a signalé depuis son expérience directe : des working
+papers sur la pauvreté publiés avec ces données pour l'**ONPES**, une entité
+du MPCE.
+
+Ce que LAPOP dit réellement : *« unrestricted world-wide access »* aux vagues
+2004-2021, téléchargeables *« without restriction, limitation or charge »*.
+Les publications sont **attendues** — citation et remerciement demandés. Une
+seule interdiction : *« Authors must not share data files (including with
+journals) »*, avec le remède indiqué par LAPOP lui-même — fournir le code de
+réplication et un lien.
+
+C'est mot pour mot la catégorie `UTILISABLE_POUR_ANALYSE_SANS_REDISTRIBUTION`
+définie dans le cahier des charges d'Atmart. Je ne l'avais pas employée là où
+elle s'appliquait le mieux.
+
+**Ce qui ne bouge pas**, pour une raison méthodologique et non juridique :
+aucune estimation communale. Le plan d'échantillonnage ne rend pas la commune
+représentative, quelle que soit la licence.
+
+### Le pattern, nommé
+
+Cinq sources sur vingt avaient été classées trop restrictivement, et toujours
+de la même façon : **j'ai traité « je n'ai pas vérifié » comme « c'est
+incertain », puis « incertain » comme « bloqué »**. Deux glissements
+successifs, chacun défendable pris seul, dont le produit immobilise un
+travail utile.
+
+Les deux signalements d'Atmart — HydroSHEDS, puis LAPOP — ont porté sur des
+sources où il avait une connaissance directe. C'est le rappel que le registre
+juridique n'est pas un exercice documentaire : il décrit des usages que
+quelqu'un pratique déjà.
