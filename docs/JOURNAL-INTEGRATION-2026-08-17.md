@@ -168,3 +168,98 @@ le calcul avec un autre choix, ou juger le nôtre.
 ### Toujours ouvert, hors sources
 
 Le **rapport PDF** décidé le 16/08 n'est pas construit.
+
+---
+
+# Deuxième vague — clôture du 17/08
+
+Cinq pipelines de plus, et les deux dettes réglées.
+
+## Onze couches en ligne
+
+| Couche | Source | Ce qu'elle apporte |
+|---|---|---|
+| **Croissance du bâti** | GHSL R2023A | 1990 → 2020, quatre millésimes du même instrument |
+| **Projets** | Banque mondiale | 189 projets, 15 communes nommées, **aucun montant réparti** |
+
+Total : **11 couches** sur les 140 fiches. Vérifié sur Port-au-Prince —
+11 blocs sur 11 remplis.
+
+## Contrôles : 341 assertions vertes, zéro en échec
+
+67 site · 41 cyclones · 37 urbanisation · 36 projets · 35 bâtiments ·
+31 solaire · 29 eau · 28 sols · 13 séismes · 12 pluie · 12 occupation du sol,
+plus le registre juridique et la matrice.
+
+**Trois pipelines ont prouvé que leurs contrôles savent échouer**, en
+sabotant volontairement leurs propres données : millésimes échangés, facteur
+d'échelle faussé, masque décalé, montant réparti entre communes. Chaque
+sabotage a fait virer les tests au rouge, puis les fichiers ont été
+restaurés. Un test qui n'a jamais échoué n'est pas un test.
+
+## Ce que la deuxième vague a révélé
+
+**GHSL** — la surface bâtie d'Haïti est passée de **135,6 à 290,8 km²** entre
+1990 et 2020, soit +114 % et 5,2 km²/an. L'agglomération de Port-au-Prince —
+7 communes sur 140 — concentre **22,7 %** de cette croissance.
+Croix-des-Bouquets seule gagne 15,17 km².
+
+*Delmas n'est que 41e*, et c'est une saturation, pas une anomalie : déjà bâtie
+à 34,8 % en 1990, elle reste la commune la plus bâtie du pays. Le contrôle la
+traite comme contre-test — si Delmas bondissait, c'est le masque qu'il
+faudrait suspecter.
+
+**Projets** — 189 opérations, dont **29 seulement nomment un territoire**. Les
+160 autres sont nationales. Le bloc n'affiche **aucun montant par commune** :
+la Banque mondiale ne publie pas de ventilation géographique, et répartir
+1,47 milliard d'engagements actifs entre les communes citées produirait un
+chiffre inventé — le genre d'invention qui finit citée comme un fait dans une
+note de politique publique.
+
+Trois constats de source qui ont changé le produit : `totalcommamt` n'existe
+pas dans l'API et y est silencieusement ignoré ; le cofinancement n'est **pas
+calculable** (la soustraction est négative sur 13 projets) ; 64 projets
+portent un coût à zéro qui est une absence de saisie.
+
+**IATI n'a pas pu être ingéré** : l'API exige une clé d'abonnement que le
+projet n'a pas. La fonction est écrite avec sa règle d'entrée, et l'état
+« tenté, refusé, raison » est publié dans le produit plutôt que passé sous
+silence.
+
+## Les deux dettes, réglées
+
+**L'addendum d'arbitrage du Global Solar Atlas** — le texte de licence ne
+figure sur aucune page web. Il est dans les métadonnées ISO du GeoTIFF livré :
+CC BY 4.0 *« with the following mandatory and binding addition »* — médiation
+OMPI puis arbitrage CNUDCI, arbitre unique, en anglais, au siège du concédant
+ou de la Banque mondiale à Washington. Cette clause désigne la juridiction et
+elle engage Atmart. **Troisième fois de la journée que la preuve n'était pas
+là où je la cherchais** : une licence ne se lit pas seulement sur la page d'un
+site, elle se lit aussi dans le fichier livré.
+
+**Le masque des sols** est passé à la fraction de recouvrement, en préservant
+la combinaison avec le masque de terre du modèle. La pédologie ne bouge pas —
+la correction porte sur les bordures, pas sur le fond.
+
+## État final
+
+| | |
+|---|---|
+| Couches en ligne | **11** |
+| Assertions vertes | **341**, zéro en échec |
+| Passeports juridiques | **25**, tous publiables gratuitement |
+| Scripts de production | 58 construction, 24 contrôle |
+| Sources brutes scellées | **39 manifestes**, 1,7 Go |
+| Commits poussés ce jour | **39** — 15 site, 15 atelier, 9 documentation |
+
+## Ce qui reste hors de portée
+
+| Source | Obstacle réel |
+|---|---|
+| **HydroSHEDS** | format shapefile, illisible sans GDAL |
+| **Dynamic World** | accessible seulement via Google Earth Engine |
+| **IATI** | clé d'abonnement requise |
+| **MSPP, MENFP, IHSI, MEF, FNE** | PDF sans API — **extraction, pas autorisation** |
+| **OSRM auto-hébergé** | le seul chantier lourd — sans lui, aucun temps de trajet |
+
+Et le **rapport PDF** décidé le 16/08 n'est toujours pas construit.
