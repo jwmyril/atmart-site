@@ -60,21 +60,49 @@ Quand un producteur écrit noir sur blanc que ses données ne peuvent être ni
 redistribuées ni servir de base à une œuvre dérivée, **aucune doctrine interne
 ne le contredit**. On ne publie pas.
 
-C'est le cas d'**une seule source** sur les vingt-huit examinées : l'OIM/DTM.
+Reste à savoir ce qui **est** nommément interdit. Le cas de l'OIM/DTM montre
+que ce n'est pas toujours évident, et qu'il ne faut pas trancher seul.
 
 > « The Materials may be viewed, downloaded, and printed for non-commercial
 > use only, without, inter alia, any right to sell, resell, redistribute or
 > create derivative works therefrom. »
 
-Notre couche « personnes déplacées » était exactement les deux choses
-interdites. Elle est retirée depuis le 18/08/2026 — couche, fichier,
-téléchargement, produit du catalogue, table Power BI, fiche structurée.
+**Cette couche a été retirée le matin du 18/08, puis rétablie le soir même.**
+Le retrait avait été décidé trop vite, et seul. L'examen a montré que la clause
+est bien plus ambiguë qu'elle n'en a l'air :
 
-**Ce qui reste**, et qui compte autant : la page Couches conserve l'entrée,
-explique l'absence en quatre langues, et renvoie vers `dtm.iom.int`. Le
-lecteur apprend que la donnée existe et où la lire. *Une absence expliquée est
-une information ; une absence muette est une avarie — et un lecteur qui ne
-trouve rien conclut qu'il n'y a pas de personnes déplacées.*
+- « **œuvre dérivée** » est un terme du droit d'auteur. Une œuvre dérivée
+  reprend l'**expression** d'une œuvre — une traduction, une adaptation, un
+  remontage. Un décompte de personnes déplacées dans une commune est un
+  **fait**, et un fait n'a pas d'auteur (décret de 2005, art. 5). Il n'y a
+  rien de protégé à dériver.
+- L'OIM écrit **elle-même**, sur la page HDX de ce jeu, que son API existe
+  pour que « the humanitarian community, academia, media, government, and
+  non-governmental organizations » puissent **utiliser** ces données. La
+  mention de droits qui l'accompagne date de 2018 et se retrouve à
+  l'identique sur les huit jeux DTM d'Haïti : c'est un texte par défaut.
+- **En sens inverse** : « *inter alia* » veut dire « entre autres ». La liste
+  n'est pas limitative — elle s'élargit. Et nous avons accepté ces conditions
+  en téléchargeant.
+
+**Décision Atmart : publier sous réserve, et demander.** Nous publions un
+agrégat communal recalculé, avec la ligne d'attribution exacte que l'OIM
+exige, sans fichier brut et sans usage commercial — et nous avons écrit à
+l'OIM pour faire trancher (`docs/LETTRE-OIM-DTM-2026-08-18.md`).
+
+Le passeport PSP-056 porte le statut `CLARIFICATION_DEMANDEE`, créé pour
+l'occasion : aucune des sept valeurs existantes ne pouvait dire « nous ne
+savons pas encore, et nous l'avons demandé ». Une liste fermée qui n'offre
+que des certitudes force à en inventer une.
+
+**Si la réponse est négative**, le retrait tient en un champ : `rendreManqueJuridique()`
+est déjà écrit dans `couches.js` et affiche l'explication en quatre langues.
+
+**La leçon de méthode, qui vaut plus que le cas :** une clause juridique qui
+paraît claire au premier regard mérite qu'on demande à son auteur ce qu'il a
+voulu dire. Deviner — dans un sens comme dans l'autre — c'est se substituer à
+lui. Et retirer une donnée publique sans en discuter avec Atmart d'abord était
+une erreur de procédure autant que de fond.
 
 ## 4. Les deux verdicts, séparés
 
@@ -83,7 +111,7 @@ de l'autre :
 
 | | Verdict A — publication gratuite | Verdict B — prestation facturée |
 |---|---|---|
-| Sur 36 passeports | **34 oui**, 2 non | **31 utilisables**, 4 refus, 1 à clarifier |
+| Sur 38 passeports | **36 oui**, 1 sous réserve, 1 non | **33 utilisables**, 4 refus, 1 à clarifier |
 
 Les quatre refus en prestation facturée :
 
@@ -92,10 +120,12 @@ Les quatre refus en prestation facturée :
 - **WorldCereal** — décision Atmart, pour cause de qualité insuffisante ;
 - **ACLED** — publication libre avec attribution, mais l'usage commercial
   relève d'une licence ACLED séparée qui n'a pas été demandée ;
-- **OIM / DTM** — exclue de tout.
+- **OIM / DTM** — l'usage non commercial est la seule chose que le texte dise
+  sans ambiguïté ; la publication gratuite, elle, se poursuit sous réserve.
 
-Le cas d'ACLED a obligé à créer une valeur qui manquait à la liste fermée des
-statuts : `OUVERTE_NON_COMMERCIALE`. Sans elle, il aurait fallu la ranger en
+Deux valeurs ont dû être ajoutées à la liste fermée des statuts le 18/08 :
+`OUVERTE_NON_COMMERCIALE` pour ACLED, et `CLARIFICATION_DEMANDEE` pour l'OIM.
+Pour ACLED : Sans elle, il aurait fallu la ranger en
 « ouverte avec attribution », donc dans le groupe vendable, donc autorisée
 dans une prestation qu'elle interdit. *Une liste fermée trop courte ne protège
 pas : elle force à mentir pour passer le contrôle.*
@@ -123,6 +153,14 @@ défaut le plus grave : le registre pouvait dire NON pendant que le fichier
 restait servi. *Un verdict qu'aucun test ne fait respecter est un avis, pas
 une règle.*
 
+**Le contrôle 6 a lui aussi dû être réécrit le soir même.** Sa première
+version cherchait le mot « deplace » dans les noms de fichiers du répertoire
+public : elle a fonctionné une demi-journée, puis a crié dès que la couche fut
+rétablie, alors que son verdict n'était plus « non ». Il suit désormais les
+verdicts, et la matrice dit quel fichier porte quelle source. *Un contrôle qui
+code en dur le cas qui l'a fait naître ne survit pas au premier changement
+d'avis.*
+
 Le contrôle 5, lui, **a été corrigé parce qu'il avait tort** : il cherchait
 `source:` dans la déclaration JavaScript et accusait six couches
 parfaitement correctes. Elles lisent leur source dans le fichier de données,
@@ -147,13 +185,18 @@ une duplication, puis par la faire diverger.*
 Deux autorisations écrites vaudraient la peine d'être demandées — elles
 n'engagent Atmart à rien tant qu'elles ne sont pas signées :
 
-- **OIM** — rouvrirait la couche des déplacés telle quelle.
+- **OIM** — lettre rédigée le 18/08/2026, prête à partir
+  (`docs/LETTRE-OIM-DTM-2026-08-18.md`). Elle décrit exactement ce que nous
+  publions, pose une question fermée, et annonce que nous nous conformerons
+  dans les deux cas. Elle dit aussi franchement que la couche est en ligne
+  pendant l'attente : dissimuler cela puis être découvert coûterait plus cher
+  qu'une phrase.
 - **ACLED** — ouvrirait l'usage du conflit dans une prestation facturée.
-
-Aucune n'a été demandée : cela engage Atmart et relève de sa décision.
+  Non rédigée : rien ne presse tant qu'aucune prestation ne porte sur le
+  conflit.
 
 ---
 
 *Registre : `Atmart_premium_datasets/backbone/atmart_passeports_sources.csv`
-(36 passeports) · Matrice : `backbone/source_gap_matrix.csv` (51 sources) ·
+(38 passeports) · Matrice : `backbone/source_gap_matrix.csv` (53 sources) ·
 Contrôle : `verif_droits_usage.py`*
