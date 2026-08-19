@@ -66,9 +66,17 @@ Section ajoutée par Atmart : elle n'existe pas dans le modèle d'origine, et c'
 
 ## 9. Passeport juridique
 
-Licence déclarée dans le fichier : Calcul Atmart sur des sources ouvertes — voir le passeport de chaque source d'origine
-
-*Aucun passeport du registre juridique n'est rattaché à ce jeu. À corriger : un jeu publié sans passeport ne peut pas être vendu, ni redistribué en confiance.*
+| | |
+|---|---|
+| Passeport | PSP-049 |
+| Producteur | Atmart Data |
+| Licence | CC BY 4.0 — attribution « Atmart Data, Explorateur Haïti » ; les sources confrontées gardent chacune leur propre licence |
+| Statut juridique | OUVERTE_AVEC_ATTRIBUTION |
+| Redistribution | Oui |
+| Usage commercial | Oui |
+| Publiable librement | OUI — production Atmart sur des sources ouvertes, aucune restriction héritée |
+| Utilisable en prestation payante | OUI — c'est le socle de la prestation « Atmart Vérifié » |
+| Vérifié par / le | Atmart Data — 18/08/2026, production propre sur sources ouvertes (MSPP décret 12/10/2005 art. 5, MENFP idem, OSM ODbL, IHSI, UNFPA CC BY-IGO, WorldPop CC BY 4.0) — 2026-08-18 |
 
 ## 10. Sections du modèle Aether sans objet ici, et pourquoi
 
