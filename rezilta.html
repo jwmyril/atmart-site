@@ -334,7 +334,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     <div class="section-head"><h2 data-i18n="rz.so_t">Le socle : ETL, entrepôt, volume, hébergement</h2>
       <p data-i18n="rz.so_d">Avant toute analyse sérieuse, il faut des données qu'on puisse défendre. C'est la partie invisible du travail, et c'est celle qui dévore 80 % du temps quand elle est mal faite.</p></div>
     <div class="rz-tech">
-      <div><b data-i18n="rz.so1_t">Connecteurs</b><span data-i18n="rz.so1_d">MySQL et MariaDB, PostgreSQL, SQL Server, fichiers Excel et CSV, formulaires Kobo/ODK, API REST, entrepôts cloud. On se branche sur ce qui existe déjà.</span></div>
+      <div><b data-i18n="rz.so1_t">Connecteurs</b><span data-i18n="rz.so1_d">MySQL et MariaDB, PostgreSQL, SQL Server, fichiers Excel et CSV, formulaires Kobo, ODK, SurveyCTO et CommCare, API REST, entrepôts cloud. On se branche sur ce qui existe déjà.</span></div>
       <div><b data-i18n="rz.so2_t">ETL versionné</b><span data-i18n="rz.so2_d">Chaque transformation est une étape nommée, datée et rejouable. On remonte du chiffre du rapport jusqu'à la ligne brute — et on voit qui a changé quoi.</span></div>
       <div><b data-i18n="rz.so3_t">Modèle documenté</b><span data-i18n="rz.so3_d">Dictionnaire des variables, clés, règles de dédoublonnage, tables de correspondance (territoires, agences, produits). Une définition écrite vaut mieux qu'une convention orale.</span></div>
       <div><b data-i18n="rz.so4_t">Qualité des données</b><span data-i18n="rz.so4_d">Critères explicites, anomalies signalées, corrections tracées. Le contrôle tourne à chaque chargement, pas une fois par an la veille de l'audit.</span></div>
@@ -402,7 +402,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         <p data-i18n="rz.t2_d">Le suivi se conçoit avant de collecter. Chaque indicateur porte sa définition, sa source, sa méthode et sa périodicité — sinon il n'entre pas dans le système.</p>
         <ul>
           <li data-i18n="rz.t2_l1">Design de collecte : fiche d'indicateur, unité, désagrégation (sexe, âge, zone), fréquence</li>
-          <li data-i18n="rz.t2_l2">Formulaires de collecte générés depuis les indicateurs, exportables vers Kobo/XLSForm</li>
+          <li data-i18n="rz.t2_l2">Formulaires générés depuis les indicateurs, au format XLSForm — Kobo, ODK, SurveyCTO et CommCare le lisent tel quel</li>
           <li data-i18n="rz.t2_l3">Saisie terrain hors ligne, synchronisée quand la connexion revient</li>
           <li data-i18n="rz.t2_l4">Contrôle qualité des données intégré : critères explicites, anomalies signalées, correction tracée</li>
           <li data-i18n="rz.t2_l5">Avancement vs cible ET vs temps écoulé — la seule vue qui dit si vous êtes en retard</li>
@@ -559,8 +559,8 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         <p data-i18n="rz.fq1_a">Un outil de gestion de projet suit des tâches, un tableur affiche des totaux. Rezilta relie la donnée brute au chiffre publié, avec la méthode et le diagnostic au milieu. C'est la chaîne que réclame un auditeur, une autorité de tutelle ou un comité de lecture — et qu'aucun tableur ne tient dans la durée.</p></details>
       <details><summary data-i18n="rz.fq7_q">Faut-il savoir programmer ou être statisticien ?</summary>
         <p data-i18n="rz.fq7_a">Non. Vous posez la question, l'outil propose la méthode qui correspond à vos données et traduit le résultat en langage simple. Mais le script et les données restent toujours disponibles : celui qui veut vérifier, ou refaire le calcul dans R, le peut à tout moment.</p></details>
-      <details><summary data-i18n="rz.fq2_q">Faut-il abandonner Kobo, Excel, MySQL ou Power BI ?</summary>
-        <p data-i18n="rz.fq2_a">Non, et c'est justement le point : Rezilta se branche sur vos bases MySQL ou SQL Server, génère vos formulaires vers Kobo/XLSForm, et ressort en Excel, PDF ou modèle Power BI. L'objectif est de relier ce que vous utilisez déjà, pas de vous obliger à tout remplacer.</p></details>
+      <details><summary data-i18n="rz.fq2_q">Faut-il abandonner Kobo, SurveyCTO, Excel, MySQL ou Power BI ?</summary>
+        <p data-i18n="rz.fq2_a">Non, et c'est justement le point : Rezilta se branche sur vos bases MySQL ou SQL Server, génère vos formulaires au format XLSForm (Kobo, ODK, SurveyCTO, CommCare), et ressort en Excel, PDF ou modèle Power BI. L'objectif est de relier ce que vous utilisez déjà, pas de vous obliger à tout remplacer.</p></details>
       <details><summary data-i18n="rz.fq3_q">Nos données sont sensibles et ne peuvent pas sortir.</summary>
         <p data-i18n="rz.fq3_a">Deux réponses. D'abord le principe de minimisation : on ne collecte que ce qui sert une question. Ensuite l'hébergement : l'installation sur vos propres serveurs est prévue, pour les cas où la donnée n'a pas le droit de quitter le pays ou le réseau interne. Dans tous les cas, les données personnelles sont séparées des données d'analyse, l'accès est cloisonné, et rien n'est revendu ni utilisé pour entraîner un modèle.</p></details>
       <details><summary data-i18n="rz.fq8_q">Peut-on se fier à une analyse produite par une machine ?</summary>
