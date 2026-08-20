@@ -13,7 +13,7 @@
 | Nom du jeu | Écoles déclarées au ministère, confrontées aux écoles cartographiées |
 | Fichier | `atmart_ecoles_declarees.json` |
 | Millésime | 2024-2025 |
-| Responsable | Atmart Data — myriljeanwisner@gmail.com |
+| Responsable | Atmart Data — jeanmyril@atmart.ltd |
 | Qui peut y accéder | tout le monde, sans compte |
 | Comment | https://explorateur.atmart.ltd/data/atmart_ecoles_declarees.json |
 

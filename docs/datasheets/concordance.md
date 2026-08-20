@@ -13,7 +13,7 @@
 | Nom du jeu | Concordance des sources, commune par commune |
 | Fichier | `atmart_concordance.json` |
 | Millésime | voir « source » |
-| Responsable | Atmart Data — myriljeanwisner@gmail.com |
+| Responsable | Atmart Data — jeanmyril@atmart.ltd |
 | Qui peut y accéder | tout le monde, sans compte |
 | Comment | https://explorateur.atmart.ltd/data/atmart_concordance.json |
 

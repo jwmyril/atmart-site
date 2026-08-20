@@ -13,7 +13,7 @@
 | Nom du jeu | Établissements de santé déclarés au ministère, confrontés à ceux que la carte montre |
 | Fichier | `atmart_sante_declaree.json` |
 | Millésime | relevé du 17/08/2026 |
-| Responsable | Atmart Data — myriljeanwisner@gmail.com |
+| Responsable | Atmart Data — jeanmyril@atmart.ltd |
 | Qui peut y accéder | tout le monde, sans compte |
 | Comment | https://explorateur.atmart.ltd/data/atmart_sante_declaree.json |
 

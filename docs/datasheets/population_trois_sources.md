@@ -13,7 +13,7 @@
 | Nom du jeu | Population — trois sources confrontées |
 | Fichier | `atmart_population_trois_sources.json` |
 | Millésime | voir « source » |
-| Responsable | Atmart Data — myriljeanwisner@gmail.com |
+| Responsable | Atmart Data — jeanmyril@atmart.ltd |
 | Qui peut y accéder | tout le monde, sans compte |
 | Comment | https://explorateur.atmart.ltd/data/atmart_population_trois_sources.json |
 

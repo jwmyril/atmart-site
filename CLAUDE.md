@@ -6,7 +6,7 @@ Tu es le développeur du site **atmart.ltd** (Atmart LLC). Ce fichier est ta sou
 
 - **Atmart** (« Mache Teknoloji ak Done ») : écosystème d'éducation aux données pour Haïti, la Caraïbe francophone et l'Afrique francophone. Site statique HTML/CSS/JS, sans framework — garder ça simple.
 - **Lojik360** : le podcast, marque d'Atmart LLC. Ne jamais brander le site « Lojik360 » (pas d'entité légale à ce nom).
-- Propriétaire : Myril Jean Wisner (myriljeanwisner@gmail.com), analyste Power BI, parle créole haïtien + français.
+- Propriétaire : Myril Jean Wisner (jeanmyril@atmart.ltd), analyste Power BI, parle créole haïtien + français.
 - Modèle : contenu gratuit (tutoriels, podcast, datasets d'appel) → produits payants (datasets premium via Payhip, formations 49$/99$).
 
 ## Déploiement

@@ -13,7 +13,7 @@
 | Nom du jeu | Équipements santé et écoles cartographiés (OpenStreetMap) |
 | Fichier | `atmart_equipements_hot.json` |
 | Millésime | voir « source » |
-| Responsable | Atmart Data — myriljeanwisner@gmail.com |
+| Responsable | Atmart Data — jeanmyril@atmart.ltd |
 | Qui peut y accéder | tout le monde, sans compte |
 | Comment | https://explorateur.atmart.ltd/data/atmart_equipements_hot.json |
 

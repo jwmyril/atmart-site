@@ -13,7 +13,7 @@
 | Nom du jeu | Temps d'accès par la route, par commune |
 | Fichier | `atmart_acces_routier.json` |
 | Millésime | voir « source » |
-| Responsable | Atmart Data — myriljeanwisner@gmail.com |
+| Responsable | Atmart Data — jeanmyril@atmart.ltd |
 | Qui peut y accéder | tout le monde, sans compte |
 | Comment | https://explorateur.atmart.ltd/data/atmart_acces_routier.json |
 
