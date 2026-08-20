@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <title>Rezilta pour les entreprises — décider sur des chiffres qui tiennent | Atmart</title>
+  <meta name="description" content="Rezilta pour les entreprises : consolider des sources qui ne se parlent pas, mesurer l'effet réel d'une campagne ou d'un déploiement, et présenter au comité de direction un chiffre dont on connaît la provenance. Vos données restent les vôtres." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#0e2240" />
+  <link rel="stylesheet" href="assets/style.css?v=32" />
+<script>/* langue auto : avant le 1er affichage, evite le clignotement */
+(function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
+s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
+var l=s&&S[s]?s:null;
+if(!l){var n=navigator.languages||[navigator.language||""];
+for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().split("-")[0];
+if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
+window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;
+if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove("i18n-wait")},1500)}})();
+</script>
+  <style>
+    .sc-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.1rem}
+    .sc-badge{background:rgba(46,196,182,.12);border:1px solid rgba(46,196,182,.35);color:#d7e3f0;
+      border-radius:99px;padding:.32rem .85rem;font-size:.8rem;font-weight:500}
+    .sc-wip{background:rgba(244,162,97,.12);border:1px solid rgba(244,162,97,.5);border-radius:12px;
+      padding:.8rem 1.05rem;margin-top:1.2rem;max-width:760px;font-size:.9rem;color:#e4dbcf;line-height:1.6}
+    /* --- la scene : le coeur de la page --- */
+    .sc-scene{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+      border-left:3px solid #2ec4b6;border-radius:0 16px 16px 0;padding:1.8rem 2rem;margin-top:1.1rem}
+    .sc-scene p{margin:0;font-size:1.04rem;line-height:1.78;color:#c9d8e6;max-width:62ch}
+    .sc-scene p+p{margin-top:1rem}
+    .sc-scene strong{color:#fff}
+    .sc-scene .bascule{color:#2ec4b6;font-weight:600}
+    /* --- avant / apres --- */
+    .sc-av{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1rem;margin-top:1.1rem}
+    .sc-av>div{border-radius:14px;padding:1.25rem 1.4rem;border:1px solid rgba(255,255,255,.1)}
+    .sc-av .avant{background:rgba(248,81,73,.06);border-color:rgba(248,81,73,.28)}
+    .sc-av .apres{background:rgba(46,196,182,.07);border-color:rgba(46,196,182,.32)}
+    .sc-av h4{margin:0 0 .65rem;font-family:"Space Grotesk",sans-serif;font-size:1rem;color:#fff}
+    .sc-av ul{margin:0;padding-left:1.1rem}
+    .sc-av li{font-size:.9rem;color:#c9d8e6;line-height:1.6;margin-bottom:.4rem}
+    /* --- les trois questions --- */
+    .sc-q{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1rem;margin-top:1.1rem}
+    .sc-q>div{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);
+      border-radius:14px;padding:1.3rem 1.4rem}
+    .sc-q .num{font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#5a6f83}
+    .sc-q h4{margin:.35rem 0 .45rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.02rem}
+    .sc-q p{margin:0;font-size:.875rem;color:#9db2c7;line-height:1.6}
+    /* --- la limite, dite avant qu on la decouvre --- */
+    .sc-limite{background:rgba(244,162,97,.09);border:1px solid rgba(244,162,97,.4);border-radius:14px;
+      padding:1.4rem 1.6rem;margin-top:1.1rem}
+    .sc-limite p{margin:0;font-size:.95rem;line-height:1.7;color:#e4dbcf;max-width:64ch}
+    /* --- appel + autres secteurs --- */
+    .sc-portes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1.1rem}
+    .sc-porte{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;
+      padding:1.4rem 1.5rem}
+    .sc-porte h4{margin:0 0 .4rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.02rem}
+    .sc-porte p{margin:0 0 .9rem;font-size:.88rem;color:#9db2c7;line-height:1.6}
+    .sc-autres{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:1.4rem}
+    .sc-autres a{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:99px;
+      padding:.42rem .95rem;font-size:.84rem;color:#c9d8e6;text-decoration:none;transition:border-color .2s}
+    .sc-autres a:hover{border-color:rgba(46,196,182,.5)}
+  </style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="conseil-ia.html" data-i18n="nav.advisory">💼 Entreprises</a></li>
+      <li class="nav-grp"><span data-i18n="nav.g_win">🎯 Réussir</span>
+        <ul class="nav-sub">
+          <li><a href="entevyou360.html">Entèvyou360 <small data-i18n="nav.s_ent">l'entretien d'embauche</small></a></li>
+          <li><a href="chofe360.html">Driver360 <small data-i18n="nav.s_cho">permis &amp; conduite (MA)</small></a></li>
+          <li><a href="karye360.html">Career360 <small data-i18n="nav.s_kar">votre coach de carrière</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.g_learn">🎓 Se former</span>
+        <ul class="nav-sub">
+          <li><a href="rezilta.html">Rezilta <small data-i18n="nav.s_rz">planifier, suivre, évaluer</small></a></li>
+          <li><a href="studio.html">Formation360 <small data-i18n="nav.s_fom">formation pour les entreprises, ONG &amp; Écoles</small></a></li>
+          <li><a href="https://lojik360.atmart.ltd">Lojik360 <small data-i18n="nav.s_loj">tutoriels gratuits</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.g_data">🗂 Données</span>
+        <ul class="nav-sub">
+          <li><a href="https://explorateur.atmart.ltd/"><span data-i18n="nav.d_exp">Explorateur Haïti</span> <small data-i18n="nav.d_exp_s">chercher une commune</small></a></li>
+          <li><a href="https://explorateur.atmart.ltd/datasets.html"><span data-i18n="nav.d_cat">Catalogue</span> <small data-i18n="nav.d_cat_s">jeux de données &amp; guides</small></a></li>
+          <li><a href="https://explorateur.atmart.ltd/donnees-solutions.html"><span data-i18n="nav.d_sol">Solutions &amp; licences</span> <small data-i18n="nav.d_sol_s">entreprises, ONG, administrations</small></a></li>
+          <li><a href="https://explorateur.atmart.ltd/donnees-campus.html"><span data-i18n="nav.d_cam">Atmart Campus</span> <small data-i18n="nav.d_cam_s">étudiants &amp; chercheurs</small></a></li>
+          <li><a href="https://explorateur.atmart.ltd/donnees-parrainage.html"><span data-i18n="nav.d_par">Parrainer un dataset</span> <small data-i18n="nav.d_par_s">institutions &amp; entreprises</small></a></li>
+          <li><a href="https://explorateur.atmart.ltd/donnees.html"><span data-i18n="nav.d_hub">Comment ça marche</span> <small data-i18n="nav.d_hub_s">méthode, sources, système</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.atelier">🎨 Atelier</span>
+        <ul class="nav-sub">
+          <li><a href="atelier.html"><span data-i18n="nav.a_gal">Galerie</span> <small data-i18n="nav.a_gal_s">les œuvres d'ATM</small></a></li>
+          <li><a href="atelier-collection.html"><span data-i18n="nav.a_col">La collection</span> <small data-i18n="nav.a_col_s">univers, gammes, bundles</small></a></li>
+          <li><a href="atelier-maison.html"><span data-i18n="nav.a_mez">Pour la maison</span> <small data-i18n="nav.a_mez_s">affiches, originaux, cadeaux</small></a></li>
+          <li><a href="atelier-business.html"><span data-i18n="nav.a_biz">Pour le business</span> <small data-i18n="nav.a_biz_s">écrans &amp; licences</small></a></li>
+          <li><a href="atelier-diaspora.html"><span data-i18n="nav.a_dya">Diaspora</span> <small data-i18n="nav.a_dya_s">une offre par segment</small></a></li>
+          <li><a href="atelier-institutions.html"><span data-i18n="nav.a_fin">Financer l'accès</span> <small data-i18n="nav.a_fin_s">parrainer une communauté</small></a></li>
+          <li><a href="impact.html"><span data-i18n="nav.a_imp">Recevoir une impression</span> <small data-i18n="nav.a_imp_s">programmes parrainés</small></a></li>
+          <li><a href="processus-creation.html"><span data-i18n="nav.a_proc">Notre processus</span> <small data-i18n="nav.a_proc_s">comment une œuvre est faite</small></a></li>
+          <li><a href="atelier-artistes.html"><span data-i18n="nav.a_art">Artistes</span> <small data-i18n="nav.a_art_s">rejoindre le programme</small></a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding-bottom:1.1rem">
+  <div class="container">
+    <p class="kreyol" data-i18n="se.fil">La question qui tue en comité : « et ça vient d'où, ce chiffre ? »</p>
+    <h1>Rezilta pour les entreprises</h1>
+    <div class="aka"><b data-i18n="se.aka">ventes, opérations, qualité, ressources humaines</b><small data-i18n="sc.aka_s">Rezilta — la plateforme de données, d'analyse et de preuve</small></div>
+    <p class="lead" data-i18n-html="se.lead">Vous avez déjà les données — dans le logiciel de gestion, dans trois tableurs et dans la tête de deux personnes. Ce qui manque, c'est de pouvoir <strong>défendre</strong> le chiffre que vous mettez devant la direction.</p>
+    <div class="sc-badges">
+      <span class="sc-badge" data-i18n="se.bg1">📊 Sources consolidées</span>
+      <span class="sc-badge" data-i18n="se.bg2">📈 Effet réel, pas impression</span>
+      <span class="sc-badge" data-i18n="se.bg3">🔗 Provenance de chaque chiffre</span>
+    </div>
+    <div class="sc-wip" data-i18n-html="sc.wip">🚧 <strong>Rezilta est en construction.</strong> Ce que vous lisez est ce que nous nous engageons à livrer. Le <a href="rezilta.html#offre" style="color:#2ec4b6">programme pilote</a> est ouvert aux organisations qui veulent le construire avec nous, sur leurs vraies données.</div>
+    <div style="margin-top:1.2rem">
+      <a href="mailto:sales@atmart.ltd?subject=Rezilta%20-%20entreprise" class="btn btn-primary" data-i18n="sc.cta1">Parler de mon cas</a>
+      <a href="rezilta.html" class="btn btn-outline" style="margin-left:.6rem" data-i18n="sc.cta2">Voir la plateforme</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:.4rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="se.sc_t">Le mardi du comité de direction</h2></div>
+    <div class="sc-scene">
+      <p data-i18n-html="se.sc_1">La campagne s'est terminée en mars. Les ventes ont monté de 12 %. Quelqu'un demande si c'est la campagne ou la saison — et personne ne sait, parce que le tableau qui montre les 12 % a été assemblé à la main la veille, à partir d'un export du logiciel de gestion et d'un fichier que le commercial tient de son côté.</p>
+      <p data-i18n-html="se.sc_2"><span class="bascule">Avec Rezilta</span>, les deux sources sont reliées une fois pour toutes. La comparaison se fait sur la même période l'an dernier, l'outil dit si l'écart tient ou s'il est dans le bruit habituel — et il refuse d'écrire « la campagne a fait monter les ventes » tant que personne n'a nommé le protocole qui le prouverait. Il écrit « les ventes ont été supérieures de… », ce qui est vrai.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:1.3rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="sc.av_t">Ce que vous apportez, ce que vous repartez avec</h2>
+      <p data-i18n="sc.av_d">Vos données restent les vôtres : Rezilta ne les revend pas, ne les mélange pas avec celles d'un autre client, et vous les rend en formats ouverts à tout moment.</p></div>
+    <div class="sc-av">
+      <div class="avant">
+        <h4 data-i18n="sc.av_a">Ce que vous apportez</h4>
+        <ul>
+          <li data-i18n="se.ap1">Vos exports de logiciel de gestion, en Excel ou CSV</li>
+          <li data-i18n="se.ap2">Vos tableurs de suivi, même en désordre</li>
+          <li data-i18n="se.ap3">Vos bases internes, en lecture seule</li>
+          <li data-i18n="se.ap4">Une question qui compte pour la direction</li>
+        </ul>
+      </div>
+      <div class="apres">
+        <h4 data-i18n="sc.av_r">Ce que vous repartez avec</h4>
+        <ul>
+          <li data-i18n="se.re1">Une chaîne où chaque chiffre remonte à sa ligne d'origine</li>
+          <li data-i18n="se.re2">Un écart testé et chiffré, avec son intervalle</li>
+          <li data-i18n="se.re3">La distinction claire entre un effet et une coïncidence</li>
+          <li data-i18n="se.re4">Un export signé : date, source, méthode, validateur</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:1.3rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="se.q_t">Ce que vous pourrez enfin trancher</h2>
+      <p data-i18n="sc.q_d">Trois questions que ce métier pose vraiment à ses données — et ce que l'outil en fait.</p></div>
+    <div class="sc-q">
+      <div><span class="num">QUESTION 1</span>
+        <h4 data-i18n="se.q1_t">La hausse vient-elle de la campagne ou de la saison ?</h4>
+        <p data-i18n="se.q1_d">L'outil compare à la même période de l'an dernier et sépare les deux. Sans protocole déclaré, il parle d'écart observé — pas d'effet.</p>
+      </div>
+      <div><span class="num">QUESTION 2</span>
+        <h4 data-i18n="se.q2_t">Quelle agence décroche vraiment, et depuis quand ?</h4>
+        <p data-i18n="se.q2_d">Le découpage par agence, mois et produit montre où l'écart apparaît. Un total cache toujours une dispersion.</p>
+      </div>
+      <div><span class="num">QUESTION 3</span>
+        <h4 data-i18n="se.q3_t">Ce nouveau processus a-t-il changé quelque chose ?</h4>
+        <p data-i18n="se.q3_d">Avant/après sur les mêmes équipes, avec les valeurs extrêmes signalées : quelques dossiers hors norme suffisent à inventer une amélioration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:1.3rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="sc.li_t">Ce que nous ne promettons pas</h2></div>
+    <div class="sc-limite">
+      <p data-i18n-html="se.li">Rezilta n'est ni un logiciel de gestion, ni un CRM, ni un outil de comptabilité. Il ne remplace pas votre système : il se branche dessus, en lecture. Il ne prévoit pas non plus votre chiffre d'affaires sur cinq ans — une prévision honnête s'arrête là où l'historique s'arrête, et il vous le dira plutôt que de produire une courbe rassurante.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:1.3rem;padding-bottom:2rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="sc.ap_t">Aller plus loin</h2></div>
+    <div class="sc-portes">
+      <div class="sc-porte">
+        <h4 data-i18n="sc.ap1_t">Voir l'outil sur vos données</h4>
+        <p data-i18n="sc.ap1_d">Vous apportez un fichier et une question qui compte ; nous montrons ce que l'outil en fait, sur vos chiffres et pas sur une démonstration.</p>
+        <a href="mailto:sales@atmart.ltd?subject=Rezilta%20-%20entreprise" class="btn btn-primary" data-i18n="sc.ap1_c">Demander une démonstration</a>
+      </div>
+      <div class="sc-porte">
+        <h4 data-i18n="sc.ap2_t">Comprendre la méthode</h4>
+        <p data-i18n="sc.ap2_d">Ce que le moteur refuse de conclure, pourquoi une donnée manquante est une ligne, et comment un chiffre remonte à sa source.</p>
+        <a href="rezilta.html" class="btn btn-outline" data-i18n="sc.ap2_c">Lire la plateforme</a>
+      </div>
+    </div>
+    <div class="sc-autres">
+      <a href="rezilta-banques.html" data-i18n="sc.n_ban">🏦 Banques et microfinance</a>
+      <a href="rezilta-laboratoires.html" data-i18n="sc.n_lab">🔬 Laboratoires et recherche</a>
+      <a href="rezilta-programmes.html" data-i18n="sc.n_ong">🤝 ONG, programmes et bailleurs</a>
+      <a href="rezilta-institutions.html" data-i18n="sc.n_ins">🏛 Institutions et collectivités</a>
+      <a href="rezilta-ecoles.html" data-i18n="sc.n_eco">🎓 Écoles et universités</a>
+      <a href="rezilta-collecte.html" data-i18n="sc.n_out">📡 Les outils</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
+        <ul>
+          <li><a href="rezilta.html">Rezilta</a></li>
+          <li><a href="conseil-ia.html" data-i18n="nav.advisory">💼 Entreprises</a></li>
+          <li><a href="karye360.html">Career360</a></li>
+          <li><a href="studio.html">Formation360</a></li>
+          <li><a href="https://explorateur.atmart.ltd/datasets.html" data-i18n="nav.datasets">Datasets</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_learn">Apprendre</h4>
+        <ul>
+          <li><a href="https://lojik360.atmart.ltd" data-i18n="atm.foot_l360">Lojik360 — tutoriels gratuits</a></li>
+          <li><a href="podcast.html" data-i18n="foot.podcast">Podcast Lojik360</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-note">© Atmart LLC — <span data-i18n="foot.rights">Tous droits réservés.</span></p>
+  </div>
+</footer>
+
+<script src="assets/script.js?v=2"></script>
+<script src="assets/i18n.js?v=15"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+<script src="assets/launcher.js?v=3"></script>
+<script src="assets/share.js?v=3"></script>
+</body>
+</html>
