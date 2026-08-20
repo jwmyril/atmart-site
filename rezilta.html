@@ -6,8 +6,8 @@
   <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
-  <title>Rezilta — planifier, suivre, évaluer, apprendre | Atmart</title>
-  <meta name="description" content="Rezilta : le logiciel de cycle de projet d'Atmart pour entreprises, ONG, bailleurs et institutions. Planification et suivi des activités, design de collecte et indicateurs, évaluation (ligne de base, performance, SWOT, impact, histoires à succès), apprentissage et capitalisation — avec analyste, scientifique et ingénieur de données intégrés. Même fondation que l'Explorateur Haïti : provenance obligatoire, absences documentées, hors-ligne, 4 langues." />
+  <title>Rezilta — la plateforme de données, d'analyse et de preuve | Atmart</title>
+  <meta name="description" content="Rezilta : plateforme de données et d'analyse d'Atmart pour entreprises, banques, laboratoires, ONG, bailleurs et institutions. Socle de données (ETL, MySQL, entrepôt, cloud), moteur d'analyse (tests statistiques, régression, économétrie, inférence causale, prévision bayésienne, diagnostics obligatoires), restitution (Power BI avec sécurité au niveau des lignes, Excel, R, Python, API) et un module de cycle de projet complet. Provenance obligatoire, absences documentées, piste d'audit." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="manifest" href="manifest.webmanifest" />
@@ -26,13 +26,25 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   <style>
     .rz-badges{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1.2rem}
     .rz-badge{background:rgba(46,196,182,0.12);border:1px solid rgba(46,196,182,0.35);color:#d7e3f0;border-radius:99px;padding:0.35rem 0.9rem;font-size:0.82rem;font-weight:500}
-    .rz-wip{background:rgba(244,162,97,0.12);border:1px solid rgba(244,162,97,0.5);border-radius:12px;padding:0.85rem 1.1rem;margin-top:1.3rem;max-width:820px;font-size:0.93rem;color:#e4dbcf;line-height:1.6}
+    .rz-wip{background:rgba(244,162,97,0.12);border:1px solid rgba(244,162,97,0.5);border-radius:12px;padding:0.85rem 1.1rem;margin-top:1.3rem;max-width:860px;font-size:0.93rem;color:#e4dbcf;line-height:1.6}
     .rz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1rem;margin-top:1.1rem}
     .rz-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:1.3rem;transition:border-color 0.25s}
     .rz-card:hover{border-color:rgba(46,196,182,0.45)}
     .rz-card .ic{font-size:1.7rem;display:block;margin-bottom:0.5rem}
     .rz-card h4{margin:0 0 0.4rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.02rem}
     .rz-card p{margin:0;font-size:0.89rem;color:#9db2c7;line-height:1.6}
+    /* les trois couches */
+    .rz-lay{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1rem;margin-top:1.2rem}
+    .rz-lay>div{position:relative;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:1.35rem 1.4rem}
+    .rz-lay>div:nth-child(1){border-color:rgba(93,156,236,0.35)}
+    .rz-lay>div:nth-child(2){border-color:rgba(167,139,250,0.35)}
+    .rz-lay>div:nth-child(3){border-color:rgba(46,196,182,0.35)}
+    .rz-lay .lvl{font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#9db2c7}
+    .rz-lay h3{margin:0.3rem 0 0.5rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.16rem}
+    .rz-lay p{margin:0 0 0.7rem;font-size:0.9rem;color:#c9d8e6;line-height:1.6}
+    .rz-lay ul{margin:0;padding-left:1.05rem}
+    .rz-lay li{font-size:0.85rem;color:#9db2c7;line-height:1.5;margin-bottom:0.28rem}
+    /* les 4 temps du module projet */
     .rz-temps{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.1rem;margin-top:1.2rem}
     .rz-temp{border-radius:16px;padding:1.4rem 1.5rem;border:1px solid rgba(255,255,255,0.1);position:relative}
     .rz-temp.t1{background:rgba(46,196,182,0.07);border-color:rgba(46,196,182,0.32)}
@@ -44,6 +56,22 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     .rz-temp>p{margin:0 0 0.9rem;font-size:0.92rem;color:#c9d8e6;line-height:1.6}
     .rz-temp ul{margin:0;padding-left:1.1rem}
     .rz-temp li{font-size:0.88rem;color:#9db2c7;line-height:1.55;margin-bottom:0.35rem}
+    /* moteur analytique */
+    .rz-eng{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:1.1rem;margin-top:1.2rem}
+    .rz-eng>div{background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.1);border-top:3px solid #5d9cec;border-radius:4px 4px 14px 14px;padding:1.3rem 1.4rem}
+    .rz-eng>div:nth-child(2){border-top-color:#a78bfa}
+    .rz-eng>div:nth-child(3){border-top-color:#2ec4b6}
+    .rz-eng>div:nth-child(4){border-top-color:#f4a261}
+    .rz-eng h4{margin:0 0 0.5rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.06rem}
+    .rz-eng ul{margin:0;padding-left:1.05rem}
+    .rz-eng li{font-size:0.865rem;color:#9db2c7;line-height:1.55;margin-bottom:0.35rem}
+    .rz-eng li b{color:#d7e3f0;font-weight:600}
+    .rz-rule{background:rgba(46,196,182,0.08);border:1px solid rgba(46,196,182,0.35);border-radius:12px;padding:1rem 1.2rem;margin-top:1.1rem;font-size:0.92rem;color:#d7e3f0;line-height:1.65}
+    .rz-warn{background:rgba(244,162,97,0.09);border:1px solid rgba(244,162,97,0.4);border-radius:12px;padding:1rem 1.2rem;margin-top:1.1rem;font-size:0.9rem;color:#e4dbcf;line-height:1.65}
+    /* socle & restitution : listes techniques */
+    .rz-tech{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0.85rem;margin-top:1.05rem}
+    .rz-tech div{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:0.95rem 1.1rem;font-size:0.875rem;color:#9db2c7;line-height:1.55}
+    .rz-tech b{color:#fff;display:block;margin-bottom:0.22rem;font-size:0.95rem}
     .rz-roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1.1rem}
     .rz-role{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.09);border-left:4px solid #2ec4b6;border-radius:0 14px 14px 0;padding:1.15rem 1.3rem}
     .rz-role b{display:block;color:#fff;font-family:"Space Grotesk",sans-serif;font-size:1rem;margin-bottom:0.3rem}
@@ -51,9 +79,11 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     .rz-found{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0.85rem;margin-top:1rem}
     .rz-found div{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:0.9rem 1.05rem;font-size:0.88rem;color:#c9d8e6;line-height:1.55}
     .rz-found b{color:#fff;display:block;margin-bottom:0.2rem}
-    .rz-who{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0.8rem;margin-top:1rem}
-    .rz-who div{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:0.9rem 1.05rem;font-size:0.88rem;color:#c9d8e6;line-height:1.55}
-    .rz-who b{color:#fff;display:block;margin-bottom:0.2rem}
+    /* secteurs */
+    .rz-sect{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:0.9rem;margin-top:1.05rem}
+    .rz-sect div{background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.09);border-radius:13px;padding:1.05rem 1.2rem;font-size:0.875rem;color:#9db2c7;line-height:1.58}
+    .rz-sect b{color:#fff;display:block;margin-bottom:0.28rem;font-size:0.98rem;font-family:"Space Grotesk",sans-serif}
+    .rz-sect em{display:block;margin-top:0.45rem;color:#c9d8e6;font-style:normal;font-size:0.83rem}
     .rz-avant{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;margin-top:1.1rem}
     .rz-av,.rz-ap{border-radius:14px;padding:1.2rem 1.35rem;border:1px solid rgba(255,255,255,0.1)}
     .rz-av{background:rgba(248,81,73,0.06);border-color:rgba(248,81,73,0.28)}
@@ -120,22 +150,24 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 <!-- HERO -->
 <section class="hero" style="padding-bottom:1.2rem">
   <div class="container">
-    <p class="kreyol" data-i18n="rz.kicker">Un projet ne se juge pas sur ce qu'il a dépensé, mais sur ce qu'il a changé.</p>
+    <p class="kreyol" data-i18n="rz.kicker">Un chiffre ne vaut que par ce qu'on peut prouver derrière.</p>
     <h1>Rezilta</h1>
-    <div class="aka"><b data-i18n="rz.aka">planifier · suivre · évaluer · apprendre</b><small data-i18n="rz.aka_s">« rezilta » : le résultat, en kreyòl</small></div>
-    <p class="lead" data-i18n-html="rz.lead">Le cycle complet d'un projet dans un seul outil : le plan, la collecte, les indicateurs, l'évaluation et les leçons apprises. <strong>De la planification à la preuve</strong> — et la preuve porte toujours sa source.</p>
+    <div class="aka"><b data-i18n="rz.aka">la plateforme de données, d'analyse et de preuve</b><small data-i18n="rz.aka_s">« rezilta » : le résultat, en kreyòl</small></div>
+    <p class="lead" data-i18n-html="rz.lead">Une seule chaîne, de la donnée brute à la décision : <strong>relier</strong> vos sources, <strong>analyser</strong> avec de vraies méthodes statistiques, <strong>prévoir</strong> avec des intervalles honnêtes, <strong>restituer</strong> dans Power BI, Excel ou un rapport. Pour les entreprises, les banques, les laboratoires, les ONG, les bailleurs et les institutions.</p>
     <div class="rz-badges">
-      <span class="rz-badge" data-i18n="rz.bg1">📐 Cadre logique</span>
-      <span class="rz-badge" data-i18n="rz.bg2">📡 Collecte &amp; indicateurs</span>
-      <span class="rz-badge" data-i18n="rz.bg3">🎯 Évaluation</span>
-      <span class="rz-badge" data-i18n="rz.bg4">🌱 Capitalisation</span>
-      <span class="rz-badge" data-i18n="rz.bg5">🔌 Fonctionne hors ligne</span>
-      <span class="rz-badge" data-i18n="rz.bg6">🗣 4 langues</span>
+      <span class="rz-badge" data-i18n="rz.bg1">🗄 ETL &amp; entrepôt (MySQL, cloud)</span>
+      <span class="rz-badge" data-i18n="rz.bg2">📊 Tests &amp; modèles statistiques</span>
+      <span class="rz-badge" data-i18n="rz.bg3">📈 Prévision bayésienne</span>
+      <span class="rz-badge" data-i18n="rz.bg4">🧪 Économétrie &amp; inférence causale</span>
+      <span class="rz-badge" data-i18n="rz.bg5">📺 Power BI, Excel, R, Python</span>
+      <span class="rz-badge" data-i18n="rz.bg6">📐 Module cycle de projet</span>
+      <span class="rz-badge" data-i18n="rz.bg7">🔌 Fonctionne hors ligne</span>
+      <span class="rz-badge" data-i18n="rz.bg8">🗣 4 langues</span>
     </div>
-    <div class="rz-wip" data-i18n-html="rz.wip">🚧 <strong>Rezilta est en construction.</strong> Le socle technique — celui de l'Explorateur Haïti — est déjà en service. Nous ouvrons un <strong>programme pilote</strong> à quelques organisations qui acceptent de construire l'outil avec nous sur un projet réel. Rien n'est vendu comme fini tant que ça ne l'est pas.</div>
+    <div class="rz-wip" data-i18n-html="rz.wip">🚧 <strong>Rezilta est en construction.</strong> Le socle technique — celui de l'Explorateur Haïti — et les méthodes décrites ici sont déjà en service dans nos travaux. Nous ouvrons un <strong>programme pilote</strong> à quelques organisations qui acceptent de construire l'outil avec nous sur un vrai jeu de données. Rien n'est vendu comme fini tant que ça ne l'est pas.</div>
     <div style="margin-top:1.3rem">
-      <a href="mailto:sales@atmart.ltd?subject=Rezilta%20-%20programme%20pilote&amp;body=Bonjour%2C%0A%0AOrganisation%20%3A%0AType%20(entreprise%2C%20ONG%2C%20bailleur%2C%20institution)%20%3A%0ANombre%20de%20projets%20suivis%20%3A%0ACe%20que%20nous%20utilisons%20aujourd'hui%20%3A%0A%0AMerci." class="btn btn-primary" data-i18n="rz.cta1">Rejoindre le programme pilote</a>
-      <a href="#temps" class="btn btn-outline" style="margin-left:0.6rem" data-i18n="rz.cta2">Voir les 4 temps</a>
+      <a href="mailto:sales@atmart.ltd?subject=Rezilta%20-%20programme%20pilote&amp;body=Bonjour%2C%0A%0AOrganisation%20%3A%0ASecteur%20(entreprise%2C%20banque%2C%20laboratoire%2C%20ONG%2C%20bailleur%2C%20institution)%20%3A%0ANos%20sources%20de%20donnees%20aujourd'hui%20%3A%0ACe%20que%20nous%20voulons%20mesurer%20ou%20prevoir%20%3A%0A%0AMerci." class="btn btn-primary" data-i18n="rz.cta1">Rejoindre le programme pilote</a>
+      <a href="#moteur" class="btn btn-outline" style="margin-left:0.6rem" data-i18n="rz.cta2">Voir le moteur d'analyse</a>
     </div>
   </div>
 </section>
@@ -143,27 +175,169 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 <!-- LE PROBLEME -->
 <section style="padding-top:0.5rem">
   <div class="container">
-    <div class="section-head"><h2 data-i18n="rz.pb_t">Ce que vit une équipe de projet aujourd'hui</h2>
-      <p data-i18n="rz.pb_d">Le problème n'est pas le manque d'outils. C'est qu'ils ne se parlent pas.</p></div>
+    <div class="section-head"><h2 data-i18n="rz.q_t">Ce qui bloque, dans presque toutes les organisations</h2>
+      <p data-i18n="rz.q_d">Le problème n'est pas le manque de données. C'est la distance entre la donnée et la décision.</p></div>
     <div class="rz-grid">
       <div class="rz-card"><span class="ic">🧩</span>
-        <h4 data-i18n="rz.pb1_t">Le plan et la réalité vivent séparés</h4>
-        <p data-i18n="rz.pb1_d">Le cadre logique dort dans un document, les activités dans un tableur, la collecte dans un formulaire en ligne. Personne ne sait, un mardi de mars, où en est réellement l'indicateur 2.3.</p></div>
+        <h4 data-i18n="rz.q1_t">Les sources ne se parlent pas</h4>
+        <p data-i18n="rz.q1_d">Le système de gestion d'un côté, un tableur de l'autre, une collecte terrain dans un troisième outil, et une base de production que personne n'ose toucher. Chaque question un peu large demande une semaine de rapprochement à la main.</p></div>
+      <div class="rz-card"><span class="ic">📉</span>
+        <h4 data-i18n="rz.q2_t">L'analyse s'arrête au tableau croisé</h4>
+        <p data-i18n="rz.q2_d">On décrit, on ne modélise pas. Personne ne sait si l'écart observé est réel ou du bruit, si la hausse tiendra le trimestre prochain, ni si le facteur qu'on accuse est bien celui qui agit.</p></div>
       <div class="rz-card"><span class="ic">♻️</span>
-        <h4 data-i18n="rz.pb2_t">Chaque rapport se refait à la main</h4>
-        <p data-i18n="rz.pb2_d">Les mêmes chiffres sont recopiés chaque trimestre, avec les mêmes erreurs de recopie. Le temps passé à fabriquer le rapport est pris sur le temps de terrain.</p></div>
+        <h4 data-i18n="rz.q3_t">Chaque rapport se refait à la main</h4>
+        <p data-i18n="rz.q3_d">Les mêmes chiffres sont recopiés chaque mois, avec les mêmes erreurs de recopie. Et quand quelqu'un demande d'où vient le chiffre, la réponse se reconstruit de mémoire.</p></div>
       <div class="rz-card"><span class="ic">🌫</span>
-        <h4 data-i18n="rz.pb3_t">L'apprentissage se perd</h4>
-        <p data-i18n="rz.pb3_d">Ce que l'équipe a compris reste dans la tête de deux personnes. Au projet suivant, on refait les mêmes erreurs — et le bailleur redemande les mêmes leçons apprises.</p></div>
+        <h4 data-i18n="rz.q4_t">Le savoir-faire tient dans deux têtes</h4>
+        <p data-i18n="rz.q4_d">La méthode vit dans un classeur personnel et un script qu'une seule personne sait relancer. Quand elle part, la série s'arrête — ou change de définition sans que personne ne le voie.</p></div>
     </div>
   </div>
 </section>
 
-<!-- LES 4 TEMPS -->
+<!-- LES 3 COUCHES -->
+<section style="padding-top:1.4rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="rz.lay_t">Une plateforme, trois couches</h2>
+      <p data-i18n="rz.lay_d">Rezilta n'est pas un tableau de bord posé sur un désordre. C'est la chaîne complète — et chaque maillon garde la trace du précédent, si bien qu'un chiffre affiché remonte toujours jusqu'à la ligne brute dont il sort.</p></div>
+    <div class="rz-lay">
+      <div>
+        <span class="lvl" data-i18n="rz.lay1_n">Couche 1</span>
+        <h3 data-i18n="rz.lay1_t">🗄 Le socle de données</h3>
+        <p data-i18n="rz.lay1_d">Aller chercher les données là où elles sont, les nettoyer, les relier et les garder propres.</p>
+        <ul>
+          <li data-i18n="rz.lay1_l1">Connexion aux bases et aux fichiers existants</li>
+          <li data-i18n="rz.lay1_l2">ETL versionné, rejouable, daté</li>
+          <li data-i18n="rz.lay1_l3">Entrepôt documenté, dictionnaire de données</li>
+          <li data-i18n="rz.lay1_l4">Contrôle qualité et journal d'audit</li>
+        </ul>
+      </div>
+      <div>
+        <span class="lvl" data-i18n="rz.lay2_n">Couche 2</span>
+        <h3 data-i18n="rz.lay2_t">🧠 Le moteur d'analyse</h3>
+        <p data-i18n="rz.lay2_d">Décrire, tester, modéliser, prévoir — avec les méthodes que la question exige, pas seulement des moyennes.</p>
+        <ul>
+          <li data-i18n="rz.lay2_l1">Tests statistiques et tailles d'effet</li>
+          <li data-i18n="rz.lay2_l2">Régression, panel, économétrie</li>
+          <li data-i18n="rz.lay2_l3">Prévision et modèles bayésiens</li>
+          <li data-i18n="rz.lay2_l4">Diagnostics obligatoires avant publication</li>
+        </ul>
+      </div>
+      <div>
+        <span class="lvl" data-i18n="rz.lay3_n">Couche 3</span>
+        <h3 data-i18n="rz.lay3_t">📺 La restitution</h3>
+        <p data-i18n="rz.lay3_d">Sortir le résultat dans l'outil de celui qui doit décider — sans casser la traçabilité en chemin.</p>
+        <ul>
+          <li data-i18n="rz.lay3_l1">Power BI : modèle sémantique et sécurité par ligne</li>
+          <li data-i18n="rz.lay3_l2">Excel, PDF, Word au format attendu</li>
+          <li data-i18n="rz.lay3_l3">R, Python : le script qui reproduit le chiffre</li>
+          <li data-i18n="rz.lay3_l4">API pour brancher vos propres outils</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LE MOTEUR ANALYTIQUE -->
+<section id="moteur" style="padding-top:1.4rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="rz.en_t">Le moteur d'analyse en détail</h2>
+      <p data-i18n="rz.en_d">Quatre familles de questions, quatre familles de méthodes. L'outil choisit avec vous celle qui correspond à votre question et à la forme de vos données — et écarte celle qui n'y correspond pas.</p></div>
+    <div class="rz-eng">
+      <div>
+        <h4 data-i18n="rz.en1_t">📊 Décrire et tester</h4>
+        <ul>
+          <li data-i18n-html="rz.en1_l1"><b>Descriptif honnête</b> — distributions, valeurs extrêmes, données manquantes affichées comme manquantes, jamais comblées en silence</li>
+          <li data-i18n-html="rz.en1_l2"><b>Comparaisons</b> — moyennes (t, Welch), proportions (chi-deux, Fisher exact), rangs (Mann-Whitney, Wilcoxon, Kruskal-Wallis), analyse de variance</li>
+          <li data-i18n-html="rz.en1_l3"><b>Tests multiples</b> — correction de Bonferroni ou de Benjamini-Hochberg dès qu'on teste plusieurs hypothèses sur le même jeu, sinon on finit par « trouver » du hasard</li>
+          <li data-i18n-html="rz.en1_l4"><b>Toujours trois chiffres</b> — la taille de l'effet dans son unité réelle, son intervalle de confiance, et seulement ensuite la valeur p</li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="rz.en2_t">🧪 Modéliser et expliquer</h4>
+        <ul>
+          <li data-i18n-html="rz.en2_l1"><b>Le modèle suit la variable</b> — continue : régression linéaire ; binaire : logistique (rapports de cotes et effets marginaux) ; comptages : Poisson ou binomiale négative ; observations répétées : effets fixes ou aléatoires</li>
+          <li data-i18n-html="rz.en2_l2"><b>Erreurs types robustes par défaut</b> — HC0 à HC3, ou regroupées par agence, région ou individu quand les observations ne sont pas indépendantes</li>
+          <li data-i18n-html="rz.en2_l3"><b>Diagnostics automatiques</b> — hétéroscédasticité (Breusch-Pagan, White), autocorrélation (Durbin-Watson), colinéarité (VIF), forme fonctionnelle (RESET), normalité des résidus (Jarque-Bera) — avec le remède proposé pour chaque alerte</li>
+          <li data-i18n-html="rz.en2_l4"><b>Protocoles causaux</b> — différence de différences, variables instrumentales (2SLS, avec alerte d'instrument faible), effets fixes de panel</li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="rz.en3_t">📈 Prévoir</h4>
+        <ul>
+          <li data-i18n-html="rz.en3_l1"><b>Séries temporelles</b> — tendance, saisonnalité, ruptures, modèles ARIMA et lissage exponentiel, validation sur une période gardée à l'écart</li>
+          <li data-i18n-html="rz.en3_l2"><b>Prévision bayésienne</b> — la sortie n'est pas un nombre mais une distribution : vous lisez l'intervalle, pas seulement le point central</li>
+          <li data-i18n-html="rz.en3_l3"><b>Mise à jour</b> — chaque nouvelle période resserre la prévision au lieu de tout recalculer de zéro</li>
+          <li data-i18n-html="rz.en3_l4"><b>Modèles hiérarchiques</b> — une agence, une zone ou un lot qui compte peu d'observations emprunte de l'information aux autres, au lieu de sortir une estimation folle sur trois cas</li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="rz.en4_t">🔍 Prouver</h4>
+        <ul>
+          <li data-i18n-html="rz.en4_l1"><b>Aucun résultat sans son diagnostic</b> — convergence, taille d'échantillon effective, divergences, vérification prédictive : un résultat qui échoue à ses contrôles ne part pas dans un rapport</li>
+          <li data-i18n-html="rz.en4_l2"><b>Sensibilité</b> — ce que devient la conclusion si on change l'hypothèse de départ, la période retenue ou les cas écartés</li>
+          <li data-i18n-html="rz.en4_l3"><b>Reproductible</b> — chaque résultat est rejouable : les données au moment du calcul, la méthode, la version, la personne qui a validé</li>
+          <li data-i18n-html="rz.en4_l4"><b>Lisible sans être statisticien</b> — chaque sortie est doublée d'une phrase simple qui dit ce que le chiffre veut dire, et ce qu'il ne dit pas</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rz-rule" data-i18n-html="rz.en_rule">⚖️ <strong>La règle inscrite dans l'outil :</strong> un résultat n'est appelé <em>effet</em> que si un protocole est nommé et son hypothèse-clé énoncée. Partout ailleurs, le rapport écrit <strong>association</strong>. Un coefficient n'est pas causal parce que c'est une régression — il l'est grâce au protocole qui l'entoure. C'est toute la différence entre un tableau de bord qui impressionne et un chiffre qui tient devant un auditeur, un comité de crédit ou un comité de lecture.</div>
+    <div class="rz-warn" data-i18n-html="rz.en_warn">⚠️ <strong>Ce que nous ne promettons pas.</strong> Rezilta ne remplace ni la validation réglementaire d'un modèle de risque bancaire, ni un système de laboratoire accrédité, ni un comité d'éthique. Il fournit ce que ces procédures réclament et qui manque presque toujours : la piste d'audit, la méthode écrite, les diagnostics et la reproductibilité. La décision, elle, reste la vôtre.</div>
+  </div>
+</section>
+
+<!-- LE SOCLE DE DONNEES -->
+<section style="padding-top:1.4rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="rz.so_t">Le socle : ETL, entrepôt, volume, hébergement</h2>
+      <p data-i18n="rz.so_d">Avant toute analyse sérieuse, il faut des données qu'on puisse défendre. C'est la partie invisible du travail, et c'est celle qui dévore 80 % du temps quand elle est mal faite.</p></div>
+    <div class="rz-tech">
+      <div><b data-i18n="rz.so1_t">Connecteurs</b><span data-i18n="rz.so1_d">MySQL et MariaDB, PostgreSQL, SQL Server, fichiers Excel et CSV, formulaires Kobo/ODK, API REST, entrepôts cloud. On se branche sur ce qui existe déjà.</span></div>
+      <div><b data-i18n="rz.so2_t">ETL versionné</b><span data-i18n="rz.so2_d">Chaque transformation est une étape nommée, datée et rejouable. On remonte du chiffre du rapport jusqu'à la ligne brute — et on voit qui a changé quoi.</span></div>
+      <div><b data-i18n="rz.so3_t">Modèle documenté</b><span data-i18n="rz.so3_d">Dictionnaire des variables, clés, règles de dédoublonnage, tables de correspondance (territoires, agences, produits). Une définition écrite vaut mieux qu'une convention orale.</span></div>
+      <div><b data-i18n="rz.so4_t">Qualité des données</b><span data-i18n="rz.so4_d">Critères explicites, anomalies signalées, corrections tracées. Le contrôle tourne à chaque chargement, pas une fois par an la veille de l'audit.</span></div>
+      <div><b data-i18n="rz.so5_t">Gros volumes</b><span data-i18n="rz.so5_d">Traitement par lots pour les longs historiques : on valide sur un échantillon, puis on lance le calcul complet en arrière-plan. Les tables lourdes sont pré-agrégées pour que le rapport reste rapide.</span></div>
+      <div><b data-i18n="rz.so6_t">Cloud ou chez vous</b><span data-i18n="rz.so6_d">Hébergement géré par nous, ou installation sur vos serveurs — parce qu'une banque, un laboratoire ou une administration n'a pas toujours le droit de laisser sortir ses données.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESTITUTION -->
+<section style="padding-top:1.4rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="rz.re_t">Restituer dans l'outil de celui qui décide</h2>
+      <p data-i18n="rz.re_d">Une analyse que personne n'ouvre ne sert à rien. Le résultat sort là où votre direction, votre comité ou votre bailleur a déjà l'habitude de regarder.</p></div>
+    <div class="rz-tech">
+      <div><b data-i18n="rz.re1_t">Power BI</b><span data-i18n="rz.re1_d">Modèle sémantique livré — tables, relations, mesures DAX — avec la sécurité au niveau des lignes : chaque agence, service ou partenaire ne voit que ses lignes, au lieu de dupliquer le rapport une fois par entité.</span></div>
+      <div><b data-i18n="rz.re2_t">Excel</b><span data-i18n="rz.re2_d">Des classeurs qui portent les données et la méthode : la feuille de résultat, la feuille de source, et la note qui dit comment le chiffre a été calculé.</span></div>
+      <div><b data-i18n="rz.re3_t">R et Python</b><span data-i18n="rz.re3_d">Le jeu de données propre et le script qui reproduit le résultat. Vos statisticiens vérifient, prolongent ou contestent — sans avoir à nous redemander quoi que ce soit.</span></div>
+      <div><b data-i18n="rz.re4_t">Rapports</b><span data-i18n="rz.re4_d">PDF et Word au format du destinataire : bailleur, conseil d'administration, autorité de tutelle, revue scientifique. La structure est fixe, seul le contenu change.</span></div>
+      <div><b data-i18n="rz.re5_t">API</b><span data-i18n="rz.re5_d">Vos applications lisent les indicateurs directement, avec la même provenance et les mêmes droits d'accès que dans l'interface.</span></div>
+      <div><b data-i18n="rz.re6_t">Chaque export est signé</b><span data-i18n="rz.re6_d">Date, source, version du modèle, personne qui a validé. Un fichier retrouvé six mois plus tard dit encore d'où il vient.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- POUR QUI -->
+<section style="padding-top:1.4rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="rz.s_t">Pour qui</h2>
+      <p data-i18n="rz.s_d">Toute organisation qui doit prouver quelque chose à quelqu'un — un conseil d'administration, une autorité de tutelle, un bailleur, un comité de lecture, un ministère ou ses propres membres.</p></div>
+    <div class="rz-sect">
+      <div><b data-i18n="rz.s1_t">🏢 Entreprises</b><span data-i18n="rz.s1_d">Ventes, opérations, qualité, ressources humaines : consolider les sources, mesurer ce qui bouge vraiment, prévoir la demande et expliquer les écarts au comité de direction.</span><em data-i18n="rz.s1_e">Question type : la hausse vient-elle de la campagne ou de la saison ?</em></div>
+      <div><b data-i18n="rz.s2_t">🏦 Banques et microfinance</b><span data-i18n="rz.s2_d">Portefeuille, risque, provisionnement : analyse de cohortes, portefeuille à risque, modèles de défaut, scénarios — avec la documentation de méthode et la piste d'audit que réclame tout examen.</span><em data-i18n="rz.s2_e">Question type : quel segment porte réellement le risque, une fois la conjoncture retirée ?</em></div>
+      <div><b data-i18n="rz.s3_t">🔬 Laboratoires et recherche</b><span data-i18n="rz.s3_d">Plans d'expérience, comparaison de groupes avec correction pour tests multiples, cartes de contrôle, et surtout reproductibilité : les données, le script et la version partent ensemble.</span><em data-i18n="rz.s3_e">Question type : l'écart entre les deux lots est-il un signal ou de la variation normale ?</em></div>
+      <div><b data-i18n="rz.s4_t">🤝 ONG, programmes et bailleurs</b><span data-i18n="rz.s4_d">Le cycle de projet complet — cadre logique, indicateurs, collecte terrain hors ligne, évaluation, rapports — et la vue de portefeuille pour comparer plusieurs projets financés.</span><em data-i18n="rz.s4_e">Question type : pourquoi 62 % de la cible, et qu'est-ce qui explique l'écart ?</em></div>
+      <div><b data-i18n="rz.s5_t">🏛 Institutions et collectivités</b><span data-i18n="rz.s5_d">Suivre un plan d'action public, mesurer la couverture territoriale, comparer les communes, rendre compte aux administrés avec des chiffres qui portent leur source.</span><em data-i18n="rz.s5_e">Question type : quelles zones restent hors d'atteinte, et depuis combien de temps ?</em></div>
+      <div><b data-i18n="rz.s6_t">🎓 Écoles et universités</b><span data-i18n="rz.s6_d">Cohortes, réussite, abandon, suivi de promotion : mesurer ce qui fait la différence entre deux groupes d'étudiants — et enseigner la méthode en même temps qu'on l'applique.</span><em data-i18n="rz.s6_e">Question type : le tutorat améliore-t-il la réussite, ou attire-t-il déjà les meilleurs ?</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE PROJET : LES 4 TEMPS -->
 <section id="temps" style="padding-top:1.4rem">
   <div class="container">
-    <div class="section-head"><h2 data-i18n="rz.tm_t">Les quatre temps d'un projet, dans un seul outil</h2>
-      <p data-i18n="rz.tm_d">Chaque temps alimente le suivant : ce que vous planifiez devient ce que vous collectez, ce que vous collectez devient ce que vous évaluez, ce que vous évaluez devient ce que vous transmettez.</p></div>
+    <div class="section-head"><h2 data-i18n="rz.tm_t">Le module Projet : les quatre temps</h2>
+      <p data-i18n="rz.tm_d">Pour ceux qui pilotent des projets — ONG, programmes et bailleurs, mais aussi les projets internes d'une entreprise — la plateforme ajoute le cycle complet. Chaque temps alimente le suivant, et tout s'appuie sur les trois couches décrites plus haut.</p></div>
     <div class="rz-temps">
 
       <div class="rz-temp t1">
@@ -228,8 +402,8 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     <div class="section-head"><h2 data-i18n="rz.rl_t">Trois métiers de la donnée, intégrés à l'outil</h2>
       <p data-i18n="rz.rl_d">Ce que la plupart des organisations n'ont pas les moyens de recruter, Rezilta le met dans le produit — assisté par l'IA, validé par vous. L'outil propose, l'équipe tranche, et chaque proposition reste traçable.</p></div>
     <div class="rz-roles">
-      <div class="rz-role"><b data-i18n="rz.rl1_t">📊 Analyste de données</b><span data-i18n="rz.rl1_d">Lit vos données de suivi et en sort ce qui compte : tendances, écarts, zones en retard, désagrégations qui révèlent une inégalité. Il rédige le premier jet du narratif — vous corrigez.</span></div>
-      <div class="rz-role"><b data-i18n="rz.rl2_t">🔬 Scientifique de données</b><span data-i18n="rz.rl2_d">Va plus loin : comparaisons avant/après, groupes de comparaison, significativité honnête, prudence sur la causalité. Il dit aussi quand les données ne permettent pas de conclure.</span></div>
+      <div class="rz-role"><b data-i18n="rz.rl1_t">📊 Analyste de données</b><span data-i18n="rz.rl1_d">Lit vos données et en sort ce qui compte : tendances, écarts, segments en retard, découpages qui révèlent une inégalité. Il rédige le premier jet du narratif — vous corrigez.</span></div>
+      <div class="rz-role"><b data-i18n="rz.rl2_t">🔬 Scientifique de données</b><span data-i18n="rz.rl2_d">Va plus loin : choix du modèle, comparaisons avant/après, groupes de comparaison, significativité honnête, prudence sur la causalité. Il dit aussi quand les données ne permettent pas de conclure.</span></div>
       <div class="rz-role"><b data-i18n="rz.rl3_t">🗄 Ingénieur de données</b><span data-i18n="rz.rl3_d">Nettoie, déduplique, relie vos sources, tient le dictionnaire de données et prépare les exports — vers Excel, Power BI, QGIS ou le bailleur, sans casser la traçabilité.</span></div>
     </div>
   </div>
@@ -244,7 +418,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       <div><b data-i18n="rz.fd1_t">La provenance est obligatoire</b><span data-i18n="rz.fd1_d">Aucun chiffre n'existe sans sa source, sa date et sa méthode. Un indicateur sans provenance n'entre pas dans un rapport.</span></div>
       <div><b data-i18n="rz.fd2_t">Les absences sont documentées</b><span data-i18n="rz.fd2_d">Une donnée manquante s'affiche comme manquante, avec la raison. On ne comble jamais un trou par une estimation silencieuse.</span></div>
       <div><b data-i18n="rz.fd3_t">Ça marche sans connexion</b><span data-i18n="rz.fd3_d">La saisie fonctionne hors ligne et se synchronise ensuite — parce que le terrain n'attend pas la 4G.</span></div>
-      <div><b data-i18n="rz.fd4_t">Aucun traceur, aucune revente</b><span data-i18n="rz.fd4_d">Vos données de projet sont les vôtres. Elles ne sont ni revendues, ni utilisées pour entraîner quoi que ce soit.</span></div>
+      <div><b data-i18n="rz.fd4_t">Aucun traceur, aucune revente</b><span data-i18n="rz.fd4_d">Vos données sont les vôtres. Elles ne sont ni revendues, ni utilisées pour entraîner quoi que ce soit.</span></div>
       <div><b data-i18n="rz.fd5_t">Vos données restent exportables</b><span data-i18n="rz.fd5_d">Tout sort en formats ouverts, à tout moment. Aucun verrouillage : si vous partez, vous partez avec tout.</span></div>
       <div><b data-i18n="rz.fd6_t">Quatre langues, dont le kreyòl</b><span data-i18n="rz.fd6_d">L'outil parle la langue de vos équipes de terrain, pas seulement celle du siège.</span></div>
     </div>
@@ -259,37 +433,23 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       <div class="rz-av">
         <h4 data-i18n="rz.ch_av_t">Aujourd'hui</h4>
         <ul>
-          <li data-i18n="rz.ch_av1">Le cadre logique dans un Word, les activités dans un Excel, la collecte dans un troisième outil</li>
-          <li data-i18n="rz.ch_av2">Le rapport trimestriel : plusieurs jours de recopie et de mise en forme</li>
-          <li data-i18n="rz.ch_av3">« Pourquoi 62 % de la cible ? » — la réponse se reconstruit de mémoire</li>
-          <li data-i18n="rz.ch_av4">Les leçons apprises rédigées la veille du rapport final</li>
-          <li data-i18n="rz.ch_av5">Un audit du bailleur = une semaine de recherche de justificatifs</li>
+          <li data-i18n="rz.ch_av1">Les données dans trois outils, rapprochées à la main avant chaque réunion</li>
+          <li data-i18n="rz.ch_av2">Le rapport périodique : plusieurs jours de recopie et de mise en forme</li>
+          <li data-i18n="rz.ch_av3">« Cet écart est-il réel ? » — on répond à l'intuition, faute de test</li>
+          <li data-i18n="rz.ch_av4">Une prévision donnée comme un nombre unique, sans marge d'erreur</li>
+          <li data-i18n="rz.ch_av5">Un audit = une semaine de recherche de justificatifs</li>
         </ul>
       </div>
       <div class="rz-ap">
         <h4 data-i18n="rz.ch_ap_t">Avec Rezilta</h4>
         <ul>
-          <li data-i18n="rz.ch_ap1">Un seul dossier de projet : le plan, la collecte et les résultats reliés</li>
-          <li data-i18n="rz.ch_ap2">Le rapport se génère depuis les données saisies, dans le format du bailleur</li>
-          <li data-i18n="rz.ch_ap3">L'écart est expliqué à partir des relevés et des difficultés déjà notées</li>
-          <li data-i18n="rz.ch_ap4">Les leçons se saisissent au moment où elles arrivent, rattachées à l'activité</li>
+          <li data-i18n="rz.ch_ap1">Une chaîne unique : sources reliées, transformations datées, résultat traçable</li>
+          <li data-i18n="rz.ch_ap2">Le rapport se génère depuis les données, dans le format du destinataire</li>
+          <li data-i18n="rz.ch_ap3">L'écart est testé, chiffré, et son intervalle affiché à côté</li>
+          <li data-i18n="rz.ch_ap4">Une prévision livrée avec son intervalle et ses hypothèses écrites</li>
           <li data-i18n="rz.ch_ap5">Chaque chiffre remonte à sa source en un clic — l'audit devient une formalité</li>
         </ul>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- POUR QUI -->
-<section style="padding-top:1.4rem">
-  <div class="container">
-    <div class="section-head"><h2 data-i18n="rz.wh_t">Pour qui</h2>
-      <p data-i18n="rz.wh_d">Toute organisation qui doit prouver ce qu'elle fait — à un bailleur, à un conseil d'administration, à un ministère ou à ses propres membres.</p></div>
-    <div class="rz-who">
-      <div><b data-i18n="rz.wh1_t">Entreprises</b><span data-i18n="rz.wh1_d">Projets internes, déploiements, programmes de formation, responsabilité sociale : planifier, mesurer l'effet réel, et le présenter à la direction.</span></div>
-      <div><b data-i18n="rz.wh2_t">ONG et programmes</b><span data-i18n="rz.wh2_d">Le cycle complet, du cadre logique au rapport final, avec la traçabilité que réclame chaque audit.</span></div>
-      <div><b data-i18n="rz.wh3_t">Bailleurs et fondations</b><span data-i18n="rz.wh3_d">Une vue de portefeuille : comparer les projets financés, repérer les retards tôt, recevoir des rapports de structure identique.</span></div>
-      <div><b data-i18n="rz.wh4_t">Institutions et collectivités</b><span data-i18n="rz.wh4_d">Suivre un plan d'action public, mesurer la couverture territoriale, rendre compte aux administrés avec des chiffres qui tiennent.</span></div>
     </div>
   </div>
 </section>
@@ -298,48 +458,48 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 <section id="offre" style="padding-top:1.4rem">
   <div class="container">
     <div class="section-head"><h2 data-i18n="rz.of_t">Un abonnement, trois échelles</h2>
-      <p data-i18n="rz.of_d">Rezilta est un logiciel en ligne (SaaS). Le tarif dépend du nombre de projets suivis et de la taille de l'organisation — il est établi après un échange, et annoncé par écrit avant tout engagement.</p></div>
+      <p data-i18n="rz.of_d">Rezilta est un logiciel en ligne (SaaS), installable aussi sur vos serveurs. Le tarif dépend du volume de données, du nombre d'utilisateurs et des méthodes activées — il est établi après un échange et annoncé par écrit avant tout engagement.</p></div>
     <div class="plan-grid">
       <div class="plan hot">
-        <span class="ribbon" data-i18n="rz.p1_rib">COMMENCER ICI</span>
-        <h4 data-i18n="rz.p1_name">Projet</h4>
+        <span class="ribbon" data-i18n="rz.f1_rib">COMMENCER ICI</span>
+        <h4 data-i18n="rz.f1_name">Équipe</h4>
         <p class="price" data-i18n="rz.price">Tarif sur demande</p>
-        <p style="font-size:0.78rem;color:#9db2c7;margin:-0.5rem 0 0.6rem" data-i18n="rz.p1_dur">un projet · une équipe</p>
+        <p style="font-size:0.78rem;color:#9db2c7;margin:-0.5rem 0 0.6rem" data-i18n="rz.f1_dur">un périmètre · une équipe</p>
         <ul>
-          <li data-i18n="rz.p1_l1">Les quatre temps sur un projet</li>
-          <li data-i18n="rz.p1_l2">Indicateurs, collecte hors ligne, contrôle qualité</li>
-          <li data-i18n="rz.p1_l3">Rapports périodiques et rapport final</li>
-          <li data-i18n="rz.p1_l4">Exports ouverts (Excel, PDF, Power BI)</li>
+          <li data-i18n="rz.f1_l1">Socle de données : connecteurs, ETL, contrôle qualité</li>
+          <li data-i18n="rz.f1_l2">Moteur d'analyse : descriptif, tests, régression, diagnostics</li>
+          <li data-i18n="rz.f1_l3">Restitution Excel, PDF et exports ouverts</li>
+          <li data-i18n="rz.f1_l4">Module Projet sur un projet, si vous en avez un</li>
         </ul>
-        <a href="mailto:sales@atmart.ltd?subject=Rezilta%20-%20formule%20Projet" class="btn btn-primary" data-i18n="rz.p_cta">Demander une démonstration</a>
+        <a href="mailto:sales@atmart.ltd?subject=Rezilta%20-%20formule%20Equipe" class="btn btn-primary" data-i18n="rz.p_cta">Demander une démonstration</a>
       </div>
       <div class="plan">
-        <span class="ribbon" style="background:#5d9cec" data-i18n="rz.p2_rib">LE PLUS DEMANDÉ</span>
-        <h4 data-i18n="rz.p2_name">Organisation</h4>
+        <span class="ribbon" style="background:#5d9cec" data-i18n="rz.f2_rib">LE PLUS DEMANDÉ</span>
+        <h4 data-i18n="rz.f2_name">Organisation</h4>
         <p class="price" data-i18n="rz.price">Tarif sur demande</p>
-        <p style="font-size:0.78rem;color:#9db2c7;margin:-0.5rem 0 0.6rem" data-i18n="rz.p2_dur">plusieurs projets · plusieurs équipes</p>
+        <p style="font-size:0.78rem;color:#9db2c7;margin:-0.5rem 0 0.6rem" data-i18n="rz.f2_dur">plusieurs services · plusieurs sources</p>
         <ul>
-          <li data-i18n="rz.p2_l1">Toute la formule Projet, sans limite de projets</li>
-          <li data-i18n="rz.p2_l2">Vue de portefeuille et comparaison entre projets</li>
-          <li data-i18n="rz.p2_l3">Capitalisation et synergies entre équipes</li>
-          <li data-i18n="rz.p2_l4">Rôles et permissions par équipe</li>
-          <li data-i18n="rz.p2_l5">Accompagnement au démarrage et formation</li>
+          <li data-i18n="rz.f2_l1">Toute la formule Équipe, sans limite de périmètres</li>
+          <li data-i18n="rz.f2_l2">Entrepôt complet et gros volumes</li>
+          <li data-i18n="rz.f2_l3">Économétrie, prévision bayésienne, modèles hiérarchiques</li>
+          <li data-i18n="rz.f2_l4">Power BI : modèle sémantique et sécurité au niveau des lignes</li>
+          <li data-i18n="rz.f2_l5">Rôles et permissions par service, accompagnement au démarrage</li>
         </ul>
         <a href="mailto:sales@atmart.ltd?subject=Rezilta%20-%20formule%20Organisation" class="btn btn-outline" data-i18n="rz.p_cta">Demander une démonstration</a>
       </div>
       <div class="plan">
-        <span class="ribbon" style="background:#f4a261" data-i18n="rz.p3_rib">PORTEFEUILLE</span>
-        <h4 data-i18n="rz.p3_name">Bailleur</h4>
+        <span class="ribbon" style="background:#f4a261" data-i18n="rz.f3_rib">MULTI-ENTITÉS</span>
+        <h4 data-i18n="rz.f3_name">Réseau</h4>
         <p class="price" data-i18n="rz.price">Tarif sur demande</p>
-        <p style="font-size:0.78rem;color:#9db2c7;margin:-0.5rem 0 0.6rem" data-i18n="rz.p3_dur">plusieurs organisations financées</p>
+        <p style="font-size:0.78rem;color:#9db2c7;margin:-0.5rem 0 0.6rem" data-i18n="rz.f3_dur">groupes, bailleurs, réseaux d'agences ou de laboratoires</p>
         <ul>
-          <li data-i18n="rz.p3_l1">Suivi consolidé des projets financés</li>
-          <li data-i18n="rz.p3_l2">Rapports de structure identique d'un partenaire à l'autre</li>
-          <li data-i18n="rz.p3_l3">Alertes de retard et de données manquantes</li>
-          <li data-i18n="rz.p3_l4">Accès partenaires cloisonné : chacun ne voit que son projet</li>
-          <li data-i18n="rz.p3_l5">Cadre de qualité des données commun au portefeuille</li>
+          <li data-i18n="rz.f3_l1">Suivi consolidé de toutes les entités</li>
+          <li data-i18n="rz.f3_l2">Définitions et méthodes communes imposées à tout le réseau</li>
+          <li data-i18n="rz.f3_l3">Accès cloisonné : chaque entité ne voit que ses données</li>
+          <li data-i18n="rz.f3_l4">Alertes de retard, de rupture et de données manquantes</li>
+          <li data-i18n="rz.f3_l5">Installation sur vos serveurs et revue de conformité</li>
         </ul>
-        <a href="mailto:sales@atmart.ltd?subject=Rezilta%20-%20formule%20Bailleur" class="btn btn-outline" data-i18n="rz.p_cta">Demander une démonstration</a>
+        <a href="mailto:sales@atmart.ltd?subject=Rezilta%20-%20formule%20Reseau" class="btn btn-outline" data-i18n="rz.p_cta">Demander une démonstration</a>
       </div>
     </div>
   </div>
@@ -350,16 +510,22 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   <div class="container">
     <div class="section-head"><h2 data-i18n="rz.fq_t">Questions qu'on nous pose</h2></div>
     <div class="rz-faq">
+      <details><summary data-i18n="rz.fq6_q">Nous ne gérons pas de projets, seulement des données. Est-ce pour nous ?</summary>
+        <p data-i18n="rz.fq6_a">Oui. Le module Projet est une option, pas le cœur. Une banque, un laboratoire ou une direction commerciale utilisent les trois couches — socle, analyse, restitution — sans jamais ouvrir un cadre logique.</p></details>
       <details><summary data-i18n="rz.fq1_q">En quoi est-ce différent d'un tableur ou d'un outil de gestion de projet ?</summary>
-        <p data-i18n-html="rz.fq1_a">Un outil de gestion de projet suit des tâches. Rezilta suit des <strong>résultats</strong> : il relie l'activité à l'indicateur, l'indicateur à sa source, et la source au rapport. C'est la chaîne que réclame un audit et qu'aucun tableur ne tient dans la durée.</p></details>
-      <details><summary data-i18n="rz.fq2_q">Faut-il abandonner Kobo, Excel ou Power BI ?</summary>
-        <p data-i18n="rz.fq2_a">Non. Rezilta génère vos formulaires vers Kobo/XLSForm, et tout ressort en Excel, PDF ou modèle Power BI. L'objectif est de relier ce que vous utilisez déjà, pas de vous obliger à tout remplacer.</p></details>
-      <details><summary data-i18n="rz.fq3_q">Nos données de bénéficiaires sont sensibles.</summary>
-        <p data-i18n="rz.fq3_a">Principe de minimisation : on ne collecte que ce qui sert un indicateur. Les données personnelles sont séparées des données d'analyse, l'accès est cloisonné par équipe, et rien n'est revendu ni utilisé pour entraîner un modèle. Un accord écrit encadre tout traitement.</p></details>
-      <details><summary data-i18n="rz.fq4_q">Que devient Formation360 ?</summary>
-        <p data-i18n="rz.fq4_a">Formation360 reste disponible pour la production de séances et de supports de formation. Rezilta reprend et élargit la partie projet — avant-projet, indicateurs, évaluation, rapports — pour tout type d'activité, pas seulement la formation.</p></details>
+        <p data-i18n="rz.fq1_a">Un outil de gestion de projet suit des tâches, un tableur affiche des totaux. Rezilta relie la donnée brute au chiffre publié, avec la méthode et le diagnostic au milieu. C'est la chaîne que réclame un auditeur, une autorité de tutelle ou un comité de lecture — et qu'aucun tableur ne tient dans la durée.</p></details>
+      <details><summary data-i18n="rz.fq7_q">Faut-il savoir programmer ou être statisticien ?</summary>
+        <p data-i18n="rz.fq7_a">Non. Vous posez la question, l'outil propose la méthode qui correspond à vos données et traduit le résultat en langage simple. Mais le script et les données restent toujours disponibles : celui qui veut vérifier, ou refaire le calcul dans R, le peut à tout moment.</p></details>
+      <details><summary data-i18n="rz.fq2_q">Faut-il abandonner Kobo, Excel, MySQL ou Power BI ?</summary>
+        <p data-i18n="rz.fq2_a">Non, et c'est justement le point : Rezilta se branche sur vos bases MySQL ou SQL Server, génère vos formulaires vers Kobo/XLSForm, et ressort en Excel, PDF ou modèle Power BI. L'objectif est de relier ce que vous utilisez déjà, pas de vous obliger à tout remplacer.</p></details>
+      <details><summary data-i18n="rz.fq3_q">Nos données sont sensibles et ne peuvent pas sortir.</summary>
+        <p data-i18n="rz.fq3_a">Deux réponses. D'abord le principe de minimisation : on ne collecte que ce qui sert une question. Ensuite l'hébergement : l'installation sur vos propres serveurs est prévue, pour les cas où la donnée n'a pas le droit de quitter le pays ou le réseau interne. Dans tous les cas, les données personnelles sont séparées des données d'analyse, l'accès est cloisonné, et rien n'est revendu ni utilisé pour entraîner un modèle.</p></details>
+      <details><summary data-i18n="rz.fq8_q">Peut-on se fier à une analyse produite par une machine ?</summary>
+        <p data-i18n="rz.fq8_a">Pas sur parole — et c'est pour cela que chaque résultat arrive avec ses diagnostics, ses hypothèses écrites et son script. Une conclusion qui échoue à ses contrôles est signalée, pas maquillée. Et lorsque les données ne permettent pas de conclure, l'outil est fait pour le dire plutôt que pour produire un chiffre rassurant.</p></details>
       <details><summary data-i18n="rz.fq5_q">L'IA décide-t-elle quelque chose ?</summary>
-        <p data-i18n="rz.fq5_a">Jamais. Elle propose une analyse, un premier jet de narratif, une détection d'anomalie — chaque proposition est identifiée comme telle, et une personne valide avant que cela n'entre dans un rapport. La responsabilité reste humaine.</p></details>
+        <p data-i18n="rz.fq5_a">Jamais. Elle propose une méthode, un premier jet de narratif, une détection d'anomalie — chaque proposition est identifiée comme telle, et une personne valide avant que cela n'entre dans un rapport. La responsabilité reste humaine.</p></details>
+      <details><summary data-i18n="rz.fq4_q">Que devient Formation360 ?</summary>
+        <p data-i18n="rz.fq4_a">Formation360 reste disponible pour la production de séances et de supports de formation. Rezilta reprend et élargit la partie données et projet — sources, indicateurs, analyse, évaluation, rapports — pour tout type d'organisation, pas seulement la formation.</p></details>
     </div>
   </div>
 </section>
@@ -368,8 +534,8 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 <section style="padding-top:1.4rem;padding-bottom:2rem">
   <div class="container">
     <div class="cta-band" style="background:rgba(46,196,182,0.08);border:1px solid rgba(46,196,182,0.35);border-radius:14px;padding:1.8rem;text-align:center">
-      <h2 style="margin:0 0 0.5rem" data-i18n="rz.end_t">Construisons-le sur votre projet réel</h2>
-      <p style="margin:0 auto 1.1rem;max-width:660px;color:#c9d8e6" data-i18n="rz.end_d">Le programme pilote est ouvert à quelques organisations. Vous apportez un projet en cours, nous apportons l'outil et la méthode — et vous gardez tout ce qui est produit.</p>
+      <h2 style="margin:0 0 0.5rem" data-i18n="rz.end_t">Construisons-le sur vos vraies données</h2>
+      <p style="margin:0 auto 1.1rem;max-width:680px;color:#c9d8e6" data-i18n="rz.end_d">Le programme pilote est ouvert à quelques organisations. Vous apportez un jeu de données et une question qui compte, nous apportons la plateforme et la méthode — et vous gardez tout ce qui est produit.</p>
       <a href="mailto:sales@atmart.ltd?subject=Rezilta%20-%20programme%20pilote" class="btn btn-primary" data-i18n="rz.end_cta">Écrire à sales@atmart.ltd</a>
     </div>
   </div>

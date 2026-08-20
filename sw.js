@@ -1,5 +1,5 @@
 // Atmart PWA — cache statique (les appels IA passent toujours par le reseau)
-const CACHE = "atmart-v88";
+const CACHE = "atmart-v89";
 
 // Le noyau du site : navigation et identite visuelle.
 const CORE = ["/", "/index.html", "/chofe360.html", "/karye360.html", "/rezilta.html", "/studio.html", "/atelier.html",
