@@ -56,6 +56,18 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     .rz-temp>p{margin:0 0 0.9rem;font-size:0.92rem;color:#c9d8e6;line-height:1.6}
     .rz-temp ul{margin:0;padding-left:1.1rem}
     .rz-temp li{font-size:0.88rem;color:#9db2c7;line-height:1.55;margin-bottom:0.35rem}
+    /* les outils : une porte par geste */
+    .rz-outils{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:1.2rem}
+    .rz-outil{display:block;text-decoration:none;background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.5rem 1.6rem;
+      transition:border-color .25s,transform .25s}
+    .rz-outil:hover{border-color:rgba(46,196,182,.55);transform:translateY(-2px)}
+    .rz-outil .ic{font-size:1.6rem;display:block;margin-bottom:.6rem}
+    .rz-outil h3{margin:0 0 .45rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.14rem}
+    .rz-outil p{margin:0 0 .85rem;font-size:.9rem;color:#9db2c7;line-height:1.62}
+    .rz-outil .fleche{font-size:.86rem;font-weight:600;color:#2ec4b6}
+    .rz-outil.bientot{opacity:.62;pointer-events:none}
+    .rz-outil.bientot .fleche{color:#9db2c7}
     /* moteur analytique */
     .rz-eng{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:1.1rem;margin-top:1.2rem}
     .rz-eng>div{background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.1);border-top:3px solid #5d9cec;border-radius:4px 4px 14px 14px;padding:1.3rem 1.4rem}
@@ -233,6 +245,34 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <li data-i18n="rz.lay3_l4">API pour brancher vos propres outils</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- LES OUTILS -->
+<section id="outils" style="padding-top:1.4rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="rz.ou_t">Les outils</h2>
+      <p data-i18n="rz.ou_d">Chaque outil de Rezilta simplifie un geste et rend une personne de plus capable de le faire seule. Imaginez ce que devient une organisation où chacun tient enfin l'outil de son métier.</p></div>
+    <div class="rz-outils">
+      <a class="rz-outil" href="rezilta-collecte.html">
+        <span class="ic">📡</span>
+        <h3 data-i18n="rz.ou1_t">Collecter les données de terrain</h3>
+        <p data-i18n="rz.ou1_d">La fiche d'indicateur d'abord, le formulaire ensuite. Saisie hors ligne, export vers Kobo et ODK, contrôle qualité à l'arrivée, absences documentées.</p>
+        <span class="fleche" data-i18n="rz.ou_v">Voir l'outil →</span>
+      </a>
+      <a class="rz-outil" href="rezilta-indicateurs.html">
+        <span class="ic">📊</span>
+        <h3 data-i18n="rz.ou2_t">Agréger les indicateurs</h3>
+        <p data-i18n="rz.ou2_d">Une définition partagée, une règle d'agrégation écrite d'avance, la désagrégation par sexe, âge et zone. Consolider sans décloisonner.</p>
+        <span class="fleche" data-i18n="rz.ou_v">Voir l'outil →</span>
+      </a>
+      <span class="rz-outil bientot">
+        <span class="ic">🎯</span>
+        <h3 data-i18n="rz.ou3_t">Évaluer et capitaliser</h3>
+        <p data-i18n="rz.ou3_d">Ligne de base, performance, SWOT bâti sur les données du suivi, impact à 3, 6 et 12 mois, leçons apprises rattachées à l'activité qui les a fait naître.</p>
+        <span class="fleche" data-i18n="rz.ou_b">Page à venir</span>
+      </span>
     </div>
   </div>
 </section>

@@ -3,3 +3,7 @@
 # (« FIXTURE DE TEST — ne pas publier »). Les mettre en ligne reviendrait a
 # poser de fausses donnees haitiennes sur atmart.ltd.
 tests/
+
+# Caches Python des generateurs de contenu.
+__pycache__/
+*.pyc

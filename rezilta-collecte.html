@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/brand/logo-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <title>Collecter les données de terrain — Rezilta | Atmart</title>
+  <meta name="description" content="Rezilta, outil de collecte pour le suivi-évaluation : la fiche d'indicateur d'abord, le formulaire ensuite. Distribution par lien, code ou XLSForm vers Kobo/ODK, saisie hors ligne sur téléphone, contrôle qualité à l'arrivée. Chaque valeur manquante devient une absence documentée avec sa raison, chaque chiffre remonte à sa source." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#0e2240" />
+  <link rel="stylesheet" href="assets/style.css?v=32" />
+<script>/* langue auto : avant le 1er affichage, evite le clignotement */
+(function(){var S={fr:1,ht:1,en:1,es:1},d=document.documentElement,
+s=null;try{s=localStorage.getItem("atmart_lang")}catch(e){}
+var l=s&&S[s]?s:null;
+if(!l){var n=navigator.languages||[navigator.language||""];
+for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase().split("-")[0];
+if(c==="ht"||c==="hat"){l="ht";break}if(S[c]){l=c;break}}}
+window.__atmAuto=!s;window.__atmLang=l=l||"fr";d.lang=l;
+if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove("i18n-wait")},1500)}})();
+</script>
+  <style>
+    .ot-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.1rem}
+    .ot-badge{background:rgba(46,196,182,.12);border:1px solid rgba(46,196,182,.35);color:#d7e3f0;
+      border-radius:99px;padding:.32rem .85rem;font-size:.8rem;font-weight:500}
+    .ot-wip{background:rgba(244,162,97,.12);border:1px solid rgba(244,162,97,.5);border-radius:12px;
+      padding:.8rem 1.05rem;margin-top:1.2rem;max-width:780px;font-size:.9rem;color:#e4dbcf;line-height:1.6}
+    /* --- les quatre gestes --- */
+    .ot-gestes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:1.3rem}
+    .ot-geste{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;
+      padding:1.35rem 1.4rem;position:relative;transition:border-color .25s}
+    .ot-geste:hover{border-color:rgba(46,196,182,.45)}
+    .ot-picto{width:44px;height:44px;color:#2ec4b6;display:block;margin-bottom:.85rem}
+    .ot-geste .ord{position:absolute;top:1.1rem;right:1.25rem;font-size:.72rem;font-weight:700;
+      letter-spacing:.12em;color:#5a6f83}
+    .ot-geste h4{margin:0 0 .4rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.04rem}
+    .ot-geste p{margin:0;font-size:.885rem;color:#9db2c7;line-height:1.6}
+    /* --- sections alternees : une idee, un visuel --- */
+    .ot-alt{display:grid;grid-template-columns:1fr;gap:1.6rem;align-items:center;
+      padding:1.7rem 0;border-top:1px solid rgba(255,255,255,.08)}
+    .ot-alt:first-of-type{border-top:none}
+    @media(min-width:760px){
+      .ot-alt{grid-template-columns:1.15fr .85fr;gap:2.6rem}
+      .ot-alt.inv .ot-alt-vis{order:-1}
+    }
+    .ot-alt h3{margin:0 0 .55rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.24rem}
+    .ot-alt p{margin:0;font-size:.95rem;color:#9db2c7;line-height:1.68;max-width:56ch}
+    .ot-alt-vis{display:flex;justify-content:center;align-items:center;min-height:120px;
+      background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:1.4rem}
+    .ot-alt-vis svg{width:100%;max-width:250px;height:auto;color:#2ec4b6}
+    /* --- se brancher --- */
+    .ot-brancher{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1.1rem}
+    .ot-brancher div{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
+      border-radius:12px;padding:1.05rem 1.2rem}
+    .ot-brancher b{display:block;color:#fff;margin-bottom:.5rem;font-size:.95rem}
+    .ot-brancher ul{margin:0;padding-left:1.05rem}
+    .ot-brancher li{font-size:.875rem;color:#9db2c7;line-height:1.6;margin-bottom:.25rem}
+    /* --- l enonce d impact : narratif, aucune puce --- */
+    .ot-impact{background:rgba(46,196,182,.07);border:1px solid rgba(46,196,182,.3);border-radius:16px;
+      padding:1.9rem 2rem;margin-top:1.2rem}
+    .ot-impact p{margin:0;font-size:1.06rem;line-height:1.75;color:#d7e3f0;max-width:64ch}
+    .ot-impact p+p{margin-top:.9rem}
+    .ot-impact strong{color:#fff}
+    /* --- appel --- */
+    .ot-portes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1.1rem}
+    .ot-porte{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;
+      padding:1.4rem 1.5rem}
+    .ot-porte h4{margin:0 0 .4rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.02rem}
+    .ot-porte p{margin:0 0 .9rem;font-size:.88rem;color:#9db2c7;line-height:1.6}
+    .ot-suite{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+    .ot-suite a{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:99px;
+      padding:.45rem 1rem;font-size:.85rem;color:#c9d8e6;text-decoration:none;transition:border-color .2s}
+    .ot-suite a:hover{border-color:rgba(46,196,182,.5)}
+  </style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="assets/brand/logo-dark-96.png" alt="Atmart" class="logo-img" />at<span>mart</span><small data-i18n="brand.tagline">marché de la tech et des données</small></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="conseil-ia.html" data-i18n="nav.advisory">💼 Entreprises</a></li>
+      <li class="nav-grp"><span data-i18n="nav.g_win">🎯 Réussir</span>
+        <ul class="nav-sub">
+          <li><a href="entevyou360.html">Entèvyou360 <small data-i18n="nav.s_ent">l'entretien d'embauche</small></a></li>
+          <li><a href="chofe360.html">Driver360 <small data-i18n="nav.s_cho">permis &amp; conduite (MA)</small></a></li>
+          <li><a href="karye360.html">Career360 <small data-i18n="nav.s_kar">votre coach de carrière</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.g_learn">🎓 Se former</span>
+        <ul class="nav-sub">
+          <li><a href="rezilta.html">Rezilta <small data-i18n="nav.s_rz">planifier, suivre, évaluer</small></a></li>
+          <li><a href="studio.html">Formation360 <small data-i18n="nav.s_fom">formation pour les entreprises, ONG &amp; Écoles</small></a></li>
+          <li><a href="https://lojik360.atmart.ltd">Lojik360 <small data-i18n="nav.s_loj">tutoriels gratuits</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.g_data">🗂 Données</span>
+        <ul class="nav-sub">
+          <li><a href="https://explorateur.atmart.ltd/"><span data-i18n="nav.d_exp">Explorateur Haïti</span> <small data-i18n="nav.d_exp_s">chercher une commune</small></a></li>
+          <li><a href="https://explorateur.atmart.ltd/datasets.html"><span data-i18n="nav.d_cat">Catalogue</span> <small data-i18n="nav.d_cat_s">jeux de données &amp; guides</small></a></li>
+          <li><a href="https://explorateur.atmart.ltd/donnees-solutions.html"><span data-i18n="nav.d_sol">Solutions &amp; licences</span> <small data-i18n="nav.d_sol_s">entreprises, ONG, administrations</small></a></li>
+          <li><a href="https://explorateur.atmart.ltd/donnees-campus.html"><span data-i18n="nav.d_cam">Atmart Campus</span> <small data-i18n="nav.d_cam_s">étudiants &amp; chercheurs</small></a></li>
+          <li><a href="https://explorateur.atmart.ltd/donnees-parrainage.html"><span data-i18n="nav.d_par">Parrainer un dataset</span> <small data-i18n="nav.d_par_s">institutions &amp; entreprises</small></a></li>
+          <li><a href="https://explorateur.atmart.ltd/donnees.html"><span data-i18n="nav.d_hub">Comment ça marche</span> <small data-i18n="nav.d_hub_s">méthode, sources, système</small></a></li>
+        </ul>
+      </li>
+      <li class="nav-grp"><span data-i18n="nav.atelier">🎨 Atelier</span>
+        <ul class="nav-sub">
+          <li><a href="atelier.html"><span data-i18n="nav.a_gal">Galerie</span> <small data-i18n="nav.a_gal_s">les œuvres d'ATM</small></a></li>
+          <li><a href="atelier-collection.html"><span data-i18n="nav.a_col">La collection</span> <small data-i18n="nav.a_col_s">univers, gammes, bundles</small></a></li>
+          <li><a href="atelier-maison.html"><span data-i18n="nav.a_mez">Pour la maison</span> <small data-i18n="nav.a_mez_s">affiches, originaux, cadeaux</small></a></li>
+          <li><a href="atelier-business.html"><span data-i18n="nav.a_biz">Pour le business</span> <small data-i18n="nav.a_biz_s">écrans &amp; licences</small></a></li>
+          <li><a href="atelier-diaspora.html"><span data-i18n="nav.a_dya">Diaspora</span> <small data-i18n="nav.a_dya_s">une offre par segment</small></a></li>
+          <li><a href="atelier-institutions.html"><span data-i18n="nav.a_fin">Financer l'accès</span> <small data-i18n="nav.a_fin_s">parrainer une communauté</small></a></li>
+          <li><a href="impact.html"><span data-i18n="nav.a_imp">Recevoir une impression</span> <small data-i18n="nav.a_imp_s">programmes parrainés</small></a></li>
+          <li><a href="processus-creation.html"><span data-i18n="nav.a_proc">Notre processus</span> <small data-i18n="nav.a_proc_s">comment une œuvre est faite</small></a></li>
+          <li><a href="atelier-artistes.html"><span data-i18n="nav.a_art">Artistes</span> <small data-i18n="nav.a_art_s">rejoindre le programme</small></a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding-bottom:1.1rem">
+  <div class="container">
+    <p class="kreyol" data-i18n="oc.fil">Une donnée qu'il faut retravailler n'a pas été collectée, elle a été ramassée.</p>
+    <h1>Collecter les données de terrain</h1>
+    <div class="aka"><b data-i18n="oc.aka">suivi, évaluation et apprentissage</b><small data-i18n="oc.aka_s">un outil de Rezilta</small></div>
+    <p class="lead" data-i18n-html="oc.lead">Un formulaire ne se dessine pas en premier : il se déduit des indicateurs qu'on a décidé de suivre. Rezilta part de la fiche d'indicateur, en tire la collecte, et vérifie ce qui rentre — pour que la donnée arrive <strong>utilisable</strong>, pas à reprendre.</p>
+    <div class="ot-badges">
+      <span class="ot-badge" data-i18n="oc.bg1">📐 Fiche d'indicateur d'abord</span>
+      <span class="ot-badge" data-i18n="oc.bg2">📱 Saisie hors ligne</span>
+      <span class="ot-badge" data-i18n="oc.bg3">🔁 Export vers Kobo/ODK</span>
+      <span class="ot-badge" data-i18n="oc.bg4">🔍 Contrôle à l'arrivée</span>
+      <span class="ot-badge" data-i18n="oc.bg5">🗣 Dans la langue de l'équipe</span>
+    </div>
+    <div class="ot-wip" data-i18n-html="oc.wip">🚧 <strong>Cet outil est en construction.</strong> Ce que vous lisez est ce que nous nous engageons à livrer, pas ce qui tourne déjà. Le <a href="rezilta.html#offre" style="color:#2ec4b6">programme pilote</a> est ouvert aux organisations qui veulent le construire avec nous.</div>
+    <div style="margin-top:1.2rem">
+      <a href="mailto:sales@atmart.ltd?subject=Rezilta%20-%20collecte%20de%20donnees" class="btn btn-primary" data-i18n="oc.cta1">Rejoindre le programme pilote</a>
+      <a href="rezilta.html" class="btn btn-outline" style="margin-left:.6rem" data-i18n="oc.cta2">Voir la plateforme</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:.4rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="oc.ge_t">Quatre gestes, dans cet ordre</h2>
+      <p data-i18n="oc.ge_d">L'ordre n'est pas un détail de présentation : c'est lui qui évite de collecter des questions qui ne serviront à rien.</p></div>
+    <div class="ot-gestes">
+      <div class="ot-geste"><span class="ord">1</span>
+        <svg class="ot-picto" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="26" height="34" rx="2"/><path d="M14 15h14M14 22h14M14 29h8"/>
+<path d="M40 24h10M46 20l4 4-4 4"/><rect x="52" y="14" width="4" height="36" rx="1" opacity=".35"/></svg>
+        <h4 data-i18n="oc.g1_t">Concevoir</h4>
+        <p data-i18n="oc.g1_d">L'indicateur d'abord : définition, unité, désagrégation attendue, périodicité. Le formulaire se déduit de cette fiche. Une question qui ne sert aucun indicateur ne rentre pas.</p>
+      </div>
+      <div class="ot-geste"><span class="ord">2</span>
+        <svg class="ot-picto" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="32" r="6"/><path d="M18 32h10M28 32l0-16h12M28 32l0 16h12"/>
+<rect x="42" y="10" width="14" height="12" rx="2"/><rect x="42" y="26" width="14" height="12" rx="2"/>
+<rect x="42" y="42" width="14" height="12" rx="2"/></svg>
+        <h4 data-i18n="oc.g2_t">Distribuer</h4>
+        <p data-i18n="oc.g2_d">Un lien, un code à dicter au téléphone, ou un export XLSForm vers Kobo et ODK. L'équipe de terrain reçoit ce qu'elle sait déjà utiliser.</p>
+      </div>
+      <div class="ot-geste"><span class="ord">3</span>
+        <svg class="ot-picto" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="8" width="28" height="48" rx="4"/><path d="M27 24l5 5 10-10"/>
+<path d="M24 40h16M24 47h10"/><path d="M6 14l10 10M16 14L6 24" opacity=".55"/></svg>
+        <h4 data-i18n="oc.g3_t">Remplir</h4>
+        <p data-i18n="oc.g3_d">Hors ligne, sur téléphone, dans la langue de l'équipe. La synchronisation attend le réseau ; le terrain, lui, n'attend pas.</p>
+      </div>
+      <div class="ot-geste"><span class="ord">4</span>
+        <svg class="ot-picto" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 14h30M8 24h30M8 34h18"/><circle cx="40" cy="38" r="12"/><path d="M49 47l7 7"/>
+<path d="M36 38h8M40 34v8"/></svg>
+        <h4 data-i18n="oc.g4_t">Contrôler</h4>
+        <p data-i18n="oc.g4_d">Les anomalies sont signalées à l'arrivée, avec le remède. Corriger une saisie le jour même coûte une minute ; six mois plus tard, c'est une enquête.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:1.3rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="oc.al_t">Ce qui distingue cette collecte</h2></div>
+    <div class="ot-alt">
+      <div>
+        <h3 data-i18n="oc.a1_t">Une case vide n'est pas un vide</h3>
+        <p data-i18n-html="oc.a1_d">Chaque valeur manquante devient une <strong>ligne</strong> avec sa raison : jamais collectée, refus de répondre, sans objet, hors période. « Jamais collecté » et « refus de répondre » n'appellent pas la même analyse — et un <em>NULL</em> ne dit ni l'un ni l'autre.</p>
+      </div>
+      <div class="ot-alt-vis"><svg viewBox="0 0 260 130" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" aria-hidden="true">
+  <rect x="10" y="16" width="110" height="98" rx="4" opacity=".5"/>
+  <path d="M10 40h110M10 64h110M10 88h110M46 16v98" opacity=".35"/>
+  <rect x="12" y="42" width="32" height="20" fill="currentColor" opacity=".08"/>
+  <path d="M20 46l16 12M36 46l-16 12" opacity=".7"/>
+  <path d="M130 65h26M150 59l6 6-6 6" opacity=".8"/>
+  <rect x="166" y="30" width="84" height="70" rx="4"/>
+  <path d="M178 50h60M178 66h60M178 82h38" opacity=".55"/>
+  <circle cx="178" cy="50" r="3" fill="currentColor"/>
+  <circle cx="178" cy="66" r="3" fill="currentColor"/>
+  <circle cx="178" cy="82" r="3" fill="currentColor"/>
+</svg></div>
+    </div>
+    <div class="ot-alt inv">
+      <div>
+        <h3 data-i18n="oc.a2_t">Chaque valeur porte sa source</h3>
+        <p data-i18n-html="oc.a2_d">Source, extraction datée, empreinte, transformation : la chaîne ne se rompt pas. Du chiffre publié on remonte à la ligne brute en un clic. C'est ce que réclame un audit, et ce qu'aucun tableur ne tient dans la durée.</p>
+      </div>
+      <div class="ot-alt-vis"><svg viewBox="0 0 260 130" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" aria-hidden="true">
+  <rect x="8" y="46" width="46" height="38" rx="4"/>
+  <rect x="80" y="46" width="46" height="38" rx="4"/>
+  <rect x="152" y="46" width="46" height="38" rx="4"/>
+  <circle cx="234" cy="65" r="18"/>
+  <path d="M54 65h26M126 65h26M198 65h18" opacity=".8"/>
+  <path d="M74 59l6 6-6 6M146 59l6 6-6 6M210 59l6 6-6 6" opacity=".8"/>
+  <path d="M228 65l4 5 8-10"/>
+  <path d="M18 58h26M18 68h16M90 58h26M90 68h16M162 58h26M162 68h16" opacity=".45"/>
+</svg></div>
+    </div>
+    <div class="ot-alt">
+      <div>
+        <h3 data-i18n="oc.a3_t">Ce qui est écrit survit à qui l'a écrit</h3>
+        <p data-i18n-html="oc.a3_d">Définition, unité, méthode de calcul : tant qu'elles manquent, la variable reste utilisable mais <strong>signalée dans les rapports</strong>. Une convention orale disparaît avec la personne qui la connaissait ; une définition écrite, non.</p>
+      </div>
+      <div class="ot-alt-vis"><svg viewBox="0 0 260 130" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" aria-hidden="true">
+  <rect x="26" y="14" width="150" height="102" rx="5"/>
+  <path d="M26 40h150" opacity=".5"/>
+  <path d="M44 58h44M44 76h44M44 94h44" opacity=".8"/>
+  <path d="M104 58h54M104 76h54" opacity=".4"/>
+  <path d="M104 94h20" opacity=".4"/>
+  <path d="M132 92l6 6 10-12"/>
+  <path d="M188 44h48M188 62h48M188 80h30" opacity=".3"/>
+  <circle cx="176" cy="26" r="10" opacity=".6"/>
+  <path d="M176 21v6M176 31v1" opacity=".9"/>
+</svg></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:1.3rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="oc.br_t">Se brancher sur ce qui existe déjà</h2>
+      <p data-i18n="oc.br_d">L'objectif n'est pas de remplacer vos outils, c'est de les relier. Personne ne change de système de collecte pour faire plaisir à un logiciel.</p></div>
+    <div class="ot-brancher">
+      <div><b data-i18n="oc.b1_t">Connexion directe</b><ul>
+        <li data-i18n="oc.b1_l1">MySQL et MariaDB</li>
+        <li data-i18n="oc.b1_l2">PostgreSQL</li>
+        <li data-i18n="oc.b1_l3">SQL Server</li>
+        <li data-i18n="oc.b1_l4">API REST</li>
+      </ul></div>
+      <div><b data-i18n="oc.b2_t">Par fichier</b><ul>
+        <li data-i18n="oc.b2_l1">Excel et CSV, séparateur et virgule décimale reconnus</li>
+        <li data-i18n="oc.b2_l2">XLSForm — aller et retour avec Kobo et ODK</li>
+        <li data-i18n="oc.b2_l3">Exports de vos outils actuels, sans reformatage manuel</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:1.3rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="oc.im_t">Ce que ça change dans une équipe</h2></div>
+    <div class="ot-impact">
+      <p data-i18n-html="oc.im_1">Chaque outil de Rezilta simplifie un geste, et rend <strong>une personne de plus</strong> capable de le faire seule. Quand la collecte cesse d'être l'affaire d'un seul expert, l'agent de terrain corrige sa propre saisie le jour même, le responsable voit l'écart quand il apparaît au lieu de le découvrir au rapport, et le chargé de suivi passe son temps à comprendre plutôt qu'à recopier.</p>
+      <p data-i18n-html="oc.im_2">C'est là que se joue l'impact réel : non pas dans un tableau de bord de plus, mais dans le nombre de personnes qui, dans une entreprise, une institution ou un projet, tiennent enfin <strong>l'outil de leur métier</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:1.3rem;padding-bottom:2rem">
+  <div class="container">
+    <div class="section-head"><h2 data-i18n="oc.ap_t">Aller plus loin</h2></div>
+    <div class="ot-portes">
+      <div class="ot-porte">
+        <h4 data-i18n="oc.ap1_t">Voir l'outil sur vos données</h4>
+        <p data-i18n="oc.ap1_d">Vous apportez un fichier et une question qui compte ; nous montrons ce que l'outil en fait, sur vos chiffres et pas sur une démonstration.</p>
+        <a href="mailto:sales@atmart.ltd?subject=Rezilta%20-%20collecte%20de%20donnees" class="btn btn-primary" data-i18n="oc.ap1_c">Demander une démonstration</a>
+      </div>
+      <div class="ot-porte">
+        <h4 data-i18n="oc.ap2_t">Comprendre la méthode</h4>
+        <p data-i18n="oc.ap2_d">La plateforme entière : d'où viennent les données, ce que le moteur refuse de conclure, et comment un chiffre remonte à sa source.</p>
+        <a href="rezilta.html" class="btn btn-outline" data-i18n="oc.ap2_c">Lire la plateforme</a>
+      </div>
+    </div>
+    <div class="ot-suite">
+      <a href="rezilta-indicateurs.html" data-i18n="oc.suite1">→ Agréger les indicateurs</a>
+      <a href="rezilta.html" data-i18n="oc.suite2">→ Toute la plateforme</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">At<span>mart</span></a>
+        <p style="margin-top:0.7rem" data-i18n="atm.foot_tagline">Marché de la technologie, des données et de l'IA — des solutions utiles.</p>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_products">Produits</h4>
+        <ul>
+          <li><a href="rezilta.html">Rezilta</a></li>
+          <li><a href="conseil-ia.html" data-i18n="nav.advisory">💼 Entreprises</a></li>
+          <li><a href="karye360.html">Career360</a></li>
+          <li><a href="studio.html">Formation360</a></li>
+          <li><a href="https://explorateur.atmart.ltd/datasets.html" data-i18n="nav.datasets">Datasets</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="atm.foot_learn">Apprendre</h4>
+        <ul>
+          <li><a href="https://lojik360.atmart.ltd" data-i18n="atm.foot_l360">Lojik360 — tutoriels gratuits</a></li>
+          <li><a href="podcast.html" data-i18n="foot.podcast">Podcast Lojik360</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.h_contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:sales@atmart.ltd">sales@atmart.ltd</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-note">© Atmart LLC — <span data-i18n="foot.rights">Tous droits réservés.</span></p>
+  </div>
+</footer>
+
+<script src="assets/script.js?v=2"></script>
+<script src="assets/i18n.js?v=15"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js");}</script>
+<script src="assets/launcher.js?v=3"></script>
+<script src="assets/share.js?v=3"></script>
+</body>
+</html>
