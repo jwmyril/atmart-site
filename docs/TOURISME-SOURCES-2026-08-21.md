@@ -12,21 +12,24 @@ qu'aucune source ouverte ne permet de dire aujourd'hui sur le tourisme haïtien.
 
 ### 1.1 L'offre cartographiée (OpenStreetMap via HOT, ODbL, passeport PSP-024)
 
-2 695 objets, **107 communes sur 140**, en sept familles :
+2 896 objets, **115 communes sur 140**, en neuf familles :
 
 | Famille | Objets | Communes |
 |---|---|---|
-| Hébergement | 643 | 81 |
 | Restauration et sorties | 1 430 | 85 |
+| Hébergement | 643 | 81 |
 | Patrimoine bâti | 230 | 52 |
+| Littoral et balnéaire | 165 | 52 |
 | Sites et attractions | 146 | 46 |
 | Lieux de culture | 121 | 30 |
 | Information touristique | 70 | 25 |
 | Plein air | 55 | 18 |
+| Curiosités naturelles | 36 | 23 |
 
-Deux extraits HOT sont lus : les points d'intérêt et les lieux culturels. Ils
-se recouvrent — 3 921 objets figurent dans les deux — et le dédoublonnage se
-fait sur l'identifiant OSM, jamais sur le nom.
+Trois captures sont lues : deux extraits HOT — les points d'intérêt et les
+lieux culturels, qui se recouvrent sur 3 930 objets — et une requête Overpass
+pour le littoral et les curiosités naturelles, que ni l'un ni l'autre ne
+porte. Le dédoublonnage se fait sur l'identifiant OSM, jamais sur le nom.
 
 **Trois pièges du tag `historic`, mesurés et écartés.** `historic=no` compte
 707 objets : c'est un import humanitaire d'abris, où le tag dit précisément
@@ -131,12 +134,45 @@ republié. Nous publions l'absence à sa place.
 
 ---
 
-## 5. Ce qui reste à faire
+## 5. Le trait de côte : une hypothèse fausse, et ce qu'elle cachait
 
-- **Le trait de côte.** 166 plages sont cartographiées dans OpenStreetMap ;
-  78 tombent hors des polygones communaux simplifiés que sert l'Explorateur.
-  Les récupérer ouvrirait six communes côtières supplémentaires. C'est
-  probablement le plus gros gain caché du chantier.
+L'hypothèse de départ était que le contour communal **simplifié** servi par
+l'Explorateur perdait le trait de côte, et avec lui les plages. Elle était
+fausse, et la mesure l'a montrée d'un coup : le contour **complet** (COD-AB,
+52 782 sommets contre 8 889) perd **exactement les mêmes 87 objets**.
+
+La cause n'est pas la simplification, c'est la géographie. Une plage est posée
+sur le sable, une marina sur l'eau : elles tombent du côté **mer** de la limite
+administrative, qui suit le rivage. Aucune finesse de contour ne les ramène.
+
+La vraie question était donc la distance, et elle tranche seule :
+
+| distance au rivage | objets |
+|---|---|
+| ≤ 50 m | 51 |
+| ≤ 100 m | 15 de plus |
+| ≤ 250 m | 5 de plus |
+| au-delà | 16 |
+
+Le rattachement se fait donc **sous 100 mètres** — et ce n'est pas un seuil
+inventé pour l'occasion : c'est celui que le registre déclare déjà pour
+SRC-028, « affectées aux communes par point-dans-polygone COD-AB (tolérance
+~100 m) ». À cette distance, ce n'est pas une commune qu'on devine, c'est un
+trait de côte qu'on recolle. Les **21 objets** au-delà — îlots, bancs de sable,
+plages sans nom au large — restent hors du socle communal et ne sont comptés
+nulle part.
+
+Résultat : **107 → 115 communes couvertes**. Huit de plus, dont les communes
+côtières et rurales qui manquaient.
+
+Une remarque de méthode qui vaut au-delà de ce cas : le contour servi au
+navigateur est un objet **dessiné pour l'œil**, réduit de 52 782 sommets à
+8 889 pour que la carte s'affiche vite. Lui confier une décision géographique
+serait une erreur de catégorie — le producteur lit donc `hti_admin2.geojson`,
+jamais `haiti_communes_simplifie.geojson`.
+
+## 6. Ce qui reste à faire
+
 - **GeoNames** (CC BY 4.0) porte 36 forts que la cartographie OSM haïtienne
   n'a pas, et ouvrirait quatre communes de plus.
 - **Les aérodromes** (OurAirports, domaine public) : six aéroports desservis,

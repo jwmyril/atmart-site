@@ -4,6 +4,12 @@
 # poser de fausses donnees haitiennes sur atmart.ltd.
 tests/
 
+# Textes d'approche : faits pour etre ENVOYES, pas publies. docs/ est servi
+# par GitHub Pages, donc tout ce qui y entre devient une page publique — et un
+# message d'approche que sa cible trouve en ligne avant de le recevoir n'en
+# est plus un.
+docs/WHATSAPP-*.md
+
 # Caches Python des generateurs de contenu.
 __pycache__/
 *.pyc
