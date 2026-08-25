@@ -4,7 +4,9 @@
 suit le code partout : autre compte Claude, autre machine, autre session.
 À lire en premier pour reprendre le chantier.
 
-Dernière mise à jour : **2026-08-14 soir** (journée : budget national, fiche Pays, annuaire des services, infrastructures, page Couches, mesure d'usage voie C, modèles Power BI/QGIS validés, chrome factorisé)
+Dernière mise à jour : **2026-08-24** (journée : 560 pages communales statiques et indexables en 4 langues, satellite i18n complété, correction d'un pourcentage impossible sur IND-ENV-002)
+
+Mise à jour précédente : 2026-08-14 soir (budget national, fiche Pays, annuaire des services, infrastructures, page Couches, mesure d'usage voie C, modèles Power BI/QGIS validés, chrome factorisé)
 
 ---
 
@@ -368,6 +370,93 @@ en une commande, refuse de s'appliquer si la zone a changé, et se vérifie.
 les fichiers explicitement (l'une le moteur, l'autre les pages), soit le
 moteur cesse d'être régénéré et devient une source éditée. Tant que les
 deux écrivent, il faut passer par des patchs — c'est un coût réel.
+
+## 4 septies. 24/08/2026 — une adresse par commune
+
+**LE CONSTAT.** L'Explorateur documentait 140 communes et un moteur de
+recherche n'en voyait aucune. Tout se jouait derrière `?id=HTC-0111` : le
+contenu est fabriqué en JavaScript après le chargement, sur une URL que rien
+ne distingue de l'accueil. Le sitemap déclarait une cinquantaine d'adresses,
+pas une ne portait le nom d'une commune. Quelqu'un qui cherche
+« population Jacmel » ou « done sou Leyogàn » ne pouvait pas nous trouver —
+non parce que la donnée manquait, mais parce qu'elle n'avait pas d'adresse.
+
+**CE QUI EXISTE MAINTENANT.** 140 communes × 4 langues = 560 pages statiques,
+plus un index par langue (564 fichiers, ~11 Mo).
+
+| | |
+|---|---|
+| Adresses | `/commune/<slug>.html`, `/ht/commune/`, `/en/commune/`, `/es/commune/` |
+| Slug | dérivé de `nom_fr`, identique dans les quatre langues — c'est ce qui rend les `hreflang` calculables |
+| Par page | `canonical` + 4 `hreflang` + `x-default`, JSON-LD (WebPage + AdministrativeArea + BreadcrumbList), valeurs groupées par catégorie avec unité, millésime, statut et source |
+| Absences | section « Ce que nous ne savons pas » — nommées, jamais rendues par un zéro |
+| Poids | ~19 Ko par page, feuille `assets/commune.css` externe et partagée (le contraire de `fiche.html`, qui est seule et garde son style incorporé) |
+| Sitemap | `sitemap-communes.xml` à part, déclaré dans `robots.txt` — `sitemap.xml` appartient à `build_langues.py` et n'est pas touché |
+
+**CE QU'IL A FALLU DÉBLOQUER D'ABORD.**
+
+1. **Neuf indicateurs sur 54 n'avaient aucune traduction** — `IND-ACC-002/003/004`
+   (hôpital, école, marché), `IND-ENV-001/002/003`, `IND-QUA-002`,
+   `IND-RIS-001/002`. C'est-à-dire les risques, l'environnement et trois des
+   quatre temps d'accès : une bonne part de ce qu'un lecteur vient chercher.
+   Sans eux, une page kreyòl aurait affiché neuf libellés français au milieu de
+   quarante-cinq — exactement le mélange que la règle du 31/07 interdit.
+   `build_i18n_indicateurs_manquants.py` ajoute les 189 lignes manquantes ; le
+   satellite passe de 945 à 1 134 lignes, 54 indicateurs sur 54.
+
+2. **`IND-ENV-002` publiait des pourcentages impossibles.** L'extracteur lisait
+   `b20` — la surface bâtie en km² — et la multipliait par 100, comme on
+   convertit une fraction en pourcentage. Sur une surface, l'opération n'a pas
+   de sens : 2 638 « % de la surface communale » pour Croix-des-Bouquets,
+   1 014 pour Delmas, 668 pour Jacmel. **Soixante-cinq communes sur 140
+   dépassaient 100 %**, c'est-à-dire une commune plus que entièrement bâtie.
+   Le champ juste existait déjà dans le produit GHSL : `p20`. Après correction,
+   l'échelle va de 0,1 % (Vallières) à 38,95 % (Delmas).
+
+   *Pourquoi personne ne l'avait vu :* l'unité déclarait « % », et rien ne
+   vérifiait que la valeur y ressemblait. Un pourcentage est le seul type de
+   valeur dont on connaît les bornes d'avance. `verif_pages_communes.py`
+   contrôle désormais toutes les parts, et refuse de publier hors de [0, 100].
+
+**TROIS CHOSES APPRISES SUR LE RENDU.**
+
+- La colonne « source » était masquée sous 34 rem. Elle tenait dans l'écran, et
+  elle reniait la promesse du produit — chaque valeur porte sa source —
+  précisément sur l'appareil où on lit le plus. Le tableau s'empile désormais
+  au lieu de perdre une colonne. *Une colonne cachée ne se voit pas manquer.*
+- Le `deNom()` du moteur ne connaît que l'élision et rendait « du département
+  de Sud-Est ». Les dix départements prennent chacun leur article
+  (`de l'Ouest`, `du Sud-Est`, `de la Grand'Anse`, `des Nippes`) : sur une page
+  indexée et citée, cette faute-là se recopie. Table explicite dans le script.
+- « 224 nombre » : le mot générique de l'unité se retire quand il est toute
+  l'unité, et en tête quand il en introduit une autre (« nombre depuis 1911 »
+  → « depuis 1911 »), dans les quatre langues.
+
+**CHAÎNE À RELANCER, DANS CET ORDRE.**
+
+```bash
+python Atmart_premium_datasets/build_pages_communes.py   # 564 pages + sitemap
+python Atmart_premium_datasets/build_csp.py              # empreintes du JSON-LD
+python Atmart_premium_datasets/verif_pages_communes.py   # 9 contrôles
+```
+
+`build_csp.py` descend dans les sous-dossiers : sans lui, les pages héritent
+d'une politique calculée sur d'autres scripts et le navigateur les bloque —
+la panne du 16/08 sur `/ht/`, qui ne casse rien bruyamment mais rend la page
+inerte.
+
+**CE QUI RESTE OUVERT.** Le satellite i18n n'est pas réaligné sur le français
+pour les 45 indicateurs plus anciens : `IND-ACC-001` porte encore en ht/en/es
+une limite sur la licence ODbL, alors que sa version française a été réécrite
+le 21/08 autour du fait que le chiffre est un temps de VÉHICULE. Les pages
+communales n'affichent que `nom` et `unite`, donc elles ne propagent pas cet
+écart — mais l'Explorateur, lui, affiche les limites. Chantier séparé.
+
+Le kreyòl des neuf nouveaux indicateurs est produit avec la skill
+`kreyol-ayisyen` et reste **en attente de relecture humaine**, comme le reste
+du satellite.
+
+---
 
 ## 5. Ce qui reste à faire
 
