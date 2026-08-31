@@ -208,9 +208,12 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 <script>
 (function () {
   "use strict";
+  // ⚠️ Le code employeur vit en sessionStorage, PAS en localStorage : il
+  // vaut 15 $ la selection. En localStorage il survivait a la fermeture
+  // du navigateur et se recopiait d'un profil a l'autre.
   var EP = "https://atmart-chat.atmartllc.workers.dev/anplwaye";
   var codeEl = document.getElementById("ep-code");
-  codeEl.value = localStorage.getItem("anplwaye_code") || "";
+  codeEl.value = sessionStorage.getItem("anplwaye_code") || "";
   var busy = false;
   var quota = 0;
 
@@ -449,7 +452,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     } }).then(function (res) {
       busy = false;
       if (!res.ok) { document.getElementById("ep-st1").textContent = emsg(res.body && res.body.error); return; }
-      localStorage.setItem("anplwaye_code", codeEl.value.trim().toUpperCase());
+      sessionStorage.setItem("anplwaye_code", codeEl.value.trim().toUpperCase());
       document.getElementById("ep-start").classList.add("ep-hide");
       document.getElementById("ep-dash").classList.remove("ep-hide");
       document.getElementById("ep-org-lbl").textContent = (res.body.org || EPT("Lorg")) + " · " + EPT("until") + " " + res.body.exp;
