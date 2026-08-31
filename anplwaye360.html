@@ -405,11 +405,17 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
   document.getElementById("ep-dash").addEventListener("click", function (e) {
     var b = e.target.closest(".ep-sel");
     if (!b || busy) return;
-    if (!window.confirm(enAttente(id) ? EPT("confirmPend") : EPT("confirm"))) return;
+    // ⚠️ uid=197609(USUARIO) gid=197121 groups=197121 n'existe pas dans cette portee : seul le bouton la porte. La
+    // version d'origine appelait , ce qui levait une
+    // ReferenceError AVANT la confirmation — le bouton « Selectionner »,
+    // celui qui rapporte, ne faisait donc rien du tout, et le mecanisme
+    // d'accord prealable du chauffeur n'avait jamais tourne une seule fois.
+    var idSel = b.dataset.id;
+    if (!window.confirm(enAttente(idSel) ? EPT("confirmPend") : EPT("confirm"))) return;
     busy = true;
     var st = document.getElementById("ep-st2");
     st.textContent = "Sélection…";
-    post({ action: "select", id: b.dataset.id }).then(function (res) {
+    post({ action: "select", id: idSel }).then(function (res) {
       busy = false;
       st.textContent = "";
       if (!res.ok) { st.textContent = emsg(res.body && res.body.error); if (res.body && res.body.error === "quota_reached") loadPool(); return; }
