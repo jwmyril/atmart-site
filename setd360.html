@@ -299,7 +299,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       setTxt("sd-"+k,t[k]);});
     setLab("L-code",t.code,t.codeS); setH("L-poolTxt",t.poolTxt); var sh=document.getElementById("L-shareTxt"); if(sh&&t.shareTxt) sh.innerHTML=t.shareTxt;
     setLab("L-name",t.name); setLab("L-phone",t.phone);
-    setLab("L-city",t.city,t.cityS); setLab("L-langs",t.langs,t.langsS);
+    setLab("L-city",t.city,t.cityS);   // ⚠️ pas de L-langs : le champ « langues parlees » a ete retire
     setLab("L-nat",t.nat,t.natS);
     var ip=document.getElementById("sd-input"); if(ip)ip.placeholder=t.inputP;
     setTxt("sd-aka",t.aka); setTxt("sd-aka-s",t.akaS);
