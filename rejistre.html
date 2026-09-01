@@ -114,7 +114,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       </div>
 
       <form class="rj-card" id="rj-form">
-        <h3 style="margin:0 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:#fff" id="rj-t1">1. Qui êtes-vous</h3>
+        <h2 style="font-size:1.17rem;margin:0 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:#fff" id="rj-t1">1. Qui êtes-vous</h2>
         <label for="rj-name" id="L-name">Votre nom complet</label>
         <input type="text" id="rj-name" maxlength="80" />
         <label for="rj-phone" id="L-phone">Téléphone (WhatsApp)</label>
@@ -131,7 +131,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <option value="pending">⏳ En cours / demande déposée</option>
         </select>
 
-        <h3 style="margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:#fff" id="rj-t2">2. Vos licences</h3>
+        <h2 style="font-size:1.17rem;margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:#fff" id="rj-t2">2. Vos licences</h2>
         <label id="L-lic">Cochez ce que vous avez déjà<small>Au moins une est nécessaire pour entrer dans le pool.</small></label>
         <div class="rj-checks" id="rj-lic">
           <label class="rj-chk"><input type="checkbox" value="classd" /> <span>🚗 Class D</span></label>
@@ -143,7 +143,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         <label for="rj-years" id="L-years">Années d'expérience au volant (professionnelle)</label>
         <input type="number" id="rj-years" min="0" max="60" />
 
-        <h3 style="margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:#fff" id="rj-t3">3. Ce que vous cherchez</h3>
+        <h2 style="font-size:1.17rem;margin:1.8rem 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:#fff" id="rj-t3">3. Ce que vous cherchez</h2>
         <label id="L-seek">Types de transport qui vous intéressent</label>
         <div class="rj-checks" id="rj-seek">
           <label class="rj-chk"><input type="checkbox" value="school" /> <span id="S-school">🏫 Transport scolaire</span></label>
@@ -175,13 +175,13 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <label class="rj-chk" style="border-radius:10px;justify-content:flex-start"><input type="radio" name="ctc" value="push" /> <span id="C-push">📨 Je veux envoyer mon dossier directement à des employeurs abonnés</span></label>
         </div>
 
-        <h3 style="margin:1.6rem 0 0.2rem;font-family:'Space Grotesk',sans-serif;color:#fff;font-size:1.05rem" id="rj-t5">4. Votre CV (optionnel)</h3>
+        <h2 style="margin:1.6rem 0 0.2rem;font-family:'Space Grotesk',sans-serif;color:#fff;font-size:1.05rem" id="rj-t5">4. Votre CV (optionnel)</h2>
         <label for="rj-cv" id="L-cv">Lien vers votre CV</label>
         <input type="url" id="rj-cv" maxlength="300" placeholder="https://..." />
         <label for="rj-resume" id="L-resume">Ou résumez votre parcours en quelques lignes</label>
         <textarea id="rj-resume" maxlength="1200" style="min-height:80px"></textarea>
 
-        <div id="rj-pend" class="rj-hide" style="background:rgba(244,162,97,0.1);border:1px solid rgba(244,162,97,0.45);border-radius:10px;padding:1rem 1.1rem;margin-top:1.2rem">
+        <div id="rj-pend" class="rj-hide" style="background:rgba(244,162,97,0.1);border:1px solid rgba(244,162,97,0.45);border-radius:10px;padding:1rem 1.1rem;margin-top:1.2rem" role="log" aria-live="polite" aria-relevant="additions">
           <p style="margin:0 0 0.7rem;font-size:0.95rem;color:#fff;font-weight:600" id="rj-pend-t">Un employeur demande votre accord</p>
           <div id="rj-pend-list"></div>
         </div>
@@ -200,12 +200,12 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <button type="submit" class="btn btn-primary" id="rj-go">M'inscrire au pool (gratuit)</button>
           <button type="button" class="btn btn-outline" id="rj-have">J'ai déjà un code</button>
         </div>
-        <p class="rj-status" id="rj-st"></p>
+        <p class="rj-status" id="rj-st" role="status" aria-live="polite"></p>
       </form>
 
       <!-- retrouver / modifier / retirer -->
       <form class="rj-card rj-hide" id="rj-manage">
-        <h3 style="margin:0 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:#fff" id="rj-t4">Modifier ou retirer mon inscription</h3>
+        <h2 style="font-size:1.17rem;margin:0 0 0.4rem;font-family:'Space Grotesk',sans-serif;color:#fff" id="rj-t4">Modifier ou retirer mon inscription</h2>
         <label for="rj-code" id="L-code2">Votre code personnel</label>
         <input type="text" id="rj-code" maxlength="24" placeholder="DRV-XXXX-XXXX" />
         <div id="rj-statusbox" class="rj-hide" style="background:rgba(46,196,182,0.08);border:1px solid rgba(46,196,182,0.3);border-radius:10px;padding:1rem;margin-top:1rem">
@@ -221,7 +221,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <button type="button" class="btn btn-outline" id="rj-del" style="border-color:rgba(230,57,70,0.6)">🗑 Me retirer du pool</button>
           <button type="button" class="btn btn-outline" id="rj-back">← Retour</button>
         </div>
-        <p class="rj-status" id="rj-st2"></p>
+        <p class="rj-status" id="rj-st2" role="status" aria-live="polite"></p>
       </form>
 
     </div>

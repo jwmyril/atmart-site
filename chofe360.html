@@ -68,7 +68,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     .cf-feat{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:14px;padding:1.25rem;transition:border-color 0.25s}
     .cf-feat:hover{border-color:rgba(46,196,182,0.45)}
     .cf-feat .ic{font-size:1.7rem;display:block;margin-bottom:0.5rem}
-    .cf-feat h4{margin:0 0 0.35rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.02rem}
+    .cf-feat h2{margin:0 0 0.35rem;font-family:"Space Grotesk",sans-serif;color:#fff;font-size:1.02rem}
     .cf-feat p{margin:0;font-size:0.87rem;color:#9db2c7;line-height:1.55}
     .cf-formhead{font-family:"Space Grotesk",sans-serif;font-size:1.15rem;color:#fff;margin:0 0 0.3rem}
     .cf-formsub{font-size:0.85rem;color:#9db2c7;margin:0 0 1.2rem;line-height:1.5}
@@ -148,13 +148,13 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
 
       <div class="cf-feats">
         <div class="cf-feat"><span class="ic">🚗</span>
-          <h4 id="cf-f1t">Mode Séance</h4>
+          <h2 id="cf-f1t">Mode Séance</h2>
           <p id="cf-f1d">Les commandes réelles de l'examinateur, en anglais et dans votre langue. Votre accompagnateur note, le coach corrige à l'instant.</p></div>
         <div class="cf-feat"><span class="ic">💬</span>
-          <h4 id="cf-f2t">Coach personnel</h4>
+          <h2 id="cf-f2t">Coach personnel</h2>
           <p id="cf-f2d">Il se souvient de vos séances, cible vos points faibles et vous donne un exercice court chaque jour.</p></div>
         <div class="cf-feat"><span class="ic">🖨</span>
-          <h4 id="cf-f3t">Guide de l'accompagnateur</h4>
+          <h2 id="cf-f3t">Guide de l'accompagnateur</h2>
           <p id="cf-f3d">Six séances structurées à imprimer : votre sponsor devient un vrai instructeur, sans rien connaître au départ.</p></div>
       <div class="cf-feat" style="grid-column:1/-1" id="cf-avant"><strong>Avant d'avoir roulé un mètre — ce qui renvoie les gens chez eux</strong><ul style='margin:0.5rem 0 0;padding-left:1.1rem;line-height:1.75'><li>Arrivez environ <strong>15 minutes en avance</strong>. En retard, pas de test.</li><li>Une demande de test remplie — avec la section d'autorisation parentale si vous avez moins de 18 ans — et votre permis d'apprenti.</li><li><strong>Un accompagnateur qualifié</strong> : 21 ans ou plus, un an d'expérience, et un permis valide de son propre État américain. <strong>Un permis étranger n'est pas accepté.</strong> Sans accompagnateur, pas de test.</li><li>Un véhicule qui passe l'inspection de l'examinateur : immatriculé, contrôlé, sûr, avec un siège propre et convenable pour l'examinateur et une place arrière pour votre accompagnateur.</li><li><strong>Un frein à main accessible</strong> — l'examinateur doit pouvoir arrêter la voiture. Un frein central est le plus sûr ; certains monospaces sont refusés pour cela seul.</li><li>Pas de roue de secours <strong>galette</strong>. Pas de plaque « repair ». Pas de plaque « dealer », sauf si vous êtes le concessionnaire, son conjoint, ou vendeur chez lui.</li><li>Caméra de recul, capteurs, créneau automatique, conduite guidée par GPS : <strong>désactivés</strong>.</li><li>Plaque d'un autre État : preuve d'assurance aux minimums du Massachusetts (20 000 / 40 000 $ dommages corporels, 5 000 $ matériels). Une location exige en plus le contrat et une lettre de l'agence autorisant un test de conduite.</li><li><strong>Ni enfants, ni animaux.</strong> Les chiens d'assistance sont admis. Seuls vous, l'examinateur et votre accompagnateur êtes dans la voiture, et vous n'avez pas le droit de parler à votre accompagnateur sans autorisation.</li><li><strong>L'interprète n'est pas un droit.</strong> Le manuel dit qu'il peut être admis « si l'examinateur l'autorise ». Demandez-le en réservant — ne le supposez pas.</li><li>Moins de 18 ans : un dossier de conduite propre pendant les <strong>six mois</strong> précédant la demande, et il doit le rester jusqu'au jour du test.</li><li>Six tests au maximum sur 12 mois. Les <strong>35 $</strong> sont redus si vous échouez, êtes mal préparé, êtes refusé pour le véhicule, venez sans accompagnateur, arrivez en retard ou pas du tout, ou annulez à moins de 72 heures.</li></ul></div>
       </div>
@@ -186,7 +186,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <input type="text" id="cf-nat" maxlength="60" />
         </div>
         <div style="margin-top:1.1rem;display:flex;gap:0.6rem;flex-wrap:wrap"><button type="submit" class="btn btn-primary" id="cf-go">Ouvrir mon coach</button><button type="button" class="btn btn-outline" id="cf-try">📝 Essayer 5 questions gratuites</button></div>
-        <p class="cf-status" id="cf-st1"></p>
+        <p class="cf-status" id="cf-st1" role="status" aria-live="polite"></p>
       </form>
 
       <!-- ecran 2 : tableau de bord -->
@@ -221,17 +221,17 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <button class="btn btn-outline" id="cf-nextbtn">Suivant ⏭</button>
         </div>
         <div class="cf-fb" id="cf-fb"></div>
-        <p class="cf-status" id="cf-st3"></p>
+        <p class="cf-status" id="cf-st3" role="status" aria-live="polite"></p>
       </div>
 
       <!-- ecran 4 : chat coach -->
       <div class="cf-card cf-hide" id="cf-chat">
-        <div class="cf-msgs" id="cf-msgs"></div>
+        <div class="cf-msgs" id="cf-msgs" role="log" aria-live="polite" aria-relevant="additions"></div>
         <div class="cf-row">
-          <textarea id="cf-input" maxlength="4000" placeholder="Écrivez à votre coach…"></textarea>
+          <textarea id="cf-input" maxlength="4000" placeholder="Écrivez à votre coach…" aria-label="Votre message au coach"></textarea>
           <button class="btn btn-primary" id="cf-send">Envoyer</button>
         </div>
-        <p class="cf-status" id="cf-st4"></p>
+        <p class="cf-status" id="cf-st4" role="status" aria-live="polite"></p>
       </div>
 
       <!-- ecran 5 : resultats officiels -->
@@ -246,7 +246,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
           <button class="btn btn-outline" data-k="road" data-r="pass">✅ Réussi</button>
           <button class="btn btn-outline" data-k="road" data-r="fail">❌ Échoué</button>
           <span class="cf-small" id="cf-out-r-state"></span></div>
-        <p class="cf-status" id="cf-st5"></p>
+        <p class="cf-status" id="cf-st5" role="status" aria-live="polite"></p>
         <p id="cf-bridge" class="cf-hide" style="background:rgba(46,196,182,0.1);border:1px solid rgba(46,196,182,0.4);border-radius:10px;padding:0.8rem 1rem;font-size:0.9rem;line-height:1.6">🎉 <span id="cf-bridge-txt">Félicitations ! Prochaine étape : vos 90 premiers jours au volant d'un emploi.</span> <a href="karye360.html" style="color:#2ec4b6;font-weight:600">Career360 →</a></p>
       </div>
 
@@ -259,7 +259,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
         <div class="cf-actions">
           <button class="btn btn-primary cf-hide" id="qz-next">Suivant ⏭</button>
         </div>
-        <p class="cf-status" id="qz-st"></p>
+        <p class="cf-status" id="qz-st" role="status" aria-live="polite"></p>
       </div>
 
       <!-- guide sponsor imprimable -->
@@ -542,7 +542,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
     setLabel("L-nat",t.nat,t.natS);
     setTxt("cf-go",t.go); setTxt("cf-try",t.tryb); setTxt("cf-quiz-btn",t.quizBtn);
     setTxt("cf-privacy",t.privacy); setTxt("cf-erase",t.erase); setTxt("cf-send",t.send);
-    var ip=document.getElementById("cf-input"); if(ip)ip.placeholder=t.inputP;
+    var ip=document.getElementById("cf-input"); if(ip)ip.placeholder=t.inputP; if(ip&&t.inputP) ip.setAttribute("aria-label",t.inputP);
     setTxt("L-out-title",t.outTitle); setTxt("L-out-sub",t.outSub);
     setTxt("L-out-w",t.outW); setTxt("L-out-r",t.outR);
     document.querySelectorAll("#cf-outcome button[data-r=pass]").forEach(function(b){b.textContent=t.bpass;});
