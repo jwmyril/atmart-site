@@ -1,0 +1,27 @@
+# Ce que GitHub Pages publie, et ce qu'il garde pour nous.
+#
+# CONSTAT DU 01/09/2026 : `https://atmart.ltd/CLAUDE.md` répondait 200, en
+# clair. Le fichier contient les instructions de développement, le modèle
+# économique, le nom du dépôt, le registrar — et le chemin absolu
+# `C:\Users\USUARIO\...` de la machine de travail. Il était en ligne depuis le
+# 19/08 au moins.
+#
+# Rien n'est supprimé : le fichier reste dans le dépôt, où Claude Code le lit.
+# Il cesse simplement d'être PUBLIÉ. GitHub Pages fait tourner Jekyll de toute
+# façon ; ce fichier lui dit ce qui sort et ce qui ne sort pas.
+#
+# Les générateurs sont exclus pour la même raison : ce sont des outils de
+# fabrication, pas des pages. Les servir n'apporte rien et expose des chemins,
+# des clés de configuration et des choix internes.
+
+exclude:
+  # Instructions de développement — jamais publiques.
+  - "CLAUDE.md"
+  - ".claude"
+  # Générateurs et outils : de la fabrication, pas du site.
+  - "tools"
+  - "content/fiches/_generateur.py"
+  - "content/outils/_generateur.py"
+  - "content/outils/_generateur_secteur.py"
+  - "content/outils/outils_specs.py"
+  - "content/outils/secteurs_specs.py"
