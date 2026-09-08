@@ -1,22 +1,14 @@
 // Atmart PWA — cache statique (les appels IA passent toujours par le reseau)
-const CACHE = "atmart-v92";
-
+const CACHE = "atmart-v94";
 // Le noyau du site : navigation et identite visuelle.
-const CORE = ["/", "/index.html", "/chofe360.html", "/karye360.html", "/rezilta.html", "/rezilta-collecte.html", "/rezilta-entreprises.html", "/rezilta-banques.html", "/rezilta-laboratoires.html", "/rezilta-programmes.html", "/rezilta-institutions.html", "/rezilta-ecoles.html", "/rezilta-indicateurs.html", "/studio.html", "/atelier.html",
-  "/oeuvre.html", "/atelier-institutions.html", "/impact.html",
-  "/atelier-maison.html", "/atelier-business.html", "/atelier-artistes.html",
-  "/atelier-collection.html", "/atelier-diaspora.html", "/fiche.html",
-  "/processus-creation.html", "/oeuvres/table-ancetres.html", "/sitemap.xml",
-  "/faq.html", "/conditions-vente.html", "/robots.txt",
-  "/assets/atelier.css?v=2", "/assets/atelier.js?v=4", "/assets/atelier-offres.js?v=1",
-  "/assets/atelier/oeuvres.json", "/assets/atelier/collection.json",
-  "/assets/atelier/fiches/table-ancetres.json",
+const CORE = ["/", "/index.html", "/chofe360.html", "/karye360.html", "/rezilta.html", "/rezilta-collecte.html", "/rezilta-entreprises.html", "/rezilta-banques.html", "/rezilta-laboratoires.html", "/rezilta-programmes.html", "/rezilta-institutions.html", "/rezilta-ecoles.html", "/rezilta-indicateurs.html", "/studio.html",
+        "/sitemap.xml",
+  "/robots.txt",
   "/assets/style.css?v=32", "/assets/script.js?v=2", "/assets/i18n.js?v=18", "/assets/formulaire.js?v=2",
   "/assets/i18n/ht.json", "/assets/i18n/en.json", "/assets/i18n/es.json",
   "/assets/i18n/explorateur.en.json", "/assets/i18n/explorateur.ht.json",
   "/assets/i18n/explorateur.es.json",
   "/assets/brand/logo-dark-96.png", "/assets/brand/icon-192.png"];
-
 // Atmart Data hors connexion. C'est tout l'interet : en Haiti, une connexion
 // intermittente ne doit pas empecher de consulter le profil d'une commune.
 // L'Explorateur tient entierement dans ces fichiers.
@@ -51,7 +43,6 @@ const DATA = [
 // Elle est donc precachee. Son affichage, lui, reste differe jusqu'a ce que la
 // section approche de l'ecran : ce qui coute sur un telephone bas de gamme,
 // c'est l'analyse des 7 140 lignes, pas leur telechargement.
-
 self.addEventListener("install", (e) => {
   e.waitUntil(
     caches.open(CACHE)
@@ -60,7 +51,6 @@ self.addEventListener("install", (e) => {
       .then(() => self.skipWaiting())
   );
 });
-
 self.addEventListener("activate", (e) => {
   e.waitUntil(
     caches.keys()
@@ -68,11 +58,9 @@ self.addEventListener("activate", (e) => {
       .then(() => self.clients.claim())
   );
 });
-
 self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
   if (e.request.method !== "GET" || url.origin !== location.origin) return; // API/worker : reseau direct
-
   e.respondWith(
     fetch(e.request)
       .then((r) => {

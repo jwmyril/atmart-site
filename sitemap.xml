@@ -7,48 +7,8 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://atmart.ltd/atelier-artistes.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://atmart.ltd/atelier-business.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://atmart.ltd/atelier-collection.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://atmart.ltd/atelier-diaspora.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://atmart.ltd/atelier-institutions.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://atmart.ltd/atelier-maison.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://atmart.ltd/atelier.html</loc>
-    <lastmod>2026-08-13</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://atmart.ltd/chofe360.html</loc>
     <lastmod>2026-08-13</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://atmart.ltd/conditions-vente.html</loc>
-    <lastmod>2026-07-31</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
@@ -107,17 +67,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://atmart.ltd/faq.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://atmart.ltd/fiche.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://atmart.ltd/impact.html</loc>
     <lastmod>2026-07-31</lastmod>
     <priority>0.6</priority>
   </url>
@@ -140,11 +90,6 @@
     <loc>https://atmart.ltd/outils.html</loc>
     <lastmod>2026-08-13</lastmod>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://atmart.ltd/processus-creation.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://atmart.ltd/rejistre.html</loc>
