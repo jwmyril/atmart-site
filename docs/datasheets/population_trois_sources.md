@@ -39,8 +39,8 @@ Ce jeu est **confrontable** : une autre source mesure le même objet par une mé
 | État | Communes |
 |---|---|
 | concordant | 99 |
-| ecart_modere | 37 |
-| desaccord | 4 |
+| écart modéré | 37 |
+| fort désaccord | 4 |
 
 
 ## 5. Usages prévus, et usages inappropriés

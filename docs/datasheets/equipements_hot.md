@@ -39,8 +39,8 @@ Ce jeu est **confrontable** : une autre source mesure le même objet par une mé
 | État | Communes |
 |---|---|
 | concordant | 67 |
-| ecart_modere | 51 |
-| desaccord | 20 |
+| écart modéré | 51 |
+| fort désaccord | 20 |
 | invérifiable | 2 |
 
 
