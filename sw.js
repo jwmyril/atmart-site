@@ -4,7 +4,7 @@ const CACHE = "atmart-v95";
 const CORE = ["/", "/index.html", "/chofe360.html", "/karye360.html", "/rezilta.html", "/rezilta-collecte.html", "/rezilta-entreprises.html", "/rezilta-banques.html", "/rezilta-laboratoires.html", "/rezilta-programmes.html", "/rezilta-institutions.html", "/rezilta-ecoles.html", "/rezilta-indicateurs.html", "/studio.html",
         "/sitemap.xml",
   "/robots.txt",
-  "/assets/style.css?v=32", "/assets/script.js?v=2", "/assets/i18n.js?v=18", "/assets/formulaire.js?v=2",
+  "/assets/style.css?v=32", "/assets/script.js?v=2", "/assets/i18n.js?v=19", "/assets/formulaire.js?v=2",
   "/assets/i18n/ht.json", "/assets/i18n/en.json", "/assets/i18n/es.json",
   "/assets/i18n/explorateur.en.json", "/assets/i18n/explorateur.ht.json",
   "/assets/i18n/explorateur.es.json",
