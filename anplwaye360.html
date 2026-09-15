@@ -471,7 +471,7 @@ if(l!=="fr"){d.className+=" i18n-wait";setTimeout(function(){d.classList.remove(
       return "<tr><td>" + ref(e.id) + "<br>" + matchBadge(e) + " " + freshBadge(e.fresh) + " " + dspBadge(e) + (e.hasCv ? ' <span class="ep-b" style="color:#2ec4b6" title="' + EPT("cvHas") + '">📄</span>' : "") + (e.contact === "approval" ? ' <span class="ep-b" style="color:#f4a261" title="' + EPT("ctcApproval") + '">🔒</span>' : "") + (e.contact === "push" ? ' <span class="ep-b pass" title="' + EPT("ctcPush") + '">📨</span>' : "") + "</td><td>" + (lic || "—") + "</td>" +
         "<td>" + (e.years !== null && e.years !== undefined ? e.years + " " + EPT("yrs") : "—") + "</td>" +
         // ⚠️ L'ANCIENNETE, JAMAIS L'ENSEIGNE. Le Worker ne renvoie pas `dspCo`
-        // dans la vue libre : « ancien P1 Logistics · Littleton · 3 ans »
+        // dans la vue libre : « ancien DSP · Worcester · 3 ans »
         // designerait une poignee de personnes. Le nom arrive avec le contact,
         // apres selection.
         "<td>" + (e.dspYears !== null && e.dspYears !== undefined && e.dspYears > 0
