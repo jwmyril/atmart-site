@@ -663,7 +663,7 @@
  "ds.prd016_p": "Displaced people recorded by IOM's Displacement Tracking Matrix. A dated field survey that does not claim to cover what the teams could not reach.",
  "ds.prd016_pr": "Free <small>150 rows • 9 columns</small>",
  "ds.prd017_h": "Food insecurity — IPC phases",
- "ds.prd017_meta": "👥 Social • Sources: IPC — Cadre intégré de classification • confidence level B • IPC",
+ "ds.prd017_meta": "👥 Social • Sources: IPC — Integrated Food Security Phase Classification • confidence level B • IPC terms (food security classification)",
  "ds.prd017_p": "The phases of the Integrated Food Security Phase Classification, by zone and period. An expert classification, not a direct measurement.",
  "ds.prd017_pr": "Free <small>210 rows • 12 columns</small>",
  "ds.prd018_h": "Water points",
