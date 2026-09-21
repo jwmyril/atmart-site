@@ -17,8 +17,8 @@
  "nombre_valeurs_sourcees": 13231,
  "nombre_absences_documentees": 1120,
  "nombre_sources": 70,
- "nombre_sources_integrees": 54,
- "nombre_sources_identifiees": 16,
+ "nombre_sources_integrees": 58,
+ "nombre_sources_identifiees": 12,
  "nombre_sources_classe_a": 41,
  "nombre_sources_classe_b": 12,
  "nombre_sources_classe_c": 15,
@@ -152,5 +152,5 @@
  "prd_027_colonnes": 12,
  "prd_055_intervalles": 371,
  "prd_027_series": 84,
- "empreinte": "538ec715859bd7e9"
+ "empreinte": "113c5ba3a1f2a352"
 }
