@@ -2,7 +2,7 @@
  "meta": {
   "titre": "Licence de chaque fichier publié",
   "regle": "La licence d'un fichier est la plus contraignante de ses sources. Le partage à l'identique d'ODbL et de CC BY-SA se transmet aux bases dérivées redistribuées ; les sources hors du champ du droit d'auteur (décret haïtien du 12/10/2005, art. 5) n'imposent rien.",
-  "fichiers": 145
+  "fichiers": 149
  },
  "par_licence": {
   "Accès complet et ouvert (World Data Center) — usage non commercial libre selon la Résolution 40 OMM": [
@@ -41,6 +41,10 @@
    "atmart_enquetes.json",
    "atmart_enquetes_inventaire_HT.csv",
    "atmart_finance_agrements_HT.csv",
+   "atmart_fne_ecoles_paef_communes_2025_HT.csv",
+   "atmart_fne_ecoles_paef_communes_2025_HT.json",
+   "atmart_fne_subventions_national_HT.csv",
+   "atmart_fne_subventions_national_HT.json",
    "atmart_hibiscus_communes.json",
    "atmart_hibiscus_communes_HT.csv",
    "atmart_hibiscus_non_rattachees_HT.csv",
@@ -575,6 +579,34 @@
     "SRC-028"
    ],
    "attribution": "Humanitarian OpenStreetMap Team (HOT) via HDX"
+  },
+  "atmart_fne_ecoles_paef_communes_2025_HT.csv": {
+   "licence": "CC BY 4.0",
+   "sources": [
+    "SRC-023"
+   ],
+   "attribution": "Fonds National de l'Éducation"
+  },
+  "atmart_fne_ecoles_paef_communes_2025_HT.json": {
+   "licence": "CC BY 4.0",
+   "sources": [
+    "SRC-023"
+   ],
+   "attribution": "Fonds National de l'Éducation"
+  },
+  "atmart_fne_subventions_national_HT.csv": {
+   "licence": "CC BY 4.0",
+   "sources": [
+    "SRC-023"
+   ],
+   "attribution": "Fonds National de l'Éducation"
+  },
+  "atmart_fne_subventions_national_HT.json": {
+   "licence": "CC BY 4.0",
+   "sources": [
+    "SRC-023"
+   ],
+   "attribution": "Fonds National de l'Éducation"
   },
   "atmart_hibiscus_communes.json": {
    "licence": "CC BY 4.0",
