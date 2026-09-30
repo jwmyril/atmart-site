@@ -986,6 +986,27 @@ IND-ENV-005,ht,methode_calcul,Menm mas la ; kantite pikselè ki pèdi × sifas y
 IND-ENV-005,ht,nom,Pyebwa ki pèdi (2001-2025)
 IND-ENV-005,ht,sens_interpretation,Wo = plis pyebwa pèdi
 IND-ENV-005,ht,unite,ekta
+IND-ENV-006,en,comparabilite,"Comparable between DEPARTMENTS, never between communes of the same department: they carry the same average. It is a long-term climatic mean, not to be read as one year's rain."
+IND-ENV-006,en,definition,"Depth of rain that falls on average over a year in the department, in millimetres, from CHIRPS satellite estimates aggregated by WFP. Average of the years 1981 to 2024."
+IND-ENV-006,en,limites_connues,"THIS VALUE BELONGS TO THE DEPARTMENT, NOT TO THE COMMUNE: every commune of a department carries the same average, though terrain splits rainfall sharply within it — a windward slope gets far more than a dry valley floor. It is a CLIMATE, a long 44-year average (1981-2024), not one year's rain: a drought year or a hurricane does not show. It is a satellite estimate (CHIRPS), not a ground rain-gauge network. From 736 mm/year in the North-West, the driest, to 1,749 mm/year in Grand'Anse."
+IND-ENV-006,en,methode_calcul,"The WFP « hti-rainfall-subnational » dataset on HDX (CHIRPS data, UCSB Climate Hazards Group), sealed (SHA-256) under source_chirps/. The file gives rainfall per DEKAD (ten days) and per department (adm_level 1, p-codes HT01 to HT10) since 1981; build_pluies_chirps.py sums each year's dekads, then averages the COMPLETE years 1981-2024 (the current partial year is dropped). Each commune receives its department's average. No interpolation."
+IND-ENV-006,en,nom,Average yearly rainfall of the department (1981-2024)
+IND-ENV-006,en,sens_interpretation,High = wetter
+IND-ENV-006,en,unite,mm/year
+IND-ENV-006,es,comparabilite,"Comparable entre DEPARTAMENTOS, nunca entre comunas de un mismo departamento: llevan el mismo promedio. Es una media climática de largo plazo, no la lluvia de un año."
+IND-ENV-006,es,definition,"Altura de lluvia que cae en promedio en un año en el departamento, en milímetros, según estimaciones satelitales CHIRPS agregadas por el PMA. Promedio de los años 1981 a 2024."
+IND-ENV-006,es,limites_connues,"ESTE VALOR ES EL DEL DEPARTAMENTO, NO EL DE LA COMUNA: todas las comunas de un departamento llevan el mismo promedio, aunque el relieve reparte mucho la lluvia por dentro — una ladera a barlovento recibe mucho más que el fondo de un valle seco. Es un CLIMA, un promedio largo de 44 años (1981-2024), no la lluvia de un año: un año de sequía o un huracán no aparecen. Es una estimación satelital (CHIRPS), no una red de pluviómetros en tierra. De 736 mm/año en el Noroeste, el más seco, a 1 749 mm/año en Grand'Anse."
+IND-ENV-006,es,methode_calcul,"El conjunto « hti-rainfall-subnational » del PMA en HDX (datos CHIRPS, UCSB Climate Hazards Group), sellado (SHA-256) en source_chirps/. El archivo da la lluvia por DÉCADA (diez días) y por departamento (adm_level 1, p-codes HT01 a HT10) desde 1981; build_pluies_chirps.py suma las décadas de cada año, luego promedia los años COMPLETOS 1981-2024 (el año en curso, parcial, se descarta). Cada comuna recibe el promedio de su departamento. Sin interpolación."
+IND-ENV-006,es,nom,Lluvia media anual del departamento (1981-2024)
+IND-ENV-006,es,sens_interpretation,Alto = más lluvia
+IND-ENV-006,es,unite,mm/año
+IND-ENV-006,ht,comparabilite,"Nou ka konpare DEPATMAN yo, men pa komin ki nan menm depatman an : yo pote menm mwayèn nan. Se yon mwayèn klimatik long tèm, pa li l tankou lapli yon ane."
+IND-ENV-006,ht,definition,"Wotè lapli ki tonbe an mwayèn sou yon ane nan depatman an, an milimèt, dapre estimasyon satelit CHIRPS PAM rasanble. Mwayèn ane 1981 rive 2024."
+IND-ENV-006,ht,limites_connues,"CHIF SA A SE POU DEPATMAN AN, SE PA POU KOMIN NAN : tout komin nan yon depatman pote menm mwayèn nan, menm si reliyèf la separe lapli anpil anndan — yon pant devan van resevwa plis pase fon yon vale sèk. Se yon KLIMA, yon mwayèn long 44 an (1981-2024), se pa lapli yon sèl ane : yon ane sechrès oswa yon siklòn pa parèt ladan l. Se yon estimasyon satelit (CHIRPS), se pa yon rezo pliviyomèt atè. Soti 736 mm/an nan Nòdwès, ki pi sèk la, rive 1 749 mm/an nan Grandans."
+IND-ENV-006,ht,methode_calcul,"Jeu « hti-rainfall-subnational » PAM sou HDX (done CHIRPS, UCSB Climate Hazards Group), sele (SHA-256) anba source_chirps/. Fichye a bay lapli pa DEKAD (dis jou) e pa depatman (adm_level 1, p-code HT01 rive HT10) depi 1981 ; build_pluies_chirps.py adisyone dekad chak ane, epi mwayèn ane KONPLÈ 1981-2024 yo (ane kap kouri a, ki pasyèl, mete deyò). Chak komin resevwa mwayèn depatman li. Pa gen entèpolasyon."
+IND-ENV-006,ht,nom,Lapli mwayèn pa ane nan depatman an (1981-2024)
+IND-ENV-006,ht,sens_interpretation,Wo = plis lapli
+IND-ENV-006,ht,unite,mm/an
 IND-FIN-001,en,comparabilite,Comparable between communes for the network of ONE operator out of six licensed: not for total access to transfers.
 IND-FIN-001,en,definition,"Number of counters where a remittance can be collected in the commune, for the operator that publishes its network."
 IND-FIN-001,en,limites_connues,"ONE OPERATOR ONLY IS COUNTED. Six remittance houses are licensed by the BRH; only one publishes its list in a usable form. The figure therefore describes the shape of ONE network, not total access to money — a commune at zero may well be served by a competitor. It remains the ONLY commune-level data that exists on remittances: the amounts do not go below the department."
